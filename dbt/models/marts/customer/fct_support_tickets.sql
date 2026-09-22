@@ -1,0 +1,33 @@
+-- One row per support ticket (with agent, SLA, resolution and cost attributes).
+-- Stub: returns zero rows with the typed columns the metric library needs.
+select
+    cast(null as varchar  ) as ticket_id,
+    cast(null as date     ) as created_date,
+    cast(null as varchar  ) as customer_id,
+    cast(null as varchar  ) as priority,
+    cast(null as varchar  ) as channel,
+    cast(null as varchar  ) as team,
+    cast(null as varchar  ) as category,
+    cast(null as varchar  ) as status,
+    cast(null as varchar  ) as product_name,
+    cast(null as varchar  ) as segment,
+    cast(null as double   ) as first_response_hours,
+    cast(null as double   ) as resolution_hours,
+    cast(null as timestamp) as created_at,
+    cast(null as timestamp) as resolved_at,
+    cast(null as double   ) as first_contact_resolutions,
+    cast(null as double   ) as total_tickets,
+    cast(null as double   ) as escalated_tickets,
+    cast(null as double   ) as breached_tickets,
+    cast(null as double   ) as support_team_cost,
+    cast(null as double   ) as resolved_within_sla,
+    cast(null as double   ) as tickets_handled,
+    cast(null as double   ) as agent_count,
+    cast(null as double   ) as active_customers,
+    cast(null as date     ) as resolved_date,
+    cast(null as varchar  ) as agent_id,
+    cast(null as boolean  ) as is_first_contact_resolution,
+    cast(null as boolean  ) as is_escalated,
+    cast(null as boolean  ) as is_sla_breached,
+    cast(null as boolean  ) as is_resolved_within_sla
+where false

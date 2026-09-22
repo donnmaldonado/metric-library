@@ -1,0 +1,106 @@
+# Metrics on this model: aov, arpu, cross_sell_rate, customer_ltv, discount_rate, gross_revenue, net_revenue, purchase_frequency, refund_rate, repeat_purchase_rate, stg_order_amount_sum, stg_orders_count, stg_purchases_count
+models:
+  - name: fct_orders
+    description: One row per customer order.
+semantic_models:
+  - name: fct_orders
+    description: One row per customer order.
+    model: ref('fct_orders')
+    defaults:
+      agg_time_dimension: order_date
+    entities:
+      - name: order
+        type: primary
+        expr: order_id
+      - name: customer
+        type: foreign
+        expr: customer_id
+    dimensions:
+      - name: order_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: status
+        type: categorical
+      - name: segment
+        type: categorical
+      - name: cohort_month
+        type: categorical
+      - name: acquisition_channel
+        type: categorical
+      - name: product_name
+        type: categorical
+      - name: channel
+        type: categorical
+      - name: product_category
+        type: categorical
+      - name: is_refunded
+        type: categorical
+      - name: is_repeat_order
+        type: categorical
+      - name: customer_is_multi_category
+        type: categorical
+    measures:
+      - name: order_count
+        agg: count
+        expr: order_id
+        description: 'Number of orders. Used by: aov, purchase_frequency, refund_rate, stg_orders_count.'
+      - name: order_amount
+        agg: sum
+        description: 'Gross order value before discounts and returns. Used by: gross_revenue, stg_order_amount_sum.'
+      - name: revenue
+        agg: sum
+        description: 'Net order revenue (order_amount - discount_amount - returned_amount). Used by: customer_ltv.'
+      - name: order_discount_amount
+        agg: sum
+        expr: discount_amount
+        description: 'Discounts applied to orders. Used by: discount_rate, net_revenue.'
+      - name: order_returned_amount
+        agg: sum
+        expr: returned_amount
+        description: 'Returns and allowances credited against orders. Used by: net_revenue.'
+      - name: orders_distinct_customer_count
+        agg: count_distinct
+        expr: customer_id
+        description: 'Distinct customers placing orders. Used by: arpu, cross_sell_rate, customer_ltv, purchase_frequency, repeat_purchase_rate.'
+metrics:
+  - name: order_count
+    label: order_count
+    description: Helper input for aov, purchase_frequency, refund_rate, stg_orders_count.
+    type: simple
+    type_params:
+      measure: order_count
+  - name: ordering_customers
+    label: ordering_customers
+    description: Distinct customers with at least one order in the period. Helper input for arpu, cross_sell_rate, purchase_frequency, repeat_purchase_rate.
+    type: simple
+    type_params:
+      measure: orders_distinct_customer_count
+  - name: order_discounts
+    label: order_discounts
+    description: Discounts on completed orders. Helper input for discount_rate, net_revenue.
+    type: simple
+    type_params:
+      measure: order_discount_amount
+    filter: "{{ Dimension('order__status') }} = 'completed'"
+  - name: order_returns
+    label: order_returns
+    description: Returns and allowances on completed orders. Helper input for net_revenue.
+    type: simple
+    type_params:
+      measure: order_returned_amount
+    filter: "{{ Dimension('order__status') }} = 'completed'"
+  - name: lifetime_order_revenue
+    label: lifetime_order_revenue
+    description: All-time net revenue from completed orders up to the period. Helper input for customer_ltv.
+    type: cumulative
+    type_params:
+      measure: revenue
+    filter: "{{ Dimension('order__status') }} = 'completed'"
+  - name: lifetime_ordering_customers
+    label: lifetime_ordering_customers
+    description: All-time distinct customers with a completed order up to the period. Helper input for customer_ltv.
+    type: cumulative
+    type_params:
+      measure: orders_distinct_customer_count
+    filter: "{{ Dimension('order__status') }} = 'completed'"

@@ -1,0 +1,41 @@
+# Metrics on this model: annual_budget, budget_variance, budget_variance_pct
+# budgeted_amount is the budget for the line's period; the column budgeted_spend is an unused synonym.
+models:
+  - name: fct_budget_lines
+    description: One row per budget line (department, cost center, period) with budgeted and actual amounts.
+semantic_models:
+  - name: fct_budget_lines
+    description: One row per budget line (department, cost center, period) with budgeted and actual amounts.
+    model: ref('fct_budget_lines')
+    defaults:
+      agg_time_dimension: period_start
+    entities:
+      - name: budget_line
+        type: primary
+        expr: budget_line_id
+    dimensions:
+      - name: period_start
+        type: time
+        type_params:
+          time_granularity: day
+      - name: budget_year
+        type: categorical
+      - name: department
+        type: categorical
+      - name: cost_center
+        type: categorical
+    measures:
+      - name: budgeted_amount
+        agg: sum
+        description: 'Used by: annual_budget.'
+      - name: budget_actual_spend
+        agg: sum
+        expr: actual_spend
+        description: 'Actual spend against the budget line. Used by: budget_variance.'
+metrics:
+  - name: budget_actual_spend
+    label: budget_actual_spend
+    description: Helper input for budget_variance.
+    type: simple
+    type_params:
+      measure: budget_actual_spend

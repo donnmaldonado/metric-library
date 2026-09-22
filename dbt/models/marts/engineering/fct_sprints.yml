@@ -1,0 +1,26 @@
+# Metrics on this model: sprint_velocity
+models:
+  - name: fct_sprints
+    description: One row per team sprint.
+semantic_models:
+  - name: fct_sprints
+    description: One row per team sprint.
+    model: ref('fct_sprints')
+    defaults:
+      agg_time_dimension: sprint_end_date
+    entities:
+      - name: sprint
+        type: primary
+        expr: sprint_id
+    dimensions:
+      - name: sprint_end_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: team
+        type: categorical
+    measures:
+      - name: avg_story_points_completed
+        agg: average
+        expr: story_points_completed
+        description: 'Used by: sprint_velocity.'

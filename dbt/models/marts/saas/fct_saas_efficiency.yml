@@ -1,0 +1,19 @@
+# Metrics on this model: employees_per_1m_arr
+models:
+  - name: fct_saas_efficiency
+    description: One row per company and period with ARR and headcount for efficiency ratios.
+semantic_models:
+  - name: fct_saas_efficiency
+    description: One row per company and period with ARR and headcount for efficiency ratios.
+    model: ref('fct_saas_efficiency')
+    defaults:
+      agg_time_dimension: period_start
+    entities:
+      - name: saas_efficiency_period
+        type: primary
+        expr: saas_efficiency_period_id
+    dimensions:
+      - name: period_start
+        type: time
+        type_params:
+          time_granularity: day

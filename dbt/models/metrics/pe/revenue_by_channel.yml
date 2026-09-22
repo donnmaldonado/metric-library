@@ -1,0 +1,15 @@
+metrics:
+  - name: revenue_by_channel
+    label: Revenue by Channel
+    description: Revenue attributed to each sales channel (direct, partner, self-serve)
+    type: derived
+    type_params:
+      expr: revenue
+      metrics:
+        - name: revenue
+    config:
+      meta:
+        metricId: revenue_by_channel
+        tier: input
+        vertical: pe
+        industry: saas

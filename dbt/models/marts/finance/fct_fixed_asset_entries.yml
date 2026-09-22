@@ -1,0 +1,41 @@
+# Metrics on this model: capex, da
+models:
+  - name: fct_fixed_asset_entries
+    description: One row per fixed asset transaction (capex additions, depreciation, amortization).
+semantic_models:
+  - name: fct_fixed_asset_entries
+    description: One row per fixed asset transaction (capex additions, depreciation, amortization).
+    model: ref('fct_fixed_asset_entries')
+    defaults:
+      agg_time_dimension: posted_date
+    entities:
+      - name: fixed_asset_entry
+        type: primary
+        expr: fixed_asset_entry_id
+      - name: company
+        type: foreign
+        expr: company_id
+    dimensions:
+      - name: posted_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: asset_category
+        type: categorical
+    measures:
+      - name: capex_amount
+        agg: sum
+        description: 'Used by: capex.'
+      - name: da_value
+        agg: sum
+        expr: depreciation_amount + amortization_amount
+        description: 'Used by: da.'
+metrics:
+  - name: da_ttm
+    label: da_ttm
+    description: Helper input for ebitda_ttm. Trailing twelve months of depreciation and amortization.
+    type: cumulative
+    type_params:
+      measure: da_value
+      cumulative_type_params:
+        window: 12 months

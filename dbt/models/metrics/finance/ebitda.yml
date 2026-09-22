@@ -1,0 +1,16 @@
+metrics:
+  - name: ebitda
+    label: EBITDA
+    description: Earnings before interest, taxes, depreciation & amortization.
+    type: derived
+    type_params:
+      expr: ebit + da
+      metrics:
+        - name: ebit
+        - name: da
+    config:
+      meta:
+        metricId: ebitda
+        tier: north_star
+        vertical: finance
+        industry: financial_services

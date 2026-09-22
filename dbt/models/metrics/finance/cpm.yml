@@ -1,0 +1,16 @@
+metrics:
+  - name: cpm
+    label: CPM
+    description: Cost per thousand impressions — media efficiency benchmark.
+    type: derived
+    type_params:
+      expr: marketing_spend * 1000 / nullif(impressions, 0)
+      metrics:
+        - name: marketing_spend
+        - name: impressions
+    config:
+      meta:
+        metricId: cpm
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

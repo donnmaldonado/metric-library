@@ -1,0 +1,56 @@
+# Metrics on this model: employee_lifetime_value
+models:
+  - name: fct_employee_value
+    description: 'One row per employee per estimate date with modelled lifetime revenue contribution and employment cost (snapshot:
+      take the latest estimate in the period).'
+semantic_models:
+  - name: fct_employee_value
+    description: 'One row per employee per estimate date with modelled lifetime revenue contribution and employment cost (snapshot:
+      take the latest estimate in the period).'
+    model: ref('fct_employee_value')
+    defaults:
+      agg_time_dimension: as_of_date
+    entities:
+      - name: employee_value
+        type: primary
+        expr: employee_value_id
+      - name: employee
+        type: foreign
+        expr: employee_id
+    dimensions:
+      - name: as_of_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: job_level
+        type: categorical
+      - name: department
+        type: categorical
+      - name: hire_cohort
+        type: categorical
+    measures:
+      - name: lifetime_revenue_contribution
+        agg: sum
+        non_additive_dimension:
+          name: as_of_date
+          window_choice: max
+        description: Modelled lifetime revenue contribution.
+      - name: lifetime_employment_cost
+        agg: sum
+        non_additive_dimension:
+          name: as_of_date
+          window_choice: max
+        description: Modelled lifetime fully loaded cost.
+metrics:
+  - name: lifetime_revenue_contribution
+    label: lifetime_revenue_contribution
+    description: Modelled lifetime revenue contribution.
+    type: simple
+    type_params:
+      measure: lifetime_revenue_contribution
+  - name: lifetime_employment_cost
+    label: lifetime_employment_cost
+    description: Modelled lifetime fully loaded cost.
+    type: simple
+    type_params:
+      measure: lifetime_employment_cost

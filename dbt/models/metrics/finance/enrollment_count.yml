@@ -1,0 +1,14 @@
+metrics:
+  - name: enrollment_count
+    label: Enrollment Count
+    description: Total enrolled students at a school or district as of census date.
+    type: simple
+    type_params:
+      measure: enrolled_student_count
+    filter: "{{ Dimension('enrollment__status') }} = 'active'"
+    config:
+      meta:
+        metricId: enrollment_count
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

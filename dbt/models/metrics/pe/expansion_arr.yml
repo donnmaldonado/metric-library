@@ -1,0 +1,14 @@
+metrics:
+  - name: expansion_arr
+    label: Expansion ARR
+    description: ARR added from upsells and cross-sells to existing customers
+    type: simple
+    type_params:
+      measure: arr_delta
+    filter: "{{ Dimension('arr_movement__movement_type') }} = 'expansion'"
+    config:
+      meta:
+        metricId: expansion_arr
+        tier: kpi
+        vertical: pe
+        industry: saas

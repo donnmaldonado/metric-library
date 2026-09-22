@@ -1,0 +1,31 @@
+# Metrics on this model: none (dimension-only; joined through the employee entity)
+models:
+  - name: dim_employees
+    description: One row per employee with current attributes (type 1). Gives every HR fact with an employee_id a shared employee__department
+      / employee__location / employee__job_level, so cross-model HR ratios can be broken down by current department.
+semantic_models:
+  - name: dim_employees
+    description: One row per employee with current attributes (type 1). Gives every HR fact with an employee_id a shared employee__department
+      / employee__location / employee__job_level, so cross-model HR ratios can be broken down by current department.
+    model: ref('dim_employees')
+    defaults:
+      agg_time_dimension: hire_date
+    entities:
+      - name: employee
+        type: primary
+        expr: employee_id
+    dimensions:
+      - name: hire_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: department
+        type: categorical
+      - name: location
+        type: categorical
+      - name: job_level
+        type: categorical
+      - name: status
+        type: categorical
+      - name: employment_type
+        type: categorical

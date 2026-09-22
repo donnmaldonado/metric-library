@@ -1,0 +1,34 @@
+# Metrics on this model: app_downloads, iap_revenue
+models:
+  - name: fct_app_store
+    description: One row per app store event (download or in-app purchase).
+semantic_models:
+  - name: fct_app_store
+    description: One row per app store event (download or in-app purchase).
+    model: ref('fct_app_store')
+    defaults:
+      agg_time_dimension: event_date
+    entities:
+      - name: app_store_event
+        type: primary
+        expr: app_store_event_id
+    dimensions:
+      - name: event_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: product_name
+        type: categorical
+      - name: platform
+        type: categorical
+      - name: event_type
+        type: categorical
+        description: "'download' or 'in_app_purchase'."
+    measures:
+      - name: purchase_amount
+        agg: sum
+        description: 'Used by: iap_revenue (filtered to in-app purchases).'
+      - name: app_store_event_count
+        agg: count
+        expr: app_store_event_id
+        description: 'Used by: app_downloads (filtered to downloads).'

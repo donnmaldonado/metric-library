@@ -1,0 +1,14 @@
+metrics:
+  - name: rd_as_pct_revenue
+    label: R&D % of Revenue
+    description: R&D spend as a share of total revenue — tech investment intensity.
+    type: ratio
+    type_params:
+      numerator: rd_expense
+      denominator: revenue
+    config:
+      meta:
+        metricId: rd_as_pct_revenue
+        tier: kpi
+        vertical: pe
+        industry: saas

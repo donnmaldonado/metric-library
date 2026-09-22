@@ -1,0 +1,13 @@
+metrics:
+  - name: time_to_activate
+    label: Time to Activate
+    description: Median hours from signup to activation event
+    type: simple
+    type_params:
+      measure: median_hours_to_activate
+    config:
+      meta:
+        metricId: time_to_activate
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

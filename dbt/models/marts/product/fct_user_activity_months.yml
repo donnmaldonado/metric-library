@@ -1,0 +1,50 @@
+# Metrics on this model: product_churn_rate
+models:
+  - name: fct_user_activity_months
+    description: One row per user and calendar month in which the user was active in the month or the month before.
+semantic_models:
+  - name: fct_user_activity_months
+    description: One row per user and calendar month in which the user was active in the month or the month before.
+    model: ref('fct_user_activity_months')
+    defaults:
+      agg_time_dimension: activity_month
+    entities:
+      - name: user_month
+        type: primary
+        expr: user_month_id
+      - name: user
+        type: foreign
+        expr: user_id
+    dimensions:
+      - name: activity_month
+        type: time
+        type_params:
+          time_granularity: month
+      - name: platform
+        type: categorical
+      - name: plan_tier
+        type: categorical
+      - name: was_active_prior_month
+        type: categorical
+      - name: is_active
+        type: categorical
+    measures:
+      - name: user_month_count
+        agg: count
+        expr: user_month_id
+        description: 'User-months. Used by: product_churn_rate (through the helpers below).'
+metrics:
+  - name: prior_month_active_users
+    label: prior_month_active_users
+    description: Helper input for product_churn_rate (users active in the previous month).
+    type: simple
+    type_params:
+      measure: user_month_count
+    filter: "{{ Dimension('user_month__was_active_prior_month') }}"
+  - name: product_churned_users
+    label: product_churned_users
+    description: Helper input for product_churn_rate (users active in the previous month and inactive this month).
+    type: simple
+    type_params:
+      measure: user_month_count
+    filter: "{{ Dimension('user_month__was_active_prior_month') }} AND NOT {{ Dimension('user_month__is_active') }}"

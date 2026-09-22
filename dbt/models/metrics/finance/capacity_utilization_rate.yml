@@ -1,0 +1,15 @@
+metrics:
+  - name: capacity_utilization_rate
+    label: Capacity Utilization
+    description: Actual output as a % of theoretical maximum capacity — productivity efficiency.
+    type: derived
+    type_params:
+      expr: capacity_utilization
+      metrics:
+        - name: capacity_utilization
+    config:
+      meta:
+        metricId: capacity_utilization_rate
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

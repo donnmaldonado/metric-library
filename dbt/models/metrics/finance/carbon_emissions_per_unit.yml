@@ -1,0 +1,14 @@
+metrics:
+  - name: carbon_emissions_per_unit
+    label: Carbon per Unit
+    description: kg CO2 equivalent emitted per unit of output — ESG and sustainability metric.
+    type: ratio
+    type_params:
+      numerator: total_co2e_kg
+      denominator: throughput
+    config:
+      meta:
+        metricId: carbon_emissions_per_unit
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

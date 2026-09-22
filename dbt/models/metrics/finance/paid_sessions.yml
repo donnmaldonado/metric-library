@@ -1,0 +1,14 @@
+metrics:
+  - name: paid_sessions
+    label: Paid Sessions
+    description: Web sessions from paid advertising channels (CPC, CPM).
+    type: simple
+    type_params:
+      measure: session_count
+    filter: "{{ Dimension('session__medium') }} IN ('cpc', 'cpm', 'paid')"
+    config:
+      meta:
+        metricId: paid_sessions
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

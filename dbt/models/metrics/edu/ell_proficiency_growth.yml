@@ -1,0 +1,14 @@
+metrics:
+  - name: ell_proficiency_growth
+    label: ELL Proficiency Growth
+    description: '% of English Language Learners who advance at least one proficiency level annually.'
+    type: ratio
+    type_params:
+      numerator: ells_advanced
+      denominator: ell_students_assessed
+    config:
+      meta:
+        metricId: ell_proficiency_growth
+        tier: kpi
+        vertical: edu
+        industry: education

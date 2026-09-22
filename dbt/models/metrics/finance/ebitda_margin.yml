@@ -1,0 +1,14 @@
+metrics:
+  - name: ebitda_margin
+    label: EBITDA Margin
+    description: EBITDA as a % of revenue — core PE performance lens.
+    type: ratio
+    type_params:
+      numerator: ebitda
+      denominator: revenue
+    config:
+      meta:
+        metricId: ebitda_margin
+        tier: kpi
+        vertical: finance
+        industry: financial_services

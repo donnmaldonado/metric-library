@@ -1,0 +1,15 @@
+metrics:
+  - name: stg_cogs_event
+    label: Raw COGS Event
+    description: Individual cost-of-goods-sold line item from ERP.
+    type: derived
+    type_params:
+      expr: cogs
+      metrics:
+        - name: cogs
+    config:
+      meta:
+        metricId: stg_cogs_event
+        tier: input
+        vertical: finance
+        industry: cross_industry

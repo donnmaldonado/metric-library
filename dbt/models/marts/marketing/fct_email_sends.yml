@@ -1,0 +1,73 @@
+# Metrics on this model: email_click_rate, email_ctr, email_open_rate, email_unsub_rate, stg_email_send_row, unsubscribe_rate
+models:
+  - name: fct_email_sends
+    description: One row per email send (delivery, open, click and unsubscribe flags).
+semantic_models:
+  - name: fct_email_sends
+    description: One row per email send (delivery, open, click and unsubscribe flags).
+    model: ref('fct_email_sends')
+    defaults:
+      agg_time_dimension: send_date
+    entities:
+      - name: email_send
+        type: primary
+        expr: send_id
+      - name: contact
+        type: foreign
+        expr: contact_id
+      - name: campaign
+        type: foreign
+        expr: campaign_id
+    dimensions:
+      - name: send_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: status
+        type: categorical
+      - name: segment
+        type: categorical
+      - name: campaign_name
+        type: categorical
+      - name: is_delivered
+        type: categorical
+      - name: is_opened
+        type: categorical
+      - name: is_clicked
+        type: categorical
+      - name: is_unsubscribed
+        type: categorical
+    measures:
+      - name: send_count
+        agg: count
+        expr: send_id
+        description: 'Email sends. Used by: stg_email_send_row and the emails_* helpers.'
+metrics:
+  - name: emails_delivered
+    label: emails_delivered
+    description: Helper input for email_click_rate, email_open_rate, unsubscribe_rate (delivered sends).
+    type: simple
+    type_params:
+      measure: send_count
+    filter: "{{ Dimension('email_send__is_delivered') }}"
+  - name: emails_opened
+    label: emails_opened
+    description: Helper input for email_open_rate (delivered sends opened at least once).
+    type: simple
+    type_params:
+      measure: send_count
+    filter: "{{ Dimension('email_send__is_delivered') }} AND {{ Dimension('email_send__is_opened') }}"
+  - name: emails_clicked
+    label: emails_clicked
+    description: Helper input for email_click_rate (delivered sends clicked at least once, i.e. unique clicks).
+    type: simple
+    type_params:
+      measure: send_count
+    filter: "{{ Dimension('email_send__is_delivered') }} AND {{ Dimension('email_send__is_clicked') }}"
+  - name: emails_unsubscribed
+    label: emails_unsubscribed
+    description: Helper input for unsubscribe_rate (delivered sends that led to an unsubscribe).
+    type: simple
+    type_params:
+      measure: send_count
+    filter: "{{ Dimension('email_send__is_delivered') }} AND {{ Dimension('email_send__is_unsubscribed') }}"

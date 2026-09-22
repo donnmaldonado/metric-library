@@ -1,0 +1,14 @@
+metrics:
+  - name: cost_per_hire
+    label: Cost Per Hire
+    description: Total recruiting costs divided by hires made
+    type: ratio
+    type_params:
+      numerator: total_recruiting_cost
+      denominator: hires_made
+    config:
+      meta:
+        metricId: cost_per_hire
+        tier: kpi
+        vertical: hr
+        industry: cross_industry

@@ -1,0 +1,16 @@
+metrics:
+  - name: dso
+    label: Days Sales Outstanding
+    description: Average days to collect payment after a sale — cash conversion speed.
+    type: derived
+    type_params:
+      expr: accounts_receivable / nullif(revenue_ttm, 0) * 365
+      metrics:
+        - name: accounts_receivable
+        - name: revenue_ttm
+    config:
+      meta:
+        metricId: dso
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

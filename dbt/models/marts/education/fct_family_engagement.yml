@@ -1,0 +1,40 @@
+# Metrics on this model: family_engagement_rate
+models:
+  - name: fct_family_engagement
+    description: One row per family per school year (attended at least one event or conference).
+semantic_models:
+  - name: fct_family_engagement
+    description: One row per family per school year (attended at least one event or conference).
+    model: ref('fct_family_engagement')
+    defaults:
+      agg_time_dimension: school_year_start
+    entities:
+      - name: family_engagement_record
+        type: primary
+        expr: family_engagement_record_id
+      - name: school
+        type: foreign
+        expr: school_id
+    dimensions:
+      - name: school_year_start
+        type: time
+        type_params:
+          time_granularity: day
+      - name: school_year
+        type: categorical
+      - name: school_name
+        type: categorical
+      - name: attended_event
+        type: categorical
+    measures:
+      - name: distinct_family_count
+        agg: count_distinct
+        expr: family_id
+        description: Distinct families.
+metrics:
+  - name: total_families
+    label: total_families
+    description: Distinct families enrolled at the school.
+    type: simple
+    type_params:
+      measure: distinct_family_count

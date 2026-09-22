@@ -1,0 +1,16 @@
+metrics:
+  - name: cross_sell_rate
+    label: Cross-Sell Rate
+    description: Percentage of customers who purchased products from more than one category
+    type: ratio
+    type_params:
+      numerator:
+        name: ordering_customers
+        filter: "{{ Dimension('order__customer_is_multi_category') }} = true"
+      denominator: ordering_customers
+    config:
+      meta:
+        metricId: cross_sell_rate
+        tier: kpi
+        vertical: edu
+        industry: education

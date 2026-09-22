@@ -1,0 +1,14 @@
+metrics:
+  - name: seat_fill_rate
+    label: Seat Fill Rate
+    description: '% of available enrollment seats filled by students at a school.'
+    type: ratio
+    type_params:
+      numerator: enrollment_count
+      denominator: total_seats
+    config:
+      meta:
+        metricId: seat_fill_rate
+        tier: kpi
+        vertical: ops
+        industry: manufacturing

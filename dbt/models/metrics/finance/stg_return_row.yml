@@ -1,0 +1,13 @@
+metrics:
+  - name: stg_return_row
+    label: Raw Return Row
+    description: Single product return transaction record with reason code and condition.
+    type: simple
+    type_params:
+      measure: return_count
+    config:
+      meta:
+        metricId: stg_return_row
+        tier: input
+        vertical: finance
+        industry: cross_industry

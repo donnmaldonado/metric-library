@@ -1,0 +1,32 @@
+# Metrics on this model: app_store_rating, review_rating, testimonials_count
+models:
+  - name: fct_reviews
+    description: One row per public review, app store review or testimonial.
+semantic_models:
+  - name: fct_reviews
+    description: One row per public review, app store review or testimonial.
+    model: ref('fct_reviews')
+    defaults:
+      agg_time_dimension: review_date
+    entities:
+      - name: review
+        type: primary
+        expr: review_id
+    dimensions:
+      - name: review_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: platform
+        type: categorical
+      - name: review_source
+        type: categorical
+    measures:
+      - name: avg_rating_score
+        agg: average
+        expr: rating_score
+        description: 'Used by: app_store_rating, review_rating (each filtered on review_source).'
+      - name: review_count
+        agg: count
+        expr: review_id
+        description: 'Used by: testimonials_count.'

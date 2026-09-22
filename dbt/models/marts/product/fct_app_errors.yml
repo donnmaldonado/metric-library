@@ -1,0 +1,31 @@
+# Metrics on this model: stg_error_event_row
+models:
+  - name: fct_app_errors
+    description: One row per application error event.
+semantic_models:
+  - name: fct_app_errors
+    description: One row per application error event.
+    model: ref('fct_app_errors')
+    defaults:
+      agg_time_dimension: error_date
+    entities:
+      - name: app_error
+        type: primary
+        expr: error_id
+      - name: user
+        type: foreign
+        expr: user_id
+    dimensions:
+      - name: error_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: endpoint
+        type: categorical
+      - name: error_type
+        type: categorical
+    measures:
+      - name: app_errors_error_count
+        agg: count
+        expr: error_id
+        description: 'Used by: stg_error_event_row.'

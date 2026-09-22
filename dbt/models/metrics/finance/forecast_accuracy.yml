@@ -1,0 +1,16 @@
+metrics:
+  - name: forecast_accuracy
+    label: Forecast Accuracy %
+    description: Actual revenue versus forecast, expressed as an error percentage
+    type: derived
+    type_params:
+      expr: 1 - abs(actual_revenue - forecast_revenue) / nullif(forecast_revenue, 0)
+      metrics:
+        - name: actual_revenue
+        - name: forecast_revenue
+    config:
+      meta:
+        metricId: forecast_accuracy
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

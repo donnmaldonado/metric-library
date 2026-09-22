@@ -1,0 +1,13 @@
+metrics:
+  - name: stg_inventory_items
+    label: Inventory Items
+    description: Total SKU count in inventory staging table
+    type: simple
+    type_params:
+      measure: inventory_distinct_item_count
+    config:
+      meta:
+        metricId: stg_inventory_items
+        tier: input
+        vertical: ops
+        industry: manufacturing

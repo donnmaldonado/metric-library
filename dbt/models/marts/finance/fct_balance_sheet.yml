@@ -1,0 +1,95 @@
+# Metrics on this model: accounts_payable, accounts_receivable, cash_and_equivalents, current_ratio, debt_to_equity, net_debt, quick_ratio, shareholder_equity, total_assets, total_debt, total_liabilities, working_capital
+# Snapshot model: every measure is non-additive over as_of_date (latest balance in the window).
+# Columns ttm_ebitda, shareholders_equity, cash are unused; trailing EBITDA is the ebitda_ttm helper, equity is the
+# shareholder_equity metric, and cash is cash_balance.
+models:
+  - name: fct_balance_sheet
+    description: One row per company and balance sheet date (balances pivoted to columns).
+semantic_models:
+  - name: fct_balance_sheet
+    description: One row per company and balance sheet date (balances pivoted to columns).
+    model: ref('fct_balance_sheet')
+    defaults:
+      agg_time_dimension: as_of_date
+    entities:
+      - name: balance_sheet_snapshot
+        type: primary
+        expr: balance_sheet_snapshot_id
+      - name: company
+        type: foreign
+        expr: company_id
+    dimensions:
+      - name: as_of_date
+        type: time
+        type_params:
+          time_granularity: day
+    measures:
+      - name: accounts_payable_balance
+        agg: sum
+        non_additive_dimension:
+          name: as_of_date
+          window_choice: max
+        description: 'Used by: accounts_payable.'
+      - name: accounts_receivable_balance
+        agg: sum
+        non_additive_dimension:
+          name: as_of_date
+          window_choice: max
+        description: 'Used by: accounts_receivable.'
+      - name: cash_balance
+        agg: sum
+        non_additive_dimension:
+          name: as_of_date
+          window_choice: max
+        description: 'Cash and liquid short-term instruments. Used by: cash_and_equivalents.'
+      - name: total_assets
+        agg: sum
+        non_additive_dimension:
+          name: as_of_date
+          window_choice: max
+        description: 'Used by: total_assets.'
+      - name: total_liabilities
+        agg: sum
+        non_additive_dimension:
+          name: as_of_date
+          window_choice: max
+        description: 'Used by: total_liabilities.'
+      - name: current_assets
+        agg: sum
+        non_additive_dimension:
+          name: as_of_date
+          window_choice: max
+        description: 'Used by: current_ratio.'
+      - name: current_liabilities
+        agg: sum
+        non_additive_dimension:
+          name: as_of_date
+          window_choice: max
+        description: 'Used by: current_ratio, quick_ratio.'
+      - name: working_capital_value
+        agg: sum
+        expr: current_assets - current_liabilities
+        non_additive_dimension:
+          name: as_of_date
+          window_choice: max
+        description: 'Used by: working_capital.'
+      - name: total_debt_value
+        agg: sum
+        expr: short_term_debt + long_term_debt
+        non_additive_dimension:
+          name: as_of_date
+          window_choice: max
+        description: 'Used by: total_debt.'
+metrics:
+  - name: current_assets
+    label: current_assets
+    description: Helper input for current_ratio.
+    type: simple
+    type_params:
+      measure: current_assets
+  - name: current_liabilities
+    label: current_liabilities
+    description: Helper input for current_ratio, quick_ratio.
+    type: simple
+    type_params:
+      measure: current_liabilities

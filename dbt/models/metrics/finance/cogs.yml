@@ -1,0 +1,13 @@
+metrics:
+  - name: cogs
+    label: COGS
+    description: Total cost of goods sold in a period.
+    type: simple
+    type_params:
+      measure: cogs_amount
+    config:
+      meta:
+        metricId: cogs
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

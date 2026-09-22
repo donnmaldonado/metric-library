@@ -1,0 +1,14 @@
+metrics:
+  - name: gross_profit_per_employee
+    label: GP / Employee
+    description: Gross profit divided by headcount — productivity indicator
+    type: ratio
+    type_params:
+      numerator: gross_profit
+      denominator: headcount
+    config:
+      meta:
+        metricId: gross_profit_per_employee
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

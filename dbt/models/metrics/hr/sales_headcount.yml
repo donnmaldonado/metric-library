@@ -1,0 +1,15 @@
+metrics:
+  - name: sales_headcount
+    label: Sales Headcount
+    description: Number of quota-carrying sales representatives
+    type: simple
+    type_params:
+      measure: employee_snapshots_employee_count
+    filter: "{{ Dimension('employee_snapshot__status') }} = 'active' AND {{ Dimension('employee_snapshot__department') }}\
+      \ = 'sales' AND {{ Dimension('employee_snapshot__carries_quota') }} = true"
+    config:
+      meta:
+        metricId: sales_headcount
+        tier: input
+        vertical: hr
+        industry: cross_industry

@@ -1,0 +1,15 @@
+metrics:
+  - name: student_growth_percentile
+    label: Student Growth Percentile
+    description: Percentile ranking of a student’s academic growth relative to peers with similar prior scores.
+    type: derived
+    type_params:
+      expr: sgp
+      metrics:
+        - name: sgp
+    config:
+      meta:
+        metricId: student_growth_percentile
+        tier: kpi
+        vertical: edu
+        industry: education

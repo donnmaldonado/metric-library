@@ -1,0 +1,33 @@
+# Metrics on this model: enterprise_value, ev_ebitda
+models:
+  - name: fct_valuations
+    description: One row per company and valuation date (market cap, net debt, EBITDA multiples).
+semantic_models:
+  - name: fct_valuations
+    description: One row per company and valuation date (market cap, net debt, EBITDA multiples).
+    model: ref('fct_valuations')
+    defaults:
+      agg_time_dimension: as_of_date
+    entities:
+      - name: valuation_snapshot
+        type: primary
+        expr: valuation_snapshot_id
+    dimensions:
+      - name: as_of_date
+        type: time
+        type_params:
+          time_granularity: day
+    measures:
+      - name: market_cap
+        agg: sum
+        non_additive_dimension:
+          name: as_of_date
+          window_choice: max
+        description: 'Used by: enterprise_value.'
+metrics:
+  - name: market_cap
+    label: market_cap
+    description: Helper input for enterprise_value.
+    type: simple
+    type_params:
+      measure: market_cap

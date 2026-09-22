@@ -1,0 +1,15 @@
+metrics:
+  - name: revenue_by_product
+    label: Revenue by Product
+    description: Revenue broken out by product or service line
+    type: derived
+    type_params:
+      expr: revenue
+      metrics:
+        - name: revenue
+    config:
+      meta:
+        metricId: revenue_by_product
+        tier: input
+        vertical: pe
+        industry: saas

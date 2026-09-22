@@ -1,0 +1,16 @@
+metrics:
+  - name: college_enrollment
+    label: College Enrollment Rate
+    description: '% of graduates enrolling in 2- or 4-year college within 1 year.'
+    type: ratio
+    type_params:
+      numerator:
+        name: total_graduates
+        filter: "{{ Dimension('student_cohort_outcome__enrolled_college_within_12_months') }} = true"
+      denominator: total_graduates
+    config:
+      meta:
+        metricId: college_enrollment
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

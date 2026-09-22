@@ -1,0 +1,16 @@
+metrics:
+  - name: budget_variance
+    label: Budget Variance
+    description: Actual spend vs budget — positive = over budget, negative = under budget.
+    type: derived
+    type_params:
+      expr: budget_actual_spend - annual_budget
+      metrics:
+        - name: budget_actual_spend
+        - name: annual_budget
+    config:
+      meta:
+        metricId: budget_variance
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

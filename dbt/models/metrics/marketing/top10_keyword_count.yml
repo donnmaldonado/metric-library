@@ -1,0 +1,14 @@
+metrics:
+  - name: top10_keyword_count
+    label: Top 10 Keywords
+    description: Number of target keywords ranking in Google's top 10 results.
+    type: simple
+    type_params:
+      measure: distinct_keyword_count
+    filter: "{{ Dimension('keyword_ranking__ranking_position') }} <= 10"
+    config:
+      meta:
+        metricId: top10_keyword_count
+        tier: kpi
+        vertical: marketing
+        industry: cross_industry

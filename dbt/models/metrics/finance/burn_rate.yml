@@ -1,0 +1,13 @@
+metrics:
+  - name: burn_rate
+    label: Burn Rate
+    description: Monthly net cash outflow — critical for pre-revenue or high-growth companies.
+    type: simple
+    type_params:
+      measure: burn_rate_value
+    config:
+      meta:
+        metricId: burn_rate
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

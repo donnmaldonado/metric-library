@@ -1,0 +1,14 @@
+metrics:
+  - name: code_coverage
+    label: Code Coverage %
+    description: Percentage of codebase covered by automated tests
+    type: ratio
+    type_params:
+      numerator: covered_lines
+      denominator: code_quality_total_lines
+    config:
+      meta:
+        metricId: code_coverage
+        tier: input
+        vertical: finance
+        industry: cross_industry

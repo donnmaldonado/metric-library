@@ -1,0 +1,14 @@
+metrics:
+  - name: sessions_per_user
+    label: Sessions / User
+    description: Average number of sessions per active user in the period
+    type: ratio
+    type_params:
+      numerator: website_sessions
+      denominator: web_session_users
+    config:
+      meta:
+        metricId: sessions_per_user
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

@@ -1,0 +1,15 @@
+metrics:
+  - name: attendance_rate
+    label: Attendance Rate (attendance_rate)
+    description: '% of possible days attended across enrolled students.'
+    type: derived
+    type_params:
+      expr: student_attendance_rate
+      metrics:
+        - name: student_attendance_rate
+    config:
+      meta:
+        metricId: attendance_rate
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

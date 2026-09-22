@@ -1,0 +1,92 @@
+# Metrics on this model: bug_escape_rate, code_coverage, tech_debt_ratio
+models:
+  - name: fct_code_quality
+    description: One row per service and date with coverage, bug and tech-debt measurements.
+semantic_models:
+  - name: fct_code_quality
+    description: One row per service and date with coverage, bug and tech-debt measurements.
+    model: ref('fct_code_quality')
+    defaults:
+      agg_time_dimension: as_of_date
+    entities:
+      - name: code_quality_snapshot
+        type: primary
+        expr: code_quality_snapshot_id
+    dimensions:
+      - name: as_of_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: service
+        type: categorical
+      - name: severity
+        type: categorical
+    measures:
+      - name: tech_debt_hours
+        agg: sum
+        non_additive_dimension:
+          name: as_of_date
+          window_choice: max
+        description: 'Estimated remediation effort on the snapshot date (semi-additive). Used by: tech_debt_ratio.'
+      - name: total_dev_hours
+        agg: sum
+        non_additive_dimension:
+          name: as_of_date
+          window_choice: max
+        description: 'Estimated development cost of the codebase on the snapshot date (semi-additive). Used by: tech_debt_ratio.'
+      - name: production_bugs
+        agg: sum
+        description: 'Bugs first found in production on the date (flow). Used by: bug_escape_rate.'
+      - name: total_bugs_found
+        agg: sum
+        description: 'All bugs found on the date, pre-release and production (flow). Used by: bug_escape_rate.'
+      - name: covered_lines
+        agg: sum
+        non_additive_dimension:
+          name: as_of_date
+          window_choice: max
+        description: 'Lines covered by tests on the snapshot date (semi-additive). Used by: code_coverage.'
+      - name: code_quality_total_lines
+        agg: sum
+        expr: total_lines
+        non_additive_dimension:
+          name: as_of_date
+          window_choice: max
+        description: 'Total lines on the snapshot date (semi-additive). Used by: code_coverage.'
+metrics:
+  - name: tech_debt_hours
+    label: tech_debt_hours
+    description: Helper input for tech_debt_ratio.
+    type: simple
+    type_params:
+      measure: tech_debt_hours
+  - name: total_dev_hours
+    label: total_dev_hours
+    description: Helper input for tech_debt_ratio.
+    type: simple
+    type_params:
+      measure: total_dev_hours
+  - name: production_bugs
+    label: production_bugs
+    description: Helper input for bug_escape_rate.
+    type: simple
+    type_params:
+      measure: production_bugs
+  - name: total_bugs_found
+    label: total_bugs_found
+    description: Helper input for bug_escape_rate.
+    type: simple
+    type_params:
+      measure: total_bugs_found
+  - name: covered_lines
+    label: covered_lines
+    description: Helper input for code_coverage.
+    type: simple
+    type_params:
+      measure: covered_lines
+  - name: code_quality_total_lines
+    label: code_quality_total_lines
+    description: Helper input for code_coverage.
+    type: simple
+    type_params:
+      measure: code_quality_total_lines

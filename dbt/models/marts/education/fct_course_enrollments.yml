@@ -1,0 +1,62 @@
+# Metrics on this model: advanced_course_enrollment_rate, ap_participation_rate, course_completion_rate
+models:
+  - name: fct_course_enrollments
+    description: One row per student course enrollment (course level, completion).
+semantic_models:
+  - name: fct_course_enrollments
+    description: One row per student course enrollment (course level, completion).
+    model: ref('fct_course_enrollments')
+    defaults:
+      agg_time_dimension: term_start_date
+    entities:
+      - name: course_enrollment
+        type: primary
+        expr: course_enrollment_id
+      - name: student
+        type: foreign
+        expr: student_id
+      - name: school
+        type: foreign
+        expr: school_id
+      - name: course
+        type: foreign
+        expr: course_id
+    dimensions:
+      - name: term_start_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: grade_level
+        type: categorical
+      - name: demographic_group
+        type: categorical
+      - name: school_year
+        type: categorical
+      - name: school_name
+        type: categorical
+      - name: course_level
+        type: categorical
+      - name: is_completed
+        type: categorical
+    measures:
+      - name: course_enrollment_count
+        agg: count
+        expr: course_enrollment_id
+        description: Course enrollments.
+      - name: distinct_course_student_count
+        agg: count_distinct
+        expr: student_id
+        description: Distinct students with a course enrollment.
+metrics:
+  - name: enrolled_courses
+    label: enrolled_courses
+    description: Course enrollments.
+    type: simple
+    type_params:
+      measure: course_enrollment_count
+  - name: course_students
+    label: course_students
+    description: Distinct students enrolled in at least one course.
+    type: simple
+    type_params:
+      measure: distinct_course_student_count

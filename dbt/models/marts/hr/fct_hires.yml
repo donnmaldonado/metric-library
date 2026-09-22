@@ -1,0 +1,42 @@
+# Metrics on this model: diversity_hire_rate, internal_promotion_rate, new_hires
+models:
+  - name: fct_hires
+    description: One row per hire (external new hire or internal move into a new role).
+semantic_models:
+  - name: fct_hires
+    description: One row per hire (external new hire or internal move into a new role).
+    model: ref('fct_hires')
+    defaults:
+      agg_time_dimension: hire_date
+    entities:
+      - name: hire
+        type: primary
+        expr: hire_id
+      - name: employee
+        type: foreign
+        expr: employee_id
+    dimensions:
+      - name: hire_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: department
+        type: categorical
+      - name: job_level
+        type: categorical
+      - name: hire_type
+        type: categorical
+      - name: is_underrepresented
+        type: categorical
+    measures:
+      - name: hire_count
+        agg: count
+        expr: hire_id
+        description: Hires (internal and external).
+metrics:
+  - name: total_hires
+    label: total_hires
+    description: All hires, internal and external.
+    type: simple
+    type_params:
+      measure: hire_count

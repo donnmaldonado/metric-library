@@ -1,0 +1,66 @@
+# Metrics on this model: customer_churn_rate, customer_retention_rate, net_new_customers, upsell_rate (logo_churn_rate aliases customer_churn_rate)
+# beginning_customers is an opening balance: semi-additive over time, taking the first period in the window
+# (window_choice: min), so a quarter uses the customer count at the start of its first month.
+# starting_customers and lost_customers are unused duplicates of beginning_customers and churned_customers; no measure uses them.
+models:
+  - name: fct_customer_movements
+    description: One row per segment and period with beginning, new, churned and upsold customer counts.
+semantic_models:
+  - name: fct_customer_movements
+    description: One row per segment and period with beginning, new, churned and upsold customer counts.
+    model: ref('fct_customer_movements')
+    defaults:
+      agg_time_dimension: period_start
+    entities:
+      - name: customer_movement_period
+        type: primary
+        expr: customer_movement_period_id
+    dimensions:
+      - name: period_start
+        type: time
+        type_params:
+          time_granularity: day
+      - name: product_name
+        type: categorical
+      - name: channel
+        type: categorical
+      - name: segment
+        type: categorical
+      - name: product_tier
+        type: categorical
+    measures:
+      - name: beginning_customers
+        agg: sum
+        non_additive_dimension:
+          name: period_start
+          window_choice: min
+        description: 'Customers at the start of the window. Used by: customer_churn_rate, upsell_rate.'
+      - name: upsold_customers
+        agg: sum
+        description: 'Existing customers that upgraded or added seats. Used by: upsell_rate.'
+      - name: churned_customers
+        agg: sum
+        description: 'Used by: customer_churn_rate.'
+      - name: net_new_customers_value
+        agg: sum
+        expr: new_customers - churned_customers
+        description: 'Used by: net_new_customers.'
+metrics:
+  - name: beginning_customers
+    label: beginning_customers
+    description: Helper input for customer_churn_rate, upsell_rate.
+    type: simple
+    type_params:
+      measure: beginning_customers
+  - name: upsold_customers
+    label: upsold_customers
+    description: Helper input for upsell_rate.
+    type: simple
+    type_params:
+      measure: upsold_customers
+  - name: churned_customers
+    label: churned_customers
+    description: Helper input for customer_churn_rate.
+    type: simple
+    type_params:
+      measure: churned_customers

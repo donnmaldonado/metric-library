@@ -1,0 +1,15 @@
+metrics:
+  - name: webinar_attendance_rate
+    label: Webinar Attendance %
+    description: Percentage of webinar registrants who attended live
+    type: ratio
+    type_params:
+      numerator: event_attendees
+      denominator: webinar_registrants
+    filter: "{{ Dimension('event_registration__event_type') }} = 'webinar'"
+    config:
+      meta:
+        metricId: webinar_attendance_rate
+        tier: kpi
+        vertical: marketing
+        industry: cross_industry

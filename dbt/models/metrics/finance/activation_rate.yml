@@ -1,0 +1,16 @@
+metrics:
+  - name: activation_rate
+    label: Activation Rate
+    description: '% of signups that reach the activation milestone within the first session or week.'
+    type: ratio
+    type_params:
+      numerator:
+        name: new_user_signups
+        filter: "{{ Dimension('user__is_activated') }}"
+      denominator: new_user_signups
+    config:
+      meta:
+        metricId: activation_rate
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

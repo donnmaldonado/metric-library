@@ -1,0 +1,72 @@
+# Metrics on this model: ad_clicks, ad_ctr, ad_impressions, cost_per_mql, cost_per_sql, cpc, cpl, cpm, ctr, impressions, marketing_cac, marketing_roi, marketing_spend, roas, stg_ad_spend, stg_ad_spend_row
+models:
+  - name: fct_ad_performance
+    description: One row per ad, channel and day with spend, impressions, clicks and attributed results.
+semantic_models:
+  - name: fct_ad_performance
+    description: One row per ad, channel and day with spend, impressions, clicks and attributed results.
+    model: ref('fct_ad_performance')
+    defaults:
+      agg_time_dimension: ad_date
+    entities:
+      - name: ad_day
+        type: primary
+        expr: ad_day_id
+      - name: campaign
+        type: foreign
+        expr: campaign_id
+      - name: ad_set
+        type: foreign
+        expr: ad_set_id
+    dimensions:
+      - name: ad_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: channel
+        type: categorical
+      - name: campaign_name
+        type: categorical
+      - name: ad_set_name
+        type: categorical
+      - name: ad
+        type: categorical
+    measures:
+      - name: spend
+        agg: sum
+        description: 'Media spend. Used by: marketing_spend (and through it cpc, cpl, cpm, marketing_cac, marketing_roi, roas).'
+      - name: impressions
+        agg: sum
+        description: 'Used by: impressions.'
+      - name: ad_performance_clicks
+        agg: sum
+        expr: clicks
+        description: 'Used by: ad_clicks.'
+      - name: attributed_revenue
+        agg: sum
+        description: 'Revenue attributed to the ad-day. Used by: marketing_roi, roas.'
+      - name: new_customers_acquired
+        agg: sum
+        description: 'New customers attributed to the ad-day. Used by: marketing_cac.'
+      - name: leads_generated
+        agg: sum
+        description: 'Leads attributed to the ad-day. Used by: cpl.'
+metrics:
+  - name: attributed_revenue
+    label: attributed_revenue
+    description: Helper input for marketing_roi, roas.
+    type: simple
+    type_params:
+      measure: attributed_revenue
+  - name: new_customers_acquired
+    label: new_customers_acquired
+    description: Helper input for marketing_cac.
+    type: simple
+    type_params:
+      measure: new_customers_acquired
+  - name: leads_generated
+    label: leads_generated
+    description: Helper input for cpl.
+    type: simple
+    type_params:
+      measure: leads_generated

@@ -1,0 +1,16 @@
+metrics:
+  - name: web_conversion_rate
+    label: Web Conversion Rate
+    description: '% of sessions that result in a conversion event (form fill, signup, etc.).'
+    type: ratio
+    type_params:
+      numerator:
+        name: website_sessions
+        filter: "{{ Dimension('session__is_converted') }}"
+      denominator: website_sessions
+    config:
+      meta:
+        metricId: web_conversion_rate
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

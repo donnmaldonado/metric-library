@@ -1,0 +1,14 @@
+metrics:
+  - name: roa
+    label: ROA
+    description: Net income as a percentage of total assets
+    type: ratio
+    type_params:
+      numerator: net_income
+      denominator: total_assets
+    config:
+      meta:
+        metricId: roa
+        tier: kpi
+        vertical: finance
+        industry: financial_services

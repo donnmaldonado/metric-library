@@ -1,0 +1,14 @@
+metrics:
+  - name: cost_per_unit
+    label: Cost per Unit
+    description: Total production cost divided by units produced in the period.
+    type: ratio
+    type_params:
+      numerator: total_production_cost
+      denominator: throughput
+    config:
+      meta:
+        metricId: cost_per_unit
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

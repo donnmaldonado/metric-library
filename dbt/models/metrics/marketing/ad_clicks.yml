@@ -1,0 +1,13 @@
+metrics:
+  - name: ad_clicks
+    label: Ad Clicks
+    description: Total clicks on paid ads in the period.
+    type: simple
+    type_params:
+      measure: ad_performance_clicks
+    config:
+      meta:
+        metricId: ad_clicks
+        tier: input
+        vertical: marketing
+        industry: cross_industry

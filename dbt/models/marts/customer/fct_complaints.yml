@@ -1,0 +1,36 @@
+# Metrics on this model: complaint_resolution_rate, complaints_count
+models:
+  - name: fct_complaints
+    description: One row per customer complaint case.
+semantic_models:
+  - name: fct_complaints
+    description: One row per customer complaint case.
+    model: ref('fct_complaints')
+    defaults:
+      agg_time_dimension: opened_date
+    entities:
+      - name: complaint_case
+        type: primary
+        expr: case_id
+    dimensions:
+      - name: opened_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: case_type
+        type: categorical
+      - name: is_resolved_within_sla
+        type: categorical
+    measures:
+      - name: case_count
+        agg: count
+        expr: case_id
+        description: 'Cases, by opened date. Used by: complaints_count, complaints_resolved_within_sla.'
+metrics:
+  - name: complaints_resolved_within_sla
+    label: complaints_resolved_within_sla
+    description: Helper input for complaint_resolution_rate.
+    type: simple
+    type_params:
+      measure: case_count
+    filter: "{{ Dimension('complaint_case__case_type') }} = 'complaint' AND {{ Dimension('complaint_case__is_resolved_within_sla') }} = true"

@@ -1,0 +1,35 @@
+# Metrics on this model: school_climate_score, school_culture_score
+models:
+  - name: fct_school_climate_surveys
+    description: One row per school climate survey response.
+semantic_models:
+  - name: fct_school_climate_surveys
+    description: One row per school climate survey response.
+    model: ref('fct_school_climate_surveys')
+    defaults:
+      agg_time_dimension: response_date
+    entities:
+      - name: climate_survey_response
+        type: primary
+        expr: climate_survey_response_id
+      - name: school
+        type: foreign
+        expr: school_id
+    dimensions:
+      - name: response_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: school_year
+        type: categorical
+      - name: school_name
+        type: categorical
+      - name: respondent_type
+        type: categorical
+      - name: survey_cycle
+        type: categorical
+    measures:
+      - name: avg_climate_score
+        agg: average
+        expr: climate_score
+        description: Average climate survey score (0-100).

@@ -1,0 +1,14 @@
+metrics:
+  - name: workforce_productivity
+    label: Workforce Productivity
+    description: Output or revenue generated per labor hour worked
+    type: ratio
+    type_params:
+      numerator: total_revenue
+      denominator: labor_hours_worked
+    config:
+      meta:
+        metricId: workforce_productivity
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

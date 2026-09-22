@@ -1,0 +1,61 @@
+# Metrics on this model: demo_requests, lead_to_mql_rate, mql, mql_count, mql_to_sql_rate, sql, sql_count, stg_lead_row, stg_leads_count
+# MQL and SQL measures are timed on the date the lead reached that stage (mql_date / sql_date), not on created_date.
+models:
+  - name: fct_leads
+    description: One row per lead, with lifecycle stage and funnel flags.
+semantic_models:
+  - name: fct_leads
+    description: One row per lead, with lifecycle stage and funnel flags.
+    model: ref('fct_leads')
+    defaults:
+      agg_time_dimension: created_date
+    entities:
+      - name: lead
+        type: primary
+        expr: lead_id
+    dimensions:
+      - name: created_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: mql_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: sql_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: channel
+        type: categorical
+      - name: campaign_name
+        type: categorical
+      - name: lifecycle_stage
+        type: categorical
+      - name: segment
+        type: categorical
+      - name: stage
+        type: categorical
+      - name: lead_source
+        type: categorical
+      - name: source
+        type: categorical
+      - name: lead_score
+        type: categorical
+      - name: score
+        type: categorical
+    measures:
+      - name: lead_count
+        agg: count
+        expr: lead_id
+        description: 'Leads, by creation date. Used by: demo_requests, stg_leads_count.'
+      - name: mql_lead_count
+        agg: count
+        expr: case when mql_date is not null then lead_id end
+        agg_time_dimension: mql_date
+        description: 'Leads that reached MQL, by MQL date. Used by: mql.'
+      - name: sql_lead_count
+        agg: count
+        expr: case when sql_date is not null then lead_id end
+        agg_time_dimension: sql_date
+        description: 'Leads accepted by sales (SQL), by SQL date. Used by: sql.'

@@ -1,0 +1,15 @@
+metrics:
+  - name: school_enrollment
+    label: School Enrollment
+    description: Total student headcount enrolled in the school or district
+    type: derived
+    type_params:
+      expr: enrollment_count
+      metrics:
+        - name: enrollment_count
+    config:
+      meta:
+        metricId: school_enrollment
+        tier: input
+        vertical: edu
+        industry: education

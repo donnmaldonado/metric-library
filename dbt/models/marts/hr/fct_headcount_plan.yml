@@ -1,0 +1,35 @@
+# Metrics on this model: headcount_vs_budget
+models:
+  - name: fct_headcount_plan
+    description: 'One row per department and period with budgeted headcount (snapshot: latest plan period wins).'
+semantic_models:
+  - name: fct_headcount_plan
+    description: 'One row per department and period with budgeted headcount (snapshot: latest plan period wins).'
+    model: ref('fct_headcount_plan')
+    defaults:
+      agg_time_dimension: period_start
+    entities:
+      - name: headcount_plan_line
+        type: primary
+        expr: headcount_plan_line_id
+    dimensions:
+      - name: period_start
+        type: time
+        type_params:
+          time_granularity: day
+      - name: department
+        type: categorical
+    measures:
+      - name: budgeted_headcount
+        agg: sum
+        non_additive_dimension:
+          name: period_start
+          window_choice: max
+        description: Approved headcount for the latest plan period.
+metrics:
+  - name: budgeted_headcount
+    label: budgeted_headcount
+    description: Approved headcount budget.
+    type: simple
+    type_params:
+      measure: budgeted_headcount

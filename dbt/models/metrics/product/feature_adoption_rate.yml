@@ -1,0 +1,14 @@
+metrics:
+  - name: feature_adoption_rate
+    label: Feature Adoption Rate
+    description: '% of active users who used a specific feature at least once in the period.'
+    type: ratio
+    type_params:
+      numerator: feature_users
+      denominator: dau
+    config:
+      meta:
+        metricId: feature_adoption_rate
+        tier: kpi
+        vertical: product
+        industry: cross_industry

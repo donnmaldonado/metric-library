@@ -1,0 +1,17 @@
+metrics:
+  - name: onboarding_completion_rate
+    label: Onboarding Completion
+    description: '% of new users who complete all onboarding steps.'
+    type: ratio
+    type_params:
+      numerator:
+        name: new_user_signups
+        filter: "{{ Dimension('user__has_completed_onboarding') }}"
+      denominator: new_user_signups
+    filter: "{{ Dimension('user__has_started_onboarding') }}"
+    config:
+      meta:
+        metricId: onboarding_completion_rate
+        tier: kpi
+        vertical: hr
+        industry: cross_industry

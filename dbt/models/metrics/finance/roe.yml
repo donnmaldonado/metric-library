@@ -1,0 +1,14 @@
+metrics:
+  - name: roe
+    label: ROE
+    description: Net income as a percentage of shareholders equity
+    type: ratio
+    type_params:
+      numerator: net_income
+      denominator: shareholder_equity
+    config:
+      meta:
+        metricId: roe
+        tier: kpi
+        vertical: finance
+        industry: financial_services

@@ -1,0 +1,14 @@
+metrics:
+  - name: arr_per_rep
+    label: ARR / Sales Rep
+    description: Total ARR divided by number of quota-carrying reps
+    type: ratio
+    type_params:
+      numerator: arr
+      denominator: quota_carrying_reps
+    config:
+      meta:
+        metricId: arr_per_rep
+        tier: kpi
+        vertical: pe
+        industry: saas

@@ -1,0 +1,13 @@
+metrics:
+  - name: bookings
+    label: Bookings
+    description: Total ARR value of contracts signed in the period, regardless of revenue recognition timing.
+    type: simple
+    type_params:
+      measure: contract_arr
+    config:
+      meta:
+        metricId: bookings
+        tier: kpi
+        vertical: pe
+        industry: saas

@@ -1,0 +1,13 @@
+metrics:
+  - name: capex
+    label: CapEx
+    description: Capital expenditures — spend on fixed assets and infrastructure.
+    type: simple
+    type_params:
+      measure: capex_amount
+    config:
+      meta:
+        metricId: capex
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

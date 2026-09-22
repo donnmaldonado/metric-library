@@ -1,0 +1,13 @@
+metrics:
+  - name: total_assets
+    label: Total Assets
+    description: Total value of assets on the balance sheet
+    type: simple
+    type_params:
+      measure: total_assets
+    config:
+      meta:
+        metricId: total_assets
+        tier: input
+        vertical: finance
+        industry: financial_services

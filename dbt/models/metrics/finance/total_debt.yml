@@ -1,0 +1,13 @@
+metrics:
+  - name: total_debt
+    label: Total Debt
+    description: Sum of short-term and long-term debt obligations
+    type: simple
+    type_params:
+      measure: total_debt_value
+    config:
+      meta:
+        metricId: total_debt
+        tier: input
+        vertical: finance
+        industry: financial_services

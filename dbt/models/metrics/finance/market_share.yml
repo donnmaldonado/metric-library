@@ -1,0 +1,14 @@
+metrics:
+  - name: market_share
+    label: Market Share
+    description: Company revenue as a percentage of total addressable market
+    type: ratio
+    type_params:
+      numerator: company_revenue
+      denominator: tam
+    config:
+      meta:
+        metricId: market_share
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

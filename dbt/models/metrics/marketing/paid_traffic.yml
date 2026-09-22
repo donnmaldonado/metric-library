@@ -1,0 +1,15 @@
+metrics:
+  - name: paid_traffic
+    label: Paid Traffic
+    description: Website sessions sourced from paid channels
+    type: derived
+    type_params:
+      expr: paid_sessions
+      metrics:
+        - name: paid_sessions
+    config:
+      meta:
+        metricId: paid_traffic
+        tier: input
+        vertical: marketing
+        industry: cross_industry

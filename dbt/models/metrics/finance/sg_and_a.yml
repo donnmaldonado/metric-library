@@ -1,0 +1,14 @@
+metrics:
+  - name: sg_and_a
+    label: SG&A
+    description: Sales, general and administrative expenses in the period.
+    type: simple
+    type_params:
+      measure: opex_amount
+    filter: "{{ Dimension('gl_entry__gl_category') }} IN ('S&M', 'G&A')"
+    config:
+      meta:
+        metricId: sg_and_a
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

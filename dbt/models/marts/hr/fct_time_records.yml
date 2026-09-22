@@ -1,0 +1,56 @@
+# Metrics on this model: absenteeism_rate, overtime_hours, workforce_productivity
+models:
+  - name: fct_time_records
+    description: One row per employee and work day (hours worked, overtime, absences).
+semantic_models:
+  - name: fct_time_records
+    description: One row per employee and work day (hours worked, overtime, absences).
+    model: ref('fct_time_records')
+    defaults:
+      agg_time_dimension: work_date
+    entities:
+      - name: time_record
+        type: primary
+        expr: time_record_id
+      - name: employee
+        type: foreign
+        expr: employee_id
+    dimensions:
+      - name: work_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: department
+        type: categorical
+    measures:
+      - name: overtime_hours
+        agg: sum
+        description: Overtime hours logged.
+      - name: unplanned_absence_days
+        agg: sum
+        description: Unplanned absence (days; 0-1 per record).
+      - name: available_working_days
+        agg: sum
+        description: Scheduled working days (0-1 per record).
+      - name: labor_hours_worked
+        agg: sum
+        description: Hours worked.
+metrics:
+  - name: unplanned_absence_days
+    label: unplanned_absence_days
+    description: Unplanned absence days.
+    type: simple
+    type_params:
+      measure: unplanned_absence_days
+  - name: available_working_days
+    label: available_working_days
+    description: Scheduled working days.
+    type: simple
+    type_params:
+      measure: available_working_days
+  - name: labor_hours_worked
+    label: labor_hours_worked
+    description: Hours worked.
+    type: simple
+    type_params:
+      measure: labor_hours_worked

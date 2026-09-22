@@ -1,0 +1,13 @@
+metrics:
+  - name: accounts_payable
+    label: Accounts Payable
+    description: Outstanding amounts owed to vendors
+    type: simple
+    type_params:
+      measure: accounts_payable_balance
+    config:
+      meta:
+        metricId: accounts_payable
+        tier: input
+        vertical: finance
+        industry: cross_industry

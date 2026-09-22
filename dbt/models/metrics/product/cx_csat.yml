@@ -1,0 +1,16 @@
+metrics:
+  - name: cx_csat
+    label: CX CSAT
+    description: Satisfaction score from customer service interactions
+    type: ratio
+    type_params:
+      numerator:
+        name: csat_survey_responses
+        filter: "{{ Dimension('survey_response__is_satisfied') }}"
+      denominator: csat_survey_responses
+    config:
+      meta:
+        metricId: cx_csat
+        tier: north_star
+        vertical: product
+        industry: cross_industry

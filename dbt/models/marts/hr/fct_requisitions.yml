@@ -1,0 +1,41 @@
+# Metrics on this model: open_requisitions, stg_job_requisition_row, time_to_fill
+models:
+  - name: fct_requisitions
+    description: One row per job requisition.
+semantic_models:
+  - name: fct_requisitions
+    description: One row per job requisition.
+    model: ref('fct_requisitions')
+    defaults:
+      agg_time_dimension: opened_date
+    entities:
+      - name: requisition
+        type: primary
+        expr: req_id
+    dimensions:
+      - name: opened_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: offer_accepted_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: department
+        type: categorical
+      - name: job_level
+        type: categorical
+      - name: location
+        type: categorical
+      - name: status
+        type: categorical
+    measures:
+      - name: req_count
+        agg: count
+        expr: req_id
+        description: Requisitions.
+      - name: avg_days_to_fill
+        agg: average
+        expr: datediff('day', opened_date, offer_accepted_date)
+        agg_time_dimension: offer_accepted_date
+        description: Average days from posting to accepted offer, dated on acceptance.

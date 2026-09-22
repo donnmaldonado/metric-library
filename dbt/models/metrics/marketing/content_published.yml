@@ -1,0 +1,15 @@
+metrics:
+  - name: content_published
+    label: Content Published
+    description: Total pieces of content published in the period (blogs, videos, etc.)
+    type: derived
+    type_params:
+      expr: content_published_count
+      metrics:
+        - name: content_published_count
+    config:
+      meta:
+        metricId: content_published
+        tier: input
+        vertical: marketing
+        industry: cross_industry

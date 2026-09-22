@@ -1,0 +1,51 @@
+# Metrics on this model: expulsion_rate, stg_discipline_row, suspension_rate
+models:
+  - name: fct_discipline_incidents
+    description: One row per student discipline incident (type, consequence).
+semantic_models:
+  - name: fct_discipline_incidents
+    description: One row per student discipline incident (type, consequence).
+    model: ref('fct_discipline_incidents')
+    defaults:
+      agg_time_dimension: incident_date
+    entities:
+      - name: discipline_incident
+        type: primary
+        expr: discipline_incident_id
+      - name: student
+        type: foreign
+        expr: student_id
+      - name: school
+        type: foreign
+        expr: school_id
+    dimensions:
+      - name: incident_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: incident_type
+        type: categorical
+      - name: consequence
+        type: categorical
+      - name: school_year
+        type: categorical
+      - name: school_name
+        type: categorical
+      - name: subgroup
+        type: categorical
+    measures:
+      - name: discipline_incidents_incident_count
+        agg: count
+        expr: discipline_incident_id
+        description: Discipline incidents.
+      - name: distinct_disciplined_student_count
+        agg: count_distinct
+        expr: student_id
+        description: Distinct students with an incident.
+metrics:
+  - name: disciplined_students
+    label: disciplined_students
+    description: Distinct students with at least one incident (filter on consequence).
+    type: simple
+    type_params:
+      measure: distinct_disciplined_student_count

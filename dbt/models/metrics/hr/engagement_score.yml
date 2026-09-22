@@ -1,0 +1,15 @@
+metrics:
+  - name: engagement_score
+    label: Engagement Score
+    description: Composite score from employee engagement surveys
+    type: derived
+    type_params:
+      expr: employee_engagement_score
+      metrics:
+        - name: employee_engagement_score
+    config:
+      meta:
+        metricId: engagement_score
+        tier: kpi
+        vertical: hr
+        industry: cross_industry

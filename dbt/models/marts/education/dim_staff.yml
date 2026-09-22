@@ -1,0 +1,75 @@
+# Metrics on this model: avg_teacher_experience, student_teacher_ratio, teacher_retention_rate, teacher_student_ratio
+models:
+  - name: dim_staff
+    description: 'One row per staff member per roster snapshot date (role, FTE, experience, returned next year). Snapshot
+      model: measures take the latest snapshot in the period.'
+semantic_models:
+  - name: dim_staff
+    description: 'One row per staff member per roster snapshot date (role, FTE, experience, returned next year). Snapshot
+      model: measures take the latest snapshot in the period.'
+    model: ref('dim_staff')
+    defaults:
+      agg_time_dimension: as_of_date
+    entities:
+      - name: staff_member
+        type: primary
+        expr: staff_id
+      - name: school
+        type: foreign
+        expr: school_id
+    dimensions:
+      - name: as_of_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: school_year
+        type: categorical
+      - name: school_name
+        type: categorical
+      - name: role
+        type: categorical
+      - name: status
+        type: categorical
+      - name: subject_area
+        type: categorical
+      - name: experience_band
+        type: categorical
+      - name: returned_next_year
+        type: categorical
+    measures:
+      - name: staff_count
+        agg: count
+        expr: staff_id
+        non_additive_dimension:
+          name: as_of_date
+          window_choice: max
+        description: Staff on the latest roster snapshot.
+      - name: staff_fte
+        agg: sum
+        expr: fte
+        non_additive_dimension:
+          name: as_of_date
+          window_choice: max
+        description: Staff FTE on the latest roster snapshot.
+      - name: avg_years_of_experience
+        agg: average
+        expr: years_of_experience
+        non_additive_dimension:
+          name: as_of_date
+          window_choice: max
+        description: Average years of experience on the latest roster snapshot.
+metrics:
+  - name: teacher_headcount
+    label: teacher_headcount
+    description: Active teachers on the latest roster snapshot.
+    type: simple
+    type_params:
+      measure: staff_count
+    filter: "{{ Dimension('staff_member__role') }} = 'teacher' AND {{ Dimension('staff_member__status') }} = 'active'"
+  - name: fte_teachers
+    label: fte_teachers
+    description: Active teacher FTE on the latest roster snapshot.
+    type: simple
+    type_params:
+      measure: staff_fte
+    filter: "{{ Dimension('staff_member__role') }} = 'teacher' AND {{ Dimension('staff_member__status') }} = 'active'"

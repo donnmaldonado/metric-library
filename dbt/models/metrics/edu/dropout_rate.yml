@@ -1,0 +1,16 @@
+metrics:
+  - name: dropout_rate
+    label: Dropout Rate
+    description: Percentage of students who left school without graduating or transferring
+    type: ratio
+    type_params:
+      numerator:
+        name: cohort_students
+        filter: "{{ Dimension('student_cohort_outcome__dropped_out') }} = true"
+      denominator: cohort_students
+    config:
+      meta:
+        metricId: dropout_rate
+        tier: kpi
+        vertical: edu
+        industry: education

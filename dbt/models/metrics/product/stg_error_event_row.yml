@@ -1,0 +1,13 @@
+metrics:
+  - name: stg_error_event_row
+    label: Raw Error Event Row
+    description: Single application error event from monitoring system.
+    type: simple
+    type_params:
+      measure: app_errors_error_count
+    config:
+      meta:
+        metricId: stg_error_event_row
+        tier: input
+        vertical: product
+        industry: cross_industry

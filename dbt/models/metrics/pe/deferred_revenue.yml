@@ -1,0 +1,13 @@
+metrics:
+  - name: deferred_revenue
+    label: Deferred Revenue
+    description: Cash collected but not yet recognized as revenue — forward revenue visibility.
+    type: simple
+    type_params:
+      measure: deferred_amount
+    config:
+      meta:
+        metricId: deferred_revenue
+        tier: kpi
+        vertical: pe
+        industry: saas

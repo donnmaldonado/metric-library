@@ -1,0 +1,16 @@
+metrics:
+  - name: process_automation_rate
+    label: Automation Rate
+    description: Percentage of defined processes that run without manual intervention
+    type: ratio
+    type_params:
+      numerator:
+        name: catalogued_processes
+        filter: "{{ Dimension('process__is_automated') }} = true"
+      denominator: catalogued_processes
+    config:
+      meta:
+        metricId: process_automation_rate
+        tier: kpi
+        vertical: customer
+        industry: cross_industry

@@ -1,0 +1,49 @@
+# Metrics on this model: funnel_dropoff
+models:
+  - name: fct_funnel_step_users
+    description: One row per user, funnel and step the user reached, with whether the user went on to reach the next step.
+semantic_models:
+  - name: fct_funnel_step_users
+    description: One row per user, funnel and step the user reached, with whether the user went on to reach the next step.
+    model: ref('fct_funnel_step_users')
+    defaults:
+      agg_time_dimension: reached_date
+    entities:
+      - name: funnel_step_user
+        type: primary
+        expr: funnel_step_user_id
+      - name: user
+        type: foreign
+        expr: user_id
+    dimensions:
+      - name: reached_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: funnel_name
+        type: categorical
+      - name: funnel_step
+        type: categorical
+      - name: step_number
+        type: categorical
+      - name: reached_next_step
+        type: categorical
+    measures:
+      - name: funnel_step_user_count
+        agg: count
+        expr: funnel_step_user_id
+        description: 'Users reaching a step. Used by: funnel_dropoff (through the helpers below).'
+metrics:
+  - name: funnel_step_users
+    label: funnel_step_users
+    description: Helper input for funnel_dropoff (users who reached the step).
+    type: simple
+    type_params:
+      measure: funnel_step_user_count
+  - name: funnel_step_dropoffs
+    label: funnel_step_dropoffs
+    description: Helper input for funnel_dropoff (users who reached the step but not the next one).
+    type: simple
+    type_params:
+      measure: funnel_step_user_count
+    filter: "NOT {{ Dimension('funnel_step_user__reached_next_step') }}"

@@ -1,0 +1,16 @@
+metrics:
+  - name: kinder_readiness
+    label: K-Readiness %
+    description: Percentage of entering kindergarteners scoring ready on standardized screening
+    type: ratio
+    type_params:
+      numerator:
+        name: kindergarteners_screened
+        filter: "{{ Dimension('assessment_result__met_standard') }} = true"
+      denominator: kindergarteners_screened
+    config:
+      meta:
+        metricId: kinder_readiness
+        tier: kpi
+        vertical: edu
+        industry: education

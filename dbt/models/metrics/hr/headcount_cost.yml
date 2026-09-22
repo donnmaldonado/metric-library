@@ -1,0 +1,13 @@
+metrics:
+  - name: headcount_cost
+    label: Headcount Cost
+    description: Total fully-loaded compensation cost including salary, benefits, and employer taxes.
+    type: simple
+    type_params:
+      measure: fully_loaded_cost
+    config:
+      meta:
+        metricId: headcount_cost
+        tier: kpi
+        vertical: hr
+        industry: cross_industry

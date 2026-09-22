@@ -1,0 +1,13 @@
+metrics:
+  - name: accounts_receivable
+    label: Accounts Receivable
+    description: Outstanding invoices owed to the company
+    type: simple
+    type_params:
+      measure: accounts_receivable_balance
+    config:
+      meta:
+        metricId: accounts_receivable
+        tier: input
+        vertical: finance
+        industry: cross_industry

@@ -1,0 +1,18 @@
+metrics:
+  - name: saas_quick_ratio
+    label: SaaS Quick Ratio
+    description: New + expansion ARR divided by churned + contraction ARR — growth efficiency
+    type: derived
+    type_params:
+      expr: (new_arr + expansion_arr) / nullif(contraction_arr + churned_arr, 0)
+      metrics:
+        - name: new_arr
+        - name: expansion_arr
+        - name: contraction_arr
+        - name: churned_arr
+    config:
+      meta:
+        metricId: saas_quick_ratio
+        tier: kpi
+        vertical: pe
+        industry: saas

@@ -1,0 +1,16 @@
+metrics:
+  - name: order_accuracy_rate
+    label: Order Accuracy Rate
+    description: '% of orders shipped without errors (wrong item, quantity, or address).'
+    type: ratio
+    type_params:
+      numerator:
+        name: shipped_orders
+        filter: "{{ Dimension('shipment__order_is_accurate') }} = true"
+      denominator: shipped_orders
+    config:
+      meta:
+        metricId: order_accuracy_rate
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

@@ -1,0 +1,14 @@
+metrics:
+  - name: revenue_per_account
+    label: Revenue / Account
+    description: Average monthly revenue per active account
+    type: ratio
+    type_params:
+      numerator: revenue
+      denominator: revenue_distinct_customer_count
+    config:
+      meta:
+        metricId: revenue_per_account
+        tier: kpi
+        vertical: pe
+        industry: saas

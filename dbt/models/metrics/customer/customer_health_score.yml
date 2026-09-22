@@ -1,0 +1,13 @@
+metrics:
+  - name: customer_health_score
+    label: Customer Health Score
+    description: Composite score predicting retention, expansion, and churn risk.
+    type: simple
+    type_params:
+      measure: customer_health_score_value
+    config:
+      meta:
+        metricId: customer_health_score
+        tier: kpi
+        vertical: customer
+        industry: cross_industry

@@ -1,0 +1,43 @@
+# Metrics on this model: backlink_count, backlinks_count, domain_authority
+models:
+  - name: fct_seo_domain_metrics
+    description: One row per domain and date with authority and backlink data (snapshot).
+semantic_models:
+  - name: fct_seo_domain_metrics
+    description: One row per domain and date with authority and backlink data (snapshot).
+    model: ref('fct_seo_domain_metrics')
+    defaults:
+      agg_time_dimension: as_of_date
+    entities:
+      - name: seo_domain_snapshot
+        type: primary
+        expr: seo_domain_snapshot_id
+    dimensions:
+      - name: as_of_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: domain
+        type: categorical
+      - name: link_type
+        type: categorical
+    measures:
+      - name: max_domain_authority_score
+        agg: max
+        expr: domain_authority_score
+        non_additive_dimension:
+          name: as_of_date
+          window_choice: max
+        description: 'Used by: domain_authority.'
+      - name: referring_domain_count
+        agg: sum
+        non_additive_dimension:
+          name: as_of_date
+          window_choice: max
+        description: 'Distinct referring domains on the snapshot date. Used by: backlink_count.'
+      - name: backlink_count
+        agg: sum
+        non_additive_dimension:
+          name: as_of_date
+          window_choice: max
+        description: 'Total backlinks (individual links) on the snapshot date. Used by: backlinks_count.'

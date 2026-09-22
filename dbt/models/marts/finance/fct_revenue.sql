@@ -1,0 +1,31 @@
+-- One row per recognized revenue event (order, subscription or services revenue line).
+-- Stub: returns zero rows with the typed columns the metric library needs.
+select
+    cast(null as varchar) as revenue_event_id,
+    cast(null as date   ) as recognized_date,
+    cast(null as varchar) as company_id,
+    cast(null as varchar) as order_id,
+    cast(null as varchar) as customer_id,
+    cast(null as varchar) as product_id,
+    cast(null as varchar) as region,
+    cast(null as varchar) as product_line,
+    cast(null as varchar) as channel,
+    cast(null as double ) as customer_age_days,
+    cast(null as varchar) as product_name,
+    cast(null as varchar) as revenue_type,
+    cast(null as varchar) as partner,
+    cast(null as varchar) as source_type,
+    cast(null as varchar) as geography,
+    cast(null as varchar) as fiscal_year,
+    cast(null as varchar) as client_name,
+    cast(null as varchar) as plan_tier,
+    cast(null as double ) as fiscal_quarter,
+    cast(null as varchar) as segment,
+    cast(null as double ) as recognized_revenue,
+    cast(null as double ) as revenue_amount,
+    cast(null as double ) as amount,
+    cast(null as double ) as recognized_amount,
+    cast(null as double ) as units_sold,
+    cast(null as double ) as active_accounts,
+    cast(null as double ) as current_revenue
+where false

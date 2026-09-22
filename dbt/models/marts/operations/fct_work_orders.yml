@@ -1,0 +1,45 @@
+# Metrics on this model: preventive_maintenance_rate, stg_work_order_row, work_order_resolution_time
+models:
+  - name: fct_work_orders
+    description: One row per maintenance work order.
+semantic_models:
+  - name: fct_work_orders
+    description: One row per maintenance work order.
+    model: ref('fct_work_orders')
+    defaults:
+      agg_time_dimension: created_date
+    entities:
+      - name: work_order
+        type: primary
+        expr: work_order_id
+      - name: facility
+        type: foreign
+        expr: facility_id
+    dimensions:
+      - name: created_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: completed_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: category
+        type: categorical
+      - name: priority
+        type: categorical
+      - name: asset_type
+        type: categorical
+      - name: maintenance_type
+        type: categorical
+      - name: status
+        type: categorical
+    measures:
+      - name: avg_resolution_days
+        agg: average
+        expr: datediff('day', created_date, completed_date)
+        description: 'Days from creation to completion (open work orders are null and ignored). Used by: work_order_resolution_time.'
+      - name: work_order_count
+        agg: count
+        expr: work_order_id
+        description: 'Used by: preventive_maintenance_rate, stg_work_order_row.'

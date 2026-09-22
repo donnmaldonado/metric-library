@@ -1,0 +1,42 @@
+# Metrics on this model: cost_per_event_attendee, event_attendees, webinar_attendance_rate, webinar_registrants
+models:
+  - name: fct_event_attendance
+    description: One row per event or webinar registration (attendance flag and allocated cost).
+semantic_models:
+  - name: fct_event_attendance
+    description: One row per event or webinar registration (attendance flag and allocated cost).
+    model: ref('fct_event_attendance')
+    defaults:
+      agg_time_dimension: event_date
+    entities:
+      - name: event_registration
+        type: primary
+        expr: event_registration_id
+    dimensions:
+      - name: event_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: event
+        type: categorical
+      - name: webinar
+        type: categorical
+      - name: event_type
+        type: categorical
+      - name: attended
+        type: categorical
+    measures:
+      - name: registration_count
+        agg: count
+        expr: event_registration_id
+        description: 'Registrations. Used by: event_attendees, webinar_registrants.'
+      - name: event_cost
+        agg: sum
+        description: 'Event cost allocated to the registration. Used by: cost_per_event_attendee.'
+metrics:
+  - name: event_cost
+    label: event_cost
+    description: Helper input for cost_per_event_attendee.
+    type: simple
+    type_params:
+      measure: event_cost

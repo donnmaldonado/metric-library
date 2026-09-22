@@ -1,0 +1,13 @@
+metrics:
+  - name: overtime_hours
+    label: Overtime Hours
+    description: Total overtime hours logged by employees in the period
+    type: simple
+    type_params:
+      measure: overtime_hours
+    config:
+      meta:
+        metricId: overtime_hours
+        tier: input
+        vertical: finance
+        industry: cross_industry

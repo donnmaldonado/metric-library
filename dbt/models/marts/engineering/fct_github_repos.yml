@@ -1,0 +1,31 @@
+# Metrics on this model: oss_stars
+models:
+  - name: fct_github_repos
+    description: One row per repository and date (stars, forks).
+semantic_models:
+  - name: fct_github_repos
+    description: One row per repository and date (stars, forks).
+    model: ref('fct_github_repos')
+    defaults:
+      agg_time_dimension: as_of_date
+    entities:
+      - name: repo_snapshot
+        type: primary
+        expr: repo_snapshot_id
+    dimensions:
+      - name: as_of_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: repo
+        type: categorical
+      - name: is_primary
+        type: categorical
+        description: True for the company's primary open source repositories.
+    measures:
+      - name: star_count
+        agg: sum
+        non_additive_dimension:
+          name: as_of_date
+          window_choice: max
+        description: 'Used by: oss_stars.'

@@ -1,0 +1,13 @@
+metrics:
+  - name: social_followers
+    label: Social Followers
+    description: Total followers across social platforms at end of period.
+    type: simple
+    type_params:
+      measure: followers
+    config:
+      meta:
+        metricId: social_followers
+        tier: input
+        vertical: marketing
+        industry: cross_industry

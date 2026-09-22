@@ -1,0 +1,68 @@
+# Metrics on this model: mtbf, product_uptime_sla, stg_downtime_event_row, system_uptime, uptime
+models:
+  - name: fct_service_availability
+    description: One row per service/system and period with uptime, downtime and failure counts.
+semantic_models:
+  - name: fct_service_availability
+    description: One row per service/system and period with uptime, downtime and failure counts.
+    model: ref('fct_service_availability')
+    defaults:
+      agg_time_dimension: period_start
+    entities:
+      - name: availability_window
+        type: primary
+        expr: availability_window_id
+      - name: system
+        type: foreign
+        expr: system_id
+      - name: facility
+        type: foreign
+        expr: facility_id
+    dimensions:
+      - name: period_start
+        type: time
+        type_params:
+          time_granularity: day
+      - name: start_time
+        type: time
+        type_params:
+          time_granularity: day
+      - name: cause
+        type: categorical
+      - name: service
+        type: categorical
+      - name: environment
+        type: categorical
+    measures:
+      - name: service_availability_event_count
+        agg: count
+        expr: event_id
+        description: 'Downtime events. Used by: stg_downtime_event_row.'
+      - name: failure_count
+        agg: sum
+        description: 'Unplanned failures in the window. Used by: mtbf.'
+      - name: available_minutes
+        agg: sum
+        description: 'Minutes the service/system was available during scheduled time. Used by: uptime, mtbf.'
+      - name: scheduled_minutes
+        agg: sum
+        description: 'Scheduled (SLA-covered) minutes in the window. Used by: uptime.'
+metrics:
+  - name: failure_count
+    label: failure_count
+    description: Helper input for mtbf.
+    type: simple
+    type_params:
+      measure: failure_count
+  - name: available_minutes
+    label: available_minutes
+    description: Helper input for uptime, mtbf.
+    type: simple
+    type_params:
+      measure: available_minutes
+  - name: scheduled_minutes
+    label: scheduled_minutes
+    description: Helper input for uptime.
+    type: simple
+    type_params:
+      measure: scheduled_minutes

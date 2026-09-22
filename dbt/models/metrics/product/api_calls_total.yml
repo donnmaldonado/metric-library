@@ -1,0 +1,13 @@
+metrics:
+  - name: api_calls_total
+    label: API Calls (Total)
+    description: Total API calls made by all integrations and users in the period
+    type: simple
+    type_params:
+      measure: request_count
+    config:
+      meta:
+        metricId: api_calls_total
+        tier: input
+        vertical: product
+        industry: cross_industry

@@ -1,0 +1,14 @@
+metrics:
+  - name: ev_ebitda
+    label: EV/EBITDA
+    description: Enterprise value divided by EBITDA — primary valuation multiple
+    type: ratio
+    type_params:
+      numerator: enterprise_value
+      denominator: ebitda_ttm
+    config:
+      meta:
+        metricId: ev_ebitda
+        tier: kpi
+        vertical: finance
+        industry: financial_services

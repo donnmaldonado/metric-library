@@ -1,0 +1,14 @@
+metrics:
+  - name: license_revenue
+    label: License Revenue
+    description: Revenue from perpetual license sales
+    type: simple
+    type_params:
+      measure: revenue_amount
+    filter: "{{ Dimension('revenue_event__revenue_type') }} = 'license'"
+    config:
+      meta:
+        metricId: license_revenue
+        tier: kpi
+        vertical: pe
+        industry: saas

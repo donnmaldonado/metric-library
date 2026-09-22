@@ -1,0 +1,14 @@
+metrics:
+  - name: oss_stars
+    label: OSS Stars
+    description: GitHub stars on the company's primary open source repositories
+    type: simple
+    type_params:
+      measure: star_count
+    filter: "{{ Dimension('repo_snapshot__is_primary') }}"
+    config:
+      meta:
+        metricId: oss_stars
+        tier: input
+        vertical: finance
+        industry: cross_industry

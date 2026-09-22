@@ -1,0 +1,157 @@
+# Metrics on this model: avg_tenure, employee_attrition_rate, headcount, headcount_by_dept, headcount_fte, headcount_vs_budget, rd_headcount, rd_headcount_pct, remote_work_rate, sales_headcount, span_of_control, stg_employee_row, stg_employees_count, training_hours_per_employee, turnover_rate, voluntary_turnover
+models:
+  - name: fct_employee_snapshots
+    description: 'One row per employee per snapshot date (status, employment type, department, location, FTE, manager). Snapshot
+      model: point-in-time measures take the latest snapshot in the period; the *_day measures are additive employee-days
+      used for period averages.'
+semantic_models:
+  - name: fct_employee_snapshots
+    description: 'One row per employee per snapshot date (status, employment type, department, location, FTE, manager). Snapshot
+      model: point-in-time measures take the latest snapshot in the period; the *_day measures are additive employee-days
+      used for period averages.'
+    model: ref('fct_employee_snapshots')
+    defaults:
+      agg_time_dimension: snapshot_date
+    entities:
+      - name: employee_snapshot
+        type: primary
+        expr: employee_snapshot_id
+      - name: employee
+        type: foreign
+        expr: employee_id
+      - name: company
+        type: foreign
+        expr: company_id
+      - name: manager
+        type: foreign
+        expr: manager_id
+    dimensions:
+      - name: snapshot_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: hire_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: department
+        type: categorical
+      - name: location
+        type: categorical
+      - name: job_level
+        type: categorical
+      - name: status
+        type: categorical
+      - name: employment_type
+        type: categorical
+      - name: work_arrangement
+        type: categorical
+      - name: carries_quota
+        type: categorical
+    measures:
+      - name: employee_snapshots_employee_count
+        agg: count
+        expr: employee_id
+        non_additive_dimension:
+          name: snapshot_date
+          window_choice: max
+        description: Employees on the latest snapshot in the period.
+      - name: avg_tenure_years
+        agg: average
+        expr: datediff('day', hire_date, snapshot_date) / 365.25
+        non_additive_dimension:
+          name: snapshot_date
+          window_choice: max
+        description: Average years since hire, on the latest snapshot in the period.
+      - name: fte_fraction
+        agg: sum
+        non_additive_dimension:
+          name: snapshot_date
+          window_choice: max
+        description: FTE on the latest snapshot in the period.
+      - name: employees_with_manager_count
+        agg: count
+        expr: manager_id
+        non_additive_dimension:
+          name: snapshot_date
+          window_choice: max
+        description: Employees with a manager (direct-report links) on the latest snapshot in the period.
+      - name: distinct_manager_count
+        agg: count_distinct
+        expr: manager_id
+        non_additive_dimension:
+          name: snapshot_date
+          window_choice: max
+        description: Distinct managers on the latest snapshot in the period.
+      - name: employee_day_count
+        agg: count
+        expr: employee_id
+        description: Employee-days across all snapshots in the period (additive).
+      - name: fte_day_sum
+        agg: sum
+        expr: fte_fraction
+        description: FTE-days across all snapshots in the period (additive).
+      - name: snapshot_day_count
+        agg: count_distinct
+        expr: snapshot_date
+        description: Snapshot dates in the period.
+metrics:
+  - name: active_headcount
+    label: active_headcount
+    description: Active employees (all employment types) on the latest snapshot in the period.
+    type: simple
+    type_params:
+      measure: employee_snapshots_employee_count
+    filter: "{{ Dimension('employee_snapshot__status') }} = 'active'"
+  - name: active_employee_days
+    label: active_employee_days
+    description: Active employee-days in the period.
+    type: simple
+    type_params:
+      measure: employee_day_count
+    filter: "{{ Dimension('employee_snapshot__status') }} = 'active'"
+  - name: active_fte_days
+    label: active_fte_days
+    description: Active FTE-days in the period.
+    type: simple
+    type_params:
+      measure: fte_day_sum
+    filter: "{{ Dimension('employee_snapshot__status') }} = 'active'"
+  - name: snapshot_days
+    label: snapshot_days
+    description: Snapshot dates in the period.
+    type: simple
+    type_params:
+      measure: snapshot_day_count
+  - name: avg_headcount
+    label: avg_headcount
+    description: Average active headcount over the period (employee-days / snapshot days).
+    type: derived
+    type_params:
+      expr: active_employee_days / snapshot_days
+      metrics:
+        - name: active_employee_days
+        - name: snapshot_days
+  - name: avg_fte
+    label: avg_fte
+    description: Average active FTE over the period (FTE-days / snapshot days).
+    type: derived
+    type_params:
+      expr: active_fte_days / snapshot_days
+      metrics:
+        - name: active_fte_days
+        - name: snapshot_days
+  - name: direct_reports
+    label: direct_reports
+    description: Active employees with a manager, on the latest snapshot in the period.
+    type: simple
+    type_params:
+      measure: employees_with_manager_count
+    filter: "{{ Dimension('employee_snapshot__status') }} = 'active'"
+  - name: manager_count
+    label: manager_count
+    description: Distinct managers of active employees, on the latest snapshot in the period.
+    type: simple
+    type_params:
+      measure: distinct_manager_count
+    filter: "{{ Dimension('employee_snapshot__status') }} = 'active'"

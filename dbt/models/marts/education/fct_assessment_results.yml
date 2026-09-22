@@ -1,0 +1,102 @@
+# Metrics on this model: ap_pass_rate, cost_per_outcome, district_proficiency_rate, ela_proficiency_rate, ell_proficiency_growth, grade3_reading, kinder_readiness, math_proficiency_rate, science_proficiency_rate, sgp, stg_student_assessment_row, student_growth_percentile, student_proficiency
+models:
+  - name: fct_assessment_results
+    description: One row per student assessment result (state tests, AP exams, kindergarten screening, ELL proficiency).
+semantic_models:
+  - name: fct_assessment_results
+    description: One row per student assessment result (state tests, AP exams, kindergarten screening, ELL proficiency).
+    model: ref('fct_assessment_results')
+    defaults:
+      agg_time_dimension: assessment_date
+    entities:
+      - name: assessment_result
+        type: primary
+        expr: assessment_result_id
+      - name: student
+        type: foreign
+        expr: student_id
+      - name: assessment
+        type: foreign
+        expr: assessment_id
+      - name: school
+        type: foreign
+        expr: school_id
+    dimensions:
+      - name: assessment_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: assessment_type
+        type: categorical
+      - name: subject
+        type: categorical
+      - name: grade_level
+        type: categorical
+      - name: school_year
+        type: categorical
+      - name: school_name
+        type: categorical
+      - name: subgroup
+        type: categorical
+      - name: academic_year
+        type: categorical
+      - name: home_language
+        type: categorical
+      - name: met_standard
+        type: categorical
+    measures:
+      - name: assessment_result_count
+        agg: count
+        expr: assessment_result_id
+        description: Assessment results.
+      - name: median_growth_percentile
+        agg: percentile
+        expr: growth_percentile
+        agg_params:
+          percentile: 0.5
+          use_discrete_percentile: false
+        description: Median student growth percentile.
+      - name: assessment_results_avg_score
+        agg: average
+        expr: score
+        description: Average raw score.
+      - name: ells_advanced
+        agg: sum
+        expr: case when proficiency_level_gain >= 1 then 1 else 0 end
+        description: Results with a gain of at least one proficiency level.
+metrics:
+  - name: students_tested
+    label: students_tested
+    description: State assessment results (student x subject).
+    type: simple
+    type_params:
+      measure: assessment_result_count
+    filter: "{{ Dimension('assessment_result__assessment_type') }} = 'state'"
+  - name: kindergarteners_screened
+    label: kindergarteners_screened
+    description: Kindergarten readiness screenings.
+    type: simple
+    type_params:
+      measure: assessment_result_count
+    filter: "{{ Dimension('assessment_result__assessment_type') }} = 'kinder_screening'"
+  - name: ap_exams_taken
+    label: ap_exams_taken
+    description: AP exams taken.
+    type: simple
+    type_params:
+      measure: assessment_result_count
+    filter: "{{ Dimension('assessment_result__assessment_type') }} = 'ap'"
+  - name: ell_students_assessed
+    label: ell_students_assessed
+    description: ELL proficiency assessments (one per ELL student per year).
+    type: simple
+    type_params:
+      measure: assessment_result_count
+    filter: "{{ Dimension('assessment_result__assessment_type') }} = 'ell'"
+  - name: ells_advanced
+    label: ells_advanced
+    description: ELL students gaining at least one proficiency level.
+    type: simple
+    type_params:
+      measure: ells_advanced
+    filter: "{{ Dimension('assessment_result__assessment_type') }} = 'ell'"

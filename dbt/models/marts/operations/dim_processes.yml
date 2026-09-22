@@ -1,0 +1,38 @@
+# Metrics on this model: process_automation_rate
+models:
+  - name: dim_processes
+    description: One row per catalogued business process and catalog snapshot date.
+semantic_models:
+  - name: dim_processes
+    description: One row per catalogued business process and catalog snapshot date.
+    model: ref('dim_processes')
+    defaults:
+      agg_time_dimension: as_of_date
+    entities:
+      - name: process
+        type: primary
+        expr: process_id
+    dimensions:
+      - name: as_of_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: department
+        type: categorical
+      - name: is_automated
+        type: categorical
+    measures:
+      - name: process_count
+        agg: count
+        expr: process_id
+        non_additive_dimension:
+          name: as_of_date
+          window_choice: max
+        description: 'Processes in the catalog as of the last snapshot in the period. Used by: process_automation_rate.'
+metrics:
+  - name: catalogued_processes
+    label: catalogued_processes
+    description: Processes in the catalog at the end of the period. Helper input for process_automation_rate.
+    type: simple
+    type_params:
+      measure: process_count

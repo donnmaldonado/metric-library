@@ -1,0 +1,14 @@
+metrics:
+  - name: organic_sessions
+    label: Organic Sessions
+    description: Web sessions from unpaid search (SEO) traffic.
+    type: simple
+    type_params:
+      measure: session_count
+    filter: "{{ Dimension('session__medium') }} = 'organic'"
+    config:
+      meta:
+        metricId: organic_sessions
+        tier: kpi
+        vertical: marketing
+        industry: cross_industry

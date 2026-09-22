@@ -1,0 +1,33 @@
+# Metrics on this model: ebitda_bridge_price, ebitda_bridge_volume
+models:
+  - name: fct_ebitda_bridge
+    description: One row per company, fiscal period and product line with current and prior price/volume components.
+semantic_models:
+  - name: fct_ebitda_bridge
+    description: One row per company, fiscal period and product line with current and prior price/volume components.
+    model: ref('fct_ebitda_bridge')
+    defaults:
+      agg_time_dimension: fiscal_period_start
+    entities:
+      - name: ebitda_bridge_line
+        type: primary
+        expr: ebitda_bridge_line_id
+      - name: company
+        type: foreign
+        expr: company_id
+    dimensions:
+      - name: fiscal_period_start
+        type: time
+        type_params:
+          time_granularity: day
+      - name: product_line
+        type: categorical
+    measures:
+      - name: ebitda_bridge_price_value
+        agg: sum
+        expr: (avg_price - prior_avg_price) * prior_volume
+        description: 'Used by: ebitda_bridge_price.'
+      - name: ebitda_bridge_volume_value
+        agg: sum
+        expr: (current_volume - prior_volume) * prior_avg_price
+        description: 'Used by: ebitda_bridge_volume.'

@@ -1,0 +1,13 @@
+metrics:
+  - name: avg_session_duration
+    label: Avg Session Duration
+    description: Average time users spend per session in the product.
+    type: simple
+    type_params:
+      measure: avg_duration_seconds
+    config:
+      meta:
+        metricId: avg_session_duration
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

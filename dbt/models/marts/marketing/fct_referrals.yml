@@ -1,0 +1,47 @@
+# Metrics on this model: viral_coefficient
+models:
+  - name: fct_referrals
+    description: One row per referral invite.
+semantic_models:
+  - name: fct_referrals
+    description: One row per referral invite.
+    model: ref('fct_referrals')
+    defaults:
+      agg_time_dimension: referral_date
+    entities:
+      - name: referral
+        type: primary
+        expr: referral_id
+      - name: user
+        type: foreign
+        expr: referrer_user_id
+    dimensions:
+      - name: referral_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: is_converted
+        type: categorical
+    measures:
+      - name: referral_invite_count
+        agg: count
+        expr: referral_id
+        description: 'Invites sent. Used by: viral_coefficient (through referral_conversions).'
+      - name: distinct_referrer_count
+        agg: count_distinct
+        expr: referrer_user_id
+        description: 'Users who sent at least one invite. Used by: viral_coefficient (through referring_users).'
+metrics:
+  - name: referral_conversions
+    label: referral_conversions
+    description: Helper input for viral_coefficient (invites that converted into a new customer).
+    type: simple
+    type_params:
+      measure: referral_invite_count
+    filter: "{{ Dimension('referral__is_converted') }}"
+  - name: referring_users
+    label: referring_users
+    description: Helper input for viral_coefficient (users who sent invites).
+    type: simple
+    type_params:
+      measure: distinct_referrer_count

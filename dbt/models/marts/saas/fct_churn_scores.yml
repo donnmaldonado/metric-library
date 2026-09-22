@@ -1,0 +1,31 @@
+# Metrics on this model: churn_prediction_score
+models:
+  - name: fct_churn_scores
+    description: One row per user and score date from the churn prediction model.
+semantic_models:
+  - name: fct_churn_scores
+    description: One row per user and score date from the churn prediction model.
+    model: ref('fct_churn_scores')
+    defaults:
+      agg_time_dimension: score_date
+    entities:
+      - name: churn_score
+        type: primary
+        expr: churn_score_id
+      - name: user
+        type: foreign
+        expr: user_id
+    dimensions:
+      - name: score_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: plan_tier
+        type: categorical
+      - name: cohort
+        type: categorical
+    measures:
+      - name: avg_churn_probability
+        agg: average
+        expr: churn_probability
+        description: 'Used by: churn_prediction_score.'

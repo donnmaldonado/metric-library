@@ -1,0 +1,16 @@
+metrics:
+  - name: remote_work_rate
+    label: Remote Work %
+    description: Percentage of employees on fully remote or hybrid schedules
+    type: ratio
+    type_params:
+      numerator:
+        name: active_headcount
+        filter: "{{ Dimension('employee_snapshot__work_arrangement') }} IN ('remote', 'hybrid')"
+      denominator: active_headcount
+    config:
+      meta:
+        metricId: remote_work_rate
+        tier: input
+        vertical: finance
+        industry: cross_industry

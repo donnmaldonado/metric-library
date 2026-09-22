@@ -1,0 +1,80 @@
+# Metrics on this model: cohort_churn, cohort_ltv_12m, cohort_ltv_24m, cohort_revenue_retention
+# Grain: one row per acquisition cohort x months_since_acquisition. Cohort-level columns (cohort_starting_size,
+# initial_cohort_revenue) repeat on every row and cumulative columns grow with the offset, so every metric here must be
+# filtered to, or grouped by, months_since_acquisition. The ltv metrics pin the offset in their filter.
+models:
+  - name: fct_customer_cohorts
+    description: One row per acquisition cohort and period offset (cohort size, retained customers, cohort revenue).
+semantic_models:
+  - name: fct_customer_cohorts
+    description: One row per acquisition cohort and months-since-acquisition offset (cohort size, churned customers, cohort revenue).
+    model: ref('fct_customer_cohorts')
+    defaults:
+      agg_time_dimension: cohort_start_date
+    entities:
+      - name: customer_cohort_period
+        type: primary
+        expr: customer_cohort_period_id
+    dimensions:
+      - name: cohort_start_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: cohort
+        type: categorical
+      - name: channel
+        type: categorical
+      - name: cohort_month
+        type: categorical
+      - name: months_since_acquisition
+        type: categorical
+      - name: segment
+        type: categorical
+    measures:
+      - name: customer_cohorts_cohort_starting_size
+        agg: sum
+        expr: cohort_starting_size
+        description: 'Customers in the cohort at acquisition (repeats per offset). Used by: cohort_churn, cohort_ltv_12m, cohort_ltv_24m.'
+      - name: cumulative_cohort_revenue
+        agg: sum
+        description: 'Revenue from the cohort from acquisition through this offset. Used by: cohort_ltv_12m, cohort_ltv_24m.'
+      - name: cohort_revenue
+        agg: sum
+        description: 'Revenue from the cohort in this month offset. Used by: cohort_revenue_retention.'
+      - name: initial_cohort_revenue
+        agg: sum
+        description: 'Revenue from the cohort in month 0 (repeats per offset). Used by: cohort_revenue_retention.'
+      - name: churned_users_in_cohort
+        agg: sum
+        description: 'Cohort customers churned from acquisition through this offset (cumulative). Used by: cohort_churn.'
+metrics:
+  - name: customer_cohorts_cohort_starting_size
+    label: customer_cohorts_cohort_starting_size
+    description: Helper input for cohort_churn, cohort_ltv_12m, cohort_ltv_24m.
+    type: simple
+    type_params:
+      measure: customer_cohorts_cohort_starting_size
+  - name: cumulative_cohort_revenue
+    label: cumulative_cohort_revenue
+    description: Helper input for cohort_ltv_12m, cohort_ltv_24m.
+    type: simple
+    type_params:
+      measure: cumulative_cohort_revenue
+  - name: cohort_revenue
+    label: cohort_revenue
+    description: Helper input for cohort_revenue_retention.
+    type: simple
+    type_params:
+      measure: cohort_revenue
+  - name: initial_cohort_revenue
+    label: initial_cohort_revenue
+    description: Helper input for cohort_revenue_retention.
+    type: simple
+    type_params:
+      measure: initial_cohort_revenue
+  - name: churned_users_in_cohort
+    label: churned_users_in_cohort
+    description: Helper input for cohort_churn.
+    type: simple
+    type_params:
+      measure: churned_users_in_cohort

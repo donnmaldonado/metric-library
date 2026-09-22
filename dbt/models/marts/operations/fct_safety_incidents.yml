@@ -1,0 +1,55 @@
+# Metrics on this model: safety_incident_rate, stg_safety_incident_row
+models:
+  - name: fct_safety_incidents
+    description: One row per workplace safety incident, plus one hours-worked row per facility and period.
+semantic_models:
+  - name: fct_safety_incidents
+    description: One row per workplace safety incident, plus one hours-worked row per facility and period.
+    model: ref('fct_safety_incidents')
+    defaults:
+      agg_time_dimension: incident_date
+    entities:
+      - name: safety_incident
+        type: primary
+        expr: safety_incident_id
+      - name: employee
+        type: foreign
+        expr: employee_id
+      - name: facility
+        type: foreign
+        expr: facility_id
+    dimensions:
+      - name: incident_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: incident_type
+        type: categorical
+      - name: severity
+        type: categorical
+      - name: department
+        type: categorical
+      - name: is_recordable
+        type: categorical
+    measures:
+      - name: safety_incidents_incident_count
+        agg: count
+        expr: incident_id
+        description: 'Incident rows (hours rows have no incident_id). Used by: safety_incident_rate, stg_safety_incident_row.'
+      - name: total_hours_worked
+        agg: sum
+        description: 'Employee-hours worked. Used by: safety_incident_rate.'
+metrics:
+  - name: recordable_incidents
+    label: recordable_incidents
+    description: OSHA recordable incidents in the period. Helper input for safety_incident_rate.
+    type: simple
+    type_params:
+      measure: safety_incidents_incident_count
+    filter: "{{ Dimension('safety_incident__is_recordable') }} = true"
+  - name: total_hours_worked
+    label: total_hours_worked
+    description: Employee-hours worked in the period. Helper input for safety_incident_rate.
+    type: simple
+    type_params:
+      measure: total_hours_worked

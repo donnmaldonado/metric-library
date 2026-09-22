@@ -1,0 +1,14 @@
+metrics:
+  - name: rev_from_existing
+    label: Existing Customer Revenue
+    description: Revenue from customers acquired prior to the current period
+    type: simple
+    type_params:
+      measure: revenue_amount
+    filter: "{{ Dimension('revenue_event__customer_age_days') }} > 90"
+    config:
+      meta:
+        metricId: rev_from_existing
+        tier: kpi
+        vertical: finance
+        industry: financial_services

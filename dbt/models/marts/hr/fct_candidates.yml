@@ -1,0 +1,61 @@
+# Metrics on this model: interview_to_offer_rate, offer_acceptance_rate, recruiting_pipeline, time_to_hire
+models:
+  - name: fct_candidates
+    description: One row per candidate application (stage reached, offer, acceptance).
+semantic_models:
+  - name: fct_candidates
+    description: One row per candidate application (stage reached, offer, acceptance).
+    model: ref('fct_candidates')
+    defaults:
+      agg_time_dimension: applied_date
+    entities:
+      - name: candidate
+        type: primary
+        expr: candidate_id
+      - name: requisition
+        type: foreign
+        expr: req_id
+    dimensions:
+      - name: applied_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: offer_accepted_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: department
+        type: categorical
+      - name: status
+        type: categorical
+      - name: reached_final_round
+        type: categorical
+      - name: offer_extended
+        type: categorical
+      - name: offer_accepted
+        type: categorical
+    measures:
+      - name: candidate_count
+        agg: count
+        expr: candidate_id
+        description: Candidate applications.
+      - name: avg_days_to_hire
+        agg: average
+        expr: datediff('day', applied_date, offer_accepted_date)
+        agg_time_dimension: offer_accepted_date
+        description: Average days from application to accepted offer, dated on acceptance.
+metrics:
+  - name: final_round_interviews
+    label: final_round_interviews
+    description: Applications that reached the final interview round.
+    type: simple
+    type_params:
+      measure: candidate_count
+    filter: "{{ Dimension('candidate__reached_final_round') }} = true"
+  - name: offers_extended
+    label: offers_extended
+    description: Applications that received an offer.
+    type: simple
+    type_params:
+      measure: candidate_count
+    filter: "{{ Dimension('candidate__offer_extended') }} = true"

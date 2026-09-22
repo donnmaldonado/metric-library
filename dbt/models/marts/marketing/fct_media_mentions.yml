@@ -1,0 +1,29 @@
+# Metrics on this model: earned_media_value, pr_mentions
+models:
+  - name: fct_media_mentions
+    description: One row per earned media mention.
+semantic_models:
+  - name: fct_media_mentions
+    description: One row per earned media mention.
+    model: ref('fct_media_mentions')
+    defaults:
+      agg_time_dimension: mention_date
+    entities:
+      - name: media_mention
+        type: primary
+        expr: media_mention_id
+    dimensions:
+      - name: mention_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: outlet
+        type: categorical
+    measures:
+      - name: estimated_media_value
+        agg: sum
+        description: 'Used by: earned_media_value.'
+      - name: mention_count
+        agg: count
+        expr: media_mention_id
+        description: 'Used by: pr_mentions.'

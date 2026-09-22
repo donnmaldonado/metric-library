@@ -1,0 +1,13 @@
+name: metric_library
+version: "1.0.0"
+profile: metric_library
+config-version: 2
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+macro-paths: ["macros"]
+clean-targets: ["target", "dbt_packages", "logs"]
+
+models:
+  metric_library:
+    +materialized: view

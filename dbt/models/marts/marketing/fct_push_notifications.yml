@@ -1,0 +1,45 @@
+# Metrics on this model: push_open_rate
+models:
+  - name: fct_push_notifications
+    description: One row per push notification sent.
+semantic_models:
+  - name: fct_push_notifications
+    description: One row per push notification sent.
+    model: ref('fct_push_notifications')
+    defaults:
+      agg_time_dimension: sent_date
+    entities:
+      - name: push_notification
+        type: primary
+        expr: push_notification_id
+    dimensions:
+      - name: sent_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: campaign_name
+        type: categorical
+      - name: is_delivered
+        type: categorical
+      - name: is_opened
+        type: categorical
+    measures:
+      - name: push_notification_count
+        agg: count
+        expr: push_notification_id
+        description: 'Push notifications sent. Used by: push_open_rate (through the helpers below).'
+metrics:
+  - name: push_notifications_delivered
+    label: push_notifications_delivered
+    description: Helper input for push_open_rate (delivered notifications).
+    type: simple
+    type_params:
+      measure: push_notification_count
+    filter: "{{ Dimension('push_notification__is_delivered') }}"
+  - name: push_notifications_opened
+    label: push_notifications_opened
+    description: Helper input for push_open_rate (delivered notifications that were opened).
+    type: simple
+    type_params:
+      measure: push_notification_count
+    filter: "{{ Dimension('push_notification__is_delivered') }} AND {{ Dimension('push_notification__is_opened') }}"

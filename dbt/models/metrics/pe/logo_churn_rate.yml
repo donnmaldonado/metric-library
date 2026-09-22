@@ -1,0 +1,15 @@
+metrics:
+  - name: logo_churn_rate
+    label: Logo Churn Rate
+    description: '% of customer accounts lost in a period regardless of ARR value.'
+    type: derived
+    type_params:
+      expr: customer_churn_rate
+      metrics:
+        - name: customer_churn_rate
+    config:
+      meta:
+        metricId: logo_churn_rate
+        tier: kpi
+        vertical: pe
+        industry: saas

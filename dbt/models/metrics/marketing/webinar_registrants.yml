@@ -1,0 +1,14 @@
+metrics:
+  - name: webinar_registrants
+    label: Webinar Registrants
+    description: Total registrations across all webinars in the period
+    type: simple
+    type_params:
+      measure: registration_count
+    filter: "{{ Dimension('event_registration__event_type') }} = 'webinar'"
+    config:
+      meta:
+        metricId: webinar_registrants
+        tier: input
+        vertical: marketing
+        industry: cross_industry

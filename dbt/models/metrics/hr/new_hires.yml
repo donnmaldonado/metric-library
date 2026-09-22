@@ -1,0 +1,14 @@
+metrics:
+  - name: new_hires
+    label: New Hires
+    description: Number of employees who started in the period
+    type: simple
+    type_params:
+      measure: hire_count
+    filter: "{{ Dimension('hire__hire_type') }} = 'external'"
+    config:
+      meta:
+        metricId: new_hires
+        tier: input
+        vertical: hr
+        industry: cross_industry

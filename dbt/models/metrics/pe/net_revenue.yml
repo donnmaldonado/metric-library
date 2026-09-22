@@ -1,0 +1,17 @@
+metrics:
+  - name: net_revenue
+    label: Net Revenue
+    description: Gross revenue minus returns, allowances, and discounts
+    type: derived
+    type_params:
+      expr: gross_revenue - order_returns - order_discounts
+      metrics:
+        - name: gross_revenue
+        - name: order_returns
+        - name: order_discounts
+    config:
+      meta:
+        metricId: net_revenue
+        tier: kpi
+        vertical: pe
+        industry: saas

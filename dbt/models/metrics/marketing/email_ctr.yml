@@ -1,0 +1,15 @@
+metrics:
+  - name: email_ctr
+    label: Email CTR
+    description: Percentage of delivered emails that received a click
+    type: derived
+    type_params:
+      expr: email_click_rate
+      metrics:
+        - name: email_click_rate
+    config:
+      meta:
+        metricId: email_ctr
+        tier: kpi
+        vertical: marketing
+        industry: cross_industry

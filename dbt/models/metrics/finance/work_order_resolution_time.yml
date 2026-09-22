@@ -1,0 +1,14 @@
+metrics:
+  - name: work_order_resolution_time
+    label: Work Order Resolution Time
+    description: Average days to close a maintenance work order from creation.
+    type: simple
+    type_params:
+      measure: avg_resolution_days
+    filter: "{{ Dimension('work_order__status') }} = 'completed'"
+    config:
+      meta:
+        metricId: work_order_resolution_time
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

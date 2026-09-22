@@ -1,0 +1,98 @@
+# Metrics on this model: asp, implementation_revenue, license_revenue, partner_revenue, partner_revenue_pct, prior_year_revenue, q1_revenue, q2_revenue, q3_revenue, q4_revenue, recognized_revenue, rev_from_existing, rev_from_new_customers, revenue, revenue_by_channel, revenue_by_product, revenue_by_region, revenue_per_account, revenue_vs_py, revenue_ytd, services_revenue, stg_revenue_event_amount, subscription_revenue, total_revenue
+# Canonical revenue column: recognized_revenue (also read by the commerce/operations SQL). Canonical measure:
+# revenue_amount = sum(recognized_revenue). The `revenue` metric is the canonical revenue metric; total_revenue,
+# recognized_revenue, stg_revenue_event_amount and revenue_by_* are derived aliases of it.
+# Columns amount, revenue_amount, recognized_amount, active_accounts, current_revenue are unused
+# synonyms; no measure uses them.
+models:
+  - name: fct_revenue
+    description: One row per recognized revenue event (order, subscription or services revenue line).
+semantic_models:
+  - name: fct_revenue
+    description: One row per recognized revenue event (order, subscription or services revenue line).
+    model: ref('fct_revenue')
+    defaults:
+      agg_time_dimension: recognized_date
+    entities:
+      - name: revenue_event
+        type: primary
+        expr: revenue_event_id
+      - name: company
+        type: foreign
+        expr: company_id
+      - name: order
+        type: foreign
+        expr: order_id
+      - name: customer
+        type: foreign
+        expr: customer_id
+      - name: product
+        type: foreign
+        expr: product_id
+    dimensions:
+      - name: recognized_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: region
+        type: categorical
+      - name: product_line
+        type: categorical
+      - name: channel
+        type: categorical
+      - name: customer_age_days
+        type: categorical
+      - name: product_name
+        type: categorical
+      - name: revenue_type
+        type: categorical
+      - name: partner
+        type: categorical
+      - name: source_type
+        type: categorical
+      - name: geography
+        type: categorical
+      - name: fiscal_year
+        type: categorical
+      - name: client_name
+        type: categorical
+      - name: plan_tier
+        type: categorical
+      - name: fiscal_quarter
+        type: categorical
+      - name: segment
+        type: categorical
+    measures:
+      - name: revenue_amount
+        agg: sum
+        expr: recognized_revenue
+        description: Recognized revenue (canonical revenue measure). Used by revenue and the filtered revenue-stream metrics.
+      - name: revenue_units_sold
+        agg: sum
+        expr: units_sold
+        description: 'Used by: asp.'
+      - name: revenue_distinct_customer_count
+        agg: count_distinct
+        expr: customer_id
+        description: Accounts with recognized revenue in the period. Used by revenue_per_account.
+metrics:
+  - name: revenue_units_sold
+    label: revenue_units_sold
+    description: Helper input for asp.
+    type: simple
+    type_params:
+      measure: revenue_units_sold
+  - name: revenue_distinct_customer_count
+    label: revenue_distinct_customer_count
+    description: Helper input for revenue_per_account (accounts with revenue in the period).
+    type: simple
+    type_params:
+      measure: revenue_distinct_customer_count
+  - name: revenue_ttm
+    label: revenue_ttm
+    description: Helper input for dso and ebitda_ttm. Trailing twelve months of recognized revenue.
+    type: cumulative
+    type_params:
+      measure: revenue_amount
+      cumulative_type_params:
+        window: 12 months

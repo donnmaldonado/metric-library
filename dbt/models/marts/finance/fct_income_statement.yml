@@ -1,0 +1,118 @@
+# Metrics on this model: bad_debt_rate, capex_pct_revenue, debt_ebitda, ebit, ebitda, ebitda_margin, effective_tax_rate, ev_ebitda, gna_pct_revenue, gross_margin, gross_margin_by_segment, gross_margin_pct, gross_profit, gross_profit_per_employee, hr_cost_pct_revenue, interest_coverage, interest_coverage_ratio, leverage_ratio, net_income, net_income_margin, net_margin, ops_efficiency_ratio, rd_as_pct_revenue, return_on_assets, return_on_equity, revenue_growth_rate, revenue_per_employee, roa, roe, roic, rule_of_40
+# Revenue, COGS, opex and D&A come from fct_revenue, fct_gl_entries and fct_fixed_asset_entries (library metrics
+# revenue, cogs, opex, da); this model carries the P&L lines below EBIT plus a few period totals.
+# Columns operating_expenses, shareholders_equity, revenue_growth_pct, ebitda_margin_pct, gna_expense,
+# prior_period_revenue, fte_headcount are unused by any measure.
+models:
+  - name: fct_income_statement
+    description: One row per company, fiscal period and P&L segment (income statement lines pivoted to columns).
+semantic_models:
+  - name: fct_income_statement
+    description: One row per company, fiscal period and P&L segment (income statement lines pivoted to columns).
+    model: ref('fct_income_statement')
+    defaults:
+      agg_time_dimension: fiscal_period_start
+    entities:
+      - name: financial_period
+        type: primary
+        expr: financial_period_id
+      - name: company
+        type: foreign
+        expr: company_id
+    dimensions:
+      - name: fiscal_period_start
+        type: time
+        type_params:
+          time_granularity: day
+      - name: segment
+        type: categorical
+      - name: jurisdiction
+        type: categorical
+      - name: product_line
+        type: categorical
+      - name: channel
+        type: categorical
+      - name: department
+        type: categorical
+    measures:
+      - name: net_income
+        agg: sum
+        description: 'Used by: net_income.'
+      - name: income_tax_expense
+        agg: sum
+        description: 'Used by: effective_tax_rate.'
+      - name: pretax_income
+        agg: sum
+        description: 'Used by: effective_tax_rate.'
+      - name: interest_expense
+        agg: sum
+        description: 'Used by: interest_coverage_ratio.'
+      - name: nopat
+        agg: sum
+        description: 'Used by: roic.'
+      - name: invested_capital
+        agg: sum
+        non_additive_dimension:
+          name: fiscal_period_start
+          window_choice: max
+        description: 'Invested capital is a balance: take the latest period in the window. Used by: roic.'
+      - name: bad_debt_writeoffs
+        agg: sum
+        description: 'Used by: bad_debt_rate.'
+      - name: hr_total_cost
+        agg: sum
+        description: 'Used by: hr_cost_pct_revenue.'
+metrics:
+  - name: income_tax_expense
+    label: income_tax_expense
+    description: Helper input for effective_tax_rate.
+    type: simple
+    type_params:
+      measure: income_tax_expense
+  - name: pretax_income
+    label: pretax_income
+    description: Helper input for effective_tax_rate.
+    type: simple
+    type_params:
+      measure: pretax_income
+  - name: interest_expense
+    label: interest_expense
+    description: Helper input for interest_coverage_ratio.
+    type: simple
+    type_params:
+      measure: interest_expense
+  - name: nopat
+    label: nopat
+    description: Helper input for roic.
+    type: simple
+    type_params:
+      measure: nopat
+  - name: invested_capital
+    label: invested_capital
+    description: Helper input for roic.
+    type: simple
+    type_params:
+      measure: invested_capital
+  - name: bad_debt_writeoffs
+    label: bad_debt_writeoffs
+    description: Helper input for bad_debt_rate.
+    type: simple
+    type_params:
+      measure: bad_debt_writeoffs
+  - name: hr_total_cost
+    label: hr_total_cost
+    description: Helper input for hr_cost_pct_revenue.
+    type: simple
+    type_params:
+      measure: hr_total_cost
+  - name: ebitda_ttm
+    label: ebitda_ttm
+    description: Helper input for debt_ebitda, leverage_ratio, ev_ebitda. Trailing twelve-month EBITDA (revenue - COGS - opex + D&A).
+    type: derived
+    type_params:
+      expr: revenue_ttm - cogs_ttm - opex_ttm + da_ttm
+      metrics:
+        - name: revenue_ttm
+        - name: cogs_ttm
+        - name: opex_ttm
+        - name: da_ttm

@@ -1,0 +1,33 @@
+# Metrics on this model: burn_rate, free_cash_flow, operating_cash_flow, runway_months
+# burn_rate_value is the period's net cash change (beginning - ending cash): a flow, so it is additive over periods
+# (a quarter's burn is the sum of its months). Columns cash_on_hand, monthly_burn_rate are unused; runway uses
+# cash_and_equivalents (balance sheet) / burn_rate.
+models:
+  - name: fct_cash_flow
+    description: One row per company and period of the cash flow statement, including cash position.
+semantic_models:
+  - name: fct_cash_flow
+    description: One row per company and period of the cash flow statement, including cash position.
+    model: ref('fct_cash_flow')
+    defaults:
+      agg_time_dimension: period_start
+    entities:
+      - name: cash_flow_period
+        type: primary
+        expr: cash_flow_period_id
+      - name: company
+        type: foreign
+        expr: company_id
+    dimensions:
+      - name: period_start
+        type: time
+        type_params:
+          time_granularity: day
+    measures:
+      - name: operating_cash_flow
+        agg: sum
+        description: 'Used by: operating_cash_flow.'
+      - name: burn_rate_value
+        agg: sum
+        expr: beginning_cash - ending_cash
+        description: 'Net cash outflow in the period. Used by: burn_rate.'

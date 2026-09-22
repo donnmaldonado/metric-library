@@ -1,0 +1,17 @@
+metrics:
+  - name: fafsa_completion_rate
+    label: FAFSA Completion Rate
+    description: '% of 12th graders who complete the FAFSA — college access predictor.'
+    type: ratio
+    type_params:
+      numerator:
+        name: cohort_students
+        filter: "{{ Dimension('student_cohort_outcome__completed_fafsa') }} = true"
+      denominator: cohort_students
+    filter: "{{ Dimension('student_cohort_outcome__reached_grade_12') }} = true"
+    config:
+      meta:
+        metricId: fafsa_completion_rate
+        tier: kpi
+        vertical: edu
+        industry: education

@@ -1,0 +1,45 @@
+# Metrics on this model: sla_compliance_rate
+models:
+  - name: fct_sla_events
+    description: One row per SLA-tracked service event.
+semantic_models:
+  - name: fct_sla_events
+    description: One row per SLA-tracked service event.
+    model: ref('fct_sla_events')
+    defaults:
+      agg_time_dimension: event_date
+    entities:
+      - name: sla_event
+        type: primary
+        expr: sla_event_id
+      - name: client
+        type: foreign
+        expr: client_id
+    dimensions:
+      - name: event_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: service_type
+        type: categorical
+      - name: is_sla_met
+        type: categorical
+    measures:
+      - name: sla_event_count
+        agg: count
+        expr: sla_event_id
+        description: 'SLA-tracked events, by event date. Used by: sla_met_count, total_sla_events.'
+metrics:
+  - name: sla_met_count
+    label: sla_met_count
+    description: Helper input for sla_compliance_rate.
+    type: simple
+    type_params:
+      measure: sla_event_count
+    filter: "{{ Dimension('sla_event__is_sla_met') }} = true"
+  - name: total_sla_events
+    label: total_sla_events
+    description: Helper input for sla_compliance_rate.
+    type: simple
+    type_params:
+      measure: sla_event_count

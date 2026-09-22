@@ -1,0 +1,14 @@
+metrics:
+  - name: bad_debt_rate
+    label: Bad Debt Rate
+    description: '% of revenue written off as uncollectible bad debt.'
+    type: ratio
+    type_params:
+      numerator: bad_debt_writeoffs
+      denominator: revenue
+    config:
+      meta:
+        metricId: bad_debt_rate
+        tier: kpi
+        vertical: marketing
+        industry: cross_industry

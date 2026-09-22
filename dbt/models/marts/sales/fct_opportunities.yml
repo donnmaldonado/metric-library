@@ -1,0 +1,124 @@
+# Metrics on this model: avg_deal_size, avg_sales_cycle, competitive_win_rate, expansion_pipeline, marketing_influenced_pipeline, organic_attribution_pct, paid_attribution_pct, pipeline_generated, pipeline_value, referral_attribution_pct, sales_cycle_by_segment, sales_cycle_length, stg_opportunities_count, stg_opportunity_row, win_rate
+# Measures timed on close_date (won/closed deals, cycle lengths) set agg_time_dimension: close_date, so metric_time is the close month.
+models:
+  - name: fct_opportunities
+    description: One row per CRM opportunity, with pipeline attribution flags.
+semantic_models:
+  - name: fct_opportunities
+    description: One row per CRM opportunity, with pipeline attribution flags.
+    model: ref('fct_opportunities')
+    defaults:
+      agg_time_dimension: created_date
+    entities:
+      - name: opportunity
+        type: primary
+        expr: opportunity_id
+      - name: rep
+        type: foreign
+        expr: rep_id
+      - name: account
+        type: foreign
+        expr: account_id
+    dimensions:
+      - name: created_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: close_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: first_touch_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: channel
+        type: categorical
+      - name: is_new
+        type: categorical
+      - name: segment
+        type: categorical
+      - name: product_name
+        type: categorical
+      - name: stage
+        type: categorical
+      - name: csm
+        type: categorical
+      - name: opportunity_type
+        type: categorical
+      - name: campaign_name
+        type: categorical
+      - name: marketing_touched
+        type: categorical
+      - name: deal_size_tier
+        type: categorical
+      - name: source
+        type: categorical
+      - name: competitor
+        type: categorical
+      - name: is_closed
+        type: categorical
+      - name: is_won
+        type: categorical
+      - name: is_qualified
+        type: categorical
+    measures:
+      - name: opportunity_value
+        agg: sum
+        description: 'Total opportunity value, by creation date. Used by: pipeline_generated.'
+      - name: opportunities_arr_value
+        agg: sum
+        expr: arr_value
+        description: 'Opportunity ARR, by creation date. Used by: expansion_pipeline, marketing_influenced_pipeline, pipeline_value, stg_opportunity_row, total_pipeline.'
+      - name: opportunity_count
+        agg: count
+        expr: opportunity_id
+        description: 'Opportunities, by creation date. Used by: stg_opportunities_count.'
+      - name: closed_opportunity_arr
+        agg: sum
+        expr: arr_value
+        agg_time_dimension: close_date
+        description: 'Opportunity ARR, by close date. Used by: closed_won_arr.'
+      - name: closed_opportunity_count
+        agg: count
+        expr: opportunity_id
+        agg_time_dimension: close_date
+        description: 'Opportunities, by close date. Used by: closed_won_deals, closed_deals.'
+      - name: avg_sales_cycle_value
+        agg: average
+        expr: datediff('day', created_date, close_date)
+        agg_time_dimension: close_date
+        description: 'Days from opportunity creation to close, by close date. Used by: avg_sales_cycle.'
+      - name: avg_days_to_close
+        agg: average
+        expr: datediff('day', first_touch_date, close_date)
+        agg_time_dimension: close_date
+        description: 'Days from first touch to close, by close date. Used by: sales_cycle_length.'
+metrics:
+  - name: total_pipeline
+    label: total_pipeline
+    description: Helper input for organic_attribution_pct, paid_attribution_pct, referral_attribution_pct (all opportunity ARR by creation date).
+    type: simple
+    type_params:
+      measure: opportunities_arr_value
+  - name: closed_won_arr
+    label: closed_won_arr
+    description: Helper input for avg_deal_size (ARR of closed-won opportunities by close date).
+    type: simple
+    type_params:
+      measure: closed_opportunity_arr
+    filter: "{{ Dimension('opportunity__is_won') }} = true"
+  - name: closed_won_deals
+    label: closed_won_deals
+    description: Helper input for avg_deal_size, competitive_win_rate, win_rate (closed-won opportunities by close date).
+    type: simple
+    type_params:
+      measure: closed_opportunity_count
+    filter: "{{ Dimension('opportunity__is_won') }} = true"
+  - name: closed_deals
+    label: closed_deals
+    description: Helper input for competitive_win_rate, win_rate (closed won + closed lost opportunities by close date).
+    type: simple
+    type_params:
+      measure: closed_opportunity_count
+    filter: "{{ Dimension('opportunity__is_closed') }} = true"

@@ -1,0 +1,16 @@
+metrics:
+  - name: d30_retention
+    label: D30 Retention
+    description: Percentage of new users still active 30 days after signup
+    type: ratio
+    type_params:
+      numerator:
+        name: new_user_signups
+        filter: "{{ Dimension('user__is_retained_d30') }}"
+      denominator: new_user_signups
+    config:
+      meta:
+        metricId: d30_retention
+        tier: kpi
+        vertical: product
+        industry: cross_industry

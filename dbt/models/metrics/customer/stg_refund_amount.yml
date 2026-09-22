@@ -1,0 +1,13 @@
+metrics:
+  - name: stg_refund_amount
+    label: Refund Amount
+    description: Total refund value in staging
+    type: simple
+    type_params:
+      measure: refund_amount
+    config:
+      meta:
+        metricId: stg_refund_amount
+        tier: input
+        vertical: customer
+        industry: retail

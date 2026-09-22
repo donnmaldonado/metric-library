@@ -1,0 +1,14 @@
+metrics:
+  - name: content_published_count
+    label: Content Published (content_published_count)
+    description: Count of content assets published in the period (blogs, whitepapers, videos).
+    type: simple
+    type_params:
+      measure: content_asset_count
+    filter: "{{ Dimension('content_asset__status') }} = 'published'"
+    config:
+      meta:
+        metricId: content_published_count
+        tier: input
+        vertical: marketing
+        industry: cross_industry

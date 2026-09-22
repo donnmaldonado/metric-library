@@ -1,0 +1,16 @@
+metrics:
+  - name: on_time_lesson_delivery
+    label: On-Time Lesson Delivery
+    description: '% of planned lessons delivered on schedule per teacher or classroom.'
+    type: ratio
+    type_params:
+      numerator:
+        name: planned_lessons
+        filter: "{{ Dimension('lesson__delivered_on_time') }} = true"
+      denominator: planned_lessons
+    config:
+      meta:
+        metricId: on_time_lesson_delivery
+        tier: input
+        vertical: finance
+        industry: cross_industry

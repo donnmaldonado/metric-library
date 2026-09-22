@@ -1,0 +1,37 @@
+# Metrics on this model: employee_attrition_rate, regrettable_attrition, separations, turnover_rate, voluntary_turnover
+models:
+  - name: fct_separations
+    description: One row per employee separation (type, regrettable flag).
+semantic_models:
+  - name: fct_separations
+    description: One row per employee separation (type, regrettable flag).
+    model: ref('fct_separations')
+    defaults:
+      agg_time_dimension: separation_date
+    entities:
+      - name: separation
+        type: primary
+        expr: separation_id
+      - name: employee
+        type: foreign
+        expr: employee_id
+    dimensions:
+      - name: separation_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: department
+        type: categorical
+      - name: job_level
+        type: categorical
+      - name: location
+        type: categorical
+      - name: separation_type
+        type: categorical
+      - name: is_regrettable
+        type: categorical
+    measures:
+      - name: separations_employee_count
+        agg: count
+        expr: employee_id
+        description: Separations in the period.

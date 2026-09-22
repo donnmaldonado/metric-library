@@ -1,0 +1,16 @@
+metrics:
+  - name: regrettable_attrition
+    label: Regrettable Attrition %
+    description: Percentage of turnover classified as regrettable by management
+    type: ratio
+    type_params:
+      numerator:
+        name: separations
+        filter: "{{ Dimension('separation__is_regrettable') }} = true"
+      denominator: separations
+    config:
+      meta:
+        metricId: regrettable_attrition
+        tier: kpi
+        vertical: hr
+        industry: cross_industry

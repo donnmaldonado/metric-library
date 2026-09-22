@@ -1,0 +1,40 @@
+# Metrics on this model: change_failure_rate, deployment_frequency, lead_time_for_changes
+models:
+  - name: fct_deployments
+    description: One row per deployment.
+semantic_models:
+  - name: fct_deployments
+    description: One row per deployment.
+    model: ref('fct_deployments')
+    defaults:
+      agg_time_dimension: deployed_date
+    entities:
+      - name: deployment
+        type: primary
+        expr: deployment_id
+    dimensions:
+      - name: deployed_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: team
+        type: categorical
+      - name: service
+        type: categorical
+      - name: environment
+        type: categorical
+      - name: is_failed
+        type: categorical
+        description: True when the deployment caused a production incident, rollback or hotfix.
+    measures:
+      - name: median_lead_time_hours
+        agg: percentile
+        expr: lead_time_hours
+        agg_params:
+          percentile: 0.5
+          use_discrete_percentile: false
+        description: 'Hours from commit to deploy. Used by: lead_time_for_changes.'
+      - name: deployment_count
+        agg: count
+        expr: deployment_id
+        description: 'Used by: deployment_frequency (and change_failure_rate through it).'

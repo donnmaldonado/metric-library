@@ -1,0 +1,41 @@
+# Metrics on this model: on_time_lesson_delivery
+models:
+  - name: fct_lessons
+    description: One row per planned lesson (delivered on schedule or not).
+semantic_models:
+  - name: fct_lessons
+    description: One row per planned lesson (delivered on schedule or not).
+    model: ref('fct_lessons')
+    defaults:
+      agg_time_dimension: planned_date
+    entities:
+      - name: lesson
+        type: primary
+        expr: lesson_id
+      - name: teacher
+        type: foreign
+        expr: teacher_id
+      - name: school
+        type: foreign
+        expr: school_id
+    dimensions:
+      - name: planned_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: subject
+        type: categorical
+      - name: delivered_on_time
+        type: categorical
+    measures:
+      - name: lesson_count
+        agg: count
+        expr: lesson_id
+        description: Planned lessons.
+metrics:
+  - name: planned_lessons
+    label: planned_lessons
+    description: Planned lessons.
+    type: simple
+    type_params:
+      measure: lesson_count

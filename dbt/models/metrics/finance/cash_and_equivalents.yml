@@ -1,0 +1,13 @@
+metrics:
+  - name: cash_and_equivalents
+    label: Cash & Equivalents
+    description: Cash on hand and liquid short-term instruments
+    type: simple
+    type_params:
+      measure: cash_balance
+    config:
+      meta:
+        metricId: cash_and_equivalents
+        tier: input
+        vertical: finance
+        industry: cross_industry

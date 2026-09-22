@@ -1,0 +1,14 @@
+metrics:
+  - name: per_pupil_expenditure
+    label: Per Pupil Expenditure
+    description: Total operating spend divided by average daily membership.
+    type: ratio
+    type_params:
+      numerator: total_expenditure
+      denominator: avg_daily_membership
+    config:
+      meta:
+        metricId: per_pupil_expenditure
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

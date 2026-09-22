@@ -1,0 +1,15 @@
+metrics:
+  - name: competitive_win_rate
+    label: Competitive Win %
+    description: Win rate in deals that involved a named competitor
+    type: ratio
+    type_params:
+      numerator: closed_won_deals
+      denominator: closed_deals
+    filter: "{{ Dimension('opportunity__competitor') }} is not null"
+    config:
+      meta:
+        metricId: competitive_win_rate
+        tier: input
+        vertical: hr
+        industry: cross_industry

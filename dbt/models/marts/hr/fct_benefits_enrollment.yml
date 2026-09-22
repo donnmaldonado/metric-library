@@ -1,0 +1,44 @@
+# Metrics on this model: benefits_utilization
+models:
+  - name: fct_benefits_enrollment
+    description: One row per employee per benefits snapshot date (eligibility and active use).
+semantic_models:
+  - name: fct_benefits_enrollment
+    description: One row per employee per benefits snapshot date (eligibility and active use).
+    model: ref('fct_benefits_enrollment')
+    defaults:
+      agg_time_dimension: as_of_date
+    entities:
+      - name: benefits_enrollment
+        type: primary
+        expr: benefits_enrollment_id
+      - name: employee
+        type: foreign
+        expr: employee_id
+    dimensions:
+      - name: as_of_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: plan_year
+        type: categorical
+      - name: is_eligible
+        type: categorical
+      - name: is_active_user
+        type: categorical
+    measures:
+      - name: benefits_employee_count
+        agg: count
+        expr: employee_id
+        non_additive_dimension:
+          name: as_of_date
+          window_choice: max
+        description: Employees on the latest benefits snapshot.
+metrics:
+  - name: eligible_employees
+    label: eligible_employees
+    description: Benefits-eligible employees on the latest snapshot.
+    type: simple
+    type_params:
+      measure: benefits_employee_count
+    filter: "{{ Dimension('benefits_enrollment__is_eligible') }} = true"

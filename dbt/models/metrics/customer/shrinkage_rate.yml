@@ -1,0 +1,18 @@
+metrics:
+  - name: shrinkage_rate
+    label: Shrinkage Rate
+    description: Inventory lost to theft, damage, or administrative error as a percentage of stock
+    type: derived
+    type_params:
+      expr: inventory_shrinkage / beginning_inventory_value
+      metrics:
+        - name: inventory_shrinkage
+        - name: inventory_value
+          offset_window: 1 month
+          alias: beginning_inventory_value
+    config:
+      meta:
+        metricId: shrinkage_rate
+        tier: input
+        vertical: customer
+        industry: retail

@@ -1,0 +1,52 @@
+# Metrics on this model: acv, bookings, committed_arr, contracted_unbilled
+models:
+  - name: fct_contracts
+    description: One row per signed customer contract.
+semantic_models:
+  - name: fct_contracts
+    description: One row per signed customer contract.
+    model: ref('fct_contracts')
+    defaults:
+      agg_time_dimension: signed_date
+    entities:
+      - name: contract
+        type: primary
+        expr: contract_id
+    dimensions:
+      - name: signed_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: start_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: segment
+        type: categorical
+      - name: product_tier
+        type: categorical
+      - name: channel
+        type: categorical
+      - name: billed
+        type: categorical
+      - name: status
+        type: categorical
+    measures:
+      - name: contract_arr
+        agg: sum
+        description: 'Contract ARR, by signed date. Used by: bookings, committed_arr.'
+      - name: contract_count
+        agg: count
+        expr: contract_id
+        description: 'Contracts signed, by signed date. Used by: acv.'
+      - name: unbilled_contract_arr
+        agg: sum
+        expr: contract_arr - coalesce(billed_amount, 0)
+        description: 'Contract ARR not yet invoiced. Used by: contracted_unbilled.'
+metrics:
+  - name: contract_count
+    label: contract_count
+    description: Helper input for acv.
+    type: simple
+    type_params:
+      measure: contract_count

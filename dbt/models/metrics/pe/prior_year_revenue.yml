@@ -1,0 +1,16 @@
+metrics:
+  - name: prior_year_revenue
+    label: PY Revenue
+    description: Full-year revenue from the prior fiscal year
+    type: derived
+    type_params:
+      expr: revenue
+      metrics:
+        - name: revenue
+          offset_window: 1 year
+    config:
+      meta:
+        metricId: prior_year_revenue
+        tier: input
+        vertical: pe
+        industry: saas

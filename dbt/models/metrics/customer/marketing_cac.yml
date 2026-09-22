@@ -1,0 +1,14 @@
+metrics:
+  - name: marketing_cac
+    label: Marketing CAC
+    description: Total marketing spend divided by new customers acquired
+    type: ratio
+    type_params:
+      numerator: marketing_spend
+      denominator: new_customers_acquired
+    config:
+      meta:
+        metricId: marketing_cac
+        tier: kpi
+        vertical: customer
+        industry: cross_industry

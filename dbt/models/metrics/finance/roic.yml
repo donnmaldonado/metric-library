@@ -1,0 +1,14 @@
+metrics:
+  - name: roic
+    label: ROIC
+    description: NOPAT divided by invested capital
+    type: ratio
+    type_params:
+      numerator: nopat
+      denominator: invested_capital
+    config:
+      meta:
+        metricId: roic
+        tier: kpi
+        vertical: finance
+        industry: financial_services

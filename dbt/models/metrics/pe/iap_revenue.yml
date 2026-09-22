@@ -1,0 +1,14 @@
+metrics:
+  - name: iap_revenue
+    label: IAP Revenue
+    description: Revenue from in-app purchases made by users
+    type: simple
+    type_params:
+      measure: purchase_amount
+    filter: "{{ Dimension('app_store_event__event_type') }} = 'in_app_purchase'"
+    config:
+      meta:
+        metricId: iap_revenue
+        tier: kpi
+        vertical: pe
+        industry: saas

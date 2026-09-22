@@ -1,0 +1,13 @@
+metrics:
+  - name: employee_engagement_score
+    label: Employee Engagement Score
+    description: Composite score from engagement surveys (eNPS, pulse).
+    type: simple
+    type_params:
+      measure: avg_composite_score
+    config:
+      meta:
+        metricId: employee_engagement_score
+        tier: kpi
+        vertical: hr
+        industry: cross_industry

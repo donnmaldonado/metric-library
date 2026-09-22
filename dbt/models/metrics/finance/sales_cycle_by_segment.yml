@@ -1,0 +1,15 @@
+metrics:
+  - name: sales_cycle_by_segment
+    label: Sales Cycle (Segment)
+    description: Average deal cycle by customer segment (SMB, Mid-Market, Enterprise)
+    type: derived
+    type_params:
+      expr: avg_sales_cycle
+      metrics:
+        - name: avg_sales_cycle
+    config:
+      meta:
+        metricId: sales_cycle_by_segment
+        tier: input
+        vertical: finance
+        industry: cross_industry

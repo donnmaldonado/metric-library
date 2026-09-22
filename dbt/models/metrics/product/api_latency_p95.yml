@@ -1,0 +1,13 @@
+metrics:
+  - name: api_latency_p95
+    label: API Latency p95
+    description: 95th percentile API response time in milliseconds.
+    type: simple
+    type_params:
+      measure: p95_response_time_ms
+    config:
+      meta:
+        metricId: api_latency_p95
+        tier: kpi
+        vertical: product
+        industry: cross_industry

@@ -1,0 +1,80 @@
+# Metrics on this model: cost_per_mile, fleet_utilization_rate, stg_vehicle_trip_row
+models:
+  - name: fct_vehicle_trips
+    description: One row per fleet vehicle trip (miles, hours in service, operating cost).
+semantic_models:
+  - name: fct_vehicle_trips
+    description: One row per fleet vehicle trip (miles, hours in service, operating cost).
+    model: ref('fct_vehicle_trips')
+    defaults:
+      agg_time_dimension: trip_date
+    entities:
+      - name: trip
+        type: primary
+        expr: trip_id
+      - name: vehicle
+        type: foreign
+        expr: vehicle_id
+      - name: driver
+        type: foreign
+        expr: driver_id
+    dimensions:
+      - name: trip_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: start_time
+        type: time
+        type_params:
+          time_granularity: day
+      - name: end_time
+        type: time
+        type_params:
+          time_granularity: day
+      - name: fleet_type
+        type: categorical
+      - name: region
+        type: categorical
+    measures:
+      - name: trip_count
+        agg: count
+        expr: trip_id
+        description: 'Used by: stg_vehicle_trip_row.'
+      - name: total_operating_cost
+        agg: sum
+        description: 'Used by: cost_per_mile.'
+      - name: total_miles
+        agg: sum
+        expr: distance_miles
+        description: 'Miles driven. Used by: cost_per_mile.'
+      - name: hours_in_service
+        agg: sum
+        description: 'Used by: fleet_utilization_rate.'
+      - name: available_hours
+        agg: sum
+        description: 'Used by: fleet_utilization_rate.'
+metrics:
+  - name: total_operating_cost
+    label: total_operating_cost
+    description: Helper input for cost_per_mile.
+    type: simple
+    type_params:
+      measure: total_operating_cost
+  - name: total_miles
+    label: total_miles
+    description: Helper input for cost_per_mile.
+    type: simple
+    type_params:
+      measure: total_miles
+  - name: hours_in_service
+    label: hours_in_service
+    description: Helper input for fleet_utilization_rate.
+    type: simple
+    type_params:
+      measure: hours_in_service
+  - name: available_hours
+    label: available_hours
+    description: Helper input for fleet_utilization_rate.
+    type: simple
+    type_params:
+      measure: available_hours

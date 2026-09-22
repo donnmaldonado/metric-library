@@ -1,0 +1,14 @@
+metrics:
+  - name: ops_efficiency_ratio
+    label: Ops Efficiency
+    description: Output produced per unit of cost — higher is better
+    type: ratio
+    type_params:
+      numerator: revenue
+      denominator: opex
+    config:
+      meta:
+        metricId: ops_efficiency_ratio
+        tier: north_star
+        vertical: finance
+        industry: cross_industry

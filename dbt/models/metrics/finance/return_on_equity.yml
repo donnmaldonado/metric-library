@@ -1,0 +1,15 @@
+metrics:
+  - name: return_on_equity
+    label: Return on Equity
+    description: Net income as a % of shareholders’ equity — profitability from equity capital.
+    type: derived
+    type_params:
+      expr: roe
+      metrics:
+        - name: roe
+    config:
+      meta:
+        metricId: return_on_equity
+        tier: north_star
+        vertical: finance
+        industry: financial_services

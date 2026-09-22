@@ -1,0 +1,15 @@
+metrics:
+  - name: stg_csat_response_row
+    label: Raw CSAT Response
+    description: Individual CSAT survey response record.
+    type: derived
+    type_params:
+      expr: csat
+      metrics:
+        - name: csat
+    config:
+      meta:
+        metricId: stg_csat_response_row
+        tier: input
+        vertical: ops
+        industry: cross_industry

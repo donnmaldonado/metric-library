@@ -1,0 +1,85 @@
+# Metrics on this model: procurement_savings_rate, stg_purchase_order_row, supplier_lead_time, vendor_compliance_rate, vendor_scorecard_rating
+models:
+  - name: fct_purchase_orders
+    description: One row per purchase order (supplier, lead time, compliance, savings and scorecard inputs).
+semantic_models:
+  - name: fct_purchase_orders
+    description: One row per purchase order (supplier, lead time, compliance, savings and scorecard inputs).
+    model: ref('fct_purchase_orders')
+    defaults:
+      agg_time_dimension: po_date
+    entities:
+      - name: purchase_order
+        type: primary
+        expr: po_id
+      - name: supplier
+        type: foreign
+        expr: supplier_id
+      - name: product
+        type: foreign
+        expr: product_id
+    dimensions:
+      - name: po_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: receipt_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: product_category
+        type: categorical
+      - name: status
+        type: categorical
+      - name: vendor
+        type: categorical
+      - name: category_manager
+        type: categorical
+      - name: spend_category
+        type: categorical
+      - name: category
+        type: categorical
+      - name: is_compliant
+        type: categorical
+    measures:
+      - name: avg_lead_days
+        agg: average
+        expr: datediff('day', po_date, receipt_date)
+        description: 'Days from PO creation to goods receipt (unreceived POs are null and ignored). Used by: supplier_lead_time.'
+      - name: po_amount
+        agg: sum
+        description: 'Used by: stg_purchase_order_row.'
+      - name: purchase_order_count
+        agg: count
+        expr: po_id
+        description: 'Used by: vendor_compliance_rate.'
+      - name: procurement_savings_rate_numerator
+        agg: sum
+        expr: baseline_spend - actual_spend
+        description: 'Savings against baseline. Used by: procurement_savings_rate.'
+      - name: baseline_spend
+        agg: sum
+        description: 'Used by: procurement_savings_rate.'
+      - name: vendor_scorecard_rating_value
+        agg: average
+        expr: (quality_score + delivery_score + cost_score) / 3
+        description: 'Equal-weight composite of the quality, delivery and cost scores, averaged over POs. Used by: vendor_scorecard_rating.'
+metrics:
+  - name: purchase_orders
+    label: purchase_orders
+    description: Purchase orders raised in the period. Helper input for vendor_compliance_rate.
+    type: simple
+    type_params:
+      measure: purchase_order_count
+  - name: procurement_savings_rate_numerator
+    label: procurement_savings_rate_numerator
+    description: Baseline spend minus actual spend. Helper input for procurement_savings_rate.
+    type: simple
+    type_params:
+      measure: procurement_savings_rate_numerator
+  - name: baseline_spend
+    label: baseline_spend
+    description: Helper input for procurement_savings_rate.
+    type: simple
+    type_params:
+      measure: baseline_spend

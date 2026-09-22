@@ -1,0 +1,17 @@
+metrics:
+  - name: quick_ratio
+    label: Quick Ratio
+    description: (Cash + Receivables) / Current Liabilities — excludes inventory from liquidity test.
+    type: derived
+    type_params:
+      expr: (cash_and_equivalents + accounts_receivable) / nullif(current_liabilities, 0)
+      metrics:
+        - name: cash_and_equivalents
+        - name: accounts_receivable
+        - name: current_liabilities
+    config:
+      meta:
+        metricId: quick_ratio
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

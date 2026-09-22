@@ -1,0 +1,16 @@
+metrics:
+  - name: expulsion_rate
+    label: Expulsion Rate
+    description: Percentage of students expelled during the school year
+    type: ratio
+    type_params:
+      numerator:
+        name: disciplined_students
+        filter: "{{ Dimension('discipline_incident__consequence') }} = 'expulsion'"
+      denominator: enrollment_count
+    config:
+      meta:
+        metricId: expulsion_rate
+        tier: input
+        vertical: finance
+        industry: cross_industry

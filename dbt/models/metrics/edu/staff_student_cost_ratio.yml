@@ -1,0 +1,14 @@
+metrics:
+  - name: staff_student_cost_ratio
+    label: Staff-to-Student Cost Ratio
+    description: Personnel costs as a share of total per-pupil expenditure — staffing investment intensity.
+    type: ratio
+    type_params:
+      numerator: total_personnel_cost
+      denominator: total_operating_budget
+    config:
+      meta:
+        metricId: staff_student_cost_ratio
+        tier: kpi
+        vertical: edu
+        industry: education

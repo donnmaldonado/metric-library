@@ -1,0 +1,16 @@
+metrics:
+  - name: repeat_purchase_rate
+    label: Repeat Purchase %
+    description: Percentage of customers who made more than one purchase
+    type: ratio
+    type_params:
+      numerator:
+        name: ordering_customers
+        filter: "{{ Dimension('order__is_repeat_order') }} = true"
+      denominator: ordering_customers
+    config:
+      meta:
+        metricId: repeat_purchase_rate
+        tier: kpi
+        vertical: customer
+        industry: retail

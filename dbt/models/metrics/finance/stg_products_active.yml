@@ -1,0 +1,14 @@
+metrics:
+  - name: stg_products_active
+    label: Active Products
+    description: Count of active product records in staging catalog
+    type: simple
+    type_params:
+      measure: product_count
+    filter: "{{ Dimension('product__status') }} = 'active'"
+    config:
+      meta:
+        metricId: stg_products_active
+        tier: input
+        vertical: finance
+        industry: cross_industry

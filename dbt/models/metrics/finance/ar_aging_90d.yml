@@ -1,0 +1,14 @@
+metrics:
+  - name: ar_aging_90d
+    label: AR Aging 90d+
+    description: Total outstanding receivables past 90 days — bad debt risk indicator.
+    type: simple
+    type_params:
+      measure: invoice_amount
+    filter: "{{ Dimension('invoice__days_outstanding') }} > 90 AND {{ Dimension('invoice__status') }} != 'paid'"
+    config:
+      meta:
+        metricId: ar_aging_90d
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

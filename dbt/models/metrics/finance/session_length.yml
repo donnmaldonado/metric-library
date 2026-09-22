@@ -1,0 +1,15 @@
+metrics:
+  - name: session_length
+    label: Avg Session Length
+    description: Average duration of user sessions in minutes
+    type: derived
+    type_params:
+      expr: avg_session_duration / 60
+      metrics:
+        - name: avg_session_duration
+    config:
+      meta:
+        metricId: session_length
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

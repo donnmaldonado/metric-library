@@ -1,0 +1,15 @@
+metrics:
+  - name: cohort_ltv_12m
+    label: 12-Month Cohort LTV
+    description: Average cumulative revenue per customer 12 months after acquisition
+    type: ratio
+    type_params:
+      numerator: cumulative_cohort_revenue
+      denominator: customer_cohorts_cohort_starting_size
+    filter: "{{ Dimension('customer_cohort_period__months_since_acquisition') }} = 12"
+    config:
+      meta:
+        metricId: cohort_ltv_12m
+        tier: kpi
+        vertical: customer
+        industry: cross_industry

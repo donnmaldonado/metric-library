@@ -1,0 +1,17 @@
+metrics:
+  - name: science_proficiency_rate
+    label: Science Proficiency %
+    description: Percentage of students scoring proficient on science state assessments
+    type: ratio
+    type_params:
+      numerator:
+        name: students_tested
+        filter: "{{ Dimension('assessment_result__met_standard') }} = true"
+      denominator: students_tested
+    filter: "{{ Dimension('assessment_result__subject') }} = 'science'"
+    config:
+      meta:
+        metricId: science_proficiency_rate
+        tier: kpi
+        vertical: edu
+        industry: education

@@ -1,0 +1,42 @@
+# Metrics on this model: seat_fill_rate
+models:
+  - name: fct_school_periods
+    description: 'One row per school, grade and period with seat capacity (snapshot: latest period wins).'
+semantic_models:
+  - name: fct_school_periods
+    description: 'One row per school, grade and period with seat capacity (snapshot: latest period wins).'
+    model: ref('fct_school_periods')
+    defaults:
+      agg_time_dimension: period_start
+    entities:
+      - name: school_period
+        type: primary
+        expr: school_period_id
+      - name: school
+        type: foreign
+        expr: school_id
+    dimensions:
+      - name: period_start
+        type: time
+        type_params:
+          time_granularity: day
+      - name: school_year
+        type: categorical
+      - name: school_name
+        type: categorical
+      - name: grade_level
+        type: categorical
+    measures:
+      - name: total_seats
+        agg: sum
+        non_additive_dimension:
+          name: period_start
+          window_choice: max
+        description: Available seats in the latest period.
+metrics:
+  - name: total_seats
+    label: total_seats
+    description: Available enrollment seats.
+    type: simple
+    type_params:
+      measure: total_seats

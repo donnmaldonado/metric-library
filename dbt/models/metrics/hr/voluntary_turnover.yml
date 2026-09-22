@@ -1,0 +1,18 @@
+metrics:
+  - name: voluntary_turnover
+    label: Voluntary Turnover
+    description: Turnover from employee-initiated separations only
+    type: derived
+    type_params:
+      expr: voluntary_separations / avg_headcount
+      metrics:
+        - name: separations
+          filter: "{{ Dimension('separation__separation_type') }} = 'voluntary'"
+          alias: voluntary_separations
+        - name: avg_headcount
+    config:
+      meta:
+        metricId: voluntary_turnover
+        tier: kpi
+        vertical: hr
+        industry: cross_industry

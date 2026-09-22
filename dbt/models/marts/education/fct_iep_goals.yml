@@ -1,0 +1,43 @@
+# Metrics on this model: iep_goal_mastery_rate
+models:
+  - name: fct_iep_goals
+    description: One row per IEP goal per evaluation (mastered flag).
+semantic_models:
+  - name: fct_iep_goals
+    description: One row per IEP goal per evaluation (mastered flag).
+    model: ref('fct_iep_goals')
+    defaults:
+      agg_time_dimension: goal_date
+    entities:
+      - name: iep_goal
+        type: primary
+        expr: iep_goal_id
+      - name: student
+        type: foreign
+        expr: student_id
+      - name: school
+        type: foreign
+        expr: school_id
+    dimensions:
+      - name: goal_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: disability_category
+        type: categorical
+      - name: grade_level
+        type: categorical
+      - name: is_mastered
+        type: categorical
+    measures:
+      - name: iep_goal_count
+        agg: count
+        expr: iep_goal_id
+        description: IEP goals evaluated.
+metrics:
+  - name: total_goals
+    label: total_goals
+    description: IEP goals evaluated.
+    type: simple
+    type_params:
+      measure: iep_goal_count

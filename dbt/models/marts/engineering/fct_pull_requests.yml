@@ -1,0 +1,26 @@
+# Metrics on this model: pr_merge_time
+models:
+  - name: fct_pull_requests
+    description: One row per pull request.
+semantic_models:
+  - name: fct_pull_requests
+    description: One row per pull request.
+    model: ref('fct_pull_requests')
+    defaults:
+      agg_time_dimension: opened_date
+    entities:
+      - name: pull_request
+        type: primary
+        expr: pull_request_id
+    dimensions:
+      - name: opened_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: team
+        type: categorical
+    measures:
+      - name: pr_merge_time_value
+        agg: average
+        expr: datediff('minute', opened_at, merged_at) / 60.0
+        description: 'Used by: pr_merge_time.'

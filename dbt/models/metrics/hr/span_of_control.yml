@@ -1,0 +1,14 @@
+metrics:
+  - name: span_of_control
+    label: Span of Control
+    description: Average number of direct reports per manager
+    type: ratio
+    type_params:
+      numerator: direct_reports
+      denominator: manager_count
+    config:
+      meta:
+        metricId: span_of_control
+        tier: kpi
+        vertical: hr
+        industry: cross_industry

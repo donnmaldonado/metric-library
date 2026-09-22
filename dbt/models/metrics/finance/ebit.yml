@@ -1,0 +1,16 @@
+metrics:
+  - name: ebit
+    label: EBIT
+    description: Earnings before interest and taxes
+    type: derived
+    type_params:
+      expr: gross_profit - opex
+      metrics:
+        - name: gross_profit
+        - name: opex
+    config:
+      meta:
+        metricId: ebit
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

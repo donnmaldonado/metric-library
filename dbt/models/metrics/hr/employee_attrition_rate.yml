@@ -1,0 +1,15 @@
+metrics:
+  - name: employee_attrition_rate
+    label: Employee Attrition Rate
+    description: '% of workforce that voluntarily left during the period.'
+    type: derived
+    type_params:
+      expr: voluntary_turnover
+      metrics:
+        - name: voluntary_turnover
+    config:
+      meta:
+        metricId: employee_attrition_rate
+        tier: kpi
+        vertical: hr
+        industry: cross_industry

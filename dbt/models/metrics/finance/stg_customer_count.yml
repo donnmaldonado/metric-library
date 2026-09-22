@@ -1,0 +1,15 @@
+metrics:
+  - name: stg_customer_count
+    label: Customers
+    description: Raw count of customer records in staging
+    type: derived
+    type_params:
+      expr: monthly_new_customers
+      metrics:
+        - name: monthly_new_customers
+    config:
+      meta:
+        metricId: stg_customer_count
+        tier: input
+        vertical: finance
+        industry: cross_industry

@@ -1,0 +1,14 @@
+metrics:
+  - name: return_rate
+    label: Return Rate
+    description: '% of units sold that are returned by customers.'
+    type: ratio
+    type_params:
+      numerator: units_returned
+      denominator: order_lines_units_sold
+    config:
+      meta:
+        metricId: return_rate
+        tier: kpi
+        vertical: ops
+        industry: retail

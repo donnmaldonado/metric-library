@@ -1,0 +1,15 @@
+metrics:
+  - name: revenue_by_region
+    label: Revenue by Region
+    description: Revenue broken out by geographic region
+    type: derived
+    type_params:
+      expr: revenue
+      metrics:
+        - name: revenue
+    config:
+      meta:
+        metricId: revenue_by_region
+        tier: input
+        vertical: pe
+        industry: saas

@@ -1,0 +1,16 @@
+metrics:
+  - name: offer_acceptance_rate
+    label: Offer Acceptance Rate
+    description: '% of job offers accepted by candidates.'
+    type: ratio
+    type_params:
+      numerator:
+        name: offers_extended
+        filter: "{{ Dimension('candidate__offer_accepted') }} = true"
+      denominator: offers_extended
+    config:
+      meta:
+        metricId: offer_acceptance_rate
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

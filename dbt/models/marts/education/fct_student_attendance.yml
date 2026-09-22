@@ -1,0 +1,72 @@
+# Metrics on this model: adm, attendance_rate, average_daily_attendance, instructional_minutes, stg_attendance_row, student_attendance_rate
+models:
+  - name: fct_student_attendance
+    description: One row per student per enrolled school day (attendance status, scheduled instructional minutes).
+semantic_models:
+  - name: fct_student_attendance
+    description: One row per student per enrolled school day (attendance status, scheduled instructional minutes).
+    model: ref('fct_student_attendance')
+    defaults:
+      agg_time_dimension: attendance_date
+    entities:
+      - name: attendance_record
+        type: primary
+        expr: record_id
+      - name: student
+        type: foreign
+        expr: student_id
+      - name: school
+        type: foreign
+        expr: school_id
+    dimensions:
+      - name: attendance_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: school_year
+        type: categorical
+      - name: school_name
+        type: categorical
+      - name: grade_level
+        type: categorical
+      - name: subgroup
+        type: categorical
+      - name: academic_year
+        type: categorical
+      - name: status
+        type: categorical
+      - name: is_excused
+        type: categorical
+    measures:
+      - name: record_count
+        agg: count
+        expr: record_id
+        description: Student membership days (one record per student per school day).
+      - name: distinct_school_day_count
+        agg: count_distinct
+        expr: attendance_date
+        description: School days in session.
+      - name: avg_instructional_minutes
+        agg: average
+        expr: instructional_minutes
+        description: Average scheduled instructional minutes per student-day.
+metrics:
+  - name: days_enrolled
+    label: days_enrolled
+    description: Student membership days.
+    type: simple
+    type_params:
+      measure: record_count
+  - name: days_attended
+    label: days_attended
+    description: Student days present (present or tardy).
+    type: simple
+    type_params:
+      measure: record_count
+    filter: "{{ Dimension('attendance_record__status') }} IN ('present', 'tardy')"
+  - name: school_days
+    label: school_days
+    description: School days in session.
+    type: simple
+    type_params:
+      measure: distinct_school_day_count

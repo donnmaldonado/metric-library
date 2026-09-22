@@ -1,0 +1,16 @@
+metrics:
+  - name: turnover_rate
+    label: Turnover Rate
+    description: Percentage of employees who left during the period (voluntary + involuntary)
+    type: derived
+    type_params:
+      expr: separations / avg_headcount
+      metrics:
+        - name: separations
+        - name: avg_headcount
+    config:
+      meta:
+        metricId: turnover_rate
+        tier: north_star
+        vertical: hr
+        industry: cross_industry

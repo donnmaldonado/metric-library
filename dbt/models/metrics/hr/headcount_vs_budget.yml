@@ -1,0 +1,16 @@
+metrics:
+  - name: headcount_vs_budget
+    label: HC vs Budget
+    description: Actual headcount relative to approved headcount budget
+    type: derived
+    type_params:
+      expr: headcount - budgeted_headcount
+      metrics:
+        - name: headcount
+        - name: budgeted_headcount
+    config:
+      meta:
+        metricId: headcount_vs_budget
+        tier: kpi
+        vertical: hr
+        industry: cross_industry

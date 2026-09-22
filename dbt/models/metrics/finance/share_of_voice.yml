@@ -1,0 +1,14 @@
+metrics:
+  - name: share_of_voice
+    label: Share of Voice
+    description: Brand mentions as a % of total category mentions — competitive visibility.
+    type: ratio
+    type_params:
+      numerator: brand_mentions
+      denominator: total_category_mentions
+    config:
+      meta:
+        metricId: share_of_voice
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

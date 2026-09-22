@@ -1,0 +1,17 @@
+metrics:
+  - name: order_fulfillment_rate
+    label: Order Fulfillment %
+    description: Percentage of orders fulfilled completely and on time
+    type: ratio
+    type_params:
+      numerator:
+        name: shipped_orders
+        filter: "{{ Dimension('shipment__order_is_complete') }} = true AND {{ Dimension('shipment__order_is_on_time') }} =\
+          \ true"
+      denominator: shipped_orders
+    config:
+      meta:
+        metricId: order_fulfillment_rate
+        tier: kpi
+        vertical: ops
+        industry: manufacturing

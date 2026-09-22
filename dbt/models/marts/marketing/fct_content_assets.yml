@@ -1,0 +1,32 @@
+# Metrics on this model: content_published, content_published_count
+models:
+  - name: fct_content_assets
+    description: One row per content asset / CMS post.
+semantic_models:
+  - name: fct_content_assets
+    description: One row per content asset / CMS post.
+    model: ref('fct_content_assets')
+    defaults:
+      agg_time_dimension: published_date
+    entities:
+      - name: content_asset
+        type: primary
+        expr: content_asset_id
+    dimensions:
+      - name: published_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: status
+        type: categorical
+      - name: content_type
+        type: categorical
+      - name: topic
+        type: categorical
+      - name: channel
+        type: categorical
+    measures:
+      - name: content_asset_count
+        agg: count
+        expr: content_asset_id
+        description: 'Used by: content_published_count (and content_published through it).'

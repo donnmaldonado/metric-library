@@ -1,0 +1,31 @@
+# Metrics on this model: deferred_revenue
+models:
+  - name: fct_deferred_revenue
+    description: One row per company, product tier and date with the deferred revenue balance.
+semantic_models:
+  - name: fct_deferred_revenue
+    description: One row per company, product tier and date with the deferred revenue balance.
+    model: ref('fct_deferred_revenue')
+    defaults:
+      agg_time_dimension: as_of_date
+    entities:
+      - name: deferred_revenue_snapshot
+        type: primary
+        expr: deferred_revenue_snapshot_id
+      - name: company
+        type: foreign
+        expr: company_id
+    dimensions:
+      - name: as_of_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: product_tier
+        type: categorical
+    measures:
+      - name: deferred_amount
+        agg: sum
+        non_additive_dimension:
+          name: as_of_date
+          window_choice: max
+        description: 'Used by: deferred_revenue.'

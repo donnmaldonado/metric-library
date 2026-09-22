@@ -1,0 +1,14 @@
+metrics:
+  - name: capacity_utilization
+    label: Capacity Utilization %
+    description: Actual output as a percentage of total available capacity
+    type: ratio
+    type_params:
+      numerator: actual_output
+      denominator: max_capacity
+    config:
+      meta:
+        metricId: capacity_utilization
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

@@ -1,0 +1,16 @@
+metrics:
+  - name: iep_pct
+    label: IEP Students %
+    description: Percentage of enrolled students with an Individualized Education Program
+    type: ratio
+    type_params:
+      numerator:
+        name: enrollment_count
+        filter: "{{ Dimension('enrollment__has_iep') }} = true"
+      denominator: enrollment_count
+    config:
+      meta:
+        metricId: iep_pct
+        tier: input
+        vertical: edu
+        industry: education

@@ -1,0 +1,52 @@
+# Metrics on this model: customer_onboarding_time, monthly_new_customers
+#   (aliases: onboarding_time -> customer_onboarding_time; customers_by_channel, stg_customer_count -> monthly_new_customers)
+# customer_count (active paying customers) lives on fct_subscriptions, which is a snapshot.
+models:
+  - name: dim_customers
+    description: One row per customer account (segment, acquisition channel, onboarding milestones).
+semantic_models:
+  - name: dim_customers
+    description: One row per customer account (segment, acquisition channel, onboarding milestones).
+    model: ref('dim_customers')
+    defaults:
+      agg_time_dimension: acquired_date
+    entities:
+      - name: customer
+        type: primary
+        expr: customer_id
+      - name: cs_rep
+        type: foreign
+        expr: cs_rep_id
+    dimensions:
+      - name: acquired_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: contract_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: go_live_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: segment
+        type: categorical
+      - name: product_name
+        type: categorical
+      - name: status
+        type: categorical
+      - name: acquisition_channel
+        type: categorical
+      - name: channel
+        type: categorical
+    measures:
+      - name: customer_count
+        agg: count
+        expr: customer_id
+        description: 'Customers, by acquisition date. Used by: monthly_new_customers.'
+      - name: avg_onboarding_days
+        agg: average
+        expr: datediff('day', contract_date, go_live_date)
+        agg_time_dimension: go_live_date
+        description: 'Days from contract signature to go-live, by go-live date. Used by: customer_onboarding_time.'

@@ -1,0 +1,14 @@
+metrics:
+  - name: lead_to_mql_rate
+    label: Lead → MQL %
+    description: Percentage of leads that reach MQL threshold
+    type: ratio
+    type_params:
+      numerator: mql
+      denominator: stg_leads_count
+    config:
+      meta:
+        metricId: lead_to_mql_rate
+        tier: kpi
+        vertical: marketing
+        industry: cross_industry

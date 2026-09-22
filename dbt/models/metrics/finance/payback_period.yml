@@ -1,0 +1,15 @@
+metrics:
+  - name: payback_period
+    label: CAC Payback Period
+    description: Months to recover CAC from gross margin contribution — capital efficiency lens.
+    type: derived
+    type_params:
+      expr: cac_payback
+      metrics:
+        - name: cac_payback
+    config:
+      meta:
+        metricId: payback_period
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

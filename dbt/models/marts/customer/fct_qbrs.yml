@@ -1,0 +1,42 @@
+# Metrics on this model: qbr_completion_rate
+models:
+  - name: fct_qbrs
+    description: One row per scheduled quarterly business review.
+semantic_models:
+  - name: fct_qbrs
+    description: One row per scheduled quarterly business review.
+    model: ref('fct_qbrs')
+    defaults:
+      agg_time_dimension: scheduled_date
+    entities:
+      - name: qbr
+        type: primary
+        expr: qbr_id
+    dimensions:
+      - name: scheduled_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: csm
+        type: categorical
+      - name: is_completed
+        type: categorical
+    measures:
+      - name: qbr_count
+        agg: count
+        expr: qbr_id
+        description: 'QBRs scheduled, by scheduled date. Used by: completed_qbrs, scheduled_qbrs.'
+metrics:
+  - name: completed_qbrs
+    label: completed_qbrs
+    description: Helper input for qbr_completion_rate.
+    type: simple
+    type_params:
+      measure: qbr_count
+    filter: "{{ Dimension('qbr__is_completed') }} = true"
+  - name: scheduled_qbrs
+    label: scheduled_qbrs
+    description: Helper input for qbr_completion_rate.
+    type: simple
+    type_params:
+      measure: qbr_count

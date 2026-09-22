@@ -1,0 +1,74 @@
+# Metrics on this model: active_paying_users, arr, customer_count, mrr, stg_subscriptions_active (stg_subscription_row aliases mrr)
+models:
+  - name: fct_subscriptions
+    description: One row per subscription per snapshot date (active subscriptions, MRR).
+semantic_models:
+  - name: fct_subscriptions
+    description: One row per subscription per snapshot date (active subscriptions, MRR).
+    model: ref('fct_subscriptions')
+    defaults:
+      agg_time_dimension: snapshot_date
+    entities:
+      - name: subscription_snapshot
+        type: primary
+        expr: subscription_snapshot_id
+      - name: company
+        type: foreign
+        expr: company_id
+      - name: customer
+        type: foreign
+        expr: customer_id
+    dimensions:
+      - name: snapshot_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: start_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: plan_tier
+        type: categorical
+      - name: status
+        type: categorical
+      - name: segment
+        type: categorical
+      - name: product_name
+        type: categorical
+      - name: is_active_30d
+        type: categorical
+    measures:
+      - name: subscriptions_distinct_user_count
+        agg: count_distinct
+        expr: user_id
+        non_additive_dimension:
+          name: snapshot_date
+          window_choice: max
+        description: 'Used by: active_paying_users.'
+      - name: monthly_amount
+        agg: sum
+        non_additive_dimension:
+          name: snapshot_date
+          window_choice: max
+        description: 'Used by: mrr, stg_subscription_row.'
+      - name: subscription_count
+        agg: count
+        expr: subscription_id
+        non_additive_dimension:
+          name: snapshot_date
+          window_choice: max
+        description: 'Used by: stg_subscriptions_active.'
+      - name: subscriptions_arr_value
+        agg: sum
+        expr: monthly_amount * 12
+        non_additive_dimension:
+          name: snapshot_date
+          window_choice: max
+        description: 'Used by: arr.'
+      - name: active_customer_count
+        agg: count_distinct
+        expr: customer_id
+        non_additive_dimension:
+          name: snapshot_date
+          window_choice: max
+        description: 'Distinct customers on the latest snapshot in the window. Used by: customer_count.'

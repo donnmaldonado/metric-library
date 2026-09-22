@@ -1,0 +1,14 @@
+metrics:
+  - name: net_income_margin
+    label: Net Income Margin
+    description: Net income as a % of revenue — bottom-line profitability.
+    type: ratio
+    type_params:
+      numerator: net_income
+      denominator: revenue
+    config:
+      meta:
+        metricId: net_income_margin
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

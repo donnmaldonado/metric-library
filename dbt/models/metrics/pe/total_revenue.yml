@@ -1,0 +1,15 @@
+metrics:
+  - name: total_revenue
+    label: Total Revenue
+    description: Total top-line revenue across all streams
+    type: derived
+    type_params:
+      expr: revenue
+      metrics:
+        - name: revenue
+    config:
+      meta:
+        metricId: total_revenue
+        tier: north_star
+        vertical: pe
+        industry: saas

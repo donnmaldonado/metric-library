@@ -1,0 +1,81 @@
+# Metrics on this model: activation_rate, d30_retention, d7_retention, free_to_paid_rate, new_user_signups, onboarding_completion_rate, plg_rate, retention_d30, time_to_activate, time_to_value, trial_signups, trial_to_paid_rate, user_signups
+# Cohort metrics are keyed on signup_date: query them by metric_time to get signup cohorts.
+models:
+  - name: dim_users
+    description: One row per product user (signup, trial, activation, onboarding and retention milestones).
+semantic_models:
+  - name: dim_users
+    description: One row per product user (signup, trial, activation, onboarding and retention milestones).
+    model: ref('dim_users')
+    defaults:
+      agg_time_dimension: signup_date
+    entities:
+      - name: user
+        type: primary
+        expr: user_id
+    dimensions:
+      - name: signup_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: activation_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: signed_up_at
+        type: time
+        type_params:
+          time_granularity: day
+      - name: activated_at
+        type: time
+        type_params:
+          time_granularity: day
+      - name: acquisition_channel
+        type: categorical
+      - name: plan_tier
+        type: categorical
+      - name: geography
+        type: categorical
+      - name: cohort
+        type: categorical
+      - name: channel
+        type: categorical
+      - name: signup_type
+        type: categorical
+        description: Plan the user signed up on ('free', 'trial', 'paid').
+      - name: is_activated
+        type: categorical
+        description: Reached the activation milestone within the first session or week.
+      - name: is_converted_to_paid
+        type: categorical
+        description: Converted from a free or trial plan to a paid plan.
+      - name: is_product_led
+        type: categorical
+        description: Signed up through product-driven virality (invite, share, embedded link).
+      - name: has_started_onboarding
+        type: categorical
+      - name: has_completed_onboarding
+        type: categorical
+      - name: is_retained_d7
+        type: categorical
+        description: Active on day 7 after signup.
+      - name: is_retained_d30
+        type: categorical
+        description: Active on day 30 after signup.
+    measures:
+      - name: user_count
+        agg: count
+        expr: user_id
+        description: 'Signups (users by signup date). Used by: new_user_signups, trial_signups and the cohort rates built on
+          them.'
+      - name: median_hours_to_activate
+        agg: percentile
+        expr: datediff('minute', signed_up_at, activated_at) / 60.0
+        agg_params:
+          percentile: 0.5
+          use_discrete_percentile: false
+        description: 'Used by: time_to_activate.'
+      - name: avg_days_to_value_event
+        agg: average
+        expr: days_to_value_event
+        description: 'Null for users who never reached the value event. Used by: time_to_value.'

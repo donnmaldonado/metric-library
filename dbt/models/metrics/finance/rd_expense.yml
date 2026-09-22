@@ -1,0 +1,14 @@
+metrics:
+  - name: rd_expense
+    label: R&D Expense
+    description: Research and development spend in the period.
+    type: simple
+    type_params:
+      measure: opex_amount
+    filter: "{{ Dimension('gl_entry__gl_category') }} = 'R&D'"
+    config:
+      meta:
+        metricId: rd_expense
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

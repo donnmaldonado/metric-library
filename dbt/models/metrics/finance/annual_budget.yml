@@ -1,0 +1,13 @@
+metrics:
+  - name: annual_budget
+    label: Annual Budget
+    description: Total approved budget for the fiscal year
+    type: simple
+    type_params:
+      measure: budgeted_amount
+    config:
+      meta:
+        metricId: annual_budget
+        tier: input
+        vertical: finance
+        industry: cross_industry

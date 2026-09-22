@@ -1,0 +1,14 @@
+metrics:
+  - name: take_rate
+    label: Take Rate
+    description: Platform revenue as a % of GMV — marketplace monetization efficiency.
+    type: ratio
+    type_params:
+      numerator: platform_revenue
+      denominator: gmv
+    config:
+      meta:
+        metricId: take_rate
+        tier: kpi
+        vertical: finance
+        industry: marketplace

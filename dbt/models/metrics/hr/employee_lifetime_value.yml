@@ -1,0 +1,14 @@
+metrics:
+  - name: employee_lifetime_value
+    label: Employee Lifetime Value
+    description: Estimated total value an employee contributes over their tenure minus fully-loaded employment cost.
+    type: ratio
+    type_params:
+      numerator: lifetime_revenue_contribution
+      denominator: lifetime_employment_cost
+    config:
+      meta:
+        metricId: employee_lifetime_value
+        tier: north_star
+        vertical: hr
+        industry: cross_industry

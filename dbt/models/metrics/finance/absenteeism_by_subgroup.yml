@@ -1,0 +1,15 @@
+metrics:
+  - name: absenteeism_by_subgroup
+    label: Absenteeism by Subgroup
+    description: Chronic absenteeism rate disaggregated by demographic or program subgroup.
+    type: derived
+    type_params:
+      expr: chronic_absenteeism_rate
+      metrics:
+        - name: chronic_absenteeism_rate
+    config:
+      meta:
+        metricId: absenteeism_by_subgroup
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

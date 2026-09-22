@@ -1,0 +1,67 @@
+# Metrics on this model: churn_rate, churned_arr, contraction_arr, expansion_arr, grr, magic_number, mrr_churn_rate, net_mrr_growth, new_arr, nrr, saas_quick_ratio
+#   (aliases: gross_dollar_retention -> grr, net_revenue_retention -> nrr, nrr_monthly -> nrr)
+#
+# Movements are flows: arr_delta is signed (new_business/expansion > 0, contraction/churn < 0).
+# Period balances are not stored here. Beginning ARR for any window is derived as
+#   starting_arr = arr (active-subscription snapshot at the end of the window) - net_new_arr (movements in the window),
+# which holds at every grain (month, quarter, year) without double counting.
+models:
+  - name: fct_arr_movements
+    description: One row per customer ARR/MRR movement (new, expansion, contraction, churn) with period start/end balances.
+semantic_models:
+  - name: fct_arr_movements
+    description: One row per customer ARR movement (new_business, expansion, contraction, churn).
+    model: ref('fct_arr_movements')
+    defaults:
+      agg_time_dimension: movement_date
+    entities:
+      - name: arr_movement
+        type: primary
+        expr: arr_movement_id
+      - name: rep
+        type: foreign
+        expr: rep_id
+      - name: company
+        type: foreign
+        expr: company_id
+    dimensions:
+      - name: movement_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: movement_type
+        type: categorical
+      - name: channel
+        type: categorical
+      - name: segment
+        type: categorical
+      - name: plan_tier
+        type: categorical
+      - name: cohort_month
+        type: categorical
+      - name: geography
+        type: categorical
+    measures:
+      - name: arr_delta
+        agg: sum
+        description: 'Signed ARR change. Used by: expansion_arr, new_arr, net_new_arr.'
+      - name: arr_reduction
+        agg: sum
+        expr: -1 * arr_delta
+        description: 'ARR lost, as a positive amount (negated arr_delta). Used by: churned_arr, contraction_arr.'
+metrics:
+  - name: net_new_arr
+    label: net_new_arr
+    description: Helper input for magic_number, net_mrr_growth, starting_arr (new + expansion - contraction - churn).
+    type: simple
+    type_params:
+      measure: arr_delta
+  - name: starting_arr
+    label: starting_arr
+    description: Helper input for churn_rate, grr, mrr_churn_rate, nrr (ARR at the start of the window = ending ARR - net new ARR).
+    type: derived
+    type_params:
+      expr: arr - coalesce(net_new_arr, 0)
+      metrics:
+        - name: arr
+        - name: net_new_arr

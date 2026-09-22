@@ -1,0 +1,14 @@
+metrics:
+  - name: escalation_rate
+    label: Escalation Rate
+    description: Percentage of tickets escalated to tier 2 or above
+    type: ratio
+    type_params:
+      numerator: escalated_tickets
+      denominator: tickets_created
+    config:
+      meta:
+        metricId: escalation_rate
+        tier: kpi
+        vertical: ops
+        industry: cross_industry

@@ -1,0 +1,14 @@
+metrics:
+  - name: partner_revenue_pct
+    label: Partner Revenue %
+    description: Partner-sourced revenue as a share of total revenue
+    type: ratio
+    type_params:
+      numerator: partner_revenue
+      denominator: revenue
+    config:
+      meta:
+        metricId: partner_revenue_pct
+        tier: kpi
+        vertical: pe
+        industry: saas

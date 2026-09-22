@@ -1,0 +1,47 @@
+# Metrics on this model: renewal_rate
+models:
+  - name: fct_renewals
+    description: One row per contract up for renewal.
+semantic_models:
+  - name: fct_renewals
+    description: One row per contract up for renewal.
+    model: ref('fct_renewals')
+    defaults:
+      agg_time_dimension: renewal_date
+    entities:
+      - name: renewal
+        type: primary
+        expr: renewal_id
+      - name: cs_rep
+        type: foreign
+        expr: cs_rep_id
+    dimensions:
+      - name: renewal_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: segment
+        type: categorical
+      - name: plan_tier
+        type: categorical
+      - name: is_renewed
+        type: categorical
+    measures:
+      - name: renewal_count
+        agg: count
+        expr: renewal_id
+        description: 'Contracts up for renewal, by renewal date. Used by: renewed_contracts, up_for_renewal.'
+metrics:
+  - name: renewed_contracts
+    label: renewed_contracts
+    description: Helper input for renewal_rate.
+    type: simple
+    type_params:
+      measure: renewal_count
+    filter: "{{ Dimension('renewal__is_renewed') }} = true"
+  - name: up_for_renewal
+    label: up_for_renewal
+    description: Helper input for renewal_rate.
+    type: simple
+    type_params:
+      measure: renewal_count

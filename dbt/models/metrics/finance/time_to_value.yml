@@ -1,0 +1,13 @@
+metrics:
+  - name: time_to_value
+    label: Time to Value
+    description: Days from signup to first meaningful value event (aha moment).
+    type: simple
+    type_params:
+      measure: avg_days_to_value_event
+    config:
+      meta:
+        metricId: time_to_value
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

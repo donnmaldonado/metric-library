@@ -1,0 +1,83 @@
+# Metrics on this model: employee_engagement_score, engagement_score, enps, manager_effectiveness_score, stg_survey_response_row
+models:
+  - name: fct_employee_survey_responses
+    description: One row per employee survey response (engagement composite, eNPS 0-10, upward feedback).
+semantic_models:
+  - name: fct_employee_survey_responses
+    description: One row per employee survey response (engagement composite, eNPS 0-10, upward feedback).
+    model: ref('fct_employee_survey_responses')
+    defaults:
+      agg_time_dimension: response_date
+    entities:
+      - name: employee_survey_response
+        type: primary
+        expr: employee_survey_response_id
+      - name: manager
+        type: foreign
+        expr: manager_id
+      - name: employee
+        type: foreign
+        expr: employee_id
+      - name: survey
+        type: foreign
+        expr: survey_id
+      - name: question
+        type: foreign
+        expr: question_id
+    dimensions:
+      - name: response_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: department
+        type: categorical
+      - name: survey_cycle
+        type: categorical
+      - name: job_level
+        type: categorical
+      - name: location
+        type: categorical
+    measures:
+      - name: avg_manager_score
+        agg: average
+        expr: manager_score
+        description: Average upward-feedback score.
+      - name: avg_composite_score
+        agg: average
+        expr: composite_score
+        description: Average engagement composite score.
+      - name: employee_survey_responses_avg_score
+        agg: average
+        expr: score
+        description: Average raw item score.
+      - name: enps_promoter_count
+        agg: sum
+        expr: case when enps_score >= 9 then 1 else 0 end
+        description: eNPS promoters (9-10).
+      - name: enps_detractor_count
+        agg: sum
+        expr: case when enps_score <= 6 then 1 else 0 end
+        description: eNPS detractors (0-6).
+      - name: enps_response_count
+        agg: count
+        expr: enps_score
+        description: Responses with an eNPS score.
+metrics:
+  - name: enps_promoters
+    label: enps_promoters
+    description: eNPS promoters (9-10).
+    type: simple
+    type_params:
+      measure: enps_promoter_count
+  - name: enps_detractors
+    label: enps_detractors
+    description: eNPS detractors (0-6).
+    type: simple
+    type_params:
+      measure: enps_detractor_count
+  - name: enps_responses
+    label: enps_responses
+    description: Responses with an eNPS score.
+    type: simple
+    type_params:
+      measure: enps_response_count

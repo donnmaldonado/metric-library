@@ -1,0 +1,13 @@
+metrics:
+  - name: stg_email_send_row
+    label: Raw Email Send Row
+    description: Single email send event with delivery, open, and click status.
+    type: simple
+    type_params:
+      measure: send_count
+    config:
+      meta:
+        metricId: stg_email_send_row
+        tier: input
+        vertical: marketing
+        industry: cross_industry

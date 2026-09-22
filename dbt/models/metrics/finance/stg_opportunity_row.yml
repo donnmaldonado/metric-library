@@ -1,0 +1,13 @@
+metrics:
+  - name: stg_opportunity_row
+    label: Raw Opportunity Row
+    description: Single CRM opportunity record with stage, amount, and dates.
+    type: simple
+    type_params:
+      measure: opportunities_arr_value
+    config:
+      meta:
+        metricId: stg_opportunity_row
+        tier: input
+        vertical: finance
+        industry: cross_industry

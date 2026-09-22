@@ -1,0 +1,14 @@
+metrics:
+  - name: leverage_ratio
+    label: Leverage Ratio
+    description: Net debt relative to EBITDA — key PE portfolio health metric
+    type: ratio
+    type_params:
+      numerator: net_debt
+      denominator: ebitda_ttm
+    config:
+      meta:
+        metricId: leverage_ratio
+        tier: kpi
+        vertical: finance
+        industry: financial_services

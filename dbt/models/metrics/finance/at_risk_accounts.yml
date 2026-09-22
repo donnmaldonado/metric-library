@@ -1,0 +1,14 @@
+metrics:
+  - name: at_risk_accounts
+    label: At-Risk Accounts
+    description: Number of accounts with health score below the risk threshold
+    type: simple
+    type_params:
+      measure: account_count
+    filter: "{{ Dimension('customer_health_snapshot__health_score') }} < 50"
+    config:
+      meta:
+        metricId: at_risk_accounts
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

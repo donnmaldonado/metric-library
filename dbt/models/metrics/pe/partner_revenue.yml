@@ -1,0 +1,14 @@
+metrics:
+  - name: partner_revenue
+    label: Partner Revenue
+    description: Revenue sourced or influenced by channel partners
+    type: simple
+    type_params:
+      measure: revenue_amount
+    filter: "{{ Dimension('revenue_event__source_type') }} = 'partner'"
+    config:
+      meta:
+        metricId: partner_revenue
+        tier: kpi
+        vertical: pe
+        industry: saas

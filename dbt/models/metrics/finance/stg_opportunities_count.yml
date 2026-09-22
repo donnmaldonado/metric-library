@@ -1,0 +1,13 @@
+metrics:
+  - name: stg_opportunities_count
+    label: Opportunities
+    description: Raw opportunity count from CRM staging table
+    type: simple
+    type_params:
+      measure: opportunity_count
+    config:
+      meta:
+        metricId: stg_opportunities_count
+        tier: input
+        vertical: finance
+        industry: cross_industry

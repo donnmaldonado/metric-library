@@ -1,0 +1,47 @@
+# Metrics on this model: absenteeism_by_subgroup, chronic_absenteeism, chronic_absenteeism_rate
+models:
+  - name: fct_student_attendance_years
+    description: 'One row per student per school year: year-to-date enrolled and absent days and chronic-absence flag (absent
+      >= 10% of enrolled days).'
+semantic_models:
+  - name: fct_student_attendance_years
+    description: 'One row per student per school year: year-to-date enrolled and absent days and chronic-absence flag (absent
+      >= 10% of enrolled days).'
+    model: ref('fct_student_attendance_years')
+    defaults:
+      agg_time_dimension: school_year_start
+    entities:
+      - name: student_attendance_year
+        type: primary
+        expr: student_attendance_year_id
+      - name: student
+        type: foreign
+        expr: student_id
+      - name: school
+        type: foreign
+        expr: school_id
+    dimensions:
+      - name: school_year_start
+        type: time
+        type_params:
+          time_granularity: day
+      - name: school_year
+        type: categorical
+      - name: grade_level
+        type: categorical
+      - name: subgroup
+        type: categorical
+      - name: is_chronically_absent
+        type: categorical
+    measures:
+      - name: attendance_year_student_count
+        agg: count_distinct
+        expr: student_id
+        description: Distinct enrolled students.
+metrics:
+  - name: attendance_students
+    label: attendance_students
+    description: Distinct enrolled students with an attendance record for the school year.
+    type: simple
+    type_params:
+      measure: attendance_year_student_count

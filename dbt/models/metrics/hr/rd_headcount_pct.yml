@@ -1,0 +1,14 @@
+metrics:
+  - name: rd_headcount_pct
+    label: R&D % of Headcount
+    description: Engineering and product staff as a share of total headcount
+    type: ratio
+    type_params:
+      numerator: rd_headcount
+      denominator: active_headcount
+    config:
+      meta:
+        metricId: rd_headcount_pct
+        tier: kpi
+        vertical: hr
+        industry: cross_industry

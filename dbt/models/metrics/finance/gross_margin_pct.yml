@@ -1,0 +1,14 @@
+metrics:
+  - name: gross_margin_pct
+    label: Gross Margin %
+    description: Gross profit as a percentage of revenue
+    type: ratio
+    type_params:
+      numerator: gross_profit
+      denominator: revenue
+    config:
+      meta:
+        metricId: gross_margin_pct
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

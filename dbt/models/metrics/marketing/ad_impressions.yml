@@ -1,0 +1,15 @@
+metrics:
+  - name: ad_impressions
+    label: Ad Impressions
+    description: Total number of times paid ads were displayed
+    type: derived
+    type_params:
+      expr: impressions
+      metrics:
+        - name: impressions
+    config:
+      meta:
+        metricId: ad_impressions
+        tier: input
+        vertical: marketing
+        industry: cross_industry

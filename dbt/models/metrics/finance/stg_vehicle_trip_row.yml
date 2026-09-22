@@ -1,0 +1,13 @@
+metrics:
+  - name: stg_vehicle_trip_row
+    label: Raw Vehicle Trip Row
+    description: Single vehicle trip record with distance, duration, and driver.
+    type: simple
+    type_params:
+      measure: trip_count
+    config:
+      meta:
+        metricId: stg_vehicle_trip_row
+        tier: input
+        vertical: finance
+        industry: cross_industry

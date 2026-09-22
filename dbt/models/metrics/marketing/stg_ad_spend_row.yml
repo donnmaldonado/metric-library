@@ -1,0 +1,15 @@
+metrics:
+  - name: stg_ad_spend_row
+    label: Raw Ad Spend Row
+    description: Daily ad spend record by campaign from ad platform.
+    type: derived
+    type_params:
+      expr: marketing_spend
+      metrics:
+        - name: marketing_spend
+    config:
+      meta:
+        metricId: stg_ad_spend_row
+        tier: input
+        vertical: marketing
+        industry: cross_industry

@@ -1,0 +1,21 @@
+# Metrics on this model: dpo
+models:
+  - name: fct_bills
+    description: One row per vendor bill (accounts payable).
+semantic_models:
+  - name: fct_bills
+    description: One row per vendor bill (accounts payable).
+    model: ref('fct_bills')
+    defaults:
+      agg_time_dimension: bill_date
+    entities:
+      - name: bill
+        type: primary
+        expr: bill_id
+    dimensions:
+      - name: bill_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: vendor
+        type: categorical

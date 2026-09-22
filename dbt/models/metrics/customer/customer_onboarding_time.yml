@@ -1,0 +1,13 @@
+metrics:
+  - name: customer_onboarding_time
+    label: Customer Onboarding Time
+    description: Average days from contract signed to customer fully live and using the product.
+    type: simple
+    type_params:
+      measure: avg_onboarding_days
+    config:
+      meta:
+        metricId: customer_onboarding_time
+        tier: kpi
+        vertical: customer
+        industry: cross_industry

@@ -1,0 +1,16 @@
+metrics:
+  - name: error_rate
+    label: Error Rate
+    description: '% of user sessions or API calls that result in an error.'
+    type: ratio
+    type_params:
+      numerator:
+        name: api_calls_total
+        filter: "{{ Dimension('api_request__is_error') }}"
+      denominator: api_calls_total
+    config:
+      meta:
+        metricId: error_rate
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

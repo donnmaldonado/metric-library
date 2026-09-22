@@ -1,0 +1,10 @@
+__pycache__/
+.venv/
+dbt/target/
+dbt/logs/
+dbt/dbt_packages/
+*.duckdb
+.DS_Store
+.claude/worktrees/
+dbt/.user.yml
+*.duckdb.wal

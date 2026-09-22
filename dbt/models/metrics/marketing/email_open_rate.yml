@@ -1,0 +1,14 @@
+metrics:
+  - name: email_open_rate
+    label: Email Open Rate
+    description: '% of delivered emails that were opened.'
+    type: ratio
+    type_params:
+      numerator: emails_opened
+      denominator: emails_delivered
+    config:
+      meta:
+        metricId: email_open_rate
+        tier: kpi
+        vertical: marketing
+        industry: cross_industry

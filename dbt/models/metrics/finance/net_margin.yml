@@ -1,0 +1,15 @@
+metrics:
+  - name: net_margin
+    label: Net Margin %
+    description: Net income as a percentage of revenue
+    type: derived
+    type_params:
+      expr: net_income_margin
+      metrics:
+        - name: net_income_margin
+    config:
+      meta:
+        metricId: net_margin
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

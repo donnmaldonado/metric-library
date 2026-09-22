@@ -1,0 +1,16 @@
+metrics:
+  - name: liquidity_rate
+    label: Marketplace Liquidity %
+    description: Percentage of listings that resulted in a transaction
+    type: ratio
+    type_params:
+      numerator:
+        name: active_listings
+        filter: "{{ Dimension('listing_day__has_transaction') }} = true"
+      denominator: active_listings
+    config:
+      meta:
+        metricId: liquidity_rate
+        tier: kpi
+        vertical: finance
+        industry: marketplace

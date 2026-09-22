@@ -1,0 +1,15 @@
+metrics:
+  - name: stg_user_event_row
+    label: Raw User Event Row
+    description: Single user action event from product analytics instrumentation.
+    type: derived
+    type_params:
+      expr: stg_events_count
+      metrics:
+        - name: stg_events_count
+    config:
+      meta:
+        metricId: stg_user_event_row
+        tier: input
+        vertical: finance
+        industry: cross_industry

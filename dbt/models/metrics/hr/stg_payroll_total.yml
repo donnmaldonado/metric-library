@@ -1,0 +1,13 @@
+metrics:
+  - name: stg_payroll_total
+    label: Payroll Total
+    description: Total payroll disbursements in staging payroll table
+    type: simple
+    type_params:
+      measure: gross_pay
+    config:
+      meta:
+        metricId: stg_payroll_total
+        tier: input
+        vertical: hr
+        industry: cross_industry

@@ -1,0 +1,14 @@
+metrics:
+  - name: gross_revenue
+    label: Gross Revenue
+    description: Total revenue before any discounts or returns
+    type: simple
+    type_params:
+      measure: order_amount
+    filter: "{{ Dimension('order__status') }} = 'completed'"
+    config:
+      meta:
+        metricId: gross_revenue
+        tier: input
+        vertical: pe
+        industry: saas

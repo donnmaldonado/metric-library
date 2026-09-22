@@ -1,0 +1,14 @@
+metrics:
+  - name: stg_refunds_count
+    label: Refunds
+    description: Raw refund transaction count in staging
+    type: simple
+    type_params:
+      measure: return_count
+    filter: "{{ Dimension('order_return__is_refunded') }} = true"
+    config:
+      meta:
+        metricId: stg_refunds_count
+        tier: input
+        vertical: customer
+        industry: retail

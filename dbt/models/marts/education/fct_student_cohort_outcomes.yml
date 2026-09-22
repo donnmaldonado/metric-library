@@ -1,0 +1,83 @@
+# Metrics on this model: college_enrollment, college_enrollment_rate, dropout_rate, fafsa_completion_rate, four_year_grad_rate, graduation_rate
+models:
+  - name: fct_student_cohort_outcomes
+    description: 'One row per student per graduation cohort (entered 9th grade in cohort_year): graduation, dropout, transfer,
+      grade 12, FAFSA and college-enrollment outcomes. outcome_date is the cohort''s expected graduation date.'
+semantic_models:
+  - name: fct_student_cohort_outcomes
+    description: 'One row per student per graduation cohort (entered 9th grade in cohort_year): graduation, dropout, transfer,
+      grade 12, FAFSA and college-enrollment outcomes. outcome_date is the cohort''s expected graduation date.'
+    model: ref('fct_student_cohort_outcomes')
+    defaults:
+      agg_time_dimension: outcome_date
+    entities:
+      - name: student_cohort_outcome
+        type: primary
+        expr: student_cohort_outcome_id
+      - name: student
+        type: foreign
+        expr: student_id
+      - name: school
+        type: foreign
+        expr: school_id
+    dimensions:
+      - name: outcome_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: school_year
+        type: categorical
+      - name: school_name
+        type: categorical
+      - name: subgroup
+        type: categorical
+      - name: demographic_group
+        type: categorical
+      - name: cohort_year
+        type: categorical
+      - name: grad_year
+        type: categorical
+      - name: college_type
+        type: categorical
+      - name: transferred_out
+        type: categorical
+      - name: graduated_in_4_years
+        type: categorical
+      - name: dropped_out
+        type: categorical
+      - name: is_graduate
+        type: categorical
+      - name: reached_grade_12
+        type: categorical
+      - name: completed_fafsa
+        type: categorical
+      - name: enrolled_college_within_12_months
+        type: categorical
+      - name: enrolled_college_within_16_months
+        type: categorical
+    measures:
+      - name: cohort_student_count
+        agg: count
+        expr: student_cohort_outcome_id
+        description: Students in the cohort.
+metrics:
+  - name: cohort_students
+    label: cohort_students
+    description: 'Students in the cohort (unadjusted: includes transfers out).'
+    type: simple
+    type_params:
+      measure: cohort_student_count
+  - name: adjusted_cohort_students
+    label: adjusted_cohort_students
+    description: 'Adjusted cohort: students in the cohort, excluding transfers out.'
+    type: simple
+    type_params:
+      measure: cohort_student_count
+    filter: "{{ Dimension('student_cohort_outcome__transferred_out') }} = false"
+  - name: total_graduates
+    label: total_graduates
+    description: Graduates.
+    type: simple
+    type_params:
+      measure: cohort_student_count
+    filter: "{{ Dimension('student_cohort_outcome__is_graduate') }} = true"

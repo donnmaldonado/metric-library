@@ -1,0 +1,36 @@
+# Metrics on this model: stg_page_view_row, stg_page_views
+models:
+  - name: fct_page_views
+    description: One row per page view.
+semantic_models:
+  - name: fct_page_views
+    description: One row per page view.
+    model: ref('fct_page_views')
+    defaults:
+      agg_time_dimension: view_date
+    entities:
+      - name: page_view
+        type: primary
+        expr: page_view_id
+      - name: page
+        type: foreign
+        expr: page_id
+      - name: user
+        type: foreign
+        expr: user_id
+    dimensions:
+      - name: view_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: referrer
+        type: categorical
+      - name: device
+        type: categorical
+      - name: page_name
+        type: categorical
+    measures:
+      - name: page_view_count
+        agg: count
+        expr: page_view_id
+        description: 'Used by: stg_page_view_row, stg_page_views.'

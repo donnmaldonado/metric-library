@@ -1,0 +1,51 @@
+# Metrics on this model: incident_count, mttd, mttr, rcr_rate
+models:
+  - name: fct_incidents
+    description: One row per production incident or repair.
+semantic_models:
+  - name: fct_incidents
+    description: One row per production incident or repair.
+    model: ref('fct_incidents')
+    defaults:
+      agg_time_dimension: incident_date
+    entities:
+      - name: incident
+        type: primary
+        expr: incident_id
+    dimensions:
+      - name: incident_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: incident_start
+        type: time
+        type_params:
+          time_granularity: day
+      - name: detection_time
+        type: time
+        type_params:
+          time_granularity: day
+      - name: resolved_at
+        type: time
+        type_params:
+          time_granularity: day
+      - name: service
+        type: categorical
+      - name: severity
+        type: categorical
+      - name: has_root_cause
+        type: categorical
+        description: True when a root cause and resolution are documented.
+    measures:
+      - name: mttd_value
+        agg: average
+        expr: datediff('minute', incident_start, detection_time) / 60.0
+        description: 'Hours from incident start to detection. Used by: mttd.'
+      - name: avg_hours_to_resolve
+        agg: average
+        expr: datediff('minute', incident_start, resolved_at) / 60.0
+        description: 'Hours from incident start to restoration. Used by: mttr.'
+      - name: incidents_incident_count
+        agg: count
+        expr: incident_id
+        description: 'Used by: incident_count (and rcr_rate through it).'

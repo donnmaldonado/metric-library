@@ -1,0 +1,16 @@
+metrics:
+  - name: family_engagement_rate
+    label: Family Engagement %
+    description: Percentage of families attending at least one school event or conference
+    type: ratio
+    type_params:
+      numerator:
+        name: total_families
+        filter: "{{ Dimension('family_engagement_record__attended_event') }} = true"
+      denominator: total_families
+    config:
+      meta:
+        metricId: family_engagement_rate
+        tier: input
+        vertical: finance
+        industry: cross_industry

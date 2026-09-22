@@ -1,0 +1,73 @@
+# Metrics on this model: cogs, ga_spend_pct, gna_pct_revenue, opex, rd_as_pct_revenue, rd_expense, rd_spend_pct, sg_and_a, sm_spend, stg_cogs_event, stg_opex_line
+# gl_category taxonomy for opex lines: 'R&D', 'S&M', 'G&A', 'D&A', 'Other'. opex_amount covers every operating
+# (non-COGS) line including D&A, so EBIT = gross profit - opex and EBITDA = EBIT + D&A.
+# sm_spend stays on expense_amount filtered by department IN ('sales', 'marketing') (shared with
+# magic_number). Columns ga_spend, rd_spend are unused synonyms; no measure uses them.
+models:
+  - name: fct_gl_entries
+    description: One row per general ledger posting (opex, COGS and other expense lines).
+semantic_models:
+  - name: fct_gl_entries
+    description: One row per general ledger posting (opex, COGS and other expense lines).
+    model: ref('fct_gl_entries')
+    defaults:
+      agg_time_dimension: posted_date
+    entities:
+      - name: gl_entry
+        type: primary
+        expr: gl_entry_id
+      - name: company
+        type: foreign
+        expr: company_id
+      - name: product
+        type: foreign
+        expr: product_id
+    dimensions:
+      - name: posted_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: product_line
+        type: categorical
+      - name: department
+        type: categorical
+      - name: gl_category
+        type: categorical
+      - name: cost_center
+        type: categorical
+      - name: gl_account
+        type: categorical
+    measures:
+      - name: cogs_amount
+        agg: sum
+        description: 'Used by: cogs.'
+      - name: opex_amount
+        agg: sum
+        description: 'Operating (non-COGS) expense incl. D&A. Used by: opex, rd_expense, sg_and_a, ga_expense.'
+      - name: expense_amount
+        agg: sum
+        description: 'Expense by department. Used by: sm_spend (and magic_number SQL).'
+metrics:
+  - name: ga_expense
+    label: ga_expense
+    description: Helper input for gna_pct_revenue. G&A operating expense.
+    type: simple
+    type_params:
+      measure: opex_amount
+    filter: "{{ Dimension('gl_entry__gl_category') }} = 'G&A'"
+  - name: cogs_ttm
+    label: cogs_ttm
+    description: Helper input for dpo and ebitda_ttm. Trailing twelve months of COGS.
+    type: cumulative
+    type_params:
+      measure: cogs_amount
+      cumulative_type_params:
+        window: 12 months
+  - name: opex_ttm
+    label: opex_ttm
+    description: Helper input for ebitda_ttm. Trailing twelve months of operating expense.
+    type: cumulative
+    type_params:
+      measure: opex_amount
+      cumulative_type_params:
+        window: 12 months

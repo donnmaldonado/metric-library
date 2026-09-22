@@ -1,0 +1,14 @@
+metrics:
+  - name: services_revenue
+    label: Services Revenue
+    description: Revenue from professional services engagements
+    type: simple
+    type_params:
+      measure: revenue_amount
+    filter: "{{ Dimension('revenue_event__revenue_type') }} = 'professional_services'"
+    config:
+      meta:
+        metricId: services_revenue
+        tier: kpi
+        vertical: pe
+        industry: saas

@@ -1,0 +1,15 @@
+metrics:
+  - name: stg_payroll_row
+    label: Raw Payroll Row
+    description: Single payroll record per employee per pay period.
+    type: derived
+    type_params:
+      expr: stg_payroll_total
+      metrics:
+        - name: stg_payroll_total
+    config:
+      meta:
+        metricId: stg_payroll_row
+        tier: input
+        vertical: hr
+        industry: cross_industry

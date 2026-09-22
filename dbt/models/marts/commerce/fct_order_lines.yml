@@ -1,0 +1,50 @@
+# Metrics on this model: fill_rate, return_rate, stg_order_line_row
+models:
+  - name: fct_order_lines
+    description: One row per order line.
+semantic_models:
+  - name: fct_order_lines
+    description: One row per order line.
+    model: ref('fct_order_lines')
+    defaults:
+      agg_time_dimension: order_date
+    entities:
+      - name: order_line
+        type: primary
+        expr: line_id
+      - name: order
+        type: foreign
+        expr: order_id
+      - name: product
+        type: foreign
+        expr: product_id
+      - name: warehouse
+        type: foreign
+        expr: warehouse_id
+    dimensions:
+      - name: order_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: status
+        type: categorical
+      - name: product_category
+        type: categorical
+      - name: is_fully_shipped
+        type: categorical
+    measures:
+      - name: line_count
+        agg: count
+        expr: line_id
+        description: 'Used by: fill_rate, stg_order_line_row.'
+      - name: order_lines_units_sold
+        agg: sum
+        expr: qty_shipped
+        description: 'Units shipped to customers. Used by: return_rate.'
+metrics:
+  - name: order_lines_units_sold
+    label: order_lines_units_sold
+    description: Units sold (shipped) in the period. Helper input for return_rate.
+    type: simple
+    type_params:
+      measure: order_lines_units_sold

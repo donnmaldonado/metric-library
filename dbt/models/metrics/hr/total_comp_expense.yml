@@ -1,0 +1,13 @@
+metrics:
+  - name: total_comp_expense
+    label: Total Comp Expense
+    description: Total salaries, benefits, and equity costs for the period
+    type: simple
+    type_params:
+      measure: total_compensation
+    config:
+      meta:
+        metricId: total_comp_expense
+        tier: input
+        vertical: hr
+        industry: cross_industry

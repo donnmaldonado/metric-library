@@ -1,0 +1,13 @@
+metrics:
+  - name: da
+    label: D&A
+    description: Non-cash charges for the period
+    type: simple
+    type_params:
+      measure: da_value
+    config:
+      meta:
+        metricId: da
+        tier: input
+        vertical: finance
+        industry: cross_industry

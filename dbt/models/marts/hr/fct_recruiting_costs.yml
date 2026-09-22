@@ -1,0 +1,41 @@
+# Metrics on this model: cost_per_hire
+models:
+  - name: fct_recruiting_costs
+    description: One row per department and period with recruiting cost and hires made.
+semantic_models:
+  - name: fct_recruiting_costs
+    description: One row per department and period with recruiting cost and hires made.
+    model: ref('fct_recruiting_costs')
+    defaults:
+      agg_time_dimension: period_start
+    entities:
+      - name: recruiting_cost_period
+        type: primary
+        expr: recruiting_cost_period_id
+    dimensions:
+      - name: period_start
+        type: time
+        type_params:
+          time_granularity: day
+      - name: department
+        type: categorical
+    measures:
+      - name: total_recruiting_cost
+        agg: sum
+        description: Recruiting spend.
+      - name: hires_made
+        agg: sum
+        description: Hires attributed to the recruiting spend.
+metrics:
+  - name: total_recruiting_cost
+    label: total_recruiting_cost
+    description: Recruiting spend.
+    type: simple
+    type_params:
+      measure: total_recruiting_cost
+  - name: hires_made
+    label: hires_made
+    description: Hires attributed to the recruiting spend.
+    type: simple
+    type_params:
+      measure: hires_made

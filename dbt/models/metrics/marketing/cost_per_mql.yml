@@ -1,0 +1,14 @@
+metrics:
+  - name: cost_per_mql
+    label: Cost per MQL
+    description: Total marketing spend divided by MQLs generated.
+    type: ratio
+    type_params:
+      numerator: marketing_spend
+      denominator: mql
+    config:
+      meta:
+        metricId: cost_per_mql
+        tier: kpi
+        vertical: marketing
+        industry: cross_industry

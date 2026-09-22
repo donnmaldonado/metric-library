@@ -1,0 +1,14 @@
+metrics:
+  - name: review_rating
+    label: Review Rating
+    description: Average rating on third-party review platforms (out of 5)
+    type: simple
+    type_params:
+      measure: avg_rating_score
+    filter: "{{ Dimension('review__review_source') }} = 'review_site'"
+    config:
+      meta:
+        metricId: review_rating
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

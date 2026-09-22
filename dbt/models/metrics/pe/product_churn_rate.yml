@@ -1,0 +1,14 @@
+metrics:
+  - name: product_churn_rate
+    label: Product Churn
+    description: Percentage of active users who became inactive this period
+    type: ratio
+    type_params:
+      numerator: product_churned_users
+      denominator: prior_month_active_users
+    config:
+      meta:
+        metricId: product_churn_rate
+        tier: kpi
+        vertical: pe
+        industry: saas

@@ -1,0 +1,13 @@
+metrics:
+  - name: stg_discipline_row
+    label: Raw Discipline Row
+    description: Single student discipline incident record with type and consequence.
+    type: simple
+    type_params:
+      measure: discipline_incidents_incident_count
+    config:
+      meta:
+        metricId: stg_discipline_row
+        tier: input
+        vertical: finance
+        industry: cross_industry

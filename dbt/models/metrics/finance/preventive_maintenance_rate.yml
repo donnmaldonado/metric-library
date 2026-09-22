@@ -1,0 +1,16 @@
+metrics:
+  - name: preventive_maintenance_rate
+    label: Preventive Maintenance Rate
+    description: '% of maintenance activity that is planned preventive vs reactive.'
+    type: ratio
+    type_params:
+      numerator:
+        name: stg_work_order_row
+        filter: "{{ Dimension('work_order__maintenance_type') }} = 'preventive'"
+      denominator: stg_work_order_row
+    config:
+      meta:
+        metricId: preventive_maintenance_rate
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

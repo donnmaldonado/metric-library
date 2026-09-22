@@ -1,0 +1,14 @@
+metrics:
+  - name: email_click_rate
+    label: Email Click Rate
+    description: '% of delivered emails that received at least one click.'
+    type: ratio
+    type_params:
+      numerator: emails_clicked
+      denominator: emails_delivered
+    config:
+      meta:
+        metricId: email_click_rate
+        tier: kpi
+        vertical: marketing
+        industry: cross_industry

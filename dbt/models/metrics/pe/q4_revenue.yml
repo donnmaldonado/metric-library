@@ -1,0 +1,14 @@
+metrics:
+  - name: q4_revenue
+    label: Q4 Revenue
+    description: Revenue recognized in Q4
+    type: simple
+    type_params:
+      measure: revenue_amount
+    filter: "{{ Dimension('revenue_event__fiscal_quarter') }} = 4"
+    config:
+      meta:
+        metricId: q4_revenue
+        tier: input
+        vertical: pe
+        industry: saas

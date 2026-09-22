@@ -1,0 +1,64 @@
+# Metrics on this model: compensation_ratio, gender_pay_gap, headcount_cost, stg_payroll_row, stg_payroll_total, total_comp_expense
+models:
+  - name: fct_payroll
+    description: One row per employee pay record (pay components, annual salary and market midpoint at pay date, gender).
+semantic_models:
+  - name: fct_payroll
+    description: One row per employee pay record (pay components, annual salary and market midpoint at pay date, gender).
+    model: ref('fct_payroll')
+    defaults:
+      agg_time_dimension: pay_date
+    entities:
+      - name: pay_record
+        type: primary
+        expr: pay_record_id
+      - name: employee
+        type: foreign
+        expr: employee_id
+    dimensions:
+      - name: pay_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: job_level
+        type: categorical
+      - name: department
+        type: categorical
+      - name: location
+        type: categorical
+      - name: pay_period
+        type: categorical
+      - name: pay_type
+        type: categorical
+      - name: gender
+        type: categorical
+    measures:
+      - name: avg_comp_ratio
+        agg: average
+        expr: annual_salary / nullif(market_midpoint, 0)
+        description: Average compa-ratio (annual salary / market midpoint).
+      - name: fully_loaded_cost
+        agg: sum
+        expr: coalesce(base_pay, 0) + coalesce(bonus_pay, 0) + coalesce(benefits_cost, 0) + coalesce(employer_taxes, 0)
+        description: Salary + bonus + benefits + employer taxes.
+      - name: gross_pay
+        agg: sum
+        description: Gross pay disbursed.
+      - name: total_compensation
+        agg: sum
+        expr: coalesce(base_pay, 0) + coalesce(bonus_pay, 0) + coalesce(benefits_cost, 0) + coalesce(equity_expense, 0)
+        description: Salary + bonus + benefits + equity expense.
+      - name: median_annual_salary
+        agg: percentile
+        expr: annual_salary
+        agg_params:
+          percentile: 0.5
+          use_discrete_percentile: false
+        description: Median annual salary across pay records.
+metrics:
+  - name: median_salary
+    label: median_salary
+    description: Median annual salary (filter by gender for pay-gap inputs).
+    type: simple
+    type_params:
+      measure: median_annual_salary

@@ -1,0 +1,46 @@
+# Metrics on this model: api_calls_total, api_consumers, api_latency_p95, error_rate
+models:
+  - name: fct_api_requests
+    description: One row per API request.
+semantic_models:
+  - name: fct_api_requests
+    description: One row per API request.
+    model: ref('fct_api_requests')
+    defaults:
+      agg_time_dimension: request_date
+    entities:
+      - name: api_request
+        type: primary
+        expr: request_id
+    dimensions:
+      - name: request_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: endpoint
+        type: categorical
+      - name: environment
+        type: categorical
+      - name: error_type
+        type: categorical
+      - name: platform
+        type: categorical
+      - name: is_error
+        type: categorical
+        description: True when the request returned an error (5xx or client-visible failure).
+    measures:
+      - name: p95_response_time_ms
+        agg: percentile
+        expr: response_time_ms
+        agg_params:
+          percentile: 0.95
+          use_discrete_percentile: false
+        description: 'Used by: api_latency_p95.'
+      - name: request_count
+        agg: count
+        expr: request_id
+        description: 'Used by: api_calls_total (and error_rate through it).'
+      - name: distinct_consumer_count
+        agg: count_distinct
+        expr: consumer_id
+        description: 'Used by: api_consumers.'

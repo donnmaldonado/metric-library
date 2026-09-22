@@ -1,0 +1,13 @@
+metrics:
+  - name: stg_order_line_row
+    label: Raw Order Line Row
+    description: Single order line item with product, quantity, and fulfillment status.
+    type: simple
+    type_params:
+      measure: line_count
+    config:
+      meta:
+        metricId: stg_order_line_row
+        tier: input
+        vertical: ops
+        industry: cross_industry

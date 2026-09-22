@@ -1,0 +1,22 @@
+metrics:
+  - name: nps
+    label: NPS
+    description: Net Promoter Score — % Promoters minus % Detractors on 0–10 likelihood-to-recommend scale.
+    type: derived
+    type_params:
+      expr: (promoters - detractors) * 100.0 / nullif(responses, 0)
+      metrics:
+        - name: nps_survey_responses
+          alias: promoters
+          filter: "{{ Dimension('survey_response__score') }} >= 9"
+        - name: nps_survey_responses
+          alias: detractors
+          filter: "{{ Dimension('survey_response__score') }} <= 6"
+        - name: nps_survey_responses
+          alias: responses
+    config:
+      meta:
+        metricId: nps
+        tier: north_star
+        vertical: product
+        industry: cross_industry

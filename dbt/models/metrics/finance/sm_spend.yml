@@ -1,0 +1,14 @@
+metrics:
+  - name: sm_spend
+    label: S&M Spend
+    description: Total sales and marketing expenditure in the period
+    type: simple
+    type_params:
+      measure: expense_amount
+    filter: "{{ Dimension('gl_entry__department') }} IN ('sales', 'marketing')"
+    config:
+      meta:
+        metricId: sm_spend
+        tier: input
+        vertical: finance
+        industry: cross_industry

@@ -1,0 +1,19 @@
+metrics:
+  - name: grade3_reading
+    label: Gr3 Reading %
+    description: Percentage of 3rd graders reading at or above grade level
+    type: ratio
+    type_params:
+      numerator:
+        name: students_tested
+        filter: "{{ Dimension('assessment_result__met_standard') }} = true AND {{ Dimension('assessment_result__subject')\
+          \ }} IN ('ela', 'reading') AND {{ Dimension('assessment_result__grade_level') }} = '3'"
+      denominator:
+        name: enrollment_count
+        filter: "{{ Dimension('enrollment__grade_level') }} = '3'"
+    config:
+      meta:
+        metricId: grade3_reading
+        tier: kpi
+        vertical: edu
+        industry: education

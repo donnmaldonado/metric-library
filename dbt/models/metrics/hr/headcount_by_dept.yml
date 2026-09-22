@@ -1,0 +1,15 @@
+metrics:
+  - name: headcount_by_dept
+    label: Headcount (Dept)
+    description: Employee count broken down by department
+    type: derived
+    type_params:
+      expr: headcount
+      metrics:
+        - name: headcount
+    config:
+      meta:
+        metricId: headcount_by_dept
+        tier: input
+        vertical: hr
+        industry: cross_industry

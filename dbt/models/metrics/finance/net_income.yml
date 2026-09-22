@@ -1,0 +1,13 @@
+metrics:
+  - name: net_income
+    label: Net Income
+    description: Bottom-line profit after all expenses and taxes.
+    type: simple
+    type_params:
+      measure: net_income
+    config:
+      meta:
+        metricId: net_income
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

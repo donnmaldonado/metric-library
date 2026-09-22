@@ -1,0 +1,51 @@
+# Metrics on this model: market_penetration_rate, market_share, sam, tam
+models:
+  - name: fct_market_sizing
+    description: One row per market segment, geography and estimate date (TAM/SAM and company revenue).
+semantic_models:
+  - name: fct_market_sizing
+    description: One row per market segment, geography and estimate date (TAM/SAM and company revenue).
+    model: ref('fct_market_sizing')
+    defaults:
+      agg_time_dimension: as_of_date
+    entities:
+      - name: market_estimate
+        type: primary
+        expr: market_estimate_id
+    dimensions:
+      - name: as_of_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: region
+        type: categorical
+      - name: segment
+        type: categorical
+      - name: geography
+        type: categorical
+    measures:
+      - name: sam_estimate
+        agg: sum
+        non_additive_dimension:
+          name: as_of_date
+          window_choice: max
+        description: 'Used by: sam.'
+      - name: tam_estimate
+        agg: sum
+        non_additive_dimension:
+          name: as_of_date
+          window_choice: max
+        description: 'Used by: market_share, tam.'
+      - name: company_revenue
+        agg: sum
+        non_additive_dimension:
+          name: as_of_date
+          window_choice: max
+        description: 'Used by: market_share.'
+metrics:
+  - name: company_revenue
+    label: company_revenue
+    description: Helper input for market_share.
+    type: simple
+    type_params:
+      measure: company_revenue

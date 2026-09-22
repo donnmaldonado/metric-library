@@ -1,0 +1,15 @@
+metrics:
+  - name: on_time_delivery_rate
+    label: On-Time Delivery Rate
+    description: '% of orders or deliveries completed by their committed date.'
+    type: derived
+    type_params:
+      expr: otd_rate
+      metrics:
+        - name: otd_rate
+    config:
+      meta:
+        metricId: on_time_delivery_rate
+        tier: kpi
+        vertical: ops
+        industry: cross_industry

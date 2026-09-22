@@ -1,0 +1,14 @@
+metrics:
+  - name: procurement_savings_rate
+    label: Procurement Savings Rate
+    description: Actual spend vs budgeted or baseline spend — cost reduction from procurement initiatives.
+    type: ratio
+    type_params:
+      numerator: procurement_savings_rate_numerator
+      denominator: baseline_spend
+    config:
+      meta:
+        metricId: procurement_savings_rate
+        tier: kpi
+        vertical: ops
+        industry: manufacturing

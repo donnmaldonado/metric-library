@@ -1,0 +1,14 @@
+metrics:
+  - name: stg_subscriptions_active
+    label: Active Subscriptions
+    description: Count of active subscription records before business logic
+    type: simple
+    type_params:
+      measure: subscription_count
+    filter: "{{ Dimension('subscription_snapshot__status') }} = 'active'"
+    config:
+      meta:
+        metricId: stg_subscriptions_active
+        tier: input
+        vertical: finance
+        industry: cross_industry

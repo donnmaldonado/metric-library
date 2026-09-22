@@ -1,0 +1,14 @@
+metrics:
+  - name: subscription_revenue
+    label: Subscription Revenue
+    description: Revenue from recurring subscription contracts
+    type: simple
+    type_params:
+      measure: revenue_amount
+    filter: "{{ Dimension('revenue_event__revenue_type') }} = 'subscription'"
+    config:
+      meta:
+        metricId: subscription_revenue
+        tier: kpi
+        vertical: pe
+        industry: saas

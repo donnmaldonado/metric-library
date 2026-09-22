@@ -1,0 +1,16 @@
+metrics:
+  - name: trial_to_paid_rate
+    label: Trial → Paid %
+    description: Percentage of trial users who converted to a paid plan
+    type: ratio
+    type_params:
+      numerator:
+        name: trial_signups
+        filter: "{{ Dimension('user__is_converted_to_paid') }}"
+      denominator: trial_signups
+    config:
+      meta:
+        metricId: trial_to_paid_rate
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

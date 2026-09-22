@@ -1,0 +1,13 @@
+metrics:
+  - name: sgp
+    label: SGP (Growth)
+    description: Median Student Growth Percentile — measures growth relative to academic peers
+    type: simple
+    type_params:
+      measure: median_growth_percentile
+    config:
+      meta:
+        metricId: sgp
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

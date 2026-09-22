@@ -1,0 +1,16 @@
+metrics:
+  - name: wau
+    label: WAU
+    description: Weekly Active Users — unique users who performed a qualifying action in a 7-day window.
+    type: cumulative
+    type_params:
+      measure: user_events_distinct_user_count
+      cumulative_type_params:
+        window: 7 days
+    filter: "{{ Dimension('user_event__is_active_event') }}"
+    config:
+      meta:
+        metricId: wau
+        tier: kpi
+        vertical: product
+        industry: cross_industry

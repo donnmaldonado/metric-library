@@ -1,0 +1,100 @@
+# Metrics on this model: arr_per_rep, pct_reps_at_quota, pipeline_coverage, quota_attainment, sales_spend
+# qualified_pipeline and remaining_quota are point-in-time balances per rep-period, so they are semi-additive
+# (the last period_start in the queried window is used, not the sum over periods).
+models:
+  - name: fct_sales_rep_periods
+    description: One row per sales rep (or team) and period with quota, closed ARR, pipeline and cost.
+semantic_models:
+  - name: fct_sales_rep_periods
+    description: One row per sales rep (or team) and period with quota, closed ARR, pipeline and cost.
+    model: ref('fct_sales_rep_periods')
+    defaults:
+      agg_time_dimension: period_start
+    entities:
+      - name: sales_rep_period
+        type: primary
+        expr: sales_rep_period_id
+      - name: company
+        type: foreign
+        expr: company_id
+      - name: rep
+        type: foreign
+        expr: rep_id
+    dimensions:
+      - name: period_start
+        type: time
+        type_params:
+          time_granularity: day
+      - name: team
+        type: categorical
+      - name: segment
+        type: categorical
+      - name: is_quota_carrying
+        type: categorical
+      - name: is_at_quota
+        type: categorical
+    measures:
+      - name: total_sales_cost
+        agg: sum
+        description: 'Used by: sales_spend.'
+      - name: qualified_pipeline
+        agg: sum
+        non_additive_dimension:
+          name: period_start
+          window_choice: max
+        description: 'Qualified pipeline balance at the latest period in the window. Used by: pipeline_coverage.'
+      - name: remaining_quota
+        agg: sum
+        non_additive_dimension:
+          name: period_start
+          window_choice: max
+        description: 'Remaining quota balance at the latest period in the window. Used by: pipeline_coverage.'
+      - name: arr_closed
+        agg: sum
+        description: 'Used by: quota_attainment.'
+      - name: quota
+        agg: sum
+        description: 'Used by: quota_attainment.'
+      - name: distinct_rep_count
+        agg: count_distinct
+        expr: rep_id
+        description: 'Distinct reps with a row in the period. Used by: reps_at_quota, quota_carrying_reps.'
+metrics:
+  - name: qualified_pipeline
+    label: qualified_pipeline
+    description: Helper input for pipeline_coverage.
+    type: simple
+    type_params:
+      measure: qualified_pipeline
+  - name: remaining_quota
+    label: remaining_quota
+    description: Helper input for pipeline_coverage.
+    type: simple
+    type_params:
+      measure: remaining_quota
+  - name: arr_closed
+    label: arr_closed
+    description: Helper input for quota_attainment.
+    type: simple
+    type_params:
+      measure: arr_closed
+  - name: quota
+    label: quota
+    description: Helper input for quota_attainment.
+    type: simple
+    type_params:
+      measure: quota
+  - name: reps_at_quota
+    label: reps_at_quota
+    description: Helper input for pct_reps_at_quota (quota-carrying reps at or above 100% attainment).
+    type: simple
+    type_params:
+      measure: distinct_rep_count
+    filter: "{{ Dimension('sales_rep_period__is_quota_carrying') }} = true AND {{ Dimension('sales_rep_period__is_at_quota') }} = true"
+  - name: quota_carrying_reps
+    label: quota_carrying_reps
+    description: Helper input for arr_per_rep, pct_reps_at_quota.
+    type: simple
+    type_params:
+      measure: distinct_rep_count
+    filter: "{{ Dimension('sales_rep_period__is_quota_carrying') }} = true"

@@ -1,0 +1,44 @@
+# Metrics on this model: liquidity_rate
+models:
+  - name: fct_marketplace_listings
+    description: One row per marketplace listing and day.
+semantic_models:
+  - name: fct_marketplace_listings
+    description: One row per marketplace listing and day.
+    model: ref('fct_marketplace_listings')
+    defaults:
+      agg_time_dimension: listing_date
+    entities:
+      - name: listing_day
+        type: primary
+        expr: listing_day_id
+      - name: listing
+        type: foreign
+        expr: listing_id
+      - name: seller
+        type: foreign
+        expr: seller_id
+    dimensions:
+      - name: listing_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: category
+        type: categorical
+      - name: is_active
+        type: categorical
+      - name: has_transaction
+        type: categorical
+    measures:
+      - name: distinct_listing_count
+        agg: count_distinct
+        expr: listing_id
+        description: 'Distinct listings. Used by: liquidity_rate.'
+metrics:
+  - name: active_listings
+    label: active_listings
+    description: Distinct listings live at some point in the period. Helper input for liquidity_rate.
+    type: simple
+    type_params:
+      measure: distinct_listing_count
+    filter: "{{ Dimension('listing_day__is_active') }} = true"

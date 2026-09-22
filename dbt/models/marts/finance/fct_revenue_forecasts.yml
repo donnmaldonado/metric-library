@@ -1,0 +1,41 @@
+# Metrics on this model: forecast_accuracy
+models:
+  - name: fct_revenue_forecasts
+    description: One row per segment and forecast period with forecast and actual revenue.
+semantic_models:
+  - name: fct_revenue_forecasts
+    description: One row per segment and forecast period with forecast and actual revenue.
+    model: ref('fct_revenue_forecasts')
+    defaults:
+      agg_time_dimension: forecast_period_start
+    entities:
+      - name: revenue_forecast
+        type: primary
+        expr: revenue_forecast_id
+    dimensions:
+      - name: forecast_period_start
+        type: time
+        type_params:
+          time_granularity: day
+      - name: segment
+        type: categorical
+    measures:
+      - name: actual_revenue
+        agg: sum
+        description: 'Used by: forecast_accuracy.'
+      - name: forecast_revenue
+        agg: sum
+        description: 'Used by: forecast_accuracy.'
+metrics:
+  - name: actual_revenue
+    label: actual_revenue
+    description: Helper input for forecast_accuracy.
+    type: simple
+    type_params:
+      measure: actual_revenue
+  - name: forecast_revenue
+    label: forecast_revenue
+    description: Helper input for forecast_accuracy.
+    type: simple
+    type_params:
+      measure: forecast_revenue

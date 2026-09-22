@@ -1,0 +1,82 @@
+# Metrics on this model: lead_time, on_time_delivery_rate, ops_north_star, order_accuracy_rate, order_fulfillment_rate, otd_rate, stg_shipment_row
+models:
+  - name: fct_shipments
+    description: One row per shipment / delivery, with fulfillment and order-quality flags.
+semantic_models:
+  - name: fct_shipments
+    description: One row per shipment / delivery, with fulfillment and order-quality flags.
+    model: ref('fct_shipments')
+    defaults:
+      agg_time_dimension: ship_date
+    entities:
+      - name: shipment
+        type: primary
+        expr: shipment_id
+      - name: order
+        type: foreign
+        expr: order_id
+      - name: warehouse
+        type: foreign
+        expr: warehouse_id
+    dimensions:
+      - name: ship_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: committed_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: delivery_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: product_name
+        type: categorical
+      - name: carrier
+        type: categorical
+      - name: status
+        type: categorical
+      - name: region
+        type: categorical
+      - name: product_category
+        type: categorical
+      - name: is_delivered
+        type: categorical
+      - name: is_on_time
+        type: categorical
+      - name: order_is_on_time
+        type: categorical
+      - name: order_is_complete
+        type: categorical
+      - name: order_is_accurate
+        type: categorical
+      - name: order_is_undamaged
+        type: categorical
+    measures:
+      - name: lead_time_value
+        agg: average
+        expr: datediff('day', order_date, delivery_date)
+        description: 'Days from order to delivery (undelivered shipments are null and ignored). Used by: lead_time.'
+      - name: shipment_count
+        agg: count
+        expr: shipment_id
+        description: 'Used by: otd_rate, stg_shipment_row.'
+      - name: shipments_distinct_order_count
+        agg: count_distinct
+        expr: order_id
+        description: 'Distinct orders shipped. Used by: ops_north_star, order_accuracy_rate, order_fulfillment_rate.'
+metrics:
+  - name: delivered_shipments
+    label: delivered_shipments
+    description: Shipments delivered in the period. Helper input for otd_rate.
+    type: simple
+    type_params:
+      measure: shipment_count
+    filter: "{{ Dimension('shipment__is_delivered') }} = true"
+  - name: shipped_orders
+    label: shipped_orders
+    description: Distinct orders with a shipment in the period. Helper input for ops_north_star, order_accuracy_rate, order_fulfillment_rate.
+    type: simple
+    type_params:
+      measure: shipments_distinct_order_count

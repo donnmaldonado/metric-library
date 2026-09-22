@@ -1,0 +1,14 @@
+metrics:
+  - name: renewal_rate
+    label: Renewal Rate
+    description: '% of up-for-renewal contracts that successfully renew.'
+    type: ratio
+    type_params:
+      numerator: renewed_contracts
+      denominator: up_for_renewal
+    config:
+      meta:
+        metricId: renewal_rate
+        tier: kpi
+        vertical: customer
+        industry: cross_industry

@@ -1,0 +1,14 @@
+metrics:
+  - name: uptime
+    label: Uptime %
+    description: Percentage of scheduled uptime the service was available
+    type: ratio
+    type_params:
+      numerator: available_minutes
+      denominator: scheduled_minutes
+    config:
+      meta:
+        metricId: uptime
+        tier: kpi
+        vertical: product
+        industry: cross_industry

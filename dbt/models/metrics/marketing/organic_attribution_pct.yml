@@ -1,0 +1,16 @@
+metrics:
+  - name: organic_attribution_pct
+    label: Organic Attribution %
+    description: Percentage of closed revenue attributed to organic channels
+    type: ratio
+    type_params:
+      numerator:
+        name: total_pipeline
+        filter: "{{ Dimension('opportunity__channel') }} = 'organic'"
+      denominator: total_pipeline
+    config:
+      meta:
+        metricId: organic_attribution_pct
+        tier: kpi
+        vertical: marketing
+        industry: cross_industry

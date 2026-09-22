@@ -1,0 +1,13 @@
+metrics:
+  - name: operating_cash_flow
+    label: Operating Cash Flow
+    description: Cash generated from core business operations
+    type: simple
+    type_params:
+      measure: operating_cash_flow
+    config:
+      meta:
+        metricId: operating_cash_flow
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

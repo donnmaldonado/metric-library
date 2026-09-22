@@ -1,0 +1,15 @@
+metrics:
+  - name: stg_opex_line
+    label: Raw OpEx Line
+    description: Individual operating expense line item by GL account.
+    type: derived
+    type_params:
+      expr: opex
+      metrics:
+        - name: opex
+    config:
+      meta:
+        metricId: stg_opex_line
+        tier: input
+        vertical: finance
+        industry: cross_industry

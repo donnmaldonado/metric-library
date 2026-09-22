@@ -1,0 +1,14 @@
+metrics:
+  - name: effective_tax_rate
+    label: Effective Tax Rate
+    description: Actual income taxes paid divided by pre-tax income.
+    type: ratio
+    type_params:
+      numerator: income_tax_expense
+      denominator: pretax_income
+    config:
+      meta:
+        metricId: effective_tax_rate
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

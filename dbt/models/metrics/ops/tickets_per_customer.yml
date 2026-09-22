@@ -1,0 +1,14 @@
+metrics:
+  - name: tickets_per_customer
+    label: Tickets / Customer
+    description: Average support burden per customer — proxy for product quality
+    type: ratio
+    type_params:
+      numerator: tickets_created
+      denominator: customer_count
+    config:
+      meta:
+        metricId: tickets_per_customer
+        tier: kpi
+        vertical: ops
+        industry: cross_industry

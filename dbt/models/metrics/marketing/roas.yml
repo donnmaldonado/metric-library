@@ -1,0 +1,14 @@
+metrics:
+  - name: roas
+    label: ROAS
+    description: Revenue attributed to ads divided by ad spend — direct campaign ROI.
+    type: ratio
+    type_params:
+      numerator: attributed_revenue
+      denominator: marketing_spend
+    config:
+      meta:
+        metricId: roas
+        tier: kpi
+        vertical: marketing
+        industry: cross_industry

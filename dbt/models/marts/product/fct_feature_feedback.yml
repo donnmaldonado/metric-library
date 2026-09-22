@@ -1,0 +1,30 @@
+# Metrics on this model: feature_request_volume
+models:
+  - name: fct_feature_feedback
+    description: One row per feature request or product feedback item.
+semantic_models:
+  - name: fct_feature_feedback
+    description: One row per feature request or product feedback item.
+    model: ref('fct_feature_feedback')
+    defaults:
+      agg_time_dimension: submitted_date
+    entities:
+      - name: feedback_item
+        type: primary
+        expr: feedback_id
+    dimensions:
+      - name: submitted_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: feature_area
+        type: categorical
+      - name: segment
+        type: categorical
+      - name: channel
+        type: categorical
+    measures:
+      - name: feedback_count
+        agg: count
+        expr: feedback_id
+        description: 'Used by: feature_request_volume.'

@@ -1,0 +1,16 @@
+metrics:
+  - name: session_to_lead_rate
+    label: Session → Lead %
+    description: Percentage of web sessions that convert to a lead
+    type: ratio
+    type_params:
+      numerator:
+        name: website_sessions
+        filter: "{{ Dimension('session__created_lead') }}"
+      denominator: website_sessions
+    config:
+      meta:
+        metricId: session_to_lead_rate
+        tier: kpi
+        vertical: marketing
+        industry: cross_industry

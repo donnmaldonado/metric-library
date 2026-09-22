@@ -1,0 +1,14 @@
+metrics:
+  - name: sales_cycle_length
+    label: Sales Cycle Length
+    description: Average days from first touch to closed-won opportunity.
+    type: simple
+    type_params:
+      measure: avg_days_to_close
+    filter: "{{ Dimension('opportunity__is_won') }} = true"
+    config:
+      meta:
+        metricId: sales_cycle_length
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

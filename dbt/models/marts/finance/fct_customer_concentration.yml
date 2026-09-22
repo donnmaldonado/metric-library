@@ -1,0 +1,69 @@
+# Metrics on this model: customer_concentration_risk, rev_concentration_top10
+# Revenue columns are flows for the period; ARR columns are balances at period end (non-additive over period_start).
+models:
+  - name: fct_customer_concentration
+    description: One row per company and period with top-customer and total revenue/ARR.
+semantic_models:
+  - name: fct_customer_concentration
+    description: One row per company and period with top-customer and total revenue/ARR.
+    model: ref('fct_customer_concentration')
+    defaults:
+      agg_time_dimension: period_start
+    entities:
+      - name: concentration_period
+        type: primary
+        expr: concentration_period_id
+      - name: company
+        type: foreign
+        expr: company_id
+    dimensions:
+      - name: period_start
+        type: time
+        type_params:
+          time_granularity: day
+    measures:
+      - name: top10_customer_revenue
+        agg: sum
+        description: 'Revenue from the period''s top 10 customers. Used by: rev_concentration_top10.'
+      - name: concentration_total_revenue
+        agg: sum
+        expr: total_customer_revenue
+        description: 'Total revenue on the same basis as the top-10 ranking. Used by: rev_concentration_top10.'
+      - name: top10_arr
+        agg: sum
+        non_additive_dimension:
+          name: period_start
+          window_choice: max
+        description: 'Used by: customer_concentration_risk.'
+      - name: customer_concentration_total_arr
+        agg: sum
+        expr: total_arr
+        non_additive_dimension:
+          name: period_start
+          window_choice: max
+        description: 'Used by: customer_concentration_risk.'
+metrics:
+  - name: top10_customer_revenue
+    label: top10_customer_revenue
+    description: Helper input for rev_concentration_top10.
+    type: simple
+    type_params:
+      measure: top10_customer_revenue
+  - name: concentration_total_revenue
+    label: concentration_total_revenue
+    description: Helper input for rev_concentration_top10.
+    type: simple
+    type_params:
+      measure: concentration_total_revenue
+  - name: top10_arr
+    label: top10_arr
+    description: Helper input for customer_concentration_risk.
+    type: simple
+    type_params:
+      measure: top10_arr
+  - name: customer_concentration_total_arr
+    label: customer_concentration_total_arr
+    description: Helper input for customer_concentration_risk.
+    type: simple
+    type_params:
+      measure: customer_concentration_total_arr

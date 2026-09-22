@@ -1,0 +1,14 @@
+metrics:
+  - name: pct_reps_at_quota
+    label: '% Reps at Quota'
+    description: '% of sales reps who hit or exceeded their quota — team productivity signal.'
+    type: ratio
+    type_params:
+      numerator: reps_at_quota
+      denominator: quota_carrying_reps
+    config:
+      meta:
+        metricId: pct_reps_at_quota
+        tier: kpi
+        vertical: hr
+        industry: cross_industry

@@ -1,0 +1,14 @@
+metrics:
+  - name: current_ratio
+    label: Current Ratio
+    description: Current assets divided by current liabilities — liquidity benchmark (>1 = solvent).
+    type: ratio
+    type_params:
+      numerator: current_assets
+      denominator: current_liabilities
+    config:
+      meta:
+        metricId: current_ratio
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

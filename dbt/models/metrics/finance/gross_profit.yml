@@ -1,0 +1,16 @@
+metrics:
+  - name: gross_profit
+    label: Gross Profit
+    description: Revenue minus COGS — contribution before operating expenses.
+    type: derived
+    type_params:
+      expr: revenue - cogs
+      metrics:
+        - name: revenue
+        - name: cogs
+    config:
+      meta:
+        metricId: gross_profit
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

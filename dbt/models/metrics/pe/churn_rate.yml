@@ -1,0 +1,17 @@
+metrics:
+  - name: churn_rate
+    label: Churn Rate
+    description: '% of revenue or customers lost in a period.'
+    type: derived
+    type_params:
+      expr: (churned_arr + contraction_arr) / nullif(starting_arr, 0)
+      metrics:
+        - name: churned_arr
+        - name: contraction_arr
+        - name: starting_arr
+    config:
+      meta:
+        metricId: churn_rate
+        tier: kpi
+        vertical: pe
+        industry: saas

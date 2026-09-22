@@ -1,0 +1,58 @@
+# Metrics on this model: gmv, marketplace_buyers, marketplace_sellers, take_rate
+models:
+  - name: fct_marketplace_transactions
+    description: One row per marketplace transaction (buyer, seller, GMV, platform revenue).
+semantic_models:
+  - name: fct_marketplace_transactions
+    description: One row per marketplace transaction (buyer, seller, GMV, platform revenue).
+    model: ref('fct_marketplace_transactions')
+    defaults:
+      agg_time_dimension: transaction_date
+    entities:
+      - name: marketplace_transaction
+        type: primary
+        expr: transaction_id
+      - name: buyer
+        type: foreign
+        expr: buyer_id
+      - name: seller
+        type: foreign
+        expr: seller_id
+      - name: listing
+        type: foreign
+        expr: listing_id
+    dimensions:
+      - name: transaction_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: category
+        type: categorical
+      - name: channel
+        type: categorical
+      - name: status
+        type: categorical
+      - name: tier
+        type: categorical
+    measures:
+      - name: transaction_value
+        agg: sum
+        description: 'Gross merchandise value before returns and fees. Used by: gmv, take_rate.'
+      - name: distinct_buyer_count
+        agg: count_distinct
+        expr: buyer_id
+        description: 'Used by: marketplace_buyers.'
+      - name: distinct_seller_count
+        agg: count_distinct
+        expr: seller_id
+        description: 'Used by: marketplace_sellers.'
+      - name: platform_revenue
+        agg: sum
+        description: 'Used by: take_rate.'
+metrics:
+  - name: platform_revenue
+    label: platform_revenue
+    description: Helper input for take_rate.
+    type: simple
+    type_params:
+      measure: platform_revenue

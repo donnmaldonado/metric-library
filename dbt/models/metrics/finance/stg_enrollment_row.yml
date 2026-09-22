@@ -1,0 +1,13 @@
+metrics:
+  - name: stg_enrollment_row
+    label: Raw Enrollment Row
+    description: Single student enrollment record with grade, school, and status.
+    type: simple
+    type_params:
+      measure: enrollment_record_count
+    config:
+      meta:
+        metricId: stg_enrollment_row
+        tier: input
+        vertical: finance
+        industry: cross_industry

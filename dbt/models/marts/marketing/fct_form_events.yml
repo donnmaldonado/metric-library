@@ -1,0 +1,43 @@
+# Metrics on this model: form_conversion_rate
+models:
+  - name: fct_form_events
+    description: One row per web form and day with views and submissions.
+semantic_models:
+  - name: fct_form_events
+    description: One row per web form and day with views and submissions.
+    model: ref('fct_form_events')
+    defaults:
+      agg_time_dimension: event_date
+    entities:
+      - name: form_day
+        type: primary
+        expr: form_day_id
+    dimensions:
+      - name: event_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: form_name
+        type: categorical
+      - name: page_name
+        type: categorical
+    measures:
+      - name: form_submissions
+        agg: sum
+        description: 'Used by: form_conversion_rate.'
+      - name: form_views
+        agg: sum
+        description: 'Used by: form_conversion_rate.'
+metrics:
+  - name: form_submissions
+    label: form_submissions
+    description: Helper input for form_conversion_rate.
+    type: simple
+    type_params:
+      measure: form_submissions
+  - name: form_views
+    label: form_views
+    description: Helper input for form_conversion_rate.
+    type: simple
+    type_params:
+      measure: form_views

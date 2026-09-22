@@ -1,0 +1,100 @@
+# Metrics on this model: ces, csat, cx_csat, nps, stg_csat_response_row, stg_nps_response_row, survey_response_rate
+models:
+  - name: fct_customer_survey_responses
+    description: One row per customer survey response (NPS, CSAT, CES).
+semantic_models:
+  - name: fct_customer_survey_responses
+    description: One row per customer survey response (NPS, CSAT, CES).
+    model: ref('fct_customer_survey_responses')
+    defaults:
+      agg_time_dimension: response_date
+    entities:
+      - name: survey_response
+        type: primary
+        expr: response_id
+      - name: customer
+        type: foreign
+        expr: customer_id
+      - name: interaction
+        type: foreign
+        expr: interaction_id
+      - name: respondent
+        type: foreign
+        expr: respondent_id
+    dimensions:
+      - name: response_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: survey_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: channel
+        type: categorical
+      - name: interaction_type
+        type: categorical
+      - name: product_name
+        type: categorical
+      - name: support_team
+        type: categorical
+      - name: score
+        type: categorical
+      - name: segment
+        type: categorical
+      - name: survey_type
+        type: categorical
+        description: "'nps', 'csat' or 'ces'."
+      - name: is_satisfied
+        type: categorical
+        description: CSAT rating in the top two boxes (4-5 on a 5-point scale).
+    measures:
+      - name: avg_effort_score
+        agg: average
+        expr: effort_score
+        description: 'Used by: ces.'
+      - name: avg_satisfaction_score
+        agg: average
+        expr: satisfaction_score
+        description: 'Used by: csat (and stg_csat_response_row through it).'
+      - name: customer_survey_responses_avg_score
+        agg: average
+        expr: score
+        description: 'Used by: stg_nps_response_row.'
+      - name: survey_response_count
+        agg: count
+        expr: response_id
+        description: 'Survey responses. Used by: cx_csat, nps (through the helpers below).'
+      - name: responses_received
+        agg: sum
+        description: 'Used by: survey_response_rate.'
+      - name: surveys_sent
+        agg: sum
+        description: 'Used by: survey_response_rate.'
+metrics:
+  - name: csat_survey_responses
+    label: csat_survey_responses
+    description: Helper input for cx_csat (CSAT survey responses).
+    type: simple
+    type_params:
+      measure: survey_response_count
+    filter: "{{ Dimension('survey_response__survey_type') }} = 'csat'"
+  - name: nps_survey_responses
+    label: nps_survey_responses
+    description: Helper input for nps (NPS survey responses; nps filters it on score for promoters and detractors).
+    type: simple
+    type_params:
+      measure: survey_response_count
+    filter: "{{ Dimension('survey_response__survey_type') }} = 'nps'"
+  - name: responses_received
+    label: responses_received
+    description: Helper input for survey_response_rate.
+    type: simple
+    type_params:
+      measure: responses_received
+  - name: surveys_sent
+    label: surveys_sent
+    description: Helper input for survey_response_rate.
+    type: simple
+    type_params:
+      measure: surveys_sent

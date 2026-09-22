@@ -1,0 +1,15 @@
+metrics:
+  - name: ticket_resolution_time
+    label: Resolution Time
+    description: Average time from ticket creation to resolution
+    type: derived
+    type_params:
+      expr: time_to_resolution
+      metrics:
+        - name: time_to_resolution
+    config:
+      meta:
+        metricId: ticket_resolution_time
+        tier: kpi
+        vertical: ops
+        industry: cross_industry

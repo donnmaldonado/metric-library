@@ -1,0 +1,15 @@
+metrics:
+  - name: stg_page_view_row
+    label: Raw Page View Row
+    description: Single web page view event with URL, user, and referrer.
+    type: derived
+    type_params:
+      expr: stg_page_views
+      metrics:
+        - name: stg_page_views
+    config:
+      meta:
+        metricId: stg_page_view_row
+        tier: input
+        vertical: finance
+        industry: cross_industry

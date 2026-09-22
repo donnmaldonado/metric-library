@@ -1,0 +1,13 @@
+metrics:
+  - name: working_capital
+    label: Working Capital
+    description: Current assets minus current liabilities — short-term liquidity indicator.
+    type: simple
+    type_params:
+      measure: working_capital_value
+    config:
+      meta:
+        metricId: working_capital
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

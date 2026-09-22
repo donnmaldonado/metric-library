@@ -1,0 +1,16 @@
+metrics:
+  - name: benefits_utilization
+    label: Benefits Utilization %
+    description: Percentage of eligible employees actively using offered benefits
+    type: ratio
+    type_params:
+      numerator:
+        name: eligible_employees
+        filter: "{{ Dimension('benefits_enrollment__is_active_user') }} = true"
+      denominator: eligible_employees
+    config:
+      meta:
+        metricId: benefits_utilization
+        tier: input
+        vertical: finance
+        industry: cross_industry

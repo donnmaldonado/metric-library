@@ -1,0 +1,13 @@
+metrics:
+  - name: net_new_customers
+    label: Net New Customers
+    description: New customers acquired minus churned customers
+    type: simple
+    type_params:
+      measure: net_new_customers_value
+    config:
+      meta:
+        metricId: net_new_customers
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

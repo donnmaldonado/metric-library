@@ -1,0 +1,16 @@
+metrics:
+  - name: cost_per_outcome
+    label: Cost per Outcome
+    description: Per-pupil expenditure divided by % of students meeting proficiency — efficiency of investment.
+    type: derived
+    type_params:
+      expr: per_pupil_expenditure / student_proficiency
+      metrics:
+        - name: per_pupil_expenditure
+        - name: student_proficiency
+    config:
+      meta:
+        metricId: cost_per_outcome
+        tier: north_star
+        vertical: finance
+        industry: cross_industry

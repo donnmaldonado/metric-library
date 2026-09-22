@@ -1,0 +1,14 @@
+metrics:
+  - name: avg_tenure
+    label: Avg Tenure (yrs)
+    description: Average years of service among current employees
+    type: simple
+    type_params:
+      measure: avg_tenure_years
+    filter: "{{ Dimension('employee_snapshot__status') }} = 'active'"
+    config:
+      meta:
+        metricId: avg_tenure
+        tier: kpi
+        vertical: hr
+        industry: cross_industry

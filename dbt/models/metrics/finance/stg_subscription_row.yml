@@ -1,0 +1,15 @@
+metrics:
+  - name: stg_subscription_row
+    label: Raw Subscription Row
+    description: Single active subscription record with plan and amount.
+    type: derived
+    type_params:
+      expr: mrr
+      metrics:
+        - name: mrr
+    config:
+      meta:
+        metricId: stg_subscription_row
+        tier: input
+        vertical: finance
+        industry: cross_industry

@@ -1,0 +1,15 @@
+metrics:
+  - name: headcount
+    label: Headcount
+    description: Total active full-time employees at end of period
+    type: simple
+    type_params:
+      measure: employee_snapshots_employee_count
+    filter: "{{ Dimension('employee_snapshot__status') }} = 'active' AND {{ Dimension('employee_snapshot__employment_type')\
+      \ }} = 'full_time'"
+    config:
+      meta:
+        metricId: headcount
+        tier: north_star
+        vertical: hr
+        industry: cross_industry

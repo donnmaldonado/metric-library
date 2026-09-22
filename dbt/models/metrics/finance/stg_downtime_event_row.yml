@@ -1,0 +1,13 @@
+metrics:
+  - name: stg_downtime_event_row
+    label: Raw Downtime Event Row
+    description: Single equipment or system downtime event record with cause and duration.
+    type: simple
+    type_params:
+      measure: service_availability_event_count
+    config:
+      meta:
+        metricId: stg_downtime_event_row
+        tier: input
+        vertical: finance
+        industry: cross_industry

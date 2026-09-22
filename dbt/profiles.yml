@@ -1,0 +1,7 @@
+metric_library:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: metric_library.duckdb
+      threads: 4

@@ -1,0 +1,15 @@
+metrics:
+  - name: rd_headcount
+    label: R&D Headcount
+    description: Number of employees in engineering, product, and research roles
+    type: simple
+    type_params:
+      measure: employee_snapshots_employee_count
+    filter: "{{ Dimension('employee_snapshot__status') }} = 'active' AND {{ Dimension('employee_snapshot__department') }}\
+      \ IN ('engineering', 'product', 'research')"
+    config:
+      meta:
+        metricId: rd_headcount
+        tier: input
+        vertical: hr
+        industry: cross_industry

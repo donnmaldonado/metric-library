@@ -1,0 +1,90 @@
+# Metrics on this model: capacity_utilization, capacity_utilization_rate, carbon_emissions_per_unit, cost_per_unit, cycle_time, energy_cost_per_unit, throughput
+models:
+  - name: fct_production_runs
+    description: One row per production run / work item (output, capacity, cost, energy and emissions).
+semantic_models:
+  - name: fct_production_runs
+    description: One row per production run / work item (output, capacity, cost, energy and emissions).
+    model: ref('fct_production_runs')
+    defaults:
+      agg_time_dimension: production_date
+    entities:
+      - name: production_run
+        type: primary
+        expr: production_run_id
+      - name: facility
+        type: foreign
+        expr: facility_id
+      - name: plant
+        type: foreign
+        expr: plant_id
+      - name: product
+        type: foreign
+        expr: product_id
+    dimensions:
+      - name: production_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: product_name
+        type: categorical
+      - name: line
+        type: categorical
+      - name: production_line
+        type: categorical
+      - name: process_type
+        type: categorical
+    measures:
+      - name: avg_cycle_time_hours
+        agg: average
+        expr: datediff('hour', start_time, complete_time)
+        description: 'Hours from run start to completion (open runs are null and ignored). Used by: cycle_time.'
+      - name: actual_output
+        agg: sum
+        description: 'Used by: capacity_utilization.'
+      - name: max_capacity
+        agg: sum
+        description: 'Used by: capacity_utilization.'
+      - name: total_co2e_kg
+        agg: sum
+        description: 'Used by: carbon_emissions_per_unit.'
+      - name: units_produced
+        agg: sum
+        description: 'Used by: carbon_emissions_per_unit, cost_per_unit, energy_cost_per_unit, throughput.'
+      - name: total_production_cost
+        agg: sum
+        description: 'Used by: cost_per_unit.'
+      - name: energy_cost
+        agg: sum
+        description: 'Used by: energy_cost_per_unit.'
+metrics:
+  - name: actual_output
+    label: actual_output
+    description: Helper input for capacity_utilization.
+    type: simple
+    type_params:
+      measure: actual_output
+  - name: max_capacity
+    label: max_capacity
+    description: Helper input for capacity_utilization.
+    type: simple
+    type_params:
+      measure: max_capacity
+  - name: total_co2e_kg
+    label: total_co2e_kg
+    description: Helper input for carbon_emissions_per_unit.
+    type: simple
+    type_params:
+      measure: total_co2e_kg
+  - name: total_production_cost
+    label: total_production_cost
+    description: Helper input for cost_per_unit.
+    type: simple
+    type_params:
+      measure: total_production_cost
+  - name: energy_cost
+    label: energy_cost
+    description: Helper input for energy_cost_per_unit.
+    type: simple
+    type_params:
+      measure: energy_cost

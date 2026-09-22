@@ -1,0 +1,16 @@
+metrics:
+  - name: student_proficiency
+    label: Student Proficiency Rate
+    description: '% of tested students scoring at or above proficiency on state assessments.'
+    type: ratio
+    type_params:
+      numerator:
+        name: students_tested
+        filter: "{{ Dimension('assessment_result__met_standard') }} = true"
+      denominator: students_tested
+    config:
+      meta:
+        metricId: student_proficiency
+        tier: north_star
+        vertical: edu
+        industry: education

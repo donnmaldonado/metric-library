@@ -1,0 +1,15 @@
+metrics:
+  - name: recognized_revenue
+    label: Recognized Revenue
+    description: Revenue recognized under ASC 606 in the period
+    type: derived
+    type_params:
+      expr: revenue
+      metrics:
+        - name: revenue
+    config:
+      meta:
+        metricId: recognized_revenue
+        tier: input
+        vertical: pe
+        industry: saas

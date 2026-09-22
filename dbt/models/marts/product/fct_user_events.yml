@@ -1,0 +1,60 @@
+# Metrics on this model: dau, dau_mau_ratio, feature_adoption, feature_adoption_rate, mau, stg_events_count, stg_user_event_row, wau
+models:
+  - name: fct_user_events
+    description: One row per product analytics event.
+semantic_models:
+  - name: fct_user_events
+    description: One row per product analytics event.
+    model: ref('fct_user_events')
+    defaults:
+      agg_time_dimension: event_date
+    entities:
+      - name: user_event
+        type: primary
+        expr: event_id
+      - name: user
+        type: foreign
+        expr: user_id
+      - name: session
+        type: foreign
+        expr: session_id
+    dimensions:
+      - name: event_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: platform
+        type: categorical
+      - name: product_area
+        type: categorical
+      - name: user_segment
+        type: categorical
+      - name: event_type
+        type: categorical
+      - name: event_name
+        type: categorical
+      - name: feature_name
+        type: categorical
+        description: Feature the event belongs to; null for events that aren't feature usage.
+      - name: plan_tier
+        type: categorical
+      - name: is_active_event
+        type: categorical
+        description: True for events that count as "active" usage (excludes passive events such as emails received).
+    measures:
+      - name: user_events_distinct_user_count
+        agg: count_distinct
+        expr: user_id
+        description: 'Distinct users. Used by: dau, mau, wau, feature_users.'
+      - name: user_events_event_count
+        agg: count
+        expr: event_id
+        description: 'Used by: stg_events_count (and stg_user_event_row through it).'
+metrics:
+  - name: feature_users
+    label: feature_users
+    description: Helper input for feature_adoption_rate (distinct active users with at least one feature event).
+    type: simple
+    type_params:
+      measure: user_events_distinct_user_count
+    filter: "{{ Dimension('user_event__is_active_event') }} AND {{ Dimension('user_event__feature_name') }} IS NOT NULL"

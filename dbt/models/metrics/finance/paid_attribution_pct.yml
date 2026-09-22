@@ -1,0 +1,16 @@
+metrics:
+  - name: paid_attribution_pct
+    label: Paid Attribution %
+    description: Percentage of closed revenue attributed to paid channels
+    type: ratio
+    type_params:
+      numerator:
+        name: total_pipeline
+        filter: "{{ Dimension('opportunity__channel') }} = 'paid'"
+      denominator: total_pipeline
+    config:
+      meta:
+        metricId: paid_attribution_pct
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

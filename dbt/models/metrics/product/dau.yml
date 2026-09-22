@@ -1,0 +1,14 @@
+metrics:
+  - name: dau
+    label: DAU
+    description: Daily Active Users — unique users who performed a qualifying action in a day.
+    type: simple
+    type_params:
+      measure: user_events_distinct_user_count
+    filter: "{{ Dimension('user_event__is_active_event') }}"
+    config:
+      meta:
+        metricId: dau
+        tier: kpi
+        vertical: product
+        industry: cross_industry

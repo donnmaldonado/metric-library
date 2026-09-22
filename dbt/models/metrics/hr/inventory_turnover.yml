@@ -1,0 +1,19 @@
+metrics:
+  - name: inventory_turnover
+    label: Inventory Turnover
+    description: COGS divided by average inventory — how many times inventory was sold and replaced
+    type: derived
+    type_params:
+      expr: cogs / ((inventory_value + beginning_inventory_value) / 2)
+      metrics:
+        - name: cogs
+        - name: inventory_value
+        - name: inventory_value
+          offset_window: 1 month
+          alias: beginning_inventory_value
+    config:
+      meta:
+        metricId: inventory_turnover
+        tier: kpi
+        vertical: hr
+        industry: cross_industry

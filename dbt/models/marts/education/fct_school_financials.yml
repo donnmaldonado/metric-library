@@ -1,0 +1,76 @@
+# Metrics on this model: cost_per_outcome, instructional_spend_ratio, per_pupil_expenditure, staff_student_cost_ratio
+models:
+  - name: fct_school_financials
+    description: One row per school per fiscal year (expenditure, budget, reported ADM).
+semantic_models:
+  - name: fct_school_financials
+    description: One row per school per fiscal year (expenditure, budget, reported ADM).
+    model: ref('fct_school_financials')
+    defaults:
+      agg_time_dimension: fiscal_year_start
+    entities:
+      - name: school_financial_period
+        type: primary
+        expr: school_financial_period_id
+      - name: school
+        type: foreign
+        expr: school_id
+    dimensions:
+      - name: fiscal_year_start
+        type: time
+        type_params:
+          time_granularity: day
+      - name: fiscal_year
+        type: categorical
+      - name: school_year
+        type: categorical
+    measures:
+      - name: total_personnel_cost
+        agg: sum
+        description: Personnel cost.
+      - name: total_operating_budget
+        agg: sum
+        description: Operating budget.
+      - name: instructional_expenditure
+        agg: sum
+        description: Instructional spending.
+      - name: total_expenditure
+        agg: sum
+        description: Total operating expenditure.
+      - name: avg_daily_membership
+        agg: sum
+        non_additive_dimension:
+          name: fiscal_year_start
+          window_choice: max
+        description: State-reported ADM for the fiscal year; summed across schools, never across years.
+metrics:
+  - name: total_personnel_cost
+    label: total_personnel_cost
+    description: Personnel cost.
+    type: simple
+    type_params:
+      measure: total_personnel_cost
+  - name: total_operating_budget
+    label: total_operating_budget
+    description: Operating budget.
+    type: simple
+    type_params:
+      measure: total_operating_budget
+  - name: instructional_expenditure
+    label: instructional_expenditure
+    description: Instructional spending.
+    type: simple
+    type_params:
+      measure: instructional_expenditure
+  - name: total_expenditure
+    label: total_expenditure
+    description: Total operating expenditure.
+    type: simple
+    type_params:
+      measure: total_expenditure
+  - name: avg_daily_membership
+    label: avg_daily_membership
+    description: State-reported ADM (funding denominator).
+    type: simple
+    type_params:
+      measure: avg_daily_membership

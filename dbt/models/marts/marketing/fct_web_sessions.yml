@@ -1,0 +1,73 @@
+# Metrics on this model: avg_session_duration, bounce_rate, organic_sessions, organic_traffic, paid_sessions, paid_traffic, referral_sessions, session_length, session_to_lead_rate, sessions_per_user, stg_session_row, stg_sessions_count, web_conversion_rate, website_sessions
+models:
+  - name: fct_web_sessions
+    description: One row per web session (source, medium, landing page, conversion flags).
+semantic_models:
+  - name: fct_web_sessions
+    description: One row per web session (source, medium, landing page, conversion flags).
+    model: ref('fct_web_sessions')
+    defaults:
+      agg_time_dimension: session_date
+    entities:
+      - name: session
+        type: primary
+        expr: session_id
+      - name: user
+        type: foreign
+        expr: user_id
+    dimensions:
+      - name: session_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: platform
+        type: categorical
+      - name: product_area
+        type: categorical
+      - name: user_segment
+        type: categorical
+      - name: channel
+        type: categorical
+      - name: campaign_name
+        type: categorical
+      - name: medium
+        type: categorical
+      - name: source
+        type: categorical
+      - name: referrer_domain
+        type: categorical
+      - name: landing_page
+        type: categorical
+      - name: keyword
+        type: categorical
+      - name: device
+        type: categorical
+      - name: is_bounce
+        type: categorical
+        description: True when the session viewed exactly one page.
+      - name: is_converted
+        type: categorical
+        description: True when the session had at least one conversion event (form fill, signup, ...).
+      - name: created_lead
+        type: categorical
+        description: True when the session created a lead.
+    measures:
+      - name: avg_duration_seconds
+        agg: average
+        expr: duration_seconds
+        description: 'Used by: avg_session_duration (and session_length through it).'
+      - name: session_count
+        agg: count
+        expr: session_id
+        description: 'Used by: website_sessions, organic_sessions, paid_sessions, referral_sessions (and the metrics built on them).'
+      - name: web_sessions_distinct_user_count
+        agg: count_distinct
+        expr: user_id
+        description: 'Distinct users with a session. Used by: sessions_per_user (through web_session_users).'
+metrics:
+  - name: web_session_users
+    label: web_session_users
+    description: Helper input for sessions_per_user (distinct users with at least one session).
+    type: simple
+    type_params:
+      measure: web_sessions_distinct_user_count

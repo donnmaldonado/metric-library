@@ -1,0 +1,49 @@
+# Metrics on this model: account_health_score, at_risk_accounts, customer_health_score
+# Scores are averaged over the score rows in the window. Account counts are semi-additive: the latest score_date in the window.
+models:
+  - name: fct_customer_health_scores
+    description: One row per customer account and score date with component health scores.
+semantic_models:
+  - name: fct_customer_health_scores
+    description: One row per customer account and score date with component health scores.
+    model: ref('fct_customer_health_scores')
+    defaults:
+      agg_time_dimension: score_date
+    entities:
+      - name: customer_health_snapshot
+        type: primary
+        expr: customer_health_snapshot_id
+      - name: customer
+        type: foreign
+        expr: customer_id
+    dimensions:
+      - name: score_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: health_score
+        type: categorical
+      - name: account_name
+        type: categorical
+      - name: segment
+        type: categorical
+      - name: plan_tier
+        type: categorical
+      - name: cohort_month
+        type: categorical
+    measures:
+      - name: account_count
+        agg: count_distinct
+        expr: customer_id
+        non_additive_dimension:
+          name: score_date
+          window_choice: max
+        description: 'Distinct accounts scored on the latest score date in the window. Used by: at_risk_accounts.'
+      - name: account_health_score_value
+        agg: average
+        expr: (usage_score * 0.4) + (nps_score * 0.3) + (support_score * 0.3)
+        description: 'Weighted composite of usage, NPS and support scores. Used by: account_health_score.'
+      - name: customer_health_score_value
+        agg: average
+        expr: (usage_score * 0.4) + (engagement_score * 0.3) + (support_score * 0.3)
+        description: 'Weighted composite of usage, engagement and support scores (weights unconfirmed; see Known issues in the README). Used by: customer_health_score.'

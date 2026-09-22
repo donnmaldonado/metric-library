@@ -1,0 +1,38 @@
+# Metrics on this model: training_hours_per_employee
+models:
+  - name: fct_training_records
+    description: One row per completed training (employee, hours).
+semantic_models:
+  - name: fct_training_records
+    description: One row per completed training (employee, hours).
+    model: ref('fct_training_records')
+    defaults:
+      agg_time_dimension: completed_date
+    entities:
+      - name: training_record
+        type: primary
+        expr: training_record_id
+      - name: employee
+        type: foreign
+        expr: employee_id
+    dimensions:
+      - name: completed_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: department
+        type: categorical
+      - name: training_type
+        type: categorical
+    measures:
+      - name: total_training_hours
+        agg: sum
+        expr: training_hours
+        description: Training hours completed.
+metrics:
+  - name: total_training_hours
+    label: total_training_hours
+    description: Training hours completed.
+    type: simple
+    type_params:
+      measure: total_training_hours

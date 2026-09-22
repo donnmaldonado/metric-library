@@ -1,0 +1,72 @@
+# Metrics on this model: advanced_course_enrollment_rate, ap_participation_rate, credit_accumulation_rate, ell_pct, enrollment_count, expulsion_rate, extracurricular_rate, frl_pct, grade3_reading, iep_pct, school_enrollment, seat_fill_rate, stg_enrollment_row, student_teacher_ratio, suspension_rate, teacher_student_ratio
+models:
+  - name: fct_enrollments
+    description: 'One row per student enrollment per snapshot date (monthly snapshots, including the official census date).
+      Snapshot model: measures take the latest snapshot in the period.'
+semantic_models:
+  - name: fct_enrollments
+    description: 'One row per student enrollment per snapshot date (monthly snapshots, including the official census date).
+      Snapshot model: measures take the latest snapshot in the period.'
+    model: ref('fct_enrollments')
+    defaults:
+      agg_time_dimension: snapshot_date
+    entities:
+      - name: enrollment
+        type: primary
+        expr: enrollment_id
+      - name: school
+        type: foreign
+        expr: school_id
+      - name: student
+        type: foreign
+        expr: student_id
+    dimensions:
+      - name: snapshot_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: enrollment_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: exit_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: grade_level
+        type: categorical
+      - name: demographic_group
+        type: categorical
+      - name: subgroup
+        type: categorical
+      - name: school_year
+        type: categorical
+      - name: school_name
+        type: categorical
+      - name: status
+        type: categorical
+      - name: is_ell
+        type: categorical
+      - name: is_frl_eligible
+        type: categorical
+      - name: has_iep
+        type: categorical
+      - name: in_extracurricular
+        type: categorical
+      - name: is_on_credit_pace
+        type: categorical
+    measures:
+      - name: enrolled_student_count
+        agg: count_distinct
+        expr: student_id
+        non_additive_dimension:
+          name: snapshot_date
+          window_choice: max
+        description: Distinct students on the latest snapshot.
+      - name: enrollment_record_count
+        agg: count
+        expr: enrollment_id
+        non_additive_dimension:
+          name: snapshot_date
+          window_choice: max
+        description: Enrollment records on the latest snapshot.

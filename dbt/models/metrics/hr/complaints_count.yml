@@ -1,0 +1,14 @@
+metrics:
+  - name: complaints_count
+    label: Complaints
+    description: Total formal complaints received in the period
+    type: simple
+    type_params:
+      measure: case_count
+    filter: "{{ Dimension('complaint_case__case_type') }} = 'complaint'"
+    config:
+      meta:
+        metricId: complaints_count
+        tier: input
+        vertical: hr
+        industry: cross_industry

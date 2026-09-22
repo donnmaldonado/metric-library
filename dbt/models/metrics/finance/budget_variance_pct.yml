@@ -1,0 +1,14 @@
+metrics:
+  - name: budget_variance_pct
+    label: Budget Variance %
+    description: Budget variance as a % of budget — normalized over/under indicator.
+    type: ratio
+    type_params:
+      numerator: budget_variance
+      denominator: annual_budget
+    config:
+      meta:
+        metricId: budget_variance_pct
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

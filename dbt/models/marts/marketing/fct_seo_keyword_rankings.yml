@@ -1,0 +1,33 @@
+# Metrics on this model: keywords_top10, top10_keyword_count
+models:
+  - name: fct_seo_keyword_rankings
+    description: One row per tracked keyword and ranking date (snapshot).
+semantic_models:
+  - name: fct_seo_keyword_rankings
+    description: One row per tracked keyword and ranking date (snapshot).
+    model: ref('fct_seo_keyword_rankings')
+    defaults:
+      agg_time_dimension: ranking_date
+    entities:
+      - name: keyword_ranking
+        type: primary
+        expr: keyword_ranking_id
+    dimensions:
+      - name: ranking_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: ranking_position
+        type: categorical
+      - name: keyword_group
+        type: categorical
+      - name: page_name
+        type: categorical
+    measures:
+      - name: distinct_keyword_count
+        agg: count_distinct
+        expr: keyword_id
+        non_additive_dimension:
+          name: ranking_date
+          window_choice: max
+        description: 'Tracked keywords on the latest ranking date in the period. Used by: top10_keyword_count.'

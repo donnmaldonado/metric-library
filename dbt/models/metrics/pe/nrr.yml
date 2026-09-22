@@ -1,0 +1,18 @@
+metrics:
+  - name: nrr
+    label: NRR
+    description: Beginning ARR plus expansion minus churn and contraction over beginning ARR
+    type: derived
+    type_params:
+      expr: (starting_arr + expansion_arr - contraction_arr - churned_arr) / nullif(starting_arr, 0)
+      metrics:
+        - name: starting_arr
+        - name: expansion_arr
+        - name: contraction_arr
+        - name: churned_arr
+    config:
+      meta:
+        metricId: nrr
+        tier: kpi
+        vertical: pe
+        industry: saas

@@ -1,0 +1,14 @@
+metrics:
+  - name: capex_pct_revenue
+    label: CapEx % Revenue
+    description: Capital spend intensity relative to revenue.
+    type: ratio
+    type_params:
+      numerator: capex
+      denominator: revenue
+    config:
+      meta:
+        metricId: capex_pct_revenue
+        tier: kpi
+        vertical: pe
+        industry: saas

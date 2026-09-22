@@ -1,0 +1,16 @@
+metrics:
+  - name: free_cash_flow
+    label: Free Cash Flow
+    description: Operating cash flow minus capital expenditures.
+    type: derived
+    type_params:
+      expr: operating_cash_flow - capex
+      metrics:
+        - name: operating_cash_flow
+        - name: capex
+    config:
+      meta:
+        metricId: free_cash_flow
+        tier: north_star
+        vertical: finance
+        industry: cross_industry

@@ -1,0 +1,28 @@
+# Metrics on this model: stg_products_active
+models:
+  - name: dim_products
+    description: One row per catalog product.
+semantic_models:
+  - name: dim_products
+    description: One row per catalog product.
+    model: ref('dim_products')
+    defaults:
+      agg_time_dimension: created_date
+    entities:
+      - name: product
+        type: primary
+        expr: product_id
+    dimensions:
+      - name: created_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: category
+        type: categorical
+      - name: status
+        type: categorical
+    measures:
+      - name: product_count
+        agg: count
+        expr: product_id
+        description: 'Used by: stg_products_active.'

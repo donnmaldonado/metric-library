@@ -1,0 +1,15 @@
+metrics:
+  - name: gross_dollar_retention
+    label: Gross $ Retention
+    description: Beginning ARR minus churn and contraction, before expansions
+    type: derived
+    type_params:
+      expr: grr
+      metrics:
+        - name: grr
+    config:
+      meta:
+        metricId: gross_dollar_retention
+        tier: kpi
+        vertical: product
+        industry: cross_industry

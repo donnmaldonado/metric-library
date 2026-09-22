@@ -1,0 +1,16 @@
+metrics:
+  - name: d7_retention
+    label: D7 Retention
+    description: Percentage of new users still active 7 days after signup
+    type: ratio
+    type_params:
+      numerator:
+        name: new_user_signups
+        filter: "{{ Dimension('user__is_retained_d7') }}"
+      denominator: new_user_signups
+    config:
+      meta:
+        metricId: d7_retention
+        tier: kpi
+        vertical: product
+        industry: cross_industry

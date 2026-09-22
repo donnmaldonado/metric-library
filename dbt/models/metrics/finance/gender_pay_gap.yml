@@ -1,0 +1,20 @@
+metrics:
+  - name: gender_pay_gap
+    label: Gender Pay Gap
+    description: Median pay of female employees as a percentage of male employee median
+    type: derived
+    type_params:
+      expr: (median_male_salary - median_female_salary) / median_male_salary
+      metrics:
+        - name: median_salary
+          filter: "{{ Dimension('pay_record__gender') }} = 'male'"
+          alias: median_male_salary
+        - name: median_salary
+          filter: "{{ Dimension('pay_record__gender') }} = 'female'"
+          alias: median_female_salary
+    config:
+      meta:
+        metricId: gender_pay_gap
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

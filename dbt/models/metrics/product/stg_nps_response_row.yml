@@ -1,0 +1,14 @@
+metrics:
+  - name: stg_nps_response_row
+    label: Raw NPS Response
+    description: Individual NPS survey response with score and verbatim.
+    type: simple
+    type_params:
+      measure: customer_survey_responses_avg_score
+    filter: "{{ Dimension('survey_response__survey_type') }} = 'nps'"
+    config:
+      meta:
+        metricId: stg_nps_response_row
+        tier: input
+        vertical: product
+        industry: cross_industry

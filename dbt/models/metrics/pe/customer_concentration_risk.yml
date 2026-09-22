@@ -1,0 +1,14 @@
+metrics:
+  - name: customer_concentration_risk
+    label: Customer Concentration
+    description: Top 10 customers’ ARR as % of total ARR — revenue dependency risk indicator.
+    type: ratio
+    type_params:
+      numerator: top10_arr
+      denominator: customer_concentration_total_arr
+    config:
+      meta:
+        metricId: customer_concentration_risk
+        tier: kpi
+        vertical: pe
+        industry: saas

@@ -1,0 +1,123 @@
+# Metrics on this model: escalation_rate, fcr_rate, first_response_time, sla_breach_rate, support_cost_per_ticket, ticket_backlog, ticket_resolution_rate, tickets_created, tickets_per_agent, tickets_per_customer, tickets_resolved, time_to_resolution
+#   (aliases: stg_support_tickets, stg_ticket_row, support_tickets_opened -> tickets_created; ticket_resolution_time -> time_to_resolution)
+# Rates count tickets with a boolean filter over tickets_created (both by created_date). Resolution measures are timed on resolved_date.
+# Unused pre-aggregated columns (total_tickets, escalated_tickets, breached_tickets, first_contact_resolutions,
+# resolved_within_sla, tickets_handled, agent_count, active_customers) remain in the stub but no measure uses them.
+models:
+  - name: fct_support_tickets
+    description: One row per support ticket (with agent, SLA, resolution and cost attributes).
+semantic_models:
+  - name: fct_support_tickets
+    description: One row per support ticket (with agent, SLA, resolution and cost attributes).
+    model: ref('fct_support_tickets')
+    defaults:
+      agg_time_dimension: created_date
+    entities:
+      - name: ticket
+        type: primary
+        expr: ticket_id
+      - name: customer
+        type: foreign
+        expr: customer_id
+      - name: agent
+        type: foreign
+        expr: agent_id
+    dimensions:
+      - name: created_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: resolved_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: priority
+        type: categorical
+      - name: channel
+        type: categorical
+      - name: team
+        type: categorical
+      - name: category
+        type: categorical
+      - name: status
+        type: categorical
+      - name: product_name
+        type: categorical
+      - name: segment
+        type: categorical
+      - name: is_first_contact_resolution
+        type: categorical
+      - name: is_escalated
+        type: categorical
+      - name: is_sla_breached
+        type: categorical
+      - name: is_resolved_within_sla
+        type: categorical
+    measures:
+      - name: ticket_count
+        agg: count
+        expr: ticket_id
+        description: 'Tickets, by created date. Used by: tickets_created, ticket_backlog and the rate helpers.'
+      - name: resolved_ticket_count
+        agg: count
+        expr: case when resolved_at is not null then ticket_id end
+        agg_time_dimension: resolved_date
+        description: 'Tickets resolved, by resolved date. Used by: tickets_resolved.'
+      - name: avg_first_response_hours
+        agg: average
+        expr: first_response_hours
+        description: 'Used by: first_response_time.'
+      - name: avg_resolution_hours
+        agg: average
+        expr: datediff('minute', created_at, resolved_at) / 60.0
+        agg_time_dimension: resolved_date
+        description: 'Hours from creation to resolution, by resolved date. Used by: time_to_resolution.'
+      - name: agent_day_count
+        agg: count_distinct
+        expr: agent_id || '|' || cast(resolved_date as varchar)
+        agg_time_dimension: resolved_date
+        description: 'Distinct agent-days with at least one resolved ticket. Used by: tickets_per_agent.'
+      - name: support_team_cost
+        agg: sum
+        description: 'Support cost allocated to the ticket. Used by: support_cost_per_ticket.'
+metrics:
+  - name: first_contact_resolutions
+    label: first_contact_resolutions
+    description: Helper input for fcr_rate.
+    type: simple
+    type_params:
+      measure: ticket_count
+    filter: "{{ Dimension('ticket__is_first_contact_resolution') }} = true"
+  - name: escalated_tickets
+    label: escalated_tickets
+    description: Helper input for escalation_rate.
+    type: simple
+    type_params:
+      measure: ticket_count
+    filter: "{{ Dimension('ticket__is_escalated') }} = true"
+  - name: breached_tickets
+    label: breached_tickets
+    description: Helper input for sla_breach_rate.
+    type: simple
+    type_params:
+      measure: ticket_count
+    filter: "{{ Dimension('ticket__is_sla_breached') }} = true"
+  - name: support_tickets_resolved_within_sla
+    label: support_tickets_resolved_within_sla
+    description: Helper input for ticket_resolution_rate.
+    type: simple
+    type_params:
+      measure: ticket_count
+    filter: "{{ Dimension('ticket__is_resolved_within_sla') }} = true"
+  - name: support_team_cost
+    label: support_team_cost
+    description: Helper input for support_cost_per_ticket.
+    type: simple
+    type_params:
+      measure: support_team_cost
+  - name: agent_days
+    label: agent_days
+    description: Helper input for tickets_per_agent.
+    type: simple
+    type_params:
+      measure: agent_day_count

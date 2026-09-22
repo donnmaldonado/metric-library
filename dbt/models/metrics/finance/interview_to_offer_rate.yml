@@ -1,0 +1,14 @@
+metrics:
+  - name: interview_to_offer_rate
+    label: Interview-to-Offer %
+    description: Percentage of final-round interviews that resulted in an offer
+    type: ratio
+    type_params:
+      numerator: offers_extended
+      denominator: final_round_interviews
+    config:
+      meta:
+        metricId: interview_to_offer_rate
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

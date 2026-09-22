@@ -1,0 +1,14 @@
+metrics:
+  - name: ctr
+    label: CTR
+    description: Clicks divided by impressions — ad relevance and creative effectiveness.
+    type: ratio
+    type_params:
+      numerator: ad_clicks
+      denominator: impressions
+    config:
+      meta:
+        metricId: ctr
+        tier: kpi
+        vertical: marketing
+        industry: cross_industry

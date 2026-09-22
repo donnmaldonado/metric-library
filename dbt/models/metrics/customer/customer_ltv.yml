@@ -1,0 +1,16 @@
+metrics:
+  - name: customer_ltv
+    label: Realized Customer LTV
+    description: Predicted or realized revenue from a customer across their lifetime.
+    type: derived
+    type_params:
+      expr: lifetime_order_revenue / lifetime_ordering_customers
+      metrics:
+        - name: lifetime_order_revenue
+        - name: lifetime_ordering_customers
+    config:
+      meta:
+        metricId: customer_ltv
+        tier: north_star
+        vertical: customer
+        industry: cross_industry

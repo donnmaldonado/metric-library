@@ -1,0 +1,13 @@
+metrics:
+  - name: time_to_resolution
+    label: Time to Resolution
+    description: Average total hours from ticket creation to final resolution.
+    type: simple
+    type_params:
+      measure: avg_resolution_hours
+    config:
+      meta:
+        metricId: time_to_resolution
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

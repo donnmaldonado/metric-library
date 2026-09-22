@@ -1,0 +1,16 @@
+metrics:
+  - name: dpo
+    label: DPO
+    description: Average days taken to pay suppliers
+    type: derived
+    type_params:
+      expr: accounts_payable / nullif(cogs_ttm, 0) * 365
+      metrics:
+        - name: accounts_payable
+        - name: cogs_ttm
+    config:
+      meta:
+        metricId: dpo
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

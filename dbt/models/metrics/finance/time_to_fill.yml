@@ -1,0 +1,14 @@
+metrics:
+  - name: time_to_fill
+    label: Time to Fill
+    description: Average days from job posting to offer accepted.
+    type: simple
+    type_params:
+      measure: avg_days_to_fill
+    filter: "{{ Dimension('requisition__status') }} = 'filled'"
+    config:
+      meta:
+        metricId: time_to_fill
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

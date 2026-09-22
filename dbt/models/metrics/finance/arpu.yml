@@ -1,0 +1,14 @@
+metrics:
+  - name: arpu
+    label: ARPU
+    description: Average Revenue Per User — revenue efficiency across the base.
+    type: ratio
+    type_params:
+      numerator: total_revenue
+      denominator: ordering_customers
+    config:
+      meta:
+        metricId: arpu
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

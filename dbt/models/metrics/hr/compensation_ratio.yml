@@ -1,0 +1,13 @@
+metrics:
+  - name: compensation_ratio
+    label: Compensation Ratio
+    description: Employee pay relative to market midpoint for their role — pay equity signal.
+    type: simple
+    type_params:
+      measure: avg_comp_ratio
+    config:
+      meta:
+        metricId: compensation_ratio
+        tier: kpi
+        vertical: hr
+        industry: cross_industry

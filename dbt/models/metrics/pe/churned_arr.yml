@@ -1,0 +1,14 @@
+metrics:
+  - name: churned_arr
+    label: Churned ARR
+    description: ARR lost from customers who cancelled in the period
+    type: simple
+    type_params:
+      measure: arr_reduction
+    filter: "{{ Dimension('arr_movement__movement_type') }} = 'churn'"
+    config:
+      meta:
+        metricId: churned_arr
+        tier: input
+        vertical: pe
+        industry: saas

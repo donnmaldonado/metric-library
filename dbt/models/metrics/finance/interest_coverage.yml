@@ -1,0 +1,15 @@
+metrics:
+  - name: interest_coverage
+    label: Interest Coverage
+    description: EBIT divided by interest expense — ability to service debt
+    type: derived
+    type_params:
+      expr: interest_coverage_ratio
+      metrics:
+        - name: interest_coverage_ratio
+    config:
+      meta:
+        metricId: interest_coverage
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

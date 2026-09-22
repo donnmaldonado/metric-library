@@ -1,0 +1,16 @@
+metrics:
+  - name: shareholder_equity
+    label: Shareholder Equity
+    description: Total assets minus total liabilities
+    type: derived
+    type_params:
+      expr: total_assets - total_liabilities
+      metrics:
+        - name: total_assets
+        - name: total_liabilities
+    config:
+      meta:
+        metricId: shareholder_equity
+        tier: input
+        vertical: finance
+        industry: financial_services

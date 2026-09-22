@@ -1,0 +1,14 @@
+metrics:
+  - name: acv
+    label: ACV
+    description: Average annual contract value of new or existing customer agreements.
+    type: ratio
+    type_params:
+      numerator: bookings
+      denominator: contract_count
+    config:
+      meta:
+        metricId: acv
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

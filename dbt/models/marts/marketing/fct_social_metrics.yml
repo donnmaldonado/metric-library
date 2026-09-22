@@ -1,0 +1,61 @@
+# Metrics on this model: share_of_voice, social_engagement_rate, social_followers
+models:
+  - name: fct_social_metrics
+    description: One row per social account (or brand listening topic) and day.
+semantic_models:
+  - name: fct_social_metrics
+    description: One row per social account (or brand listening topic) and day.
+    model: ref('fct_social_metrics')
+    defaults:
+      agg_time_dimension: metric_date
+    entities:
+      - name: social_account_day
+        type: primary
+        expr: social_account_day_id
+    dimensions:
+      - name: metric_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: platform
+        type: categorical
+      - name: account_name
+        type: categorical
+      - name: keyword_group
+        type: categorical
+    measures:
+      - name: followers
+        agg: sum
+        non_additive_dimension:
+          name: metric_date
+          window_choice: max
+        description: 'Follower balance on the last day of the period (semi-additive). Used by: social_followers (and social_engagement_rate
+          through it).'
+      - name: brand_mentions
+        agg: sum
+        description: 'Used by: share_of_voice.'
+      - name: total_category_mentions
+        agg: sum
+        description: 'Used by: share_of_voice.'
+      - name: total_engagements
+        agg: sum
+        description: 'Used by: social_engagement_rate.'
+metrics:
+  - name: brand_mentions
+    label: brand_mentions
+    description: Helper input for share_of_voice.
+    type: simple
+    type_params:
+      measure: brand_mentions
+  - name: total_category_mentions
+    label: total_category_mentions
+    description: Helper input for share_of_voice.
+    type: simple
+    type_params:
+      measure: total_category_mentions
+  - name: total_engagements
+    label: total_engagements
+    description: Helper input for social_engagement_rate.
+    type: simple
+    type_params:
+      measure: total_engagements

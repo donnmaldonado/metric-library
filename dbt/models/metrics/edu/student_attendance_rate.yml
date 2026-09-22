@@ -1,0 +1,14 @@
+metrics:
+  - name: student_attendance_rate
+    label: Attendance Rate
+    description: Percentage of scheduled school days attended across all students
+    type: ratio
+    type_params:
+      numerator: days_attended
+      denominator: days_enrolled
+    config:
+      meta:
+        metricId: student_attendance_rate
+        tier: kpi
+        vertical: edu
+        industry: education

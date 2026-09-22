@@ -1,0 +1,13 @@
+metrics:
+  - name: vendor_scorecard_rating
+    label: Vendor Scorecard Rating
+    description: Composite supplier performance score across quality, delivery, and cost dimensions.
+    type: simple
+    type_params:
+      measure: vendor_scorecard_rating_value
+    config:
+      meta:
+        metricId: vendor_scorecard_rating
+        tier: kpi
+        vertical: ops
+        industry: manufacturing

@@ -1,0 +1,47 @@
+# Metrics on this model: inventory_turnover, inventory_value, shrinkage_rate, stg_inventory_items, stockout_rate
+models:
+  - name: fct_inventory_snapshots
+    description: One row per product, location and snapshot date (on-hand units, value, stockouts, shrinkage).
+semantic_models:
+  - name: fct_inventory_snapshots
+    description: One row per product, location and snapshot date (on-hand units, value, stockouts, shrinkage).
+    model: ref('fct_inventory_snapshots')
+    defaults:
+      agg_time_dimension: snapshot_date
+    entities:
+      - name: inventory_snapshot
+        type: primary
+        expr: inventory_snapshot_id
+    dimensions:
+      - name: snapshot_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: product_name
+        type: categorical
+      - name: location
+        type: categorical
+      - name: is_stocked_out
+        type: categorical
+    measures:
+      - name: inventory_value_value
+        agg: sum
+        expr: units_on_hand * unit_cost
+        non_additive_dimension:
+          name: snapshot_date
+          window_choice: max
+        description: 'On-hand inventory at cost, as of the last snapshot in the period. Used by: inventory_turnover, inventory_value, shrinkage_rate.'
+      - name: inventory_distinct_item_count
+        agg: count_distinct
+        expr: item_id
+        description: 'Distinct SKUs with a snapshot in the period. Used by: stg_inventory_items, stockout_rate.'
+      - name: inventory_shrinkage
+        agg: sum
+        description: 'Value written off to shrinkage (flow, additive over time). Used by: shrinkage_rate.'
+metrics:
+  - name: inventory_shrinkage
+    label: inventory_shrinkage
+    description: Inventory value lost to theft, damage or administrative error in the period. Helper input for shrinkage_rate.
+    type: simple
+    type_params:
+      measure: inventory_shrinkage

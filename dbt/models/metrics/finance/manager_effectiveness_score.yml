@@ -1,0 +1,13 @@
+metrics:
+  - name: manager_effectiveness_score
+    label: Manager Effectiveness
+    description: Upward feedback score measuring managerial quality from direct reports.
+    type: simple
+    type_params:
+      measure: avg_manager_score
+    config:
+      meta:
+        metricId: manager_effectiveness_score
+        tier: kpi
+        vertical: finance
+        industry: cross_industry

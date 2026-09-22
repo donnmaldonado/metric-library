@@ -1,0 +1,55 @@
+# Metrics on this model: product_return_rate, return_rate, stg_refund_amount, stg_refunds_count, stg_return_row
+models:
+  - name: fct_returns
+    description: One row per returned item / refund.
+semantic_models:
+  - name: fct_returns
+    description: One row per returned item / refund.
+    model: ref('fct_returns')
+    defaults:
+      agg_time_dimension: return_date
+    entities:
+      - name: order_return
+        type: primary
+        expr: return_id
+      - name: order
+        type: foreign
+        expr: order_id
+      - name: product
+        type: foreign
+        expr: product_id
+    dimensions:
+      - name: return_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: product_name
+        type: categorical
+      - name: reason_code
+        type: categorical
+      - name: product_category
+        type: categorical
+      - name: channel
+        type: categorical
+      - name: disposition
+        type: categorical
+      - name: is_refunded
+        type: categorical
+    measures:
+      - name: refund_amount
+        agg: sum
+        description: 'Used by: stg_refund_amount.'
+      - name: return_count
+        agg: count
+        expr: return_id
+        description: 'Used by: stg_refunds_count, stg_return_row.'
+      - name: units_returned
+        agg: sum
+        description: 'Units returned by customers. Used by: return_rate.'
+metrics:
+  - name: units_returned
+    label: units_returned
+    description: Units returned by customers in the period. Helper input for return_rate.
+    type: simple
+    type_params:
+      measure: units_returned

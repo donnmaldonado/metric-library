@@ -1,0 +1,14 @@
+metrics:
+  - name: ltv_cac
+    label: 'LTV : CAC'
+    description: Ratio of customer lifetime value to acquisition cost — PE efficiency lens.
+    type: ratio
+    type_params:
+      numerator: clv
+      denominator: cac
+    config:
+      meta:
+        metricId: ltv_cac
+        tier: kpi
+        vertical: customer
+        industry: cross_industry

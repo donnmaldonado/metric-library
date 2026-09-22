@@ -1,0 +1,14 @@
+metrics:
+  - name: cpc
+    label: CPC
+    description: Average cost paid per ad click.
+    type: ratio
+    type_params:
+      numerator: marketing_spend
+      denominator: ad_clicks
+    config:
+      meta:
+        metricId: cpc
+        tier: kpi
+        vertical: marketing
+        industry: cross_industry

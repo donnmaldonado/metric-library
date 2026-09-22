@@ -1,0 +1,13 @@
+metrics:
+  - name: sam
+    label: SAM
+    description: The portion of TAM that the company can realistically serve
+    type: simple
+    type_params:
+      measure: sam_estimate
+    config:
+      meta:
+        metricId: sam
+        tier: input
+        vertical: finance
+        industry: cross_industry

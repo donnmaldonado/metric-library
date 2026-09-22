@@ -1,0 +1,14 @@
+metrics:
+  - name: cost_per_sql
+    label: Cost per SQL
+    description: Total marketing spend per sales-qualified lead generated.
+    type: ratio
+    type_params:
+      numerator: marketing_spend
+      denominator: sql
+    config:
+      meta:
+        metricId: cost_per_sql
+        tier: kpi
+        vertical: marketing
+        industry: cross_industry
