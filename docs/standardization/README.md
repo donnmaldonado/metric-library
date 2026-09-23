@@ -1,6 +1,6 @@
 # Metric library standardization
 
-Six tasks that bring `data/metrics.json` to one consistent style. Each task has its own handoff; this file holds the rules they share. Read this file first, then your task's handoff.
+Tasks that bring `data/metrics.json` to one consistent style: 01–06, then follow-ups 07–09. Each task has its own handoff; this file holds the rules they share. Read this file first, then your task's handoff.
 
 | # | Handoff | Changes | Depends on |
 |---|---|---|---|
@@ -10,10 +10,13 @@ Six tasks that bring `data/metrics.json` to one consistent style. Each task has 
 | 04 | [Data sources](04-data-sources.md) | `dataSources`, new `data/sources.json` | 03 |
 | 05 | [Labels](05-labels.md) | `label`, new `shortLabel` and `unit` | 03 |
 | 06 | [Dimensions](06-dimensions.md) | `dimensions`, new `data/dimensions.json` | 03 |
+| 07 | [Queryable dimensions](07-queryability.md) | `dimensions`, mart semantic models, `data/dimensions.json` | 06 |
+| 08 | [One row per edge](08-relationships-dedupe.md) | `scripts/build.py`, `data/relationships.csv` | 06 |
+| 09 | [formulaInputs follows the formulas](09-formula-inputs.md) | `formulaInputs`, new `scripts/formula_inputs.py` | 07 |
 
 ## Order
 
-01 → 02 → 03 run one after another: each shrinks or reshapes the set of metrics the next one works on. 04, 05 and 06 touch different fields and can run in parallel, each in its own worktree branched from `main` after 03 merges. Merge them one at a time; for conflicts in generated files (`dbt/models/metrics/`, `dbt/analyses/metrics/`, `data/relationships.csv`, `CATALOG.md`), take either side and rerun `python3 scripts/build.py`.
+01 → 02 → 03 run one after another: each shrinks or reshapes the set of metrics the next one works on. 04, 05 and 06 touch different fields and can run in parallel, each in its own worktree branched from `main` after 03 merges. 07 and 08 can run in parallel the same way; 09 branches after 07 merges. Merge them one at a time; for conflicts in generated files (`dbt/models/metrics/`, `dbt/analyses/metrics/`, `data/relationships.csv`, `CATALOG.md`), take either side and rerun `python3 scripts/build.py`.
 
 ## Workflow
 
