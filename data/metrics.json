@@ -142,7 +142,6 @@
       "per_pupil_expenditure",
       "school_climate_score",
       "school_culture_score",
-      "stg_student_assessment_row",
       "student_growth_percentile",
       "teacher_retention_rate"
     ],
@@ -371,14 +370,14 @@
     ],
     "parentMetrics": [],
     "childMetrics": [
-      "stg_ad_spend",
       "ltv_cac",
       "marketing_influenced_pipeline",
       "organic_attribution_pct",
       "paid_attribution_pct",
       "referral_attribution_pct",
       "roas",
-      "share_of_voice"
+      "share_of_voice",
+      "marketing_spend"
     ],
     "correlatedMetrics": [
       "roas",
@@ -489,8 +488,7 @@
     "correlatedMetrics": [
       "bookings",
       "mql",
-      "pipeline_coverage",
-      "stg_opportunities_count"
+      "pipeline_coverage"
     ],
     "formulaInputs": []
   },
@@ -622,7 +620,6 @@
     ],
     "parentMetrics": [],
     "childMetrics": [
-      "stg_employees_count",
       "headcount_by_dept",
       "diversity_hire_rate",
       "headcount_vs_budget",
@@ -632,8 +629,6 @@
       "turnover_rate",
       "headcount_vs_budget",
       "headcount_by_dept",
-      "stg_employees_count",
-      "stg_payroll_total",
       "total_comp_expense"
     ],
     "formulaInputs": []
@@ -668,8 +663,7 @@
       "regrettable_attrition",
       "engagement_score",
       "absenteeism_rate",
-      "headcount",
-      "stg_employees_count"
+      "headcount"
     ],
     "formulaInputs": [
       "headcount"
@@ -732,7 +726,7 @@
       "sql"
     ],
     "childMetrics": [
-      "stg_leads_count",
+      "leads",
       "form_conversion_rate",
       "demo_requests",
       "event_attendees",
@@ -746,7 +740,7 @@
       "demo_requests",
       "event_attendees",
       "pipeline_generated",
-      "stg_leads_count",
+      "leads",
       "webinar_registrants"
     ],
     "formulaInputs": []
@@ -772,7 +766,6 @@
     ],
     "parentMetrics": [],
     "childMetrics": [
-      "stg_orders_count",
       "cycle_time",
       "lead_time"
     ],
@@ -832,8 +825,7 @@
       "q4_revenue",
       "revenue_by_channel",
       "revenue_by_product",
-      "revenue_by_region",
-      "stg_orders_count"
+      "revenue_by_region"
     ],
     "formulaInputs": []
   },
@@ -858,9 +850,9 @@
     ],
     "parentMetrics": [],
     "childMetrics": [
-      "stg_csat_response_row",
       "complaint_resolution_rate",
-      "complaints_count"
+      "complaints_count",
+      "csat"
     ],
     "correlatedMetrics": [
       "nps",
@@ -890,7 +882,6 @@
     ],
     "parentMetrics": [],
     "childMetrics": [
-      "stg_nps_response_row",
       "app_store_rating",
       "feature_request_volume",
       "review_rating",
@@ -973,8 +964,7 @@
       "cohort_ltv_12m"
     ],
     "childMetrics": [
-      "stg_purchases_count",
-      "stg_order_amount_sum"
+      "gross_revenue"
     ],
     "correlatedMetrics": [
       "purchase_frequency",
@@ -983,10 +973,7 @@
       "discount_rate",
       "iap_revenue",
       "marketplace_buyers",
-      "stg_order_amount_sum",
-      "stg_orders_count",
-      "stg_products_active",
-      "stg_purchases_count"
+      "gross_revenue"
     ],
     "formulaInputs": []
   },
@@ -1324,15 +1311,15 @@
       "cac"
     ],
     "childMetrics": [
-      "stg_ad_spend",
-      "net_new_customers"
+      "net_new_customers",
+      "marketing_spend"
     ],
     "correlatedMetrics": [
       "cac",
       "cost_per_mql",
       "marketing_roi",
       "sm_spend",
-      "stg_ad_spend"
+      "marketing_spend"
     ],
     "formulaInputs": []
   },
@@ -1416,8 +1403,7 @@
     "childMetrics": [],
     "correlatedMetrics": [
       "refund_rate",
-      "csat",
-      "stg_refunds_count"
+      "csat"
     ],
     "formulaInputs": []
   },
@@ -1444,13 +1430,11 @@
       "cohort_ltv_12m"
     ],
     "childMetrics": [
-      "stg_purchases_count",
       "repeat_purchase_rate"
     ],
     "correlatedMetrics": [
       "aov",
-      "repeat_purchase_rate",
-      "stg_purchases_count"
+      "repeat_purchase_rate"
     ],
     "formulaInputs": []
   },
@@ -1476,17 +1460,11 @@
     "parentMetrics": [
       "clv"
     ],
-    "childMetrics": [
-      "stg_refunds_count",
-      "stg_purchases_count",
-      "stg_refund_amount"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "product_return_rate",
       "csat",
-      "net_revenue",
-      "stg_refund_amount",
-      "stg_refunds_count"
+      "net_revenue"
     ],
     "formulaInputs": []
   },
@@ -1516,7 +1494,6 @@
       "account_health_score"
     ],
     "childMetrics": [
-      "stg_subscription_row",
       "qbr_completion_rate"
     ],
     "correlatedMetrics": [
@@ -1549,14 +1526,10 @@
     "parentMetrics": [
       "purchase_frequency"
     ],
-    "childMetrics": [
-      "stg_purchases_count",
-      "stg_customer_count"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "purchase_frequency",
-      "customer_retention_rate",
-      "stg_purchases_count"
+      "customer_retention_rate"
     ],
     "formulaInputs": []
   },
@@ -1583,9 +1556,7 @@
     "parentMetrics": [
       "graduation_rate"
     ],
-    "childMetrics": [
-      "stg_enrollment_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "college_enrollment",
       "student_proficiency"
@@ -1613,14 +1584,10 @@
     "parentMetrics": [
       "clv"
     ],
-    "childMetrics": [
-      "stg_purchases_count",
-      "stg_products_active"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "upsell_rate",
-      "aov",
-      "stg_products_active"
+      "aov"
     ],
     "formulaInputs": []
   },
@@ -1722,9 +1689,7 @@
     "parentMetrics": [
       "student_proficiency"
     ],
-    "childMetrics": [
-      "stg_student_assessment_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "student_proficiency",
       "attendance_rate"
@@ -1938,9 +1903,7 @@
     "parentMetrics": [
       "student_proficiency"
     ],
-    "childMetrics": [
-      "stg_survey_response_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "employee_engagement_score",
       "attendance_rate"
@@ -2062,9 +2025,7 @@
     "parentMetrics": [
       "student_proficiency"
     ],
-    "childMetrics": [
-      "stg_student_assessment_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "student_proficiency",
       "attendance_rate"
@@ -2124,9 +2085,7 @@
     "parentMetrics": [
       "student_proficiency"
     ],
-    "childMetrics": [
-      "stg_employee_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "employee_attrition_rate",
       "student_proficiency",
@@ -2193,9 +2152,7 @@
     "parentMetrics": [
       "expansion_arr"
     ],
-    "childMetrics": [
-      "stg_purchases_count"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "cross_sell_rate",
       "expansion_arr",
@@ -2228,9 +2185,7 @@
     "parentMetrics": [
       "chronic_absenteeism"
     ],
-    "childMetrics": [
-      "stg_attendance_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "chronic_absenteeism",
       "student_proficiency"
@@ -2293,7 +2248,6 @@
       "dau_mau_ratio"
     ],
     "childMetrics": [
-      "stg_user_event_row",
       "funnel_dropoff",
       "time_to_activate"
     ],
@@ -2336,8 +2290,7 @@
       "free_to_paid_rate"
     ],
     "childMetrics": [
-      "mau",
-      "stg_subscriptions_active"
+      "mau"
     ],
     "correlatedMetrics": [
       "arr",
@@ -2369,9 +2322,7 @@
     "parentMetrics": [
       "arr"
     ],
-    "childMetrics": [
-      "stg_opportunity_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "arr",
       "new_arr",
@@ -2493,7 +2444,7 @@
       "bad_debt_rate"
     ],
     "childMetrics": [
-      "stg_invoice_row"
+      "billings"
     ],
     "correlatedMetrics": [
       "dso",
@@ -2566,9 +2517,7 @@
     "parentMetrics": [
       "revenue"
     ],
-    "childMetrics": [
-      "stg_revenue_event_amount"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "revenue",
       "gross_margin"
@@ -2632,8 +2581,7 @@
     ],
     "childMetrics": [
       "chronic_absenteeism",
-      "average_daily_attendance",
-      "stg_attendance_row"
+      "average_daily_attendance"
     ],
     "correlatedMetrics": [
       "student_proficiency",
@@ -2672,9 +2620,7 @@
     "parentMetrics": [
       "attendance_rate"
     ],
-    "childMetrics": [
-      "stg_attendance_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "chronic_absenteeism",
       "student_proficiency"
@@ -2705,8 +2651,7 @@
       "pipeline_generated"
     ],
     "childMetrics": [
-      "bookings",
-      "stg_opportunities_count"
+      "bookings"
     ],
     "correlatedMetrics": [
       "acv",
@@ -2772,9 +2717,7 @@
     "parentMetrics": [
       "dau_mau_ratio"
     ],
-    "childMetrics": [
-      "stg_user_event_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "feature_adoption_rate",
       "dau",
@@ -2806,13 +2749,12 @@
       "web_conversion_rate"
     ],
     "childMetrics": [
-      "stg_session_row"
+      "website_sessions"
     ],
     "correlatedMetrics": [
       "web_conversion_rate",
       "avg_session_duration",
       "session_to_lead_rate",
-      "stg_page_views",
       "website_sessions"
     ],
     "formulaInputs": []
@@ -3129,15 +3071,20 @@
     "parentMetrics": [
       "ebitda",
       "gross_margin",
-      "gross_margin_by_segment"
+      "gross_margin_by_segment",
+      "gross_profit",
+      "dpo",
+      "inventory_turnover"
     ],
     "childMetrics": [
-      "stg_cogs_event",
       "procurement_savings_rate",
       "shrinkage_rate"
     ],
     "correlatedMetrics": [
-      "revenue"
+      "revenue",
+      "gross_margin_pct",
+      "inventory_turnover",
+      "inventory_value"
     ],
     "formulaInputs": []
   },
@@ -3194,7 +3141,6 @@
       "ops_efficiency_ratio"
     ],
     "childMetrics": [
-      "stg_vehicle_trip_row",
       "fleet_utilization_rate"
     ],
     "correlatedMetrics": [
@@ -3260,16 +3206,16 @@
       "cost_per_mql"
     ],
     "childMetrics": [
-      "stg_ad_spend",
-      "stg_leads_count",
+      "leads",
       "cost_per_event_attendee",
-      "cpc"
+      "cpc",
+      "marketing_spend"
     ],
     "correlatedMetrics": [
       "cost_per_mql",
       "cpc",
       "cost_per_event_attendee",
-      "stg_leads_count"
+      "leads"
     ],
     "formulaInputs": []
   },
@@ -3498,7 +3444,7 @@
     ],
     "childMetrics": [
       "accounts_payable",
-      "cogs_stg"
+      "cogs"
     ],
     "correlatedMetrics": [
       "dso",
@@ -3533,15 +3479,14 @@
     "childMetrics": [
       "accounts_receivable",
       "ar_aging_90d",
-      "stg_invoice_row"
+      "billings"
     ],
     "correlatedMetrics": [
       "dpo",
       "cash_and_equivalents",
       "accounts_receivable",
       "ar_aging_90d",
-      "bad_debt_rate",
-      "stg_invoices_count"
+      "bad_debt_rate"
     ],
     "formulaInputs": [
       "total_revenue"
@@ -3694,9 +3639,7 @@
       "per_pupil_expenditure",
       "teacher_student_ratio"
     ],
-    "childMetrics": [
-      "stg_enrollment_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "graduation_rate",
       "attendance_rate",
@@ -3728,7 +3671,6 @@
       "dau_mau_ratio"
     ],
     "childMetrics": [
-      "stg_error_event_row",
       "api_latency_p95",
       "bug_escape_rate",
       "product_uptime_sla"
@@ -3827,14 +3769,14 @@
       "csat"
     ],
     "childMetrics": [
-      "stg_support_tickets"
+      "tickets_created"
     ],
     "correlatedMetrics": [
       "ticket_resolution_time",
       "csat",
-      "stg_support_tickets",
       "tickets_per_agent",
-      "tickets_resolved"
+      "tickets_resolved",
+      "tickets_created"
     ],
     "formulaInputs": []
   },
@@ -3860,14 +3802,12 @@
       "feature_adoption_rate"
     ],
     "childMetrics": [
-      "stg_events_count",
       "dau"
     ],
     "correlatedMetrics": [
       "dau_mau_ratio",
       "activation_rate",
-      "session_length",
-      "stg_events_count"
+      "session_length"
     ],
     "formulaInputs": []
   },
@@ -3896,16 +3836,16 @@
       "sla_breach_rate"
     ],
     "childMetrics": [
-      "stg_ticket_row"
+      "tickets_created"
     ],
     "correlatedMetrics": [
       "ces",
       "csat",
-      "stg_support_tickets",
       "ticket_backlog",
       "ticket_resolution_rate",
       "ticket_resolution_time",
-      "time_to_resolution"
+      "time_to_resolution",
+      "tickets_created"
     ],
     "formulaInputs": []
   },
@@ -3933,9 +3873,7 @@
     "parentMetrics": [
       "cost_per_mile"
     ],
-    "childMetrics": [
-      "stg_vehicle_trip_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "cost_per_mile"
     ],
@@ -3999,7 +3937,7 @@
     ],
     "childMetrics": [
       "website_sessions",
-      "stg_leads_count"
+      "leads"
     ],
     "correlatedMetrics": [
       "session_to_lead_rate",
@@ -4130,7 +4068,6 @@
       "take_rate"
     ],
     "childMetrics": [
-      "stg_revenue_event_amount",
       "liquidity_rate",
       "marketplace_buyers",
       "marketplace_sellers"
@@ -4279,10 +4216,10 @@
     "correlatedMetrics": [
       "ebitda_margin",
       "net_margin",
-      "cogs_stg",
       "gross_profit",
       "ops_efficiency_ratio",
-      "revenue_by_product"
+      "revenue_by_product",
+      "cogs"
     ],
     "formulaInputs": [
       "total_revenue"
@@ -4314,7 +4251,7 @@
       "gross_profit_per_employee"
     ],
     "childMetrics": [
-      "cogs_stg"
+      "cogs"
     ],
     "correlatedMetrics": [
       "gross_margin_pct",
@@ -4470,9 +4407,7 @@
     "parentMetrics": [
       "employee_attrition_rate"
     ],
-    "childMetrics": [
-      "stg_job_requisition_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "employee_attrition_rate",
       "time_to_fill",
@@ -4628,7 +4563,6 @@
       "employee_engagement_score"
     ],
     "childMetrics": [
-      "stg_survey_response_row",
       "span_of_control"
     ],
     "correlatedMetrics": [
@@ -4693,9 +4627,7 @@
     "parentMetrics": [
       "marketing_roi"
     ],
-    "childMetrics": [
-      "stg_opportunity_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "pipeline_value",
       "roas"
@@ -4727,15 +4659,20 @@
       "cost_per_mql",
       "cost_per_sql",
       "cpm",
-      "roas"
+      "roas",
+      "cpc",
+      "cpl",
+      "marketing_cac",
+      "marketing_roi"
     ],
-    "childMetrics": [
-      "stg_ad_spend_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "revenue",
       "mrr",
-      "sales_spend"
+      "sales_spend",
+      "roas",
+      "cpc",
+      "marketing_cac"
     ],
     "formulaInputs": []
   },
@@ -4763,7 +4700,6 @@
       "system_uptime"
     ],
     "childMetrics": [
-      "stg_downtime_event_row",
       "preventive_maintenance_rate"
     ],
     "correlatedMetrics": [
@@ -4793,8 +4729,7 @@
       "uptime"
     ],
     "childMetrics": [
-      "incident_count",
-      "stg_error_event_row"
+      "incident_count"
     ],
     "correlatedMetrics": [
       "mttr",
@@ -4997,8 +4932,7 @@
     "correlatedMetrics": [
       "arr_growth_rate",
       "cac",
-      "customer_count",
-      "stg_customer_count"
+      "customer_count"
     ],
     "formulaInputs": []
   },
@@ -5027,7 +4961,6 @@
       "mau"
     ],
     "childMetrics": [
-      "stg_user_event_row",
       "app_downloads",
       "viral_coefficient"
     ],
@@ -5132,8 +5065,7 @@
       "hr_cost_pct_revenue",
       "rd_as_pct_revenue",
       "rd_expense",
-      "rd_spend_pct",
-      "stg_opex_line"
+      "rd_spend_pct"
     ],
     "correlatedMetrics": [
       "ga_spend_pct",
@@ -5171,9 +5103,7 @@
     "parentMetrics": [
       "ops_north_star"
     ],
-    "childMetrics": [
-      "stg_shipment_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "fill_rate",
       "on_time_delivery_rate",
@@ -5204,9 +5134,7 @@
     "parentMetrics": [
       "marketing_roi"
     ],
-    "childMetrics": [
-      "stg_ad_spend"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "organic_attribution_pct",
       "roas"
@@ -5237,9 +5165,7 @@
     "parentMetrics": [
       "website_sessions"
     ],
-    "childMetrics": [
-      "stg_session_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "organic_sessions",
       "roas"
@@ -5418,7 +5344,6 @@
       "pipeline_coverage"
     ],
     "childMetrics": [
-      "stg_opportunity_row",
       "sql_count"
     ],
     "correlatedMetrics": [
@@ -5468,7 +5393,7 @@
     "tier": "kpi",
     "shortDescription": "% of maintenance activity that is planned preventive vs reactive.",
     "formulaSql": "select\n    date_trunc('month', created_date) as period,\n    facility_id,\n    count(case when maintenance_type = 'preventive' then 1 end)\n        / nullif(count(*), 0) as preventive_maintenance_rate\nfrom {{ ref('fct_work_orders') }}\ngroup by 1, 2\norder by 1, 2\n",
-    "formulaYaml": "metrics:\n  - name: preventive_maintenance_rate\n    label: Preventive Maintenance Rate\n    description: '% of maintenance activity that is planned preventive vs reactive.'\n    type: ratio\n    type_params:\n      numerator:\n        name: stg_work_order_row\n        filter: \"{{ Dimension('work_order__maintenance_type') }} = 'preventive'\"\n      denominator: stg_work_order_row\n    config:\n      meta:\n        metricId: preventive_maintenance_rate\n        tier: kpi\n        vertical: finance\n        industry: cross_industry\n",
+    "formulaYaml": "metrics:\n  - name: preventive_maintenance_rate\n    label: Preventive Maintenance Rate\n    description: '% of maintenance activity that is planned preventive vs reactive.'\n    type: ratio\n    type_params:\n      numerator:\n        name: work_orders\n        filter: \"{{ Dimension('work_order__maintenance_type') }} = 'preventive'\"\n      denominator: work_orders\n    config:\n      meta:\n        metricId: preventive_maintenance_rate\n        tier: kpi\n        vertical: finance\n        industry: cross_industry\n",
     "numerator": "Preventive Work Orders",
     "denominator": "Total Work Orders",
     "dimensions": [
@@ -5483,7 +5408,7 @@
       "mtbf"
     ],
     "childMetrics": [
-      "stg_work_order_row"
+      "work_orders"
     ],
     "correlatedMetrics": [
       "work_order_resolution_time",
@@ -5573,9 +5498,7 @@
       "pct_reps_at_quota",
       "pipeline_coverage"
     ],
-    "childMetrics": [
-      "stg_opportunity_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "win_rate",
       "new_arr",
@@ -5968,9 +5891,7 @@
     "parentMetrics": [
       "new_arr"
     ],
-    "childMetrics": [
-      "stg_opportunity_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "cac",
       "win_rate"
@@ -6001,9 +5922,7 @@
       "cac",
       "sg_and_a"
     ],
-    "childMetrics": [
-      "stg_payroll_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "marketing_spend",
       "cac"
@@ -6036,7 +5955,7 @@
       "dau_mau_ratio",
       "feature_adoption",
       "sessions_per_user",
-      "stg_sessions_count"
+      "website_sessions"
     ],
     "formulaInputs": []
   },
@@ -6062,7 +5981,7 @@
       "dau_mau_ratio"
     ],
     "childMetrics": [
-      "stg_sessions_count"
+      "website_sessions"
     ],
     "correlatedMetrics": [
       "dau_mau_ratio",
@@ -6189,8 +6108,7 @@
       "dropout_rate"
     ],
     "childMetrics": [
-      "expulsion_rate",
-      "stg_discipline_row"
+      "expulsion_rate"
     ],
     "correlatedMetrics": [
       "chronic_absenteeism_rate",
@@ -6315,7 +6233,6 @@
       "headcount_vs_budget"
     ],
     "childMetrics": [
-      "stg_job_requisition_row",
       "offer_acceptance_rate",
       "time_to_hire"
     ],
@@ -6355,7 +6272,7 @@
       "csat"
     ],
     "childMetrics": [
-      "stg_ticket_row"
+      "tickets_created"
     ],
     "correlatedMetrics": [
       "first_response_time",
@@ -6386,7 +6303,6 @@
       "dau_mau_ratio"
     ],
     "childMetrics": [
-      "stg_user_event_row",
       "onboarding_completion_rate",
       "onboarding_time"
     ],
@@ -6422,9 +6338,7 @@
     "parentMetrics": [
       "employee_engagement_score"
     ],
-    "childMetrics": [
-      "stg_employee_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "employee_engagement_score",
       "internal_promotion_rate"
@@ -6488,7 +6402,6 @@
       "mql_count"
     ],
     "childMetrics": [
-      "stg_email_send_row",
       "email_unsub_rate"
     ],
     "correlatedMetrics": [
@@ -6589,23 +6502,23 @@
     "parentMetrics": [
       "form_conversion_rate",
       "session_to_lead_rate",
-      "web_conversion_rate"
+      "web_conversion_rate",
+      "bounce_rate",
+      "sessions_per_user"
     ],
     "childMetrics": [
       "organic_sessions",
-      "stg_session_row",
       "organic_traffic",
       "paid_sessions",
       "paid_traffic",
-      "referral_sessions",
-      "stg_page_view_row",
-      "stg_page_views"
+      "referral_sessions"
     ],
     "correlatedMetrics": [
       "mql_count",
       "web_conversion_rate",
       "bounce_rate",
-      "stg_page_views"
+      "dau",
+      "session_length"
     ],
     "formulaInputs": []
   },
@@ -6633,7 +6546,6 @@
       "new_arr"
     ],
     "childMetrics": [
-      "stg_opportunity_row",
       "competitive_win_rate"
     ],
     "correlatedMetrics": [
@@ -6676,7 +6588,7 @@
       "system_uptime"
     ],
     "childMetrics": [
-      "stg_work_order_row"
+      "work_orders"
     ],
     "correlatedMetrics": [
       "preventive_maintenance_rate"
@@ -6813,9 +6725,7 @@
     "parentMetrics": [
       "employee_attrition_rate"
     ],
-    "childMetrics": [
-      "stg_payroll_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "employee_attrition_rate",
       "headcount_cost"
@@ -6965,7 +6875,6 @@
       "turnover_rate"
     ],
     "childMetrics": [
-      "stg_employee_row",
       "compensation_ratio",
       "gender_pay_gap",
       "internal_promotion_rate"
@@ -7006,7 +6915,6 @@
       "voluntary_turnover"
     ],
     "childMetrics": [
-      "stg_survey_response_row",
       "manager_effectiveness_score",
       "training_hours_per_employee"
     ],
@@ -7087,9 +6995,7 @@
       "employee_lifetime_value",
       "staff_student_cost_ratio"
     ],
-    "childMetrics": [
-      "stg_payroll_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "headcount_fte",
       "revenue_per_employee",
@@ -7160,20 +7066,20 @@
       "working_capital"
     ],
     "childMetrics": [
-      "cogs_stg",
       "inventory_value",
-      "stg_inventory_items"
+      "inventory_items",
+      "cogs"
     ],
     "correlatedMetrics": [
       "stockout_rate",
       "dpo",
       "otd_rate",
-      "cogs_stg",
       "fill_rate",
       "inventory_value",
-      "stg_inventory_items",
+      "inventory_items",
       "supplier_lead_time",
-      "warehouse_utilization_rate"
+      "warehouse_utilization_rate",
+      "cogs"
     ],
     "formulaInputs": []
   },
@@ -7199,9 +7105,7 @@
     "parentMetrics": [
       "time_to_value"
     ],
-    "childMetrics": [
-      "stg_user_event_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "feature_adoption_rate",
       "churn_rate",
@@ -7450,9 +7354,7 @@
     "parentMetrics": [
       "vendor_scorecard_rating"
     ],
-    "childMetrics": [
-      "stg_purchase_order_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "supplier_lead_time",
       "defect_rate",
@@ -7582,7 +7484,6 @@
       "cac"
     ],
     "childMetrics": [
-      "stg_ad_spend",
       "cpl",
       "marketing_spend"
     ],
@@ -7652,12 +7553,12 @@
       "cpl"
     ],
     "childMetrics": [
-      "stg_ad_spend",
       "ad_impressions",
       "ad_clicks",
       "ad_ctr",
       "cpm",
-      "ctr"
+      "ctr",
+      "marketing_spend"
     ],
     "correlatedMetrics": [
       "ad_ctr",
@@ -7666,7 +7567,7 @@
       "cpl",
       "cpm",
       "ctr",
-      "stg_ad_spend"
+      "marketing_spend"
     ],
     "formulaInputs": []
   },
@@ -7728,7 +7629,6 @@
       "mql_count"
     ],
     "childMetrics": [
-      "stg_email_send_row",
       "email_open_rate"
     ],
     "correlatedMetrics": [
@@ -7791,9 +7691,7 @@
       "email_click_rate",
       "email_ctr"
     ],
-    "childMetrics": [
-      "stg_email_send_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "email_click_rate",
       "unsubscribe_rate",
@@ -7902,7 +7800,7 @@
     "tier": "kpi",
     "shortDescription": "Percentage of leads that reach MQL threshold",
     "formulaSql": "with mqls as (\n    select\n        date_trunc('month', mql_date) as period,\n        count(lead_id) as mqls\n    from {{ ref('fct_leads') }}\n    where mql_date is not null\n    group by 1\n),\n\nleads as (\n    select\n        date_trunc('month', created_date) as period,\n        count(lead_id) as leads\n    from {{ ref('fct_leads') }}\n    group by 1\n)\n\nselect\n    leads.period,\n    coalesce(mqls.mqls, 0) / nullif(leads.leads, 0) as lead_to_mql_rate\nfrom leads\nleft join mqls using (period)",
-    "formulaYaml": "metrics:\n  - name: lead_to_mql_rate\n    label: Lead → MQL %\n    description: Percentage of leads that reach MQL threshold\n    type: ratio\n    type_params:\n      numerator: mql\n      denominator: stg_leads_count\n    config:\n      meta:\n        metricId: lead_to_mql_rate\n        tier: kpi\n        vertical: marketing\n        industry: cross_industry\n",
+    "formulaYaml": "metrics:\n  - name: lead_to_mql_rate\n    label: Lead → MQL %\n    description: Percentage of leads that reach MQL threshold\n    type: ratio\n    type_params:\n      numerator: mql\n      denominator: leads\n    config:\n      meta:\n        metricId: lead_to_mql_rate\n        tier: kpi\n        vertical: marketing\n        industry: cross_industry\n",
     "numerator": "MQLs",
     "denominator": "All leads",
     "dimensions": [
@@ -7917,7 +7815,7 @@
       "mql"
     ],
     "childMetrics": [
-      "stg_leads_count"
+      "leads"
     ],
     "correlatedMetrics": [
       "mql_to_sql_rate",
@@ -8028,7 +7926,7 @@
       "marketing_roi",
       "paid_attribution_pct",
       "paid_sessions",
-      "stg_ad_spend"
+      "marketing_spend"
     ],
     "formulaInputs": []
   },
@@ -8056,7 +7954,7 @@
     ],
     "childMetrics": [
       "website_sessions",
-      "stg_leads_count"
+      "leads"
     ],
     "correlatedMetrics": [
       "form_conversion_rate",
@@ -8127,8 +8025,7 @@
     "correlatedMetrics": [
       "mql",
       "win_rate",
-      "demo_requests",
-      "stg_opportunities_count"
+      "demo_requests"
     ],
     "formulaInputs": []
   },
@@ -8189,9 +8086,7 @@
     "parentMetrics": [
       "vendor_scorecard_rating"
     ],
-    "childMetrics": [
-      "stg_purchase_order_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "fill_rate",
       "inventory_turnover",
@@ -8283,7 +8178,6 @@
       "otd_rate"
     ],
     "childMetrics": [
-      "stg_orders_count",
       "process_automation_rate"
     ],
     "correlatedMetrics": [
@@ -8320,9 +8214,7 @@
       "ops_north_star",
       "vendor_scorecard_rating"
     ],
-    "childMetrics": [
-      "stg_quality_inspection_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "order_accuracy_rate",
       "fill_rate",
@@ -8355,7 +8247,7 @@
       "ticket_resolution_time"
     ],
     "childMetrics": [
-      "stg_support_tickets"
+      "tickets_created"
     ],
     "correlatedMetrics": [
       "sla_breach_rate",
@@ -8371,7 +8263,7 @@
     "tier": "kpi",
     "shortDescription": "% of order lines fulfilled completely from available inventory.",
     "formulaSql": "select\n    date_trunc('month', order_date) as period,\n    warehouse_id,\n    count(case when is_fully_shipped then 1 end)\n        / nullif(count(*), 0) as fill_rate\nfrom {{ ref('fct_order_lines') }}\ngroup by 1, 2\norder by 1, 2\n",
-    "formulaYaml": "metrics:\n  - name: fill_rate\n    label: Fill Rate\n    description: '% of order lines fulfilled completely from available inventory.'\n    type: ratio\n    type_params:\n      numerator:\n        name: stg_order_line_row\n        filter: \"{{ Dimension('order_line__is_fully_shipped') }} = true\"\n      denominator: stg_order_line_row\n    config:\n      meta:\n        metricId: fill_rate\n        tier: kpi\n        vertical: ops\n        industry: manufacturing\n",
+    "formulaYaml": "metrics:\n  - name: fill_rate\n    label: Fill Rate\n    description: '% of order lines fulfilled completely from available inventory.'\n    type: ratio\n    type_params:\n      numerator:\n        name: order_lines\n        filter: \"{{ Dimension('order_line__is_fully_shipped') }} = true\"\n      denominator: order_lines\n    config:\n      meta:\n        metricId: fill_rate\n        tier: kpi\n        vertical: ops\n        industry: manufacturing\n",
     "numerator": "Order Lines Fully Shipped",
     "denominator": "Total Order Lines",
     "dimensions": [
@@ -8387,7 +8279,7 @@
       "ops_north_star"
     ],
     "childMetrics": [
-      "stg_order_line_row",
+      "order_lines",
       "stockout_rate"
     ],
     "correlatedMetrics": [
@@ -8426,9 +8318,7 @@
     "parentMetrics": [
       "ops_north_star"
     ],
-    "childMetrics": [
-      "stg_shipment_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "fill_rate",
       "order_accuracy_rate",
@@ -8458,9 +8348,7 @@
     "parentMetrics": [
       "ops_north_star"
     ],
-    "childMetrics": [
-      "stg_orders_count"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "otd_rate",
       "stockout_rate"
@@ -8490,9 +8378,7 @@
     "parentMetrics": [
       "cogs"
     ],
-    "childMetrics": [
-      "stg_purchase_order_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "cost_per_unit",
       "gross_margin"
@@ -8550,7 +8436,6 @@
       "ops_north_star"
     ],
     "childMetrics": [
-      "stg_return_row",
       "product_return_rate"
     ],
     "correlatedMetrics": [
@@ -8583,9 +8468,7 @@
     "parentMetrics": [
       "workforce_productivity"
     ],
-    "childMetrics": [
-      "stg_safety_incident_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "employee_attrition_rate",
       "headcount_cost"
@@ -8615,9 +8498,7 @@
     "parentMetrics": [
       "per_pupil_expenditure"
     ],
-    "childMetrics": [
-      "stg_enrollment_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "enrollment_count",
       "per_pupil_expenditure"
@@ -8669,7 +8550,7 @@
     "tier": "kpi",
     "shortDescription": "Percentage of orders that could not be fulfilled due to zero inventory",
     "formulaSql": "select\n    date_trunc('month', snapshot_date) as period,\n    location,\n    count(distinct case when is_stocked_out then item_id end)\n        / nullif(count(distinct item_id), 0) as stockout_rate\nfrom {{ ref('fct_inventory_snapshots') }}\ngroup by 1, 2\norder by 1, 2\n",
-    "formulaYaml": "metrics:\n  - name: stockout_rate\n    label: Stockout Rate\n    description: Percentage of orders that could not be fulfilled due to zero inventory\n    type: ratio\n    type_params:\n      numerator:\n        name: stg_inventory_items\n        filter: \"{{ Dimension('inventory_snapshot__is_stocked_out') }} = true\"\n      denominator: stg_inventory_items\n    config:\n      meta:\n        metricId: stockout_rate\n        tier: kpi\n        vertical: ops\n        industry: manufacturing\n",
+    "formulaYaml": "metrics:\n  - name: stockout_rate\n    label: Stockout Rate\n    description: Percentage of orders that could not be fulfilled due to zero inventory\n    type: ratio\n    type_params:\n      numerator:\n        name: inventory_items\n        filter: \"{{ Dimension('inventory_snapshot__is_stocked_out') }} = true\"\n      denominator: inventory_items\n    config:\n      meta:\n        metricId: stockout_rate\n        tier: kpi\n        vertical: ops\n        industry: manufacturing\n",
     "numerator": "Stockout events",
     "denominator": "Total SKUs",
     "dimensions": [
@@ -8685,12 +8566,12 @@
       "fill_rate"
     ],
     "childMetrics": [
-      "stg_inventory_items"
+      "inventory_items"
     ],
     "correlatedMetrics": [
       "inventory_turnover",
       "order_fulfillment_rate",
-      "stg_inventory_items"
+      "inventory_items"
     ],
     "formulaInputs": []
   },
@@ -8750,9 +8631,7 @@
     "parentMetrics": [
       "capacity_utilization"
     ],
-    "childMetrics": [
-      "stg_orders_count"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "cycle_time",
       "capacity_utilization",
@@ -8843,14 +8722,13 @@
       "sla_breach_rate"
     ],
     "childMetrics": [
-      "stg_support_tickets",
-      "escalation_rate"
+      "escalation_rate",
+      "tickets_created"
     ],
     "correlatedMetrics": [
       "first_response_time",
       "fcr_rate",
       "escalation_rate",
-      "stg_support_tickets",
       "tickets_created"
     ],
     "formulaInputs": []
@@ -8876,7 +8754,7 @@
       "support_cost_per_ticket"
     ],
     "childMetrics": [
-      "stg_support_tickets"
+      "tickets_created"
     ],
     "correlatedMetrics": [
       "support_cost_per_ticket",
@@ -9096,14 +8974,14 @@
       "Billing system"
     ],
     "parentMetrics": [
-      "revenue"
+      "revenue",
+      "dso",
+      "ar_aging_90d",
+      "deferred_revenue"
     ],
     "childMetrics": [
-      "stg_invoice_row",
       "contracted_unbilled",
-      "recognized_revenue",
-      "stg_invoices_amount",
-      "stg_invoices_count"
+      "recognized_revenue"
     ],
     "correlatedMetrics": [
       "arr",
@@ -9112,8 +8990,7 @@
       "accounts_receivable",
       "contracted_unbilled",
       "deferred_revenue",
-      "stg_invoices_amount",
-      "stg_invoices_count"
+      "recognized_revenue"
     ],
     "formulaInputs": []
   },
@@ -9145,7 +9022,6 @@
       "new_arr"
     ],
     "childMetrics": [
-      "stg_opportunity_row",
       "sql"
     ],
     "correlatedMetrics": [
@@ -9244,7 +9120,7 @@
       "net_revenue_retention"
     ],
     "childMetrics": [
-      "stg_subscription_row"
+      "mrr"
     ],
     "correlatedMetrics": [
       "churn_rate",
@@ -9276,16 +9152,13 @@
       "customer_retention_rate",
       "net_new_customers"
     ],
-    "childMetrics": [
-      "stg_customer_count"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "logo_churn_rate",
       "nrr",
       "renewal_rate",
       "churned_arr",
-      "customer_count",
-      "stg_customer_count"
+      "customer_count"
     ],
     "formulaInputs": []
   },
@@ -9312,8 +9185,8 @@
       "enterprise_value"
     ],
     "childMetrics": [
-      "stg_subscription_row",
-      "rev_concentration_top10"
+      "rev_concentration_top10",
+      "mrr"
     ],
     "correlatedMetrics": [
       "churn_rate",
@@ -9346,7 +9219,7 @@
       "operating_cash_flow"
     ],
     "childMetrics": [
-      "stg_invoice_row"
+      "billings"
     ],
     "correlatedMetrics": [
       "arr",
@@ -9598,9 +9471,7 @@
     "parentMetrics": [
       "churn_rate"
     ],
-    "childMetrics": [
-      "stg_subscription_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "churn_rate",
       "customer_health_score",
@@ -9612,8 +9483,7 @@
       "grr",
       "mrr_churn_rate",
       "nrr",
-      "product_churn_rate",
-      "stg_subscriptions_active"
+      "product_churn_rate"
     ],
     "formulaInputs": []
   },
@@ -9675,18 +9545,17 @@
       "revenue",
       "mrr_churn_rate",
       "payback_period",
-      "subscription_revenue"
+      "subscription_revenue",
+      "cohort_revenue_retention",
+      "customer_concentration_risk"
     ],
-    "childMetrics": [
-      "stg_subscription_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "churn_rate",
       "net_revenue_retention",
       "arr",
       "marketing_spend",
-      "net_mrr_growth",
-      "stg_subscriptions_active"
+      "net_mrr_growth"
     ],
     "formulaInputs": []
   },
@@ -9776,8 +9645,7 @@
     ],
     "correlatedMetrics": [
       "gross_revenue",
-      "refund_rate",
-      "stg_refund_amount"
+      "refund_rate"
     ],
     "formulaInputs": []
   },
@@ -9848,7 +9716,6 @@
     ],
     "childMetrics": [
       "bookings",
-      "stg_subscriptions_active",
       "avg_deal_size",
       "avg_sales_cycle",
       "pct_reps_at_quota",
@@ -10114,7 +9981,6 @@
       "customer_count",
       "gmv",
       "iap_revenue",
-      "stg_revenue_event_amount",
       "take_rate"
     ],
     "correlatedMetrics": [
@@ -10486,10 +10352,10 @@
       "CRM"
     ],
     "parentMetrics": [
-      "customer_health_score"
+      "customer_health_score",
+      "cx_csat"
     ],
     "childMetrics": [
-      "stg_csat_response_row",
       "fcr_rate",
       "first_response_time",
       "sla_breach_rate",
@@ -10651,7 +10517,6 @@
       "wau"
     ],
     "childMetrics": [
-      "stg_user_event_row",
       "push_open_rate"
     ],
     "correlatedMetrics": [
@@ -10660,8 +10525,7 @@
       "api_consumers",
       "app_downloads",
       "avg_session_duration",
-      "stg_events_count",
-      "stg_sessions_count"
+      "website_sessions"
     ],
     "formulaInputs": []
   },
@@ -10798,7 +10662,6 @@
       "churn_prediction_score"
     ],
     "childMetrics": [
-      "stg_user_event_row",
       "feature_adoption"
     ],
     "correlatedMetrics": [
@@ -10864,7 +10727,6 @@
       "d30_retention"
     ],
     "childMetrics": [
-      "stg_user_event_row",
       "api_consumers",
       "new_user_signups",
       "product_churn_rate"
@@ -10899,7 +10761,6 @@
       "error_rate"
     ],
     "childMetrics": [
-      "stg_downtime_event_row",
       "uptime"
     ],
     "correlatedMetrics": [
@@ -10930,9 +10791,7 @@
     "parentMetrics": [
       "dau_mau_ratio"
     ],
-    "childMetrics": [
-      "stg_user_event_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "churn_rate",
       "dau_mau_ratio",
@@ -10965,7 +10824,6 @@
       "ops_north_star"
     ],
     "childMetrics": [
-      "stg_downtime_event_row",
       "mtbf",
       "mttr",
       "work_order_resolution_time"
@@ -11064,149 +10922,6 @@
     "correlatedMetrics": [
       "inventory_value",
       "vendor_compliance_rate"
-    ],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_invoices_amount",
-    "label": "Invoice Amount",
-    "vertical": "customer",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Sum of all invoice amounts in staging",
-    "formulaSql": "select\n    date_trunc('month', invoice_date) as period,\n    sum(invoice_amount) as stg_invoices_amount\nfrom {{ ref('fct_invoices') }}\ngroup by all\norder by all\n",
-    "formulaYaml": "metrics:\n  - name: stg_invoices_amount\n    label: Invoice Amount\n    description: Sum of all invoice amounts in staging\n    type: derived\n    type_params:\n      expr: billings\n      metrics:\n        - name: billings\n    config:\n      meta:\n        metricId: stg_invoices_amount\n        tier: input\n        vertical: customer\n        industry: cross_industry\n",
-    "numerator": "Sum of invoice amounts",
-    "denominator": "",
-    "dimensions": [
-      "date"
-    ],
-    "dataSources": [
-      "invoices"
-    ],
-    "parentMetrics": [
-      "billings"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [
-      "billings",
-      "recognized_revenue"
-    ],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_invoices_count",
-    "label": "Invoices",
-    "vertical": "customer",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Raw invoice row count from billing system staging",
-    "formulaSql": "select\n    date_trunc('month', invoice_date) as period,\n    count(invoice_id) as stg_invoices_count\nfrom {{ ref('fct_invoices') }}\ngroup by all\norder by all\n",
-    "formulaYaml": "metrics:\n  - name: stg_invoices_count\n    label: Invoices\n    description: Raw invoice row count from billing system staging\n    type: simple\n    type_params:\n      measure: invoice_count\n    config:\n      meta:\n        metricId: stg_invoices_count\n        tier: input\n        vertical: customer\n        industry: cross_industry\n",
-    "numerator": "Invoice records",
-    "denominator": "",
-    "dimensions": [
-      "date"
-    ],
-    "dataSources": [
-      "invoices"
-    ],
-    "parentMetrics": [
-      "billings"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [
-      "billings",
-      "dso"
-    ],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_purchases_count",
-    "label": "Purchases",
-    "vertical": "customer",
-    "industry": "retail",
-    "tier": "input",
-    "shortDescription": "Raw purchase transaction count in staging",
-    "formulaSql": "-- Alias of stg_orders_count.\n\nselect\n    date_trunc('month', order_date) as period,\n    count(order_id) as stg_purchases_count\nfrom {{ ref('fct_orders') }}\ngroup by 1\norder by 1\n",
-    "formulaYaml": "metrics:\n  - name: stg_purchases_count\n    label: Purchases\n    description: Raw purchase transaction count in staging\n    type: derived\n    type_params:\n      expr: stg_orders_count\n      metrics:\n        - name: stg_orders_count\n    config:\n      meta:\n        metricId: stg_purchases_count\n        tier: input\n        vertical: customer\n        industry: retail\n",
-    "numerator": "Purchase records",
-    "denominator": "",
-    "dimensions": [
-      "date",
-      "product"
-    ],
-    "dataSources": [
-      "orders"
-    ],
-    "parentMetrics": [
-      "aov",
-      "cross_sell_rate",
-      "purchase_frequency",
-      "refund_rate",
-      "repeat_purchase_rate",
-      "upsell_rate"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [
-      "purchase_frequency",
-      "aov",
-      "repeat_purchase_rate"
-    ],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_refund_amount",
-    "label": "Refund Amount",
-    "vertical": "customer",
-    "industry": "retail",
-    "tier": "input",
-    "shortDescription": "Total refund value in staging",
-    "formulaSql": "select\n    date_trunc('month', return_date) as period,\n    sum(refund_amount) as stg_refund_amount\nfrom {{ ref('fct_returns') }}\ngroup by 1\norder by 1\n",
-    "formulaYaml": "metrics:\n  - name: stg_refund_amount\n    label: Refund Amount\n    description: Total refund value in staging\n    type: simple\n    type_params:\n      measure: refund_amount\n    config:\n      meta:\n        metricId: stg_refund_amount\n        tier: input\n        vertical: customer\n        industry: retail\n",
-    "numerator": "Sum of refund amounts",
-    "denominator": "",
-    "dimensions": [
-      "date"
-    ],
-    "dataSources": [
-      "returns"
-    ],
-    "parentMetrics": [
-      "refund_rate"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [
-      "refund_rate",
-      "net_revenue"
-    ],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_refunds_count",
-    "label": "Refunds",
-    "vertical": "customer",
-    "industry": "retail",
-    "tier": "input",
-    "shortDescription": "Raw refund transaction count in staging",
-    "formulaSql": "select\n    date_trunc('month', return_date) as period,\n    count(return_id) as stg_refunds_count\nfrom {{ ref('fct_returns') }}\nwhere is_refunded\ngroup by 1\norder by 1\n",
-    "formulaYaml": "metrics:\n  - name: stg_refunds_count\n    label: Refunds\n    description: Raw refund transaction count in staging\n    type: simple\n    type_params:\n      measure: return_count\n    filter: \"{{ Dimension('order_return__is_refunded') }} = true\"\n    config:\n      meta:\n        metricId: stg_refunds_count\n        tier: input\n        vertical: customer\n        industry: retail\n",
-    "numerator": "Refund records",
-    "denominator": "",
-    "dimensions": [
-      "date",
-      "product"
-    ],
-    "dataSources": [
-      "returns"
-    ],
-    "parentMetrics": [
-      "refund_rate"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [
-      "refund_rate",
-      "product_return_rate"
     ],
     "formulaInputs": []
   },
@@ -11377,37 +11092,6 @@
       "adm",
       "per_pupil_expenditure"
     ],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_student_assessment_row",
-    "label": "Raw Assessment Row",
-    "vertical": "edu",
-    "industry": "education",
-    "tier": "input",
-    "shortDescription": "Individual student assessment result record by subject and grade.",
-    "formulaSql": "-- Average raw assessment score, per month and subject.\nselect\n    date_trunc('month', assessment_date) as period,\n    subject,\n    avg(score) as stg_student_assessment_row\nfrom {{ ref('fct_assessment_results') }}\ngroup by 1, 2\norder by 1, 2\n",
-    "formulaYaml": "metrics:\n  - name: stg_student_assessment_row\n    label: Raw Assessment Row\n    description: Individual student assessment result record by subject and grade.\n    type: simple\n    type_params:\n      measure: assessment_results_avg_score\n    config:\n      meta:\n        metricId: stg_student_assessment_row\n        tier: input\n        vertical: edu\n        industry: education\n",
-    "numerator": "score",
-    "denominator": "",
-    "dimensions": [
-      "student_id",
-      "assessment_id",
-      "subject",
-      "grade_level",
-      "assessment_date"
-    ],
-    "dataSources": [
-      "SIS",
-      "Assessment platform"
-    ],
-    "parentMetrics": [
-      "student_proficiency",
-      "ell_proficiency_growth",
-      "student_growth_percentile"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [],
     "formulaInputs": []
   },
   {
@@ -11667,8 +11351,7 @@
       "student_proficiency"
     ],
     "childMetrics": [
-      "absenteeism_by_subgroup",
-      "stg_attendance_row"
+      "absenteeism_by_subgroup"
     ],
     "correlatedMetrics": [
       "student_proficiency",
@@ -11704,38 +11387,6 @@
       "bug_escape_rate",
       "change_failure_rate",
       "tech_debt_ratio"
-    ],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "cogs_stg",
-    "label": "COGS",
-    "vertical": "finance",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Direct costs attributable to production of goods sold",
-    "formulaSql": "-- Alias of cogs (general-ledger COGS postings).\n\nselect\n    date_trunc('month', posted_date) as period,\n    sum(cogs_amount) as cogs_stg\nfrom {{ ref('fct_gl_entries') }}\ngroup by 1\norder by 1\n",
-    "formulaYaml": "metrics:\n  - name: cogs_stg\n    label: COGS (cogs_stg)\n    description: Direct costs attributable to production of goods sold\n    type: derived\n    type_params:\n      expr: cogs\n      metrics:\n        - name: cogs\n    config:\n      meta:\n        metricId: cogs_stg\n        tier: input\n        vertical: finance\n        industry: cross_industry\n",
-    "numerator": "Cost of goods sold",
-    "denominator": "",
-    "dimensions": [
-      "date",
-      "product"
-    ],
-    "dataSources": [
-      "orders",
-      "inventory"
-    ],
-    "parentMetrics": [
-      "gross_profit",
-      "dpo",
-      "inventory_turnover"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [
-      "gross_margin_pct",
-      "inventory_turnover",
-      "inventory_value"
     ],
     "formulaInputs": []
   },
@@ -11825,7 +11476,7 @@
       "revenue"
     ],
     "childMetrics": [
-      "stg_customer_count"
+      "monthly_new_customers"
     ],
     "correlatedMetrics": [
       "net_new_customers",
@@ -11859,7 +11510,7 @@
       "cac"
     ],
     "childMetrics": [
-      "stg_lead_row"
+      "leads"
     ],
     "correlatedMetrics": [
       "cac",
@@ -12236,9 +11887,7 @@
       "ctr",
       "cpm"
     ],
-    "childMetrics": [
-      "stg_ad_spend_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "ad_clicks",
       "share_of_voice",
@@ -12322,7 +11971,8 @@
     ],
     "parentMetrics": [
       "net_new_customers",
-      "cac"
+      "cac",
+      "customer_count"
     ],
     "childMetrics": [],
     "correlatedMetrics": [
@@ -12553,9 +12203,7 @@
     "parentMetrics": [
       "website_sessions"
     ],
-    "childMetrics": [
-      "stg_session_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "organic_sessions",
       "backlink_count"
@@ -12736,887 +12384,15 @@
     "formulaInputs": []
   },
   {
-    "metricId": "stg_attendance_row",
-    "label": "Raw Attendance Row",
+    "metricId": "work_orders",
+    "label": "Work Orders",
     "vertical": "finance",
     "industry": "cross_industry",
     "tier": "input",
-    "shortDescription": "Single student daily attendance record — present, absent, or tardy.",
-    "formulaSql": "-- Daily attendance records, per month and school.\nselect\n    date_trunc('month', attendance_date) as period,\n    school_id,\n    count(record_id) as stg_attendance_row\nfrom {{ ref('fct_student_attendance') }}\ngroup by 1, 2\norder by 1, 2\n",
-    "formulaYaml": "metrics:\n  - name: stg_attendance_row\n    label: Raw Attendance Row\n    description: Single student daily attendance record — present, absent, or tardy.\n    type: simple\n    type_params:\n      measure: record_count\n    config:\n      meta:\n        metricId: stg_attendance_row\n        tier: input\n        vertical: finance\n        industry: cross_industry\n",
-    "numerator": "1 per record",
-    "denominator": "",
-    "dimensions": [
-      "student_id",
-      "school_id",
-      "date",
-      "status"
-    ],
-    "dataSources": [
-      "SIS",
-      "Attendance system"
-    ],
-    "parentMetrics": [
-      "attendance_rate",
-      "chronic_absenteeism",
-      "absenteeism_by_subgroup",
-      "average_daily_attendance"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_cogs_event",
-    "label": "Raw COGS Event",
-    "vertical": "finance",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Individual cost-of-goods-sold line item from ERP.",
-    "formulaSql": "select\n    date_trunc('month', posted_date) as period,\n    cost_center,\n    product_id,\n    sum(cogs_amount) as stg_cogs_event\nfrom {{ ref('fct_gl_entries') }}\ngroup by all\norder by all\n",
-    "formulaYaml": "metrics:\n  - name: stg_cogs_event\n    label: Raw COGS Event\n    description: Individual cost-of-goods-sold line item from ERP.\n    type: derived\n    type_params:\n      expr: cogs\n      metrics:\n        - name: cogs\n    config:\n      meta:\n        metricId: stg_cogs_event\n        tier: input\n        vertical: finance\n        industry: cross_industry\n",
-    "numerator": "cogs_amount",
-    "denominator": "",
-    "dimensions": [
-      "company_id",
-      "cost_center",
-      "product_id",
-      "period"
-    ],
-    "dataSources": [
-      "ERP"
-    ],
-    "parentMetrics": [
-      "cogs"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_customer_count",
-    "label": "Customers",
-    "vertical": "finance",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Raw count of customer records in staging",
-    "formulaSql": "select\n    date_trunc('month', acquired_date) as period,\n    segment,\n    count(customer_id) as stg_customer_count\nfrom {{ ref('dim_customers') }}\ngroup by 1, 2",
-    "formulaYaml": "metrics:\n  - name: stg_customer_count\n    label: Customers\n    description: Raw count of customer records in staging\n    type: derived\n    type_params:\n      expr: monthly_new_customers\n      metrics:\n        - name: monthly_new_customers\n    config:\n      meta:\n        metricId: stg_customer_count\n        tier: input\n        vertical: finance\n        industry: cross_industry\n",
-    "numerator": "Customer records",
-    "denominator": "",
-    "dimensions": [
-      "date",
-      "segment"
-    ],
-    "dataSources": [
-      "crm"
-    ],
-    "parentMetrics": [
-      "customer_churn_rate",
-      "customer_count",
-      "repeat_purchase_rate"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [
-      "customer_churn_rate",
-      "net_new_customers"
-    ],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_discipline_row",
-    "label": "Raw Discipline Row",
-    "vertical": "finance",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Single student discipline incident record with type and consequence.",
-    "formulaSql": "-- Discipline incident records, per month and school.\nselect\n    date_trunc('month', incident_date) as period,\n    school_id,\n    count(discipline_incident_id) as stg_discipline_row\nfrom {{ ref('fct_discipline_incidents') }}\ngroup by 1, 2\norder by 1, 2\n",
-    "formulaYaml": "metrics:\n  - name: stg_discipline_row\n    label: Raw Discipline Row\n    description: Single student discipline incident record with type and consequence.\n    type: simple\n    type_params:\n      measure: discipline_incidents_incident_count\n    config:\n      meta:\n        metricId: stg_discipline_row\n        tier: input\n        vertical: finance\n        industry: cross_industry\n",
-    "numerator": "1 per incident",
-    "denominator": "",
-    "dimensions": [
-      "student_id",
-      "school_id",
-      "incident_type",
-      "consequence",
-      "date"
-    ],
-    "dataSources": [
-      "SIS",
-      "Discipline system"
-    ],
-    "parentMetrics": [
-      "suspension_rate"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_downtime_event_row",
-    "label": "Raw Downtime Event Row",
-    "vertical": "finance",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Single equipment or system downtime event record with cause and duration.",
-    "formulaSql": "select\n    date_trunc('month', start_time) as period,\n    system_id,\n    facility_id,\n    cause,\n    count(event_id) as stg_downtime_event_row\nfrom {{ ref('fct_service_availability') }}\nwhere event_id is not null\ngroup by 1, 2, 3, 4\n",
-    "formulaYaml": "metrics:\n  - name: stg_downtime_event_row\n    label: Raw Downtime Event Row\n    description: Single equipment or system downtime event record with cause and duration.\n    type: simple\n    type_params:\n      measure: service_availability_event_count\n    config:\n      meta:\n        metricId: stg_downtime_event_row\n        tier: input\n        vertical: finance\n        industry: cross_industry\n",
-    "numerator": "1 per event",
-    "denominator": "",
-    "dimensions": [
-      "event_id",
-      "system_id",
-      "facility_id",
-      "cause",
-      "start_time",
-      "duration_hours"
-    ],
-    "dataSources": [
-      "SCADA",
-      "CMMS"
-    ],
-    "parentMetrics": [
-      "system_uptime",
-      "mtbf",
-      "product_uptime_sla"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_employee_row",
-    "label": "Raw Employee Row",
-    "vertical": "finance",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Single employee record from HRIS with start date, department, and status.",
-    "formulaSql": "-- Alias of stg_employees_count. All employee records (any status) on the latest snapshot of each month.\nselect\n    date_trunc('month', snapshot_date) as period,\n    count(employee_id) as stg_employee_row\nfrom {{ ref('fct_employee_snapshots') }}\nwhere snapshot_date in (select max(snapshot_date) from {{ ref('fct_employee_snapshots') }} group by date_trunc('month', snapshot_date))\ngroup by 1\norder by 1\n",
-    "formulaYaml": "metrics:\n  - name: stg_employee_row\n    label: Raw Employee Row\n    description: Single employee record from HRIS with start date, department, and status.\n    type: derived\n    type_params:\n      expr: stg_employees_count\n      metrics:\n        - name: stg_employees_count\n    config:\n      meta:\n        metricId: stg_employee_row\n        tier: input\n        vertical: finance\n        industry: cross_industry\n",
-    "numerator": "1 per active employee",
-    "denominator": "",
-    "dimensions": [
-      "employee_id",
-      "department",
-      "location",
-      "hire_date",
-      "status"
-    ],
-    "dataSources": [
-      "HRIS (Workday / BambooHR)"
-    ],
-    "parentMetrics": [
-      "headcount_fte",
-      "employee_attrition_rate",
-      "teacher_retention_rate",
-      "training_hours_per_employee"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_employees_count",
-    "label": "Employees",
-    "vertical": "finance",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Raw employee row count in staging HR table",
-    "formulaSql": "-- All employee records (any status) on the latest snapshot of each month.\nselect\n    date_trunc('month', snapshot_date) as period,\n    count(employee_id) as stg_employees_count\nfrom {{ ref('fct_employee_snapshots') }}\nwhere snapshot_date in (select max(snapshot_date) from {{ ref('fct_employee_snapshots') }} group by date_trunc('month', snapshot_date))\ngroup by 1\norder by 1\n",
-    "formulaYaml": "metrics:\n  - name: stg_employees_count\n    label: Employees\n    description: Raw employee row count in staging HR table\n    type: simple\n    type_params:\n      measure: employee_snapshots_employee_count\n    config:\n      meta:\n        metricId: stg_employees_count\n        tier: input\n        vertical: finance\n        industry: cross_industry\n",
-    "numerator": "Active employee records",
-    "denominator": "",
-    "dimensions": [
-      "date",
-      "department"
-    ],
-    "dataSources": [
-      "hris"
-    ],
-    "parentMetrics": [
-      "headcount"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [
-      "headcount",
-      "turnover_rate"
-    ],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_enrollment_row",
-    "label": "Raw Enrollment Row",
-    "vertical": "finance",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Single student enrollment record with grade, school, and status.",
-    "formulaSql": "-- Enrollment records (any status) on the latest enrollment snapshot of each month.\nselect\n    date_trunc('month', snapshot_date) as period,\n    count(enrollment_id) as stg_enrollment_row\nfrom {{ ref('fct_enrollments') }}\nwhere snapshot_date in (select max(snapshot_date) from {{ ref('fct_enrollments') }} group by date_trunc('month', snapshot_date))\ngroup by 1\norder by 1\n",
-    "formulaYaml": "metrics:\n  - name: stg_enrollment_row\n    label: Raw Enrollment Row\n    description: Single student enrollment record with grade, school, and status.\n    type: simple\n    type_params:\n      measure: enrollment_record_count\n    config:\n      meta:\n        metricId: stg_enrollment_row\n        tier: input\n        vertical: finance\n        industry: cross_industry\n",
-    "numerator": "1 per enrollment",
-    "denominator": "",
-    "dimensions": [
-      "student_id",
-      "school_id",
-      "grade_level",
-      "enrollment_date",
-      "status"
-    ],
-    "dataSources": [
-      "SIS"
-    ],
-    "parentMetrics": [
-      "enrollment_count",
-      "advanced_course_enrollment_rate",
-      "seat_fill_rate"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_events_count",
-    "label": "Events",
-    "vertical": "finance",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Raw event row count in the staging events table",
-    "formulaSql": "select\n    date_trunc('month', event_date) as period,\n    event_type,\n    count(event_id) as stg_events_count\nfrom {{ ref('fct_user_events') }}\ngroup by 1, 2\n",
-    "formulaYaml": "metrics:\n  - name: stg_events_count\n    label: Events\n    description: Raw event row count in the staging events table\n    type: simple\n    type_params:\n      measure: user_events_event_count\n    config:\n      meta:\n        metricId: stg_events_count\n        tier: input\n        vertical: finance\n        industry: cross_industry\n",
-    "numerator": "Event records",
-    "denominator": "",
-    "dimensions": [
-      "date",
-      "event_type"
-    ],
-    "dataSources": [
-      "events"
-    ],
-    "parentMetrics": [
-      "feature_adoption"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [
-      "dau",
-      "feature_adoption"
-    ],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_invoice_row",
-    "label": "Raw Invoice Row",
-    "vertical": "finance",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Single accounts receivable invoice record with due date and amount.",
-    "formulaSql": "select\n    date_trunc('month', invoice_date) as period,\n    status,\n    sum(invoice_amount) as stg_invoice_row\nfrom {{ ref('fct_invoices') }}\ngroup by all\norder by all\n",
-    "formulaYaml": "metrics:\n  - name: stg_invoice_row\n    label: Raw Invoice Row\n    description: Single accounts receivable invoice record with due date and amount.\n    type: derived\n    type_params:\n      expr: billings\n      metrics:\n        - name: billings\n    config:\n      meta:\n        metricId: stg_invoice_row\n        tier: input\n        vertical: finance\n        industry: cross_industry\n",
-    "numerator": "invoice_amount",
-    "denominator": "",
-    "dimensions": [
-      "invoice_id",
-      "customer_id",
-      "due_date",
-      "status"
-    ],
-    "dataSources": [
-      "ERP",
-      "Billing system"
-    ],
-    "parentMetrics": [
-      "dso",
-      "ar_aging_90d",
-      "billings",
-      "deferred_revenue"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_job_requisition_row",
-    "label": "Raw Job Requisition Row",
-    "vertical": "finance",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Single job requisition record from ATS with open and close dates.",
-    "formulaSql": "-- Requisition records, by month opened.\nselect\n    date_trunc('month', opened_date) as period,\n    count(req_id) as stg_job_requisition_row\nfrom {{ ref('fct_requisitions') }}\ngroup by 1\norder by 1\n",
-    "formulaYaml": "metrics:\n  - name: stg_job_requisition_row\n    label: Raw Job Requisition Row\n    description: Single job requisition record from ATS with open and close dates.\n    type: simple\n    type_params:\n      measure: req_count\n    config:\n      meta:\n        metricId: stg_job_requisition_row\n        tier: input\n        vertical: finance\n        industry: cross_industry\n",
-    "numerator": "1 per requisition",
-    "denominator": "",
-    "dimensions": [
-      "req_id",
-      "department",
-      "job_level",
-      "open_date",
-      "status"
-    ],
-    "dataSources": [
-      "ATS (Greenhouse / Lever)"
-    ],
-    "parentMetrics": [
-      "time_to_fill",
-      "internal_promotion_rate"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_opex_line",
-    "label": "Raw OpEx Line",
-    "vertical": "finance",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Individual operating expense line item by GL account.",
-    "formulaSql": "select\n    date_trunc('month', posted_date) as period,\n    gl_account,\n    department,\n    sum(opex_amount) as stg_opex_line\nfrom {{ ref('fct_gl_entries') }}\ngroup by all\norder by all\n",
-    "formulaYaml": "metrics:\n  - name: stg_opex_line\n    label: Raw OpEx Line\n    description: Individual operating expense line item by GL account.\n    type: derived\n    type_params:\n      expr: opex\n      metrics:\n        - name: opex\n    config:\n      meta:\n        metricId: stg_opex_line\n        tier: input\n        vertical: finance\n        industry: cross_industry\n",
-    "numerator": "opex_amount",
-    "denominator": "",
-    "dimensions": [
-      "company_id",
-      "gl_account",
-      "department",
-      "period"
-    ],
-    "dataSources": [
-      "ERP",
-      "General Ledger"
-    ],
-    "parentMetrics": [
-      "opex"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_opportunities_count",
-    "label": "Opportunities",
-    "vertical": "finance",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Raw opportunity count from CRM staging table",
-    "formulaSql": "select\n    date_trunc('month', created_date) as period,\n    count(opportunity_id) as stg_opportunities_count\nfrom {{ ref('fct_opportunities') }}\ngroup by 1",
-    "formulaYaml": "metrics:\n  - name: stg_opportunities_count\n    label: Opportunities\n    description: Raw opportunity count from CRM staging table\n    type: simple\n    type_params:\n      measure: opportunity_count\n    config:\n      meta:\n        metricId: stg_opportunities_count\n        tier: input\n        vertical: finance\n        industry: cross_industry\n",
-    "numerator": "Opportunity records",
-    "denominator": "",
-    "dimensions": [
-      "date",
-      "stage"
-    ],
-    "dataSources": [
-      "crm"
-    ],
-    "parentMetrics": [
-      "avg_deal_size"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [
-      "sql",
-      "pipeline_generated"
-    ],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_opportunity_row",
-    "label": "Raw Opportunity Row",
-    "vertical": "finance",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Single CRM opportunity record with stage, amount, and dates.",
-    "formulaSql": "select\n    date_trunc('month', created_date) as period,\n    stage,\n    sum(arr_value) as stg_opportunity_row\nfrom {{ ref('fct_opportunities') }}\ngroup by 1, 2",
-    "formulaYaml": "metrics:\n  - name: stg_opportunity_row\n    label: Raw Opportunity Row\n    description: Single CRM opportunity record with stage, amount, and dates.\n    type: simple\n    type_params:\n      measure: opportunities_arr_value\n    config:\n      meta:\n        metricId: stg_opportunity_row\n        tier: input\n        vertical: finance\n        industry: cross_industry\n",
-    "numerator": "arr_value",
-    "denominator": "",
-    "dimensions": [
-      "opportunity_id",
-      "account_id",
-      "rep_id",
-      "stage",
-      "close_date"
-    ],
-    "dataSources": [
-      "CRM (Salesforce / HubSpot)"
-    ],
-    "parentMetrics": [
-      "win_rate",
-      "sales_cycle_length",
-      "pipeline_value",
-      "acv",
-      "bookings",
-      "marketing_influenced_pipeline",
-      "quota_attainment"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_order_amount_sum",
-    "label": "Order Amount",
-    "vertical": "finance",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Sum of order amounts in staging before deduplication",
-    "formulaSql": "select\n    date_trunc('month', order_date) as period,\n    sum(order_amount) as stg_order_amount_sum\nfrom {{ ref('fct_orders') }}\ngroup by 1\norder by 1\n",
-    "formulaYaml": "metrics:\n  - name: stg_order_amount_sum\n    label: Order Amount\n    description: Sum of order amounts in staging before deduplication\n    type: simple\n    type_params:\n      measure: order_amount\n    config:\n      meta:\n        metricId: stg_order_amount_sum\n        tier: input\n        vertical: finance\n        industry: cross_industry\n",
-    "numerator": "Sum of order amounts",
-    "denominator": "",
-    "dimensions": [
-      "date"
-    ],
-    "dataSources": [
-      "orders"
-    ],
-    "parentMetrics": [
-      "aov",
-      "gross_revenue"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [
-      "gross_revenue",
-      "aov"
-    ],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_orders_count",
-    "label": "Orders",
-    "vertical": "finance",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Raw count of order records in the staging orders table",
-    "formulaSql": "select\n    date_trunc('month', order_date) as period,\n    count(order_id) as stg_orders_count\nfrom {{ ref('fct_orders') }}\ngroup by 1\norder by 1\n",
-    "formulaYaml": "metrics:\n  - name: stg_orders_count\n    label: Orders\n    description: Raw count of order records in the staging orders table\n    type: simple\n    type_params:\n      measure: order_count\n    config:\n      meta:\n        metricId: stg_orders_count\n        tier: input\n        vertical: finance\n        industry: cross_industry\n",
-    "numerator": "Order records",
-    "denominator": "",
-    "dimensions": [
-      "date",
-      "channel"
-    ],
-    "dataSources": [
-      "orders"
-    ],
-    "parentMetrics": [
-      "cycle_time",
-      "order_fulfillment_rate",
-      "otd_rate",
-      "throughput"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [
-      "total_revenue",
-      "aov"
-    ],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_page_view_row",
-    "label": "Raw Page View Row",
-    "vertical": "finance",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Single web page view event with URL, user, and referrer.",
-    "formulaSql": "-- Alias of stg_page_views.\nselect\n    date_trunc('month', view_date) as period,\n    device,\n    referrer,\n    count(page_view_id) as stg_page_view_row\nfrom {{ ref('fct_page_views') }}\ngroup by 1, 2, 3\n",
-    "formulaYaml": "metrics:\n  - name: stg_page_view_row\n    label: Raw Page View Row\n    description: Single web page view event with URL, user, and referrer.\n    type: derived\n    type_params:\n      expr: stg_page_views\n      metrics:\n        - name: stg_page_views\n    config:\n      meta:\n        metricId: stg_page_view_row\n        tier: input\n        vertical: finance\n        industry: cross_industry\n",
-    "numerator": "1 per page view",
-    "denominator": "",
-    "dimensions": [
-      "page_id",
-      "user_id",
-      "referrer",
-      "device",
-      "date"
-    ],
-    "dataSources": [
-      "Google Analytics / GA4",
-      "Segment"
-    ],
-    "parentMetrics": [
-      "website_sessions"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_page_views",
-    "label": "Page Views",
-    "vertical": "finance",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Total page view events in web analytics staging",
-    "formulaSql": "select\n    date_trunc('month', view_date) as period,\n    page_name,\n    count(page_view_id) as stg_page_views\nfrom {{ ref('fct_page_views') }}\ngroup by 1, 2\n",
-    "formulaYaml": "metrics:\n  - name: stg_page_views\n    label: Page Views\n    description: Total page view events in web analytics staging\n    type: simple\n    type_params:\n      measure: page_view_count\n    config:\n      meta:\n        metricId: stg_page_views\n        tier: input\n        vertical: finance\n        industry: cross_industry\n",
-    "numerator": "Page view events",
-    "denominator": "",
-    "dimensions": [
-      "date",
-      "page"
-    ],
-    "dataSources": [
-      "analytics"
-    ],
-    "parentMetrics": [
-      "website_sessions"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [
-      "website_sessions",
-      "bounce_rate"
-    ],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_products_active",
-    "label": "Active Products",
-    "vertical": "finance",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Count of active product records in staging catalog",
-    "formulaSql": "select\n    date_trunc('month', created_date) as period,\n    count(product_id) as stg_products_active\nfrom {{ ref('dim_products') }}\nwhere status = 'active'\ngroup by 1\norder by 1\n",
-    "formulaYaml": "metrics:\n  - name: stg_products_active\n    label: Active Products\n    description: Count of active product records in staging catalog\n    type: simple\n    type_params:\n      measure: product_count\n    filter: \"{{ Dimension('product__status') }} = 'active'\"\n    config:\n      meta:\n        metricId: stg_products_active\n        tier: input\n        vertical: finance\n        industry: cross_industry\n",
-    "numerator": "Active product records",
-    "denominator": "",
-    "dimensions": [
-      "date",
-      "category"
-    ],
-    "dataSources": [
-      "catalog"
-    ],
-    "parentMetrics": [
-      "cross_sell_rate"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [
-      "cross_sell_rate",
-      "aov"
-    ],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_quality_inspection_row",
-    "label": "Raw Quality Inspection Row",
-    "vertical": "finance",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Single quality inspection record with pass/fail and defect category.",
-    "formulaSql": "select\n    date_trunc('month', inspection_date) as period,\n    result,\n    count(inspection_id) as stg_quality_inspection_row\nfrom {{ ref('fct_quality_inspections') }}\ngroup by 1, 2\norder by 1, 2\n",
-    "formulaYaml": "metrics:\n  - name: stg_quality_inspection_row\n    label: Raw Quality Inspection Row\n    description: Single quality inspection record with pass/fail and defect category.\n    type: simple\n    type_params:\n      measure: inspection_count\n    config:\n      meta:\n        metricId: stg_quality_inspection_row\n        tier: input\n        vertical: finance\n        industry: cross_industry\n",
-    "numerator": "1 per inspection",
-    "denominator": "",
-    "dimensions": [
-      "inspection_id",
-      "product_id",
-      "production_line",
-      "date",
-      "result"
-    ],
-    "dataSources": [
-      "Quality management system"
-    ],
-    "parentMetrics": [
-      "defect_rate"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_return_row",
-    "label": "Raw Return Row",
-    "vertical": "finance",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Single product return transaction record with reason code and condition.",
-    "formulaSql": "select\n    date_trunc('month', return_date) as period,\n    reason_code,\n    count(return_id) as stg_return_row\nfrom {{ ref('fct_returns') }}\ngroup by 1, 2\norder by 1, 2\n",
-    "formulaYaml": "metrics:\n  - name: stg_return_row\n    label: Raw Return Row\n    description: Single product return transaction record with reason code and condition.\n    type: simple\n    type_params:\n      measure: return_count\n    config:\n      meta:\n        metricId: stg_return_row\n        tier: input\n        vertical: finance\n        industry: cross_industry\n",
-    "numerator": "1 per return",
-    "denominator": "",
-    "dimensions": [
-      "return_id",
-      "order_id",
-      "product_id",
-      "reason_code",
-      "return_date"
-    ],
-    "dataSources": [
-      "ERP",
-      "WMS",
-      "Returns management system"
-    ],
-    "parentMetrics": [
-      "return_rate"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_session_row",
-    "label": "Raw Session Row",
-    "vertical": "finance",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Single web session record from analytics platform.",
-    "formulaSql": "-- Alias of website_sessions.\nselect\n    date_trunc('month', session_date) as period,\n    source,\n    medium,\n    landing_page,\n    count(session_id) as stg_session_row\nfrom {{ ref('fct_web_sessions') }}\ngroup by 1, 2, 3, 4\n",
-    "formulaYaml": "metrics:\n  - name: stg_session_row\n    label: Raw Session Row\n    description: Single web session record from analytics platform.\n    type: derived\n    type_params:\n      expr: website_sessions\n      metrics:\n        - name: website_sessions\n    config:\n      meta:\n        metricId: stg_session_row\n        tier: input\n        vertical: finance\n        industry: cross_industry\n",
-    "numerator": "1 per session",
-    "denominator": "",
-    "dimensions": [
-      "session_id",
-      "user_id",
-      "source",
-      "medium",
-      "landing_page",
-      "date"
-    ],
-    "dataSources": [
-      "Google Analytics / GA4",
-      "Segment"
-    ],
-    "parentMetrics": [
-      "organic_sessions",
-      "website_sessions",
-      "bounce_rate",
-      "paid_sessions",
-      "referral_sessions"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_sessions_count",
-    "label": "Sessions",
-    "vertical": "finance",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Raw session row count in staging",
-    "formulaSql": "-- Alias of website_sessions.\nselect\n    date_trunc('month', session_date) as period,\n    platform,\n    count(session_id) as stg_sessions_count\nfrom {{ ref('fct_web_sessions') }}\ngroup by 1, 2\n",
-    "formulaYaml": "metrics:\n  - name: stg_sessions_count\n    label: Sessions\n    description: Raw session row count in staging\n    type: derived\n    type_params:\n      expr: website_sessions\n      metrics:\n        - name: website_sessions\n    config:\n      meta:\n        metricId: stg_sessions_count\n        tier: input\n        vertical: finance\n        industry: cross_industry\n",
-    "numerator": "Session records",
-    "denominator": "",
-    "dimensions": [
-      "date",
-      "platform"
-    ],
-    "dataSources": [
-      "sessions"
-    ],
-    "parentMetrics": [
-      "sessions_per_user"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [
-      "dau",
-      "session_length"
-    ],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_shipment_row",
-    "label": "Raw Shipment Row",
-    "vertical": "finance",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Single shipment record with carrier, dates, and status.",
-    "formulaSql": "select\n    date_trunc('month', ship_date) as period,\n    carrier,\n    count(shipment_id) as stg_shipment_row\nfrom {{ ref('fct_shipments') }}\ngroup by 1, 2\norder by 1, 2\n",
-    "formulaYaml": "metrics:\n  - name: stg_shipment_row\n    label: Raw Shipment Row\n    description: Single shipment record with carrier, dates, and status.\n    type: simple\n    type_params:\n      measure: shipment_count\n    config:\n      meta:\n        metricId: stg_shipment_row\n        tier: input\n        vertical: finance\n        industry: cross_industry\n",
-    "numerator": "1 per shipment",
-    "denominator": "",
-    "dimensions": [
-      "shipment_id",
-      "order_id",
-      "carrier",
-      "ship_date",
-      "committed_date",
-      "status"
-    ],
-    "dataSources": [
-      "WMS",
-      "TMS"
-    ],
-    "parentMetrics": [
-      "on_time_delivery_rate",
-      "order_accuracy_rate"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_subscription_row",
-    "label": "Raw Subscription Row",
-    "vertical": "finance",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Single active subscription record with plan and amount.",
-    "formulaSql": "with snapshots as (\n    select\n        *,\n        max(snapshot_date) over (partition by date_trunc('month', snapshot_date)) as last_snapshot_date\n    from {{ ref('fct_subscriptions') }}\n)\n\n-- MRR on the last snapshot of each month\nselect\n    date_trunc('month', snapshot_date) as period,\n    segment,\n    sum(monthly_amount) as stg_subscription_row\nfrom snapshots\nwhere snapshot_date = last_snapshot_date\n  and status = 'active'\ngroup by 1, 2",
-    "formulaYaml": "metrics:\n  - name: stg_subscription_row\n    label: Raw Subscription Row\n    description: Single active subscription record with plan and amount.\n    type: derived\n    type_params:\n      expr: mrr\n      metrics:\n        - name: mrr\n    config:\n      meta:\n        metricId: stg_subscription_row\n        tier: input\n        vertical: finance\n        industry: cross_industry\n",
-    "numerator": "monthly_amount",
-    "denominator": "",
-    "dimensions": [
-      "customer_id",
-      "plan_tier",
-      "start_date",
-      "status"
-    ],
-    "dataSources": [
-      "Billing system"
-    ],
-    "parentMetrics": [
-      "mrr",
-      "arr",
-      "cohort_revenue_retention",
-      "customer_concentration_risk",
-      "logo_churn_rate",
-      "renewal_rate"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_subscriptions_active",
-    "label": "Active Subscriptions",
-    "vertical": "finance",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Count of active subscription records before business logic",
-    "formulaSql": "with snapshots as (\n    select\n        *,\n        max(snapshot_date) over (partition by date_trunc('month', snapshot_date)) as last_snapshot_date\n    from {{ ref('fct_subscriptions') }}\n)\n\nselect\n    date_trunc('month', snapshot_date) as period,\n    plan_tier,\n    count(subscription_id) as stg_subscriptions_active\nfrom snapshots\nwhere snapshot_date = last_snapshot_date\n  and status = 'active'\ngroup by 1, 2",
-    "formulaYaml": "metrics:\n  - name: stg_subscriptions_active\n    label: Active Subscriptions\n    description: Count of active subscription records before business logic\n    type: simple\n    type_params:\n      measure: subscription_count\n    filter: \"{{ Dimension('subscription_snapshot__status') }} = 'active'\"\n    config:\n      meta:\n        metricId: stg_subscriptions_active\n        tier: input\n        vertical: finance\n        industry: cross_industry\n",
-    "numerator": "Active subscription records",
-    "denominator": "",
-    "dimensions": [
-      "date",
-      "plan"
-    ],
-    "dataSources": [
-      "subscriptions"
-    ],
-    "parentMetrics": [
-      "active_paying_users",
-      "new_arr"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [
-      "arr",
-      "mrr",
-      "logo_churn_rate"
-    ],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_survey_response_row",
-    "label": "Raw Survey Response",
-    "vertical": "finance",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Individual employee survey response record.",
-    "formulaSql": "-- Average raw survey item score, per month.\nselect\n    date_trunc('month', response_date) as period,\n    avg(score) as stg_survey_response_row\nfrom {{ ref('fct_employee_survey_responses') }}\ngroup by 1\norder by 1\n",
-    "formulaYaml": "metrics:\n  - name: stg_survey_response_row\n    label: Raw Survey Response\n    description: Individual employee survey response record.\n    type: simple\n    type_params:\n      measure: employee_survey_responses_avg_score\n    config:\n      meta:\n        metricId: stg_survey_response_row\n        tier: input\n        vertical: finance\n        industry: cross_industry\n",
-    "numerator": "composite_score",
-    "denominator": "",
-    "dimensions": [
-      "employee_id",
-      "survey_id",
-      "question_id",
-      "response_date"
-    ],
-    "dataSources": [
-      "Survey platform (Lattice / Culture Amp)"
-    ],
-    "parentMetrics": [
-      "employee_engagement_score",
-      "manager_effectiveness_score",
-      "school_culture_score"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_user_event_row",
-    "label": "Raw User Event Row",
-    "vertical": "finance",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Single user action event from product analytics instrumentation.",
-    "formulaSql": "-- Alias of stg_events_count.\nselect\n    date_trunc('month', event_date) as period,\n    event_name,\n    platform,\n    count(event_id) as stg_user_event_row\nfrom {{ ref('fct_user_events') }}\ngroup by 1, 2, 3\n",
-    "formulaYaml": "metrics:\n  - name: stg_user_event_row\n    label: Raw User Event Row\n    description: Single user action event from product analytics instrumentation.\n    type: derived\n    type_params:\n      expr: stg_events_count\n      metrics:\n        - name: stg_events_count\n    config:\n      meta:\n        metricId: stg_user_event_row\n        tier: input\n        vertical: finance\n        industry: cross_industry\n",
-    "numerator": "1 per event",
-    "denominator": "",
-    "dimensions": [
-      "event_id",
-      "user_id",
-      "event_name",
-      "session_id",
-      "timestamp",
-      "platform"
-    ],
-    "dataSources": [
-      "Segment",
-      "Amplitude",
-      "Mixpanel"
-    ],
-    "parentMetrics": [
-      "dau",
-      "mau",
-      "activation_rate",
-      "avg_session_duration",
-      "feature_adoption_rate",
-      "new_user_signups",
-      "onboarding_completion_rate",
-      "retention_d30",
-      "time_to_value"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_vehicle_trip_row",
-    "label": "Raw Vehicle Trip Row",
-    "vertical": "finance",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Single vehicle trip record with distance, duration, and driver.",
-    "formulaSql": "select\n    date_trunc('month', trip_date) as period,\n    count(trip_id) as stg_vehicle_trip_row\nfrom {{ ref('fct_vehicle_trips') }}\ngroup by 1\norder by 1\n",
-    "formulaYaml": "metrics:\n  - name: stg_vehicle_trip_row\n    label: Raw Vehicle Trip Row\n    description: Single vehicle trip record with distance, duration, and driver.\n    type: simple\n    type_params:\n      measure: trip_count\n    config:\n      meta:\n        metricId: stg_vehicle_trip_row\n        tier: input\n        vertical: finance\n        industry: cross_industry\n",
-    "numerator": "1 per trip",
-    "denominator": "",
-    "dimensions": [
-      "trip_id",
-      "vehicle_id",
-      "driver_id",
-      "start_time",
-      "end_time",
-      "distance_miles"
-    ],
-    "dataSources": [
-      "Fleet management system (GPS",
-      "telematics)"
-    ],
-    "parentMetrics": [
-      "fleet_utilization_rate",
-      "cost_per_mile"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_work_order_row",
-    "label": "Raw Work Order Row",
-    "vertical": "finance",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Single maintenance or facilities work order record.",
-    "formulaSql": "select\n    date_trunc('month', created_date) as period,\n    count(work_order_id) as stg_work_order_row\nfrom {{ ref('fct_work_orders') }}\ngroup by 1\norder by 1\n",
-    "formulaYaml": "metrics:\n  - name: stg_work_order_row\n    label: Raw Work Order Row\n    description: Single maintenance or facilities work order record.\n    type: simple\n    type_params:\n      measure: work_order_count\n    config:\n      meta:\n        metricId: stg_work_order_row\n        tier: input\n        vertical: finance\n        industry: cross_industry\n",
-    "numerator": "1 per work order",
+    "shortDescription": "Maintenance and facilities work orders created in the period",
+    "formulaSql": "select\n    date_trunc('month', created_date) as period,\n    count(work_order_id) as work_orders\nfrom {{ ref('fct_work_orders') }}\ngroup by 1\norder by 1\n",
+    "formulaYaml": "metrics:\n  - name: work_orders\n    label: Work Orders\n    description: Maintenance and facilities work orders created in the period\n    type: simple\n    type_params:\n      measure: work_order_count\n    config:\n      meta:\n        metricId: work_orders\n        tier: input\n        vertical: finance\n        industry: cross_industry\n",
+    "numerator": "Work orders created",
     "denominator": "",
     "dimensions": [
       "work_order_id",
@@ -13974,9 +12750,7 @@
       "revenue_per_employee",
       "teacher_student_ratio"
     ],
-    "childMetrics": [
-      "stg_employee_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "headcount_cost",
       "opex",
@@ -14070,63 +12844,6 @@
     "formulaInputs": []
   },
   {
-    "metricId": "stg_payroll_row",
-    "label": "Raw Payroll Row",
-    "vertical": "hr",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Single payroll record per employee per pay period.",
-    "formulaSql": "-- Alias of stg_payroll_total. Gross payroll disbursed per month.\nselect\n    date_trunc('month', pay_date) as period,\n    sum(gross_pay) as stg_payroll_row\nfrom {{ ref('fct_payroll') }}\ngroup by 1\norder by 1\n",
-    "formulaYaml": "metrics:\n  - name: stg_payroll_row\n    label: Raw Payroll Row\n    description: Single payroll record per employee per pay period.\n    type: derived\n    type_params:\n      expr: stg_payroll_total\n      metrics:\n        - name: stg_payroll_total\n    config:\n      meta:\n        metricId: stg_payroll_row\n        tier: input\n        vertical: hr\n        industry: cross_industry\n",
-    "numerator": "gross_pay",
-    "denominator": "",
-    "dimensions": [
-      "employee_id",
-      "pay_period",
-      "pay_type",
-      "department"
-    ],
-    "dataSources": [
-      "Payroll system (ADP / Gusto)"
-    ],
-    "parentMetrics": [
-      "headcount_cost",
-      "compensation_ratio",
-      "sales_spend"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_payroll_total",
-    "label": "Payroll Total",
-    "vertical": "hr",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Total payroll disbursements in staging payroll table",
-    "formulaSql": "-- Gross payroll disbursed per month.\nselect\n    date_trunc('month', pay_date) as period,\n    sum(gross_pay) as stg_payroll_total\nfrom {{ ref('fct_payroll') }}\ngroup by 1\norder by 1\n",
-    "formulaYaml": "metrics:\n  - name: stg_payroll_total\n    label: Payroll Total\n    description: Total payroll disbursements in staging payroll table\n    type: simple\n    type_params:\n      measure: gross_pay\n    config:\n      meta:\n        metricId: stg_payroll_total\n        tier: input\n        vertical: hr\n        industry: cross_industry\n",
-    "numerator": "Sum of payroll amounts",
-    "denominator": "",
-    "dimensions": [
-      "date",
-      "department"
-    ],
-    "dataSources": [
-      "payroll"
-    ],
-    "parentMetrics": [
-      "total_comp_expense"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [
-      "total_comp_expense",
-      "headcount"
-    ],
-    "formulaInputs": []
-  },
-  {
     "metricId": "total_comp_expense",
     "label": "Total Comp Expense",
     "vertical": "hr",
@@ -14151,14 +12868,11 @@
       "gender_pay_gap",
       "support_cost_per_ticket"
     ],
-    "childMetrics": [
-      "stg_payroll_total"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "headcount",
       "cost_per_hire",
-      "benefits_utilization",
-      "stg_payroll_total"
+      "benefits_utilization"
     ],
     "formulaInputs": []
   },
@@ -14187,9 +12901,7 @@
       "ctr",
       "cpc"
     ],
-    "childMetrics": [
-      "stg_ad_spend_row"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "impressions",
       "web_conversion_rate"
@@ -14339,11 +13051,11 @@
       "mql_to_sql_rate"
     ],
     "childMetrics": [
-      "stg_lead_row",
       "email_click_rate",
       "email_ctr",
       "unsubscribe_rate",
-      "web_conversion_rate"
+      "web_conversion_rate",
+      "leads"
     ],
     "correlatedMetrics": [
       "cost_per_mql",
@@ -14377,7 +13089,6 @@
       "website_sessions"
     ],
     "childMetrics": [
-      "stg_session_row",
       "content_published_count",
       "keywords_top10",
       "top10_keyword_count"
@@ -14475,141 +13186,15 @@
     "formulaInputs": []
   },
   {
-    "metricId": "stg_ad_spend",
-    "label": "Ad Spend",
-    "vertical": "marketing",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Raw ad spend total from all connected ad platforms in staging",
-    "formulaSql": "-- Alias of marketing_spend: raw ad spend summed from the ad platforms.\nselect\n    date_trunc('month', ad_date) as period,\n    channel,\n    campaign_name,\n    sum(spend) as stg_ad_spend\nfrom {{ ref('fct_ad_performance') }}\ngroup by 1, 2, 3\n",
-    "formulaYaml": "metrics:\n  - name: stg_ad_spend\n    label: Ad Spend\n    description: Raw ad spend total from all connected ad platforms in staging\n    type: derived\n    type_params:\n      expr: marketing_spend\n      metrics:\n        - name: marketing_spend\n    config:\n      meta:\n        metricId: stg_ad_spend\n        tier: input\n        vertical: marketing\n        industry: cross_industry\n",
-    "numerator": "Total ad spend",
-    "denominator": "",
-    "dimensions": [
-      "date",
-      "channel",
-      "campaign"
-    ],
-    "dataSources": [
-      "ad_platforms"
-    ],
-    "parentMetrics": [
-      "cost_per_mql",
-      "cpc",
-      "cpl",
-      "marketing_cac",
-      "marketing_roi",
-      "paid_attribution_pct"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [
-      "roas",
-      "cpc",
-      "marketing_cac"
-    ],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_ad_spend_row",
-    "label": "Raw Ad Spend Row",
-    "vertical": "marketing",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Daily ad spend record by campaign from ad platform.",
-    "formulaSql": "-- Alias of marketing_spend: daily ad spend rows rolled up to the month.\nselect\n    date_trunc('month', ad_date) as period,\n    channel,\n    campaign_id,\n    ad_set_id,\n    sum(spend) as stg_ad_spend_row\nfrom {{ ref('fct_ad_performance') }}\ngroup by 1, 2, 3, 4\n",
-    "formulaYaml": "metrics:\n  - name: stg_ad_spend_row\n    label: Raw Ad Spend Row\n    description: Daily ad spend record by campaign from ad platform.\n    type: derived\n    type_params:\n      expr: marketing_spend\n      metrics:\n        - name: marketing_spend\n    config:\n      meta:\n        metricId: stg_ad_spend_row\n        tier: input\n        vertical: marketing\n        industry: cross_industry\n",
-    "numerator": "spend",
-    "denominator": "",
-    "dimensions": [
-      "campaign_id",
-      "channel",
-      "date",
-      "ad_set_id"
-    ],
-    "dataSources": [
-      "Google Ads",
-      "Meta Ads",
-      "LinkedIn Ads"
-    ],
-    "parentMetrics": [
-      "marketing_spend",
-      "ad_clicks",
-      "impressions"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_email_send_row",
-    "label": "Raw Email Send Row",
-    "vertical": "marketing",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Single email send event with delivery, open, and click status.",
-    "formulaSql": "select\n    date_trunc('month', send_date) as period,\n    campaign_id,\n    status,\n    count(send_id) as stg_email_send_row\nfrom {{ ref('fct_email_sends') }}\ngroup by 1, 2, 3\n",
-    "formulaYaml": "metrics:\n  - name: stg_email_send_row\n    label: Raw Email Send Row\n    description: Single email send event with delivery, open, and click status.\n    type: simple\n    type_params:\n      measure: send_count\n    config:\n      meta:\n        metricId: stg_email_send_row\n        tier: input\n        vertical: marketing\n        industry: cross_industry\n",
-    "numerator": "1 per send",
-    "denominator": "",
-    "dimensions": [
-      "send_id",
-      "contact_id",
-      "campaign_id",
-      "send_date",
-      "status"
-    ],
-    "dataSources": [
-      "Email platform (HubSpot / Klaviyo)"
-    ],
-    "parentMetrics": [
-      "email_open_rate",
-      "email_click_rate",
-      "unsubscribe_rate"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_lead_row",
-    "label": "Raw Lead Row",
-    "vertical": "marketing",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Single lead record from CRM or marketing automation with source and score.",
-    "formulaSql": "select\n    date_trunc('month', created_date) as period,\n    channel,\n    count(lead_id) as stg_lead_row\nfrom {{ ref('fct_leads') }}\ngroup by 1, 2",
-    "formulaYaml": "metrics:\n  - name: stg_lead_row\n    label: Raw Lead Row\n    description: Single lead record from CRM or marketing automation with source and score.\n    type: derived\n    type_params:\n      expr: stg_leads_count\n      metrics:\n        - name: stg_leads_count\n    config:\n      meta:\n        metricId: stg_lead_row\n        tier: input\n        vertical: marketing\n        industry: cross_industry\n",
-    "numerator": "1 per lead",
-    "denominator": "",
-    "dimensions": [
-      "lead_id",
-      "source",
-      "channel",
-      "created_date",
-      "score"
-    ],
-    "dataSources": [
-      "CRM",
-      "Marketing automation"
-    ],
-    "parentMetrics": [
-      "mql_count",
-      "customers_by_channel"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_leads_count",
+    "metricId": "leads",
     "label": "Leads",
     "vertical": "marketing",
     "industry": "cross_industry",
     "tier": "input",
-    "shortDescription": "Raw lead count from CRM staging table",
-    "formulaSql": "select\n    date_trunc('month', created_date) as period,\n    channel,\n    count(lead_id) as stg_leads_count\nfrom {{ ref('fct_leads') }}\ngroup by 1, 2",
-    "formulaYaml": "metrics:\n  - name: stg_leads_count\n    label: Leads\n    description: Raw lead count from CRM staging table\n    type: simple\n    type_params:\n      measure: lead_count\n    config:\n      meta:\n        metricId: stg_leads_count\n        tier: input\n        vertical: marketing\n        industry: cross_industry\n",
-    "numerator": "Lead records created",
+    "shortDescription": "Leads created in the period, from CRM and marketing automation",
+    "formulaSql": "select\n    date_trunc('month', created_date) as period,\n    channel,\n    count(lead_id) as leads\nfrom {{ ref('fct_leads') }}\ngroup by 1, 2",
+    "formulaYaml": "metrics:\n  - name: leads\n    label: Leads\n    description: Leads created in the period, from CRM and marketing automation\n    type: simple\n    type_params:\n      measure: lead_count\n    config:\n      meta:\n        metricId: leads\n        tier: input\n        vertical: marketing\n        industry: cross_industry\n",
+    "numerator": "Leads created",
     "denominator": "",
     "dimensions": [
       "date",
@@ -14623,7 +13208,9 @@
       "form_conversion_rate",
       "lead_to_mql_rate",
       "mql",
-      "session_to_lead_rate"
+      "session_to_lead_rate",
+      "mql_count",
+      "customers_by_channel"
     ],
     "childMetrics": [],
     "correlatedMetrics": [
@@ -14714,51 +13301,22 @@
     "childMetrics": [],
     "correlatedMetrics": [
       "inventory_turnover",
-      "cogs_stg",
       "shrinkage_rate",
-      "warehouse_utilization"
+      "warehouse_utilization",
+      "cogs"
     ],
     "formulaInputs": []
   },
   {
-    "metricId": "stg_csat_response_row",
-    "label": "Raw CSAT Response",
-    "vertical": "ops",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Individual CSAT survey response record.",
-    "formulaSql": "-- Alias of csat.\nselect\n    date_trunc('month', response_date) as period,\n    avg(satisfaction_score) as stg_csat_response_row\nfrom {{ ref('fct_customer_survey_responses') }}\ngroup by 1\n",
-    "formulaYaml": "metrics:\n  - name: stg_csat_response_row\n    label: Raw CSAT Response\n    description: Individual CSAT survey response record.\n    type: derived\n    type_params:\n      expr: csat\n      metrics:\n        - name: csat\n    config:\n      meta:\n        metricId: stg_csat_response_row\n        tier: input\n        vertical: ops\n        industry: cross_industry\n",
-    "numerator": "satisfaction_score",
-    "denominator": "",
-    "dimensions": [
-      "response_id",
-      "customer_id",
-      "interaction_id",
-      "date"
-    ],
-    "dataSources": [
-      "Survey platform",
-      "CRM"
-    ],
-    "parentMetrics": [
-      "csat",
-      "cx_csat"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_inventory_items",
+    "metricId": "inventory_items",
     "label": "Inventory Items",
     "vertical": "ops",
     "industry": "manufacturing",
     "tier": "input",
-    "shortDescription": "Total SKU count in inventory staging table",
-    "formulaSql": "select\n    date_trunc('month', snapshot_date) as period,\n    count(distinct item_id) as stg_inventory_items\nfrom {{ ref('fct_inventory_snapshots') }}\ngroup by 1\norder by 1\n",
-    "formulaYaml": "metrics:\n  - name: stg_inventory_items\n    label: Inventory Items\n    description: Total SKU count in inventory staging table\n    type: simple\n    type_params:\n      measure: inventory_distinct_item_count\n    config:\n      meta:\n        metricId: stg_inventory_items\n        tier: input\n        vertical: ops\n        industry: manufacturing\n",
-    "numerator": "Inventory item records",
+    "shortDescription": "Distinct SKUs with an inventory snapshot in the period",
+    "formulaSql": "select\n    date_trunc('month', snapshot_date) as period,\n    count(distinct item_id) as inventory_items\nfrom {{ ref('fct_inventory_snapshots') }}\ngroup by 1\norder by 1\n",
+    "formulaYaml": "metrics:\n  - name: inventory_items\n    label: Inventory Items\n    description: Distinct SKUs with an inventory snapshot in the period\n    type: simple\n    type_params:\n      measure: inventory_distinct_item_count\n    config:\n      meta:\n        metricId: inventory_items\n        tier: input\n        vertical: ops\n        industry: manufacturing\n",
+    "numerator": "Distinct SKUs in inventory",
     "denominator": "",
     "dimensions": [
       "date",
@@ -14780,15 +13338,15 @@
     "formulaInputs": []
   },
   {
-    "metricId": "stg_order_line_row",
-    "label": "Raw Order Line Row",
+    "metricId": "order_lines",
+    "label": "Order Lines",
     "vertical": "ops",
     "industry": "cross_industry",
     "tier": "input",
-    "shortDescription": "Single order line item with product, quantity, and fulfillment status.",
-    "formulaSql": "select\n    date_trunc('month', order_date) as period,\n    count(line_id) as stg_order_line_row\nfrom {{ ref('fct_order_lines') }}\ngroup by 1\norder by 1\n",
-    "formulaYaml": "metrics:\n  - name: stg_order_line_row\n    label: Raw Order Line Row\n    description: Single order line item with product, quantity, and fulfillment status.\n    type: simple\n    type_params:\n      measure: line_count\n    config:\n      meta:\n        metricId: stg_order_line_row\n        tier: input\n        vertical: ops\n        industry: cross_industry\n",
-    "numerator": "1 per line",
+    "shortDescription": "Order lines placed in the period",
+    "formulaSql": "select\n    date_trunc('month', order_date) as period,\n    count(line_id) as order_lines\nfrom {{ ref('fct_order_lines') }}\ngroup by 1\norder by 1\n",
+    "formulaYaml": "metrics:\n  - name: order_lines\n    label: Order Lines\n    description: Order lines placed in the period\n    type: simple\n    type_params:\n      measure: line_count\n    config:\n      meta:\n        metricId: order_lines\n        tier: input\n        vertical: ops\n        industry: cross_industry\n",
+    "numerator": "Order lines",
     "denominator": "",
     "dimensions": [
       "order_id",
@@ -14804,132 +13362,6 @@
     ],
     "parentMetrics": [
       "fill_rate"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_purchase_order_row",
-    "label": "Raw PO Row",
-    "vertical": "ops",
-    "industry": "manufacturing",
-    "tier": "input",
-    "shortDescription": "Single purchase order record with supplier, items, and receipt date.",
-    "formulaSql": "select\n    date_trunc('month', po_date) as period,\n    sum(po_amount) as stg_purchase_order_row\nfrom {{ ref('fct_purchase_orders') }}\ngroup by 1\norder by 1\n",
-    "formulaYaml": "metrics:\n  - name: stg_purchase_order_row\n    label: Raw PO Row\n    description: Single purchase order record with supplier, items, and receipt date.\n    type: simple\n    type_params:\n      measure: po_amount\n    config:\n      meta:\n        metricId: stg_purchase_order_row\n        tier: input\n        vertical: ops\n        industry: manufacturing\n",
-    "numerator": "po_amount",
-    "denominator": "",
-    "dimensions": [
-      "po_id",
-      "supplier_id",
-      "product_id",
-      "po_date",
-      "receipt_date",
-      "status"
-    ],
-    "dataSources": [
-      "ERP",
-      "Purchasing system"
-    ],
-    "parentMetrics": [
-      "supplier_lead_time",
-      "procurement_savings_rate",
-      "vendor_compliance_rate"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_safety_incident_row",
-    "label": "Raw Safety Incident Row",
-    "vertical": "ops",
-    "industry": "manufacturing",
-    "tier": "input",
-    "shortDescription": "Single workplace safety incident record with type, severity, and department.",
-    "formulaSql": "select\n    date_trunc('month', incident_date) as period,\n    incident_type,\n    count(incident_id) as stg_safety_incident_row\nfrom {{ ref('fct_safety_incidents') }}\ngroup by 1, 2\norder by 1, 2\n",
-    "formulaYaml": "metrics:\n  - name: stg_safety_incident_row\n    label: Raw Safety Incident Row\n    description: Single workplace safety incident record with type, severity, and department.\n    type: simple\n    type_params:\n      measure: safety_incidents_incident_count\n    config:\n      meta:\n        metricId: stg_safety_incident_row\n        tier: input\n        vertical: ops\n        industry: manufacturing\n",
-    "numerator": "1 per incident",
-    "denominator": "",
-    "dimensions": [
-      "incident_id",
-      "employee_id",
-      "facility_id",
-      "incident_type",
-      "severity",
-      "date"
-    ],
-    "dataSources": [
-      "Safety management system"
-    ],
-    "parentMetrics": [
-      "safety_incident_rate"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_support_tickets",
-    "label": "Support Tickets",
-    "vertical": "ops",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Raw ticket count from helpdesk staging table",
-    "formulaSql": "select\n    date_trunc('month', created_date) as period,\n    category,\n    priority,\n    count(ticket_id) as stg_support_tickets\nfrom {{ ref('fct_support_tickets') }}\ngroup by 1, 2, 3",
-    "formulaYaml": "metrics:\n  - name: stg_support_tickets\n    label: Support Tickets\n    description: Raw ticket count from helpdesk staging table\n    type: derived\n    type_params:\n      expr: tickets_created\n      metrics:\n        - name: tickets_created\n    config:\n      meta:\n        metricId: stg_support_tickets\n        tier: input\n        vertical: ops\n        industry: cross_industry\n",
-    "numerator": "Support ticket records",
-    "denominator": "",
-    "dimensions": [
-      "date",
-      "priority"
-    ],
-    "dataSources": [
-      "helpdesk"
-    ],
-    "parentMetrics": [
-      "escalation_rate",
-      "fcr_rate",
-      "ticket_resolution_time",
-      "tickets_per_agent"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [
-      "ticket_resolution_time",
-      "first_response_time",
-      "fcr_rate"
-    ],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_ticket_row",
-    "label": "Raw Ticket Row",
-    "vertical": "ops",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Single support ticket record with category, priority, and resolution data.",
-    "formulaSql": "select\n    date_trunc('month', created_date) as period,\n    category,\n    priority,\n    count(ticket_id) as stg_ticket_row\nfrom {{ ref('fct_support_tickets') }}\ngroup by 1, 2, 3",
-    "formulaYaml": "metrics:\n  - name: stg_ticket_row\n    label: Raw Ticket Row\n    description: Single support ticket record with category, priority, and resolution data.\n    type: derived\n    type_params:\n      expr: tickets_created\n      metrics:\n        - name: tickets_created\n    config:\n      meta:\n        metricId: stg_ticket_row\n        tier: input\n        vertical: ops\n        industry: cross_industry\n",
-    "numerator": "1 per ticket",
-    "denominator": "",
-    "dimensions": [
-      "ticket_id",
-      "customer_id",
-      "category",
-      "priority",
-      "channel",
-      "created_date"
-    ],
-    "dataSources": [
-      "Zendesk",
-      "Intercom",
-      "Freshdesk"
-    ],
-    "parentMetrics": [
-      "support_tickets_opened",
-      "first_response_time",
-      "time_to_resolution"
     ],
     "childMetrics": [],
     "correlatedMetrics": [],
@@ -14960,7 +13392,7 @@
       "ticket_resolution_rate"
     ],
     "childMetrics": [
-      "stg_ticket_row"
+      "tickets_created"
     ],
     "correlatedMetrics": [
       "csat",
@@ -14987,12 +13419,21 @@
       "helpdesk"
     ],
     "parentMetrics": [
-      "tickets_per_customer"
+      "tickets_per_customer",
+      "escalation_rate",
+      "fcr_rate",
+      "ticket_resolution_time",
+      "tickets_per_agent",
+      "support_tickets_opened",
+      "first_response_time",
+      "time_to_resolution"
     ],
     "childMetrics": [],
     "correlatedMetrics": [
       "ticket_resolution_time",
-      "sla_breach_rate"
+      "sla_breach_rate",
+      "first_response_time",
+      "fcr_rate"
     ],
     "formulaInputs": []
   },
@@ -15060,8 +13501,7 @@
       "churn_rate",
       "committed_arr",
       "mrr",
-      "net_revenue_retention",
-      "stg_subscription_row"
+      "net_revenue_retention"
     ],
     "correlatedMetrics": [
       "mrr",
@@ -15082,7 +13522,6 @@
       "recognized_revenue",
       "rule_of_40",
       "saas_quick_ratio",
-      "stg_subscriptions_active",
       "subscription_revenue",
       "total_revenue"
     ],
@@ -15290,15 +13729,14 @@
     ],
     "parentMetrics": [
       "total_revenue",
-      "net_revenue"
+      "net_revenue",
+      "aov"
     ],
-    "childMetrics": [
-      "stg_order_amount_sum"
-    ],
+    "childMetrics": [],
     "correlatedMetrics": [
       "net_revenue",
       "discount_rate",
-      "stg_order_amount_sum"
+      "aov"
     ],
     "formulaInputs": []
   },
@@ -15488,7 +13926,7 @@
     "correlatedMetrics": [
       "deferred_revenue",
       "arr",
-      "stg_invoices_amount"
+      "billings"
     ],
     "formulaInputs": []
   },
@@ -15578,37 +14016,6 @@
     "formulaInputs": []
   },
   {
-    "metricId": "stg_revenue_event_amount",
-    "label": "Raw Revenue Event",
-    "vertical": "pe",
-    "industry": "saas",
-    "tier": "input",
-    "shortDescription": "Individual recognized revenue transaction row from billing system.",
-    "formulaSql": "select\n    date_trunc('month', recognized_date) as period,\n    company_id,\n    sum(recognized_revenue) as stg_revenue_event_amount\nfrom {{ ref('fct_revenue') }}\ngroup by all\norder by all\n",
-    "formulaYaml": "metrics:\n  - name: stg_revenue_event_amount\n    label: Raw Revenue Event\n    description: Individual recognized revenue transaction row from billing system.\n    type: derived\n    type_params:\n      expr: revenue\n      metrics:\n        - name: revenue\n    config:\n      meta:\n        metricId: stg_revenue_event_amount\n        tier: input\n        vertical: pe\n        industry: saas\n",
-    "numerator": "amount",
-    "denominator": "",
-    "dimensions": [
-      "company_id",
-      "order_id",
-      "customer_id",
-      "product_id",
-      "recognized_date"
-    ],
-    "dataSources": [
-      "Billing system",
-      "ERP"
-    ],
-    "parentMetrics": [
-      "revenue",
-      "asp",
-      "gmv"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [],
-    "formulaInputs": []
-  },
-  {
     "metricId": "api_calls_total",
     "label": "API Calls (Total)",
     "vertical": "product",
@@ -15690,64 +14097,6 @@
       "tech_debt_ratio",
       "pr_merge_time"
     ],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_error_event_row",
-    "label": "Raw Error Event Row",
-    "vertical": "product",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Single application error event from monitoring system.",
-    "formulaSql": "select\n    date_trunc('month', error_date) as period,\n    endpoint,\n    error_type,\n    count(error_id) as stg_error_event_row\nfrom {{ ref('fct_app_errors') }}\ngroup by 1, 2, 3\n",
-    "formulaYaml": "metrics:\n  - name: stg_error_event_row\n    label: Raw Error Event Row\n    description: Single application error event from monitoring system.\n    type: simple\n    type_params:\n      measure: app_errors_error_count\n    config:\n      meta:\n        metricId: stg_error_event_row\n        tier: input\n        vertical: product\n        industry: cross_industry\n",
-    "numerator": "1 per error",
-    "denominator": "",
-    "dimensions": [
-      "error_id",
-      "user_id",
-      "endpoint",
-      "error_type",
-      "timestamp"
-    ],
-    "dataSources": [
-      "Sentry",
-      "Datadog",
-      "Rollbar"
-    ],
-    "parentMetrics": [
-      "error_rate",
-      "mttd"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [],
-    "formulaInputs": []
-  },
-  {
-    "metricId": "stg_nps_response_row",
-    "label": "Raw NPS Response",
-    "vertical": "product",
-    "industry": "cross_industry",
-    "tier": "input",
-    "shortDescription": "Individual NPS survey response with score and verbatim.",
-    "formulaSql": "-- Average raw NPS score (0-10); nps is the promoter/detractor score.\nselect\n    date_trunc('month', response_date) as period,\n    avg(score) as stg_nps_response_row\nfrom {{ ref('fct_customer_survey_responses') }}\nwhere survey_type = 'nps'\ngroup by 1\n",
-    "formulaYaml": "metrics:\n  - name: stg_nps_response_row\n    label: Raw NPS Response\n    description: Individual NPS survey response with score and verbatim.\n    type: simple\n    type_params:\n      measure: customer_survey_responses_avg_score\n    filter: \"{{ Dimension('survey_response__survey_type') }} = 'nps'\"\n    config:\n      meta:\n        metricId: stg_nps_response_row\n        tier: input\n        vertical: product\n        industry: cross_industry\n",
-    "numerator": "score (0–10)",
-    "denominator": "",
-    "dimensions": [
-      "respondent_id",
-      "customer_id",
-      "survey_date",
-      "score"
-    ],
-    "dataSources": [
-      "Survey platform (Delighted / Qualtrics)"
-    ],
-    "parentMetrics": [
-      "nps"
-    ],
-    "childMetrics": [],
-    "correlatedMetrics": [],
     "formulaInputs": []
   },
   {

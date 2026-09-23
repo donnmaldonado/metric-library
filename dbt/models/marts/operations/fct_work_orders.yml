@@ -1,4 +1,4 @@
-# Metrics on this model: preventive_maintenance_rate, stg_work_order_row, work_order_resolution_time
+# Metrics on this model: preventive_maintenance_rate, work_order_resolution_time, work_orders
 models:
   - name: fct_work_orders
     description: One row per maintenance work order.
@@ -42,4 +42,4 @@ semantic_models:
       - name: work_order_count
         agg: count
         expr: work_order_id
-        description: 'Used by: preventive_maintenance_rate, stg_work_order_row.'
+        description: 'Used by: preventive_maintenance_rate, work_orders.'

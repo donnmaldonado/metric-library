@@ -1,4 +1,4 @@
-# Metrics on this model: dau, dau_mau_ratio, feature_adoption, feature_adoption_rate, mau, stg_events_count, stg_user_event_row, wau
+# Metrics on this model: dau, dau_mau_ratio, feature_adoption, feature_adoption_rate, mau, wau
 models:
   - name: fct_user_events
     description: One row per product analytics event.
@@ -49,7 +49,7 @@ semantic_models:
       - name: user_events_event_count
         agg: count
         expr: event_id
-        description: 'Used by: stg_events_count (and stg_user_event_row through it).'
+        description: 'Not used by any metric.'
 metrics:
   - name: feature_users
     label: feature_users

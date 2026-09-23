@@ -1,4 +1,4 @@
-# Metrics on this model: fill_rate, return_rate, stg_order_line_row
+# Metrics on this model: fill_rate, order_lines, return_rate
 models:
   - name: fct_order_lines
     description: One row per order line.
@@ -36,7 +36,7 @@ semantic_models:
       - name: line_count
         agg: count
         expr: line_id
-        description: 'Used by: fill_rate, stg_order_line_row.'
+        description: 'Used by: fill_rate, order_lines.'
       - name: order_lines_units_sold
         agg: sum
         expr: qty_shipped

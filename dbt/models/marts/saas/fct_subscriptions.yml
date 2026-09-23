@@ -1,4 +1,4 @@
-# Metrics on this model: active_paying_users, arr, customer_count, mrr, stg_subscriptions_active (stg_subscription_row aliases mrr)
+# Metrics on this model: active_paying_users, arr, customer_count, mrr
 models:
   - name: fct_subscriptions
     description: One row per subscription per snapshot date (active subscriptions, MRR).
@@ -50,14 +50,14 @@ semantic_models:
         non_additive_dimension:
           name: snapshot_date
           window_choice: max
-        description: 'Used by: mrr, stg_subscription_row.'
+        description: 'Used by: mrr.'
       - name: subscription_count
         agg: count
         expr: subscription_id
         non_additive_dimension:
           name: snapshot_date
           window_choice: max
-        description: 'Used by: stg_subscriptions_active.'
+        description: 'Not used by any metric.'
       - name: subscriptions_arr_value
         agg: sum
         expr: monthly_amount * 12

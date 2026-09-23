@@ -5,9 +5,9 @@ metrics:
     type: ratio
     type_params:
       numerator:
-        name: stg_inventory_items
+        name: inventory_items
         filter: "{{ Dimension('inventory_snapshot__is_stocked_out') }} = true"
-      denominator: stg_inventory_items
+      denominator: inventory_items
     config:
       meta:
         metricId: stockout_rate

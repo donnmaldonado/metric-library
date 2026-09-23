@@ -1,4 +1,4 @@
-# Metrics on this model: avg_tenure, employee_attrition_rate, headcount, headcount_by_dept, headcount_fte, headcount_vs_budget, rd_headcount, rd_headcount_pct, remote_work_rate, sales_headcount, span_of_control, stg_employee_row, stg_employees_count, training_hours_per_employee, turnover_rate, voluntary_turnover
+# Metrics on this model: avg_tenure, employee_attrition_rate, headcount, headcount_by_dept, headcount_fte, headcount_vs_budget, rd_headcount, rd_headcount_pct, remote_work_rate, sales_headcount, span_of_control, training_hours_per_employee, turnover_rate, voluntary_turnover
 models:
   - name: fct_employee_snapshots
     description: 'One row per employee per snapshot date (status, employment type, department, location, FTE, manager). Snapshot

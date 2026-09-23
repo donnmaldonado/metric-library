@@ -1,4 +1,4 @@
-# Metrics on this model: expulsion_rate, stg_discipline_row, suspension_rate
+# Metrics on this model: expulsion_rate, suspension_rate
 models:
   - name: fct_discipline_incidents
     description: One row per student discipline incident (type, consequence).

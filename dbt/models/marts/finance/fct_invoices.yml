@@ -1,4 +1,4 @@
-# Metrics on this model: ar_aging_90d, billings, dso, stg_invoice_row, stg_invoices_amount, stg_invoices_count
+# Metrics on this model: ar_aging_90d, billings, dso
 models:
   - name: fct_invoices
     description: One row per customer invoice (billings and accounts receivable).
@@ -42,4 +42,4 @@ semantic_models:
       - name: invoice_count
         agg: count
         expr: invoice_id
-        description: 'Used by: stg_invoices_count.'
+        description: 'Not used by any metric.'

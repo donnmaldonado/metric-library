@@ -5,9 +5,9 @@ metrics:
     type: ratio
     type_params:
       numerator:
-        name: stg_work_order_row
+        name: work_orders
         filter: "{{ Dimension('work_order__maintenance_type') }} = 'preventive'"
-      denominator: stg_work_order_row
+      denominator: work_orders
     config:
       meta:
         metricId: preventive_maintenance_rate

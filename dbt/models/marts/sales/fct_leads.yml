@@ -1,4 +1,4 @@
-# Metrics on this model: demo_requests, lead_to_mql_rate, mql, mql_count, mql_to_sql_rate, sql, sql_count, stg_lead_row, stg_leads_count
+# Metrics on this model: demo_requests, lead_to_mql_rate, leads, mql, mql_count, mql_to_sql_rate, sql, sql_count
 # MQL and SQL measures are timed on the date the lead reached that stage (mql_date / sql_date), not on created_date.
 models:
   - name: fct_leads
@@ -48,7 +48,7 @@ semantic_models:
       - name: lead_count
         agg: count
         expr: lead_id
-        description: 'Leads, by creation date. Used by: demo_requests, stg_leads_count.'
+        description: 'Leads, by creation date. Used by: demo_requests, leads.'
       - name: mql_lead_count
         agg: count
         expr: case when mql_date is not null then lead_id end

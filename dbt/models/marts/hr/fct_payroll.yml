@@ -1,4 +1,4 @@
-# Metrics on this model: compensation_ratio, gender_pay_gap, headcount_cost, stg_payroll_row, stg_payroll_total, total_comp_expense
+# Metrics on this model: compensation_ratio, gender_pay_gap, headcount_cost, total_comp_expense
 models:
   - name: fct_payroll
     description: One row per employee pay record (pay components, annual salary and market midpoint at pay date, gender).

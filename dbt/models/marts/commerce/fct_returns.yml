@@ -1,4 +1,4 @@
-# Metrics on this model: product_return_rate, return_rate, stg_refund_amount, stg_refunds_count, stg_return_row
+# Metrics on this model: product_return_rate, return_rate
 models:
   - name: fct_returns
     description: One row per returned item / refund.
@@ -38,11 +38,11 @@ semantic_models:
     measures:
       - name: refund_amount
         agg: sum
-        description: 'Used by: stg_refund_amount.'
+        description: 'Not used by any metric.'
       - name: return_count
         agg: count
         expr: return_id
-        description: 'Used by: stg_refunds_count, stg_return_row.'
+        description: 'Not used by any metric.'
       - name: units_returned
         agg: sum
         description: 'Units returned by customers. Used by: return_rate.'

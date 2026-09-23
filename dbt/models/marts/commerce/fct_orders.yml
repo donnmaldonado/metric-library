@@ -1,4 +1,4 @@
-# Metrics on this model: aov, arpu, cross_sell_rate, customer_ltv, discount_rate, gross_revenue, net_revenue, purchase_frequency, refund_rate, repeat_purchase_rate, stg_order_amount_sum, stg_orders_count, stg_purchases_count
+# Metrics on this model: aov, arpu, cross_sell_rate, customer_ltv, discount_rate, gross_revenue, net_revenue, purchase_frequency, refund_rate, repeat_purchase_rate
 models:
   - name: fct_orders
     description: One row per customer order.
@@ -44,10 +44,10 @@ semantic_models:
       - name: order_count
         agg: count
         expr: order_id
-        description: 'Number of orders. Used by: aov, purchase_frequency, refund_rate, stg_orders_count.'
+        description: 'Number of orders. Used by: aov, purchase_frequency, refund_rate.'
       - name: order_amount
         agg: sum
-        description: 'Gross order value before discounts and returns. Used by: gross_revenue, stg_order_amount_sum.'
+        description: 'Gross order value before discounts and returns. Used by: gross_revenue.'
       - name: revenue
         agg: sum
         description: 'Net order revenue (order_amount - discount_amount - returned_amount). Used by: customer_ltv.'
@@ -66,7 +66,7 @@ semantic_models:
 metrics:
   - name: order_count
     label: order_count
-    description: Helper input for aov, purchase_frequency, refund_rate, stg_orders_count.
+    description: Helper input for aov, purchase_frequency, refund_rate.
     type: simple
     type_params:
       measure: order_count

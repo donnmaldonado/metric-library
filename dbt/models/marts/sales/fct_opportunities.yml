@@ -1,4 +1,4 @@
-# Metrics on this model: avg_deal_size, avg_sales_cycle, competitive_win_rate, expansion_pipeline, marketing_influenced_pipeline, organic_attribution_pct, paid_attribution_pct, pipeline_generated, pipeline_value, referral_attribution_pct, sales_cycle_by_segment, sales_cycle_length, stg_opportunities_count, stg_opportunity_row, win_rate
+# Metrics on this model: avg_deal_size, avg_sales_cycle, competitive_win_rate, expansion_pipeline, marketing_influenced_pipeline, organic_attribution_pct, paid_attribution_pct, pipeline_generated, pipeline_value, referral_attribution_pct, sales_cycle_by_segment, sales_cycle_length, win_rate
 # Measures timed on close_date (won/closed deals, cycle lengths) set agg_time_dimension: close_date, so metric_time is the close month.
 models:
   - name: fct_opportunities
@@ -69,11 +69,11 @@ semantic_models:
       - name: opportunities_arr_value
         agg: sum
         expr: arr_value
-        description: 'Opportunity ARR, by creation date. Used by: expansion_pipeline, marketing_influenced_pipeline, pipeline_value, stg_opportunity_row, total_pipeline.'
+        description: 'Opportunity ARR, by creation date. Used by: expansion_pipeline, marketing_influenced_pipeline, pipeline_value, total_pipeline.'
       - name: opportunity_count
         agg: count
         expr: opportunity_id
-        description: 'Opportunities, by creation date. Used by: stg_opportunities_count.'
+        description: 'Opportunities, by creation date. Not used by any metric.'
       - name: closed_opportunity_arr
         agg: sum
         expr: arr_value

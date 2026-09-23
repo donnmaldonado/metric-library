@@ -5,7 +5,7 @@ metrics:
     type: ratio
     type_params:
       numerator: mql
-      denominator: stg_leads_count
+      denominator: leads
     config:
       meta:
         metricId: lead_to_mql_rate

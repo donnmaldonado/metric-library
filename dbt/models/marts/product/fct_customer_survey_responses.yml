@@ -1,4 +1,4 @@
-# Metrics on this model: ces, csat, cx_csat, nps, stg_csat_response_row, stg_nps_response_row, survey_response_rate
+# Metrics on this model: ces, csat, cx_csat, nps, survey_response_rate
 models:
   - name: fct_customer_survey_responses
     description: One row per customer survey response (NPS, CSAT, CES).
@@ -56,11 +56,11 @@ semantic_models:
       - name: avg_satisfaction_score
         agg: average
         expr: satisfaction_score
-        description: 'Used by: csat (and stg_csat_response_row through it).'
+        description: 'Used by: csat.'
       - name: customer_survey_responses_avg_score
         agg: average
         expr: score
-        description: 'Used by: stg_nps_response_row.'
+        description: 'Not used by any metric.'
       - name: survey_response_count
         agg: count
         expr: response_id

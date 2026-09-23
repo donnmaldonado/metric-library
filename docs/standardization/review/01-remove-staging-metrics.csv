@@ -1,0 +1,55 @@
+metricId,label,decision,new_id,new_label,repoint_to,consumers,notes
+stg_invoices_amount,Invoice Amount,delete,,,billings,,Alias of billings. Parent billings is the target itself (edge drops); correlated recognized_revenue repoints to billings.
+stg_invoices_count,Invoices,delete,,,,,No real invoice-count metric. Edge to billings dropped (billings keeps its other children).
+stg_purchases_count,Purchases,delete,,,,,Alias of stg_orders_count; no real orders metric. Follows stg_orders_count. All 6 parent edges dropped.
+stg_refund_amount,Refund Amount,delete,,,,,No real refund-amount metric; refund_rate computes from fct_refunds directly.
+stg_refunds_count,Refunds,delete,,,,,Same measure (return_count) as stg_return_row; no real count metric.
+stg_student_assessment_row,Raw Assessment Row,delete,,,,,Avg assessment score; proficiency metrics compute from fct_assessment_results directly.
+cogs_stg,COGS,delete,,,cogs,,"Alias of cogs. gross_profit, dpo, inventory_turnover gain cogs as child; gross_margin_pct, inventory_turnover, inventory_value gain cogs as correlated."
+stg_attendance_row,Raw Attendance Row,delete,,,,,Row-level scaffold; no real equivalent. Parent edges dropped.
+stg_cogs_event,Raw COGS Event,delete,,,cogs,,"Alias of cogs; only parent is cogs itself, so the edge drops."
+stg_customer_count,Customers,delete,,,monthly_new_customers,,Label says Customers but expr is monthly_new_customers. customer_count gains monthly_new_customers as child. UNSURE: customer_churn_rate and repeat_purchase_rate edges dropped (new customers do not drive them); correlated edges dropped.
+stg_discipline_row,Raw Discipline Row,delete,,,,,Row-level scaffold; no real equivalent. Parent edges dropped.
+stg_downtime_event_row,Raw Downtime Event Row,delete,,,,,Row-level scaffold; no real equivalent. Parent edges dropped.
+stg_employee_row,Raw Employee Row,delete,,,,,Alias of stg_employees_count; follows it. headcount is north_star so cannot be child of its KPI parents; edges dropped.
+stg_employees_count,Employees,delete,,,,stg_employee_row,"All-status employee count; headcount (north_star, active full-time) is the real metric but its only parent is headcount itself. Correlated edges dropped."
+stg_enrollment_row,Raw Enrollment Row,delete,,,,,Row-level scaffold; no real equivalent. Parent edges dropped.
+stg_events_count,Events,delete,,,,stg_user_event_row,No real event-count metric; only consumer is stg_user_event_row (also deleted).
+stg_invoice_row,Raw Invoice Row,delete,,,billings,,"Alias of billings. dso, ar_aging_90d, deferred_revenue gain billings as child; billings parent is self."
+stg_job_requisition_row,Raw Job Requisition Row,delete,,,,,Row-level scaffold; no real equivalent. Parent edges dropped.
+stg_opex_line,Raw OpEx Line,delete,,,opex,,Alias of opex; only parent is opex itself.
+stg_opportunities_count,Opportunities,delete,,,,,No real opportunity-count metric. Edge to avg_deal_size dropped.
+stg_opportunity_row,Raw Opportunity Row,delete,,,,,Same measure as pipeline_value without the open filter; not a meaningful driver of its 7 parents. Edges dropped.
+stg_order_amount_sum,Order Amount,delete,,,gross_revenue,,Same measure as gross_revenue (without completed filter). aov gains gross_revenue as child and correlated.
+stg_orders_count,Orders,delete,,,,stg_purchases_count,"No real orders metric; only staging consumer (stg_purchases_count) is deleted. Parent edges (cycle_time, order_fulfillment_rate, otd_rate, throughput) dropped."
+stg_page_view_row,Raw Page View Row,delete,,,,,Alias of stg_page_views.
+stg_page_views,Page Views,delete,,,,stg_page_view_row,No real page-view metric.
+stg_products_active,Active Products,delete,,,,,Also remove from README Model gaps.
+stg_quality_inspection_row,Raw Quality Inspection Row,delete,,,,,Row-level scaffold; no real equivalent. Parent edges dropped.
+stg_return_row,Raw Return Row,delete,,,,,Row-level scaffold; no real equivalent. Parent edges dropped.
+stg_session_row,Raw Session Row,delete,,,website_sessions,,Alias of website_sessions. bounce_rate gains website_sessions as child. organic/paid/referral_sessions edges drop (they are parts of website_sessions: cycle/tier).
+stg_sessions_count,Sessions,delete,,,website_sessions,,Alias of website_sessions. sessions_per_user gains website_sessions as child; dau and session_length gain it as correlated.
+stg_shipment_row,Raw Shipment Row,delete,,,,,Row-level scaffold; no real equivalent. Parent edges dropped.
+stg_subscription_row,Raw Subscription Row,delete,,,mrr,,"Alias of mrr. cohort_revenue_retention and customer_concentration_risk gain mrr as child. UNSURE: logo_churn_rate and renewal_rate edges dropped (logo-based, not driven by mrr). mrr (self) and arr (already a parent of mrr) unchanged."
+stg_subscriptions_active,Active Subscriptions,delete,,,,,"Subscription count; no real equivalent (customer_count filters active snapshots). Edges to active_paying_users, new_arr dropped."
+stg_survey_response_row,Raw Survey Response,delete,,,,,Row-level scaffold; no real equivalent. Parent edges dropped.
+stg_user_event_row,Raw User Event Row,delete,,,,,Alias of stg_events_count; no real event-count metric.
+stg_vehicle_trip_row,Raw Vehicle Trip Row,delete,,,,,Row-level scaffold; no real equivalent. Parent edges dropped.
+stg_work_order_row,Raw Work Order Row,rename,work_orders,Work Orders,,preventive_maintenance_rate,"Consumed by preventive_maintenance_rate (numerator+denominator). Keeps parents work_order_resolution_time, preventive_maintenance_rate."
+stg_payroll_row,Raw Payroll Row,delete,,,,,Alias of stg_payroll_total (gross pay); follows it.
+stg_payroll_total,Payroll Total,delete,,,,stg_payroll_row,Gross pay; total_comp_expense (total_compensation) is the real metric and its only parent. Edges dropped.
+stg_ad_spend,Ad Spend,delete,,,marketing_spend,,"Alias of marketing_spend. cpc, cpl, marketing_cac, marketing_roi gain marketing_spend as child (cost_per_mql already has it); roas, cpc, marketing_cac gain it as correlated. UNSURE: paid_attribution_pct edge dropped."
+stg_ad_spend_row,Raw Ad Spend Row,delete,,,marketing_spend,,Alias of marketing_spend. ad_clicks/impressions are inputs (tier) and not driven by spend; edges drop.
+stg_email_send_row,Raw Email Send Row,delete,,,,,Row-level scaffold; no real equivalent. Parent edges dropped.
+stg_lead_row,Raw Lead Row,delete,,,leads,,Alias of stg_leads_count (-> leads). mql_count and customers_by_channel gain leads as child.
+stg_leads_count,Leads,rename,leads,Leads,,lead_to_mql_rate;stg_lead_row,Consumed by lead_to_mql_rate (denominator). No existing leads metric (mql/mql_count count MQLs; demo_requests filters lead_source).
+stg_csat_response_row,Raw CSAT Response,delete,,,csat,,Alias of csat. cx_csat gains csat as child; csat parent is self.
+stg_inventory_items,Inventory Items,rename,inventory_items,Inventory Items,,stockout_rate,Consumed by stockout_rate (numerator+denominator). Distinct SKUs with a snapshot.
+stg_order_line_row,Raw Order Line Row,rename,order_lines,Order Lines,,fill_rate,Consumed by fill_rate (numerator+denominator).
+stg_purchase_order_row,Raw PO Row,delete,,,,,Row-level scaffold; no real equivalent. Parent edges dropped.
+stg_safety_incident_row,Raw Safety Incident Row,delete,,,,,Row-level scaffold; no real equivalent. Parent edges dropped.
+stg_support_tickets,Support Tickets,delete,,,tickets_created,,"Alias of tickets_created. escalation_rate, fcr_rate, ticket_resolution_time, tickets_per_agent gain it as child; first_response_time, fcr_rate as correlated."
+stg_ticket_row,Raw Ticket Row,delete,,,tickets_created,,"Alias of tickets_created. support_tickets_opened, first_response_time, time_to_resolution gain it as child."
+stg_revenue_event_amount,Raw Revenue Event,delete,,,revenue,,Alias of revenue. asp and gmv edges drop (revenue is already their ancestor: cycle).
+stg_error_event_row,Raw Error Event Row,delete,,,,,Row-level scaffold; no real equivalent. Parent edges dropped.
+stg_nps_response_row,Raw NPS Response,delete,,,,,Row-level scaffold; no real equivalent. Parent edges dropped.

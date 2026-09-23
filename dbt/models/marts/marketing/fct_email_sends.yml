@@ -1,4 +1,4 @@
-# Metrics on this model: email_click_rate, email_ctr, email_open_rate, email_unsub_rate, stg_email_send_row, unsubscribe_rate
+# Metrics on this model: email_click_rate, email_ctr, email_open_rate, email_unsub_rate, unsubscribe_rate
 models:
   - name: fct_email_sends
     description: One row per email send (delivery, open, click and unsubscribe flags).
@@ -41,7 +41,7 @@ semantic_models:
       - name: send_count
         agg: count
         expr: send_id
-        description: 'Email sends. Used by: stg_email_send_row and the emails_* helpers.'
+        description: 'Email sends. Used by: the emails_* helpers.'
 metrics:
   - name: emails_delivered
     label: emails_delivered

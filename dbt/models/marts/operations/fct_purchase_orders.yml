@@ -1,4 +1,4 @@
-# Metrics on this model: procurement_savings_rate, stg_purchase_order_row, supplier_lead_time, vendor_compliance_rate, vendor_scorecard_rating
+# Metrics on this model: procurement_savings_rate, supplier_lead_time, vendor_compliance_rate, vendor_scorecard_rating
 models:
   - name: fct_purchase_orders
     description: One row per purchase order (supplier, lead time, compliance, savings and scorecard inputs).
@@ -48,7 +48,7 @@ semantic_models:
         description: 'Days from PO creation to goods receipt (unreceived POs are null and ignored). Used by: supplier_lead_time.'
       - name: po_amount
         agg: sum
-        description: 'Used by: stg_purchase_order_row.'
+        description: 'Not used by any metric.'
       - name: purchase_order_count
         agg: count
         expr: po_id

@@ -1,4 +1,4 @@
-# Metrics on this model: defect_rate, stg_quality_inspection_row
+# Metrics on this model: defect_rate
 models:
   - name: fct_quality_inspections
     description: One row per quality inspection.
@@ -31,7 +31,7 @@ semantic_models:
       - name: inspection_count
         agg: count
         expr: inspection_id
-        description: 'Used by: stg_quality_inspection_row.'
+        description: 'Not used by any metric.'
       - name: defective_units
         agg: sum
         description: 'Used by: defect_rate.'

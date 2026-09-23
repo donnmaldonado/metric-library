@@ -1,4 +1,4 @@
-# Metrics on this model: stg_products_active
+# Metrics on this model: none
 models:
   - name: dim_products
     description: One row per catalog product.
@@ -25,4 +25,4 @@ semantic_models:
       - name: product_count
         agg: count
         expr: product_id
-        description: 'Used by: stg_products_active.'
+        description: 'Not used by any metric.'

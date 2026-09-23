@@ -1,4 +1,4 @@
-# Metrics on this model: cost_per_mile, fleet_utilization_rate, stg_vehicle_trip_row
+# Metrics on this model: cost_per_mile, fleet_utilization_rate
 models:
   - name: fct_vehicle_trips
     description: One row per fleet vehicle trip (miles, hours in service, operating cost).
@@ -39,7 +39,7 @@ semantic_models:
       - name: trip_count
         agg: count
         expr: trip_id
-        description: 'Used by: stg_vehicle_trip_row.'
+        description: 'Not used by any metric.'
       - name: total_operating_cost
         agg: sum
         description: 'Used by: cost_per_mile.'

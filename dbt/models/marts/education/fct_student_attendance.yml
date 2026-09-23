@@ -1,4 +1,4 @@
-# Metrics on this model: adm, attendance_rate, average_daily_attendance, instructional_minutes, stg_attendance_row, student_attendance_rate
+# Metrics on this model: adm, attendance_rate, average_daily_attendance, instructional_minutes, student_attendance_rate
 models:
   - name: fct_student_attendance
     description: One row per student per enrolled school day (attendance status, scheduled instructional minutes).

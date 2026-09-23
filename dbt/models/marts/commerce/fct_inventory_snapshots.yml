@@ -1,4 +1,4 @@
-# Metrics on this model: inventory_turnover, inventory_value, shrinkage_rate, stg_inventory_items, stockout_rate
+# Metrics on this model: inventory_items, inventory_turnover, inventory_value, shrinkage_rate, stockout_rate
 models:
   - name: fct_inventory_snapshots
     description: One row per product, location and snapshot date (on-hand units, value, stockouts, shrinkage).
@@ -34,7 +34,7 @@ semantic_models:
       - name: inventory_distinct_item_count
         agg: count_distinct
         expr: item_id
-        description: 'Distinct SKUs with a snapshot in the period. Used by: stg_inventory_items, stockout_rate.'
+        description: 'Distinct SKUs with a snapshot in the period. Used by: inventory_items, stockout_rate.'
       - name: inventory_shrinkage
         agg: sum
         description: 'Value written off to shrinkage (flow, additive over time). Used by: shrinkage_rate.'

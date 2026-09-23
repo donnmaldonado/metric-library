@@ -1,6 +1,6 @@
 # Metric Library
 
-483 business metrics (23 North Star, 308 KPI, 152 Input) across 8 verticals. Each one has a definition, a MetricFlow metric, runnable SQL and its place in a driver tree.
+433 business metrics (23 North Star, 308 KPI, 102 Input) across 8 verticals. Each one has a definition, a MetricFlow metric, runnable SQL and its place in a driver tree.
 
 ## Layout
 
@@ -33,7 +33,7 @@ scripts/check_dbt.sh          # dbt parse + build, run every metric's SQL, mf va
 ## Metric definition conventions
 
 - **`formulaYaml` is a MetricFlow metric** (`type: simple | ratio | derived | cumulative`) over the semantic models in `dbt/models/marts/`.
-- **`formulaSql` is runnable dbt SQL**: `{{ ref() }}` against the models, monthly by default (`date_trunc('month', …)`), consistent with the MetricFlow definition. `check_dbt.sh` runs all 483 against the stubs.
+- **`formulaSql` is runnable dbt SQL**: `{{ ref() }}` against the models, monthly by default (`date_trunc('month', …)`), consistent with the MetricFlow definition. `check_dbt.sh` runs all 433 against the stubs.
 - **Rates are fractions (0–1)**, not percentages; score scales such as NPS/eNPS (−100 to 100) keep their native range.
 - **Balances are never summed over time.** Snapshot models use `non_additive_dimension`; opening balances come from the prior period's close.
 - **Duplicates have one canonical metric.** The others are derived aliases (`expr: <canonical>`).
@@ -77,7 +77,7 @@ Open questions about specific definitions. Resolve one by updating the metric, t
 - `mtbf`, `mttr` and `system_uptime` describe equipment, but live on engineering incident/availability models.
 
 **Model gaps**
-- Balances on per-record models (`pipeline_value`, `expansion_pipeline`, `ticket_backlog`, `committed_arr`, `contracted_unbilled`, `stg_products_active`) count by creation month. True period-end values need snapshot models.
+- Balances on per-record models (`pipeline_value`, `expansion_pipeline`, `ticket_backlog`, `committed_arr`, `contracted_unbilled`) count by creation month. True period-end values need snapshot models.
 - `survey_response_rate` needs a survey-send model. `feature_adoption_rate` per feature in MetricFlow needs a feature × period model. Per-pupil spend by function/fund needs a line-grain finance model. Cross-model education ratios need a school-year grain.
 - `fct_service_availability` mixes availability windows with single downtime events. `safety_incident_rate` reads hours worked from rows in `fct_safety_incidents`. `fleet_utilization_rate` allocates available hours per trip.
 - `gender_pay_gap` and `compensation_ratio` are computed over pay records, so employees paid more often weigh more.
@@ -86,7 +86,7 @@ Open questions about specific definitions. Resolve one by updating the metric, t
 - Several stub models still carry unused pre-aggregated columns (noted in each model's header).
 
 **Graph and catalog**
-- Duplicates are chained as aliases, not merged (e.g. `roe`/`return_on_equity`, `uptime`/`product_uptime_sla`, `district_proficiency_rate`/`student_proficiency`, both North Stars). The `stg_*` and alias metrics duplicate canonical ones and carry ` (metricId)`-suffixed labels. Decide whether to drop them.
+- Duplicates are chained as aliases, not merged (e.g. `roe`/`return_on_equity`, `uptime`/`product_uptime_sla`, `district_proficiency_rate`/`student_proficiency`, both North Stars). The alias metrics duplicate canonical ones and carry ` (metricId)`-suffixed labels. Decide whether to drop them.
 - Some parent edges are weak: the leverage family → `return_on_equity`, `roic` → `enterprise_value`, `ltv_cac` → `marketing_roi`, `magic_number` → `rule_of_40`, `forecast_accuracy` → `ebitda`, `carbon_emissions_per_unit` → `ops_efficiency_ratio`, `diversity_hire_rate` → `headcount`, survey metrics → `nps`, and `ell_pct`/`frl_pct`/`iep_pct` → `student_proficiency`.
 - North Star → North Star links are recorded as `correlatedMetrics`; check that none is a real driver edge.
 - `formulaInputs` is out of step with some definitions (e.g. `enrollment_count` on education metrics, aliases → their canonical metric, `headcount` still listed on `absenteeism_rate`/`turnover_rate`/`span_of_control`).

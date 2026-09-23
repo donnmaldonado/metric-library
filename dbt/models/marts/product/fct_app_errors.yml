@@ -1,4 +1,4 @@
-# Metrics on this model: stg_error_event_row
+# Metrics on this model: none
 models:
   - name: fct_app_errors
     description: One row per application error event.
@@ -28,4 +28,4 @@ semantic_models:
       - name: app_errors_error_count
         agg: count
         expr: error_id
-        description: 'Used by: stg_error_event_row.'
+        description: 'Not used by any metric.'

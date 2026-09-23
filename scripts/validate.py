@@ -1,5 +1,5 @@
 """Check data/metrics.json for integrity problems. Run after editing."""
-import json, sys
+import json, re, sys
 from pathlib import Path
 import yaml
 
@@ -14,6 +14,8 @@ if len(by) != len(ms):
     issues.append("duplicate metricIds")
 for m in ms:
     mid = m["metricId"]
+    if re.search(r"^stg_|_stg$", mid):
+        issues.append(f"{mid}: staging metricId (stg_ prefix or _stg suffix); the library holds business metrics only")
     try:
         d = yaml.safe_load(m["formulaYaml"])["metrics"][0]
         if d.get("name") != mid:

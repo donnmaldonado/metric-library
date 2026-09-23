@@ -1,4 +1,4 @@
-# Metrics on this model: cogs, ga_spend_pct, gna_pct_revenue, opex, rd_as_pct_revenue, rd_expense, rd_spend_pct, sg_and_a, sm_spend, stg_cogs_event, stg_opex_line
+# Metrics on this model: cogs, ga_spend_pct, gna_pct_revenue, opex, rd_as_pct_revenue, rd_expense, rd_spend_pct, sg_and_a, sm_spend
 # gl_category taxonomy for opex lines: 'R&D', 'S&M', 'G&A', 'D&A', 'Other'. opex_amount covers every operating
 # (non-COGS) line including D&A, so EBIT = gross profit - opex and EBITDA = EBIT + D&A.
 # sm_spend stays on expense_amount filtered by department IN ('sales', 'marketing') (shared with

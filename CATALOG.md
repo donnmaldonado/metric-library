@@ -1,6 +1,6 @@
 # Metric Catalog
 
-483 metrics.
+433 metrics.
 
 ## North Star (23)
 
@@ -55,7 +55,7 @@ Percentage of students at or above grade-level proficiency across all tested sub
 - **Denominator:** Total students tested
 - **Dimensions:** school_id, subject, grade_level, subgroup, academic_year
 - **Data sources:** State assessment platform, SIS (PowerSchool / Infinite Campus)
-- **Children:** [`attendance_rate`](#attendance_rate), [`chronic_absenteeism`](#chronic_absenteeism), [`instructional_minutes`](#instructional_minutes), [`avg_teacher_experience`](#avg_teacher_experience), [`ell_pct`](#ell_pct), [`ell_proficiency_growth`](#ell_proficiency_growth), [`frl_pct`](#frl_pct), [`graduation_rate`](#graduation_rate), [`iep_goal_mastery_rate`](#iep_goal_mastery_rate), [`iep_pct`](#iep_pct), [`on_time_lesson_delivery`](#on_time_lesson_delivery), [`per_pupil_expenditure`](#per_pupil_expenditure), [`school_climate_score`](#school_climate_score), [`school_culture_score`](#school_culture_score), [`stg_student_assessment_row`](#stg_student_assessment_row), [`student_growth_percentile`](#student_growth_percentile), [`teacher_retention_rate`](#teacher_retention_rate)
+- **Children:** [`attendance_rate`](#attendance_rate), [`chronic_absenteeism`](#chronic_absenteeism), [`instructional_minutes`](#instructional_minutes), [`avg_teacher_experience`](#avg_teacher_experience), [`ell_pct`](#ell_pct), [`ell_proficiency_growth`](#ell_proficiency_growth), [`frl_pct`](#frl_pct), [`graduation_rate`](#graduation_rate), [`iep_goal_mastery_rate`](#iep_goal_mastery_rate), [`iep_pct`](#iep_pct), [`on_time_lesson_delivery`](#on_time_lesson_delivery), [`per_pupil_expenditure`](#per_pupil_expenditure), [`school_climate_score`](#school_climate_score), [`school_culture_score`](#school_culture_score), [`student_growth_percentile`](#student_growth_percentile), [`teacher_retention_rate`](#teacher_retention_rate)
 - **Correlated:** [`graduation_rate`](#graduation_rate), [`college_enrollment`](#college_enrollment), [`absenteeism_by_subgroup`](#absenteeism_by_subgroup), [`advanced_course_enrollment_rate`](#advanced_course_enrollment_rate), [`attendance_rate`](#attendance_rate), [`average_daily_attendance`](#average_daily_attendance), [`chronic_absenteeism`](#chronic_absenteeism), [`cost_per_outcome`](#cost_per_outcome), [`ell_proficiency_growth`](#ell_proficiency_growth), [`iep_goal_mastery_rate`](#iep_goal_mastery_rate), [`student_growth_percentile`](#student_growth_percentile), [`teacher_retention_rate`](#teacher_retention_rate), [`teacher_student_ratio`](#teacher_student_ratio)
 
 <a id="college_enrollment_rate"></a>
@@ -137,7 +137,7 @@ Return on total marketing investment — revenue driven per dollar spent.
 - **Denominator:** Marketing spend
 - **Dimensions:** date, campaign
 - **Data sources:** ad_platforms, crm
-- **Children:** [`stg_ad_spend`](#stg_ad_spend), [`ltv_cac`](#ltv_cac), [`marketing_influenced_pipeline`](#marketing_influenced_pipeline), [`organic_attribution_pct`](#organic_attribution_pct), [`paid_attribution_pct`](#paid_attribution_pct), [`referral_attribution_pct`](#referral_attribution_pct), [`roas`](#roas), [`share_of_voice`](#share_of_voice)
+- **Children:** [`ltv_cac`](#ltv_cac), [`marketing_influenced_pipeline`](#marketing_influenced_pipeline), [`organic_attribution_pct`](#organic_attribution_pct), [`paid_attribution_pct`](#paid_attribution_pct), [`referral_attribution_pct`](#referral_attribution_pct), [`roas`](#roas), [`share_of_voice`](#share_of_voice), [`marketing_spend`](#marketing_spend)
 - **Formula inputs:** [`pipeline_generated`](#pipeline_generated)
 - **Correlated:** [`roas`](#roas), [`marketing_cac`](#marketing_cac)
 
@@ -181,7 +181,7 @@ Total value of opportunities sourced by marketing
 - **Dimensions:** date, channel
 - **Data sources:** crm
 - **Children:** [`sql`](#sql), [`avg_deal_size`](#avg_deal_size), [`mql`](#mql)
-- **Correlated:** [`bookings`](#bookings), [`mql`](#mql), [`pipeline_coverage`](#pipeline_coverage), [`stg_opportunities_count`](#stg_opportunities_count)
+- **Correlated:** [`bookings`](#bookings), [`mql`](#mql), [`pipeline_coverage`](#pipeline_coverage)
 
 <a id="return_on_equity"></a>
 ### Return on Equity — `return_on_equity`
@@ -234,8 +234,8 @@ Total active full-time employees at end of period
 - **Numerator:** Active employees at period end
 - **Dimensions:** date, department, location
 - **Data sources:** hris
-- **Children:** [`stg_employees_count`](#stg_employees_count), [`headcount_by_dept`](#headcount_by_dept), [`diversity_hire_rate`](#diversity_hire_rate), [`headcount_vs_budget`](#headcount_vs_budget), [`new_hires`](#new_hires)
-- **Correlated:** [`turnover_rate`](#turnover_rate), [`headcount_vs_budget`](#headcount_vs_budget), [`headcount_by_dept`](#headcount_by_dept), [`stg_employees_count`](#stg_employees_count), [`stg_payroll_total`](#stg_payroll_total), [`total_comp_expense`](#total_comp_expense)
+- **Children:** [`headcount_by_dept`](#headcount_by_dept), [`diversity_hire_rate`](#diversity_hire_rate), [`headcount_vs_budget`](#headcount_vs_budget), [`new_hires`](#new_hires)
+- **Correlated:** [`turnover_rate`](#turnover_rate), [`headcount_vs_budget`](#headcount_vs_budget), [`headcount_by_dept`](#headcount_by_dept), [`total_comp_expense`](#total_comp_expense)
 
 <a id="turnover_rate"></a>
 ### Turnover Rate — `turnover_rate`
@@ -250,7 +250,7 @@ Percentage of employees who left during the period (voluntary + involuntary)
 - **Data sources:** hris
 - **Children:** [`separations`](#separations), [`employee_attrition_rate`](#employee_attrition_rate), [`regrettable_attrition`](#regrettable_attrition), [`voluntary_turnover`](#voluntary_turnover)
 - **Formula inputs:** [`headcount`](#headcount)
-- **Correlated:** [`voluntary_turnover`](#voluntary_turnover), [`regrettable_attrition`](#regrettable_attrition), [`engagement_score`](#engagement_score), [`absenteeism_rate`](#absenteeism_rate), [`headcount`](#headcount), [`stg_employees_count`](#stg_employees_count)
+- **Correlated:** [`voluntary_turnover`](#voluntary_turnover), [`regrettable_attrition`](#regrettable_attrition), [`engagement_score`](#engagement_score), [`absenteeism_rate`](#absenteeism_rate), [`headcount`](#headcount)
 
 <a id="four_year_grad_rate"></a>
 ### 4-Year Grad Rate — `four_year_grad_rate`
@@ -277,7 +277,7 @@ Percentage of orders or deliverables completed by the committed date
 - **Denominator:** Total deliveries
 - **Dimensions:** date, region
 - **Data sources:** orders, logistics
-- **Children:** [`stg_orders_count`](#stg_orders_count), [`cycle_time`](#cycle_time), [`lead_time`](#lead_time)
+- **Children:** [`cycle_time`](#cycle_time), [`lead_time`](#lead_time)
 - **Correlated:** [`order_fulfillment_rate`](#order_fulfillment_rate), [`cycle_time`](#cycle_time), [`inventory_turnover`](#inventory_turnover), [`lead_time`](#lead_time)
 
 <a id="total_revenue"></a>
@@ -291,7 +291,7 @@ Total top-line revenue across all streams
 - **Dimensions:** date, region, product_line, channel
 - **Data sources:** orders, invoices
 - **Children:** [`net_revenue`](#net_revenue), [`gross_revenue`](#gross_revenue), [`services_revenue`](#services_revenue), [`license_revenue`](#license_revenue), [`subscription_revenue`](#subscription_revenue), [`implementation_revenue`](#implementation_revenue), [`partner_revenue`](#partner_revenue), [`partner_revenue_pct`](#partner_revenue_pct), [`rev_from_existing`](#rev_from_existing), [`rev_from_new_customers`](#rev_from_new_customers), [`revenue_by_channel`](#revenue_by_channel), [`revenue_by_product`](#revenue_by_product), [`revenue_by_region`](#revenue_by_region), [`revenue_ytd`](#revenue_ytd)
-- **Correlated:** [`revenue_growth_rate`](#revenue_growth_rate), [`revenue_vs_py`](#revenue_vs_py), [`arr`](#arr), [`ebitda`](#ebitda), [`prior_year_revenue`](#prior_year_revenue), [`q1_revenue`](#q1_revenue), [`q4_revenue`](#q4_revenue), [`revenue_by_channel`](#revenue_by_channel), [`revenue_by_product`](#revenue_by_product), [`revenue_by_region`](#revenue_by_region), [`stg_orders_count`](#stg_orders_count)
+- **Correlated:** [`revenue_growth_rate`](#revenue_growth_rate), [`revenue_vs_py`](#revenue_vs_py), [`arr`](#arr), [`ebitda`](#ebitda), [`prior_year_revenue`](#prior_year_revenue), [`q1_revenue`](#q1_revenue), [`q4_revenue`](#q4_revenue), [`revenue_by_channel`](#revenue_by_channel), [`revenue_by_product`](#revenue_by_product), [`revenue_by_region`](#revenue_by_region)
 
 <a id="cx_csat"></a>
 ### CX CSAT — `cx_csat`
@@ -304,7 +304,7 @@ Satisfaction score from customer service interactions
 - **Denominator:** Survey responses
 - **Dimensions:** date, product, channel
 - **Data sources:** surveys
-- **Children:** [`stg_csat_response_row`](#stg_csat_response_row), [`complaint_resolution_rate`](#complaint_resolution_rate), [`complaints_count`](#complaints_count)
+- **Children:** [`complaint_resolution_rate`](#complaint_resolution_rate), [`complaints_count`](#complaints_count), [`csat`](#csat)
 - **Correlated:** [`nps`](#nps), [`ces`](#ces), [`csat`](#csat)
 
 <a id="nps"></a>
@@ -317,7 +317,7 @@ Net Promoter Score — % Promoters minus % Detractors on 0–10 likelihood-to-re
 - **Numerator:** % Promoters (9-10) - % Detractors (0-6)
 - **Dimensions:** segment, product, survey_period
 - **Data sources:** NPS survey platform (Delighted / Qualtrics)
-- **Children:** [`stg_nps_response_row`](#stg_nps_response_row), [`app_store_rating`](#app_store_rating), [`feature_request_volume`](#feature_request_volume), [`review_rating`](#review_rating), [`survey_response_rate`](#survey_response_rate), [`testimonials_count`](#testimonials_count)
+- **Children:** [`app_store_rating`](#app_store_rating), [`feature_request_volume`](#feature_request_volume), [`review_rating`](#review_rating), [`survey_response_rate`](#survey_response_rate), [`testimonials_count`](#testimonials_count)
 - **Correlated:** [`customer_health_score`](#customer_health_score), [`churn_rate`](#churn_rate), [`app_store_rating`](#app_store_rating), [`ces`](#ces), [`csat`](#csat), [`cx_csat`](#cx_csat), [`enps`](#enps), [`feature_adoption_rate`](#feature_adoption_rate), [`feature_request_volume`](#feature_request_volume), [`review_rating`](#review_rating), [`survey_response_rate`](#survey_response_rate), [`testimonials_count`](#testimonials_count)
 
 ## KPI (308)
@@ -349,8 +349,8 @@ Average value per transaction
 - **Dimensions:** date, customer_segment, channel
 - **Data sources:** orders
 - **Parents:** [`clv`](#clv), [`cohort_ltv_12m`](#cohort_ltv_12m)
-- **Children:** [`stg_purchases_count`](#stg_purchases_count), [`stg_order_amount_sum`](#stg_order_amount_sum)
-- **Correlated:** [`purchase_frequency`](#purchase_frequency), [`clv`](#clv), [`cross_sell_rate`](#cross_sell_rate), [`discount_rate`](#discount_rate), [`iap_revenue`](#iap_revenue), [`marketplace_buyers`](#marketplace_buyers), [`stg_order_amount_sum`](#stg_order_amount_sum), [`stg_orders_count`](#stg_orders_count), [`stg_products_active`](#stg_products_active), [`stg_purchases_count`](#stg_purchases_count)
+- **Children:** [`gross_revenue`](#gross_revenue)
+- **Correlated:** [`purchase_frequency`](#purchase_frequency), [`clv`](#clv), [`cross_sell_rate`](#cross_sell_rate), [`discount_rate`](#discount_rate), [`iap_revenue`](#iap_revenue), [`marketplace_buyers`](#marketplace_buyers), [`gross_revenue`](#gross_revenue)
 
 <a id="cac"></a>
 ### CAC — `cac`
@@ -479,8 +479,8 @@ Total marketing spend divided by new customers acquired
 - **Dimensions:** date, channel
 - **Data sources:** ad_platforms, crm
 - **Parents:** [`cac`](#cac)
-- **Children:** [`stg_ad_spend`](#stg_ad_spend), [`net_new_customers`](#net_new_customers)
-- **Correlated:** [`cac`](#cac), [`cost_per_mql`](#cost_per_mql), [`marketing_roi`](#marketing_roi), [`sm_spend`](#sm_spend), [`stg_ad_spend`](#stg_ad_spend)
+- **Children:** [`net_new_customers`](#net_new_customers), [`marketing_spend`](#marketing_spend)
+- **Correlated:** [`cac`](#cac), [`cost_per_mql`](#cost_per_mql), [`marketing_roi`](#marketing_roi), [`sm_spend`](#sm_spend), [`marketing_spend`](#marketing_spend)
 
 <a id="onboarding_time"></a>
 ### Onboarding Time (days) — `onboarding_time`
@@ -521,7 +521,7 @@ Percentage of sold units returned by customers
 - **Dimensions:** date, product
 - **Data sources:** returns
 - **Parents:** [`return_rate`](#return_rate)
-- **Correlated:** [`refund_rate`](#refund_rate), [`csat`](#csat), [`stg_refunds_count`](#stg_refunds_count)
+- **Correlated:** [`refund_rate`](#refund_rate), [`csat`](#csat)
 
 <a id="purchase_frequency"></a>
 ### Purchase Frequency — `purchase_frequency`
@@ -535,8 +535,8 @@ Average number of orders per customer per year
 - **Dimensions:** date, customer_segment
 - **Data sources:** orders
 - **Parents:** [`clv`](#clv), [`cohort_ltv_12m`](#cohort_ltv_12m)
-- **Children:** [`stg_purchases_count`](#stg_purchases_count), [`repeat_purchase_rate`](#repeat_purchase_rate)
-- **Correlated:** [`aov`](#aov), [`repeat_purchase_rate`](#repeat_purchase_rate), [`stg_purchases_count`](#stg_purchases_count)
+- **Children:** [`repeat_purchase_rate`](#repeat_purchase_rate)
+- **Correlated:** [`aov`](#aov), [`repeat_purchase_rate`](#repeat_purchase_rate)
 
 <a id="refund_rate"></a>
 ### Refund Rate — `refund_rate`
@@ -550,8 +550,7 @@ Percentage of transactions that were refunded
 - **Dimensions:** date, product
 - **Data sources:** orders, returns
 - **Parents:** [`clv`](#clv)
-- **Children:** [`stg_refunds_count`](#stg_refunds_count), [`stg_purchases_count`](#stg_purchases_count), [`stg_refund_amount`](#stg_refund_amount)
-- **Correlated:** [`product_return_rate`](#product_return_rate), [`csat`](#csat), [`net_revenue`](#net_revenue), [`stg_refund_amount`](#stg_refund_amount), [`stg_refunds_count`](#stg_refunds_count)
+- **Correlated:** [`product_return_rate`](#product_return_rate), [`csat`](#csat), [`net_revenue`](#net_revenue)
 
 <a id="renewal_rate"></a>
 ### Renewal Rate — `renewal_rate`
@@ -565,7 +564,7 @@ Percentage of transactions that were refunded
 - **Dimensions:** segment, plan_tier, cs_rep_id, period
 - **Data sources:** CRM, Billing system
 - **Parents:** [`net_revenue_retention`](#net_revenue_retention), [`account_health_score`](#account_health_score)
-- **Children:** [`stg_subscription_row`](#stg_subscription_row), [`qbr_completion_rate`](#qbr_completion_rate)
+- **Children:** [`qbr_completion_rate`](#qbr_completion_rate)
 - **Correlated:** [`nrr_monthly`](#nrr_monthly), [`churn_rate`](#churn_rate), [`at_risk_accounts`](#at_risk_accounts), [`customer_churn_rate`](#customer_churn_rate), [`customer_retention_rate`](#customer_retention_rate), [`qbr_completion_rate`](#qbr_completion_rate)
 
 <a id="repeat_purchase_rate"></a>
@@ -580,8 +579,7 @@ Percentage of customers who made more than one purchase
 - **Dimensions:** date
 - **Data sources:** orders
 - **Parents:** [`purchase_frequency`](#purchase_frequency)
-- **Children:** [`stg_purchases_count`](#stg_purchases_count), [`stg_customer_count`](#stg_customer_count)
-- **Correlated:** [`purchase_frequency`](#purchase_frequency), [`customer_retention_rate`](#customer_retention_rate), [`stg_purchases_count`](#stg_purchases_count)
+- **Correlated:** [`purchase_frequency`](#purchase_frequency), [`customer_retention_rate`](#customer_retention_rate)
 
 <a id="advanced_course_enrollment_rate"></a>
 ### Advanced Course Enrollment — `advanced_course_enrollment_rate`
@@ -595,7 +593,6 @@ Percentage of customers who made more than one purchase
 - **Dimensions:** school_id, grade_level, demographic_group, period
 - **Data sources:** SIS
 - **Parents:** [`graduation_rate`](#graduation_rate)
-- **Children:** [`stg_enrollment_row`](#stg_enrollment_row)
 - **Correlated:** [`college_enrollment`](#college_enrollment), [`student_proficiency`](#student_proficiency)
 
 <a id="cross_sell_rate"></a>
@@ -610,8 +607,7 @@ Percentage of customers who purchased products from more than one category
 - **Dimensions:** date, product_category
 - **Data sources:** orders
 - **Parents:** [`clv`](#clv)
-- **Children:** [`stg_purchases_count`](#stg_purchases_count), [`stg_products_active`](#stg_products_active)
-- **Correlated:** [`upsell_rate`](#upsell_rate), [`aov`](#aov), [`stg_products_active`](#stg_products_active)
+- **Correlated:** [`upsell_rate`](#upsell_rate), [`aov`](#aov)
 
 <a id="dropout_rate"></a>
 ### Dropout Rate — `dropout_rate`
@@ -655,7 +651,6 @@ Percentage of students scoring proficient or advanced on ELA state assessments
 - **Dimensions:** school_id, grade_level, home_language, period
 - **Data sources:** SIS, ELL assessment system
 - **Parents:** [`student_proficiency`](#student_proficiency)
-- **Children:** [`stg_student_assessment_row`](#stg_student_assessment_row)
 - **Correlated:** [`student_proficiency`](#student_proficiency), [`attendance_rate`](#attendance_rate)
 
 <a id="fafsa_completion_rate"></a>
@@ -755,7 +750,6 @@ Composite score from student/family/staff climate surveys.
 - **Dimensions:** school_id, respondent_type, survey_cycle
 - **Data sources:** Climate survey platform
 - **Parents:** [`student_proficiency`](#student_proficiency)
-- **Children:** [`stg_survey_response_row`](#stg_survey_response_row)
 - **Correlated:** [`employee_engagement_score`](#employee_engagement_score), [`attendance_rate`](#attendance_rate)
 
 <a id="science_proficiency_rate"></a>
@@ -808,7 +802,6 @@ Percentile ranking of a student’s academic growth relative to peers with simil
 - **Dimensions:** student_id, subject, grade_level, period
 - **Data sources:** SIS, Assessment platform
 - **Parents:** [`student_proficiency`](#student_proficiency)
-- **Children:** [`stg_student_assessment_row`](#stg_student_assessment_row)
 - **Correlated:** [`student_proficiency`](#student_proficiency), [`attendance_rate`](#attendance_rate)
 
 <a id="student_teacher_ratio"></a>
@@ -837,7 +830,6 @@ Number of enrolled students per FTE classroom teacher
 - **Dimensions:** school_id, subject_area, experience_band, period
 - **Data sources:** HRIS, SIS
 - **Parents:** [`student_proficiency`](#student_proficiency)
-- **Children:** [`stg_employee_row`](#stg_employee_row)
 - **Correlated:** [`employee_attrition_rate`](#employee_attrition_rate), [`student_proficiency`](#student_proficiency), [`avg_teacher_experience`](#avg_teacher_experience), [`on_time_lesson_delivery`](#on_time_lesson_delivery), [`school_climate_score`](#school_climate_score), [`staff_student_cost_ratio`](#staff_student_cost_ratio), [`teacher_student_ratio`](#teacher_student_ratio)
 
 <a id="teacher_student_ratio"></a>
@@ -867,7 +859,6 @@ Average number of students per full-time teacher — resource allocation metric.
 - **Dimensions:** date, product
 - **Data sources:** crm, orders
 - **Parents:** [`expansion_arr`](#expansion_arr)
-- **Children:** [`stg_purchases_count`](#stg_purchases_count)
 - **Correlated:** [`cross_sell_rate`](#cross_sell_rate), [`expansion_arr`](#expansion_arr), [`nrr`](#nrr), [`expansion_pipeline`](#expansion_pipeline)
 
 <a id="absenteeism_by_subgroup"></a>
@@ -882,7 +873,6 @@ Chronic absenteeism rate disaggregated by demographic or program subgroup.
 - **Dimensions:** school_id, subgroup, grade_level, period
 - **Data sources:** SIS, Attendance system
 - **Parents:** [`chronic_absenteeism`](#chronic_absenteeism)
-- **Children:** [`stg_attendance_row`](#stg_attendance_row)
 - **Correlated:** [`chronic_absenteeism`](#chronic_absenteeism), [`student_proficiency`](#student_proficiency)
 
 <a id="absenteeism_rate"></a>
@@ -912,7 +902,7 @@ Percentage of scheduled workdays lost to unplanned absences
 - **Dimensions:** cohort, acquisition_channel, plan_tier
 - **Data sources:** Product analytics
 - **Parents:** [`dau_mau_ratio`](#dau_mau_ratio)
-- **Children:** [`stg_user_event_row`](#stg_user_event_row), [`funnel_dropoff`](#funnel_dropoff), [`time_to_activate`](#time_to_activate)
+- **Children:** [`funnel_dropoff`](#funnel_dropoff), [`time_to_activate`](#time_to_activate)
 - **Correlated:** [`onboarding_completion_rate`](#onboarding_completion_rate), [`time_to_value`](#time_to_value), [`app_downloads`](#app_downloads), [`d7_retention`](#d7_retention), [`feature_adoption`](#feature_adoption), [`free_to_paid_rate`](#free_to_paid_rate), [`funnel_dropoff`](#funnel_dropoff), [`new_user_signups`](#new_user_signups), [`onboarding_time`](#onboarding_time), [`time_to_activate`](#time_to_activate), [`trial_signups`](#trial_signups), [`trial_to_paid_rate`](#trial_to_paid_rate), [`user_signups`](#user_signups)
 
 <a id="active_paying_users"></a>
@@ -926,7 +916,7 @@ Users on a paid plan who have been active in the past 30 days
 - **Dimensions:** date
 - **Data sources:** users, subscriptions
 - **Parents:** [`free_to_paid_rate`](#free_to_paid_rate)
-- **Children:** [`mau`](#mau), [`stg_subscriptions_active`](#stg_subscriptions_active)
+- **Children:** [`mau`](#mau)
 - **Correlated:** [`arr`](#arr), [`free_to_paid_rate`](#free_to_paid_rate)
 
 <a id="acv"></a>
@@ -941,7 +931,6 @@ Average annual contract value of new or existing customer agreements.
 - **Dimensions:** segment, product_tier, channel, period
 - **Data sources:** CRM, Billing system
 - **Parents:** [`arr`](#arr)
-- **Children:** [`stg_opportunity_row`](#stg_opportunity_row)
 - **Correlated:** [`arr`](#arr), [`new_arr`](#new_arr), [`avg_deal_size`](#avg_deal_size), [`revenue_per_account`](#revenue_per_account)
 
 <a id="ap_participation_rate"></a>
@@ -997,7 +986,7 @@ Total outstanding receivables past 90 days — bad debt risk indicator.
 - **Dimensions:** company_id, customer_segment, period
 - **Data sources:** ERP, AR aging report
 - **Parents:** [`dso`](#dso), [`bad_debt_rate`](#bad_debt_rate)
-- **Children:** [`stg_invoice_row`](#stg_invoice_row)
+- **Children:** [`billings`](#billings)
 - **Correlated:** [`dso`](#dso), [`working_capital`](#working_capital), [`bad_debt_rate`](#bad_debt_rate)
 
 <a id="arpu"></a>
@@ -1027,7 +1016,6 @@ Average selling price per unit or transaction — pricing health signal.
 - **Dimensions:** product_line, channel, geography, period
 - **Data sources:** ERP, Billing system
 - **Parents:** [`revenue`](#revenue)
-- **Children:** [`stg_revenue_event_amount`](#stg_revenue_event_amount)
 - **Correlated:** [`revenue`](#revenue), [`gross_margin`](#gross_margin)
 
 <a id="at_risk_accounts"></a>
@@ -1056,7 +1044,7 @@ Number of accounts with health score below the risk threshold
 - **Dimensions:** school_id, grade_level, subgroup, month
 - **Data sources:** SIS, Daily attendance system
 - **Parents:** [`student_proficiency`](#student_proficiency)
-- **Children:** [`chronic_absenteeism`](#chronic_absenteeism), [`average_daily_attendance`](#average_daily_attendance), [`stg_attendance_row`](#stg_attendance_row)
+- **Children:** [`chronic_absenteeism`](#chronic_absenteeism), [`average_daily_attendance`](#average_daily_attendance)
 - **Correlated:** [`student_proficiency`](#student_proficiency), [`suspension_rate`](#suspension_rate), [`ell_proficiency_growth`](#ell_proficiency_growth), [`enrollment_count`](#enrollment_count), [`graduation_rate`](#graduation_rate), [`iep_goal_mastery_rate`](#iep_goal_mastery_rate), [`on_time_lesson_delivery`](#on_time_lesson_delivery), [`per_pupil_expenditure`](#per_pupil_expenditure), [`school_culture_score`](#school_culture_score), [`student_growth_percentile`](#student_growth_percentile)
 
 <a id="average_daily_attendance"></a>
@@ -1071,7 +1059,6 @@ Average % of enrolled students present each school day.
 - **Dimensions:** school_id, grade_level, period
 - **Data sources:** SIS, Attendance system
 - **Parents:** [`attendance_rate`](#attendance_rate)
-- **Children:** [`stg_attendance_row`](#stg_attendance_row)
 - **Correlated:** [`chronic_absenteeism`](#chronic_absenteeism), [`student_proficiency`](#student_proficiency)
 
 <a id="avg_deal_size"></a>
@@ -1086,7 +1073,7 @@ Average ARR value of closed-won opportunities in the period.
 - **Dimensions:** date, sales_rep, segment
 - **Data sources:** opportunities
 - **Parents:** [`new_arr`](#new_arr), [`pipeline_generated`](#pipeline_generated)
-- **Children:** [`bookings`](#bookings), [`stg_opportunities_count`](#stg_opportunities_count)
+- **Children:** [`bookings`](#bookings)
 - **Correlated:** [`acv`](#acv), [`pipeline_coverage`](#pipeline_coverage), [`competitive_win_rate`](#competitive_win_rate)
 
 <a id="avg_sales_cycle"></a>
@@ -1116,7 +1103,6 @@ Average time users spend per session in the product.
 - **Dimensions:** platform, product_area, user_segment, period
 - **Data sources:** Product analytics
 - **Parents:** [`dau_mau_ratio`](#dau_mau_ratio)
-- **Children:** [`stg_user_event_row`](#stg_user_event_row)
 - **Correlated:** [`feature_adoption_rate`](#feature_adoption_rate), [`dau`](#dau), [`bounce_rate`](#bounce_rate)
 
 <a id="bounce_rate"></a>
@@ -1131,8 +1117,8 @@ Average time users spend per session in the product.
 - **Dimensions:** landing_page, channel, device, period
 - **Data sources:** Google Analytics / GA4
 - **Parents:** [`web_conversion_rate`](#web_conversion_rate)
-- **Children:** [`stg_session_row`](#stg_session_row)
-- **Correlated:** [`web_conversion_rate`](#web_conversion_rate), [`avg_session_duration`](#avg_session_duration), [`session_to_lead_rate`](#session_to_lead_rate), [`stg_page_views`](#stg_page_views), [`website_sessions`](#website_sessions)
+- **Children:** [`website_sessions`](#website_sessions)
+- **Correlated:** [`web_conversion_rate`](#web_conversion_rate), [`avg_session_duration`](#avg_session_duration), [`session_to_lead_rate`](#session_to_lead_rate), [`website_sessions`](#website_sessions)
 
 <a id="budget_variance"></a>
 ### Budget Variance — `budget_variance`
@@ -1261,7 +1247,7 @@ Percentage of deployments causing production incidents (DORA metric)
 - **Dimensions:** school_id, grade_level, subgroup, academic_year
 - **Data sources:** SIS, State reporting system
 - **Parents:** [`attendance_rate`](#attendance_rate), [`student_proficiency`](#student_proficiency)
-- **Children:** [`absenteeism_by_subgroup`](#absenteeism_by_subgroup), [`stg_attendance_row`](#stg_attendance_row)
+- **Children:** [`absenteeism_by_subgroup`](#absenteeism_by_subgroup)
 - **Correlated:** [`student_proficiency`](#student_proficiency), [`absenteeism_by_subgroup`](#absenteeism_by_subgroup), [`average_daily_attendance`](#average_daily_attendance), [`credit_accumulation_rate`](#credit_accumulation_rate)
 
 <a id="chronic_absenteeism_rate"></a>
@@ -1289,9 +1275,9 @@ Total cost of goods sold in a period.
 - **Numerator:** SUM(cogs_amount)
 - **Dimensions:** company_id, product_line, fiscal_period
 - **Data sources:** ERP
-- **Parents:** [`ebitda`](#ebitda), [`gross_margin`](#gross_margin), [`gross_margin_by_segment`](#gross_margin_by_segment)
-- **Children:** [`stg_cogs_event`](#stg_cogs_event), [`procurement_savings_rate`](#procurement_savings_rate), [`shrinkage_rate`](#shrinkage_rate)
-- **Correlated:** [`revenue`](#revenue)
+- **Parents:** [`ebitda`](#ebitda), [`gross_margin`](#gross_margin), [`gross_margin_by_segment`](#gross_margin_by_segment), [`gross_profit`](#gross_profit), [`dpo`](#dpo), [`inventory_turnover`](#inventory_turnover)
+- **Children:** [`procurement_savings_rate`](#procurement_savings_rate), [`shrinkage_rate`](#shrinkage_rate)
+- **Correlated:** [`revenue`](#revenue), [`gross_margin_pct`](#gross_margin_pct), [`inventory_turnover`](#inventory_turnover), [`inventory_value`](#inventory_value)
 
 <a id="college_enrollment"></a>
 ### College Enrollment Rate — `college_enrollment`
@@ -1334,7 +1320,7 @@ Total fleet operating cost divided by total miles driven.
 - **Dimensions:** fleet_type, vehicle_id, period
 - **Data sources:** Fleet management, Finance
 - **Parents:** [`ops_efficiency_ratio`](#ops_efficiency_ratio)
-- **Children:** [`stg_vehicle_trip_row`](#stg_vehicle_trip_row), [`fleet_utilization_rate`](#fleet_utilization_rate)
+- **Children:** [`fleet_utilization_rate`](#fleet_utilization_rate)
 - **Correlated:** [`fleet_utilization_rate`](#fleet_utilization_rate)
 
 <a id="cost_per_unit"></a>
@@ -1364,8 +1350,8 @@ Total marketing spend divided by leads generated
 - **Dimensions:** date, channel, campaign
 - **Data sources:** ad_platforms, crm
 - **Parents:** [`cost_per_mql`](#cost_per_mql)
-- **Children:** [`stg_ad_spend`](#stg_ad_spend), [`stg_leads_count`](#stg_leads_count), [`cost_per_event_attendee`](#cost_per_event_attendee), [`cpc`](#cpc)
-- **Correlated:** [`cost_per_mql`](#cost_per_mql), [`cpc`](#cpc), [`cost_per_event_attendee`](#cost_per_event_attendee), [`stg_leads_count`](#stg_leads_count)
+- **Children:** [`leads`](#leads), [`cost_per_event_attendee`](#cost_per_event_attendee), [`cpc`](#cpc), [`marketing_spend`](#marketing_spend)
+- **Correlated:** [`cost_per_mql`](#cost_per_mql), [`cpc`](#cpc), [`cost_per_event_attendee`](#cost_per_event_attendee), [`leads`](#leads)
 
 <a id="cpm"></a>
 ### CPM — `cpm`
@@ -1468,7 +1454,7 @@ Average days taken to pay suppliers
 - **Dimensions:** date, vendor
 - **Data sources:** purchase_orders, payments
 - **Parents:** [`working_capital`](#working_capital)
-- **Children:** [`accounts_payable`](#accounts_payable), [`cogs_stg`](#cogs_stg)
+- **Children:** [`accounts_payable`](#accounts_payable), [`cogs`](#cogs)
 - **Correlated:** [`dso`](#dso), [`working_capital`](#working_capital), [`accounts_payable`](#accounts_payable), [`inventory_turnover`](#inventory_turnover)
 
 <a id="dso"></a>
@@ -1483,9 +1469,9 @@ Average days to collect payment after a sale — cash conversion speed.
 - **Dimensions:** date, customer_segment
 - **Data sources:** invoices, payments
 - **Parents:** [`working_capital`](#working_capital)
-- **Children:** [`accounts_receivable`](#accounts_receivable), [`ar_aging_90d`](#ar_aging_90d), [`stg_invoice_row`](#stg_invoice_row)
+- **Children:** [`accounts_receivable`](#accounts_receivable), [`ar_aging_90d`](#ar_aging_90d), [`billings`](#billings)
 - **Formula inputs:** [`total_revenue`](#total_revenue)
-- **Correlated:** [`dpo`](#dpo), [`cash_and_equivalents`](#cash_and_equivalents), [`accounts_receivable`](#accounts_receivable), [`ar_aging_90d`](#ar_aging_90d), [`bad_debt_rate`](#bad_debt_rate), [`stg_invoices_count`](#stg_invoices_count)
+- **Correlated:** [`dpo`](#dpo), [`cash_and_equivalents`](#cash_and_equivalents), [`accounts_receivable`](#accounts_receivable), [`ar_aging_90d`](#ar_aging_90d), [`bad_debt_rate`](#bad_debt_rate)
 
 <a id="earned_media_value"></a>
 ### Earned Media Value — `earned_media_value`
@@ -1550,7 +1536,6 @@ Total enrolled students at a school or district as of census date.
 - **Dimensions:** school_id, grade_level, demographic_group, period
 - **Data sources:** SIS
 - **Parents:** [`per_pupil_expenditure`](#per_pupil_expenditure), [`teacher_student_ratio`](#teacher_student_ratio)
-- **Children:** [`stg_enrollment_row`](#stg_enrollment_row)
 - **Correlated:** [`graduation_rate`](#graduation_rate), [`attendance_rate`](#attendance_rate), [`seat_fill_rate`](#seat_fill_rate)
 
 <a id="error_rate"></a>
@@ -1565,7 +1550,7 @@ Total enrolled students at a school or district as of census date.
 - **Dimensions:** endpoint, error_type, platform, period
 - **Data sources:** Error tracking (Sentry / Datadog)
 - **Parents:** [`dau_mau_ratio`](#dau_mau_ratio)
-- **Children:** [`stg_error_event_row`](#stg_error_event_row), [`api_latency_p95`](#api_latency_p95), [`bug_escape_rate`](#bug_escape_rate), [`product_uptime_sla`](#product_uptime_sla)
+- **Children:** [`api_latency_p95`](#api_latency_p95), [`bug_escape_rate`](#bug_escape_rate), [`product_uptime_sla`](#product_uptime_sla)
 - **Correlated:** [`csat`](#csat), [`churn_rate`](#churn_rate), [`api_latency_p95`](#api_latency_p95), [`lead_time_for_changes`](#lead_time_for_changes), [`mttd`](#mttd), [`product_uptime_sla`](#product_uptime_sla), [`uptime`](#uptime)
 
 <a id="ev_ebitda"></a>
@@ -1608,8 +1593,8 @@ Percentage of support cases resolved on the first contact
 - **Dimensions:** date, channel
 - **Data sources:** helpdesk
 - **Parents:** [`csat`](#csat)
-- **Children:** [`stg_support_tickets`](#stg_support_tickets)
-- **Correlated:** [`ticket_resolution_time`](#ticket_resolution_time), [`csat`](#csat), [`stg_support_tickets`](#stg_support_tickets), [`tickets_per_agent`](#tickets_per_agent), [`tickets_resolved`](#tickets_resolved)
+- **Children:** [`tickets_created`](#tickets_created)
+- **Correlated:** [`ticket_resolution_time`](#ticket_resolution_time), [`csat`](#csat), [`tickets_per_agent`](#tickets_per_agent), [`tickets_resolved`](#tickets_resolved), [`tickets_created`](#tickets_created)
 
 <a id="feature_adoption"></a>
 ### Feature Adoption — `feature_adoption`
@@ -1623,8 +1608,8 @@ Percentage of active users who used a given feature
 - **Dimensions:** date, feature
 - **Data sources:** events
 - **Parents:** [`feature_adoption_rate`](#feature_adoption_rate)
-- **Children:** [`stg_events_count`](#stg_events_count), [`dau`](#dau)
-- **Correlated:** [`dau_mau_ratio`](#dau_mau_ratio), [`activation_rate`](#activation_rate), [`session_length`](#session_length), [`stg_events_count`](#stg_events_count)
+- **Children:** [`dau`](#dau)
+- **Correlated:** [`dau_mau_ratio`](#dau_mau_ratio), [`activation_rate`](#activation_rate), [`session_length`](#session_length)
 
 <a id="first_response_time"></a>
 ### First Response Time — `first_response_time`
@@ -1638,8 +1623,8 @@ Average hours from ticket creation to first agent response.
 - **Dimensions:** priority, channel, team, period
 - **Data sources:** Support platform
 - **Parents:** [`csat`](#csat), [`sla_breach_rate`](#sla_breach_rate)
-- **Children:** [`stg_ticket_row`](#stg_ticket_row)
-- **Correlated:** [`ces`](#ces), [`csat`](#csat), [`stg_support_tickets`](#stg_support_tickets), [`ticket_backlog`](#ticket_backlog), [`ticket_resolution_rate`](#ticket_resolution_rate), [`ticket_resolution_time`](#ticket_resolution_time), [`time_to_resolution`](#time_to_resolution)
+- **Children:** [`tickets_created`](#tickets_created)
+- **Correlated:** [`ces`](#ces), [`csat`](#csat), [`ticket_backlog`](#ticket_backlog), [`ticket_resolution_rate`](#ticket_resolution_rate), [`ticket_resolution_time`](#ticket_resolution_time), [`time_to_resolution`](#time_to_resolution), [`tickets_created`](#tickets_created)
 
 <a id="fleet_utilization_rate"></a>
 ### Fleet Utilization Rate — `fleet_utilization_rate`
@@ -1653,7 +1638,6 @@ Average hours from ticket creation to first agent response.
 - **Dimensions:** vehicle_id, fleet_type, region, period
 - **Data sources:** Fleet management system (GPS, telematics)
 - **Parents:** [`cost_per_mile`](#cost_per_mile)
-- **Children:** [`stg_vehicle_trip_row`](#stg_vehicle_trip_row)
 - **Correlated:** [`cost_per_mile`](#cost_per_mile)
 
 <a id="forecast_accuracy"></a>
@@ -1684,7 +1668,7 @@ Percentage of form page visitors who submitted a form
 - **Dimensions:** date, form, page
 - **Data sources:** analytics, crm
 - **Parents:** [`mql`](#mql)
-- **Children:** [`website_sessions`](#website_sessions), [`stg_leads_count`](#stg_leads_count)
+- **Children:** [`website_sessions`](#website_sessions), [`leads`](#leads)
 - **Correlated:** [`session_to_lead_rate`](#session_to_lead_rate), [`lead_to_mql_rate`](#lead_to_mql_rate), [`demo_requests`](#demo_requests), [`email_ctr`](#email_ctr), [`webinar_attendance_rate`](#webinar_attendance_rate)
 
 <a id="free_to_paid_rate"></a>
@@ -1742,7 +1726,7 @@ Total value of merchandise sold through a marketplace before returns and fees.
 - **Dimensions:** category, channel, seller_id, period
 - **Data sources:** Marketplace platform, ERP
 - **Parents:** [`revenue`](#revenue), [`take_rate`](#take_rate)
-- **Children:** [`stg_revenue_event_amount`](#stg_revenue_event_amount), [`liquidity_rate`](#liquidity_rate), [`marketplace_buyers`](#marketplace_buyers), [`marketplace_sellers`](#marketplace_sellers)
+- **Children:** [`liquidity_rate`](#liquidity_rate), [`marketplace_buyers`](#marketplace_buyers), [`marketplace_sellers`](#marketplace_sellers)
 - **Correlated:** [`revenue`](#revenue), [`take_rate`](#take_rate)
 
 <a id="graduation_rate"></a>
@@ -1804,7 +1788,7 @@ Gross profit as a percentage of revenue
 - **Parents:** [`ebitda`](#ebitda), [`cac_payback`](#cac_payback)
 - **Children:** [`gross_profit`](#gross_profit)
 - **Formula inputs:** [`total_revenue`](#total_revenue)
-- **Correlated:** [`ebitda_margin`](#ebitda_margin), [`net_margin`](#net_margin), [`cogs_stg`](#cogs_stg), [`gross_profit`](#gross_profit), [`ops_efficiency_ratio`](#ops_efficiency_ratio), [`revenue_by_product`](#revenue_by_product)
+- **Correlated:** [`ebitda_margin`](#ebitda_margin), [`net_margin`](#net_margin), [`gross_profit`](#gross_profit), [`ops_efficiency_ratio`](#ops_efficiency_ratio), [`revenue_by_product`](#revenue_by_product), [`cogs`](#cogs)
 
 <a id="gross_profit"></a>
 ### Gross Profit — `gross_profit`
@@ -1818,7 +1802,7 @@ Revenue minus COGS — contribution before operating expenses.
 - **Dimensions:** date, product_line
 - **Data sources:** orders, cogs
 - **Parents:** [`ebitda`](#ebitda), [`gross_margin_pct`](#gross_margin_pct), [`gross_margin_by_segment`](#gross_margin_by_segment), [`gross_profit_per_employee`](#gross_profit_per_employee)
-- **Children:** [`cogs_stg`](#cogs_stg)
+- **Children:** [`cogs`](#cogs)
 - **Formula inputs:** [`total_revenue`](#total_revenue)
 - **Correlated:** [`gross_margin_pct`](#gross_margin_pct), [`gross_profit_per_employee`](#gross_profit_per_employee)
 
@@ -1894,7 +1878,6 @@ EBIT divided by interest expense — ability to service debt. <1.5x is distress 
 - **Dimensions:** department, job_level, period
 - **Data sources:** HRIS, ATS
 - **Parents:** [`employee_attrition_rate`](#employee_attrition_rate)
-- **Children:** [`stg_job_requisition_row`](#stg_job_requisition_row)
 - **Correlated:** [`employee_attrition_rate`](#employee_attrition_rate), [`time_to_fill`](#time_to_fill), [`span_of_control`](#span_of_control), [`training_hours_per_employee`](#training_hours_per_employee)
 
 <a id="interview_to_offer_rate"></a>
@@ -1967,7 +1950,7 @@ Upward feedback score measuring managerial quality from direct reports.
 - **Dimensions:** manager_id, department, survey_cycle
 - **Data sources:** Performance management system
 - **Parents:** [`employee_engagement_score`](#employee_engagement_score)
-- **Children:** [`stg_survey_response_row`](#stg_survey_response_row), [`span_of_control`](#span_of_control)
+- **Children:** [`span_of_control`](#span_of_control)
 - **Correlated:** [`employee_attrition_rate`](#employee_attrition_rate), [`employee_engagement_score`](#employee_engagement_score)
 
 <a id="market_share"></a>
@@ -1996,7 +1979,6 @@ Total pipeline ARR where marketing had at least one touchpoint before opportunit
 - **Dimensions:** channel, campaign, segment, period
 - **Data sources:** CRM, Attribution model
 - **Parents:** [`marketing_roi`](#marketing_roi)
-- **Children:** [`stg_opportunity_row`](#stg_opportunity_row)
 - **Correlated:** [`pipeline_value`](#pipeline_value), [`roas`](#roas)
 
 <a id="marketing_spend"></a>
@@ -2009,9 +1991,8 @@ Total paid and owned marketing spend in the period.
 - **Numerator:** SUM(spend)
 - **Dimensions:** channel, campaign, period
 - **Data sources:** Ad platforms, Finance
-- **Parents:** [`cac`](#cac), [`cost_per_mql`](#cost_per_mql), [`cost_per_sql`](#cost_per_sql), [`cpm`](#cpm), [`roas`](#roas)
-- **Children:** [`stg_ad_spend_row`](#stg_ad_spend_row)
-- **Correlated:** [`revenue`](#revenue), [`mrr`](#mrr), [`sales_spend`](#sales_spend)
+- **Parents:** [`cac`](#cac), [`cost_per_mql`](#cost_per_mql), [`cost_per_sql`](#cost_per_sql), [`cpm`](#cpm), [`roas`](#roas), [`cpc`](#cpc), [`cpl`](#cpl), [`marketing_cac`](#marketing_cac), [`marketing_roi`](#marketing_roi)
+- **Correlated:** [`revenue`](#revenue), [`mrr`](#mrr), [`sales_spend`](#sales_spend), [`roas`](#roas), [`cpc`](#cpc), [`marketing_cac`](#marketing_cac)
 
 <a id="mtbf"></a>
 ### MTBF — `mtbf`
@@ -2025,7 +2006,7 @@ Mean Time Between Failures — average operating time between unplanned stoppage
 - **Dimensions:** system_id, facility_id, period
 - **Data sources:** CMMS, SCADA
 - **Parents:** [`system_uptime`](#system_uptime)
-- **Children:** [`stg_downtime_event_row`](#stg_downtime_event_row), [`preventive_maintenance_rate`](#preventive_maintenance_rate)
+- **Children:** [`preventive_maintenance_rate`](#preventive_maintenance_rate)
 - **Correlated:** [`preventive_maintenance_rate`](#preventive_maintenance_rate), [`system_uptime`](#system_uptime)
 
 <a id="mttd"></a>
@@ -2040,7 +2021,7 @@ Average hours from incident start to detection
 - **Dimensions:** date
 - **Data sources:** monitoring
 - **Parents:** [`uptime`](#uptime)
-- **Children:** [`incident_count`](#incident_count), [`stg_error_event_row`](#stg_error_event_row)
+- **Children:** [`incident_count`](#incident_count)
 - **Correlated:** [`mttr`](#mttr), [`error_rate`](#error_rate), [`incident_count`](#incident_count)
 
 <a id="mttr"></a>
@@ -2130,7 +2111,7 @@ New customers acquired minus churned customers
 - **Data sources:** crm, orders
 - **Parents:** [`marketing_cac`](#marketing_cac)
 - **Children:** [`monthly_new_customers`](#monthly_new_customers), [`customer_churn_rate`](#customer_churn_rate)
-- **Correlated:** [`arr_growth_rate`](#arr_growth_rate), [`cac`](#cac), [`customer_count`](#customer_count), [`stg_customer_count`](#stg_customer_count)
+- **Correlated:** [`arr_growth_rate`](#arr_growth_rate), [`cac`](#cac), [`customer_count`](#customer_count)
 
 <a id="new_user_signups"></a>
 ### New Signups — `new_user_signups`
@@ -2143,7 +2124,7 @@ Count of new user account registrations in the period.
 - **Dimensions:** acquisition_channel, plan_tier, geography, period
 - **Data sources:** Product database, CRM
 - **Parents:** [`mau`](#mau)
-- **Children:** [`stg_user_event_row`](#stg_user_event_row), [`app_downloads`](#app_downloads), [`viral_coefficient`](#viral_coefficient)
+- **Children:** [`app_downloads`](#app_downloads), [`viral_coefficient`](#viral_coefficient)
 - **Correlated:** [`activation_rate`](#activation_rate), [`mql_count`](#mql_count)
 
 <a id="offer_acceptance_rate"></a>
@@ -2186,7 +2167,7 @@ Total operating expenses excluding COGS in a period.
 - **Dimensions:** date, department
 - **Data sources:** general_ledger
 - **Parents:** [`ebitda`](#ebitda), [`burn_rate`](#burn_rate), [`ops_efficiency_ratio`](#ops_efficiency_ratio)
-- **Children:** [`sg_and_a`](#sg_and_a), [`total_comp_expense`](#total_comp_expense), [`ga_spend_pct`](#ga_spend_pct), [`gna_pct_revenue`](#gna_pct_revenue), [`headcount_cost`](#headcount_cost), [`hr_cost_pct_revenue`](#hr_cost_pct_revenue), [`rd_as_pct_revenue`](#rd_as_pct_revenue), [`rd_expense`](#rd_expense), [`rd_spend_pct`](#rd_spend_pct), [`stg_opex_line`](#stg_opex_line)
+- **Children:** [`sg_and_a`](#sg_and_a), [`total_comp_expense`](#total_comp_expense), [`ga_spend_pct`](#ga_spend_pct), [`gna_pct_revenue`](#gna_pct_revenue), [`headcount_cost`](#headcount_cost), [`hr_cost_pct_revenue`](#hr_cost_pct_revenue), [`rd_as_pct_revenue`](#rd_as_pct_revenue), [`rd_expense`](#rd_expense), [`rd_spend_pct`](#rd_spend_pct)
 - **Correlated:** [`ga_spend_pct`](#ga_spend_pct), [`rd_spend_pct`](#rd_spend_pct), [`annual_budget`](#annual_budget), [`budget_variance`](#budget_variance), [`budget_variance_pct`](#budget_variance_pct), [`gna_pct_revenue`](#gna_pct_revenue), [`headcount_fte`](#headcount_fte), [`headcount_vs_budget`](#headcount_vs_budget), [`hr_cost_pct_revenue`](#hr_cost_pct_revenue)
 
 <a id="order_accuracy_rate"></a>
@@ -2201,7 +2182,6 @@ Total operating expenses excluding COGS in a period.
 - **Dimensions:** warehouse_id, carrier, period
 - **Data sources:** WMS, Customer service system
 - **Parents:** [`ops_north_star`](#ops_north_star)
-- **Children:** [`stg_shipment_row`](#stg_shipment_row)
 - **Correlated:** [`fill_rate`](#fill_rate), [`on_time_delivery_rate`](#on_time_delivery_rate), [`defect_rate`](#defect_rate), [`return_rate`](#return_rate)
 
 <a id="paid_attribution_pct"></a>
@@ -2216,7 +2196,6 @@ Percentage of closed revenue attributed to paid channels
 - **Dimensions:** date, channel
 - **Data sources:** ad_platforms, crm
 - **Parents:** [`marketing_roi`](#marketing_roi)
-- **Children:** [`stg_ad_spend`](#stg_ad_spend)
 - **Formula inputs:** [`mql`](#mql)
 - **Correlated:** [`organic_attribution_pct`](#organic_attribution_pct), [`roas`](#roas)
 
@@ -2231,7 +2210,6 @@ Web sessions from paid advertising channels (CPC, CPM).
 - **Dimensions:** channel, campaign, period
 - **Data sources:** Google Analytics / GA4
 - **Parents:** [`website_sessions`](#website_sessions)
-- **Children:** [`stg_session_row`](#stg_session_row)
 - **Correlated:** [`organic_sessions`](#organic_sessions), [`roas`](#roas)
 
 <a id="payback_period"></a>
@@ -2305,7 +2283,7 @@ Total ARR value of open opportunities in the pipeline.
 - **Dimensions:** segment, stage, rep_id, period
 - **Data sources:** CRM
 - **Parents:** [`pipeline_coverage`](#pipeline_coverage)
-- **Children:** [`stg_opportunity_row`](#stg_opportunity_row), [`sql_count`](#sql_count)
+- **Children:** [`sql_count`](#sql_count)
 - **Correlated:** [`new_arr`](#new_arr), [`win_rate`](#win_rate), [`marketing_influenced_pipeline`](#marketing_influenced_pipeline)
 
 <a id="plg_rate"></a>
@@ -2335,7 +2313,7 @@ Percentage of new signups coming from product-driven virality (invites, sharing)
 - **Dimensions:** facility_id, asset_type, period
 - **Data sources:** CMMS
 - **Parents:** [`mtbf`](#mtbf)
-- **Children:** [`stg_work_order_row`](#stg_work_order_row)
+- **Children:** [`work_orders`](#work_orders)
 - **Correlated:** [`work_order_resolution_time`](#work_order_resolution_time), [`mtbf`](#mtbf), [`system_uptime`](#system_uptime)
 
 <a id="push_open_rate"></a>
@@ -2378,7 +2356,6 @@ Sales rep ARR closed as a % of their assigned quota.
 - **Dimensions:** rep_id, segment, period
 - **Data sources:** CRM, Finance
 - **Parents:** [`new_arr`](#new_arr), [`pct_reps_at_quota`](#pct_reps_at_quota), [`pipeline_coverage`](#pipeline_coverage)
-- **Children:** [`stg_opportunity_row`](#stg_opportunity_row)
 - **Correlated:** [`win_rate`](#win_rate), [`new_arr`](#new_arr), [`arr_per_rep`](#arr_per_rep), [`pct_reps_at_quota`](#pct_reps_at_quota), [`sales_headcount`](#sales_headcount)
 
 <a id="rd_expense"></a>
@@ -2563,7 +2540,6 @@ Average days from first touch to closed-won opportunity.
 - **Dimensions:** segment, rep_id, deal_size_tier, period
 - **Data sources:** CRM (Salesforce / HubSpot)
 - **Parents:** [`new_arr`](#new_arr)
-- **Children:** [`stg_opportunity_row`](#stg_opportunity_row)
 - **Correlated:** [`cac`](#cac), [`win_rate`](#win_rate)
 
 <a id="sales_spend"></a>
@@ -2577,7 +2553,6 @@ Total sales team costs including salaries, commissions, and tools.
 - **Dimensions:** company_id, team, fiscal_period
 - **Data sources:** HRIS, ERP
 - **Parents:** [`cac`](#cac), [`sg_and_a`](#sg_and_a)
-- **Children:** [`stg_payroll_row`](#stg_payroll_row)
 - **Correlated:** [`marketing_spend`](#marketing_spend), [`cac`](#cac)
 
 <a id="session_length"></a>
@@ -2591,7 +2566,7 @@ Average duration of user sessions in minutes
 - **Dimensions:** date, platform
 - **Data sources:** sessions
 - **Parents:** [`dau_mau_ratio`](#dau_mau_ratio)
-- **Correlated:** [`dau_mau_ratio`](#dau_mau_ratio), [`feature_adoption`](#feature_adoption), [`sessions_per_user`](#sessions_per_user), [`stg_sessions_count`](#stg_sessions_count)
+- **Correlated:** [`dau_mau_ratio`](#dau_mau_ratio), [`feature_adoption`](#feature_adoption), [`sessions_per_user`](#sessions_per_user), [`website_sessions`](#website_sessions)
 
 <a id="sessions_per_user"></a>
 ### Sessions / User — `sessions_per_user`
@@ -2605,7 +2580,7 @@ Average number of sessions per active user in the period
 - **Dimensions:** date, platform
 - **Data sources:** sessions
 - **Parents:** [`dau_mau_ratio`](#dau_mau_ratio)
-- **Children:** [`stg_sessions_count`](#stg_sessions_count)
+- **Children:** [`website_sessions`](#website_sessions)
 - **Correlated:** [`dau_mau_ratio`](#dau_mau_ratio), [`session_length`](#session_length)
 
 <a id="sg_and_a"></a>
@@ -2662,7 +2637,7 @@ Brand mentions as a % of total category mentions — competitive visibility.
 - **Dimensions:** school_year, school, subgroup
 - **Data sources:** discipline
 - **Parents:** [`chronic_absenteeism_rate`](#chronic_absenteeism_rate), [`dropout_rate`](#dropout_rate)
-- **Children:** [`expulsion_rate`](#expulsion_rate), [`stg_discipline_row`](#stg_discipline_row)
+- **Children:** [`expulsion_rate`](#expulsion_rate)
 - **Correlated:** [`chronic_absenteeism_rate`](#chronic_absenteeism_rate), [`school_climate_score`](#school_climate_score), [`attendance_rate`](#attendance_rate), [`expulsion_rate`](#expulsion_rate)
 
 <a id="take_rate"></a>
@@ -2719,7 +2694,7 @@ Average days from job posting to offer accepted.
 - **Dimensions:** department, job_level, location, period
 - **Data sources:** ATS (Greenhouse / Lever)
 - **Parents:** [`headcount_vs_budget`](#headcount_vs_budget)
-- **Children:** [`stg_job_requisition_row`](#stg_job_requisition_row), [`offer_acceptance_rate`](#offer_acceptance_rate), [`time_to_hire`](#time_to_hire)
+- **Children:** [`offer_acceptance_rate`](#offer_acceptance_rate), [`time_to_hire`](#time_to_hire)
 - **Correlated:** [`headcount_fte`](#headcount_fte), [`cac`](#cac), [`cost_per_hire`](#cost_per_hire), [`internal_promotion_rate`](#internal_promotion_rate), [`new_hires`](#new_hires), [`open_requisitions`](#open_requisitions), [`time_to_hire`](#time_to_hire)
 
 <a id="time_to_resolution"></a>
@@ -2734,7 +2709,7 @@ Average total hours from ticket creation to final resolution.
 - **Dimensions:** priority, category, channel, team, period
 - **Data sources:** Support platform
 - **Parents:** [`csat`](#csat)
-- **Children:** [`stg_ticket_row`](#stg_ticket_row)
+- **Children:** [`tickets_created`](#tickets_created)
 - **Correlated:** [`first_response_time`](#first_response_time), [`csat`](#csat)
 
 <a id="time_to_value"></a>
@@ -2749,7 +2724,7 @@ Days from signup to first meaningful value event (aha moment).
 - **Dimensions:** cohort, plan_tier, acquisition_channel
 - **Data sources:** Product analytics
 - **Parents:** [`dau_mau_ratio`](#dau_mau_ratio)
-- **Children:** [`stg_user_event_row`](#stg_user_event_row), [`onboarding_completion_rate`](#onboarding_completion_rate), [`onboarding_time`](#onboarding_time)
+- **Children:** [`onboarding_completion_rate`](#onboarding_completion_rate), [`onboarding_time`](#onboarding_time)
 - **Correlated:** [`churn_rate`](#churn_rate), [`feature_adoption_rate`](#feature_adoption_rate), [`activation_rate`](#activation_rate), [`customer_onboarding_time`](#customer_onboarding_time), [`onboarding_time`](#onboarding_time), [`time_to_activate`](#time_to_activate)
 
 <a id="training_hours_per_employee"></a>
@@ -2764,7 +2739,6 @@ Average learning and development hours per employee per period.
 - **Dimensions:** department, training_type, period
 - **Data sources:** LMS (Learning Management System)
 - **Parents:** [`employee_engagement_score`](#employee_engagement_score)
-- **Children:** [`stg_employee_row`](#stg_employee_row)
 - **Correlated:** [`employee_engagement_score`](#employee_engagement_score), [`internal_promotion_rate`](#internal_promotion_rate)
 
 <a id="trial_to_paid_rate"></a>
@@ -2794,7 +2768,7 @@ Percentage of trial users who converted to a paid plan
 - **Dimensions:** campaign_id, segment, period
 - **Data sources:** Email platform
 - **Parents:** [`mql_count`](#mql_count)
-- **Children:** [`stg_email_send_row`](#stg_email_send_row), [`email_unsub_rate`](#email_unsub_rate)
+- **Children:** [`email_unsub_rate`](#email_unsub_rate)
 - **Correlated:** [`email_open_rate`](#email_open_rate)
 
 <a id="viral_coefficient"></a>
@@ -2836,9 +2810,9 @@ Total web sessions across all channels.
 - **Numerator:** COUNT(sessions)
 - **Dimensions:** channel, source, medium, period
 - **Data sources:** Google Analytics / GA4
-- **Parents:** [`form_conversion_rate`](#form_conversion_rate), [`session_to_lead_rate`](#session_to_lead_rate), [`web_conversion_rate`](#web_conversion_rate)
-- **Children:** [`organic_sessions`](#organic_sessions), [`stg_session_row`](#stg_session_row), [`organic_traffic`](#organic_traffic), [`paid_sessions`](#paid_sessions), [`paid_traffic`](#paid_traffic), [`referral_sessions`](#referral_sessions), [`stg_page_view_row`](#stg_page_view_row), [`stg_page_views`](#stg_page_views)
-- **Correlated:** [`mql_count`](#mql_count), [`web_conversion_rate`](#web_conversion_rate), [`bounce_rate`](#bounce_rate), [`stg_page_views`](#stg_page_views)
+- **Parents:** [`form_conversion_rate`](#form_conversion_rate), [`session_to_lead_rate`](#session_to_lead_rate), [`web_conversion_rate`](#web_conversion_rate), [`bounce_rate`](#bounce_rate), [`sessions_per_user`](#sessions_per_user)
+- **Children:** [`organic_sessions`](#organic_sessions), [`organic_traffic`](#organic_traffic), [`paid_sessions`](#paid_sessions), [`paid_traffic`](#paid_traffic), [`referral_sessions`](#referral_sessions)
+- **Correlated:** [`mql_count`](#mql_count), [`web_conversion_rate`](#web_conversion_rate), [`bounce_rate`](#bounce_rate), [`dau`](#dau), [`session_length`](#session_length)
 
 <a id="win_rate"></a>
 ### Win Rate — `win_rate`
@@ -2852,7 +2826,7 @@ Total web sessions across all channels.
 - **Dimensions:** segment, rep_id, source, period
 - **Data sources:** CRM
 - **Parents:** [`new_arr`](#new_arr)
-- **Children:** [`stg_opportunity_row`](#stg_opportunity_row), [`competitive_win_rate`](#competitive_win_rate)
+- **Children:** [`competitive_win_rate`](#competitive_win_rate)
 - **Correlated:** [`sales_cycle_length`](#sales_cycle_length), [`cac`](#cac), [`avg_sales_cycle`](#avg_sales_cycle), [`competitive_win_rate`](#competitive_win_rate), [`mql_to_sql_rate`](#mql_to_sql_rate), [`pct_reps_at_quota`](#pct_reps_at_quota), [`pipeline_coverage`](#pipeline_coverage), [`pipeline_value`](#pipeline_value), [`quota_attainment`](#quota_attainment), [`sales_cycle_by_segment`](#sales_cycle_by_segment), [`sql`](#sql), [`sql_count`](#sql_count)
 
 <a id="work_order_resolution_time"></a>
@@ -2867,7 +2841,7 @@ Average days to close a maintenance work order from creation.
 - **Dimensions:** facility_id, category, priority, period
 - **Data sources:** CMMS
 - **Parents:** [`system_uptime`](#system_uptime)
-- **Children:** [`stg_work_order_row`](#stg_work_order_row)
+- **Children:** [`work_orders`](#work_orders)
 - **Correlated:** [`preventive_maintenance_rate`](#preventive_maintenance_rate)
 
 <a id="workforce_productivity"></a>
@@ -2925,7 +2899,6 @@ Employee pay relative to market midpoint for their role — pay equity signal.
 - **Dimensions:** job_level, department, location, period
 - **Data sources:** HRIS, Market compensation data
 - **Parents:** [`employee_attrition_rate`](#employee_attrition_rate)
-- **Children:** [`stg_payroll_row`](#stg_payroll_row)
 - **Correlated:** [`employee_attrition_rate`](#employee_attrition_rate), [`headcount_cost`](#headcount_cost)
 
 <a id="complaint_resolution_rate"></a>
@@ -2997,7 +2970,7 @@ Percentage of hires from underrepresented groups
 - **Dimensions:** department, job_level, location, period
 - **Data sources:** HRIS
 - **Parents:** [`turnover_rate`](#turnover_rate)
-- **Children:** [`stg_employee_row`](#stg_employee_row), [`compensation_ratio`](#compensation_ratio), [`gender_pay_gap`](#gender_pay_gap), [`internal_promotion_rate`](#internal_promotion_rate)
+- **Children:** [`compensation_ratio`](#compensation_ratio), [`gender_pay_gap`](#gender_pay_gap), [`internal_promotion_rate`](#internal_promotion_rate)
 - **Correlated:** [`headcount_fte`](#headcount_fte), [`employee_engagement_score`](#employee_engagement_score), [`compensation_ratio`](#compensation_ratio), [`employee_lifetime_value`](#employee_lifetime_value), [`internal_promotion_rate`](#internal_promotion_rate), [`manager_effectiveness_score`](#manager_effectiveness_score), [`safety_incident_rate`](#safety_incident_rate), [`teacher_retention_rate`](#teacher_retention_rate)
 
 <a id="employee_engagement_score"></a>
@@ -3011,7 +2984,7 @@ Composite score from engagement surveys (eNPS, pulse).
 - **Dimensions:** department, job_level, location, survey_cycle
 - **Data sources:** Survey platform (Lattice / Culture Amp)
 - **Parents:** [`voluntary_turnover`](#voluntary_turnover)
-- **Children:** [`stg_survey_response_row`](#stg_survey_response_row), [`manager_effectiveness_score`](#manager_effectiveness_score), [`training_hours_per_employee`](#training_hours_per_employee)
+- **Children:** [`manager_effectiveness_score`](#manager_effectiveness_score), [`training_hours_per_employee`](#training_hours_per_employee)
 - **Correlated:** [`employee_attrition_rate`](#employee_attrition_rate), [`headcount_cost`](#headcount_cost), [`employee_lifetime_value`](#employee_lifetime_value), [`manager_effectiveness_score`](#manager_effectiveness_score), [`school_culture_score`](#school_culture_score), [`training_hours_per_employee`](#training_hours_per_employee)
 
 <a id="engagement_score"></a>
@@ -3039,7 +3012,6 @@ Total fully-loaded compensation cost including salary, benefits, and employer ta
 - **Dimensions:** department, location, job_level, period
 - **Data sources:** HRIS, Payroll system
 - **Parents:** [`opex`](#opex), [`employee_lifetime_value`](#employee_lifetime_value), [`staff_student_cost_ratio`](#staff_student_cost_ratio)
-- **Children:** [`stg_payroll_row`](#stg_payroll_row)
 - **Correlated:** [`headcount_fte`](#headcount_fte), [`revenue_per_employee`](#revenue_per_employee), [`compensation_ratio`](#compensation_ratio), [`employee_engagement_score`](#employee_engagement_score), [`safety_incident_rate`](#safety_incident_rate)
 
 <a id="headcount_vs_budget"></a>
@@ -3069,8 +3041,8 @@ COGS divided by average inventory — how many times inventory was sold and repl
 - **Dimensions:** date, product, location
 - **Data sources:** inventory, orders
 - **Parents:** [`working_capital`](#working_capital)
-- **Children:** [`cogs_stg`](#cogs_stg), [`inventory_value`](#inventory_value), [`stg_inventory_items`](#stg_inventory_items)
-- **Correlated:** [`stockout_rate`](#stockout_rate), [`dpo`](#dpo), [`otd_rate`](#otd_rate), [`cogs_stg`](#cogs_stg), [`fill_rate`](#fill_rate), [`inventory_value`](#inventory_value), [`stg_inventory_items`](#stg_inventory_items), [`supplier_lead_time`](#supplier_lead_time), [`warehouse_utilization_rate`](#warehouse_utilization_rate)
+- **Children:** [`inventory_value`](#inventory_value), [`inventory_items`](#inventory_items), [`cogs`](#cogs)
+- **Correlated:** [`stockout_rate`](#stockout_rate), [`dpo`](#dpo), [`otd_rate`](#otd_rate), [`fill_rate`](#fill_rate), [`inventory_value`](#inventory_value), [`inventory_items`](#inventory_items), [`supplier_lead_time`](#supplier_lead_time), [`warehouse_utilization_rate`](#warehouse_utilization_rate), [`cogs`](#cogs)
 
 <a id="onboarding_completion_rate"></a>
 ### Onboarding Completion — `onboarding_completion_rate`
@@ -3084,7 +3056,6 @@ COGS divided by average inventory — how many times inventory was sold and repl
 - **Dimensions:** cohort, plan_tier, acquisition_channel
 - **Data sources:** Product analytics
 - **Parents:** [`time_to_value`](#time_to_value)
-- **Children:** [`stg_user_event_row`](#stg_user_event_row)
 - **Correlated:** [`feature_adoption_rate`](#feature_adoption_rate), [`churn_rate`](#churn_rate), [`activation_rate`](#activation_rate)
 
 <a id="pct_reps_at_quota"></a>
@@ -3202,7 +3173,6 @@ Percentage of purchase orders fulfilled by vendors per specifications
 - **Dimensions:** date, vendor
 - **Data sources:** procurement, quality
 - **Parents:** [`vendor_scorecard_rating`](#vendor_scorecard_rating)
-- **Children:** [`stg_purchase_order_row`](#stg_purchase_order_row)
 - **Correlated:** [`supplier_lead_time`](#supplier_lead_time), [`defect_rate`](#defect_rate), [`shrinkage_rate`](#shrinkage_rate)
 
 <a id="voluntary_turnover"></a>
@@ -3262,7 +3232,7 @@ Total marketing spend divided by MQLs generated.
 - **Dimensions:** date, channel
 - **Data sources:** ad_platforms, crm
 - **Parents:** [`cac`](#cac)
-- **Children:** [`stg_ad_spend`](#stg_ad_spend), [`cpl`](#cpl), [`marketing_spend`](#marketing_spend)
+- **Children:** [`cpl`](#cpl), [`marketing_spend`](#marketing_spend)
 - **Formula inputs:** [`mql`](#mql)
 - **Correlated:** [`cpl`](#cpl), [`marketing_cac`](#marketing_cac), [`cost_per_sql`](#cost_per_sql), [`mql_count`](#mql_count), [`web_conversion_rate`](#web_conversion_rate)
 
@@ -3293,8 +3263,8 @@ Average cost paid per ad click.
 - **Dimensions:** date, channel
 - **Data sources:** ad_platforms
 - **Parents:** [`cpl`](#cpl)
-- **Children:** [`stg_ad_spend`](#stg_ad_spend), [`ad_impressions`](#ad_impressions), [`ad_clicks`](#ad_clicks), [`ad_ctr`](#ad_ctr), [`cpm`](#cpm), [`ctr`](#ctr)
-- **Correlated:** [`ad_ctr`](#ad_ctr), [`roas`](#roas), [`ad_impressions`](#ad_impressions), [`cpl`](#cpl), [`cpm`](#cpm), [`ctr`](#ctr), [`stg_ad_spend`](#stg_ad_spend)
+- **Children:** [`ad_impressions`](#ad_impressions), [`ad_clicks`](#ad_clicks), [`ad_ctr`](#ad_ctr), [`cpm`](#cpm), [`ctr`](#ctr), [`marketing_spend`](#marketing_spend)
+- **Correlated:** [`ad_ctr`](#ad_ctr), [`roas`](#roas), [`ad_impressions`](#ad_impressions), [`cpl`](#cpl), [`cpm`](#cpm), [`ctr`](#ctr), [`marketing_spend`](#marketing_spend)
 
 <a id="ctr"></a>
 ### CTR — `ctr`
@@ -3323,7 +3293,7 @@ Clicks divided by impressions — ad relevance and creative effectiveness.
 - **Dimensions:** campaign_id, segment, period
 - **Data sources:** Email platform
 - **Parents:** [`mql_count`](#mql_count)
-- **Children:** [`stg_email_send_row`](#stg_email_send_row), [`email_open_rate`](#email_open_rate)
+- **Children:** [`email_open_rate`](#email_open_rate)
 - **Correlated:** [`email_open_rate`](#email_open_rate), [`web_conversion_rate`](#web_conversion_rate)
 
 <a id="email_ctr"></a>
@@ -3353,7 +3323,6 @@ Percentage of delivered emails that received a click
 - **Dimensions:** campaign_id, segment, period
 - **Data sources:** Email platform (HubSpot / Klaviyo / Mailchimp)
 - **Parents:** [`email_click_rate`](#email_click_rate), [`email_ctr`](#email_ctr)
-- **Children:** [`stg_email_send_row`](#stg_email_send_row)
 - **Correlated:** [`email_click_rate`](#email_click_rate), [`unsubscribe_rate`](#unsubscribe_rate), [`email_ctr`](#email_ctr), [`email_unsub_rate`](#email_unsub_rate), [`push_open_rate`](#push_open_rate), [`webinar_attendance_rate`](#webinar_attendance_rate)
 
 <a id="keywords_top10"></a>
@@ -3409,7 +3378,7 @@ Percentage of leads that reach MQL threshold
 - **Dimensions:** date, channel
 - **Data sources:** marketing_automation, crm
 - **Parents:** [`mql`](#mql)
-- **Children:** [`stg_leads_count`](#stg_leads_count)
+- **Children:** [`leads`](#leads)
 - **Correlated:** [`mql_to_sql_rate`](#mql_to_sql_rate), [`form_conversion_rate`](#form_conversion_rate), [`mql`](#mql)
 
 <a id="mql"></a>
@@ -3423,8 +3392,8 @@ Leads meeting scoring threshold passed to sales
 - **Dimensions:** date, channel, campaign
 - **Data sources:** crm, marketing_automation
 - **Parents:** [`pipeline_generated`](#pipeline_generated), [`sql`](#sql)
-- **Children:** [`stg_leads_count`](#stg_leads_count), [`form_conversion_rate`](#form_conversion_rate), [`demo_requests`](#demo_requests), [`event_attendees`](#event_attendees), [`lead_to_mql_rate`](#lead_to_mql_rate), [`session_to_lead_rate`](#session_to_lead_rate), [`webinar_attendance_rate`](#webinar_attendance_rate)
-- **Correlated:** [`sql`](#sql), [`lead_to_mql_rate`](#lead_to_mql_rate), [`demo_requests`](#demo_requests), [`event_attendees`](#event_attendees), [`pipeline_generated`](#pipeline_generated), [`stg_leads_count`](#stg_leads_count), [`webinar_registrants`](#webinar_registrants)
+- **Children:** [`leads`](#leads), [`form_conversion_rate`](#form_conversion_rate), [`demo_requests`](#demo_requests), [`event_attendees`](#event_attendees), [`lead_to_mql_rate`](#lead_to_mql_rate), [`session_to_lead_rate`](#session_to_lead_rate), [`webinar_attendance_rate`](#webinar_attendance_rate)
+- **Correlated:** [`sql`](#sql), [`lead_to_mql_rate`](#lead_to_mql_rate), [`demo_requests`](#demo_requests), [`event_attendees`](#event_attendees), [`pipeline_generated`](#pipeline_generated), [`leads`](#leads), [`webinar_registrants`](#webinar_registrants)
 
 <a id="mql_count"></a>
 ### MQLs — `mql_count`
@@ -3437,7 +3406,7 @@ Count of leads that meet scoring threshold for marketing qualification.
 - **Dimensions:** channel, campaign, source, period
 - **Data sources:** Marketing automation (HubSpot / Marketo)
 - **Parents:** [`sql_count`](#sql_count), [`cac`](#cac), [`mql_to_sql_rate`](#mql_to_sql_rate)
-- **Children:** [`stg_lead_row`](#stg_lead_row), [`email_click_rate`](#email_click_rate), [`email_ctr`](#email_ctr), [`unsubscribe_rate`](#unsubscribe_rate), [`web_conversion_rate`](#web_conversion_rate)
+- **Children:** [`email_click_rate`](#email_click_rate), [`email_ctr`](#email_ctr), [`unsubscribe_rate`](#unsubscribe_rate), [`web_conversion_rate`](#web_conversion_rate), [`leads`](#leads)
 - **Correlated:** [`cost_per_mql`](#cost_per_mql), [`content_published_count`](#content_published_count), [`new_user_signups`](#new_user_signups), [`website_sessions`](#website_sessions)
 
 <a id="mql_to_sql_rate"></a>
@@ -3482,7 +3451,7 @@ Web sessions from unpaid search (SEO) traffic.
 - **Dimensions:** landing_page, keyword, device, period
 - **Data sources:** Google Analytics / GA4
 - **Parents:** [`website_sessions`](#website_sessions)
-- **Children:** [`stg_session_row`](#stg_session_row), [`content_published_count`](#content_published_count), [`keywords_top10`](#keywords_top10), [`top10_keyword_count`](#top10_keyword_count)
+- **Children:** [`content_published_count`](#content_published_count), [`keywords_top10`](#keywords_top10), [`top10_keyword_count`](#top10_keyword_count)
 - **Correlated:** [`paid_sessions`](#paid_sessions), [`web_conversion_rate`](#web_conversion_rate), [`backlink_count`](#backlink_count), [`content_published_count`](#content_published_count), [`referral_sessions`](#referral_sessions), [`share_of_voice`](#share_of_voice), [`social_followers`](#social_followers), [`top10_keyword_count`](#top10_keyword_count)
 
 <a id="roas"></a>
@@ -3498,7 +3467,7 @@ Revenue attributed to ads divided by ad spend — direct campaign ROI.
 - **Data sources:** Ad platforms, Revenue attribution model
 - **Parents:** [`marketing_roi`](#marketing_roi)
 - **Children:** [`marketing_spend`](#marketing_spend)
-- **Correlated:** [`cac`](#cac), [`ltv_cac`](#ltv_cac), [`ad_ctr`](#ad_ctr), [`cpc`](#cpc), [`marketing_influenced_pipeline`](#marketing_influenced_pipeline), [`marketing_roi`](#marketing_roi), [`paid_attribution_pct`](#paid_attribution_pct), [`paid_sessions`](#paid_sessions), [`stg_ad_spend`](#stg_ad_spend)
+- **Correlated:** [`cac`](#cac), [`ltv_cac`](#ltv_cac), [`ad_ctr`](#ad_ctr), [`cpc`](#cpc), [`marketing_influenced_pipeline`](#marketing_influenced_pipeline), [`marketing_roi`](#marketing_roi), [`paid_attribution_pct`](#paid_attribution_pct), [`paid_sessions`](#paid_sessions), [`marketing_spend`](#marketing_spend)
 
 <a id="session_to_lead_rate"></a>
 ### Session → Lead % — `session_to_lead_rate`
@@ -3512,7 +3481,7 @@ Percentage of web sessions that convert to a lead
 - **Dimensions:** date, channel
 - **Data sources:** analytics, crm
 - **Parents:** [`mql`](#mql)
-- **Children:** [`website_sessions`](#website_sessions), [`stg_leads_count`](#stg_leads_count)
+- **Children:** [`website_sessions`](#website_sessions), [`leads`](#leads)
 - **Correlated:** [`form_conversion_rate`](#form_conversion_rate), [`bounce_rate`](#bounce_rate), [`funnel_dropoff`](#funnel_dropoff)
 
 <a id="social_engagement_rate"></a>
@@ -3542,7 +3511,7 @@ Leads accepted by sales as qualified opportunities
 - **Data sources:** crm
 - **Parents:** [`pipeline_generated`](#pipeline_generated), [`bookings`](#bookings), [`avg_sales_cycle`](#avg_sales_cycle)
 - **Children:** [`mql`](#mql), [`mql_to_sql_rate`](#mql_to_sql_rate)
-- **Correlated:** [`mql`](#mql), [`win_rate`](#win_rate), [`demo_requests`](#demo_requests), [`stg_opportunities_count`](#stg_opportunities_count)
+- **Correlated:** [`mql`](#mql), [`win_rate`](#win_rate), [`demo_requests`](#demo_requests)
 
 <a id="sql_count"></a>
 ### SQLs — `sql_count`
@@ -3570,7 +3539,6 @@ Average days from purchase order creation to goods receipt.
 - **Dimensions:** supplier_id, product_category, period
 - **Data sources:** ERP, Purchasing system
 - **Parents:** [`vendor_scorecard_rating`](#vendor_scorecard_rating)
-- **Children:** [`stg_purchase_order_row`](#stg_purchase_order_row)
 - **Correlated:** [`fill_rate`](#fill_rate), [`inventory_turnover`](#inventory_turnover), [`vendor_compliance_rate`](#vendor_compliance_rate)
 
 <a id="top10_keyword_count"></a>
@@ -3612,7 +3580,7 @@ Average time from work start to delivery
 - **Dimensions:** date, product
 - **Data sources:** production, orders
 - **Parents:** [`otd_rate`](#otd_rate)
-- **Children:** [`stg_orders_count`](#stg_orders_count), [`process_automation_rate`](#process_automation_rate)
+- **Children:** [`process_automation_rate`](#process_automation_rate)
 - **Correlated:** [`lead_time`](#lead_time), [`throughput`](#throughput), [`otd_rate`](#otd_rate), [`capacity_utilization`](#capacity_utilization), [`process_automation_rate`](#process_automation_rate)
 
 <a id="defect_rate"></a>
@@ -3627,7 +3595,6 @@ Average time from work start to delivery
 - **Dimensions:** production_line, supplier_id, product_id, period
 - **Data sources:** Quality management system, ERP
 - **Parents:** [`ops_north_star`](#ops_north_star), [`vendor_scorecard_rating`](#vendor_scorecard_rating)
-- **Children:** [`stg_quality_inspection_row`](#stg_quality_inspection_row)
 - **Correlated:** [`order_accuracy_rate`](#order_accuracy_rate), [`fill_rate`](#fill_rate), [`capacity_utilization_rate`](#capacity_utilization_rate), [`cost_per_unit`](#cost_per_unit), [`return_rate`](#return_rate), [`vendor_compliance_rate`](#vendor_compliance_rate), [`vendor_scorecard_rating`](#vendor_scorecard_rating)
 
 <a id="escalation_rate"></a>
@@ -3642,7 +3609,7 @@ Percentage of tickets escalated to tier 2 or above
 - **Dimensions:** date
 - **Data sources:** helpdesk
 - **Parents:** [`ticket_resolution_time`](#ticket_resolution_time)
-- **Children:** [`stg_support_tickets`](#stg_support_tickets)
+- **Children:** [`tickets_created`](#tickets_created)
 - **Correlated:** [`sla_breach_rate`](#sla_breach_rate), [`ticket_resolution_time`](#ticket_resolution_time)
 
 <a id="fill_rate"></a>
@@ -3657,7 +3624,7 @@ Percentage of tickets escalated to tier 2 or above
 - **Dimensions:** warehouse_id, product_category, period
 - **Data sources:** WMS, ERP
 - **Parents:** [`ops_north_star`](#ops_north_star)
-- **Children:** [`stg_order_line_row`](#stg_order_line_row), [`stockout_rate`](#stockout_rate)
+- **Children:** [`order_lines`](#order_lines), [`stockout_rate`](#stockout_rate)
 - **Correlated:** [`on_time_delivery_rate`](#on_time_delivery_rate), [`inventory_turnover`](#inventory_turnover), [`defect_rate`](#defect_rate), [`order_accuracy_rate`](#order_accuracy_rate), [`supplier_lead_time`](#supplier_lead_time), [`vendor_scorecard_rating`](#vendor_scorecard_rating), [`warehouse_utilization_rate`](#warehouse_utilization_rate)
 
 <a id="on_time_delivery_rate"></a>
@@ -3672,7 +3639,6 @@ Percentage of tickets escalated to tier 2 or above
 - **Dimensions:** carrier, region, product_category, period
 - **Data sources:** WMS, TMS, ERP
 - **Parents:** [`ops_north_star`](#ops_north_star)
-- **Children:** [`stg_shipment_row`](#stg_shipment_row)
 - **Correlated:** [`fill_rate`](#fill_rate), [`order_accuracy_rate`](#order_accuracy_rate), [`sla_compliance_rate`](#sla_compliance_rate)
 
 <a id="order_fulfillment_rate"></a>
@@ -3687,7 +3653,6 @@ Percentage of orders fulfilled completely and on time
 - **Dimensions:** date, region
 - **Data sources:** orders, inventory
 - **Parents:** [`ops_north_star`](#ops_north_star)
-- **Children:** [`stg_orders_count`](#stg_orders_count)
 - **Correlated:** [`otd_rate`](#otd_rate), [`stockout_rate`](#stockout_rate)
 
 <a id="procurement_savings_rate"></a>
@@ -3702,7 +3667,6 @@ Actual spend vs budgeted or baseline spend — cost reduction from procurement i
 - **Dimensions:** category_manager, spend_category, period
 - **Data sources:** ERP, Purchasing system
 - **Parents:** [`cogs`](#cogs)
-- **Children:** [`stg_purchase_order_row`](#stg_purchase_order_row)
 - **Correlated:** [`cost_per_unit`](#cost_per_unit), [`gross_margin`](#gross_margin)
 
 <a id="rcr_rate"></a>
@@ -3731,7 +3695,7 @@ Percentage of incidents with documented root cause and resolution
 - **Dimensions:** product_category, channel, period
 - **Data sources:** ERP, WMS
 - **Parents:** [`ops_north_star`](#ops_north_star)
-- **Children:** [`stg_return_row`](#stg_return_row), [`product_return_rate`](#product_return_rate)
+- **Children:** [`product_return_rate`](#product_return_rate)
 - **Correlated:** [`defect_rate`](#defect_rate), [`order_accuracy_rate`](#order_accuracy_rate)
 
 <a id="safety_incident_rate"></a>
@@ -3746,7 +3710,6 @@ OSHA recordable incident rate per 100 full-time employees.
 - **Dimensions:** facility_id, department, incident_type, period
 - **Data sources:** Safety management system, HRIS
 - **Parents:** [`workforce_productivity`](#workforce_productivity)
-- **Children:** [`stg_safety_incident_row`](#stg_safety_incident_row)
 - **Correlated:** [`employee_attrition_rate`](#employee_attrition_rate), [`headcount_cost`](#headcount_cost)
 
 <a id="seat_fill_rate"></a>
@@ -3761,7 +3724,6 @@ OSHA recordable incident rate per 100 full-time employees.
 - **Dimensions:** school_id, grade_level, period
 - **Data sources:** SIS, Facilities system
 - **Parents:** [`per_pupil_expenditure`](#per_pupil_expenditure)
-- **Children:** [`stg_enrollment_row`](#stg_enrollment_row)
 - **Correlated:** [`enrollment_count`](#enrollment_count), [`per_pupil_expenditure`](#per_pupil_expenditure)
 
 <a id="sla_breach_rate"></a>
@@ -3791,8 +3753,8 @@ Percentage of orders that could not be fulfilled due to zero inventory
 - **Dimensions:** date, product, location
 - **Data sources:** inventory, orders
 - **Parents:** [`fill_rate`](#fill_rate)
-- **Children:** [`stg_inventory_items`](#stg_inventory_items)
-- **Correlated:** [`inventory_turnover`](#inventory_turnover), [`order_fulfillment_rate`](#order_fulfillment_rate), [`stg_inventory_items`](#stg_inventory_items)
+- **Children:** [`inventory_items`](#inventory_items)
+- **Correlated:** [`inventory_turnover`](#inventory_turnover), [`order_fulfillment_rate`](#order_fulfillment_rate), [`inventory_items`](#inventory_items)
 
 <a id="support_cost_per_ticket"></a>
 ### Support Cost / Ticket — `support_cost_per_ticket`
@@ -3820,7 +3782,6 @@ Number of units completed per period
 - **Dimensions:** date, line
 - **Data sources:** production
 - **Parents:** [`capacity_utilization`](#capacity_utilization)
-- **Children:** [`stg_orders_count`](#stg_orders_count)
 - **Correlated:** [`cycle_time`](#cycle_time), [`capacity_utilization`](#capacity_utilization), [`ops_efficiency_ratio`](#ops_efficiency_ratio), [`process_automation_rate`](#process_automation_rate)
 
 <a id="ticket_backlog"></a>
@@ -3863,8 +3824,8 @@ Average time from ticket creation to resolution
 - **Dimensions:** date, channel, priority
 - **Data sources:** helpdesk
 - **Parents:** [`sla_breach_rate`](#sla_breach_rate)
-- **Children:** [`stg_support_tickets`](#stg_support_tickets), [`escalation_rate`](#escalation_rate)
-- **Correlated:** [`first_response_time`](#first_response_time), [`fcr_rate`](#fcr_rate), [`escalation_rate`](#escalation_rate), [`stg_support_tickets`](#stg_support_tickets), [`tickets_created`](#tickets_created)
+- **Children:** [`escalation_rate`](#escalation_rate), [`tickets_created`](#tickets_created)
+- **Correlated:** [`first_response_time`](#first_response_time), [`fcr_rate`](#fcr_rate), [`escalation_rate`](#escalation_rate), [`tickets_created`](#tickets_created)
 
 <a id="tickets_per_agent"></a>
 ### Tickets / Agent / Day — `tickets_per_agent`
@@ -3878,7 +3839,7 @@ Agent productivity measured by tickets closed
 - **Dimensions:** date
 - **Data sources:** helpdesk
 - **Parents:** [`support_cost_per_ticket`](#support_cost_per_ticket)
-- **Children:** [`stg_support_tickets`](#stg_support_tickets)
+- **Children:** [`tickets_created`](#tickets_created)
 - **Correlated:** [`support_cost_per_ticket`](#support_cost_per_ticket), [`fcr_rate`](#fcr_rate), [`sla_breach_rate`](#sla_breach_rate)
 
 <a id="tickets_per_customer"></a>
@@ -3950,8 +3911,8 @@ Annual Recurring Revenue — annualized value of active subscriptions.
 - **Dimensions:** date, customer_segment, product
 - **Data sources:** subscriptions
 - **Parents:** [`arr_growth_rate`](#arr_growth_rate), [`arr_per_rep`](#arr_per_rep), [`employees_per_1m_arr`](#employees_per_1m_arr), [`market_penetration_rate`](#market_penetration_rate), [`revenue`](#revenue), [`subscription_revenue`](#subscription_revenue)
-- **Children:** [`new_arr`](#new_arr), [`expansion_arr`](#expansion_arr), [`contraction_arr`](#contraction_arr), [`churned_arr`](#churned_arr), [`acv`](#acv), [`bookings`](#bookings), [`churn_rate`](#churn_rate), [`committed_arr`](#committed_arr), [`mrr`](#mrr), [`net_revenue_retention`](#net_revenue_retention), [`stg_subscription_row`](#stg_subscription_row)
-- **Correlated:** [`mrr`](#mrr), [`nrr`](#nrr), [`grr`](#grr), [`revenue_growth_rate`](#revenue_growth_rate), [`active_paying_users`](#active_paying_users), [`acv`](#acv), [`billings`](#billings), [`bookings`](#bookings), [`committed_arr`](#committed_arr), [`contracted_unbilled`](#contracted_unbilled), [`customer_concentration_risk`](#customer_concentration_risk), [`deferred_revenue`](#deferred_revenue), [`license_revenue`](#license_revenue), [`market_penetration_rate`](#market_penetration_rate), [`payback_period`](#payback_period), [`recognized_revenue`](#recognized_revenue), [`rule_of_40`](#rule_of_40), [`saas_quick_ratio`](#saas_quick_ratio), [`stg_subscriptions_active`](#stg_subscriptions_active), [`subscription_revenue`](#subscription_revenue), [`total_revenue`](#total_revenue)
+- **Children:** [`new_arr`](#new_arr), [`expansion_arr`](#expansion_arr), [`contraction_arr`](#contraction_arr), [`churned_arr`](#churned_arr), [`acv`](#acv), [`bookings`](#bookings), [`churn_rate`](#churn_rate), [`committed_arr`](#committed_arr), [`mrr`](#mrr), [`net_revenue_retention`](#net_revenue_retention)
+- **Correlated:** [`mrr`](#mrr), [`nrr`](#nrr), [`grr`](#grr), [`revenue_growth_rate`](#revenue_growth_rate), [`active_paying_users`](#active_paying_users), [`acv`](#acv), [`billings`](#billings), [`bookings`](#bookings), [`committed_arr`](#committed_arr), [`contracted_unbilled`](#contracted_unbilled), [`customer_concentration_risk`](#customer_concentration_risk), [`deferred_revenue`](#deferred_revenue), [`license_revenue`](#license_revenue), [`market_penetration_rate`](#market_penetration_rate), [`payback_period`](#payback_period), [`recognized_revenue`](#recognized_revenue), [`rule_of_40`](#rule_of_40), [`saas_quick_ratio`](#saas_quick_ratio), [`subscription_revenue`](#subscription_revenue), [`total_revenue`](#total_revenue)
 
 <a id="arr_growth_rate"></a>
 ### ARR Growth % — `arr_growth_rate`
@@ -3993,9 +3954,9 @@ Total amounts invoiced to customers in a period — cash collection indicator.
 - **Numerator:** SUM(invoiced amounts)
 - **Dimensions:** segment, product_tier, period
 - **Data sources:** Billing system
-- **Parents:** [`revenue`](#revenue)
-- **Children:** [`stg_invoice_row`](#stg_invoice_row), [`contracted_unbilled`](#contracted_unbilled), [`recognized_revenue`](#recognized_revenue), [`stg_invoices_amount`](#stg_invoices_amount), [`stg_invoices_count`](#stg_invoices_count)
-- **Correlated:** [`arr`](#arr), [`revenue`](#revenue), [`free_cash_flow`](#free_cash_flow), [`accounts_receivable`](#accounts_receivable), [`contracted_unbilled`](#contracted_unbilled), [`deferred_revenue`](#deferred_revenue), [`stg_invoices_amount`](#stg_invoices_amount), [`stg_invoices_count`](#stg_invoices_count)
+- **Parents:** [`revenue`](#revenue), [`dso`](#dso), [`ar_aging_90d`](#ar_aging_90d), [`deferred_revenue`](#deferred_revenue)
+- **Children:** [`contracted_unbilled`](#contracted_unbilled), [`recognized_revenue`](#recognized_revenue)
+- **Correlated:** [`arr`](#arr), [`revenue`](#revenue), [`free_cash_flow`](#free_cash_flow), [`accounts_receivable`](#accounts_receivable), [`contracted_unbilled`](#contracted_unbilled), [`deferred_revenue`](#deferred_revenue), [`recognized_revenue`](#recognized_revenue)
 
 <a id="bookings"></a>
 ### Bookings — `bookings`
@@ -4008,7 +3969,7 @@ Total ARR value of contracts signed in the period, regardless of revenue recogni
 - **Dimensions:** segment, product_tier, channel, period
 - **Data sources:** CRM, Finance
 - **Parents:** [`arr`](#arr), [`avg_deal_size`](#avg_deal_size), [`avg_sales_cycle`](#avg_sales_cycle), [`new_arr`](#new_arr)
-- **Children:** [`stg_opportunity_row`](#stg_opportunity_row), [`sql`](#sql)
+- **Children:** [`sql`](#sql)
 - **Correlated:** [`arr`](#arr), [`new_arr`](#new_arr), [`revenue`](#revenue), [`committed_arr`](#committed_arr), [`pipeline_generated`](#pipeline_generated)
 
 <a id="capex_pct_revenue"></a>
@@ -4067,7 +4028,7 @@ Revenue retained from a signup cohort after N months relative to their initial v
 - **Dimensions:** cohort_month, month_number, segment
 - **Data sources:** Billing system
 - **Parents:** [`net_revenue_retention`](#net_revenue_retention)
-- **Children:** [`stg_subscription_row`](#stg_subscription_row)
+- **Children:** [`mrr`](#mrr)
 - **Correlated:** [`churn_rate`](#churn_rate), [`expansion_arr`](#expansion_arr)
 
 <a id="customer_churn_rate"></a>
@@ -4082,8 +4043,7 @@ Percentage of customers who stopped purchasing in the period
 - **Dimensions:** date, customer_segment
 - **Data sources:** crm, subscriptions
 - **Parents:** [`clv`](#clv), [`customer_retention_rate`](#customer_retention_rate), [`net_new_customers`](#net_new_customers)
-- **Children:** [`stg_customer_count`](#stg_customer_count)
-- **Correlated:** [`logo_churn_rate`](#logo_churn_rate), [`nrr`](#nrr), [`renewal_rate`](#renewal_rate), [`churned_arr`](#churned_arr), [`customer_count`](#customer_count), [`stg_customer_count`](#stg_customer_count)
+- **Correlated:** [`logo_churn_rate`](#logo_churn_rate), [`nrr`](#nrr), [`renewal_rate`](#renewal_rate), [`churned_arr`](#churned_arr), [`customer_count`](#customer_count)
 
 <a id="customer_concentration_risk"></a>
 ### Customer Concentration — `customer_concentration_risk`
@@ -4097,7 +4057,7 @@ Top 10 customers’ ARR as % of total ARR — revenue dependency risk indicator.
 - **Dimensions:** company_id, period
 - **Data sources:** Billing system, CRM
 - **Parents:** [`enterprise_value`](#enterprise_value)
-- **Children:** [`stg_subscription_row`](#stg_subscription_row), [`rev_concentration_top10`](#rev_concentration_top10)
+- **Children:** [`rev_concentration_top10`](#rev_concentration_top10), [`mrr`](#mrr)
 - **Correlated:** [`churn_rate`](#churn_rate), [`arr`](#arr), [`rev_concentration_top10`](#rev_concentration_top10)
 
 <a id="deferred_revenue"></a>
@@ -4111,7 +4071,7 @@ Cash collected but not yet recognized as revenue — forward revenue visibility.
 - **Dimensions:** company_id, product_tier, period
 - **Data sources:** ERP, Billing system
 - **Parents:** [`operating_cash_flow`](#operating_cash_flow)
-- **Children:** [`stg_invoice_row`](#stg_invoice_row)
+- **Children:** [`billings`](#billings)
 - **Correlated:** [`arr`](#arr), [`billings`](#billings), [`revenue`](#revenue), [`recognized_revenue`](#recognized_revenue)
 
 <a id="employees_per_1m_arr"></a>
@@ -4225,8 +4185,7 @@ Revenue from perpetual license sales
 - **Dimensions:** segment, product_tier, period
 - **Data sources:** CRM, Billing system
 - **Parents:** [`churn_rate`](#churn_rate)
-- **Children:** [`stg_subscription_row`](#stg_subscription_row)
-- **Correlated:** [`churn_rate`](#churn_rate), [`customer_health_score`](#customer_health_score), [`churned_arr`](#churned_arr), [`cohort_churn`](#cohort_churn), [`contraction_arr`](#contraction_arr), [`customer_churn_rate`](#customer_churn_rate), [`customer_count`](#customer_count), [`grr`](#grr), [`mrr_churn_rate`](#mrr_churn_rate), [`nrr`](#nrr), [`product_churn_rate`](#product_churn_rate), [`stg_subscriptions_active`](#stg_subscriptions_active)
+- **Correlated:** [`churn_rate`](#churn_rate), [`customer_health_score`](#customer_health_score), [`churned_arr`](#churned_arr), [`cohort_churn`](#cohort_churn), [`contraction_arr`](#contraction_arr), [`customer_churn_rate`](#customer_churn_rate), [`customer_count`](#customer_count), [`grr`](#grr), [`mrr_churn_rate`](#mrr_churn_rate), [`nrr`](#nrr), [`product_churn_rate`](#product_churn_rate)
 
 <a id="market_penetration_rate"></a>
 ### Market Penetration Rate — `market_penetration_rate`
@@ -4253,9 +4212,8 @@ Monthly Recurring Revenue — annualized base ÷ 12.
 - **Numerator:** SUM(monthly_amount) WHERE status = 'active'
 - **Dimensions:** company_id, plan_tier, customer_id
 - **Data sources:** Billing system
-- **Parents:** [`arr`](#arr), [`revenue`](#revenue), [`mrr_churn_rate`](#mrr_churn_rate), [`payback_period`](#payback_period), [`subscription_revenue`](#subscription_revenue)
-- **Children:** [`stg_subscription_row`](#stg_subscription_row)
-- **Correlated:** [`churn_rate`](#churn_rate), [`net_revenue_retention`](#net_revenue_retention), [`arr`](#arr), [`marketing_spend`](#marketing_spend), [`net_mrr_growth`](#net_mrr_growth), [`stg_subscriptions_active`](#stg_subscriptions_active)
+- **Parents:** [`arr`](#arr), [`revenue`](#revenue), [`mrr_churn_rate`](#mrr_churn_rate), [`payback_period`](#payback_period), [`subscription_revenue`](#subscription_revenue), [`cohort_revenue_retention`](#cohort_revenue_retention), [`customer_concentration_risk`](#customer_concentration_risk)
+- **Correlated:** [`churn_rate`](#churn_rate), [`net_revenue_retention`](#net_revenue_retention), [`arr`](#arr), [`marketing_spend`](#marketing_spend), [`net_mrr_growth`](#net_mrr_growth)
 
 <a id="mrr_churn_rate"></a>
 ### MRR Churn % — `mrr_churn_rate`
@@ -4297,7 +4255,7 @@ Gross revenue minus returns, allowances, and discounts
 - **Data sources:** orders
 - **Parents:** [`total_revenue`](#total_revenue)
 - **Children:** [`gross_revenue`](#gross_revenue), [`discount_rate`](#discount_rate)
-- **Correlated:** [`gross_revenue`](#gross_revenue), [`refund_rate`](#refund_rate), [`stg_refund_amount`](#stg_refund_amount)
+- **Correlated:** [`gross_revenue`](#gross_revenue), [`refund_rate`](#refund_rate)
 
 <a id="net_revenue_retention"></a>
 ### Net Revenue Retention — `net_revenue_retention`
@@ -4325,7 +4283,7 @@ ARR added from new customer logos in the period
 - **Dimensions:** date, sales_rep, channel
 - **Data sources:** subscriptions, opportunities
 - **Parents:** [`arr`](#arr), [`arr_growth_rate`](#arr_growth_rate), [`magic_number`](#magic_number), [`saas_quick_ratio`](#saas_quick_ratio)
-- **Children:** [`bookings`](#bookings), [`stg_subscriptions_active`](#stg_subscriptions_active), [`avg_deal_size`](#avg_deal_size), [`avg_sales_cycle`](#avg_sales_cycle), [`pct_reps_at_quota`](#pct_reps_at_quota), [`pipeline_coverage`](#pipeline_coverage), [`plg_rate`](#plg_rate), [`quota_attainment`](#quota_attainment), [`sales_cycle_length`](#sales_cycle_length), [`win_rate`](#win_rate)
+- **Children:** [`bookings`](#bookings), [`avg_deal_size`](#avg_deal_size), [`avg_sales_cycle`](#avg_sales_cycle), [`pct_reps_at_quota`](#pct_reps_at_quota), [`pipeline_coverage`](#pipeline_coverage), [`plg_rate`](#plg_rate), [`quota_attainment`](#quota_attainment), [`sales_cycle_length`](#sales_cycle_length), [`win_rate`](#win_rate)
 - **Correlated:** [`expansion_arr`](#expansion_arr), [`churn_rate`](#churn_rate), [`acv`](#acv), [`bookings`](#bookings), [`customers_by_channel`](#customers_by_channel), [`partner_revenue`](#partner_revenue), [`pipeline_coverage`](#pipeline_coverage), [`pipeline_value`](#pipeline_value), [`quota_attainment`](#quota_attainment), [`rev_from_new_customers`](#rev_from_new_customers)
 
 <a id="nrr"></a>
@@ -4427,7 +4385,7 @@ Total recognized revenue in the period.
 - **Dimensions:** company_id, product_line, geography, channel
 - **Data sources:** ERP, CRM, Billing system
 - **Parents:** [`ebitda`](#ebitda), [`capex_pct_revenue`](#capex_pct_revenue), [`gna_pct_revenue`](#gna_pct_revenue), [`net_income_margin`](#net_income_margin), [`rd_as_pct_revenue`](#rd_as_pct_revenue), [`revenue_per_employee`](#revenue_per_employee)
-- **Children:** [`arr`](#arr), [`mrr`](#mrr), [`arpu`](#arpu), [`asp`](#asp), [`billings`](#billings), [`customer_count`](#customer_count), [`gmv`](#gmv), [`iap_revenue`](#iap_revenue), [`stg_revenue_event_amount`](#stg_revenue_event_amount), [`take_rate`](#take_rate)
+- **Children:** [`arr`](#arr), [`mrr`](#mrr), [`arpu`](#arpu), [`asp`](#asp), [`billings`](#billings), [`customer_count`](#customer_count), [`gmv`](#gmv), [`iap_revenue`](#iap_revenue), [`take_rate`](#take_rate)
 - **Correlated:** [`customer_count`](#customer_count), [`arpu`](#arpu), [`asp`](#asp), [`billings`](#billings), [`bookings`](#bookings), [`cogs`](#cogs), [`deferred_revenue`](#deferred_revenue), [`gmv`](#gmv), [`marketing_spend`](#marketing_spend), [`take_rate`](#take_rate)
 
 <a id="revenue_growth_rate"></a>
@@ -4589,8 +4547,8 @@ Average satisfaction rating from post-interaction surveys (1–5 or 1–10).
 - **Denominator:** COUNT(responses)
 - **Dimensions:** product, channel, support_team, period
 - **Data sources:** Survey platform, CRM
-- **Parents:** [`customer_health_score`](#customer_health_score)
-- **Children:** [`stg_csat_response_row`](#stg_csat_response_row), [`fcr_rate`](#fcr_rate), [`first_response_time`](#first_response_time), [`sla_breach_rate`](#sla_breach_rate), [`ticket_resolution_rate`](#ticket_resolution_rate), [`tickets_per_customer`](#tickets_per_customer), [`time_to_resolution`](#time_to_resolution)
+- **Parents:** [`customer_health_score`](#customer_health_score), [`cx_csat`](#cx_csat)
+- **Children:** [`fcr_rate`](#fcr_rate), [`first_response_time`](#first_response_time), [`sla_breach_rate`](#sla_breach_rate), [`ticket_resolution_rate`](#ticket_resolution_rate), [`tickets_per_customer`](#tickets_per_customer), [`time_to_resolution`](#time_to_resolution)
 - **Correlated:** [`nps`](#nps), [`churn_rate`](#churn_rate), [`api_latency_p95`](#api_latency_p95), [`app_store_rating`](#app_store_rating), [`ces`](#ces), [`complaint_resolution_rate`](#complaint_resolution_rate), [`complaints_count`](#complaints_count), [`cx_csat`](#cx_csat), [`error_rate`](#error_rate), [`fcr_rate`](#fcr_rate), [`first_response_time`](#first_response_time), [`ops_north_star`](#ops_north_star), [`product_return_rate`](#product_return_rate), [`refund_rate`](#refund_rate), [`review_rating`](#review_rating), [`sla_breach_rate`](#sla_breach_rate), [`sla_compliance_rate`](#sla_compliance_rate), [`support_tickets_opened`](#support_tickets_opened), [`survey_response_rate`](#survey_response_rate), [`tickets_per_customer`](#tickets_per_customer), [`time_to_resolution`](#time_to_resolution)
 
 <a id="customer_retention_rate"></a>
@@ -4648,8 +4606,8 @@ Daily Active Users — unique users who performed a qualifying action in a day.
 - **Dimensions:** platform, product_area, user_segment, date
 - **Data sources:** Product analytics (Mixpanel / Amplitude / Segment)
 - **Parents:** [`dau_mau_ratio`](#dau_mau_ratio), [`account_health_score`](#account_health_score), [`churn_prediction_score`](#churn_prediction_score), [`d7_retention`](#d7_retention), [`feature_adoption`](#feature_adoption), [`wau`](#wau)
-- **Children:** [`stg_user_event_row`](#stg_user_event_row), [`push_open_rate`](#push_open_rate)
-- **Correlated:** [`mau`](#mau), [`wau`](#wau), [`api_consumers`](#api_consumers), [`app_downloads`](#app_downloads), [`avg_session_duration`](#avg_session_duration), [`stg_events_count`](#stg_events_count), [`stg_sessions_count`](#stg_sessions_count)
+- **Children:** [`push_open_rate`](#push_open_rate)
+- **Correlated:** [`mau`](#mau), [`wau`](#wau), [`api_consumers`](#api_consumers), [`app_downloads`](#app_downloads), [`avg_session_duration`](#avg_session_duration), [`website_sessions`](#website_sessions)
 
 <a id="dau_mau_ratio"></a>
 ### DAU/MAU — `dau_mau_ratio`
@@ -4705,7 +4663,7 @@ Employee net promoter score — likelihood to recommend the company as a workpla
 - **Dimensions:** feature_name, user_segment, plan_tier, period
 - **Data sources:** Product analytics
 - **Parents:** [`dau_mau_ratio`](#dau_mau_ratio), [`customer_health_score`](#customer_health_score), [`churn_prediction_score`](#churn_prediction_score)
-- **Children:** [`stg_user_event_row`](#stg_user_event_row), [`feature_adoption`](#feature_adoption)
+- **Children:** [`feature_adoption`](#feature_adoption)
 - **Correlated:** [`expansion_arr`](#expansion_arr), [`nps`](#nps), [`avg_session_duration`](#avg_session_duration), [`feature_request_volume`](#feature_request_volume), [`onboarding_completion_rate`](#onboarding_completion_rate), [`time_to_value`](#time_to_value)
 
 <a id="gross_dollar_retention"></a>
@@ -4733,7 +4691,7 @@ Monthly Active Users — unique users active in the last 30 days.
 - **Dimensions:** platform, product_area, user_segment
 - **Data sources:** Product analytics
 - **Parents:** [`dau_mau_ratio`](#dau_mau_ratio), [`active_paying_users`](#active_paying_users), [`d30_retention`](#d30_retention)
-- **Children:** [`stg_user_event_row`](#stg_user_event_row), [`api_consumers`](#api_consumers), [`new_user_signups`](#new_user_signups), [`product_churn_rate`](#product_churn_rate)
+- **Children:** [`api_consumers`](#api_consumers), [`new_user_signups`](#new_user_signups), [`product_churn_rate`](#product_churn_rate)
 - **Correlated:** [`dau`](#dau), [`wau`](#wau)
 
 <a id="product_uptime_sla"></a>
@@ -4748,7 +4706,7 @@ Monthly Active Users — unique users active in the last 30 days.
 - **Dimensions:** service, environment, period
 - **Data sources:** Status page, APM (Datadog / PagerDuty)
 - **Parents:** [`error_rate`](#error_rate)
-- **Children:** [`stg_downtime_event_row`](#stg_downtime_event_row), [`uptime`](#uptime)
+- **Children:** [`uptime`](#uptime)
 - **Correlated:** [`error_rate`](#error_rate), [`api_latency_p95`](#api_latency_p95)
 
 <a id="retention_d30"></a>
@@ -4763,7 +4721,6 @@ Monthly Active Users — unique users active in the last 30 days.
 - **Dimensions:** cohort, acquisition_channel, plan_tier
 - **Data sources:** Product analytics
 - **Parents:** [`dau_mau_ratio`](#dau_mau_ratio)
-- **Children:** [`stg_user_event_row`](#stg_user_event_row)
 - **Correlated:** [`churn_rate`](#churn_rate), [`dau_mau_ratio`](#dau_mau_ratio), [`churn_prediction_score`](#churn_prediction_score)
 
 <a id="system_uptime"></a>
@@ -4778,7 +4735,7 @@ Monthly Active Users — unique users active in the last 30 days.
 - **Dimensions:** system_id, facility_id, period
 - **Data sources:** SCADA, APM, CMMS
 - **Parents:** [`ops_north_star`](#ops_north_star)
-- **Children:** [`stg_downtime_event_row`](#stg_downtime_event_row), [`mtbf`](#mtbf), [`mttr`](#mttr), [`work_order_resolution_time`](#work_order_resolution_time)
+- **Children:** [`mtbf`](#mtbf), [`mttr`](#mttr), [`work_order_resolution_time`](#work_order_resolution_time)
 - **Correlated:** [`preventive_maintenance_rate`](#preventive_maintenance_rate), [`mtbf`](#mtbf)
 
 <a id="uptime"></a>
@@ -4810,7 +4767,7 @@ Weekly Active Users — unique users who performed a qualifying action in a 7-da
 - **Children:** [`dau`](#dau)
 - **Correlated:** [`dau`](#dau), [`mau`](#mau)
 
-## Input (152)
+## Input (102)
 
 <a id="shrinkage_rate"></a>
 ### Shrinkage Rate — `shrinkage_rate`
@@ -4825,71 +4782,6 @@ Inventory lost to theft, damage, or administrative error as a percentage of stoc
 - **Data sources:** inventory
 - **Parents:** [`cogs`](#cogs)
 - **Correlated:** [`inventory_value`](#inventory_value), [`vendor_compliance_rate`](#vendor_compliance_rate)
-
-<a id="stg_invoices_amount"></a>
-### Invoice Amount — `stg_invoices_amount`
-
-Sum of all invoice amounts in staging
-
-- **Vertical:** Customer & Revenue · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/customer/stg_invoices_amount.yml) · [sql](dbt/analyses/metrics/customer/stg_invoices_amount.sql)
-- **Numerator:** Sum of invoice amounts
-- **Dimensions:** date
-- **Data sources:** invoices
-- **Parents:** [`billings`](#billings)
-- **Correlated:** [`billings`](#billings), [`recognized_revenue`](#recognized_revenue)
-
-<a id="stg_invoices_count"></a>
-### Invoices — `stg_invoices_count`
-
-Raw invoice row count from billing system staging
-
-- **Vertical:** Customer & Revenue · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/customer/stg_invoices_count.yml) · [sql](dbt/analyses/metrics/customer/stg_invoices_count.sql)
-- **Numerator:** Invoice records
-- **Dimensions:** date
-- **Data sources:** invoices
-- **Parents:** [`billings`](#billings)
-- **Correlated:** [`billings`](#billings), [`dso`](#dso)
-
-<a id="stg_purchases_count"></a>
-### Purchases — `stg_purchases_count`
-
-Raw purchase transaction count in staging
-
-- **Vertical:** Customer & Revenue · **Industry:** retail
-- **Files:** [yml](dbt/models/metrics/customer/stg_purchases_count.yml) · [sql](dbt/analyses/metrics/customer/stg_purchases_count.sql)
-- **Numerator:** Purchase records
-- **Dimensions:** date, product
-- **Data sources:** orders
-- **Parents:** [`aov`](#aov), [`cross_sell_rate`](#cross_sell_rate), [`purchase_frequency`](#purchase_frequency), [`refund_rate`](#refund_rate), [`repeat_purchase_rate`](#repeat_purchase_rate), [`upsell_rate`](#upsell_rate)
-- **Correlated:** [`purchase_frequency`](#purchase_frequency), [`aov`](#aov), [`repeat_purchase_rate`](#repeat_purchase_rate)
-
-<a id="stg_refund_amount"></a>
-### Refund Amount — `stg_refund_amount`
-
-Total refund value in staging
-
-- **Vertical:** Customer & Revenue · **Industry:** retail
-- **Files:** [yml](dbt/models/metrics/customer/stg_refund_amount.yml) · [sql](dbt/analyses/metrics/customer/stg_refund_amount.sql)
-- **Numerator:** Sum of refund amounts
-- **Dimensions:** date
-- **Data sources:** returns
-- **Parents:** [`refund_rate`](#refund_rate)
-- **Correlated:** [`refund_rate`](#refund_rate), [`net_revenue`](#net_revenue)
-
-<a id="stg_refunds_count"></a>
-### Refunds — `stg_refunds_count`
-
-Raw refund transaction count in staging
-
-- **Vertical:** Customer & Revenue · **Industry:** retail
-- **Files:** [yml](dbt/models/metrics/customer/stg_refunds_count.yml) · [sql](dbt/analyses/metrics/customer/stg_refunds_count.sql)
-- **Numerator:** Refund records
-- **Dimensions:** date, product
-- **Data sources:** returns
-- **Parents:** [`refund_rate`](#refund_rate)
-- **Correlated:** [`refund_rate`](#refund_rate), [`product_return_rate`](#product_return_rate)
 
 <a id="adm"></a>
 ### ADM — `adm`
@@ -4984,18 +4876,6 @@ Total student headcount enrolled in the school or district
 - **Data sources:** enrollment
 - **Parents:** [`ap_participation_rate`](#ap_participation_rate)
 - **Correlated:** [`adm`](#adm), [`per_pupil_expenditure`](#per_pupil_expenditure)
-
-<a id="stg_student_assessment_row"></a>
-### Raw Assessment Row — `stg_student_assessment_row`
-
-Individual student assessment result record by subject and grade.
-
-- **Vertical:** Education · **Industry:** education
-- **Files:** [yml](dbt/models/metrics/edu/stg_student_assessment_row.yml) · [sql](dbt/analyses/metrics/edu/stg_student_assessment_row.sql)
-- **Numerator:** score
-- **Dimensions:** student_id, assessment_id, subject, grade_level, assessment_date
-- **Data sources:** SIS, Assessment platform
-- **Parents:** [`student_proficiency`](#student_proficiency), [`ell_proficiency_growth`](#ell_proficiency_growth), [`student_growth_percentile`](#student_growth_percentile)
 
 <a id="accounts_payable"></a>
 ### Accounts Payable — `accounts_payable`
@@ -5116,19 +4996,6 @@ Percentage of codebase covered by automated tests
 - **Parents:** [`bug_escape_rate`](#bug_escape_rate)
 - **Correlated:** [`bug_escape_rate`](#bug_escape_rate), [`change_failure_rate`](#change_failure_rate), [`tech_debt_ratio`](#tech_debt_ratio)
 
-<a id="cogs_stg"></a>
-### COGS — `cogs_stg`
-
-Direct costs attributable to production of goods sold
-
-- **Vertical:** Finance & FP&A · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/finance/cogs_stg.yml) · [sql](dbt/analyses/metrics/finance/cogs_stg.sql)
-- **Numerator:** Cost of goods sold
-- **Dimensions:** date, product
-- **Data sources:** orders, inventory
-- **Parents:** [`gross_profit`](#gross_profit), [`dpo`](#dpo), [`inventory_turnover`](#inventory_turnover)
-- **Correlated:** [`gross_margin_pct`](#gross_margin_pct), [`inventory_turnover`](#inventory_turnover), [`inventory_value`](#inventory_value)
-
 <a id="contracted_unbilled"></a>
 ### Contracted Unbilled — `contracted_unbilled`
 
@@ -5153,7 +5020,7 @@ Total number of active paying customers
 - **Dimensions:** date, segment
 - **Data sources:** crm
 - **Parents:** [`revenue`](#revenue)
-- **Children:** [`stg_customer_count`](#stg_customer_count)
+- **Children:** [`monthly_new_customers`](#monthly_new_customers)
 - **Correlated:** [`net_new_customers`](#net_new_customers), [`logo_churn_rate`](#logo_churn_rate), [`customer_churn_rate`](#customer_churn_rate), [`revenue`](#revenue)
 
 <a id="customers_by_channel"></a>
@@ -5167,7 +5034,7 @@ Count of new customers attributable to each acquisition channel.
 - **Dimensions:** acquisition_channel, segment, period
 - **Data sources:** CRM, Attribution model
 - **Parents:** [`cac`](#cac)
-- **Children:** [`stg_lead_row`](#stg_lead_row)
+- **Children:** [`leads`](#leads)
 - **Correlated:** [`cac`](#cac), [`new_arr`](#new_arr)
 
 <a id="da"></a>
@@ -5343,7 +5210,6 @@ Total ad impressions served in the period.
 - **Dimensions:** channel, campaign, ad_set, date
 - **Data sources:** Google Ads, Meta Ads, LinkedIn Ads
 - **Parents:** [`ctr`](#ctr), [`cpm`](#cpm)
-- **Children:** [`stg_ad_spend_row`](#stg_ad_spend_row)
 - **Correlated:** [`ad_clicks`](#ad_clicks), [`share_of_voice`](#share_of_voice), [`social_followers`](#social_followers)
 
 <a id="marketplace_buyers"></a>
@@ -5382,7 +5248,7 @@ Number of new unique paying customers acquired in the month
 - **Numerator:** New customers acquired in month
 - **Dimensions:** date, channel
 - **Data sources:** crm, orders
-- **Parents:** [`net_new_customers`](#net_new_customers), [`cac`](#cac)
+- **Parents:** [`net_new_customers`](#net_new_customers), [`cac`](#cac), [`customer_count`](#customer_count)
 - **Correlated:** [`cac`](#cac), [`revenue_growth_rate`](#revenue_growth_rate)
 
 <a id="on_time_lesson_delivery"></a>
@@ -5488,7 +5354,6 @@ Web sessions originating from referring websites (non-paid, non-organic).
 - **Dimensions:** referrer_domain, landing_page, period
 - **Data sources:** Google Analytics / GA4
 - **Parents:** [`website_sessions`](#website_sessions)
-- **Children:** [`stg_session_row`](#stg_session_row)
 - **Correlated:** [`organic_sessions`](#organic_sessions), [`backlink_count`](#backlink_count)
 
 <a id="remote_work_rate"></a>
@@ -5570,376 +5435,6 @@ Total sales and marketing expenditure in the period
 - **Data sources:** general_ledger
 - **Parents:** [`magic_number`](#magic_number), [`cac_payback`](#cac_payback)
 - **Correlated:** [`cac`](#cac), [`marketing_cac`](#marketing_cac)
-
-<a id="stg_attendance_row"></a>
-### Raw Attendance Row — `stg_attendance_row`
-
-Single student daily attendance record — present, absent, or tardy.
-
-- **Vertical:** Finance & FP&A · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/finance/stg_attendance_row.yml) · [sql](dbt/analyses/metrics/finance/stg_attendance_row.sql)
-- **Numerator:** 1 per record
-- **Dimensions:** student_id, school_id, date, status
-- **Data sources:** SIS, Attendance system
-- **Parents:** [`attendance_rate`](#attendance_rate), [`chronic_absenteeism`](#chronic_absenteeism), [`absenteeism_by_subgroup`](#absenteeism_by_subgroup), [`average_daily_attendance`](#average_daily_attendance)
-
-<a id="stg_cogs_event"></a>
-### Raw COGS Event — `stg_cogs_event`
-
-Individual cost-of-goods-sold line item from ERP.
-
-- **Vertical:** Finance & FP&A · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/finance/stg_cogs_event.yml) · [sql](dbt/analyses/metrics/finance/stg_cogs_event.sql)
-- **Numerator:** cogs_amount
-- **Dimensions:** company_id, cost_center, product_id, period
-- **Data sources:** ERP
-- **Parents:** [`cogs`](#cogs)
-
-<a id="stg_customer_count"></a>
-### Customers — `stg_customer_count`
-
-Raw count of customer records in staging
-
-- **Vertical:** Finance & FP&A · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/finance/stg_customer_count.yml) · [sql](dbt/analyses/metrics/finance/stg_customer_count.sql)
-- **Numerator:** Customer records
-- **Dimensions:** date, segment
-- **Data sources:** crm
-- **Parents:** [`customer_churn_rate`](#customer_churn_rate), [`customer_count`](#customer_count), [`repeat_purchase_rate`](#repeat_purchase_rate)
-- **Correlated:** [`customer_churn_rate`](#customer_churn_rate), [`net_new_customers`](#net_new_customers)
-
-<a id="stg_discipline_row"></a>
-### Raw Discipline Row — `stg_discipline_row`
-
-Single student discipline incident record with type and consequence.
-
-- **Vertical:** Finance & FP&A · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/finance/stg_discipline_row.yml) · [sql](dbt/analyses/metrics/finance/stg_discipline_row.sql)
-- **Numerator:** 1 per incident
-- **Dimensions:** student_id, school_id, incident_type, consequence, date
-- **Data sources:** SIS, Discipline system
-- **Parents:** [`suspension_rate`](#suspension_rate)
-
-<a id="stg_downtime_event_row"></a>
-### Raw Downtime Event Row — `stg_downtime_event_row`
-
-Single equipment or system downtime event record with cause and duration.
-
-- **Vertical:** Finance & FP&A · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/finance/stg_downtime_event_row.yml) · [sql](dbt/analyses/metrics/finance/stg_downtime_event_row.sql)
-- **Numerator:** 1 per event
-- **Dimensions:** event_id, system_id, facility_id, cause, start_time, duration_hours
-- **Data sources:** SCADA, CMMS
-- **Parents:** [`system_uptime`](#system_uptime), [`mtbf`](#mtbf), [`product_uptime_sla`](#product_uptime_sla)
-
-<a id="stg_employee_row"></a>
-### Raw Employee Row — `stg_employee_row`
-
-Single employee record from HRIS with start date, department, and status.
-
-- **Vertical:** Finance & FP&A · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/finance/stg_employee_row.yml) · [sql](dbt/analyses/metrics/finance/stg_employee_row.sql)
-- **Numerator:** 1 per active employee
-- **Dimensions:** employee_id, department, location, hire_date, status
-- **Data sources:** HRIS (Workday / BambooHR)
-- **Parents:** [`headcount_fte`](#headcount_fte), [`employee_attrition_rate`](#employee_attrition_rate), [`teacher_retention_rate`](#teacher_retention_rate), [`training_hours_per_employee`](#training_hours_per_employee)
-
-<a id="stg_employees_count"></a>
-### Employees — `stg_employees_count`
-
-Raw employee row count in staging HR table
-
-- **Vertical:** Finance & FP&A · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/finance/stg_employees_count.yml) · [sql](dbt/analyses/metrics/finance/stg_employees_count.sql)
-- **Numerator:** Active employee records
-- **Dimensions:** date, department
-- **Data sources:** hris
-- **Parents:** [`headcount`](#headcount)
-- **Correlated:** [`headcount`](#headcount), [`turnover_rate`](#turnover_rate)
-
-<a id="stg_enrollment_row"></a>
-### Raw Enrollment Row — `stg_enrollment_row`
-
-Single student enrollment record with grade, school, and status.
-
-- **Vertical:** Finance & FP&A · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/finance/stg_enrollment_row.yml) · [sql](dbt/analyses/metrics/finance/stg_enrollment_row.sql)
-- **Numerator:** 1 per enrollment
-- **Dimensions:** student_id, school_id, grade_level, enrollment_date, status
-- **Data sources:** SIS
-- **Parents:** [`enrollment_count`](#enrollment_count), [`advanced_course_enrollment_rate`](#advanced_course_enrollment_rate), [`seat_fill_rate`](#seat_fill_rate)
-
-<a id="stg_events_count"></a>
-### Events — `stg_events_count`
-
-Raw event row count in the staging events table
-
-- **Vertical:** Finance & FP&A · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/finance/stg_events_count.yml) · [sql](dbt/analyses/metrics/finance/stg_events_count.sql)
-- **Numerator:** Event records
-- **Dimensions:** date, event_type
-- **Data sources:** events
-- **Parents:** [`feature_adoption`](#feature_adoption)
-- **Correlated:** [`dau`](#dau), [`feature_adoption`](#feature_adoption)
-
-<a id="stg_invoice_row"></a>
-### Raw Invoice Row — `stg_invoice_row`
-
-Single accounts receivable invoice record with due date and amount.
-
-- **Vertical:** Finance & FP&A · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/finance/stg_invoice_row.yml) · [sql](dbt/analyses/metrics/finance/stg_invoice_row.sql)
-- **Numerator:** invoice_amount
-- **Dimensions:** invoice_id, customer_id, due_date, status
-- **Data sources:** ERP, Billing system
-- **Parents:** [`dso`](#dso), [`ar_aging_90d`](#ar_aging_90d), [`billings`](#billings), [`deferred_revenue`](#deferred_revenue)
-
-<a id="stg_job_requisition_row"></a>
-### Raw Job Requisition Row — `stg_job_requisition_row`
-
-Single job requisition record from ATS with open and close dates.
-
-- **Vertical:** Finance & FP&A · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/finance/stg_job_requisition_row.yml) · [sql](dbt/analyses/metrics/finance/stg_job_requisition_row.sql)
-- **Numerator:** 1 per requisition
-- **Dimensions:** req_id, department, job_level, open_date, status
-- **Data sources:** ATS (Greenhouse / Lever)
-- **Parents:** [`time_to_fill`](#time_to_fill), [`internal_promotion_rate`](#internal_promotion_rate)
-
-<a id="stg_opex_line"></a>
-### Raw OpEx Line — `stg_opex_line`
-
-Individual operating expense line item by GL account.
-
-- **Vertical:** Finance & FP&A · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/finance/stg_opex_line.yml) · [sql](dbt/analyses/metrics/finance/stg_opex_line.sql)
-- **Numerator:** opex_amount
-- **Dimensions:** company_id, gl_account, department, period
-- **Data sources:** ERP, General Ledger
-- **Parents:** [`opex`](#opex)
-
-<a id="stg_opportunities_count"></a>
-### Opportunities — `stg_opportunities_count`
-
-Raw opportunity count from CRM staging table
-
-- **Vertical:** Finance & FP&A · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/finance/stg_opportunities_count.yml) · [sql](dbt/analyses/metrics/finance/stg_opportunities_count.sql)
-- **Numerator:** Opportunity records
-- **Dimensions:** date, stage
-- **Data sources:** crm
-- **Parents:** [`avg_deal_size`](#avg_deal_size)
-- **Correlated:** [`sql`](#sql), [`pipeline_generated`](#pipeline_generated)
-
-<a id="stg_opportunity_row"></a>
-### Raw Opportunity Row — `stg_opportunity_row`
-
-Single CRM opportunity record with stage, amount, and dates.
-
-- **Vertical:** Finance & FP&A · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/finance/stg_opportunity_row.yml) · [sql](dbt/analyses/metrics/finance/stg_opportunity_row.sql)
-- **Numerator:** arr_value
-- **Dimensions:** opportunity_id, account_id, rep_id, stage, close_date
-- **Data sources:** CRM (Salesforce / HubSpot)
-- **Parents:** [`win_rate`](#win_rate), [`sales_cycle_length`](#sales_cycle_length), [`pipeline_value`](#pipeline_value), [`acv`](#acv), [`bookings`](#bookings), [`marketing_influenced_pipeline`](#marketing_influenced_pipeline), [`quota_attainment`](#quota_attainment)
-
-<a id="stg_order_amount_sum"></a>
-### Order Amount — `stg_order_amount_sum`
-
-Sum of order amounts in staging before deduplication
-
-- **Vertical:** Finance & FP&A · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/finance/stg_order_amount_sum.yml) · [sql](dbt/analyses/metrics/finance/stg_order_amount_sum.sql)
-- **Numerator:** Sum of order amounts
-- **Dimensions:** date
-- **Data sources:** orders
-- **Parents:** [`aov`](#aov), [`gross_revenue`](#gross_revenue)
-- **Correlated:** [`gross_revenue`](#gross_revenue), [`aov`](#aov)
-
-<a id="stg_orders_count"></a>
-### Orders — `stg_orders_count`
-
-Raw count of order records in the staging orders table
-
-- **Vertical:** Finance & FP&A · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/finance/stg_orders_count.yml) · [sql](dbt/analyses/metrics/finance/stg_orders_count.sql)
-- **Numerator:** Order records
-- **Dimensions:** date, channel
-- **Data sources:** orders
-- **Parents:** [`cycle_time`](#cycle_time), [`order_fulfillment_rate`](#order_fulfillment_rate), [`otd_rate`](#otd_rate), [`throughput`](#throughput)
-- **Correlated:** [`total_revenue`](#total_revenue), [`aov`](#aov)
-
-<a id="stg_page_view_row"></a>
-### Raw Page View Row — `stg_page_view_row`
-
-Single web page view event with URL, user, and referrer.
-
-- **Vertical:** Finance & FP&A · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/finance/stg_page_view_row.yml) · [sql](dbt/analyses/metrics/finance/stg_page_view_row.sql)
-- **Numerator:** 1 per page view
-- **Dimensions:** page_id, user_id, referrer, device, date
-- **Data sources:** Google Analytics / GA4, Segment
-- **Parents:** [`website_sessions`](#website_sessions)
-
-<a id="stg_page_views"></a>
-### Page Views — `stg_page_views`
-
-Total page view events in web analytics staging
-
-- **Vertical:** Finance & FP&A · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/finance/stg_page_views.yml) · [sql](dbt/analyses/metrics/finance/stg_page_views.sql)
-- **Numerator:** Page view events
-- **Dimensions:** date, page
-- **Data sources:** analytics
-- **Parents:** [`website_sessions`](#website_sessions)
-- **Correlated:** [`website_sessions`](#website_sessions), [`bounce_rate`](#bounce_rate)
-
-<a id="stg_products_active"></a>
-### Active Products — `stg_products_active`
-
-Count of active product records in staging catalog
-
-- **Vertical:** Finance & FP&A · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/finance/stg_products_active.yml) · [sql](dbt/analyses/metrics/finance/stg_products_active.sql)
-- **Numerator:** Active product records
-- **Dimensions:** date, category
-- **Data sources:** catalog
-- **Parents:** [`cross_sell_rate`](#cross_sell_rate)
-- **Correlated:** [`cross_sell_rate`](#cross_sell_rate), [`aov`](#aov)
-
-<a id="stg_quality_inspection_row"></a>
-### Raw Quality Inspection Row — `stg_quality_inspection_row`
-
-Single quality inspection record with pass/fail and defect category.
-
-- **Vertical:** Finance & FP&A · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/finance/stg_quality_inspection_row.yml) · [sql](dbt/analyses/metrics/finance/stg_quality_inspection_row.sql)
-- **Numerator:** 1 per inspection
-- **Dimensions:** inspection_id, product_id, production_line, date, result
-- **Data sources:** Quality management system
-- **Parents:** [`defect_rate`](#defect_rate)
-
-<a id="stg_return_row"></a>
-### Raw Return Row — `stg_return_row`
-
-Single product return transaction record with reason code and condition.
-
-- **Vertical:** Finance & FP&A · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/finance/stg_return_row.yml) · [sql](dbt/analyses/metrics/finance/stg_return_row.sql)
-- **Numerator:** 1 per return
-- **Dimensions:** return_id, order_id, product_id, reason_code, return_date
-- **Data sources:** ERP, WMS, Returns management system
-- **Parents:** [`return_rate`](#return_rate)
-
-<a id="stg_session_row"></a>
-### Raw Session Row — `stg_session_row`
-
-Single web session record from analytics platform.
-
-- **Vertical:** Finance & FP&A · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/finance/stg_session_row.yml) · [sql](dbt/analyses/metrics/finance/stg_session_row.sql)
-- **Numerator:** 1 per session
-- **Dimensions:** session_id, user_id, source, medium, landing_page, date
-- **Data sources:** Google Analytics / GA4, Segment
-- **Parents:** [`organic_sessions`](#organic_sessions), [`website_sessions`](#website_sessions), [`bounce_rate`](#bounce_rate), [`paid_sessions`](#paid_sessions), [`referral_sessions`](#referral_sessions)
-
-<a id="stg_sessions_count"></a>
-### Sessions — `stg_sessions_count`
-
-Raw session row count in staging
-
-- **Vertical:** Finance & FP&A · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/finance/stg_sessions_count.yml) · [sql](dbt/analyses/metrics/finance/stg_sessions_count.sql)
-- **Numerator:** Session records
-- **Dimensions:** date, platform
-- **Data sources:** sessions
-- **Parents:** [`sessions_per_user`](#sessions_per_user)
-- **Correlated:** [`dau`](#dau), [`session_length`](#session_length)
-
-<a id="stg_shipment_row"></a>
-### Raw Shipment Row — `stg_shipment_row`
-
-Single shipment record with carrier, dates, and status.
-
-- **Vertical:** Finance & FP&A · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/finance/stg_shipment_row.yml) · [sql](dbt/analyses/metrics/finance/stg_shipment_row.sql)
-- **Numerator:** 1 per shipment
-- **Dimensions:** shipment_id, order_id, carrier, ship_date, committed_date, status
-- **Data sources:** WMS, TMS
-- **Parents:** [`on_time_delivery_rate`](#on_time_delivery_rate), [`order_accuracy_rate`](#order_accuracy_rate)
-
-<a id="stg_subscription_row"></a>
-### Raw Subscription Row — `stg_subscription_row`
-
-Single active subscription record with plan and amount.
-
-- **Vertical:** Finance & FP&A · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/finance/stg_subscription_row.yml) · [sql](dbt/analyses/metrics/finance/stg_subscription_row.sql)
-- **Numerator:** monthly_amount
-- **Dimensions:** customer_id, plan_tier, start_date, status
-- **Data sources:** Billing system
-- **Parents:** [`mrr`](#mrr), [`arr`](#arr), [`cohort_revenue_retention`](#cohort_revenue_retention), [`customer_concentration_risk`](#customer_concentration_risk), [`logo_churn_rate`](#logo_churn_rate), [`renewal_rate`](#renewal_rate)
-
-<a id="stg_subscriptions_active"></a>
-### Active Subscriptions — `stg_subscriptions_active`
-
-Count of active subscription records before business logic
-
-- **Vertical:** Finance & FP&A · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/finance/stg_subscriptions_active.yml) · [sql](dbt/analyses/metrics/finance/stg_subscriptions_active.sql)
-- **Numerator:** Active subscription records
-- **Dimensions:** date, plan
-- **Data sources:** subscriptions
-- **Parents:** [`active_paying_users`](#active_paying_users), [`new_arr`](#new_arr)
-- **Correlated:** [`arr`](#arr), [`mrr`](#mrr), [`logo_churn_rate`](#logo_churn_rate)
-
-<a id="stg_survey_response_row"></a>
-### Raw Survey Response — `stg_survey_response_row`
-
-Individual employee survey response record.
-
-- **Vertical:** Finance & FP&A · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/finance/stg_survey_response_row.yml) · [sql](dbt/analyses/metrics/finance/stg_survey_response_row.sql)
-- **Numerator:** composite_score
-- **Dimensions:** employee_id, survey_id, question_id, response_date
-- **Data sources:** Survey platform (Lattice / Culture Amp)
-- **Parents:** [`employee_engagement_score`](#employee_engagement_score), [`manager_effectiveness_score`](#manager_effectiveness_score), [`school_culture_score`](#school_culture_score)
-
-<a id="stg_user_event_row"></a>
-### Raw User Event Row — `stg_user_event_row`
-
-Single user action event from product analytics instrumentation.
-
-- **Vertical:** Finance & FP&A · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/finance/stg_user_event_row.yml) · [sql](dbt/analyses/metrics/finance/stg_user_event_row.sql)
-- **Numerator:** 1 per event
-- **Dimensions:** event_id, user_id, event_name, session_id, timestamp, platform
-- **Data sources:** Segment, Amplitude, Mixpanel
-- **Parents:** [`dau`](#dau), [`mau`](#mau), [`activation_rate`](#activation_rate), [`avg_session_duration`](#avg_session_duration), [`feature_adoption_rate`](#feature_adoption_rate), [`new_user_signups`](#new_user_signups), [`onboarding_completion_rate`](#onboarding_completion_rate), [`retention_d30`](#retention_d30), [`time_to_value`](#time_to_value)
-
-<a id="stg_vehicle_trip_row"></a>
-### Raw Vehicle Trip Row — `stg_vehicle_trip_row`
-
-Single vehicle trip record with distance, duration, and driver.
-
-- **Vertical:** Finance & FP&A · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/finance/stg_vehicle_trip_row.yml) · [sql](dbt/analyses/metrics/finance/stg_vehicle_trip_row.sql)
-- **Numerator:** 1 per trip
-- **Dimensions:** trip_id, vehicle_id, driver_id, start_time, end_time, distance_miles
-- **Data sources:** Fleet management system (GPS, telematics)
-- **Parents:** [`fleet_utilization_rate`](#fleet_utilization_rate), [`cost_per_mile`](#cost_per_mile)
-
-<a id="stg_work_order_row"></a>
-### Raw Work Order Row — `stg_work_order_row`
-
-Single maintenance or facilities work order record.
-
-- **Vertical:** Finance & FP&A · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/finance/stg_work_order_row.yml) · [sql](dbt/analyses/metrics/finance/stg_work_order_row.sql)
-- **Numerator:** 1 per work order
-- **Dimensions:** work_order_id, facility_id, category, priority, created_date
-- **Data sources:** CMMS (Computerized Maintenance Management System)
-- **Parents:** [`work_order_resolution_time`](#work_order_resolution_time), [`preventive_maintenance_rate`](#preventive_maintenance_rate)
 
 <a id="survey_response_rate"></a>
 ### Survey Response % — `survey_response_rate`
@@ -6046,6 +5541,18 @@ New user registrations in the period
 - **Parents:** [`d30_retention`](#d30_retention), [`d7_retention`](#d7_retention), [`viral_coefficient`](#viral_coefficient)
 - **Correlated:** [`activation_rate`](#activation_rate), [`trial_signups`](#trial_signups)
 
+<a id="work_orders"></a>
+### Work Orders — `work_orders`
+
+Maintenance and facilities work orders created in the period
+
+- **Vertical:** Finance & FP&A · **Industry:** cross_industry
+- **Files:** [yml](dbt/models/metrics/finance/work_orders.yml) · [sql](dbt/analyses/metrics/finance/work_orders.sql)
+- **Numerator:** Work orders created
+- **Dimensions:** work_order_id, facility_id, category, priority, created_date
+- **Data sources:** CMMS (Computerized Maintenance Management System)
+- **Parents:** [`work_order_resolution_time`](#work_order_resolution_time), [`preventive_maintenance_rate`](#preventive_maintenance_rate)
+
 <a id="competitive_win_rate"></a>
 ### Competitive Win % — `competitive_win_rate`
 
@@ -6097,7 +5604,6 @@ Full-time equivalent employee count at end of period.
 - **Dimensions:** company_id, department, location, period
 - **Data sources:** HRIS
 - **Parents:** [`revenue_per_employee`](#revenue_per_employee), [`teacher_student_ratio`](#teacher_student_ratio)
-- **Children:** [`stg_employee_row`](#stg_employee_row)
 - **Correlated:** [`headcount_cost`](#headcount_cost), [`opex`](#opex), [`employee_attrition_rate`](#employee_attrition_rate), [`time_to_fill`](#time_to_fill)
 
 <a id="new_hires"></a>
@@ -6139,31 +5645,6 @@ Number of quota-carrying sales representatives
 - **Parents:** [`arr_per_rep`](#arr_per_rep)
 - **Correlated:** [`arr_per_rep`](#arr_per_rep), [`quota_attainment`](#quota_attainment)
 
-<a id="stg_payroll_row"></a>
-### Raw Payroll Row — `stg_payroll_row`
-
-Single payroll record per employee per pay period.
-
-- **Vertical:** People & HR · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/hr/stg_payroll_row.yml) · [sql](dbt/analyses/metrics/hr/stg_payroll_row.sql)
-- **Numerator:** gross_pay
-- **Dimensions:** employee_id, pay_period, pay_type, department
-- **Data sources:** Payroll system (ADP / Gusto)
-- **Parents:** [`headcount_cost`](#headcount_cost), [`compensation_ratio`](#compensation_ratio), [`sales_spend`](#sales_spend)
-
-<a id="stg_payroll_total"></a>
-### Payroll Total — `stg_payroll_total`
-
-Total payroll disbursements in staging payroll table
-
-- **Vertical:** People & HR · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/hr/stg_payroll_total.yml) · [sql](dbt/analyses/metrics/hr/stg_payroll_total.sql)
-- **Numerator:** Sum of payroll amounts
-- **Dimensions:** date, department
-- **Data sources:** payroll
-- **Parents:** [`total_comp_expense`](#total_comp_expense)
-- **Correlated:** [`total_comp_expense`](#total_comp_expense), [`headcount`](#headcount)
-
 <a id="total_comp_expense"></a>
 ### Total Comp Expense — `total_comp_expense`
 
@@ -6175,8 +5656,7 @@ Total salaries, benefits, and equity costs for the period
 - **Dimensions:** date, department
 - **Data sources:** payroll
 - **Parents:** [`opex`](#opex), [`hr_cost_pct_revenue`](#hr_cost_pct_revenue), [`cost_per_hire`](#cost_per_hire), [`gender_pay_gap`](#gender_pay_gap), [`support_cost_per_ticket`](#support_cost_per_ticket)
-- **Children:** [`stg_payroll_total`](#stg_payroll_total)
-- **Correlated:** [`headcount`](#headcount), [`cost_per_hire`](#cost_per_hire), [`benefits_utilization`](#benefits_utilization), [`stg_payroll_total`](#stg_payroll_total)
+- **Correlated:** [`headcount`](#headcount), [`cost_per_hire`](#cost_per_hire), [`benefits_utilization`](#benefits_utilization)
 
 <a id="ad_clicks"></a>
 ### Ad Clicks — `ad_clicks`
@@ -6189,7 +5669,6 @@ Total clicks on paid ads in the period.
 - **Dimensions:** channel, campaign, ad_set, date
 - **Data sources:** Google Ads, Meta Ads
 - **Parents:** [`ctr`](#ctr), [`cpc`](#cpc)
-- **Children:** [`stg_ad_spend_row`](#stg_ad_spend_row)
 - **Correlated:** [`impressions`](#impressions), [`web_conversion_rate`](#web_conversion_rate)
 
 <a id="ad_impressions"></a>
@@ -6245,6 +5724,19 @@ Percentage of recipients who unsubscribed
 - **Parents:** [`unsubscribe_rate`](#unsubscribe_rate)
 - **Correlated:** [`email_open_rate`](#email_open_rate), [`email_ctr`](#email_ctr)
 
+<a id="leads"></a>
+### Leads — `leads`
+
+Leads created in the period, from CRM and marketing automation
+
+- **Vertical:** Marketing · **Industry:** cross_industry
+- **Files:** [yml](dbt/models/metrics/marketing/leads.yml) · [sql](dbt/analyses/metrics/marketing/leads.sql)
+- **Numerator:** Leads created
+- **Dimensions:** date, channel
+- **Data sources:** crm
+- **Parents:** [`cpl`](#cpl), [`form_conversion_rate`](#form_conversion_rate), [`lead_to_mql_rate`](#lead_to_mql_rate), [`mql`](#mql), [`session_to_lead_rate`](#session_to_lead_rate), [`mql_count`](#mql_count), [`customers_by_channel`](#customers_by_channel)
+- **Correlated:** [`mql`](#mql), [`cpl`](#cpl)
+
 <a id="organic_traffic"></a>
 ### Organic Traffic — `organic_traffic`
 
@@ -6278,68 +5770,6 @@ Total followers across social platforms at end of period.
 - **Parents:** [`share_of_voice`](#share_of_voice), [`social_engagement_rate`](#social_engagement_rate)
 - **Correlated:** [`organic_sessions`](#organic_sessions), [`impressions`](#impressions)
 
-<a id="stg_ad_spend"></a>
-### Ad Spend — `stg_ad_spend`
-
-Raw ad spend total from all connected ad platforms in staging
-
-- **Vertical:** Marketing · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/marketing/stg_ad_spend.yml) · [sql](dbt/analyses/metrics/marketing/stg_ad_spend.sql)
-- **Numerator:** Total ad spend
-- **Dimensions:** date, channel, campaign
-- **Data sources:** ad_platforms
-- **Parents:** [`cost_per_mql`](#cost_per_mql), [`cpc`](#cpc), [`cpl`](#cpl), [`marketing_cac`](#marketing_cac), [`marketing_roi`](#marketing_roi), [`paid_attribution_pct`](#paid_attribution_pct)
-- **Correlated:** [`roas`](#roas), [`cpc`](#cpc), [`marketing_cac`](#marketing_cac)
-
-<a id="stg_ad_spend_row"></a>
-### Raw Ad Spend Row — `stg_ad_spend_row`
-
-Daily ad spend record by campaign from ad platform.
-
-- **Vertical:** Marketing · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/marketing/stg_ad_spend_row.yml) · [sql](dbt/analyses/metrics/marketing/stg_ad_spend_row.sql)
-- **Numerator:** spend
-- **Dimensions:** campaign_id, channel, date, ad_set_id
-- **Data sources:** Google Ads, Meta Ads, LinkedIn Ads
-- **Parents:** [`marketing_spend`](#marketing_spend), [`ad_clicks`](#ad_clicks), [`impressions`](#impressions)
-
-<a id="stg_email_send_row"></a>
-### Raw Email Send Row — `stg_email_send_row`
-
-Single email send event with delivery, open, and click status.
-
-- **Vertical:** Marketing · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/marketing/stg_email_send_row.yml) · [sql](dbt/analyses/metrics/marketing/stg_email_send_row.sql)
-- **Numerator:** 1 per send
-- **Dimensions:** send_id, contact_id, campaign_id, send_date, status
-- **Data sources:** Email platform (HubSpot / Klaviyo)
-- **Parents:** [`email_open_rate`](#email_open_rate), [`email_click_rate`](#email_click_rate), [`unsubscribe_rate`](#unsubscribe_rate)
-
-<a id="stg_lead_row"></a>
-### Raw Lead Row — `stg_lead_row`
-
-Single lead record from CRM or marketing automation with source and score.
-
-- **Vertical:** Marketing · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/marketing/stg_lead_row.yml) · [sql](dbt/analyses/metrics/marketing/stg_lead_row.sql)
-- **Numerator:** 1 per lead
-- **Dimensions:** lead_id, source, channel, created_date, score
-- **Data sources:** CRM, Marketing automation
-- **Parents:** [`mql_count`](#mql_count), [`customers_by_channel`](#customers_by_channel)
-
-<a id="stg_leads_count"></a>
-### Leads — `stg_leads_count`
-
-Raw lead count from CRM staging table
-
-- **Vertical:** Marketing · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/marketing/stg_leads_count.yml) · [sql](dbt/analyses/metrics/marketing/stg_leads_count.sql)
-- **Numerator:** Lead records created
-- **Dimensions:** date, channel
-- **Data sources:** crm
-- **Parents:** [`cpl`](#cpl), [`form_conversion_rate`](#form_conversion_rate), [`lead_to_mql_rate`](#lead_to_mql_rate), [`mql`](#mql), [`session_to_lead_rate`](#session_to_lead_rate)
-- **Correlated:** [`mql`](#mql), [`cpl`](#cpl)
-
 <a id="webinar_registrants"></a>
 ### Webinar Registrants — `webinar_registrants`
 
@@ -6366,6 +5796,19 @@ Total production or safety incidents in the period
 - **Parents:** [`mttd`](#mttd), [`mttr`](#mttr), [`uptime`](#uptime)
 - **Correlated:** [`mttr`](#mttr), [`mttd`](#mttd), [`rcr_rate`](#rcr_rate)
 
+<a id="inventory_items"></a>
+### Inventory Items — `inventory_items`
+
+Distinct SKUs with an inventory snapshot in the period
+
+- **Vertical:** Operations · **Industry:** manufacturing
+- **Files:** [yml](dbt/models/metrics/ops/inventory_items.yml) · [sql](dbt/analyses/metrics/ops/inventory_items.sql)
+- **Numerator:** Distinct SKUs in inventory
+- **Dimensions:** date, product, location
+- **Data sources:** inventory
+- **Parents:** [`inventory_turnover`](#inventory_turnover), [`stockout_rate`](#stockout_rate)
+- **Correlated:** [`inventory_turnover`](#inventory_turnover), [`stockout_rate`](#stockout_rate)
+
 <a id="inventory_value"></a>
 ### Inventory Value — `inventory_value`
 
@@ -6377,93 +5820,19 @@ Total cost basis of inventory on hand
 - **Dimensions:** date, product
 - **Data sources:** inventory
 - **Parents:** [`inventory_turnover`](#inventory_turnover)
-- **Correlated:** [`inventory_turnover`](#inventory_turnover), [`cogs_stg`](#cogs_stg), [`shrinkage_rate`](#shrinkage_rate), [`warehouse_utilization`](#warehouse_utilization)
+- **Correlated:** [`inventory_turnover`](#inventory_turnover), [`shrinkage_rate`](#shrinkage_rate), [`warehouse_utilization`](#warehouse_utilization), [`cogs`](#cogs)
 
-<a id="stg_csat_response_row"></a>
-### Raw CSAT Response — `stg_csat_response_row`
+<a id="order_lines"></a>
+### Order Lines — `order_lines`
 
-Individual CSAT survey response record.
-
-- **Vertical:** Operations · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/ops/stg_csat_response_row.yml) · [sql](dbt/analyses/metrics/ops/stg_csat_response_row.sql)
-- **Numerator:** satisfaction_score
-- **Dimensions:** response_id, customer_id, interaction_id, date
-- **Data sources:** Survey platform, CRM
-- **Parents:** [`csat`](#csat), [`cx_csat`](#cx_csat)
-
-<a id="stg_inventory_items"></a>
-### Inventory Items — `stg_inventory_items`
-
-Total SKU count in inventory staging table
-
-- **Vertical:** Operations · **Industry:** manufacturing
-- **Files:** [yml](dbt/models/metrics/ops/stg_inventory_items.yml) · [sql](dbt/analyses/metrics/ops/stg_inventory_items.sql)
-- **Numerator:** Inventory item records
-- **Dimensions:** date, product, location
-- **Data sources:** inventory
-- **Parents:** [`inventory_turnover`](#inventory_turnover), [`stockout_rate`](#stockout_rate)
-- **Correlated:** [`inventory_turnover`](#inventory_turnover), [`stockout_rate`](#stockout_rate)
-
-<a id="stg_order_line_row"></a>
-### Raw Order Line Row — `stg_order_line_row`
-
-Single order line item with product, quantity, and fulfillment status.
+Order lines placed in the period
 
 - **Vertical:** Operations · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/ops/stg_order_line_row.yml) · [sql](dbt/analyses/metrics/ops/stg_order_line_row.sql)
-- **Numerator:** 1 per line
+- **Files:** [yml](dbt/models/metrics/ops/order_lines.yml) · [sql](dbt/analyses/metrics/ops/order_lines.sql)
+- **Numerator:** Order lines
 - **Dimensions:** order_id, line_id, product_id, qty_ordered, qty_shipped, warehouse_id
 - **Data sources:** ERP, WMS
 - **Parents:** [`fill_rate`](#fill_rate)
-
-<a id="stg_purchase_order_row"></a>
-### Raw PO Row — `stg_purchase_order_row`
-
-Single purchase order record with supplier, items, and receipt date.
-
-- **Vertical:** Operations · **Industry:** manufacturing
-- **Files:** [yml](dbt/models/metrics/ops/stg_purchase_order_row.yml) · [sql](dbt/analyses/metrics/ops/stg_purchase_order_row.sql)
-- **Numerator:** po_amount
-- **Dimensions:** po_id, supplier_id, product_id, po_date, receipt_date, status
-- **Data sources:** ERP, Purchasing system
-- **Parents:** [`supplier_lead_time`](#supplier_lead_time), [`procurement_savings_rate`](#procurement_savings_rate), [`vendor_compliance_rate`](#vendor_compliance_rate)
-
-<a id="stg_safety_incident_row"></a>
-### Raw Safety Incident Row — `stg_safety_incident_row`
-
-Single workplace safety incident record with type, severity, and department.
-
-- **Vertical:** Operations · **Industry:** manufacturing
-- **Files:** [yml](dbt/models/metrics/ops/stg_safety_incident_row.yml) · [sql](dbt/analyses/metrics/ops/stg_safety_incident_row.sql)
-- **Numerator:** 1 per incident
-- **Dimensions:** incident_id, employee_id, facility_id, incident_type, severity, date
-- **Data sources:** Safety management system
-- **Parents:** [`safety_incident_rate`](#safety_incident_rate)
-
-<a id="stg_support_tickets"></a>
-### Support Tickets — `stg_support_tickets`
-
-Raw ticket count from helpdesk staging table
-
-- **Vertical:** Operations · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/ops/stg_support_tickets.yml) · [sql](dbt/analyses/metrics/ops/stg_support_tickets.sql)
-- **Numerator:** Support ticket records
-- **Dimensions:** date, priority
-- **Data sources:** helpdesk
-- **Parents:** [`escalation_rate`](#escalation_rate), [`fcr_rate`](#fcr_rate), [`ticket_resolution_time`](#ticket_resolution_time), [`tickets_per_agent`](#tickets_per_agent)
-- **Correlated:** [`ticket_resolution_time`](#ticket_resolution_time), [`first_response_time`](#first_response_time), [`fcr_rate`](#fcr_rate)
-
-<a id="stg_ticket_row"></a>
-### Raw Ticket Row — `stg_ticket_row`
-
-Single support ticket record with category, priority, and resolution data.
-
-- **Vertical:** Operations · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/ops/stg_ticket_row.yml) · [sql](dbt/analyses/metrics/ops/stg_ticket_row.sql)
-- **Numerator:** 1 per ticket
-- **Dimensions:** ticket_id, customer_id, category, priority, channel, created_date
-- **Data sources:** Zendesk, Intercom, Freshdesk
-- **Parents:** [`support_tickets_opened`](#support_tickets_opened), [`first_response_time`](#first_response_time), [`time_to_resolution`](#time_to_resolution)
 
 <a id="support_tickets_opened"></a>
 ### Tickets Opened — `support_tickets_opened`
@@ -6476,7 +5845,7 @@ Count of new support tickets opened in the period.
 - **Dimensions:** category, priority, channel, product, period
 - **Data sources:** Support platform (Zendesk / Intercom)
 - **Parents:** [`ticket_resolution_rate`](#ticket_resolution_rate)
-- **Children:** [`stg_ticket_row`](#stg_ticket_row)
+- **Children:** [`tickets_created`](#tickets_created)
 - **Correlated:** [`csat`](#csat), [`churn_rate`](#churn_rate)
 
 <a id="tickets_created"></a>
@@ -6489,8 +5858,8 @@ Total new support tickets opened in the period
 - **Numerator:** Support tickets opened
 - **Dimensions:** date, priority
 - **Data sources:** helpdesk
-- **Parents:** [`tickets_per_customer`](#tickets_per_customer)
-- **Correlated:** [`ticket_resolution_time`](#ticket_resolution_time), [`sla_breach_rate`](#sla_breach_rate)
+- **Parents:** [`tickets_per_customer`](#tickets_per_customer), [`escalation_rate`](#escalation_rate), [`fcr_rate`](#fcr_rate), [`ticket_resolution_time`](#ticket_resolution_time), [`tickets_per_agent`](#tickets_per_agent), [`support_tickets_opened`](#support_tickets_opened), [`first_response_time`](#first_response_time), [`time_to_resolution`](#time_to_resolution)
+- **Correlated:** [`ticket_resolution_time`](#ticket_resolution_time), [`sla_breach_rate`](#sla_breach_rate), [`first_response_time`](#first_response_time), [`fcr_rate`](#fcr_rate)
 
 <a id="tickets_resolved"></a>
 ### Tickets Resolved — `tickets_resolved`
@@ -6568,9 +5937,8 @@ Total revenue before any discounts or returns
 - **Numerator:** Sum of gross order amounts
 - **Dimensions:** date, channel
 - **Data sources:** orders
-- **Parents:** [`total_revenue`](#total_revenue), [`net_revenue`](#net_revenue)
-- **Children:** [`stg_order_amount_sum`](#stg_order_amount_sum)
-- **Correlated:** [`net_revenue`](#net_revenue), [`discount_rate`](#discount_rate), [`stg_order_amount_sum`](#stg_order_amount_sum)
+- **Parents:** [`total_revenue`](#total_revenue), [`net_revenue`](#net_revenue), [`aov`](#aov)
+- **Correlated:** [`net_revenue`](#net_revenue), [`discount_rate`](#discount_rate), [`aov`](#aov)
 
 <a id="implementation_revenue"></a>
 ### Implementation Revenue — `implementation_revenue`
@@ -6661,7 +6029,7 @@ Revenue recognized under ASC 606 in the period
 - **Dimensions:** date
 - **Data sources:** subscriptions, invoices
 - **Parents:** [`billings`](#billings)
-- **Correlated:** [`deferred_revenue`](#deferred_revenue), [`arr`](#arr), [`stg_invoices_amount`](#stg_invoices_amount)
+- **Correlated:** [`deferred_revenue`](#deferred_revenue), [`arr`](#arr), [`billings`](#billings)
 
 <a id="revenue_by_channel"></a>
 ### Revenue by Channel — `revenue_by_channel`
@@ -6702,18 +6070,6 @@ Revenue broken out by geographic region
 - **Parents:** [`total_revenue`](#total_revenue)
 - **Correlated:** [`total_revenue`](#total_revenue), [`market_share`](#market_share)
 
-<a id="stg_revenue_event_amount"></a>
-### Raw Revenue Event — `stg_revenue_event_amount`
-
-Individual recognized revenue transaction row from billing system.
-
-- **Vertical:** Private Equity / SaaS · **Industry:** saas
-- **Files:** [yml](dbt/models/metrics/pe/stg_revenue_event_amount.yml) · [sql](dbt/analyses/metrics/pe/stg_revenue_event_amount.sql)
-- **Numerator:** amount
-- **Dimensions:** company_id, order_id, customer_id, product_id, recognized_date
-- **Data sources:** Billing system, ERP
-- **Parents:** [`revenue`](#revenue), [`asp`](#asp), [`gmv`](#gmv)
-
 <a id="api_calls_total"></a>
 ### API Calls (Total) — `api_calls_total`
 
@@ -6752,27 +6108,3 @@ Average story points completed per two-week sprint
 - **Data sources:** project_management
 - **Parents:** [`deployment_frequency`](#deployment_frequency)
 - **Correlated:** [`deployment_frequency`](#deployment_frequency), [`tech_debt_ratio`](#tech_debt_ratio), [`pr_merge_time`](#pr_merge_time)
-
-<a id="stg_error_event_row"></a>
-### Raw Error Event Row — `stg_error_event_row`
-
-Single application error event from monitoring system.
-
-- **Vertical:** Product & Engineering · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/product/stg_error_event_row.yml) · [sql](dbt/analyses/metrics/product/stg_error_event_row.sql)
-- **Numerator:** 1 per error
-- **Dimensions:** error_id, user_id, endpoint, error_type, timestamp
-- **Data sources:** Sentry, Datadog, Rollbar
-- **Parents:** [`error_rate`](#error_rate), [`mttd`](#mttd)
-
-<a id="stg_nps_response_row"></a>
-### Raw NPS Response — `stg_nps_response_row`
-
-Individual NPS survey response with score and verbatim.
-
-- **Vertical:** Product & Engineering · **Industry:** cross_industry
-- **Files:** [yml](dbt/models/metrics/product/stg_nps_response_row.yml) · [sql](dbt/analyses/metrics/product/stg_nps_response_row.sql)
-- **Numerator:** score (0–10)
-- **Dimensions:** respondent_id, customer_id, survey_date, score
-- **Data sources:** Survey platform (Delighted / Qualtrics)
-- **Parents:** [`nps`](#nps)

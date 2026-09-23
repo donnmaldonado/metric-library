@@ -1,4 +1,4 @@
-# Metrics on this model: open_requisitions, stg_job_requisition_row, time_to_fill
+# Metrics on this model: open_requisitions, time_to_fill
 models:
   - name: fct_requisitions
     description: One row per job requisition.

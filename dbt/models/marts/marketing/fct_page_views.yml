@@ -1,4 +1,4 @@
-# Metrics on this model: stg_page_view_row, stg_page_views
+# Metrics on this model: none
 models:
   - name: fct_page_views
     description: One row per page view.
@@ -33,4 +33,4 @@ semantic_models:
       - name: page_view_count
         agg: count
         expr: page_view_id
-        description: 'Used by: stg_page_view_row, stg_page_views.'
+        description: 'Not used by any metric.'

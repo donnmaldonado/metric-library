@@ -1,4 +1,4 @@
-# Metrics on this model: safety_incident_rate, stg_safety_incident_row
+# Metrics on this model: safety_incident_rate
 models:
   - name: fct_safety_incidents
     description: One row per workplace safety incident, plus one hours-worked row per facility and period.
@@ -35,7 +35,7 @@ semantic_models:
       - name: safety_incidents_incident_count
         agg: count
         expr: incident_id
-        description: 'Incident rows (hours rows have no incident_id). Used by: safety_incident_rate, stg_safety_incident_row.'
+        description: 'Incident rows (hours rows have no incident_id). Used by: safety_incident_rate.'
       - name: total_hours_worked
         agg: sum
         description: 'Employee-hours worked. Used by: safety_incident_rate.'

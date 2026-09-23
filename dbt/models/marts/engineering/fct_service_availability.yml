@@ -1,4 +1,4 @@
-# Metrics on this model: mtbf, product_uptime_sla, stg_downtime_event_row, system_uptime, uptime
+# Metrics on this model: mtbf, product_uptime_sla, system_uptime, uptime
 models:
   - name: fct_service_availability
     description: One row per service/system and period with uptime, downtime and failure counts.
@@ -37,7 +37,7 @@ semantic_models:
       - name: service_availability_event_count
         agg: count
         expr: event_id
-        description: 'Downtime events. Used by: stg_downtime_event_row.'
+        description: 'Downtime events. Not used by any metric.'
       - name: failure_count
         agg: sum
         description: 'Unplanned failures in the window. Used by: mtbf.'
