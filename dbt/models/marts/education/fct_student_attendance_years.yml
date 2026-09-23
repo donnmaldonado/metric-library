@@ -1,4 +1,4 @@
-# Metrics on this model: absenteeism_by_subgroup, chronic_absenteeism, chronic_absenteeism_rate
+# Metrics on this model: chronic_absenteeism_rate
 models:
   - name: fct_student_attendance_years
     description: 'One row per student per school year: year-to-date enrolled and absent days and chronic-absence flag (absent

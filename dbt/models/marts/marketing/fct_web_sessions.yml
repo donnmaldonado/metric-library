@@ -1,4 +1,4 @@
-# Metrics on this model: avg_session_duration, bounce_rate, organic_sessions, organic_traffic, paid_sessions, paid_traffic, referral_sessions, session_length, session_to_lead_rate, sessions_per_user, web_conversion_rate, website_sessions
+# Metrics on this model: avg_session_duration, bounce_rate, organic_sessions, paid_sessions, referral_sessions, session_to_lead_rate, sessions_per_user, web_conversion_rate, website_sessions
 models:
   - name: fct_web_sessions
     description: One row per web session (source, medium, landing page, conversion flags).
@@ -55,7 +55,7 @@ semantic_models:
       - name: avg_duration_seconds
         agg: average
         expr: duration_seconds
-        description: 'Used by: avg_session_duration (and session_length through it).'
+        description: 'Used by: avg_session_duration.'
       - name: session_count
         agg: count
         expr: session_id

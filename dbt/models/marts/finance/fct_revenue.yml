@@ -1,7 +1,7 @@
-# Metrics on this model: asp, implementation_revenue, license_revenue, partner_revenue, partner_revenue_pct, prior_year_revenue, q1_revenue, q2_revenue, q3_revenue, q4_revenue, recognized_revenue, rev_from_existing, rev_from_new_customers, revenue, revenue_by_channel, revenue_by_product, revenue_by_region, revenue_per_account, revenue_vs_py, revenue_ytd, services_revenue, subscription_revenue, total_revenue
+# Metrics on this model: asp, implementation_revenue, license_revenue, partner_revenue, partner_revenue_pct, prior_year_revenue, q1_revenue, q2_revenue, q3_revenue, q4_revenue, rev_from_existing, rev_from_new_customers, revenue, revenue_per_account, revenue_vs_py, revenue_ytd, services_revenue, subscription_revenue
 # Canonical revenue column: recognized_revenue (also read by the commerce/operations SQL). Canonical measure:
-# revenue_amount = sum(recognized_revenue). The `revenue` metric is the canonical revenue metric; total_revenue,
-# recognized_revenue and revenue_by_* are derived aliases of it.
+# revenue_amount = sum(recognized_revenue). The `revenue` metric is the canonical revenue metric; slice it by
+# channel, product_line or region.
 # Columns amount, revenue_amount, recognized_amount, active_accounts, current_revenue are unused
 # synonyms; no measure uses them.
 models:

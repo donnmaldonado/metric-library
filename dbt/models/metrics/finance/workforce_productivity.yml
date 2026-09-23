@@ -4,7 +4,7 @@ metrics:
     description: Output or revenue generated per labor hour worked
     type: ratio
     type_params:
-      numerator: total_revenue
+      numerator: revenue
       denominator: labor_hours_worked
     config:
       meta:

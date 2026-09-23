@@ -9,6 +9,6 @@ metrics:
     config:
       meta:
         metricId: roe
-        tier: kpi
+        tier: north_star
         vertical: finance
         industry: financial_services

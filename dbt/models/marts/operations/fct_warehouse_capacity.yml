@@ -1,4 +1,5 @@
-# Metrics on this model: warehouse_utilization, warehouse_utilization_rate
+# Metrics on this model: warehouse_utilization
+# Columns occupied_locations and total_locations are unused; no measure uses them.
 models:
   - name: fct_warehouse_capacity
     description: One row per warehouse zone and snapshot date with occupied and total capacity.
@@ -38,18 +39,6 @@ semantic_models:
           name: snapshot_date
           window_choice: max
         description: 'Used by: warehouse_utilization.'
-      - name: occupied_locations
-        agg: sum
-        non_additive_dimension:
-          name: snapshot_date
-          window_choice: max
-        description: 'Used by: warehouse_utilization_rate.'
-      - name: total_locations
-        agg: sum
-        non_additive_dimension:
-          name: snapshot_date
-          window_choice: max
-        description: 'Used by: warehouse_utilization_rate.'
 metrics:
   - name: occupied_sqft
     label: occupied_sqft
@@ -63,15 +52,3 @@ metrics:
     type: simple
     type_params:
       measure: total_sqft
-  - name: occupied_locations
-    label: occupied_locations
-    description: Helper input for warehouse_utilization_rate.
-    type: simple
-    type_params:
-      measure: occupied_locations
-  - name: total_locations
-    label: total_locations
-    description: Helper input for warehouse_utilization_rate.
-    type: simple
-    type_params:
-      measure: total_locations

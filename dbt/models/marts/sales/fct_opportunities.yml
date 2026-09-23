@@ -1,4 +1,4 @@
-# Metrics on this model: avg_deal_size, avg_sales_cycle, competitive_win_rate, expansion_pipeline, marketing_influenced_pipeline, organic_attribution_pct, paid_attribution_pct, pipeline_generated, pipeline_value, referral_attribution_pct, sales_cycle_by_segment, sales_cycle_length, win_rate
+# Metrics on this model: avg_deal_size, avg_sales_cycle, competitive_win_rate, expansion_pipeline, marketing_influenced_pipeline, organic_attribution_pct, paid_attribution_pct, pipeline_generated, pipeline_value, referral_attribution_pct, sales_cycle_length, win_rate
 # Measures timed on close_date (won/closed deals, cycle lengths) set agg_time_dimension: close_date, so metric_time is the close month.
 models:
   - name: fct_opportunities

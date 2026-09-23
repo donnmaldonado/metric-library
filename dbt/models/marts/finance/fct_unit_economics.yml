@@ -1,4 +1,4 @@
-# Metrics on this model: cac, cac_payback, clv, ltv_cac, payback_period, payback_ratio
+# Metrics on this model: cac, cac_payback, clv, ltv_cac
 # Only additive parts are measures; averages (lifespan, MRR per new customer) are built as ratios of them.
 models:
   - name: fct_unit_economics

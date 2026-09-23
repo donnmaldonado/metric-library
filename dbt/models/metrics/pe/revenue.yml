@@ -8,6 +8,6 @@ metrics:
     config:
       meta:
         metricId: revenue
-        tier: kpi
+        tier: north_star
         vertical: pe
         industry: saas

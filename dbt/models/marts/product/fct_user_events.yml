@@ -1,4 +1,4 @@
-# Metrics on this model: dau, dau_mau_ratio, feature_adoption, feature_adoption_rate, mau, wau
+# Metrics on this model: dau, dau_mau_ratio, feature_adoption_rate, mau, wau
 models:
   - name: fct_user_events
     description: One row per product analytics event.

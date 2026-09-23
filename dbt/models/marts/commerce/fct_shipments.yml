@@ -1,4 +1,4 @@
-# Metrics on this model: lead_time, on_time_delivery_rate, ops_north_star, order_accuracy_rate, order_fulfillment_rate, otd_rate
+# Metrics on this model: lead_time, on_time_delivery_rate, ops_north_star, order_accuracy_rate, order_fulfillment_rate
 models:
   - name: fct_shipments
     description: One row per shipment / delivery, with fulfillment and order-quality flags.
@@ -61,7 +61,7 @@ semantic_models:
       - name: shipment_count
         agg: count
         expr: shipment_id
-        description: 'Used by: otd_rate.'
+        description: 'Used by: on_time_delivery_rate.'
       - name: shipments_distinct_order_count
         agg: count_distinct
         expr: order_id
@@ -69,7 +69,7 @@ semantic_models:
 metrics:
   - name: delivered_shipments
     label: delivered_shipments
-    description: Shipments delivered in the period. Helper input for otd_rate.
+    description: Shipments delivered in the period. Helper input for on_time_delivery_rate.
     type: simple
     type_params:
       measure: shipment_count

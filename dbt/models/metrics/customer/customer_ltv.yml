@@ -1,7 +1,7 @@
 metrics:
   - name: customer_ltv
     label: Realized Customer LTV
-    description: Predicted or realized revenue from a customer across their lifetime.
+    description: Realized average revenue per customer to date (lifetime order revenue / customers who have ordered).
     type: derived
     type_params:
       expr: lifetime_order_revenue / lifetime_ordering_customers

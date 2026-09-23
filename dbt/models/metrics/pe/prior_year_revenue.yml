@@ -4,10 +4,11 @@ metrics:
     description: Full-year revenue from the prior fiscal year
     type: derived
     type_params:
-      expr: revenue
+      expr: revenue_1y_ago
       metrics:
         - name: revenue
           offset_window: 1 year
+          alias: revenue_1y_ago
     config:
       meta:
         metricId: prior_year_revenue

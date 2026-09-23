@@ -1,4 +1,4 @@
-# Metrics on this model: employee_engagement_score, engagement_score, enps, manager_effectiveness_score
+# Metrics on this model: employee_engagement_score, enps, manager_effectiveness_score
 models:
   - name: fct_employee_survey_responses
     description: One row per employee survey response (engagement composite, eNPS 0-10, upward feedback).

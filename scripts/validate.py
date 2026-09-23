@@ -1,5 +1,6 @@
 """Check data/metrics.json for integrity problems. Run after editing."""
 import json, re, sys
+from collections import defaultdict
 from pathlib import Path
 import yaml
 
@@ -8,7 +9,22 @@ RANK = {"north_star": 0, "kpi": 1, "input": 2}
 MF_TYPES = {"simple", "ratio", "derived", "cumulative", "conversion"}
 ms = json.loads((ROOT / "data/metrics.json").read_text())
 by = {m["metricId"]: m for m in ms}
+
+
+def bare_alias_of(d):
+    """The input a derived metric merely renames (one input, expr is that input, no offset or filter), else None."""
+    tp = d.get("type_params") or {}
+    inputs = tp.get("metrics") or []
+    if d.get("type") != "derived" or len(inputs) != 1 or d.get("filter"):
+        return None
+    i = inputs[0]
+    if any(k in i for k in ("offset_window", "offset_to_grain", "filter")):
+        return None
+    return i.get("name") if str(tp.get("expr", "")).strip() in (i.get("name"), i.get("alias")) else None
+
+
 issues = []
+retired_on = defaultdict(list)  # retired id -> metrics listing it
 
 if len(by) != len(ms):
     issues.append("duplicate metricIds")
@@ -24,6 +40,9 @@ for m in ms:
             issues.append(f"{mid}: yaml is not a MetricFlow metric (type {d.get('type')!r})")
     except Exception as e:
         issues.append(f"{mid}: invalid yaml ({str(e).splitlines()[0]})")
+        d = {}
+    if bare_alias_of(d):
+        issues.append(f"{mid}: bare alias of {bare_alias_of(d)}; merge it and list {mid} in retiredIds")
     for key in ("parentMetrics", "childMetrics", "correlatedMetrics"):
         for ref in m[key]:
             if ref not in by:
@@ -40,8 +59,13 @@ for m in ms:
     for c in m["correlatedMetrics"]:
         if c in by and mid not in by[c]["correlatedMetrics"]:
             issues.append(f"{mid}: correlated with {c} but {c} doesn't list it back")
-    if "formulaInputs" not in m:
-        issues.append(f"{mid}: missing formulaInputs field")
+    for key in ("formulaInputs", "retiredIds"):
+        if key not in m:
+            issues.append(f"{mid}: missing {key} field")
+    for r in m.get("retiredIds", []):
+        if r in by:
+            issues.append(f"{mid}: retiredIds lists {r}, which is a live metricId")
+        retired_on[r].append(mid)
     for f in m.get("formulaInputs", []):
         if f == mid:
             issues.append(f"{mid}: formulaInputs references itself")
@@ -59,6 +83,10 @@ for m in ms:
         issues.append(f"{mid}: north star has no children")
     elif m["tier"] != "north_star" and not m["parentMetrics"]:
         issues.append(f"{mid}: {m['tier']} doesn't roll up to any parent")
+
+for r, owners in retired_on.items():
+    if len(owners) > 1:
+        issues.append(f"retired id {r} is listed {len(owners)} times ({', '.join(owners)})")
 
 # cycles in the parent -> child graph (iterative DFS, reports each cycle once)
 WHITE, GREY, BLACK = 0, 1, 2

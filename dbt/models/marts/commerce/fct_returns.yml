@@ -1,4 +1,4 @@
-# Metrics on this model: product_return_rate, return_rate
+# Metrics on this model: return_rate
 models:
   - name: fct_returns
     description: One row per returned item / refund.

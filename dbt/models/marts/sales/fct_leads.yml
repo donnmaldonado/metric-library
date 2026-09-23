@@ -1,4 +1,4 @@
-# Metrics on this model: demo_requests, lead_to_mql_rate, leads, mql, mql_count, mql_to_sql_rate, sql, sql_count
+# Metrics on this model: demo_requests, lead_to_mql_rate, leads, mql, mql_to_sql_rate, sql
 # MQL and SQL measures are timed on the date the lead reached that stage (mql_date / sql_date), not on created_date.
 models:
   - name: fct_leads

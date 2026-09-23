@@ -1,5 +1,4 @@
 # Metrics on this model: customer_onboarding_time, monthly_new_customers
-#   (aliases: onboarding_time -> customer_onboarding_time; customers_by_channel -> monthly_new_customers)
 # customer_count (active paying customers) lives on fct_subscriptions, which is a snapshot.
 models:
   - name: dim_customers

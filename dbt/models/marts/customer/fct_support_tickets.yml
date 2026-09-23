@@ -1,5 +1,4 @@
 # Metrics on this model: escalation_rate, fcr_rate, first_response_time, sla_breach_rate, support_cost_per_ticket, ticket_backlog, ticket_resolution_rate, tickets_created, tickets_per_agent, tickets_per_customer, tickets_resolved, time_to_resolution
-#   (aliases: support_tickets_opened -> tickets_created; ticket_resolution_time -> time_to_resolution)
 # Rates count tickets with a boolean filter over tickets_created (both by created_date). Resolution measures are timed on resolved_date.
 # Unused pre-aggregated columns (total_tickets, escalated_tickets, breached_tickets, first_contact_resolutions,
 # resolved_within_sla, tickets_handled, agent_count, active_customers) remain in the stub but no measure uses them.

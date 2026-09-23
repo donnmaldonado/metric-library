@@ -1,0 +1,65 @@
+metricId,label,class,canonical_id,swap_canonical,reason,flags
+district_proficiency_rate,District Proficiency %,merge,student_proficiency,n,Same concept (% tested students at/above proficiency); both North Star. Children ela/math/science_proficiency_rate move to student_proficiency.,
+return_on_equity,Return on Equity,merge,roe,n,Same N/D (net income / equity). roe keeps its ID (standard acronym) and takes the north_star tier and the alias's children; its only parent was return_on_equity so it becomes a root.,
+total_revenue,Total Revenue,merge,revenue,n,"Same concept (total recognized revenue). revenue takes north_star tier and total_revenue's children. A North Star cannot have parents: ebitda->revenue (NS->NS) becomes correlated; capex_pct_revenue, gna_pct_revenue, net_income_margin, rd_as_pct_revenue, revenue_per_employee -> revenue become formulaInputs (as gross_margin_pct <- total_revenue already is).",tier conflict: revenue has 6 parents; proposed handling needs sign-off (alternative: keep revenue a KPI and the library loses a North Star)
+onboarding_time,Onboarding Time (days),merge,customer_onboarding_time,n,Same definition (contract sign to go-live).,
+product_return_rate,Product Return %,merge,return_rate,n,Same N/D (returned units / sold units).,
+school_culture_score,School Culture Score,merge,school_climate_score,n,Same composite of student/family/staff climate surveys.,
+student_growth_percentile,Student Growth Percentile,merge,sgp,y,"Same concept. Swap: sgp is an unclear abbreviation outside education; keep student_growth_percentile, retire sgp.",
+teacher_student_ratio,Teacher-to-Student Ratio,merge,student_teacher_ratio,n,Same N/D (enrollment / FTE teachers); only the label order is inverted.,label says teacher-to-student but N/D is students per teacher
+absenteeism_by_subgroup,Absenteeism by Subgroup,slice,chronic_absenteeism_rate,n,chronic_absenteeism_rate cut by subgroup. Add subgroup to its dimensions.,
+attendance_rate,Attendance Rate,merge,student_attendance_rate,n,Same N/D (days attended / days enrolled).,
+average_daily_attendance,Avg Daily Attendance,merge,student_attendance_rate,n,"Description and N/D define a rate (days present / days enrolled), identical to student_attendance_rate. Resolves the README ADA known issue by retiring the ID.","README: school-finance ADA is usually a count (days_attended / school_days). If you want that metric, reclassify as variant and I will write the count formula"
+capacity_utilization_rate,Capacity Utilization,merge,capacity_utilization,n,Same N/D (actual / maximum output).,
+feature_adoption,Feature Adoption,merge,feature_adoption_rate,n,Same N/D (feature users / active users).,
+ga_spend_pct,G&A % of Revenue,merge,gna_pct_revenue,n,Same N/D (G&A / revenue).,
+graduation_rate,4-Year Graduation Rate,merge,four_year_grad_rate,n,Same N/D (4-year graduates / 9th-grade cohort). four_year_grad_rate is North Star: parent student_proficiency (NS) becomes correlated; parent college_enrollment (KPI) is dropped (tier rule).,
+gross_margin,Gross Margin,merge,gross_margin_pct,n,Same N/D ((revenue - COGS) / revenue).,
+gross_margin_by_segment,Gross Margin by Segment,slice,gross_margin_pct,n,gross_margin_pct cut by segment. Add segment (and channel) to its dimensions.,
+interest_coverage,Interest Coverage,merge,interest_coverage_ratio,n,Same N/D (EBIT / interest expense).,
+net_margin,Net Margin %,merge,net_income_margin,n,Same N/D (net income / revenue).,
+payback_period,CAC Payback Period,merge,cac_payback,n,Same N/D (CAC / (MRR x GM%)).,
+payback_ratio,Payback Ratio,merge,cac_payback,n,"Retire. Label, N/D, formula and edges are CAC payback (it already aliases cac_payback); only the description says LTV/CAC, which is ltv_cac. Either reading duplicates a live metric. Resolves the README payback_ratio known issue.",description (LTV/CAC) conflicts with N/D (CAC payback); alternative is to retire it into ltv_cac instead
+rd_spend_pct,R&D % of Revenue,merge,rd_as_pct_revenue,n,Same N/D (R&D / revenue).,
+return_on_assets,Return on Assets,merge,roa,n,Same N/D (net income / total assets). roa is a standard acronym.,
+employee_attrition_rate,Employee Attrition Rate,merge,voluntary_turnover,n,Description and N/D are voluntary separations / average headcount.,"""attrition"" often means all separations (= turnover_rate); the definition here is voluntary only"
+engagement_score,Engagement Score,merge,employee_engagement_score,n,Same engagement-survey composite.,
+ad_ctr,Ad CTR,merge,ctr,n,Same N/D (clicks / impressions).,
+email_ctr,Email CTR,merge,email_click_rate,n,Same N/D (clicked / delivered).,
+keywords_top10,Keywords (Top 10),merge,top10_keyword_count,n,Same definition (target keywords ranking top 10).,
+sql_count,SQLs,merge,sql,n,Same concept (leads accepted by sales). sql is the standard acronym.,
+on_time_delivery_rate,On-Time Delivery Rate,merge,otd_rate,y,"Same N/D (on-time / total deliveries). Swap: otd_rate is an unclear abbreviation; keep on_time_delivery_rate (takes north_star tier), retire otd_rate. Its parent ops_north_star (NS) becomes correlated.",
+ticket_resolution_time,Resolution Time,merge,time_to_resolution,n,Same N/D (creation to resolution / resolved tickets).,
+logo_churn_rate,Logo Churn Rate,merge,customer_churn_rate,n,"Same N/D (customers lost / customers at start), regardless of ARR.",
+net_revenue_retention,Net Revenue Retention,merge,nrr,n,Same N/D. nrr is a standard acronym.,
+nrr_monthly,NRR (Monthly),merge,nrr,n,formulaSql is identical to nrr's (monthly ARR waterfall); nrr is already monthly.,"description says MRR-based, formula uses ARR (MRR x 12); same ratio"
+gross_dollar_retention,Gross $ Retention,merge,grr,n,Same N/D (beginning ARR - churn - contraction / beginning ARR). grr is a standard acronym.,
+product_uptime_sla,Product Uptime SLA,merge,uptime,n,"Same N/D (available / scheduled minutes). SLA target is a threshold, not a separate metric.",
+retention_d30,D30 Retention,merge,d30_retention,n,Same N/D (day-30 active / cohort).,
+system_uptime,System Uptime,merge,uptime,n,Same N/D (available / scheduled time).,description mentions equipment; README known issue (mtbf/mttr/system_uptime on engineering models) will name uptime instead
+school_enrollment,School Enrollment,merge,enrollment_count,n,Same definition (enrolled students).,
+chronic_absenteeism,Chronic Absenteeism,merge,chronic_absenteeism_rate,n,Same N/D (students missing 10%+ / enrolled).,
+customers_by_channel,Customers by Channel,slice,monthly_new_customers,n,monthly_new_customers cut by acquisition channel; channel is already a dimension. Add segment.,
+sales_cycle_by_segment,Sales Cycle (Segment),slice,avg_sales_cycle,n,avg_sales_cycle cut by segment; segment is already a dimension.,
+user_signups,New Signups,merge,new_user_signups,n,Same definition (new user registrations).,
+headcount_by_dept,Headcount (Dept),slice,headcount,n,headcount cut by department; department is already a dimension.,
+ad_impressions,Ad Impressions,merge,impressions,n,Same definition (ad impressions served).,
+content_published,Content Published,merge,content_published_count,n,Same definition (content assets published).,
+email_unsub_rate,Unsub Rate,merge,unsubscribe_rate,n,Same N/D (unsubscribes / delivered).,
+mql_count,MQLs,merge,mql,n,Same concept (leads meeting MQL threshold). mql is the standard acronym.,
+organic_traffic,Organic Traffic,merge,organic_sessions,n,Same definition (sessions from organic search).,
+paid_traffic,Paid Traffic,merge,paid_sessions,n,Same definition (sessions from paid channels).,
+support_tickets_opened,Tickets Opened,merge,tickets_created,n,Same definition (new tickets opened).,
+prior_year_revenue,PY Revenue,variant,revenue,n,Keep: revenue with offset_window 1 year. Write out its own formulaYaml (simple on revenue_amount with offset via derived) / formulaSql so it no longer reads as an alias.,description says prior fiscal year; library uses calendar years (README known issue)
+recognized_revenue,Recognized Revenue,merge,revenue,n,Same definition (revenue recognized in period).,
+revenue_by_channel,Revenue by Channel,slice,revenue,n,revenue cut by channel; channel is already a dimension.,
+revenue_by_product,Revenue by Product,slice,revenue,n,revenue cut by product line; product_line is already a dimension.,
+revenue_by_region,Revenue by Region,slice,revenue,n,revenue cut by region. Add region to its dimensions (has geography).,geography vs region naming; task 06 standardizes dimensions
+customer_health_score,Customer Health Score,merge,account_health_score,n,"Same concept (composite health score). Per the README known issue, merge into account_health_score; union customer_health_score's richer edges and dimensions into it. Its placeholder 0.4/0.3/0.3 weights go with it.","unsure: which ID to keep; customer_health_score has more edges, account_health_score has the concrete composite description"
+customer_ltv,Customer LTV,distinct,clv,n,"Keep: realized average lifetime revenue per customer, vs clv's predicted AOV x frequency x lifespan. Relabel to ""Realized Customer LTV"" (README label fix).",
+backlink_count,Backlinks,distinct,backlinks_count,n,"Keep: counts referring domains, not backlinks. Relabel to ""Referring Domains"" (README label fix).",
+backlinks_count,Backlinks,distinct,backlink_count,n,"Keep: counts backlinks. Label stays ""Backlinks"".",
+session_length,Avg Session Length,merge,avg_session_duration,n,Same quantity; session_length is avg_session_duration / 60 (minutes vs seconds). Units belong to task 05's unit field.,"unsure: it is a unit conversion, not a bare alias"
+warehouse_utilization_rate,Warehouse Utilization,merge,warehouse_utilization,n,Same concept (share of warehouse capacity in use). Keeps warehouse_utilization's square-footage basis.,unsure: basis differs (storage locations vs sq ft); keep both as distinct if both bases are wanted
+college_enrollment,College Enrollment Rate,variant,college_enrollment_rate,n,Keep both: 12-month vs 16-month enrollment window (different filter). Labels need disambiguating (task 05).,unsure: could merge into college_enrollment_rate (16 months is the Clearinghouse standard)
+sales_cycle_length,Sales Cycle Length,distinct,avg_sales_cycle,n,"Keep: first touch to closed-won, vs avg_sales_cycle's opportunity creation to close (all closed).",unsure: could merge if the start point and population are not meaningful differences

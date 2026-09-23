@@ -1,12 +1,10 @@
 metrics:
   - name: student_growth_percentile
     label: Student Growth Percentile
-    description: Percentile ranking of a student’s academic growth relative to peers with similar prior scores.
-    type: derived
+    description: Median Student Growth Percentile — measures growth relative to academic peers
+    type: simple
     type_params:
-      expr: sgp
-      metrics:
-        - name: sgp
+      measure: median_growth_percentile
     config:
       meta:
         metricId: student_growth_percentile

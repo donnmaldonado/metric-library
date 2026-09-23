@@ -1,4 +1,4 @@
-# Metrics on this model: employee_attrition_rate, regrettable_attrition, separations, turnover_rate, voluntary_turnover
+# Metrics on this model: regrettable_attrition, separations, turnover_rate, voluntary_turnover
 models:
   - name: fct_separations
     description: One row per employee separation (type, regrettable flag).

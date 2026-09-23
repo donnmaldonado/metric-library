@@ -85,7 +85,7 @@ Measure names are unique across the whole project and follow this pattern:
 
 If two semantic models want the same name, both get the model name as a prefix, without `fct_`/`dim_` (`orders_total_orders`, `user_events_distinct_user_count`). The same applies when a name clashes with a dimension or entity.
 
-**Helper metrics.** MetricFlow ratio and derived metrics take *metrics* as inputs, not measures. A ratio/derived input that matches a library metric id uses that metric, even across semantic models (`roa` = `net_income / total_assets`). Any other input gets a helper: a measure plus a same-named `type: simple` metric under `metrics:` in the semantic model's `.yml`. There are 345 helpers. They carry no `meta` and use the name as the label. Derived metrics use `alias:` when the helper name differs from the identifier in `expr`.
+**Helper metrics.** MetricFlow ratio and derived metrics take *metrics* as inputs, not measures. A ratio/derived input that matches a library metric id uses that metric, even across semantic models (`roa` = `net_income / total_assets`). Any other input gets a helper: a measure plus a same-named `type: simple` metric under `metrics:` in the semantic model's `.yml`. There are 185 helpers. They carry no `meta` and use the name as the label. Derived metrics use `alias:` when the helper name differs from the identifier in `expr`.
 
 ### Adding or fixing a measure
 

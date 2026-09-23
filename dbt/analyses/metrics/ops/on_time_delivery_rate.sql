@@ -1,5 +1,3 @@
--- Alias of otd_rate.
-
 select
     date_trunc('month', ship_date) as period,
     carrier,

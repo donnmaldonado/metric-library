@@ -1,4 +1,4 @@
-# Metrics on this model: content_published, content_published_count
+# Metrics on this model: content_published_count
 models:
   - name: fct_content_assets
     description: One row per content asset / CMS post.
@@ -29,4 +29,4 @@ semantic_models:
       - name: content_asset_count
         agg: count
         expr: content_asset_id
-        description: 'Used by: content_published_count (and content_published through it).'
+        description: 'Used by: content_published_count.'

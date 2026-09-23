@@ -1,4 +1,4 @@
-# Metrics on this model: keywords_top10, top10_keyword_count
+# Metrics on this model: top10_keyword_count
 models:
   - name: fct_seo_keyword_rankings
     description: One row per tracked keyword and ranking date (snapshot).

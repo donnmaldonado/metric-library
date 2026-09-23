@@ -1,4 +1,4 @@
-# Metrics on this model: activation_rate, d30_retention, d7_retention, free_to_paid_rate, new_user_signups, onboarding_completion_rate, plg_rate, retention_d30, time_to_activate, time_to_value, trial_signups, trial_to_paid_rate, user_signups
+# Metrics on this model: activation_rate, d30_retention, d7_retention, free_to_paid_rate, new_user_signups, onboarding_completion_rate, plg_rate, time_to_activate, time_to_value, trial_signups, trial_to_paid_rate
 # Cohort metrics are keyed on signup_date: query them by metric_time to get signup cohorts.
 models:
   - name: dim_users

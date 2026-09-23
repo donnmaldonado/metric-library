@@ -1,4 +1,4 @@
-# Metrics on this model: college_enrollment, college_enrollment_rate, dropout_rate, fafsa_completion_rate, four_year_grad_rate, graduation_rate
+# Metrics on this model: college_enrollment, college_enrollment_rate, dropout_rate, fafsa_completion_rate, four_year_grad_rate
 models:
   - name: fct_student_cohort_outcomes
     description: 'One row per student per graduation cohort (entered 9th grade in cohort_year): graduation, dropout, transfer,

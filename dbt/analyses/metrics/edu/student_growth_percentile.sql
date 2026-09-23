@@ -1,4 +1,4 @@
--- Alias of sgp. Median student growth percentile, per school year and school.
+-- Median student growth percentile, per school year and school.
 select
     school_year,
     school_id,

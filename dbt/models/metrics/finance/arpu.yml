@@ -4,7 +4,7 @@ metrics:
     description: Average Revenue Per User — revenue efficiency across the base.
     type: ratio
     type_params:
-      numerator: total_revenue
+      numerator: revenue
       denominator: ordering_customers
     config:
       meta:

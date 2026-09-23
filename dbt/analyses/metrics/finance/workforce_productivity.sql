@@ -1,4 +1,4 @@
--- Recognized revenue (total_revenue) per labor hour worked, per month.
+-- Recognized revenue (revenue) per labor hour worked, per month.
 with revenue as (
     select
         date_trunc('month', recognized_date) as period,

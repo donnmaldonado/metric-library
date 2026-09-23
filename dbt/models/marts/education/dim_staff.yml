@@ -1,4 +1,4 @@
-# Metrics on this model: avg_teacher_experience, student_teacher_ratio, teacher_retention_rate, teacher_student_ratio
+# Metrics on this model: avg_teacher_experience, student_teacher_ratio, teacher_retention_rate
 models:
   - name: dim_staff
     description: 'One row per staff member per roster snapshot date (role, FTE, experience, returned next year). Snapshot

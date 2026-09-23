@@ -1,4 +1,4 @@
-# Metrics on this model: school_climate_score, school_culture_score
+# Metrics on this model: school_climate_score
 models:
   - name: fct_school_climate_surveys
     description: One row per school climate survey response.

@@ -1,4 +1,4 @@
-# Metrics on this model: ap_pass_rate, cost_per_outcome, district_proficiency_rate, ela_proficiency_rate, ell_proficiency_growth, grade3_reading, kinder_readiness, math_proficiency_rate, science_proficiency_rate, sgp, student_growth_percentile, student_proficiency
+# Metrics on this model: ap_pass_rate, cost_per_outcome, ela_proficiency_rate, ell_proficiency_growth, grade3_reading, kinder_readiness, math_proficiency_rate, science_proficiency_rate, student_growth_percentile, student_proficiency
 models:
   - name: fct_assessment_results
     description: One row per student assessment result (state tests, AP exams, kindergarten screening, ELL proficiency).

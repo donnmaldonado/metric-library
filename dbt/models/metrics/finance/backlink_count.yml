@@ -1,6 +1,6 @@
 metrics:
   - name: backlink_count
-    label: Backlinks (Referring Domains)
+    label: Referring Domains
     description: Total referring domain backlinks to the site — SEO authority signal.
     type: simple
     type_params:

@@ -1,4 +1,4 @@
-# Metrics on this model: customer_churn_rate, customer_retention_rate, net_new_customers, upsell_rate (logo_churn_rate aliases customer_churn_rate)
+# Metrics on this model: customer_churn_rate, customer_retention_rate, net_new_customers, upsell_rate
 # beginning_customers is an opening balance: semi-additive over time, taking the first period in the window
 # (window_choice: min), so a quarter uses the customer count at the start of its first month.
 # starting_customers and lost_customers are unused duplicates of beginning_customers and churned_customers; no measure uses them.

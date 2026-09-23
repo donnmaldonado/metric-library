@@ -1,4 +1,4 @@
-# Metrics on this model: ad_clicks, ad_ctr, ad_impressions, cost_per_mql, cost_per_sql, cpc, cpl, cpm, ctr, impressions, marketing_cac, marketing_roi, marketing_spend, roas
+# Metrics on this model: ad_clicks, cost_per_mql, cost_per_sql, cpc, cpl, cpm, ctr, impressions, marketing_cac, marketing_roi, marketing_spend, roas
 models:
   - name: fct_ad_performance
     description: One row per ad, channel and day with spend, impressions, clicks and attributed results.

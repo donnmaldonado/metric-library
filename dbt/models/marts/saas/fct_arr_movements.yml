@@ -1,5 +1,4 @@
 # Metrics on this model: churn_rate, churned_arr, contraction_arr, expansion_arr, grr, magic_number, mrr_churn_rate, net_mrr_growth, new_arr, nrr, saas_quick_ratio
-#   (aliases: gross_dollar_retention -> grr, net_revenue_retention -> nrr, nrr_monthly -> nrr)
 #
 # Movements are flows: arr_delta is signed (new_business/expansion > 0, contraction/churn < 0).
 # Period balances are not stored here. Beginning ARR for any window is derived as

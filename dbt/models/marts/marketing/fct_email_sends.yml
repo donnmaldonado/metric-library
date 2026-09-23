@@ -1,4 +1,4 @@
-# Metrics on this model: email_click_rate, email_ctr, email_open_rate, email_unsub_rate, unsubscribe_rate
+# Metrics on this model: email_click_rate, email_open_rate, unsubscribe_rate
 models:
   - name: fct_email_sends
     description: One row per email send (delivery, open, click and unsubscribe flags).

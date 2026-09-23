@@ -1,4 +1,4 @@
-# Metrics on this model: mtbf, product_uptime_sla, system_uptime, uptime
+# Metrics on this model: mtbf, uptime
 models:
   - name: fct_service_availability
     description: One row per service/system and period with uptime, downtime and failure counts.

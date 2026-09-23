@@ -1,4 +1,4 @@
-# Metrics on this model: capacity_utilization, capacity_utilization_rate, carbon_emissions_per_unit, cost_per_unit, cycle_time, energy_cost_per_unit, throughput
+# Metrics on this model: capacity_utilization, carbon_emissions_per_unit, cost_per_unit, cycle_time, energy_cost_per_unit, throughput
 models:
   - name: fct_production_runs
     description: One row per production run / work item (output, capacity, cost, energy and emissions).
