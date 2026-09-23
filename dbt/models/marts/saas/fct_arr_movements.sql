@@ -3,6 +3,7 @@
 select
     cast(null as varchar) as arr_movement_id,
     cast(null as date   ) as movement_date,
+    cast(null as varchar) as customer_id,
     cast(null as varchar) as rep_id,
     cast(null as varchar) as company_id,
     cast(null as varchar) as movement_type,

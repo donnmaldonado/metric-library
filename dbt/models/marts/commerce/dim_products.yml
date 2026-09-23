@@ -19,6 +19,8 @@ semantic_models:
           time_granularity: day
       - name: category
         type: categorical
+      - name: product_line
+        type: categorical
       - name: status
         type: categorical
     measures:

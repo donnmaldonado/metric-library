@@ -17,6 +17,9 @@ semantic_models:
       - name: arr_movement
         type: primary
         expr: arr_movement_id
+      - name: customer
+        type: foreign
+        expr: customer_id
       - name: rep
         type: foreign
         expr: rep_id

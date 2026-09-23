@@ -12,6 +12,9 @@ semantic_models:
       - name: inventory_snapshot
         type: primary
         expr: inventory_snapshot_id
+      - name: product
+        type: foreign
+        expr: product_id
     dimensions:
       - name: snapshot_date
         type: time

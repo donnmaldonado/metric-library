@@ -2,10 +2,10 @@
 # customer_count (active paying customers) lives on fct_subscriptions, which is a snapshot.
 models:
   - name: dim_customers
-    description: One row per customer account (segment, acquisition channel, onboarding milestones).
+    description: One row per customer account (segment, plan tier, geography, acquisition channel and cohort, onboarding milestones).
 semantic_models:
   - name: dim_customers
-    description: One row per customer account (segment, acquisition channel, onboarding milestones).
+    description: One row per customer account (segment, plan tier, geography, acquisition channel and cohort, onboarding milestones).
     model: ref('dim_customers')
     defaults:
       agg_time_dimension: acquired_date
@@ -38,6 +38,12 @@ semantic_models:
       - name: acquisition_channel
         type: categorical
       - name: channel
+        type: categorical
+      - name: plan_tier
+        type: categorical
+      - name: geography
+        type: categorical
+      - name: cohort_month
         type: categorical
     measures:
       - name: customer_count

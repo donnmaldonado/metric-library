@@ -194,7 +194,8 @@
       "arr_movement__plan_tier",
       "churn_score__plan_tier",
       "renewal__plan_tier",
-      "subscription_snapshot__plan_tier"
+      "subscription_snapshot__plan_tier",
+      "customer__plan_tier"
     ]
   },
   "platform": {
@@ -291,7 +292,8 @@
       "ebitda_bridge_line__product_line",
       "gl_entry__product_line",
       "financial_period__product_line",
-      "revenue_event__product_line"
+      "revenue_event__product_line",
+      "product__product_line"
     ]
   },
   "rep": {
@@ -331,7 +333,8 @@
       "market_estimate__geography",
       "revenue_event__geography",
       "user__geography",
-      "arr_movement__geography"
+      "arr_movement__geography",
+      "customer__geography"
     ]
   },
   "product_tier": {
@@ -387,7 +390,8 @@
       "order__cohort_month",
       "customer_health_snapshot__cohort_month",
       "arr_movement__cohort_month",
-      "customer_cohort_period__cohort_month"
+      "customer_cohort_period__cohort_month",
+      "customer__cohort_month"
     ]
   },
   "cs_rep": {
@@ -950,13 +954,6 @@
     "desc": "Content topic.",
     "semantic": [
       "content_asset__topic"
-    ]
-  },
-  "training_type": {
-    "label": "Training Type",
-    "desc": "Kind of employee training.",
-    "semantic": [
-      "training_record__training_type"
     ]
   },
   "user": {

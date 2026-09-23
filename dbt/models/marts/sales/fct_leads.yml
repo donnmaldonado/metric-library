@@ -13,6 +13,12 @@ semantic_models:
       - name: lead
         type: primary
         expr: lead_id
+      - name: campaign
+        type: foreign
+        expr: campaign_id
+      - name: rep
+        type: foreign
+        expr: rep_id
     dimensions:
       - name: created_date
         type: time

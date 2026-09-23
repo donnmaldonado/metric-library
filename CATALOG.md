@@ -129,7 +129,7 @@ Earnings before interest, taxes, depreciation & amortization.
 - **Domain:** Finance · **Industry:** financial_services
 - **Files:** [yml](dbt/models/metrics/finance/ebitda.yml) · [sql](dbt/analyses/metrics/finance/ebitda.sql)
 - **Numerator:** EBIT + Depreciation + Amortization
-- **Dimensions:** Time, Customer Segment
+- **Dimensions:** Time
 - **Data sources:** ERP / general ledger
 - **Children:** [`gross_profit`](#gross_profit), [`opex`](#opex), [`da`](#da), [`bad_debt_rate`](#bad_debt_rate), [`cogs`](#cogs), [`ebit`](#ebit), [`ebitda_bridge_price`](#ebitda_bridge_price), [`ebitda_bridge_volume`](#ebitda_bridge_volume), [`ebitda_margin`](#ebitda_margin), [`forecast_accuracy`](#forecast_accuracy), [`gross_margin_pct`](#gross_margin_pct), [`revenue_per_employee`](#revenue_per_employee)
 - **Correlated:** [`ebitda_margin`](#ebitda_margin), [`free_cash_flow`](#free_cash_flow), [`net_income`](#net_income), [`capex`](#capex), [`effective_tax_rate`](#effective_tax_rate), [`enterprise_value`](#enterprise_value), [`nrr`](#nrr), [`operating_cash_flow`](#operating_cash_flow), [`roe`](#roe), [`revenue`](#revenue)
@@ -1124,7 +1124,7 @@ Number of enrolled students per FTE classroom teacher.
 - **Files:** [yml](dbt/models/metrics/education/student_teacher_ratio.yml) · [sql](dbt/analyses/metrics/education/student_teacher_ratio.sql)
 - **Numerator:** Students
 - **Denominator:** Full-time-equivalent teachers
-- **Dimensions:** School Year, School, Grade Level, Time
+- **Dimensions:** School Year, School, Time
 - **Data sources:** SIS, HRIS
 - **Parents:** [`per_pupil_expenditure`](#per_pupil_expenditure)
 - **Children:** [`enrollment_count`](#enrollment_count), [`headcount_fte`](#headcount_fte)
@@ -1622,7 +1622,7 @@ EBITDA as a % of revenue — core PE performance lens.
 - **Files:** [yml](dbt/models/metrics/finance/ebitda_margin.yml) · [sql](dbt/analyses/metrics/finance/ebitda_margin.sql)
 - **Numerator:** EBITDA
 - **Denominator:** Revenue
-- **Dimensions:** Company, Time, Customer Segment
+- **Dimensions:** Company, Time
 - **Data sources:** ERP / general ledger
 - **Parents:** [`ebitda`](#ebitda), [`rule_of_40`](#rule_of_40)
 - **Correlated:** [`gross_margin_pct`](#gross_margin_pct), [`budget_variance_pct`](#budget_variance_pct), [`debt_ebitda`](#debt_ebitda), [`ebitda`](#ebitda), [`gna_pct_revenue`](#gna_pct_revenue), [`net_income_margin`](#net_income_margin), [`rd_as_pct_revenue`](#rd_as_pct_revenue), [`revenue_per_employee`](#revenue_per_employee), [`sg_and_a`](#sg_and_a)
@@ -2067,7 +2067,7 @@ Total revenue divided by headcount — operating leverage metric.
 - **Files:** [yml](dbt/models/metrics/finance/revenue_per_employee.yml) · [sql](dbt/analyses/metrics/finance/revenue_per_employee.sql)
 - **Numerator:** Revenue
 - **Denominator:** Full-Time Equivalent Headcount
-- **Dimensions:** Company, Time, Department
+- **Dimensions:** Company, Time
 - **Data sources:** ERP / general ledger, HRIS
 - **Parents:** [`ebitda`](#ebitda), [`employee_lifetime_value`](#employee_lifetime_value)
 - **Children:** [`headcount_fte`](#headcount_fte), [`arr_per_rep`](#arr_per_rep), [`employees_per_1m_arr`](#employees_per_1m_arr)
@@ -2200,7 +2200,7 @@ Output or revenue generated per labor hour worked.
 - **Files:** [yml](dbt/models/metrics/finance/workforce_productivity.yml) · [sql](dbt/analyses/metrics/finance/workforce_productivity.sql)
 - **Numerator:** Revenue
 - **Denominator:** Labor hours worked
-- **Dimensions:** Time, Department
+- **Dimensions:** Time
 - **Data sources:** HRIS, Commerce / order management
 - **Parents:** [`employee_lifetime_value`](#employee_lifetime_value)
 - **Children:** [`absenteeism_rate`](#absenteeism_rate), [`overtime_hours`](#overtime_hours), [`safety_incident_rate`](#safety_incident_rate)
@@ -2505,7 +2505,7 @@ Average learning and development hours per employee per period.
 - **Files:** [yml](dbt/models/metrics/hr/training_hours_per_employee.yml) · [sql](dbt/analyses/metrics/hr/training_hours_per_employee.sql)
 - **Numerator:** Total Training Hours
 - **Denominator:** Average FTE Headcount
-- **Dimensions:** Department, Training Type, Time
+- **Dimensions:** Department, Time
 - **Data sources:** LMS
 - **Parents:** [`employee_engagement_score`](#employee_engagement_score)
 - **Correlated:** [`employee_engagement_score`](#employee_engagement_score), [`internal_promotion_rate`](#internal_promotion_rate)

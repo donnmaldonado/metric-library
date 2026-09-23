@@ -225,8 +225,7 @@
     "numerator": "EBIT + Depreciation + Amortization",
     "denominator": "",
     "dimensions": [
-      "metric_time",
-      "segment"
+      "metric_time"
     ],
     "dataSources": [
       "erp"
@@ -1981,7 +1980,6 @@
     "dimensions": [
       "school_year",
       "school",
-      "grade_level",
       "metric_time"
     ],
     "dataSources": [
@@ -3464,8 +3462,7 @@
     "denominator": "Revenue",
     "dimensions": [
       "company",
-      "metric_time",
-      "segment"
+      "metric_time"
     ],
     "dataSources": [
       "erp"
@@ -6102,7 +6099,6 @@
     "denominator": "Average FTE Headcount",
     "dimensions": [
       "department",
-      "training_type",
       "metric_time"
     ],
     "dataSources": [
@@ -6400,8 +6396,7 @@
     "numerator": "Revenue",
     "denominator": "Labor hours worked",
     "dimensions": [
-      "metric_time",
-      "department"
+      "metric_time"
     ],
     "dataSources": [
       "hris",
@@ -9831,8 +9826,7 @@
     "denominator": "Full-Time Equivalent Headcount",
     "dimensions": [
       "company",
-      "metric_time",
-      "department"
+      "metric_time"
     ],
     "dataSources": [
       "erp",

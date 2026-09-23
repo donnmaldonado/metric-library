@@ -3,6 +3,8 @@
 select
     cast(null as varchar) as lead_id,
     cast(null as date   ) as created_date,
+    cast(null as varchar) as campaign_id,
+    cast(null as varchar) as rep_id,
     cast(null as varchar) as channel,
     cast(null as varchar) as campaign_name,
     cast(null as varchar) as lifecycle_stage,
