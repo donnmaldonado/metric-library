@@ -1,6 +1,6 @@
 metrics:
   - name: gna_pct_revenue
-    label: G&A % Revenue
+    label: G&A Share of Revenue
     description: General and administrative expenses as a share of revenue — overhead efficiency.
     type: ratio
     type_params:
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: finance
         industry: cross_industry
+        shortLabel: G&A % Revenue
+        unit: rate

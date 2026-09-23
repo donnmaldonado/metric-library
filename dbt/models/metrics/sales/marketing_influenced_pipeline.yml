@@ -1,6 +1,6 @@
 metrics:
   - name: marketing_influenced_pipeline
-    label: Mktg Influenced Pipeline
+    label: Marketing-Influenced Pipeline
     description: Total pipeline ARR where marketing had at least one touchpoint before opportunity creation.
     type: simple
     type_params:
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: sales
         industry: cross_industry
+        shortLabel: Mktg Influenced Pipeline
+        unit: currency

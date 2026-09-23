@@ -1,7 +1,7 @@
 metrics:
   - name: iap_revenue
-    label: IAP Revenue
-    description: Revenue from in-app purchases made by users
+    label: In-App Purchase Revenue
+    description: Revenue from in-app purchases made by users.
     type: simple
     type_params:
       measure: purchase_amount
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: product
         industry: cross_industry
+        shortLabel: IAP Revenue
+        unit: currency

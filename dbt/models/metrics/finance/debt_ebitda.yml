@@ -1,6 +1,6 @@
 metrics:
   - name: debt_ebitda
-    label: Debt / EBITDA
+    label: Debt to EBITDA Ratio
     description: Leverage ratio — total debt divided by trailing twelve-month EBITDA.
     type: ratio
     type_params:
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: finance
         industry: financial_services
+        shortLabel: Debt / EBITDA
+        unit: ratio

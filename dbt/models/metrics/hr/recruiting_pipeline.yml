@@ -1,7 +1,7 @@
 metrics:
   - name: recruiting_pipeline
-    label: Recruiting Pipeline
-    description: Number of active candidates across all open requisitions
+    label: Active Candidates
+    description: Number of active candidates across all open requisitions.
     type: simple
     type_params:
       measure: candidate_count
@@ -12,3 +12,5 @@ metrics:
         tier: input
         domain: hr
         industry: cross_industry
+        shortLabel: Recruiting Pipeline
+        unit: count

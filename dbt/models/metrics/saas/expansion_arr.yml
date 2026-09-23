@@ -1,7 +1,7 @@
 metrics:
   - name: expansion_arr
     label: Expansion ARR
-    description: ARR added from upsells and cross-sells to existing customers
+    description: ARR added from upsells and cross-sells to existing customers.
     type: simple
     type_params:
       measure: arr_delta
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: saas
         industry: saas
+        shortLabel: Expansion ARR
+        unit: currency

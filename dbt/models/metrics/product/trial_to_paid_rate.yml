@@ -1,7 +1,7 @@
 metrics:
   - name: trial_to_paid_rate
-    label: Trial → Paid %
-    description: Percentage of trial users who converted to a paid plan
+    label: Trial-to-Paid Conversion Rate
+    description: Percentage of trial users who converted to a paid plan.
     type: ratio
     type_params:
       numerator:
@@ -14,3 +14,5 @@ metrics:
         tier: kpi
         domain: product
         industry: cross_industry
+        shortLabel: Trial to Paid %
+        unit: rate

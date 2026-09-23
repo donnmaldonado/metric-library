@@ -1,7 +1,7 @@
 metrics:
   - name: remote_work_rate
-    label: Remote Work %
-    description: Percentage of employees on fully remote or hybrid schedules
+    label: Remote and Hybrid Work Rate
+    description: Percentage of employees on fully remote or hybrid schedules.
     type: ratio
     type_params:
       numerator:
@@ -14,3 +14,5 @@ metrics:
         tier: input
         domain: hr
         industry: cross_industry
+        shortLabel: Remote Work %
+        unit: rate

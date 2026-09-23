@@ -1,7 +1,7 @@
 metrics:
   - name: gender_pay_gap
     label: Gender Pay Gap
-    description: Median pay of female employees as a percentage of male employee median
+    description: Median pay of female employees as a percentage of male employee median.
     type: derived
     type_params:
       expr: (median_male_salary - median_female_salary) / median_male_salary
@@ -18,3 +18,5 @@ metrics:
         tier: kpi
         domain: hr
         industry: cross_industry
+        shortLabel: Gender Pay Gap
+        unit: rate

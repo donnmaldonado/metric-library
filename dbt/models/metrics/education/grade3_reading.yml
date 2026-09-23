@@ -1,7 +1,7 @@
 metrics:
   - name: grade3_reading
-    label: Gr3 Reading %
-    description: Percentage of 3rd graders reading at or above grade level
+    label: Grade 3 Reading Proficiency Rate
+    description: Percentage of 3rd graders reading at or above grade level.
     type: ratio
     type_params:
       numerator:
@@ -17,3 +17,5 @@ metrics:
         tier: kpi
         domain: education
         industry: education
+        shortLabel: Gr3 Reading %
+        unit: rate

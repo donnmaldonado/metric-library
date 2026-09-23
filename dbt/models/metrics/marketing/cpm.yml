@@ -1,6 +1,6 @@
 metrics:
   - name: cpm
-    label: CPM
+    label: Cost per Thousand Impressions
     description: Cost per thousand impressions — media efficiency benchmark.
     type: derived
     type_params:
@@ -14,3 +14,5 @@ metrics:
         tier: kpi
         domain: marketing
         industry: cross_industry
+        shortLabel: CPM
+        unit: currency

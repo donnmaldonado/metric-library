@@ -1,7 +1,7 @@
 metrics:
   - name: push_open_rate
-    label: Push Open Rate
-    description: Percentage of push notifications that were opened
+    label: Push Notification Open Rate
+    description: Percentage of push notifications that were opened.
     type: ratio
     type_params:
       numerator: push_notifications_opened
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: marketing
         industry: cross_industry
+        shortLabel: Push Open %
+        unit: rate

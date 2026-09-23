@@ -1,7 +1,7 @@
 metrics:
   - name: dropout_rate
     label: Dropout Rate
-    description: Percentage of students who left school without graduating or transferring
+    description: Percentage of students who left school without graduating or transferring.
     type: ratio
     type_params:
       numerator:
@@ -14,3 +14,5 @@ metrics:
         tier: kpi
         domain: education
         industry: education
+        shortLabel: Dropout %
+        unit: rate

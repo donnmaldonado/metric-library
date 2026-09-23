@@ -1,6 +1,6 @@
 metrics:
   - name: mau
-    label: MAU
+    label: Monthly Active Users
     description: Monthly Active Users — unique users active in the last 30 days.
     type: cumulative
     type_params:
@@ -14,3 +14,5 @@ metrics:
         tier: kpi
         domain: product
         industry: cross_industry
+        shortLabel: MAU
+        unit: count

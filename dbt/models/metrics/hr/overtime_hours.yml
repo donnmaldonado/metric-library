@@ -1,7 +1,7 @@
 metrics:
   - name: overtime_hours
     label: Overtime Hours
-    description: Total overtime hours logged by employees in the period
+    description: Total overtime hours logged by employees in the period.
     type: simple
     type_params:
       measure: overtime_hours
@@ -11,3 +11,5 @@ metrics:
         tier: input
         domain: hr
         industry: cross_industry
+        shortLabel: Overtime Hours
+        unit: hours

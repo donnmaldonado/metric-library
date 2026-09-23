@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: operations
         industry: cross_industry
+        shortLabel: Fleet Utilization %
+        unit: rate

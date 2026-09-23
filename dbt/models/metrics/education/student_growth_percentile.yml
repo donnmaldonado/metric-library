@@ -1,7 +1,7 @@
 metrics:
   - name: student_growth_percentile
-    label: Student Growth Percentile
-    description: Median Student Growth Percentile — measures growth relative to academic peers
+    label: Median Student Growth Percentile
+    description: Median Student Growth Percentile — measures growth relative to academic peers.
     type: simple
     type_params:
       measure: median_growth_percentile
@@ -11,3 +11,5 @@ metrics:
         tier: kpi
         domain: education
         industry: education
+        shortLabel: Growth Percentile
+        unit: score

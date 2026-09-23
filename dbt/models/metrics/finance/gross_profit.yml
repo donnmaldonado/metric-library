@@ -14,3 +14,5 @@ metrics:
         tier: kpi
         domain: finance
         industry: cross_industry
+        shortLabel: Gross Profit
+        unit: currency

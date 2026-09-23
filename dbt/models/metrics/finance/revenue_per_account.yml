@@ -1,7 +1,7 @@
 metrics:
   - name: revenue_per_account
-    label: Revenue / Account
-    description: Average monthly revenue per active account
+    label: Revenue per Account
+    description: Average monthly revenue per active account.
     type: ratio
     type_params:
       numerator: revenue
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: finance
         industry: cross_industry
+        shortLabel: Revenue / Account
+        unit: currency

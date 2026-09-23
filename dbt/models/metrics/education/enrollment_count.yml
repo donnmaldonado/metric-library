@@ -1,6 +1,6 @@
 metrics:
   - name: enrollment_count
-    label: Enrollment Count
+    label: Student Enrollment
     description: Total enrolled students at a school or district as of census date.
     type: simple
     type_params:
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: education
         industry: cross_industry
+        shortLabel: Enrollment
+        unit: count

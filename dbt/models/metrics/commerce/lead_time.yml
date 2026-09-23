@@ -1,7 +1,7 @@
 metrics:
   - name: lead_time
-    label: Lead Time
-    description: Average time from request to delivery
+    label: Delivery Lead Time
+    description: Average time from request to delivery.
     type: simple
     type_params:
       measure: lead_time_value
@@ -11,3 +11,5 @@ metrics:
         tier: kpi
         domain: commerce
         industry: cross_industry
+        shortLabel: Lead Time
+        unit: days

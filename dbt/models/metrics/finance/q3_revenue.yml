@@ -1,7 +1,7 @@
 metrics:
   - name: q3_revenue
     label: Q3 Revenue
-    description: Revenue recognized in Q3
+    description: Revenue recognized in Q3.
     type: simple
     type_params:
       measure: revenue_amount
@@ -12,3 +12,5 @@ metrics:
         tier: input
         domain: finance
         industry: cross_industry
+        shortLabel: Q3 Revenue
+        unit: currency

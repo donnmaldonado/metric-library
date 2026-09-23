@@ -1,7 +1,7 @@
 metrics:
   - name: demo_requests
     label: Demo Requests
-    description: Product demo requests submitted in the period
+    description: Product demo requests submitted in the period.
     type: simple
     type_params:
       measure: lead_count
@@ -12,3 +12,5 @@ metrics:
         tier: input
         domain: sales
         industry: cross_industry
+        shortLabel: Demo Requests
+        unit: count

@@ -1,6 +1,6 @@
 metrics:
   - name: manager_effectiveness_score
-    label: Manager Effectiveness
+    label: Manager Effectiveness Score
     description: Upward feedback score measuring managerial quality from direct reports.
     type: simple
     type_params:
@@ -11,3 +11,5 @@ metrics:
         tier: kpi
         domain: hr
         industry: cross_industry
+        shortLabel: Manager Effectiveness
+        unit: score

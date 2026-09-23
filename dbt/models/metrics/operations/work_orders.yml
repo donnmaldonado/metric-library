@@ -1,7 +1,7 @@
 metrics:
   - name: work_orders
     label: Work Orders
-    description: Maintenance and facilities work orders created in the period
+    description: Maintenance and facilities work orders created in the period.
     type: simple
     type_params:
       measure: work_order_count
@@ -11,3 +11,5 @@ metrics:
         tier: input
         domain: operations
         industry: cross_industry
+        shortLabel: Work Orders
+        unit: count

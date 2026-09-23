@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: finance
         industry: financial_services
+        shortLabel: EBITDA Margin
+        unit: rate

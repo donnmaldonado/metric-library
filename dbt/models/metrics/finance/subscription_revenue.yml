@@ -1,7 +1,7 @@
 metrics:
   - name: subscription_revenue
     label: Subscription Revenue
-    description: Revenue from recurring subscription contracts
+    description: Revenue from recurring subscription contracts.
     type: simple
     type_params:
       measure: revenue_amount
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: finance
         industry: saas
+        shortLabel: Subscription Revenue
+        unit: currency

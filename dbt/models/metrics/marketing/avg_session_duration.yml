@@ -1,6 +1,6 @@
 metrics:
   - name: avg_session_duration
-    label: Avg Session Duration
+    label: Average Session Duration
     description: Average time users spend per session in the product.
     type: simple
     type_params:
@@ -11,3 +11,5 @@ metrics:
         tier: kpi
         domain: marketing
         industry: cross_industry
+        shortLabel: Avg Session Duration
+        unit: seconds

@@ -1,7 +1,7 @@
 metrics:
   - name: ebit
     label: EBIT
-    description: Earnings before interest and taxes
+    description: Earnings before interest and taxes.
     type: derived
     type_params:
       expr: gross_profit - opex
@@ -14,3 +14,5 @@ metrics:
         tier: kpi
         domain: finance
         industry: cross_industry
+        shortLabel: EBIT
+        unit: currency

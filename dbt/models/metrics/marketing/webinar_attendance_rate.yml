@@ -1,7 +1,7 @@
 metrics:
   - name: webinar_attendance_rate
-    label: Webinar Attendance %
-    description: Percentage of webinar registrants who attended live
+    label: Webinar Attendance Rate
+    description: Percentage of webinar registrants who attended live.
     type: ratio
     type_params:
       numerator: event_attendees
@@ -13,3 +13,5 @@ metrics:
         tier: kpi
         domain: marketing
         industry: cross_industry
+        shortLabel: Webinar Attendance %
+        unit: rate

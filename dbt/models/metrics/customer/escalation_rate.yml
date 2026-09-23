@@ -1,7 +1,7 @@
 metrics:
   - name: escalation_rate
-    label: Escalation Rate
-    description: Percentage of tickets escalated to tier 2 or above
+    label: Ticket Escalation Rate
+    description: Percentage of tickets escalated to tier 2 or above.
     type: ratio
     type_params:
       numerator: escalated_tickets
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: customer
         industry: cross_industry
+        shortLabel: Escalation %
+        unit: rate

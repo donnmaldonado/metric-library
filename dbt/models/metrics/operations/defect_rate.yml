@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: operations
         industry: cross_industry
+        shortLabel: Defect %
+        unit: rate

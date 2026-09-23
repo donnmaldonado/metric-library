@@ -1,7 +1,7 @@
 metrics:
   - name: rev_concentration_top10
-    label: Top 10 Customer Rev %
-    description: Percentage of total revenue from the top 10 customers
+    label: Top 10 Customer Revenue Share
+    description: Percentage of total revenue from the top 10 customers.
     type: ratio
     type_params:
       numerator: top10_customer_revenue
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: finance
         industry: financial_services
+        shortLabel: Top 10 Customer Rev %
+        unit: rate

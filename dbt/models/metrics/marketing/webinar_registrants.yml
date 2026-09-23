@@ -1,7 +1,7 @@
 metrics:
   - name: webinar_registrants
     label: Webinar Registrants
-    description: Total registrations across all webinars in the period
+    description: Total registrations across all webinars in the period.
     type: simple
     type_params:
       measure: registration_count
@@ -12,3 +12,5 @@ metrics:
         tier: input
         domain: marketing
         industry: cross_industry
+        shortLabel: Webinar Registrants
+        unit: count

@@ -1,7 +1,7 @@
 metrics:
   - name: api_consumers
     label: API Consumers
-    description: Distinct applications or users making API calls in the period
+    description: Distinct applications or users making API calls in the period.
     type: simple
     type_params:
       measure: distinct_consumer_count
@@ -11,3 +11,5 @@ metrics:
         tier: input
         domain: product
         industry: cross_industry
+        shortLabel: API Consumers
+        unit: count

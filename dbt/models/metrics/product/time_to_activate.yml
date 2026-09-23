@@ -1,7 +1,7 @@
 metrics:
   - name: time_to_activate
     label: Time to Activate
-    description: Median hours from signup to activation event
+    description: Median hours from signup to activation event.
     type: simple
     type_params:
       measure: median_hours_to_activate
@@ -11,3 +11,5 @@ metrics:
         tier: kpi
         domain: product
         industry: cross_industry
+        shortLabel: Time to Activate
+        unit: hours

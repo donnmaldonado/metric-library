@@ -14,3 +14,5 @@ metrics:
         tier: north_star
         domain: finance
         industry: cross_industry
+        shortLabel: Free Cash Flow
+        unit: currency

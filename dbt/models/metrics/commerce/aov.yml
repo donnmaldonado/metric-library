@@ -1,7 +1,7 @@
 metrics:
   - name: aov
-    label: AOV
-    description: Average value per transaction
+    label: Average Order Value
+    description: Average value per transaction.
     type: ratio
     type_params:
       numerator: gross_revenue
@@ -14,3 +14,5 @@ metrics:
         tier: kpi
         domain: commerce
         industry: retail
+        shortLabel: AOV
+        unit: currency

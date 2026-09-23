@@ -1,7 +1,7 @@
 metrics:
   - name: ticket_backlog
     label: Ticket Backlog
-    description: Open tickets that have been unresolved beyond standard SLA
+    description: Open tickets that have been unresolved beyond standard SLA.
     type: simple
     type_params:
       measure: ticket_count
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: customer
         industry: cross_industry
+        shortLabel: Ticket Backlog
+        unit: count

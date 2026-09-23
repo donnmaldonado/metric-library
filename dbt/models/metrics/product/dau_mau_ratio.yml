@@ -1,7 +1,7 @@
 metrics:
   - name: dau_mau_ratio
-    label: DAU/MAU
-    description: Stickiness ratio — daily to monthly active user proportion
+    label: Daily-to-Monthly Active User Ratio
+    description: Stickiness ratio — daily to monthly active user proportion.
     type: ratio
     type_params:
       numerator: dau
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: product
         industry: cross_industry
+        shortLabel: DAU/MAU
+        unit: rate

@@ -1,6 +1,6 @@
 metrics:
   - name: customer_ltv
-    label: Realized Customer LTV
+    label: Realized Customer Lifetime Value
     description: Realized average revenue per customer to date (lifetime order revenue / customers who have ordered).
     type: derived
     type_params:
@@ -14,3 +14,5 @@ metrics:
         tier: north_star
         domain: commerce
         industry: cross_industry
+        shortLabel: Realized Customer LTV
+        unit: currency

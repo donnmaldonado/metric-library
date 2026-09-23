@@ -1,7 +1,7 @@
 metrics:
   - name: sales_headcount
     label: Sales Headcount
-    description: Number of quota-carrying sales representatives
+    description: Number of quota-carrying sales representatives.
     type: simple
     type_params:
       measure: employee_snapshots_employee_count
@@ -13,3 +13,5 @@ metrics:
         tier: input
         domain: hr
         industry: cross_industry
+        shortLabel: Sales Headcount
+        unit: count

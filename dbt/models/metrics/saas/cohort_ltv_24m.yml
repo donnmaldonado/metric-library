@@ -1,7 +1,7 @@
 metrics:
   - name: cohort_ltv_24m
-    label: 24-Month Cohort LTV
-    description: Average cumulative revenue per customer 24 months after acquisition
+    label: 24-Month Cohort Lifetime Value
+    description: Average cumulative revenue per customer 24 months after acquisition.
     type: ratio
     type_params:
       numerator: cumulative_cohort_revenue
@@ -13,3 +13,5 @@ metrics:
         tier: kpi
         domain: saas
         industry: cross_industry
+        shortLabel: 24-Month Cohort LTV
+        unit: currency

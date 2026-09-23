@@ -1,7 +1,7 @@
 metrics:
   - name: open_requisitions
     label: Open Requisitions
-    description: Number of currently unfilled job postings
+    description: Number of currently unfilled job postings.
     type: simple
     type_params:
       measure: req_count
@@ -12,3 +12,5 @@ metrics:
         tier: input
         domain: hr
         industry: cross_industry
+        shortLabel: Open Reqs
+        unit: count

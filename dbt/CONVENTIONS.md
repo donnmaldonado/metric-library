@@ -46,7 +46,7 @@ A new cumulative metric adds one warning of each kind; update this list when you
 | `dbt/models/marts/<domain>/<model>.sql/.yml` | these files | Edit by hand. |
 | `dbt/models/utilities/` | these files | Time spine; leave it alone. |
 
-`build.py` rewrites `config.meta.{metricId,tier,domain,industry}` from the metric's current fields on every build. Tier changes therefore flow into dbt without touching `formulaYaml`, and you don't need to maintain those four keys by hand. Other meta keys are preserved.
+`build.py` rewrites the metric's `label` and `description` (from `label` and `shortDescription`) and `config.meta.{metricId,tier,domain,industry,shortLabel,unit}` from the metric's current fields on every build. Label and tier changes therefore flow into dbt without touching `formulaYaml`, and you don't need to maintain those fields by hand. Other meta keys are preserved.
 
 Keep `data/metrics.json` formatted as `json.dumps(metrics, indent=2, ensure_ascii=False) + "\n"`, in the same metric order.
 

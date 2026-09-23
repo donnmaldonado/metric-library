@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: hr
         industry: cross_industry
+        shortLabel: Time to Fill
+        unit: days

@@ -14,3 +14,5 @@ metrics:
         tier: kpi
         domain: operations
         industry: cross_industry
+        shortLabel: Preventive Maint %
+        unit: rate

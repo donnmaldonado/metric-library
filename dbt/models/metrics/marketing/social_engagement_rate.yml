@@ -1,7 +1,7 @@
 metrics:
   - name: social_engagement_rate
-    label: Social Engagement %
-    description: Average engagements (likes, comments, shares) per post divided by reach
+    label: Social Engagement Rate
+    description: Average engagements (likes, comments, shares) per post divided by reach.
     type: ratio
     type_params:
       numerator: total_engagements
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: marketing
         industry: cross_industry
+        shortLabel: Social Engagement %
+        unit: rate

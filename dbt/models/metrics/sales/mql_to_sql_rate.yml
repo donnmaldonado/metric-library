@@ -1,6 +1,6 @@
 metrics:
   - name: mql_to_sql_rate
-    label: MQL→SQL Rate
+    label: Marketing-to-Sales Qualified Lead Rate
     description: '% of MQLs that convert to SQLs — marketing-to-sales handoff quality.'
     type: ratio
     type_params:
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: sales
         industry: cross_industry
+        shortLabel: MQL to SQL %
+        unit: rate

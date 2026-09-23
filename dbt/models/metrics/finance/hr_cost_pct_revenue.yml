@@ -1,7 +1,7 @@
 metrics:
   - name: hr_cost_pct_revenue
-    label: HR Cost % of Revenue
-    description: Total HR department cost as a fraction of company revenue
+    label: HR Cost Share of Revenue
+    description: Total HR department cost as a fraction of company revenue.
     type: ratio
     type_params:
       numerator: hr_total_cost
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: finance
         industry: cross_industry
+        shortLabel: HR Cost % Revenue
+        unit: rate

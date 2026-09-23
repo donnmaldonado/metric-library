@@ -1,6 +1,6 @@
 metrics:
   - name: onboarding_completion_rate
-    label: Onboarding Completion
+    label: User Onboarding Completion Rate
     description: '% of new users who complete all onboarding steps.'
     type: ratio
     type_params:
@@ -15,3 +15,5 @@ metrics:
         tier: kpi
         domain: product
         industry: cross_industry
+        shortLabel: Onboarding Completion %
+        unit: rate

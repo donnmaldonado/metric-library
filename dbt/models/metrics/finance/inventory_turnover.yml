@@ -1,7 +1,7 @@
 metrics:
   - name: inventory_turnover
     label: Inventory Turnover
-    description: COGS divided by average inventory — how many times inventory was sold and replaced
+    description: COGS divided by average inventory — how many times inventory was sold and replaced.
     type: derived
     type_params:
       expr: cogs / ((inventory_value + beginning_inventory_value) / 2)
@@ -17,3 +17,5 @@ metrics:
         tier: kpi
         domain: finance
         industry: cross_industry
+        shortLabel: Inventory Turns
+        unit: ratio

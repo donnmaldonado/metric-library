@@ -1,7 +1,7 @@
 metrics:
   - name: cpl
-    label: Cost Per Lead
-    description: Total marketing spend divided by leads generated
+    label: Cost per Lead
+    description: Total marketing spend divided by leads generated.
     type: ratio
     type_params:
       numerator: marketing_spend
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: marketing
         industry: cross_industry
+        shortLabel: CPL
+        unit: currency

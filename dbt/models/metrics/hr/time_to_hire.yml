@@ -1,7 +1,7 @@
 metrics:
   - name: time_to_hire
     label: Time to Hire
-    description: Average days from application to accepted offer
+    description: Average days from application to accepted offer.
     type: simple
     type_params:
       measure: avg_days_to_hire
@@ -11,3 +11,5 @@ metrics:
         tier: kpi
         domain: hr
         industry: cross_industry
+        shortLabel: Time to Hire
+        unit: days

@@ -1,6 +1,6 @@
 metrics:
   - name: activation_rate
-    label: Activation Rate
+    label: User Activation Rate
     description: '% of signups that reach the activation milestone within the first session or week.'
     type: ratio
     type_params:
@@ -14,3 +14,5 @@ metrics:
         tier: kpi
         domain: product
         industry: cross_industry
+        shortLabel: Activation %
+        unit: rate

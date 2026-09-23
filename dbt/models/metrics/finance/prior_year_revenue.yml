@@ -1,7 +1,7 @@
 metrics:
   - name: prior_year_revenue
-    label: PY Revenue
-    description: Full-year revenue from the prior fiscal year
+    label: Prior Year Revenue
+    description: Full-year revenue from the prior fiscal year.
     type: derived
     type_params:
       expr: revenue_1y_ago
@@ -15,3 +15,5 @@ metrics:
         tier: input
         domain: finance
         industry: cross_industry
+        shortLabel: PY Revenue
+        unit: currency

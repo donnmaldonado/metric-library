@@ -1,6 +1,6 @@
 metrics:
   - name: pipeline_coverage
-    label: Pipeline Coverage
+    label: Pipeline Coverage Ratio
     description: Total qualified pipeline divided by quota — leading indicator of quota achievement.
     type: ratio
     type_params:
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: sales
         industry: cross_industry
+        shortLabel: Pipeline Coverage
+        unit: ratio

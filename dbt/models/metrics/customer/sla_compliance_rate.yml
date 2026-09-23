@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: customer
         industry: cross_industry
+        shortLabel: SLA Compliance %
+        unit: rate

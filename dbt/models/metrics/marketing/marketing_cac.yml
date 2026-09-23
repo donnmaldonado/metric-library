@@ -1,7 +1,7 @@
 metrics:
   - name: marketing_cac
-    label: Marketing CAC
-    description: Total marketing spend divided by new customers acquired
+    label: Marketing Customer Acquisition Cost
+    description: Total marketing spend divided by new customers acquired.
     type: ratio
     type_params:
       numerator: marketing_spend
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: marketing
         industry: cross_industry
+        shortLabel: Marketing CAC
+        unit: currency

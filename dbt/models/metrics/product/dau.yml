@@ -1,6 +1,6 @@
 metrics:
   - name: dau
-    label: DAU
+    label: Daily Active Users
     description: Daily Active Users — unique users who performed a qualifying action in a day.
     type: simple
     type_params:
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: product
         industry: cross_industry
+        shortLabel: DAU
+        unit: count

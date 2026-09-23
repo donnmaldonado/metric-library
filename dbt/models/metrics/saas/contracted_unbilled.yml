@@ -1,7 +1,7 @@
 metrics:
   - name: contracted_unbilled
-    label: Contracted Unbilled
-    description: ARR under contract not yet invoiced
+    label: Contracted Unbilled ARR
+    description: ARR under contract not yet invoiced.
     type: simple
     type_params:
       measure: unbilled_contract_arr
@@ -12,3 +12,5 @@ metrics:
         tier: input
         domain: saas
         industry: cross_industry
+        shortLabel: Contracted Unbilled
+        unit: currency

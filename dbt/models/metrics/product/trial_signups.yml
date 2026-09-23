@@ -1,7 +1,7 @@
 metrics:
   - name: trial_signups
     label: Trial Signups
-    description: New free trial registrations in the period
+    description: New free trial registrations in the period.
     type: simple
     type_params:
       measure: user_count
@@ -12,3 +12,5 @@ metrics:
         tier: input
         domain: product
         industry: cross_industry
+        shortLabel: Trial Signups
+        unit: count

@@ -1,7 +1,7 @@
 metrics:
   - name: customer_count
-    label: Customer Count
-    description: Total number of active paying customers
+    label: Active Customers
+    description: Total number of active paying customers.
     type: simple
     type_params:
       measure: active_customer_count
@@ -12,3 +12,5 @@ metrics:
         tier: input
         domain: saas
         industry: cross_industry
+        shortLabel: Customer Count
+        unit: count

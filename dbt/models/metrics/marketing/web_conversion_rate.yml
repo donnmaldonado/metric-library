@@ -1,6 +1,6 @@
 metrics:
   - name: web_conversion_rate
-    label: Web Conversion Rate
+    label: Website Conversion Rate
     description: '% of sessions that result in a conversion event (form fill, signup, etc.).'
     type: ratio
     type_params:
@@ -14,3 +14,5 @@ metrics:
         tier: kpi
         domain: marketing
         industry: cross_industry
+        shortLabel: Web CVR %
+        unit: rate

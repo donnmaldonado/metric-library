@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: engineering
         industry: cross_industry
+        shortLabel: Deploy Frequency
+        unit: count

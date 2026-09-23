@@ -1,7 +1,7 @@
 metrics:
   - name: annual_budget
     label: Annual Budget
-    description: Total approved budget for the fiscal year
+    description: Total approved budget for the fiscal year.
     type: simple
     type_params:
       measure: budgeted_amount
@@ -11,3 +11,5 @@ metrics:
         tier: input
         domain: finance
         industry: cross_industry
+        shortLabel: Annual Budget
+        unit: currency

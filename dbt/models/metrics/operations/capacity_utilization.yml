@@ -1,7 +1,7 @@
 metrics:
   - name: capacity_utilization
-    label: Capacity Utilization %
-    description: Actual output as a percentage of total available capacity
+    label: Capacity Utilization Rate
+    description: Actual output as a percentage of total available capacity.
     type: ratio
     type_params:
       numerator: actual_output
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: operations
         industry: cross_industry
+        shortLabel: Capacity Utilization %
+        unit: rate

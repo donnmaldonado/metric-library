@@ -1,7 +1,7 @@
 metrics:
   - name: earned_media_value
     label: Earned Media Value
-    description: Estimated equivalent value of organic press coverage
+    description: Estimated equivalent value of organic press coverage.
     type: simple
     type_params:
       measure: estimated_media_value
@@ -11,3 +11,5 @@ metrics:
         tier: kpi
         domain: marketing
         industry: cross_industry
+        shortLabel: Earned Media Value
+        unit: currency

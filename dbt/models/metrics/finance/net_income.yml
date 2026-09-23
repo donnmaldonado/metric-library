@@ -11,3 +11,5 @@ metrics:
         tier: kpi
         domain: finance
         industry: cross_industry
+        shortLabel: Net Income
+        unit: currency

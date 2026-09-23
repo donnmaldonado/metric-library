@@ -14,3 +14,5 @@ metrics:
         tier: kpi
         domain: education
         industry: education
+        shortLabel: IEP Goal Mastery %
+        unit: rate

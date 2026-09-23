@@ -1,7 +1,7 @@
 metrics:
   - name: pipeline_generated
-    label: Pipeline Generated
-    description: Total value of opportunities sourced by marketing
+    label: Marketing-Sourced Pipeline
+    description: Total value of opportunities sourced by marketing.
     type: simple
     type_params:
       measure: opportunity_value
@@ -12,3 +12,5 @@ metrics:
         tier: north_star
         domain: sales
         industry: cross_industry
+        shortLabel: Pipeline Generated
+        unit: currency

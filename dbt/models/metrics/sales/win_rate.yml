@@ -13,3 +13,5 @@ metrics:
         tier: kpi
         domain: sales
         industry: cross_industry
+        shortLabel: Win Rate
+        unit: rate

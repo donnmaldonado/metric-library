@@ -1,7 +1,7 @@
 metrics:
   - name: expansion_pipeline
     label: Expansion Pipeline
-    description: Total potential expansion ARR in open upsell opportunities
+    description: Total potential expansion ARR in open upsell opportunities.
     type: simple
     type_params:
       measure: opportunities_arr_value
@@ -13,3 +13,5 @@ metrics:
         tier: kpi
         domain: sales
         industry: cross_industry
+        shortLabel: Expansion Pipeline
+        unit: currency

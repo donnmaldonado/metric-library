@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: saas
         industry: saas
+        shortLabel: ARR
+        unit: currency

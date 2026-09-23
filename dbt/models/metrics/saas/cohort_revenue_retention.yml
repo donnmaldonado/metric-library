@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: saas
         industry: saas
+        shortLabel: Cohort Rev Retention
+        unit: rate

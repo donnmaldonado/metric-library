@@ -1,6 +1,6 @@
 metrics:
   - name: instructional_minutes
-    label: Instructional Minutes
+    label: Instructional Minutes per Day
     description: Average minutes of scheduled instruction delivered per student per school day.
     type: simple
     type_params:
@@ -11,3 +11,5 @@ metrics:
         tier: input
         domain: education
         industry: education
+        shortLabel: Instructional Minutes
+        unit: minutes

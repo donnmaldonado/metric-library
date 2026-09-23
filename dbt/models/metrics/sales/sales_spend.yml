@@ -11,3 +11,5 @@ metrics:
         tier: kpi
         domain: sales
         industry: cross_industry
+        shortLabel: Sales Spend
+        unit: currency

@@ -1,6 +1,6 @@
 metrics:
   - name: ces
-    label: CES
+    label: Customer Effort Score
     description: How easy it was for customers to resolve an issue — lower effort = better.
     type: simple
     type_params:
@@ -11,3 +11,5 @@ metrics:
         tier: kpi
         domain: product
         industry: cross_industry
+        shortLabel: CES
+        unit: score

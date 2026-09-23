@@ -1,7 +1,7 @@
 metrics:
   - name: interest_coverage_ratio
     label: Interest Coverage Ratio
-    description: EBIT divided by interest expense — ability to service debt. <1.5x is distress signal.
+    description: EBIT divided by interest expense — ability to service debt, with below 1.5x a distress signal.
     type: ratio
     type_params:
       numerator: ebit
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: finance
         industry: cross_industry
+        shortLabel: Interest Coverage
+        unit: ratio

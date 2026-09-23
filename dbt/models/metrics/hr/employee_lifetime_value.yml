@@ -1,6 +1,6 @@
 metrics:
   - name: employee_lifetime_value
-    label: Employee Lifetime Value
+    label: Employee Lifetime Value Ratio
     description: Estimated total value an employee contributes over their tenure minus fully-loaded employment cost.
     type: ratio
     type_params:
@@ -12,3 +12,5 @@ metrics:
         tier: north_star
         domain: hr
         industry: cross_industry
+        shortLabel: Employee LTV
+        unit: ratio

@@ -1,6 +1,6 @@
 metrics:
   - name: headcount_fte
-    label: Headcount FTE
+    label: Full-Time Equivalent Headcount
     description: Full-time equivalent employee count at end of period.
     type: simple
     type_params:
@@ -12,3 +12,5 @@ metrics:
         tier: input
         domain: hr
         industry: cross_industry
+        shortLabel: Headcount FTE
+        unit: count

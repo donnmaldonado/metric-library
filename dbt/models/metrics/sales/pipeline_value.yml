@@ -1,6 +1,6 @@
 metrics:
   - name: pipeline_value
-    label: Pipeline Value
+    label: Open Pipeline Value
     description: Total ARR value of open opportunities in the pipeline.
     type: simple
     type_params:
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: sales
         industry: cross_industry
+        shortLabel: Pipeline Value
+        unit: currency

@@ -1,7 +1,7 @@
 metrics:
   - name: on_time_delivery_rate
     label: On-Time Delivery Rate
-    description: Percentage of orders or deliverables completed by the committed date
+    description: Percentage of orders or deliverables completed by the committed date.
     type: ratio
     type_params:
       numerator:
@@ -14,3 +14,5 @@ metrics:
         tier: north_star
         domain: commerce
         industry: cross_industry
+        shortLabel: On-Time Delivery %
+        unit: rate

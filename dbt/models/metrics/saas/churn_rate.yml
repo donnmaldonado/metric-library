@@ -15,3 +15,5 @@ metrics:
         tier: kpi
         domain: saas
         industry: saas
+        shortLabel: Churn %
+        unit: rate

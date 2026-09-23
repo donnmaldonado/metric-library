@@ -1,7 +1,7 @@
 metrics:
   - name: survey_response_rate
-    label: Survey Response %
-    description: Percentage of customers who responded to surveys sent
+    label: Survey Response Rate
+    description: Percentage of customers who responded to surveys sent.
     type: ratio
     type_params:
       numerator: responses_received
@@ -12,3 +12,5 @@ metrics:
         tier: input
         domain: product
         industry: cross_industry
+        shortLabel: Survey Response %
+        unit: rate

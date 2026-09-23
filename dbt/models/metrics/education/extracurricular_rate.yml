@@ -1,7 +1,7 @@
 metrics:
   - name: extracurricular_rate
-    label: Extracurricular %
-    description: Percentage of students participating in at least one extracurricular activity
+    label: Extracurricular Participation Rate
+    description: Percentage of students participating in at least one extracurricular activity.
     type: ratio
     type_params:
       numerator:
@@ -14,3 +14,5 @@ metrics:
         tier: input
         domain: education
         industry: cross_industry
+        shortLabel: Extracurricular %
+        unit: rate

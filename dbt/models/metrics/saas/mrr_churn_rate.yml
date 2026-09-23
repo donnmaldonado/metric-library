@@ -1,7 +1,7 @@
 metrics:
   - name: mrr_churn_rate
-    label: MRR Churn %
-    description: Percentage of MRR lost in the period from cancellations
+    label: MRR Churn Rate
+    description: Percentage of MRR lost in the period from cancellations.
     type: derived
     type_params:
       expr: churned_arr / nullif(starting_arr, 0)
@@ -14,3 +14,5 @@ metrics:
         tier: kpi
         domain: saas
         industry: saas
+        shortLabel: MRR Churn %
+        unit: rate

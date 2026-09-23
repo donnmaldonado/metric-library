@@ -1,6 +1,6 @@
 metrics:
   - name: feature_request_volume
-    label: Feature Request Volume
+    label: Feature Requests
     description: Count of feature requests submitted via support, NPS verbatims, or feedback tools.
     type: simple
     type_params:
@@ -11,3 +11,5 @@ metrics:
         tier: input
         domain: product
         industry: cross_industry
+        shortLabel: Feature Requests
+        unit: count

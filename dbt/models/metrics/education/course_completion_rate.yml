@@ -1,7 +1,7 @@
 metrics:
   - name: course_completion_rate
-    label: Course Completion %
-    description: Percentage of enrolled students who successfully completed a course
+    label: Course Completion Rate
+    description: Percentage of enrolled students who successfully completed a course.
     type: ratio
     type_params:
       numerator:
@@ -14,3 +14,5 @@ metrics:
         tier: kpi
         domain: education
         industry: cross_industry
+        shortLabel: Course Completion %
+        unit: rate

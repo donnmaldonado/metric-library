@@ -1,7 +1,7 @@
 metrics:
   - name: tam
-    label: TAM
-    description: Estimated total market opportunity for the product or service
+    label: Total Addressable Market
+    description: Estimated total market opportunity for the product or service.
     type: simple
     type_params:
       measure: tam_estimate
@@ -11,3 +11,5 @@ metrics:
         tier: input
         domain: finance
         industry: cross_industry
+        shortLabel: TAM
+        unit: currency

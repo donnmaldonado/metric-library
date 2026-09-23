@@ -1,7 +1,7 @@
 metrics:
   - name: tickets_per_agent
-    label: Tickets / Agent / Day
-    description: Agent productivity measured by tickets closed
+    label: Tickets Resolved per Agent per Day
+    description: Agent productivity measured by tickets closed.
     type: ratio
     type_params:
       numerator: tickets_resolved
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: customer
         industry: cross_industry
+        shortLabel: Tickets / Agent / Day
+        unit: ratio

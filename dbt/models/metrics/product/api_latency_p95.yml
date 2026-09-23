@@ -1,6 +1,6 @@
 metrics:
   - name: api_latency_p95
-    label: API Latency p95
+    label: 95th Percentile API Latency
     description: 95th percentile API response time in milliseconds.
     type: simple
     type_params:
@@ -11,3 +11,5 @@ metrics:
         tier: kpi
         domain: product
         industry: cross_industry
+        shortLabel: API Latency p95
+        unit: milliseconds

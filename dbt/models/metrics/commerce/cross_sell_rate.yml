@@ -1,7 +1,7 @@
 metrics:
   - name: cross_sell_rate
     label: Cross-Sell Rate
-    description: Percentage of customers who purchased products from more than one category
+    description: Percentage of customers who purchased products from more than one category.
     type: ratio
     type_params:
       numerator:
@@ -14,3 +14,5 @@ metrics:
         tier: kpi
         domain: commerce
         industry: education
+        shortLabel: Cross-Sell %
+        unit: rate

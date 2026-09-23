@@ -1,7 +1,7 @@
 metrics:
   - name: app_store_rating
     label: App Store Rating
-    description: Average rating on iOS App Store and Google Play
+    description: Average rating on iOS App Store and Google Play.
     type: simple
     type_params:
       measure: avg_rating_score
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: marketing
         industry: cross_industry
+        shortLabel: App Store Rating
+        unit: score

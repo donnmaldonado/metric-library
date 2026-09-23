@@ -1,7 +1,7 @@
 metrics:
   - name: sprint_velocity
     label: Sprint Velocity
-    description: Average story points completed per two-week sprint
+    description: Average story points completed per two-week sprint.
     type: simple
     type_params:
       measure: avg_story_points_completed
@@ -11,3 +11,5 @@ metrics:
         tier: input
         domain: engineering
         industry: cross_industry
+        shortLabel: Sprint Velocity
+        unit: count

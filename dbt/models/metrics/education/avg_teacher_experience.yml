@@ -1,7 +1,7 @@
 metrics:
   - name: avg_teacher_experience
-    label: Avg Teacher Exp (yrs)
-    description: Average years of teaching experience across the teaching staff
+    label: Average Teacher Experience
+    description: Average years of teaching experience across the teaching staff.
     type: simple
     type_params:
       measure: avg_years_of_experience
@@ -12,3 +12,5 @@ metrics:
         tier: input
         domain: education
         industry: education
+        shortLabel: Avg Teacher Exp
+        unit: years

@@ -1,7 +1,7 @@
 metrics:
   - name: at_risk_accounts
     label: At-Risk Accounts
-    description: Number of accounts with health score below the risk threshold
+    description: Number of accounts with health score below the risk threshold.
     type: simple
     type_params:
       measure: account_count
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: customer
         industry: cross_industry
+        shortLabel: At-Risk Accounts
+        unit: count

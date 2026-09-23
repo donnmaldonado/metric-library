@@ -1,7 +1,7 @@
 metrics:
   - name: kinder_readiness
-    label: K-Readiness %
-    description: Percentage of entering kindergarteners scoring ready on standardized screening
+    label: Kindergarten Readiness Rate
+    description: Percentage of entering kindergarteners scoring ready on standardized screening.
     type: ratio
     type_params:
       numerator:
@@ -14,3 +14,5 @@ metrics:
         tier: kpi
         domain: education
         industry: education
+        shortLabel: K-Readiness %
+        unit: rate

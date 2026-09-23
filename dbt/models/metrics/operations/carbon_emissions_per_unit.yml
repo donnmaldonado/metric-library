@@ -1,6 +1,6 @@
 metrics:
   - name: carbon_emissions_per_unit
-    label: Carbon per Unit
+    label: Carbon Emissions per Unit
     description: kg CO2 equivalent emitted per unit of output — ESG and sustainability metric.
     type: ratio
     type_params:
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: operations
         industry: cross_industry
+        shortLabel: Carbon per Unit
+        unit: ratio

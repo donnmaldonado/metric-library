@@ -1,7 +1,7 @@
 metrics:
   - name: adm
-    label: ADM
-    description: Average number of students enrolled per day (used for funding calculations)
+    label: Average Daily Membership
+    description: Average number of students enrolled per day (used for funding calculations).
     type: derived
     type_params:
       expr: days_enrolled / school_days
@@ -14,3 +14,5 @@ metrics:
         tier: input
         domain: education
         industry: education
+        shortLabel: ADM
+        unit: count

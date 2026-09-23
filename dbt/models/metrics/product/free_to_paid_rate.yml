@@ -1,7 +1,7 @@
 metrics:
   - name: free_to_paid_rate
-    label: Free-to-Paid %
-    description: Percentage of free-tier users who convert to a paid plan
+    label: Free-to-Paid Conversion Rate
+    description: Percentage of free-tier users who convert to a paid plan.
     type: ratio
     type_params:
       numerator:
@@ -15,3 +15,5 @@ metrics:
         tier: kpi
         domain: product
         industry: cross_industry
+        shortLabel: Free-to-Paid %
+        unit: rate

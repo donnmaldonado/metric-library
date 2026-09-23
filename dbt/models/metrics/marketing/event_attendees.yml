@@ -1,7 +1,7 @@
 metrics:
   - name: event_attendees
     label: Event Attendees
-    description: Total attendees at company-sponsored events in the period
+    description: Total attendees at company-sponsored events in the period.
     type: simple
     type_params:
       measure: registration_count
@@ -12,3 +12,5 @@ metrics:
         tier: input
         domain: marketing
         industry: cross_industry
+        shortLabel: Event Attendees
+        unit: count

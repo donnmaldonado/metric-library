@@ -1,7 +1,7 @@
 metrics:
   - name: leads
     label: Leads
-    description: Leads created in the period, from CRM and marketing automation
+    description: Leads created in the period, from CRM and marketing automation.
     type: simple
     type_params:
       measure: lead_count
@@ -11,3 +11,5 @@ metrics:
         tier: input
         domain: sales
         industry: cross_industry
+        shortLabel: Leads
+        unit: count

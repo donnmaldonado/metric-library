@@ -1,6 +1,6 @@
 metrics:
   - name: unsubscribe_rate
-    label: Unsubscribe Rate
+    label: Email Unsubscribe Rate
     description: '% of email recipients who unsubscribed — list health signal.'
     type: ratio
     type_params:
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: marketing
         industry: cross_industry
+        shortLabel: Unsubscribe %
+        unit: rate

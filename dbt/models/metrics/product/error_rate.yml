@@ -1,6 +1,6 @@
 metrics:
   - name: error_rate
-    label: Error Rate
+    label: API Error Rate
     description: '% of user sessions or API calls that result in an error.'
     type: ratio
     type_params:
@@ -14,3 +14,5 @@ metrics:
         tier: kpi
         domain: product
         industry: cross_industry
+        shortLabel: Error %
+        unit: rate

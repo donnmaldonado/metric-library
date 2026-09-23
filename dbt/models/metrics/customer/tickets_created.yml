@@ -1,7 +1,7 @@
 metrics:
   - name: tickets_created
     label: Tickets Created
-    description: Total new support tickets opened in the period
+    description: Total new support tickets opened in the period.
     type: simple
     type_params:
       measure: ticket_count
@@ -11,3 +11,5 @@ metrics:
         tier: input
         domain: customer
         industry: cross_industry
+        shortLabel: Tickets Created
+        unit: count

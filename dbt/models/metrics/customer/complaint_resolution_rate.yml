@@ -1,7 +1,7 @@
 metrics:
   - name: complaint_resolution_rate
-    label: Complaint Resolution %
-    description: Percentage of complaints resolved within the SLA
+    label: Complaint Resolution Rate
+    description: Percentage of complaints resolved within the SLA.
     type: ratio
     type_params:
       numerator: complaints_resolved_within_sla
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: customer
         industry: cross_industry
+        shortLabel: Complaint Resolution %
+        unit: rate

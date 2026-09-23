@@ -68,5 +68,36 @@
     "marketplace",
     "retail",
     "saas"
+  ],
+  "units": {
+    "rate": "Fraction 0-1, displayed as a percentage",
+    "ratio": "A multiple or per-item quantity, e.g. LTV:CAC 3.2x",
+    "currency": "Money amount",
+    "count": "Whole things",
+    "score": "A native scale, such as NPS (-100 to 100) or a 1-5 survey",
+    "days": "Duration in days",
+    "months": "Duration in months",
+    "years": "Duration in years",
+    "hours": "Duration in hours",
+    "minutes": "Duration in minutes",
+    "seconds": "Duration in seconds",
+    "milliseconds": "Duration in milliseconds"
+  },
+  "acronyms": [
+    "EBITDA",
+    "EBIT",
+    "API",
+    "SLA",
+    "ARR",
+    "MRR",
+    "CSAT",
+    "HR",
+    "IEP",
+    "ELL",
+    "FAFSA",
+    "AP",
+    "G&A",
+    "R&D",
+    "S&M"
   ]
 }

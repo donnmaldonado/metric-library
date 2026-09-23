@@ -1,7 +1,7 @@
 metrics:
   - name: form_conversion_rate
-    label: Form CVR %
-    description: Percentage of form page visitors who submitted a form
+    label: Form Conversion Rate
+    description: Percentage of form page visitors who submitted a form.
     type: ratio
     type_params:
       numerator: form_submissions
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: marketing
         industry: cross_industry
+        shortLabel: Form CVR %
+        unit: rate

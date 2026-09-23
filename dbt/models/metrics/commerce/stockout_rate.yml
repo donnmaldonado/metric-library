@@ -1,7 +1,7 @@
 metrics:
   - name: stockout_rate
     label: Stockout Rate
-    description: Percentage of orders that could not be fulfilled due to zero inventory
+    description: Percentage of orders that could not be fulfilled due to zero inventory.
     type: ratio
     type_params:
       numerator:
@@ -14,3 +14,5 @@ metrics:
         tier: kpi
         domain: commerce
         industry: manufacturing
+        shortLabel: Stockout %
+        unit: rate

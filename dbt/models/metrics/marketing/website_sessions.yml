@@ -11,3 +11,5 @@ metrics:
         tier: kpi
         domain: marketing
         industry: cross_industry
+        shortLabel: Website Sessions
+        unit: count

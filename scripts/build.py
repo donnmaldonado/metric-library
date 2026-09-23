@@ -1,7 +1,7 @@
 """Regenerate derived artifacts from data/metrics.json, data/taxonomy.json and data/sources.json.
 
   data/relationships.csv                            one row per edge
-  dbt/models/metrics/<domain>/<metric_id>.yml       MetricFlow metric (formulaYaml, meta refreshed)
+  dbt/models/metrics/<domain>/<metric_id>.yml       MetricFlow metric (formulaYaml, label/description/meta refreshed)
   dbt/analyses/metrics/<domain>/<metric_id>.sql     SQL formula (formulaSql)
   CATALOG.md                                        human-readable index
 
@@ -19,7 +19,7 @@ TAXONOMY = json.loads((ROOT / "data/taxonomy.json").read_text())
 SOURCES = json.loads((ROOT / "data/sources.json").read_text())
 YML_DIR = "dbt/models/metrics"
 SQL_DIR = "dbt/analyses/metrics"
-META_KEYS = ("metricId", "tier", "domain", "industry")  # config.meta keys build.py owns
+META_KEYS = ("metricId", "tier", "domain", "industry", "shortLabel", "unit")  # config.meta keys build.py owns
 
 
 class _Dumper(yaml.SafeDumper):
@@ -46,9 +46,10 @@ def metric_meta(m, **extra):
 
 
 def metric_yaml(m):
-    """formulaYaml with config.meta refreshed from the metric's current tier/domain/industry."""
+    """formulaYaml with label and config.meta refreshed from the metric's JSON fields."""
     doc = yaml.safe_load(m["formulaYaml"])
     metric = doc["metrics"][0]
+    metric["label"], metric["description"] = m["label"], m["shortDescription"]
     old = (metric.get("config") or {}).get("meta") or {}
     extra = {k: v for k, v in old.items() if k not in META_KEYS}
     metric.setdefault("config", {})["meta"] = metric_meta(m, **extra)
@@ -105,7 +106,7 @@ def write_catalog(metrics, by_id):
 def catalog_entry(m, domain_label, link):
     out = [
         f'<a id="{m["metricId"]}"></a>',
-        f"#### {m['label']} — `{m['metricId']}`",
+        f"#### {m['label']} — `{m['metricId']}` · {m['unit']}",
         "",
         m["shortDescription"],
         "",

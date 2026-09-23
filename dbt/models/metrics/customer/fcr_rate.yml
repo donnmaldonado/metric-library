@@ -1,7 +1,7 @@
 metrics:
   - name: fcr_rate
-    label: FCR Rate
-    description: Percentage of support cases resolved on the first contact
+    label: First Contact Resolution Rate
+    description: Percentage of support cases resolved on the first contact.
     type: ratio
     type_params:
       numerator: first_contact_resolutions
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: customer
         industry: cross_industry
+        shortLabel: FCR %
+        unit: rate

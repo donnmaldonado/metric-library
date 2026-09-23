@@ -1,7 +1,7 @@
 metrics:
   - name: rule_of_40
-    label: Rule of 40
-    description: Revenue growth rate + EBITDA margin — benchmark for SaaS health. ≥40 = healthy.
+    label: Rule of 40 Score
+    description: Revenue growth rate + EBITDA margin — benchmark for SaaS health, where 40 or more is healthy.
     type: derived
     type_params:
       expr: (revenue_vs_py + ebitda_margin) * 100
@@ -14,3 +14,5 @@ metrics:
         tier: north_star
         domain: finance
         industry: cross_industry
+        shortLabel: Rule of 40
+        unit: score

@@ -1,7 +1,7 @@
 metrics:
   - name: net_mrr_growth
-    label: Net MRR Growth
-    description: New + expansion MRR minus churned + contraction MRR
+    label: Net New MRR
+    description: New + expansion MRR minus churned + contraction MRR.
     type: derived
     type_params:
       expr: net_new_arr / 12
@@ -13,3 +13,5 @@ metrics:
         tier: kpi
         domain: saas
         industry: saas
+        shortLabel: Net MRR Growth
+        unit: currency

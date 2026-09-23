@@ -1,7 +1,7 @@
 metrics:
   - name: benefits_utilization
-    label: Benefits Utilization %
-    description: Percentage of eligible employees actively using offered benefits
+    label: Benefits Utilization Rate
+    description: Percentage of eligible employees actively using offered benefits.
     type: ratio
     type_params:
       numerator:
@@ -14,3 +14,5 @@ metrics:
         tier: input
         domain: hr
         industry: cross_industry
+        shortLabel: Benefits Utilization %
+        unit: rate

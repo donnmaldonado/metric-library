@@ -1,7 +1,7 @@
 metrics:
   - name: market_share
     label: Market Share
-    description: Company revenue as a percentage of total addressable market
+    description: Company revenue as a percentage of total addressable market.
     type: ratio
     type_params:
       numerator: company_revenue
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: finance
         industry: cross_industry
+        shortLabel: Market Share
+        unit: rate

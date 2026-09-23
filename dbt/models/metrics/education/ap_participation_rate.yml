@@ -1,7 +1,7 @@
 metrics:
   - name: ap_participation_rate
-    label: AP Participation %
-    description: Percentage of 11th and 12th graders enrolled in at least one AP course
+    label: AP Participation Rate
+    description: Percentage of 11th and 12th graders enrolled in at least one AP course.
     type: ratio
     type_params:
       numerator:
@@ -17,3 +17,5 @@ metrics:
         tier: kpi
         domain: education
         industry: cross_industry
+        shortLabel: AP Participation %
+        unit: rate

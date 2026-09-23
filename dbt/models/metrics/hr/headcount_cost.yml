@@ -11,3 +11,5 @@ metrics:
         tier: kpi
         domain: hr
         industry: cross_industry
+        shortLabel: Headcount Cost
+        unit: currency

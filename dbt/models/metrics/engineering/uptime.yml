@@ -1,7 +1,7 @@
 metrics:
   - name: uptime
-    label: Uptime %
-    description: Percentage of scheduled uptime the service was available
+    label: Service Uptime
+    description: Percentage of scheduled uptime the service was available.
     type: ratio
     type_params:
       numerator: available_minutes
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: engineering
         industry: cross_industry
+        shortLabel: Uptime %
+        unit: rate

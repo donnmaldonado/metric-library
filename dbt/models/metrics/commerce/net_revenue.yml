@@ -1,7 +1,7 @@
 metrics:
   - name: net_revenue
     label: Net Revenue
-    description: Gross revenue minus returns, allowances, and discounts
+    description: Gross revenue minus returns, allowances, and discounts.
     type: derived
     type_params:
       expr: gross_revenue - order_returns - order_discounts
@@ -15,3 +15,5 @@ metrics:
         tier: kpi
         domain: commerce
         industry: cross_industry
+        shortLabel: Net Revenue
+        unit: currency

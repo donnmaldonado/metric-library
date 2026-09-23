@@ -1,7 +1,7 @@
 metrics:
   - name: order_fulfillment_rate
-    label: Order Fulfillment %
-    description: Percentage of orders fulfilled completely and on time
+    label: Order Fulfillment Rate
+    description: Percentage of orders fulfilled completely and on time.
     type: ratio
     type_params:
       numerator:
@@ -15,3 +15,5 @@ metrics:
         tier: kpi
         domain: commerce
         industry: manufacturing
+        shortLabel: Order Fulfillment %
+        unit: rate

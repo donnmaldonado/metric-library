@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: education
         industry: manufacturing
+        shortLabel: Seat Fill %
+        unit: rate

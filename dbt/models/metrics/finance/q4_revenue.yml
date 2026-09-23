@@ -1,7 +1,7 @@
 metrics:
   - name: q4_revenue
     label: Q4 Revenue
-    description: Revenue recognized in Q4
+    description: Revenue recognized in Q4.
     type: simple
     type_params:
       measure: revenue_amount
@@ -12,3 +12,5 @@ metrics:
         tier: input
         domain: finance
         industry: cross_industry
+        shortLabel: Q4 Revenue
+        unit: currency

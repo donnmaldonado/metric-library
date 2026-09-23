@@ -1,6 +1,6 @@
 metrics:
   - name: impressions
-    label: Impressions
+    label: Ad Impressions
     description: Total ad impressions served in the period.
     type: simple
     type_params:
@@ -11,3 +11,5 @@ metrics:
         tier: input
         domain: marketing
         industry: cross_industry
+        shortLabel: Impressions
+        unit: count

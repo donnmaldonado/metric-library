@@ -1,7 +1,7 @@
 metrics:
   - name: sm_spend
     label: S&M Spend
-    description: Total sales and marketing expenditure in the period
+    description: Total sales and marketing expenditure in the period.
     type: simple
     type_params:
       measure: expense_amount
@@ -12,3 +12,5 @@ metrics:
         tier: input
         domain: finance
         industry: cross_industry
+        shortLabel: S&M Spend
+        unit: currency

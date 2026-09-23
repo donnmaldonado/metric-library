@@ -1,7 +1,7 @@
 metrics:
   - name: repeat_purchase_rate
-    label: Repeat Purchase %
-    description: Percentage of customers who made more than one purchase
+    label: Repeat Purchase Rate
+    description: Percentage of customers who made more than one purchase.
     type: ratio
     type_params:
       numerator:
@@ -14,3 +14,5 @@ metrics:
         tier: kpi
         domain: commerce
         industry: retail
+        shortLabel: Repeat Purchase %
+        unit: rate

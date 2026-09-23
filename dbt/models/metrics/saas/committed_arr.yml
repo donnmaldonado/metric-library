@@ -1,7 +1,7 @@
 metrics:
   - name: committed_arr
     label: Committed ARR
-    description: ARR under signed contracts not yet recognized
+    description: ARR under signed contracts not yet recognized.
     type: simple
     type_params:
       measure: contract_arr
@@ -12,3 +12,5 @@ metrics:
         tier: input
         domain: saas
         industry: saas
+        shortLabel: Committed ARR
+        unit: currency

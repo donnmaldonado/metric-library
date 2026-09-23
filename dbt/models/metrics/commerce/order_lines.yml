@@ -1,7 +1,7 @@
 metrics:
   - name: order_lines
     label: Order Lines
-    description: Order lines placed in the period
+    description: Order lines placed in the period.
     type: simple
     type_params:
       measure: line_count
@@ -11,3 +11,5 @@ metrics:
         tier: input
         domain: commerce
         industry: cross_industry
+        shortLabel: Order Lines
+        unit: count

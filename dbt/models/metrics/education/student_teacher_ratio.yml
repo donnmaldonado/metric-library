@@ -1,7 +1,7 @@
 metrics:
   - name: student_teacher_ratio
-    label: Student:Teacher Ratio
-    description: Number of enrolled students per FTE classroom teacher
+    label: Student-to-Teacher Ratio
+    description: Number of enrolled students per FTE classroom teacher.
     type: ratio
     type_params:
       numerator: enrollment_count
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: education
         industry: education
+        shortLabel: Student:Teacher
+        unit: ratio

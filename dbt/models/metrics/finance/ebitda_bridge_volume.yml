@@ -1,6 +1,6 @@
 metrics:
   - name: ebitda_bridge_volume
-    label: 'EBITDA Bridge: Volume'
+    label: EBITDA Bridge Volume Effect
     description: Volume contribution to EBITDA variance vs prior period.
     type: simple
     type_params:
@@ -11,3 +11,5 @@ metrics:
         tier: input
         domain: finance
         industry: financial_services
+        shortLabel: 'EBITDA Bridge: Volume'
+        unit: currency

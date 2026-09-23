@@ -12,3 +12,5 @@ metrics:
         tier: input
         domain: operations
         industry: cross_industry
+        shortLabel: Energy Cost per Unit
+        unit: currency

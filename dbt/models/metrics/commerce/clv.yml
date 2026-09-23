@@ -1,7 +1,7 @@
 metrics:
   - name: clv
-    label: Customer LTV
-    description: Total expected revenue from a customer over their lifetime
+    label: Customer Lifetime Value
+    description: Total expected revenue from a customer over their lifetime.
     type: derived
     type_params:
       expr: aov * purchase_frequency * avg_lifespan_years
@@ -15,3 +15,5 @@ metrics:
         tier: north_star
         domain: commerce
         industry: cross_industry
+        shortLabel: Customer LTV
+        unit: currency

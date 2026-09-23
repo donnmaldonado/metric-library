@@ -1,6 +1,6 @@
 metrics:
   - name: pct_reps_at_quota
-    label: '% Reps at Quota'
+    label: Share of Reps at Quota
     description: '% of sales reps who hit or exceeded their quota — team productivity signal.'
     type: ratio
     type_params:
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: sales
         industry: cross_industry
+        shortLabel: '% Reps at Quota'
+        unit: rate

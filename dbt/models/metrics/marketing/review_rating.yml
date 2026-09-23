@@ -1,7 +1,7 @@
 metrics:
   - name: review_rating
-    label: Review Rating
-    description: Average rating on third-party review platforms (out of 5)
+    label: Third-Party Review Rating
+    description: Average rating on third-party review platforms (out of 5).
     type: simple
     type_params:
       measure: avg_rating_score
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: marketing
         industry: cross_industry
+        shortLabel: Review Rating
+        unit: score

@@ -1,6 +1,6 @@
 metrics:
   - name: cogs
-    label: COGS
+    label: Cost of Goods Sold
     description: Total cost of goods sold in a period.
     type: simple
     type_params:
@@ -11,3 +11,5 @@ metrics:
         tier: kpi
         domain: finance
         industry: cross_industry
+        shortLabel: COGS
+        unit: currency

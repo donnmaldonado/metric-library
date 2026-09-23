@@ -1,6 +1,6 @@
 metrics:
   - name: roas
-    label: ROAS
+    label: Return on Ad Spend
     description: Revenue attributed to ads divided by ad spend — direct campaign ROI.
     type: ratio
     type_params:
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: marketing
         industry: cross_industry
+        shortLabel: ROAS
+        unit: ratio

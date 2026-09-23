@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: saas
         industry: education
+        shortLabel: Upsell %
+        unit: rate

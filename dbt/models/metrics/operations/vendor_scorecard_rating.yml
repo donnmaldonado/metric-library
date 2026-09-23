@@ -11,3 +11,5 @@ metrics:
         tier: kpi
         domain: operations
         industry: manufacturing
+        shortLabel: Vendor Scorecard
+        unit: score

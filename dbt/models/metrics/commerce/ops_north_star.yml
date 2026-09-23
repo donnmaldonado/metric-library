@@ -16,3 +16,5 @@ metrics:
         tier: north_star
         domain: commerce
         industry: cross_industry
+        shortLabel: Perfect Order %
+        unit: rate

@@ -1,7 +1,7 @@
 metrics:
   - name: math_proficiency_rate
-    label: Math Proficiency %
-    description: Percentage of students scoring proficient or advanced on math state assessments
+    label: Math Proficiency Rate
+    description: Percentage of students scoring proficient or advanced on math state assessments.
     type: ratio
     type_params:
       numerator:
@@ -15,3 +15,5 @@ metrics:
         tier: kpi
         domain: education
         industry: education
+        shortLabel: Math Proficiency %
+        unit: rate

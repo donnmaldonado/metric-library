@@ -1,7 +1,7 @@
 metrics:
   - name: contraction_arr
     label: Contraction ARR
-    description: ARR lost from downgrades by existing customers
+    description: ARR lost from downgrades by existing customers.
     type: simple
     type_params:
       measure: arr_reduction
@@ -12,3 +12,5 @@ metrics:
         tier: input
         domain: saas
         industry: saas
+        shortLabel: Contraction ARR
+        unit: currency

@@ -1,7 +1,7 @@
 metrics:
   - name: referral_attribution_pct
-    label: Referral Attribution %
-    description: Percentage of closed revenue attributed to referral channels
+    label: Referral Channel Revenue Share
+    description: Percentage of closed revenue attributed to referral channels.
     type: ratio
     type_params:
       numerator:
@@ -14,3 +14,5 @@ metrics:
         tier: kpi
         domain: sales
         industry: cross_industry
+        shortLabel: Referral Attribution %
+        unit: rate

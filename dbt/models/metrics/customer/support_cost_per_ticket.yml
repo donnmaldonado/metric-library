@@ -1,7 +1,7 @@
 metrics:
   - name: support_cost_per_ticket
-    label: Support Cost / Ticket
-    description: Total support cost divided by tickets resolved
+    label: Support Cost per Ticket
+    description: Total support cost divided by tickets resolved.
     type: ratio
     type_params:
       numerator: support_team_cost
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: customer
         industry: cross_industry
+        shortLabel: Support Cost / Ticket
+        unit: currency

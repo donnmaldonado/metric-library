@@ -1,6 +1,6 @@
 metrics:
   - name: mttr
-    label: MTTR
+    label: Mean Time to Repair
     description: Mean Time to Repair — average time to restore equipment after failure.
     type: simple
     type_params:
@@ -11,3 +11,5 @@ metrics:
         tier: kpi
         domain: engineering
         industry: cross_industry
+        shortLabel: MTTR
+        unit: hours

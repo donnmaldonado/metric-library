@@ -1,7 +1,7 @@
 metrics:
   - name: viral_coefficient
-    label: Viral Coefficient (K)
-    description: Average number of new customers each existing customer generates
+    label: Viral Coefficient
+    description: Average number of new customers each existing customer generates.
     type: ratio
     type_params:
       numerator: referral_conversions
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: marketing
         industry: cross_industry
+        shortLabel: Viral K
+        unit: ratio

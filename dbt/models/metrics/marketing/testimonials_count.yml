@@ -1,7 +1,7 @@
 metrics:
   - name: testimonials_count
-    label: Testimonials
-    description: Number of customer testimonials or case studies collected YTD
+    label: Customer Testimonials
+    description: Number of customer testimonials or case studies collected YTD.
     type: simple
     type_params:
       measure: review_count
@@ -12,3 +12,5 @@ metrics:
         tier: input
         domain: marketing
         industry: cross_industry
+        shortLabel: Testimonials
+        unit: count

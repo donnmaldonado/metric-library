@@ -1,7 +1,7 @@
 metrics:
   - name: roa
-    label: ROA
-    description: Net income as a percentage of total assets
+    label: Return on Assets
+    description: Net income as a percentage of total assets.
     type: ratio
     type_params:
       numerator: net_income
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: finance
         industry: financial_services
+        shortLabel: ROA
+        unit: rate

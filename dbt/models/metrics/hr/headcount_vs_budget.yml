@@ -1,7 +1,7 @@
 metrics:
   - name: headcount_vs_budget
-    label: HC vs Budget
-    description: Actual headcount relative to approved headcount budget
+    label: Headcount Variance to Budget
+    description: Actual headcount relative to approved headcount budget.
     type: derived
     type_params:
       expr: headcount - budgeted_headcount
@@ -14,3 +14,5 @@ metrics:
         tier: kpi
         domain: hr
         industry: cross_industry
+        shortLabel: HC vs Budget
+        unit: count

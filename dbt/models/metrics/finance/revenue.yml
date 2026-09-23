@@ -11,3 +11,5 @@ metrics:
         tier: north_star
         domain: finance
         industry: cross_industry
+        shortLabel: Revenue
+        unit: currency

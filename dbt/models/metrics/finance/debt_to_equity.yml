@@ -1,7 +1,7 @@
 metrics:
   - name: debt_to_equity
-    label: D/E Ratio
-    description: Total debt divided by shareholder equity
+    label: Debt-to-Equity Ratio
+    description: Total debt divided by shareholder equity.
     type: ratio
     type_params:
       numerator: total_debt
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: finance
         industry: financial_services
+        shortLabel: D/E Ratio
+        unit: ratio

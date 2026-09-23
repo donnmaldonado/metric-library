@@ -1,6 +1,6 @@
 metrics:
   - name: per_pupil_expenditure
-    label: Per Pupil Expenditure
+    label: Per-Pupil Expenditure
     description: Total operating spend divided by average daily membership.
     type: ratio
     type_params:
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: education
         industry: cross_industry
+        shortLabel: Per-Pupil Spend
+        unit: currency

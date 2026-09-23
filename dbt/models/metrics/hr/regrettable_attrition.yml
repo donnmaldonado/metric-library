@@ -1,7 +1,7 @@
 metrics:
   - name: regrettable_attrition
-    label: Regrettable Attrition %
-    description: Percentage of turnover classified as regrettable by management
+    label: Regrettable Attrition Share
+    description: Percentage of turnover classified as regrettable by management.
     type: ratio
     type_params:
       numerator:
@@ -14,3 +14,5 @@ metrics:
         tier: kpi
         domain: hr
         industry: cross_industry
+        shortLabel: Regrettable Attrition %
+        unit: rate

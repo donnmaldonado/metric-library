@@ -1,6 +1,6 @@
 metrics:
   - name: acv
-    label: ACV
+    label: Average Annual Contract Value
     description: Average annual contract value of new or existing customer agreements.
     type: ratio
     type_params:
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: saas
         industry: cross_industry
+        shortLabel: ACV
+        unit: currency

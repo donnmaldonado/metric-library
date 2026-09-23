@@ -1,7 +1,7 @@
 metrics:
   - name: throughput
-    label: Throughput
-    description: Number of units completed per period
+    label: Production Throughput
+    description: Number of units completed per period.
     type: simple
     type_params:
       measure: units_produced
@@ -11,3 +11,5 @@ metrics:
         tier: kpi
         domain: operations
         industry: cross_industry
+        shortLabel: Throughput
+        unit: count

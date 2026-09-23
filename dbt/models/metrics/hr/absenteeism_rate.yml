@@ -1,7 +1,7 @@
 metrics:
   - name: absenteeism_rate
-    label: Absenteeism Rate
-    description: Percentage of scheduled workdays lost to unplanned absences
+    label: Employee Absenteeism Rate
+    description: Percentage of scheduled workdays lost to unplanned absences.
     type: ratio
     type_params:
       numerator: unplanned_absence_days
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: hr
         industry: cross_industry
+        shortLabel: Absenteeism %
+        unit: rate

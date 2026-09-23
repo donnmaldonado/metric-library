@@ -1,7 +1,7 @@
 metrics:
   - name: total_liabilities
     label: Total Liabilities
-    description: Total value of liabilities on the balance sheet
+    description: Total value of liabilities on the balance sheet.
     type: simple
     type_params:
       measure: total_liabilities
@@ -11,3 +11,5 @@ metrics:
         tier: input
         domain: finance
         industry: financial_services
+        shortLabel: Total Liabilities
+        unit: currency

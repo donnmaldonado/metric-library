@@ -1,6 +1,6 @@
 metrics:
   - name: asp
-    label: ASP
+    label: Average Selling Price
     description: Average selling price per unit or transaction — pricing health signal.
     type: ratio
     type_params:
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: finance
         industry: saas
+        shortLabel: ASP
+        unit: currency

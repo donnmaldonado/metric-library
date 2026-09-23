@@ -1,6 +1,6 @@
 metrics:
   - name: opex
-    label: OpEx
+    label: Operating Expenses
     description: Total operating expenses excluding COGS in a period.
     type: simple
     type_params:
@@ -11,3 +11,5 @@ metrics:
         tier: kpi
         domain: finance
         industry: cross_industry
+        shortLabel: OpEx
+        unit: currency

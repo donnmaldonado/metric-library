@@ -1,7 +1,7 @@
 metrics:
   - name: expulsion_rate
     label: Expulsion Rate
-    description: Percentage of students expelled during the school year
+    description: Percentage of students expelled during the school year.
     type: ratio
     type_params:
       numerator:
@@ -14,3 +14,5 @@ metrics:
         tier: input
         domain: education
         industry: cross_industry
+        shortLabel: Expulsion %
+        unit: rate

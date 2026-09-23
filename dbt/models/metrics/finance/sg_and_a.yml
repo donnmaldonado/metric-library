@@ -1,6 +1,6 @@
 metrics:
   - name: sg_and_a
-    label: SG&A
+    label: Selling, General and Administrative Expenses
     description: Sales, general and administrative expenses in the period.
     type: simple
     type_params:
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: finance
         industry: cross_industry
+        shortLabel: SG&A
+        unit: currency

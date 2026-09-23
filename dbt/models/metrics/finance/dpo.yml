@@ -1,7 +1,7 @@
 metrics:
   - name: dpo
-    label: DPO
-    description: Average days taken to pay suppliers
+    label: Days Payable Outstanding
+    description: Average days taken to pay suppliers.
     type: derived
     type_params:
       expr: accounts_payable / nullif(cogs_ttm, 0) * 365
@@ -14,3 +14,5 @@ metrics:
         tier: kpi
         domain: finance
         industry: cross_industry
+        shortLabel: DPO
+        unit: days

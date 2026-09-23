@@ -1,6 +1,6 @@
 metrics:
   - name: ar_aging_90d
-    label: AR Aging 90d+
+    label: Accounts Receivable Over 90 Days
     description: Total outstanding receivables past 90 days — bad debt risk indicator.
     type: simple
     type_params:
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: finance
         industry: cross_industry
+        shortLabel: AR Aging 90d+
+        unit: currency

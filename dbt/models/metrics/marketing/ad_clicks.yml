@@ -11,3 +11,5 @@ metrics:
         tier: input
         domain: marketing
         industry: cross_industry
+        shortLabel: Ad Clicks
+        unit: count

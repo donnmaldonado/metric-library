@@ -1,6 +1,6 @@
 metrics:
   - name: arpu
-    label: ARPU
+    label: Average Revenue per User
     description: Average Revenue Per User — revenue efficiency across the base.
     type: ratio
     type_params:
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: finance
         industry: cross_industry
+        shortLabel: ARPU
+        unit: currency

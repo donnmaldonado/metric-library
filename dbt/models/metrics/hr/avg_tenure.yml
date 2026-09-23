@@ -1,7 +1,7 @@
 metrics:
   - name: avg_tenure
-    label: Avg Tenure (yrs)
-    description: Average years of service among current employees
+    label: Average Employee Tenure
+    description: Average years of service among current employees.
     type: simple
     type_params:
       measure: avg_tenure_years
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: hr
         industry: cross_industry
+        shortLabel: Avg Tenure
+        unit: years

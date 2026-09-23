@@ -1,6 +1,6 @@
 metrics:
   - name: ebitda_bridge_price
-    label: 'EBITDA Bridge: Price'
+    label: EBITDA Bridge Price Effect
     description: Price/mix contribution to EBITDA variance vs prior period.
     type: simple
     type_params:
@@ -11,3 +11,5 @@ metrics:
         tier: input
         domain: finance
         industry: financial_services
+        shortLabel: 'EBITDA Bridge: Price'
+        unit: currency

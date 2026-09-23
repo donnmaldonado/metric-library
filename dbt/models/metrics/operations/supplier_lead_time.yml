@@ -11,3 +11,5 @@ metrics:
         tier: kpi
         domain: operations
         industry: cross_industry
+        shortLabel: Supplier Lead Time
+        unit: days

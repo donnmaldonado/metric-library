@@ -1,7 +1,7 @@
 metrics:
   - name: competitive_win_rate
-    label: Competitive Win %
-    description: Win rate in deals that involved a named competitor
+    label: Competitive Win Rate
+    description: Win rate in deals that involved a named competitor.
     type: ratio
     type_params:
       numerator: closed_won_deals
@@ -13,3 +13,5 @@ metrics:
         tier: input
         domain: sales
         industry: cross_industry
+        shortLabel: Competitive Win %
+        unit: rate

@@ -1,7 +1,7 @@
 metrics:
   - name: rd_headcount_pct
-    label: R&D % of Headcount
-    description: Engineering and product staff as a share of total headcount
+    label: R&D Share of Headcount
+    description: Engineering and product staff as a share of total headcount.
     type: ratio
     type_params:
       numerator: rd_headcount
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: hr
         industry: cross_industry
+        shortLabel: R&D % of Headcount
+        unit: rate

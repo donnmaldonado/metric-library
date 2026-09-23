@@ -1,7 +1,7 @@
 metrics:
   - name: bug_escape_rate
     label: Bug Escape Rate
-    description: Percentage of released code that contained production bugs
+    description: Percentage of released code that contained production bugs.
     type: ratio
     type_params:
       numerator: production_bugs
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: engineering
         industry: cross_industry
+        shortLabel: Bug Escape %
+        unit: rate

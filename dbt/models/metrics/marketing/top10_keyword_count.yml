@@ -1,6 +1,6 @@
 metrics:
   - name: top10_keyword_count
-    label: Top 10 Keywords
+    label: Keywords Ranking in the Top 10
     description: Number of target keywords ranking in Google's top 10 results.
     type: simple
     type_params:
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: marketing
         industry: cross_industry
+        shortLabel: Top 10 Keywords
+        unit: count

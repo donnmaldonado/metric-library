@@ -15,3 +15,5 @@ metrics:
         tier: kpi
         domain: finance
         industry: cross_industry
+        shortLabel: Quick Ratio
+        unit: ratio

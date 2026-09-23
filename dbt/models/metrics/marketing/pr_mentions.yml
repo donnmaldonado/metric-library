@@ -1,7 +1,7 @@
 metrics:
   - name: pr_mentions
-    label: PR Mentions
-    description: Total brand mentions in press or media in the period
+    label: Press Mentions
+    description: Total brand mentions in press or media in the period.
     type: simple
     type_params:
       measure: mention_count
@@ -11,3 +11,5 @@ metrics:
         tier: input
         domain: marketing
         industry: cross_industry
+        shortLabel: PR Mentions
+        unit: count

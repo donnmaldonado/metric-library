@@ -1,7 +1,7 @@
 metrics:
   - name: headcount
     label: Headcount
-    description: Total active full-time employees at end of period
+    description: Total active full-time employees at end of period.
     type: simple
     type_params:
       measure: employee_snapshots_employee_count
@@ -13,3 +13,5 @@ metrics:
         tier: north_star
         domain: hr
         industry: cross_industry
+        shortLabel: Headcount
+        unit: count

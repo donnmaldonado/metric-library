@@ -1,6 +1,6 @@
 metrics:
   - name: wau
-    label: WAU
+    label: Weekly Active Users
     description: Weekly Active Users — unique users who performed a qualifying action in a 7-day window.
     type: cumulative
     type_params:
@@ -14,3 +14,5 @@ metrics:
         tier: kpi
         domain: product
         industry: cross_industry
+        shortLabel: WAU
+        unit: count

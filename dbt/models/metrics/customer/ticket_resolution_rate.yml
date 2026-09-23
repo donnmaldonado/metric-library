@@ -1,6 +1,6 @@
 metrics:
   - name: ticket_resolution_rate
-    label: Ticket Resolution Rate
+    label: Ticket Resolution Rate Within SLA
     description: '% of opened tickets resolved within SLA window.'
     type: ratio
     type_params:
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: customer
         industry: cross_industry
+        shortLabel: Ticket Resolution %
+        unit: rate

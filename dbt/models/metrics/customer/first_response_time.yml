@@ -11,3 +11,5 @@ metrics:
         tier: kpi
         domain: customer
         industry: cross_industry
+        shortLabel: First Response Time
+        unit: hours

@@ -1,7 +1,7 @@
 metrics:
   - name: cac_payback
-    label: CAC Payback (mo)
-    description: Months to recover customer acquisition cost from gross margin
+    label: Customer Acquisition Cost Payback Period
+    description: Months to recover customer acquisition cost from gross margin.
     type: derived
     type_params:
       expr: cac / nullif(new_customer_mrr / nullif(new_customers, 0) * gross_margin_pct, 0)
@@ -16,3 +16,5 @@ metrics:
         tier: kpi
         domain: finance
         industry: cross_industry
+        shortLabel: CAC Payback
+        unit: months

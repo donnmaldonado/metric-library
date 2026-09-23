@@ -1,7 +1,7 @@
 metrics:
   - name: total_comp_expense
-    label: Total Comp Expense
-    description: Total salaries, benefits, and equity costs for the period
+    label: Total Compensation Expense
+    description: Total salaries, benefits, and equity costs for the period.
     type: simple
     type_params:
       measure: total_compensation
@@ -11,3 +11,5 @@ metrics:
         tier: input
         domain: hr
         industry: cross_industry
+        shortLabel: Total Comp Expense
+        unit: currency

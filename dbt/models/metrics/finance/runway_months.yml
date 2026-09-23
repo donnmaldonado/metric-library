@@ -1,6 +1,6 @@
 metrics:
   - name: runway_months
-    label: Runway (Months)
+    label: Cash Runway
     description: How many months of runway at current burn rate — survival horizon metric.
     type: derived
     type_params:
@@ -14,3 +14,5 @@ metrics:
         tier: kpi
         domain: finance
         industry: cross_industry
+        shortLabel: Runway
+        unit: months

@@ -1,6 +1,6 @@
 metrics:
   - name: cost_per_mql
-    label: Cost per MQL
+    label: Cost per Marketing Qualified Lead
     description: Total marketing spend divided by MQLs generated.
     type: ratio
     type_params:
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: marketing
         industry: cross_industry
+        shortLabel: Cost per MQL
+        unit: currency

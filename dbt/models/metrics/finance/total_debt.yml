@@ -1,7 +1,7 @@
 metrics:
   - name: total_debt
     label: Total Debt
-    description: Sum of short-term and long-term debt obligations
+    description: Sum of short-term and long-term debt obligations.
     type: simple
     type_params:
       measure: total_debt_value
@@ -11,3 +11,5 @@ metrics:
         tier: input
         domain: finance
         industry: financial_services
+        shortLabel: Total Debt
+        unit: currency

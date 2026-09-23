@@ -1,7 +1,7 @@
 metrics:
   - name: da
-    label: D&A
-    description: Non-cash charges for the period
+    label: Depreciation and Amortization
+    description: Non-cash charges for the period.
     type: simple
     type_params:
       measure: da_value
@@ -11,3 +11,5 @@ metrics:
         tier: input
         domain: finance
         industry: cross_industry
+        shortLabel: D&A
+        unit: currency

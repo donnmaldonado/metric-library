@@ -1,7 +1,7 @@
 metrics:
   - name: roe
-    label: ROE
-    description: Net income as a percentage of shareholders equity
+    label: Return on Equity
+    description: Net income as a percentage of shareholders equity.
     type: ratio
     type_params:
       numerator: net_income
@@ -12,3 +12,5 @@ metrics:
         tier: north_star
         domain: finance
         industry: financial_services
+        shortLabel: ROE
+        unit: rate

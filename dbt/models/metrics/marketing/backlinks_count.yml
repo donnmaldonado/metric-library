@@ -1,7 +1,7 @@
 metrics:
   - name: backlinks_count
-    label: Backlinks (Total Links)
-    description: Total referring backlinks to the domain
+    label: Backlinks
+    description: Total referring backlinks to the domain.
     type: simple
     type_params:
       measure: backlink_count
@@ -11,3 +11,5 @@ metrics:
         tier: input
         domain: marketing
         industry: cross_industry
+        shortLabel: Backlinks
+        unit: count

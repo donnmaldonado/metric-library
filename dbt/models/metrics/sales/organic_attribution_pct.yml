@@ -1,7 +1,7 @@
 metrics:
   - name: organic_attribution_pct
-    label: Organic Attribution %
-    description: Percentage of closed revenue attributed to organic channels
+    label: Organic Channel Revenue Share
+    description: Percentage of closed revenue attributed to organic channels.
     type: ratio
     type_params:
       numerator:
@@ -14,3 +14,5 @@ metrics:
         tier: kpi
         domain: sales
         industry: cross_industry
+        shortLabel: Organic Attribution %
+        unit: rate

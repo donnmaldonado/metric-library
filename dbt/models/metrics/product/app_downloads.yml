@@ -1,7 +1,7 @@
 metrics:
   - name: app_downloads
     label: App Downloads
-    description: Total app installs from app stores in the period
+    description: Total app installs from app stores in the period.
     type: simple
     type_params:
       measure: app_store_event_count
@@ -12,3 +12,5 @@ metrics:
         tier: input
         domain: product
         industry: cross_industry
+        shortLabel: App Downloads
+        unit: count

@@ -1,7 +1,7 @@
 metrics:
   - name: license_revenue
     label: License Revenue
-    description: Revenue from perpetual license sales
+    description: Revenue from perpetual license sales.
     type: simple
     type_params:
       measure: revenue_amount
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: finance
         industry: cross_industry
+        shortLabel: License Revenue
+        unit: currency

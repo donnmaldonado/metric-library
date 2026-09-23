@@ -1,7 +1,7 @@
 metrics:
   - name: rev_from_existing
     label: Existing Customer Revenue
-    description: Revenue from customers acquired prior to the current period
+    description: Revenue from customers acquired prior to the current period.
     type: simple
     type_params:
       measure: revenue_amount
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: finance
         industry: financial_services
+        shortLabel: Existing Customer Rev
+        unit: currency

@@ -1,7 +1,7 @@
 metrics:
   - name: college_enrollment_rate
-    label: College Enrollment %
-    description: Percentage of graduates enrolled in a 2- or 4-year college within 16 months
+    label: College Enrollment Rate Within 16 Months
+    description: Percentage of graduates enrolled in a 2- or 4-year college within 16 months.
     type: ratio
     type_params:
       numerator:
@@ -14,3 +14,5 @@ metrics:
         tier: north_star
         domain: education
         industry: cross_industry
+        shortLabel: College Enroll 16mo %
+        unit: rate

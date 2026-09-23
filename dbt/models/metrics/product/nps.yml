@@ -1,6 +1,6 @@
 metrics:
   - name: nps
-    label: NPS
+    label: Net Promoter Score
     description: Net Promoter Score — % Promoters minus % Detractors on 0–10 likelihood-to-recommend scale.
     type: derived
     type_params:
@@ -20,3 +20,5 @@ metrics:
         tier: north_star
         domain: product
         industry: cross_industry
+        shortLabel: NPS
+        unit: score

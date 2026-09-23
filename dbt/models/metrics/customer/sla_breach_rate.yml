@@ -1,7 +1,7 @@
 metrics:
   - name: sla_breach_rate
-    label: SLA Breach %
-    description: Percentage of tickets that exceeded the committed SLA response or resolution time
+    label: SLA Breach Rate
+    description: Percentage of tickets that exceeded the committed SLA response or resolution time.
     type: ratio
     type_params:
       numerator: breached_tickets
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: customer
         industry: cross_industry
+        shortLabel: SLA Breach %
+        unit: rate

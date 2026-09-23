@@ -1,6 +1,6 @@
 metrics:
   - name: cpc
-    label: CPC
+    label: Cost per Click
     description: Average cost paid per ad click.
     type: ratio
     type_params:
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: marketing
         industry: cross_industry
+        shortLabel: CPC
+        unit: currency

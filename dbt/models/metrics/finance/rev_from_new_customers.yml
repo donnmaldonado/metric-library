@@ -1,7 +1,7 @@
 metrics:
   - name: rev_from_new_customers
     label: New Customer Revenue
-    description: Revenue from customers acquired in the period
+    description: Revenue from customers acquired in the period.
     type: simple
     type_params:
       measure: revenue_amount
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: finance
         industry: financial_services
+        shortLabel: New Customer Rev
+        unit: currency

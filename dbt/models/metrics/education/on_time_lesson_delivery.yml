@@ -1,6 +1,6 @@
 metrics:
   - name: on_time_lesson_delivery
-    label: On-Time Lesson Delivery
+    label: On-Time Lesson Delivery Rate
     description: '% of planned lessons delivered on schedule per teacher or classroom.'
     type: ratio
     type_params:
@@ -14,3 +14,5 @@ metrics:
         tier: input
         domain: education
         industry: cross_industry
+        shortLabel: On-Time Lessons %
+        unit: rate

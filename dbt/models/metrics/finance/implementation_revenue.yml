@@ -1,7 +1,7 @@
 metrics:
   - name: implementation_revenue
     label: Implementation Revenue
-    description: One-time revenue from customer onboarding and implementation
+    description: One-time revenue from customer onboarding and implementation.
     type: simple
     type_params:
       measure: revenue_amount
@@ -12,3 +12,5 @@ metrics:
         tier: input
         domain: finance
         industry: cross_industry
+        shortLabel: Implementation Revenue
+        unit: currency

@@ -1,7 +1,7 @@
 metrics:
   - name: roic
-    label: ROIC
-    description: NOPAT divided by invested capital
+    label: Return on Invested Capital
+    description: NOPAT divided by invested capital.
     type: ratio
     type_params:
       numerator: nopat
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: finance
         industry: financial_services
+        shortLabel: ROIC
+        unit: rate

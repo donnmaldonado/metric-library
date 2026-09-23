@@ -1,7 +1,7 @@
 metrics:
   - name: tickets_per_customer
-    label: Tickets / Customer
-    description: Average support burden per customer — proxy for product quality
+    label: Tickets per Customer
+    description: Average support burden per customer — proxy for product quality.
     type: ratio
     type_params:
       numerator: tickets_created
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: customer
         industry: cross_industry
+        shortLabel: Tickets / Customer
+        unit: ratio

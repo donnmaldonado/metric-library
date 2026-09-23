@@ -1,7 +1,7 @@
 metrics:
   - name: total_assets
     label: Total Assets
-    description: Total value of assets on the balance sheet
+    description: Total value of assets on the balance sheet.
     type: simple
     type_params:
       measure: total_assets
@@ -11,3 +11,5 @@ metrics:
         tier: input
         domain: finance
         industry: financial_services
+        shortLabel: Total Assets
+        unit: currency

@@ -1,7 +1,7 @@
 metrics:
   - name: mql
-    label: MQLs
-    description: Leads meeting scoring threshold passed to sales
+    label: Marketing Qualified Leads
+    description: Leads meeting scoring threshold passed to sales.
     type: simple
     type_params:
       measure: mql_lead_count
@@ -11,3 +11,5 @@ metrics:
         tier: kpi
         domain: sales
         industry: cross_industry
+        shortLabel: MQLs
+        unit: count

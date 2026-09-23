@@ -1,7 +1,7 @@
 metrics:
   - name: sessions_per_user
-    label: Sessions / User
-    description: Average number of sessions per active user in the period
+    label: Sessions per User
+    description: Average number of sessions per active user in the period.
     type: ratio
     type_params:
       numerator: website_sessions
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: marketing
         industry: cross_industry
+        shortLabel: Sessions / User
+        unit: ratio

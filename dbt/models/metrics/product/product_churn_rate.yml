@@ -1,7 +1,7 @@
 metrics:
   - name: product_churn_rate
-    label: Product Churn
-    description: Percentage of active users who became inactive this period
+    label: Active User Churn Rate
+    description: Percentage of active users who became inactive this period.
     type: ratio
     type_params:
       numerator: product_churned_users
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: product
         industry: cross_industry
+        shortLabel: Product Churn %
+        unit: rate

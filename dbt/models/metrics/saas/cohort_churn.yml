@@ -1,7 +1,7 @@
 metrics:
   - name: cohort_churn
-    label: Cohort Churn
-    description: Cumulative churn for a given acquisition cohort at N months
+    label: Cohort Churn Rate
+    description: Cumulative churn for a given acquisition cohort at N months.
     type: ratio
     type_params:
       numerator: churned_users_in_cohort
@@ -12,3 +12,5 @@ metrics:
         tier: input
         domain: saas
         industry: saas
+        shortLabel: Cohort Churn %
+        unit: rate

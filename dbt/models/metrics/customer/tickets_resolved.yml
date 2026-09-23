@@ -1,7 +1,7 @@
 metrics:
   - name: tickets_resolved
     label: Tickets Resolved
-    description: Total support tickets closed in the period
+    description: Total support tickets closed in the period.
     type: simple
     type_params:
       measure: resolved_ticket_count
@@ -11,3 +11,5 @@ metrics:
         tier: input
         domain: customer
         industry: cross_industry
+        shortLabel: Tickets Resolved
+        unit: count

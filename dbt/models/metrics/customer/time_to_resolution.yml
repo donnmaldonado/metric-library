@@ -11,3 +11,5 @@ metrics:
         tier: kpi
         domain: customer
         industry: cross_industry
+        shortLabel: Time to Resolution
+        unit: hours

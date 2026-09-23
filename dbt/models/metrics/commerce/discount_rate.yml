@@ -1,7 +1,7 @@
 metrics:
   - name: discount_rate
     label: Discount Rate
-    description: Percentage of gross revenue given away as discounts
+    description: Percentage of gross revenue given away as discounts.
     type: ratio
     type_params:
       numerator: order_discounts
@@ -12,3 +12,5 @@ metrics:
         tier: input
         domain: commerce
         industry: cross_industry
+        shortLabel: Discount %
+        unit: rate

@@ -5,6 +5,7 @@ from pathlib import Path
 import yaml
 
 from domains import derived_domains, domain_issues
+from labels import label_issues
 from sources import source_issues
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -45,6 +46,9 @@ for m in ms:
         d = yaml.safe_load(m["formulaYaml"])["metrics"][0]
         if d.get("name") != mid:
             issues.append(f"{mid}: yaml name is {d.get('name')!r}")
+        for yaml_key, key in (("label", "label"), ("description", "shortDescription")):
+            if d.get(yaml_key) != m[key]:
+                issues.append(f"{mid}: yaml {yaml_key} is {d.get(yaml_key)!r}, not the {key} {m[key]!r}; run build.py")
         if d.get("type") not in MF_TYPES:  # MetricFlow shape; run scripts/check_dbt.sh for dbt parse
             issues.append(f"{mid}: yaml is not a MetricFlow metric (type {d.get('type')!r})")
     except Exception as e:
@@ -94,6 +98,7 @@ for m in ms:
         issues.append(f"{mid}: {m['tier']} doesn't roll up to any parent")
 
 issues += source_issues(ms, sources)
+issues += label_issues(ms, taxonomy)
 
 for r, owners in retired_on.items():
     if len(owners) > 1:

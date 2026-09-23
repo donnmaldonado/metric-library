@@ -1,7 +1,7 @@
 metrics:
   - name: employees_per_1m_arr
-    label: Employees / $1M ARR
-    description: Operational efficiency — fewer employees per $1M ARR indicates more scalable business
+    label: Employees per Million ARR
+    description: Operational efficiency — fewer employees per $1M ARR indicates more scalable business.
     type: derived
     type_params:
       expr: headcount / nullif(arr / 1000000, 0)
@@ -14,3 +14,5 @@ metrics:
         tier: kpi
         domain: saas
         industry: saas
+        shortLabel: Employees / $1M ARR
+        unit: ratio

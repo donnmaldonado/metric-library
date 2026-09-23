@@ -1,6 +1,6 @@
 metrics:
   - name: mtbf
-    label: MTBF
+    label: Mean Time Between Failures
     description: Mean Time Between Failures — average operating time between unplanned stoppages.
     type: derived
     type_params:
@@ -14,3 +14,5 @@ metrics:
         tier: kpi
         domain: engineering
         industry: cross_industry
+        shortLabel: MTBF
+        unit: hours

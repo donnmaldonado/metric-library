@@ -1,7 +1,7 @@
 metrics:
   - name: pr_merge_time
-    label: PR Merge Time
-    description: Average hours from PR opening to merge
+    label: Pull Request Merge Time
+    description: Average hours from PR opening to merge.
     type: simple
     type_params:
       measure: pr_merge_time_value
@@ -11,3 +11,5 @@ metrics:
         tier: input
         domain: engineering
         industry: cross_industry
+        shortLabel: PR Merge Time
+        unit: hours

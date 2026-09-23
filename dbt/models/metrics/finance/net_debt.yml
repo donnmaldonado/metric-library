@@ -1,7 +1,7 @@
 metrics:
   - name: net_debt
     label: Net Debt
-    description: Total debt minus cash and equivalents
+    description: Total debt minus cash and equivalents.
     type: derived
     type_params:
       expr: total_debt - cash_and_equivalents
@@ -14,3 +14,5 @@ metrics:
         tier: kpi
         domain: finance
         industry: financial_services
+        shortLabel: Net Debt
+        unit: currency

@@ -1,7 +1,7 @@
 metrics:
   - name: account_health_score
-    label: Account Health
-    description: Composite score combining product usage, support tickets, NPS, and contract size
+    label: Account Health Score
+    description: Composite score combining product usage, support tickets, NPS, and contract size.
     type: simple
     type_params:
       measure: account_health_score_value
@@ -11,3 +11,5 @@ metrics:
         tier: kpi
         domain: customer
         industry: cross_industry
+        shortLabel: Account Health
+        unit: score

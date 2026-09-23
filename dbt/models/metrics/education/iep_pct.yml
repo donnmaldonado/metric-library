@@ -1,7 +1,7 @@
 metrics:
   - name: iep_pct
-    label: IEP Students %
-    description: Percentage of enrolled students with an Individualized Education Program
+    label: IEP Student Share
+    description: Percentage of enrolled students with an Individualized Education Program.
     type: ratio
     type_params:
       numerator:
@@ -14,3 +14,5 @@ metrics:
         tier: input
         domain: education
         industry: education
+        shortLabel: IEP Students %
+        unit: rate

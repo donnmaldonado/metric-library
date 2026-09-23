@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: commerce
         industry: marketplace
+        shortLabel: Take Rate
+        unit: rate

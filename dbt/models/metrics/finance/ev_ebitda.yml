@@ -1,7 +1,7 @@
 metrics:
   - name: ev_ebitda
-    label: EV/EBITDA
-    description: Enterprise value divided by EBITDA — primary valuation multiple
+    label: Enterprise Value to EBITDA Multiple
+    description: Enterprise value divided by EBITDA — primary valuation multiple.
     type: ratio
     type_params:
       numerator: enterprise_value
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: finance
         industry: financial_services
+        shortLabel: EV/EBITDA
+        unit: ratio

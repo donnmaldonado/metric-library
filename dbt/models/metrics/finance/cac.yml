@@ -1,6 +1,6 @@
 metrics:
   - name: cac
-    label: CAC
+    label: Customer Acquisition Cost
     description: Customer Acquisition Cost — total sales & marketing spend per new customer.
     type: ratio
     type_params:
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: finance
         industry: cross_industry
+        shortLabel: CAC
+        unit: currency

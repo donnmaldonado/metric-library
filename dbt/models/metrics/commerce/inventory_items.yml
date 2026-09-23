@@ -1,7 +1,7 @@
 metrics:
   - name: inventory_items
     label: Inventory Items
-    description: Distinct SKUs with an inventory snapshot in the period
+    description: Distinct SKUs with an inventory snapshot in the period.
     type: simple
     type_params:
       measure: inventory_distinct_item_count
@@ -11,3 +11,5 @@ metrics:
         tier: input
         domain: commerce
         industry: manufacturing
+        shortLabel: Inventory Items
+        unit: count

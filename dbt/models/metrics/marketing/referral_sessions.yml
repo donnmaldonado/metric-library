@@ -12,3 +12,5 @@ metrics:
         tier: input
         domain: marketing
         industry: cross_industry
+        shortLabel: Referral Sessions
+        unit: count

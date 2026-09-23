@@ -1,7 +1,7 @@
 metrics:
   - name: arr_growth_rate
-    label: ARR Growth %
-    description: Year-over-year growth in annual recurring revenue
+    label: ARR Growth Rate
+    description: Year-over-year growth in annual recurring revenue.
     type: derived
     type_params:
       expr: (arr - arr_prior_year) / nullif(arr_prior_year, 0)
@@ -16,3 +16,5 @@ metrics:
         tier: kpi
         domain: saas
         industry: saas
+        shortLabel: ARR Growth %
+        unit: rate

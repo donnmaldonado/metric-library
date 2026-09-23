@@ -1,7 +1,7 @@
 metrics:
   - name: enterprise_value
     label: Enterprise Value
-    description: Market cap plus net debt — basis for EV/EBITDA multiples
+    description: Market cap plus net debt — basis for EV/EBITDA multiples.
     type: derived
     type_params:
       expr: market_cap + net_debt
@@ -14,3 +14,5 @@ metrics:
         tier: north_star
         domain: finance
         industry: cross_industry
+        shortLabel: Enterprise Value
+        unit: currency

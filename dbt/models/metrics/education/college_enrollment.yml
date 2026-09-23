@@ -1,6 +1,6 @@
 metrics:
   - name: college_enrollment
-    label: College Enrollment Rate
+    label: College Enrollment Rate Within 12 Months
     description: '% of graduates enrolling in 2- or 4-year college within 1 year.'
     type: ratio
     type_params:
@@ -14,3 +14,5 @@ metrics:
         tier: kpi
         domain: education
         industry: cross_industry
+        shortLabel: College Enroll 12mo %
+        unit: rate

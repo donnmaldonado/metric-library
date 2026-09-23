@@ -1,6 +1,6 @@
 metrics:
   - name: cost_per_sql
-    label: Cost per SQL
+    label: Cost per Sales Qualified Lead
     description: Total marketing spend per sales-qualified lead generated.
     type: ratio
     type_params:
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: marketing
         industry: cross_industry
+        shortLabel: Cost per SQL
+        unit: currency

@@ -1,6 +1,6 @@
 metrics:
   - name: fill_rate
-    label: Fill Rate
+    label: Order Line Fill Rate
     description: '% of order lines fulfilled completely from available inventory.'
     type: ratio
     type_params:
@@ -14,3 +14,5 @@ metrics:
         tier: kpi
         domain: commerce
         industry: manufacturing
+        shortLabel: Fill Rate
+        unit: rate

@@ -1,7 +1,7 @@
 metrics:
   - name: sql
-    label: SQLs
-    description: Leads accepted by sales as qualified opportunities
+    label: Sales Qualified Leads
+    description: Leads accepted by sales as qualified opportunities.
     type: simple
     type_params:
       measure: sql_lead_count
@@ -11,3 +11,5 @@ metrics:
         tier: kpi
         domain: sales
         industry: cross_industry
+        shortLabel: SQLs
+        unit: count

@@ -1,7 +1,7 @@
 metrics:
   - name: new_arr
     label: New ARR
-    description: ARR added from new customer logos in the period
+    description: ARR added from new customer logos in the period.
     type: simple
     type_params:
       measure: arr_delta
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: saas
         industry: saas
+        shortLabel: New ARR
+        unit: currency

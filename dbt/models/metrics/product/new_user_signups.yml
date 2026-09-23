@@ -1,6 +1,6 @@
 metrics:
   - name: new_user_signups
-    label: New Signups
+    label: New User Signups
     description: Count of new user account registrations in the period.
     type: simple
     type_params:
@@ -11,3 +11,5 @@ metrics:
         tier: kpi
         domain: product
         industry: cross_industry
+        shortLabel: New Signups
+        unit: count

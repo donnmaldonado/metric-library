@@ -1,6 +1,6 @@
 metrics:
   - name: advanced_course_enrollment_rate
-    label: Advanced Course Enrollment
+    label: Advanced Course Enrollment Rate
     description: '% of students enrolled in AP, IB, or dual-enrollment courses.'
     type: ratio
     type_params:
@@ -14,3 +14,5 @@ metrics:
         tier: kpi
         domain: education
         industry: education
+        shortLabel: Advanced Course %
+        unit: rate

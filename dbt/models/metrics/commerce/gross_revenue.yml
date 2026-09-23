@@ -1,7 +1,7 @@
 metrics:
   - name: gross_revenue
     label: Gross Revenue
-    description: Total revenue before any discounts or returns
+    description: Total revenue before any discounts or returns.
     type: simple
     type_params:
       measure: order_amount
@@ -12,3 +12,5 @@ metrics:
         tier: input
         domain: commerce
         industry: cross_industry
+        shortLabel: Gross Revenue
+        unit: currency

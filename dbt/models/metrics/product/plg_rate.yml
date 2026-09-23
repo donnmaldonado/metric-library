@@ -1,7 +1,7 @@
 metrics:
   - name: plg_rate
-    label: PLG Rate
-    description: Percentage of new signups coming from product-driven virality (invites, sharing)
+    label: Product-Led Signup Share
+    description: Percentage of new signups coming from product-driven virality (invites, sharing).
     type: ratio
     type_params:
       numerator:
@@ -14,3 +14,5 @@ metrics:
         tier: kpi
         domain: product
         industry: cross_industry
+        shortLabel: PLG %
+        unit: rate

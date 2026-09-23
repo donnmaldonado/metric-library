@@ -1,7 +1,7 @@
 metrics:
   - name: liquidity_rate
-    label: Marketplace Liquidity %
-    description: Percentage of listings that resulted in a transaction
+    label: Marketplace Liquidity Rate
+    description: Percentage of listings that resulted in a transaction.
     type: ratio
     type_params:
       numerator:
@@ -14,3 +14,5 @@ metrics:
         tier: kpi
         domain: commerce
         industry: marketplace
+        shortLabel: Marketplace Liquidity %
+        unit: rate

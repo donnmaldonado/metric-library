@@ -1,7 +1,7 @@
 metrics:
   - name: qbr_completion_rate
-    label: QBR Completion %
-    description: Percentage of accounts that had a quarterly business review in the period
+    label: Quarterly Business Review Completion Rate
+    description: Percentage of accounts that had a quarterly business review in the period.
     type: ratio
     type_params:
       numerator: completed_qbrs
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: customer
         industry: cross_industry
+        shortLabel: QBR Completion %
+        unit: rate

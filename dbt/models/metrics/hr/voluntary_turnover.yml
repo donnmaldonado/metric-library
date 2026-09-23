@@ -1,7 +1,7 @@
 metrics:
   - name: voluntary_turnover
-    label: Voluntary Turnover
-    description: Turnover from employee-initiated separations only
+    label: Voluntary Turnover Rate
+    description: Turnover from employee-initiated separations only.
     type: derived
     type_params:
       expr: voluntary_separations / avg_headcount
@@ -16,3 +16,5 @@ metrics:
         tier: kpi
         domain: hr
         industry: cross_industry
+        shortLabel: Voluntary Turnover %
+        unit: rate

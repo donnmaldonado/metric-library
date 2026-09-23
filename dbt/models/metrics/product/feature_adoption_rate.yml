@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: product
         industry: cross_industry
+        shortLabel: Feature Adoption %
+        unit: rate

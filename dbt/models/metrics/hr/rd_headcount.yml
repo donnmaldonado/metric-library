@@ -1,7 +1,7 @@
 metrics:
   - name: rd_headcount
     label: R&D Headcount
-    description: Number of employees in engineering, product, and research roles
+    description: Number of employees in engineering, product, and research roles.
     type: simple
     type_params:
       measure: employee_snapshots_employee_count
@@ -13,3 +13,5 @@ metrics:
         tier: input
         domain: hr
         industry: cross_industry
+        shortLabel: R&D Headcount
+        unit: count

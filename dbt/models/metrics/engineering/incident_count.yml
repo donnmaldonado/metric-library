@@ -1,7 +1,7 @@
 metrics:
   - name: incident_count
-    label: Incident Count
-    description: Total production or safety incidents in the period
+    label: Incidents
+    description: Total production or safety incidents in the period.
     type: simple
     type_params:
       measure: incidents_incident_count
@@ -11,3 +11,5 @@ metrics:
         tier: input
         domain: engineering
         industry: cross_industry
+        shortLabel: Incident Count
+        unit: count

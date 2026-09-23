@@ -1,7 +1,7 @@
 metrics:
   - name: mttd
-    label: MTTD
-    description: Average hours from incident start to detection
+    label: Mean Time to Detect
+    description: Average hours from incident start to detection.
     type: simple
     type_params:
       measure: mttd_value
@@ -11,3 +11,5 @@ metrics:
         tier: kpi
         domain: engineering
         industry: cross_industry
+        shortLabel: MTTD
+        unit: hours

@@ -1,7 +1,7 @@
 metrics:
   - name: nrr
-    label: NRR
-    description: Beginning ARR plus expansion minus churn and contraction over beginning ARR
+    label: Net Revenue Retention
+    description: Beginning ARR plus expansion minus churn and contraction over beginning ARR.
     type: derived
     type_params:
       expr: (starting_arr + expansion_arr - contraction_arr - churned_arr) / nullif(starting_arr, 0)
@@ -16,3 +16,5 @@ metrics:
         tier: kpi
         domain: saas
         industry: saas
+        shortLabel: NRR
+        unit: rate

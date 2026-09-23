@@ -11,3 +11,5 @@ metrics:
         tier: input
         domain: marketing
         industry: cross_industry
+        shortLabel: Referring Domains
+        unit: count

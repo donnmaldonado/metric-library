@@ -1,7 +1,7 @@
 metrics:
   - name: operating_cash_flow
     label: Operating Cash Flow
-    description: Cash generated from core business operations
+    description: Cash generated from core business operations.
     type: simple
     type_params:
       measure: operating_cash_flow
@@ -11,3 +11,5 @@ metrics:
         tier: kpi
         domain: finance
         industry: cross_industry
+        shortLabel: Operating Cash Flow
+        unit: currency

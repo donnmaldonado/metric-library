@@ -1,7 +1,7 @@
 metrics:
   - name: session_to_lead_rate
-    label: Session → Lead %
-    description: Percentage of web sessions that convert to a lead
+    label: Session-to-Lead Conversion Rate
+    description: Percentage of web sessions that convert to a lead.
     type: ratio
     type_params:
       numerator:
@@ -14,3 +14,5 @@ metrics:
         tier: kpi
         domain: marketing
         industry: cross_industry
+        shortLabel: Session to Lead %
+        unit: rate

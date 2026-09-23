@@ -1,6 +1,6 @@
 metrics:
   - name: content_published_count
-    label: Content Published (content_published_count)
+    label: Content Assets Published
     description: Count of content assets published in the period (blogs, whitepapers, videos).
     type: simple
     type_params:
@@ -12,3 +12,5 @@ metrics:
         tier: input
         domain: marketing
         industry: cross_industry
+        shortLabel: Content Published
+        unit: count

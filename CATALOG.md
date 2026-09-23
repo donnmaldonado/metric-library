@@ -7,9 +7,9 @@
 ### North Star · Commerce (4)
 
 <a id="clv"></a>
-#### Customer LTV — `clv`
+#### Customer Lifetime Value — `clv` · currency
 
-Total expected revenue from a customer over their lifetime
+Total expected revenue from a customer over their lifetime.
 
 - **Domain:** Commerce · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/commerce/clv.yml) · [sql](dbt/analyses/metrics/commerce/clv.sql)
@@ -20,7 +20,7 @@ Total expected revenue from a customer over their lifetime
 - **Correlated:** [`cac`](#cac), [`nrr`](#nrr), [`cohort_ltv_12m`](#cohort_ltv_12m), [`aov`](#aov)
 
 <a id="customer_ltv"></a>
-#### Realized Customer LTV — `customer_ltv`
+#### Realized Customer Lifetime Value — `customer_ltv` · currency
 
 Realized average revenue per customer to date (lifetime order revenue / customers who have ordered).
 
@@ -33,9 +33,9 @@ Realized average revenue per customer to date (lifetime order revenue / customer
 - **Correlated:** [`ltv_cac`](#ltv_cac), [`nrr`](#nrr), [`arpu`](#arpu)
 
 <a id="on_time_delivery_rate"></a>
-#### On-Time Delivery Rate — `on_time_delivery_rate`
+#### On-Time Delivery Rate — `on_time_delivery_rate` · rate
 
-Percentage of orders or deliverables completed by the committed date
+Percentage of orders or deliverables completed by the committed date.
 
 - **Domain:** Commerce · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/commerce/on_time_delivery_rate.yml) · [sql](dbt/analyses/metrics/commerce/on_time_delivery_rate.sql)
@@ -47,7 +47,7 @@ Percentage of orders or deliverables completed by the committed date
 - **Correlated:** [`order_fulfillment_rate`](#order_fulfillment_rate), [`cycle_time`](#cycle_time), [`inventory_turnover`](#inventory_turnover), [`lead_time`](#lead_time), [`fill_rate`](#fill_rate), [`order_accuracy_rate`](#order_accuracy_rate), [`sla_compliance_rate`](#sla_compliance_rate), [`ops_north_star`](#ops_north_star)
 
 <a id="ops_north_star"></a>
-#### Perfect Order Rate — `ops_north_star`
+#### Perfect Order Rate — `ops_north_star` · rate
 
 % of orders that are on time, complete, accurate, and undamaged — the gold standard ops metric.
 
@@ -63,9 +63,9 @@ Percentage of orders or deliverables completed by the committed date
 ### North Star · Education (4)
 
 <a id="college_enrollment_rate"></a>
-#### College Enrollment % — `college_enrollment_rate`
+#### College Enrollment Rate Within 16 Months — `college_enrollment_rate` · rate
 
-Percentage of graduates enrolled in a 2- or 4-year college within 16 months
+Percentage of graduates enrolled in a 2- or 4-year college within 16 months.
 
 - **Domain:** Education · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/education/college_enrollment_rate.yml) · [sql](dbt/analyses/metrics/education/college_enrollment_rate.sql)
@@ -77,7 +77,7 @@ Percentage of graduates enrolled in a 2- or 4-year college within 16 months
 - **Correlated:** [`four_year_grad_rate`](#four_year_grad_rate), [`ap_pass_rate`](#ap_pass_rate), [`ap_participation_rate`](#ap_participation_rate)
 
 <a id="cost_per_outcome"></a>
-#### Cost per Outcome — `cost_per_outcome`
+#### Cost per Proficiency Outcome — `cost_per_outcome` · currency
 
 Per-pupil expenditure divided by % of students meeting proficiency — efficiency of investment.
 
@@ -92,9 +92,9 @@ Per-pupil expenditure divided by % of students meeting proficiency — efficienc
 - **Correlated:** [`per_pupil_expenditure`](#per_pupil_expenditure), [`student_proficiency`](#student_proficiency)
 
 <a id="four_year_grad_rate"></a>
-#### 4-Year Grad Rate — `four_year_grad_rate`
+#### Four-Year Graduation Rate — `four_year_grad_rate` · rate
 
-Percentage of students graduating within 4 years of entering 9th grade
+Percentage of students graduating within 4 years of entering 9th grade.
 
 - **Domain:** Education · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/education/four_year_grad_rate.yml) · [sql](dbt/analyses/metrics/education/four_year_grad_rate.sql)
@@ -106,7 +106,7 @@ Percentage of students graduating within 4 years of entering 9th grade
 - **Correlated:** [`college_enrollment_rate`](#college_enrollment_rate), [`dropout_rate`](#dropout_rate), [`student_proficiency`](#student_proficiency), [`student_attendance_rate`](#student_attendance_rate), [`college_enrollment`](#college_enrollment), [`credit_accumulation_rate`](#credit_accumulation_rate), [`enrollment_count`](#enrollment_count), [`fafsa_completion_rate`](#fafsa_completion_rate)
 
 <a id="student_proficiency"></a>
-#### Student Proficiency Rate — `student_proficiency`
+#### Student Proficiency Rate — `student_proficiency` · rate
 
 % of tested students scoring at or above proficiency on state assessments.
 
@@ -122,7 +122,7 @@ Percentage of students graduating within 4 years of entering 9th grade
 ### North Star · Finance (7)
 
 <a id="ebitda"></a>
-#### EBITDA — `ebitda`
+#### EBITDA — `ebitda` · currency
 
 Earnings before interest, taxes, depreciation & amortization.
 
@@ -135,9 +135,9 @@ Earnings before interest, taxes, depreciation & amortization.
 - **Correlated:** [`ebitda_margin`](#ebitda_margin), [`free_cash_flow`](#free_cash_flow), [`net_income`](#net_income), [`capex`](#capex), [`effective_tax_rate`](#effective_tax_rate), [`enterprise_value`](#enterprise_value), [`nrr`](#nrr), [`operating_cash_flow`](#operating_cash_flow), [`roe`](#roe), [`revenue`](#revenue)
 
 <a id="enterprise_value"></a>
-#### Enterprise Value — `enterprise_value`
+#### Enterprise Value — `enterprise_value` · currency
 
-Market cap plus net debt — basis for EV/EBITDA multiples
+Market cap plus net debt — basis for EV/EBITDA multiples.
 
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/enterprise_value.yml) · [sql](dbt/analyses/metrics/finance/enterprise_value.sql)
@@ -148,7 +148,7 @@ Market cap plus net debt — basis for EV/EBITDA multiples
 - **Correlated:** [`ev_ebitda`](#ev_ebitda), [`rule_of_40`](#rule_of_40), [`ebitda`](#ebitda)
 
 <a id="free_cash_flow"></a>
-#### Free Cash Flow — `free_cash_flow`
+#### Free Cash Flow — `free_cash_flow` · currency
 
 Operating cash flow minus capital expenditures.
 
@@ -161,9 +161,9 @@ Operating cash flow minus capital expenditures.
 - **Correlated:** [`burn_rate`](#burn_rate), [`ebitda`](#ebitda), [`net_income`](#net_income), [`billings`](#billings), [`capex_pct_revenue`](#capex_pct_revenue), [`da`](#da), [`debt_ebitda`](#debt_ebitda), [`effective_tax_rate`](#effective_tax_rate), [`interest_coverage_ratio`](#interest_coverage_ratio), [`operating_cash_flow`](#operating_cash_flow), [`runway_months`](#runway_months), [`working_capital`](#working_capital)
 
 <a id="ops_efficiency_ratio"></a>
-#### Ops Efficiency — `ops_efficiency_ratio`
+#### Operating Efficiency Ratio — `ops_efficiency_ratio` · ratio
 
-Output produced per unit of cost — higher is better
+Output produced per unit of cost — higher is better.
 
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/ops_efficiency_ratio.yml) · [sql](dbt/analyses/metrics/finance/ops_efficiency_ratio.sql)
@@ -176,7 +176,7 @@ Output produced per unit of cost — higher is better
 - **Correlated:** [`gross_margin_pct`](#gross_margin_pct), [`throughput`](#throughput)
 
 <a id="revenue"></a>
-#### Revenue — `revenue`
+#### Revenue — `revenue` · currency
 
 Total recognized revenue in the period.
 
@@ -189,9 +189,9 @@ Total recognized revenue in the period.
 - **Correlated:** [`customer_count`](#customer_count), [`arpu`](#arpu), [`asp`](#asp), [`billings`](#billings), [`bookings`](#bookings), [`cogs`](#cogs), [`deferred_revenue`](#deferred_revenue), [`gmv`](#gmv), [`marketing_spend`](#marketing_spend), [`take_rate`](#take_rate), [`revenue_growth_rate`](#revenue_growth_rate), [`revenue_vs_py`](#revenue_vs_py), [`arr`](#arr), [`ebitda`](#ebitda), [`prior_year_revenue`](#prior_year_revenue), [`q1_revenue`](#q1_revenue), [`q4_revenue`](#q4_revenue), [`cac`](#cac), [`partner_revenue_pct`](#partner_revenue_pct), [`gross_margin_pct`](#gross_margin_pct), [`market_share`](#market_share)
 
 <a id="roe"></a>
-#### ROE — `roe`
+#### Return on Equity — `roe` · rate
 
-Net income as a percentage of shareholders equity
+Net income as a percentage of shareholders equity.
 
 - **Domain:** Finance · **Industry:** financial_services
 - **Files:** [yml](dbt/models/metrics/finance/roe.yml) · [sql](dbt/analyses/metrics/finance/roe.sql)
@@ -203,9 +203,9 @@ Net income as a percentage of shareholders equity
 - **Correlated:** [`roa`](#roa), [`roic`](#roic), [`shareholder_equity`](#shareholder_equity), [`debt_ebitda`](#debt_ebitda), [`ebitda`](#ebitda)
 
 <a id="rule_of_40"></a>
-#### Rule of 40 — `rule_of_40`
+#### Rule of 40 Score — `rule_of_40` · score
 
-Revenue growth rate + EBITDA margin — benchmark for SaaS health. ≥40 = healthy.
+Revenue growth rate + EBITDA margin — benchmark for SaaS health, where 40 or more is healthy.
 
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/rule_of_40.yml) · [sql](dbt/analyses/metrics/finance/rule_of_40.sql)
@@ -218,7 +218,7 @@ Revenue growth rate + EBITDA margin — benchmark for SaaS health. ≥40 = healt
 ### North Star · People & HR (3)
 
 <a id="employee_lifetime_value"></a>
-#### Employee Lifetime Value — `employee_lifetime_value`
+#### Employee Lifetime Value Ratio — `employee_lifetime_value` · ratio
 
 Estimated total value an employee contributes over their tenure minus fully-loaded employment cost.
 
@@ -232,9 +232,9 @@ Estimated total value an employee contributes over their tenure minus fully-load
 - **Correlated:** [`voluntary_turnover`](#voluntary_turnover), [`employee_engagement_score`](#employee_engagement_score)
 
 <a id="headcount"></a>
-#### Headcount — `headcount`
+#### Headcount — `headcount` · count
 
-Total active full-time employees at end of period
+Total active full-time employees at end of period.
 
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/headcount.yml) · [sql](dbt/analyses/metrics/hr/headcount.sql)
@@ -245,9 +245,9 @@ Total active full-time employees at end of period
 - **Correlated:** [`turnover_rate`](#turnover_rate), [`headcount_vs_budget`](#headcount_vs_budget), [`total_comp_expense`](#total_comp_expense), [`rd_headcount_pct`](#rd_headcount_pct)
 
 <a id="turnover_rate"></a>
-#### Turnover Rate — `turnover_rate`
+#### Employee Turnover Rate — `turnover_rate` · rate
 
-Percentage of employees who left during the period (voluntary + involuntary)
+Percentage of employees who left during the period (voluntary + involuntary).
 
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/turnover_rate.yml) · [sql](dbt/analyses/metrics/hr/turnover_rate.sql)
@@ -262,7 +262,7 @@ Percentage of employees who left during the period (voluntary + involuntary)
 ### North Star · Marketing (1)
 
 <a id="marketing_roi"></a>
-#### Marketing ROI — `marketing_roi`
+#### Marketing Return on Investment — `marketing_roi` · rate
 
 Return on total marketing investment — revenue driven per dollar spent.
 
@@ -279,9 +279,9 @@ Return on total marketing investment — revenue driven per dollar spent.
 ### North Star · Product (2)
 
 <a id="cx_csat"></a>
-#### CX CSAT — `cx_csat`
+#### Customer Service CSAT Rate — `cx_csat` · rate
 
-Satisfaction score from customer service interactions
+Satisfaction score from customer service interactions.
 
 - **Domain:** Product · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/product/cx_csat.yml) · [sql](dbt/analyses/metrics/product/cx_csat.sql)
@@ -293,7 +293,7 @@ Satisfaction score from customer service interactions
 - **Correlated:** [`nps`](#nps), [`ces`](#ces), [`csat`](#csat)
 
 <a id="nps"></a>
-#### NPS — `nps`
+#### Net Promoter Score — `nps` · score
 
 Net Promoter Score — % Promoters minus % Detractors on 0–10 likelihood-to-recommend scale.
 
@@ -308,9 +308,9 @@ Net Promoter Score — % Promoters minus % Detractors on 0–10 likelihood-to-re
 ### North Star · Sales (1)
 
 <a id="pipeline_generated"></a>
-#### Pipeline Generated — `pipeline_generated`
+#### Marketing-Sourced Pipeline — `pipeline_generated` · currency
 
-Total value of opportunities sourced by marketing
+Total value of opportunities sourced by marketing.
 
 - **Domain:** Sales · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/sales/pipeline_generated.yml) · [sql](dbt/analyses/metrics/sales/pipeline_generated.sql)
@@ -325,9 +325,9 @@ Total value of opportunities sourced by marketing
 ### KPI · Commerce (15)
 
 <a id="aov"></a>
-#### AOV — `aov`
+#### Average Order Value — `aov` · currency
 
-Average value per transaction
+Average value per transaction.
 
 - **Domain:** Commerce · **Industry:** retail
 - **Files:** [yml](dbt/models/metrics/commerce/aov.yml) · [sql](dbt/analyses/metrics/commerce/aov.sql)
@@ -340,9 +340,9 @@ Average value per transaction
 - **Correlated:** [`purchase_frequency`](#purchase_frequency), [`clv`](#clv), [`cross_sell_rate`](#cross_sell_rate), [`discount_rate`](#discount_rate), [`iap_revenue`](#iap_revenue), [`marketplace_buyers`](#marketplace_buyers), [`gross_revenue`](#gross_revenue)
 
 <a id="cross_sell_rate"></a>
-#### Cross-Sell Rate — `cross_sell_rate`
+#### Cross-Sell Rate — `cross_sell_rate` · rate
 
-Percentage of customers who purchased products from more than one category
+Percentage of customers who purchased products from more than one category.
 
 - **Domain:** Commerce · **Industry:** education
 - **Files:** [yml](dbt/models/metrics/commerce/cross_sell_rate.yml) · [sql](dbt/analyses/metrics/commerce/cross_sell_rate.sql)
@@ -354,7 +354,7 @@ Percentage of customers who purchased products from more than one category
 - **Correlated:** [`upsell_rate`](#upsell_rate), [`aov`](#aov)
 
 <a id="fill_rate"></a>
-#### Fill Rate — `fill_rate`
+#### Order Line Fill Rate — `fill_rate` · rate
 
 % of order lines fulfilled completely from available inventory.
 
@@ -369,7 +369,7 @@ Percentage of customers who purchased products from more than one category
 - **Correlated:** [`on_time_delivery_rate`](#on_time_delivery_rate), [`inventory_turnover`](#inventory_turnover), [`defect_rate`](#defect_rate), [`order_accuracy_rate`](#order_accuracy_rate), [`supplier_lead_time`](#supplier_lead_time), [`vendor_scorecard_rating`](#vendor_scorecard_rating), [`warehouse_utilization`](#warehouse_utilization)
 
 <a id="gmv"></a>
-#### GMV — `gmv`
+#### Gross Merchandise Value — `gmv` · currency
 
 Total value of merchandise sold through a marketplace before returns and fees.
 
@@ -383,9 +383,9 @@ Total value of merchandise sold through a marketplace before returns and fees.
 - **Correlated:** [`revenue`](#revenue), [`take_rate`](#take_rate)
 
 <a id="lead_time"></a>
-#### Lead Time — `lead_time`
+#### Delivery Lead Time — `lead_time` · days
 
-Average time from request to delivery
+Average time from request to delivery.
 
 - **Domain:** Commerce · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/commerce/lead_time.yml) · [sql](dbt/analyses/metrics/commerce/lead_time.sql)
@@ -396,9 +396,9 @@ Average time from request to delivery
 - **Correlated:** [`cycle_time`](#cycle_time), [`on_time_delivery_rate`](#on_time_delivery_rate)
 
 <a id="liquidity_rate"></a>
-#### Marketplace Liquidity % — `liquidity_rate`
+#### Marketplace Liquidity Rate — `liquidity_rate` · rate
 
-Percentage of listings that resulted in a transaction
+Percentage of listings that resulted in a transaction.
 
 - **Domain:** Commerce · **Industry:** marketplace
 - **Files:** [yml](dbt/models/metrics/commerce/liquidity_rate.yml) · [sql](dbt/analyses/metrics/commerce/liquidity_rate.sql)
@@ -410,9 +410,9 @@ Percentage of listings that resulted in a transaction
 - **Correlated:** [`take_rate`](#take_rate), [`marketplace_sellers`](#marketplace_sellers)
 
 <a id="net_revenue"></a>
-#### Net Revenue — `net_revenue`
+#### Net Revenue — `net_revenue` · currency
 
-Gross revenue minus returns, allowances, and discounts
+Gross revenue minus returns, allowances, and discounts.
 
 - **Domain:** Commerce · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/commerce/net_revenue.yml) · [sql](dbt/analyses/metrics/commerce/net_revenue.sql)
@@ -424,7 +424,7 @@ Gross revenue minus returns, allowances, and discounts
 - **Correlated:** [`gross_revenue`](#gross_revenue), [`refund_rate`](#refund_rate)
 
 <a id="order_accuracy_rate"></a>
-#### Order Accuracy Rate — `order_accuracy_rate`
+#### Order Accuracy Rate — `order_accuracy_rate` · rate
 
 % of orders shipped without errors (wrong item, quantity, or address).
 
@@ -438,9 +438,9 @@ Gross revenue minus returns, allowances, and discounts
 - **Correlated:** [`fill_rate`](#fill_rate), [`on_time_delivery_rate`](#on_time_delivery_rate), [`defect_rate`](#defect_rate), [`return_rate`](#return_rate)
 
 <a id="order_fulfillment_rate"></a>
-#### Order Fulfillment % — `order_fulfillment_rate`
+#### Order Fulfillment Rate — `order_fulfillment_rate` · rate
 
-Percentage of orders fulfilled completely and on time
+Percentage of orders fulfilled completely and on time.
 
 - **Domain:** Commerce · **Industry:** manufacturing
 - **Files:** [yml](dbt/models/metrics/commerce/order_fulfillment_rate.yml) · [sql](dbt/analyses/metrics/commerce/order_fulfillment_rate.sql)
@@ -452,9 +452,9 @@ Percentage of orders fulfilled completely and on time
 - **Correlated:** [`on_time_delivery_rate`](#on_time_delivery_rate), [`stockout_rate`](#stockout_rate)
 
 <a id="purchase_frequency"></a>
-#### Purchase Frequency — `purchase_frequency`
+#### Purchase Frequency — `purchase_frequency` · ratio
 
-Average number of orders per customer per year
+Average number of orders per customer per year.
 
 - **Domain:** Commerce · **Industry:** retail
 - **Files:** [yml](dbt/models/metrics/commerce/purchase_frequency.yml) · [sql](dbt/analyses/metrics/commerce/purchase_frequency.sql)
@@ -467,9 +467,9 @@ Average number of orders per customer per year
 - **Correlated:** [`aov`](#aov), [`repeat_purchase_rate`](#repeat_purchase_rate)
 
 <a id="refund_rate"></a>
-#### Refund Rate — `refund_rate`
+#### Refund Rate — `refund_rate` · rate
 
-Percentage of transactions that were refunded
+Percentage of transactions that were refunded.
 
 - **Domain:** Commerce · **Industry:** retail
 - **Files:** [yml](dbt/models/metrics/commerce/refund_rate.yml) · [sql](dbt/analyses/metrics/commerce/refund_rate.sql)
@@ -481,9 +481,9 @@ Percentage of transactions that were refunded
 - **Correlated:** [`return_rate`](#return_rate), [`csat`](#csat), [`net_revenue`](#net_revenue)
 
 <a id="repeat_purchase_rate"></a>
-#### Repeat Purchase % — `repeat_purchase_rate`
+#### Repeat Purchase Rate — `repeat_purchase_rate` · rate
 
-Percentage of customers who made more than one purchase
+Percentage of customers who made more than one purchase.
 
 - **Domain:** Commerce · **Industry:** retail
 - **Files:** [yml](dbt/models/metrics/commerce/repeat_purchase_rate.yml) · [sql](dbt/analyses/metrics/commerce/repeat_purchase_rate.sql)
@@ -495,7 +495,7 @@ Percentage of customers who made more than one purchase
 - **Correlated:** [`purchase_frequency`](#purchase_frequency), [`customer_retention_rate`](#customer_retention_rate)
 
 <a id="return_rate"></a>
-#### Return Rate — `return_rate`
+#### Return Rate — `return_rate` · rate
 
 % of units sold that are returned by customers.
 
@@ -509,9 +509,9 @@ Percentage of customers who made more than one purchase
 - **Correlated:** [`defect_rate`](#defect_rate), [`order_accuracy_rate`](#order_accuracy_rate), [`refund_rate`](#refund_rate), [`csat`](#csat)
 
 <a id="stockout_rate"></a>
-#### Stockout Rate — `stockout_rate`
+#### Stockout Rate — `stockout_rate` · rate
 
-Percentage of orders that could not be fulfilled due to zero inventory
+Percentage of orders that could not be fulfilled due to zero inventory.
 
 - **Domain:** Commerce · **Industry:** manufacturing
 - **Files:** [yml](dbt/models/metrics/commerce/stockout_rate.yml) · [sql](dbt/analyses/metrics/commerce/stockout_rate.sql)
@@ -524,7 +524,7 @@ Percentage of orders that could not be fulfilled due to zero inventory
 - **Correlated:** [`inventory_turnover`](#inventory_turnover), [`order_fulfillment_rate`](#order_fulfillment_rate), [`inventory_items`](#inventory_items)
 
 <a id="take_rate"></a>
-#### Take Rate — `take_rate`
+#### Take Rate — `take_rate` · rate
 
 Platform revenue as a % of GMV — marketplace monetization efficiency.
 
@@ -541,9 +541,9 @@ Platform revenue as a % of GMV — marketplace monetization efficiency.
 ### KPI · Customer (16)
 
 <a id="account_health_score"></a>
-#### Account Health — `account_health_score`
+#### Account Health Score — `account_health_score` · score
 
-Composite score combining product usage, support tickets, NPS, and contract size
+Composite score combining product usage, support tickets, NPS, and contract size.
 
 - **Domain:** Customer · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/customer/account_health_score.yml) · [sql](dbt/analyses/metrics/customer/account_health_score.sql)
@@ -556,9 +556,9 @@ Composite score combining product usage, support tickets, NPS, and contract size
 - **Correlated:** [`at_risk_accounts`](#at_risk_accounts), [`nrr`](#nrr), [`qbr_completion_rate`](#qbr_completion_rate), [`arpu`](#arpu), [`churn_prediction_score`](#churn_prediction_score), [`churn_rate`](#churn_rate), [`customer_churn_rate`](#customer_churn_rate), [`nps`](#nps)
 
 <a id="at_risk_accounts"></a>
-#### At-Risk Accounts — `at_risk_accounts`
+#### At-Risk Accounts — `at_risk_accounts` · count
 
-Number of accounts with health score below the risk threshold
+Number of accounts with health score below the risk threshold.
 
 - **Domain:** Customer · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/customer/at_risk_accounts.yml) · [sql](dbt/analyses/metrics/customer/at_risk_accounts.sql)
@@ -570,9 +570,9 @@ Number of accounts with health score below the risk threshold
 - **Correlated:** [`churn_rate`](#churn_rate), [`renewal_rate`](#renewal_rate), [`account_health_score`](#account_health_score), [`expansion_pipeline`](#expansion_pipeline)
 
 <a id="complaint_resolution_rate"></a>
-#### Complaint Resolution % — `complaint_resolution_rate`
+#### Complaint Resolution Rate — `complaint_resolution_rate` · rate
 
-Percentage of complaints resolved within the SLA
+Percentage of complaints resolved within the SLA.
 
 - **Domain:** Customer · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/customer/complaint_resolution_rate.yml) · [sql](dbt/analyses/metrics/customer/complaint_resolution_rate.sql)
@@ -584,7 +584,7 @@ Percentage of complaints resolved within the SLA
 - **Correlated:** [`csat`](#csat), [`sla_breach_rate`](#sla_breach_rate), [`complaints_count`](#complaints_count)
 
 <a id="customer_onboarding_time"></a>
-#### Customer Onboarding Time — `customer_onboarding_time`
+#### Customer Onboarding Time — `customer_onboarding_time` · days
 
 Average days from contract signed to customer fully live and using the product.
 
@@ -598,9 +598,9 @@ Average days from contract signed to customer fully live and using the product.
 - **Correlated:** [`time_to_value`](#time_to_value), [`churn_rate`](#churn_rate), [`activation_rate`](#activation_rate)
 
 <a id="escalation_rate"></a>
-#### Escalation Rate — `escalation_rate`
+#### Ticket Escalation Rate — `escalation_rate` · rate
 
-Percentage of tickets escalated to tier 2 or above
+Percentage of tickets escalated to tier 2 or above.
 
 - **Domain:** Customer · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/customer/escalation_rate.yml) · [sql](dbt/analyses/metrics/customer/escalation_rate.sql)
@@ -613,9 +613,9 @@ Percentage of tickets escalated to tier 2 or above
 - **Correlated:** [`sla_breach_rate`](#sla_breach_rate), [`time_to_resolution`](#time_to_resolution)
 
 <a id="fcr_rate"></a>
-#### FCR Rate — `fcr_rate`
+#### First Contact Resolution Rate — `fcr_rate` · rate
 
-Percentage of support cases resolved on the first contact
+Percentage of support cases resolved on the first contact.
 
 - **Domain:** Customer · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/customer/fcr_rate.yml) · [sql](dbt/analyses/metrics/customer/fcr_rate.sql)
@@ -628,7 +628,7 @@ Percentage of support cases resolved on the first contact
 - **Correlated:** [`time_to_resolution`](#time_to_resolution), [`csat`](#csat), [`tickets_per_agent`](#tickets_per_agent), [`tickets_resolved`](#tickets_resolved), [`tickets_created`](#tickets_created)
 
 <a id="first_response_time"></a>
-#### First Response Time — `first_response_time`
+#### First Response Time — `first_response_time` · hours
 
 Average hours from ticket creation to first agent response.
 
@@ -643,9 +643,9 @@ Average hours from ticket creation to first agent response.
 - **Correlated:** [`ces`](#ces), [`csat`](#csat), [`ticket_backlog`](#ticket_backlog), [`ticket_resolution_rate`](#ticket_resolution_rate), [`time_to_resolution`](#time_to_resolution), [`tickets_created`](#tickets_created)
 
 <a id="qbr_completion_rate"></a>
-#### QBR Completion % — `qbr_completion_rate`
+#### Quarterly Business Review Completion Rate — `qbr_completion_rate` · rate
 
-Percentage of accounts that had a quarterly business review in the period
+Percentage of accounts that had a quarterly business review in the period.
 
 - **Domain:** Customer · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/customer/qbr_completion_rate.yml) · [sql](dbt/analyses/metrics/customer/qbr_completion_rate.sql)
@@ -657,9 +657,9 @@ Percentage of accounts that had a quarterly business review in the period
 - **Correlated:** [`renewal_rate`](#renewal_rate), [`account_health_score`](#account_health_score)
 
 <a id="sla_breach_rate"></a>
-#### SLA Breach % — `sla_breach_rate`
+#### SLA Breach Rate — `sla_breach_rate` · rate
 
-Percentage of tickets that exceeded the committed SLA response or resolution time
+Percentage of tickets that exceeded the committed SLA response or resolution time.
 
 - **Domain:** Customer · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/customer/sla_breach_rate.yml) · [sql](dbt/analyses/metrics/customer/sla_breach_rate.sql)
@@ -672,7 +672,7 @@ Percentage of tickets that exceeded the committed SLA response or resolution tim
 - **Correlated:** [`escalation_rate`](#escalation_rate), [`csat`](#csat), [`complaint_resolution_rate`](#complaint_resolution_rate), [`support_cost_per_ticket`](#support_cost_per_ticket), [`ticket_backlog`](#ticket_backlog), [`tickets_created`](#tickets_created), [`tickets_per_agent`](#tickets_per_agent)
 
 <a id="sla_compliance_rate"></a>
-#### SLA Compliance Rate — `sla_compliance_rate`
+#### SLA Compliance Rate — `sla_compliance_rate` · rate
 
 % of service commitments delivered within contracted SLA windows.
 
@@ -686,9 +686,9 @@ Percentage of tickets that exceeded the committed SLA response or resolution tim
 - **Correlated:** [`on_time_delivery_rate`](#on_time_delivery_rate), [`csat`](#csat)
 
 <a id="support_cost_per_ticket"></a>
-#### Support Cost / Ticket — `support_cost_per_ticket`
+#### Support Cost per Ticket — `support_cost_per_ticket` · currency
 
-Total support cost divided by tickets resolved
+Total support cost divided by tickets resolved.
 
 - **Domain:** Customer · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/customer/support_cost_per_ticket.yml) · [sql](dbt/analyses/metrics/customer/support_cost_per_ticket.sql)
@@ -701,9 +701,9 @@ Total support cost divided by tickets resolved
 - **Correlated:** [`hr_cost_pct_revenue`](#hr_cost_pct_revenue), [`sla_breach_rate`](#sla_breach_rate), [`tickets_per_agent`](#tickets_per_agent), [`tickets_per_customer`](#tickets_per_customer), [`tickets_resolved`](#tickets_resolved)
 
 <a id="ticket_backlog"></a>
-#### Ticket Backlog — `ticket_backlog`
+#### Ticket Backlog — `ticket_backlog` · count
 
-Open tickets that have been unresolved beyond standard SLA
+Open tickets that have been unresolved beyond standard SLA.
 
 - **Domain:** Customer · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/customer/ticket_backlog.yml) · [sql](dbt/analyses/metrics/customer/ticket_backlog.sql)
@@ -714,7 +714,7 @@ Open tickets that have been unresolved beyond standard SLA
 - **Correlated:** [`sla_breach_rate`](#sla_breach_rate), [`first_response_time`](#first_response_time)
 
 <a id="ticket_resolution_rate"></a>
-#### Ticket Resolution Rate — `ticket_resolution_rate`
+#### Ticket Resolution Rate Within SLA — `ticket_resolution_rate` · rate
 
 % of opened tickets resolved within SLA window.
 
@@ -729,9 +729,9 @@ Open tickets that have been unresolved beyond standard SLA
 - **Correlated:** [`first_response_time`](#first_response_time), [`ces`](#ces)
 
 <a id="tickets_per_agent"></a>
-#### Tickets / Agent / Day — `tickets_per_agent`
+#### Tickets Resolved per Agent per Day — `tickets_per_agent` · ratio
 
-Agent productivity measured by tickets closed
+Agent productivity measured by tickets closed.
 
 - **Domain:** Customer · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/customer/tickets_per_agent.yml) · [sql](dbt/analyses/metrics/customer/tickets_per_agent.sql)
@@ -744,9 +744,9 @@ Agent productivity measured by tickets closed
 - **Correlated:** [`support_cost_per_ticket`](#support_cost_per_ticket), [`fcr_rate`](#fcr_rate), [`sla_breach_rate`](#sla_breach_rate)
 
 <a id="tickets_per_customer"></a>
-#### Tickets / Customer — `tickets_per_customer`
+#### Tickets per Customer — `tickets_per_customer` · ratio
 
-Average support burden per customer — proxy for product quality
+Average support burden per customer — proxy for product quality.
 
 - **Domain:** Customer · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/customer/tickets_per_customer.yml) · [sql](dbt/analyses/metrics/customer/tickets_per_customer.sql)
@@ -759,7 +759,7 @@ Average support burden per customer — proxy for product quality
 - **Correlated:** [`csat`](#csat), [`support_cost_per_ticket`](#support_cost_per_ticket)
 
 <a id="time_to_resolution"></a>
-#### Time to Resolution — `time_to_resolution`
+#### Time to Resolution — `time_to_resolution` · hours
 
 Average total hours from ticket creation to final resolution.
 
@@ -776,7 +776,7 @@ Average total hours from ticket creation to final resolution.
 ### KPI · Education (27)
 
 <a id="advanced_course_enrollment_rate"></a>
-#### Advanced Course Enrollment — `advanced_course_enrollment_rate`
+#### Advanced Course Enrollment Rate — `advanced_course_enrollment_rate` · rate
 
 % of students enrolled in AP, IB, or dual-enrollment courses.
 
@@ -790,9 +790,9 @@ Average total hours from ticket creation to final resolution.
 - **Correlated:** [`college_enrollment`](#college_enrollment), [`student_proficiency`](#student_proficiency)
 
 <a id="ap_participation_rate"></a>
-#### AP Participation % — `ap_participation_rate`
+#### AP Participation Rate — `ap_participation_rate` · rate
 
-Percentage of 11th and 12th graders enrolled in at least one AP course
+Percentage of 11th and 12th graders enrolled in at least one AP course.
 
 - **Domain:** Education · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/education/ap_participation_rate.yml) · [sql](dbt/analyses/metrics/education/ap_participation_rate.sql)
@@ -805,9 +805,9 @@ Percentage of 11th and 12th graders enrolled in at least one AP course
 - **Correlated:** [`ap_pass_rate`](#ap_pass_rate), [`college_enrollment_rate`](#college_enrollment_rate)
 
 <a id="ap_pass_rate"></a>
-#### AP Pass Rate — `ap_pass_rate`
+#### AP Pass Rate — `ap_pass_rate` · rate
 
-Percentage of AP exam takers scoring 3, 4, or 5
+Percentage of AP exam takers scoring 3, 4, or 5.
 
 - **Domain:** Education · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/education/ap_pass_rate.yml) · [sql](dbt/analyses/metrics/education/ap_pass_rate.sql)
@@ -819,9 +819,9 @@ Percentage of AP exam takers scoring 3, 4, or 5
 - **Correlated:** [`college_enrollment_rate`](#college_enrollment_rate), [`student_proficiency`](#student_proficiency), [`ap_participation_rate`](#ap_participation_rate)
 
 <a id="chronic_absenteeism_rate"></a>
-#### Chronic Absence % — `chronic_absenteeism_rate`
+#### Chronic Absenteeism Rate — `chronic_absenteeism_rate` · rate
 
-Percentage of students missing 10% or more of enrolled days
+Percentage of students missing 10% or more of enrolled days.
 
 - **Domain:** Education · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/education/chronic_absenteeism_rate.yml) · [sql](dbt/analyses/metrics/education/chronic_absenteeism_rate.sql)
@@ -834,7 +834,7 @@ Percentage of students missing 10% or more of enrolled days
 - **Correlated:** [`student_attendance_rate`](#student_attendance_rate), [`dropout_rate`](#dropout_rate), [`ell_pct`](#ell_pct), [`frl_pct`](#frl_pct), [`suspension_rate`](#suspension_rate), [`student_proficiency`](#student_proficiency), [`credit_accumulation_rate`](#credit_accumulation_rate)
 
 <a id="college_enrollment"></a>
-#### College Enrollment Rate — `college_enrollment`
+#### College Enrollment Rate Within 12 Months — `college_enrollment` · rate
 
 % of graduates enrolling in 2- or 4-year college within 1 year.
 
@@ -849,9 +849,9 @@ Percentage of students missing 10% or more of enrolled days
 - **Correlated:** [`student_proficiency`](#student_proficiency), [`four_year_grad_rate`](#four_year_grad_rate), [`advanced_course_enrollment_rate`](#advanced_course_enrollment_rate), [`fafsa_completion_rate`](#fafsa_completion_rate)
 
 <a id="course_completion_rate"></a>
-#### Course Completion % — `course_completion_rate`
+#### Course Completion Rate — `course_completion_rate` · rate
 
-Percentage of enrolled students who successfully completed a course
+Percentage of enrolled students who successfully completed a course.
 
 - **Domain:** Education · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/education/course_completion_rate.yml) · [sql](dbt/analyses/metrics/education/course_completion_rate.sql)
@@ -863,7 +863,7 @@ Percentage of enrolled students who successfully completed a course
 - **Correlated:** [`dropout_rate`](#dropout_rate), [`ela_proficiency_rate`](#ela_proficiency_rate)
 
 <a id="credit_accumulation_rate"></a>
-#### Credit Accumulation Rate — `credit_accumulation_rate`
+#### Credit Accumulation Rate — `credit_accumulation_rate` · rate
 
 % of students on track to graduate based on credit accumulation milestones.
 
@@ -878,9 +878,9 @@ Percentage of enrolled students who successfully completed a course
 - **Correlated:** [`four_year_grad_rate`](#four_year_grad_rate), [`chronic_absenteeism_rate`](#chronic_absenteeism_rate)
 
 <a id="dropout_rate"></a>
-#### Dropout Rate — `dropout_rate`
+#### Dropout Rate — `dropout_rate` · rate
 
-Percentage of students who left school without graduating or transferring
+Percentage of students who left school without graduating or transferring.
 
 - **Domain:** Education · **Industry:** education
 - **Files:** [yml](dbt/models/metrics/education/dropout_rate.yml) · [sql](dbt/analyses/metrics/education/dropout_rate.sql)
@@ -893,9 +893,9 @@ Percentage of students who left school without graduating or transferring
 - **Correlated:** [`four_year_grad_rate`](#four_year_grad_rate), [`chronic_absenteeism_rate`](#chronic_absenteeism_rate), [`course_completion_rate`](#course_completion_rate), [`expulsion_rate`](#expulsion_rate)
 
 <a id="ela_proficiency_rate"></a>
-#### ELA Proficiency % — `ela_proficiency_rate`
+#### English Language Arts Proficiency Rate — `ela_proficiency_rate` · rate
 
-Percentage of students scoring proficient or advanced on ELA state assessments
+Percentage of students scoring proficient or advanced on ELA state assessments.
 
 - **Domain:** Education · **Industry:** education
 - **Files:** [yml](dbt/models/metrics/education/ela_proficiency_rate.yml) · [sql](dbt/analyses/metrics/education/ela_proficiency_rate.sql)
@@ -908,7 +908,7 @@ Percentage of students scoring proficient or advanced on ELA state assessments
 - **Correlated:** [`math_proficiency_rate`](#math_proficiency_rate), [`student_attendance_rate`](#student_attendance_rate), [`avg_teacher_experience`](#avg_teacher_experience), [`course_completion_rate`](#course_completion_rate), [`ell_pct`](#ell_pct), [`grade3_reading`](#grade3_reading), [`iep_pct`](#iep_pct), [`instructional_spend_ratio`](#instructional_spend_ratio)
 
 <a id="ell_proficiency_growth"></a>
-#### ELL Proficiency Growth — `ell_proficiency_growth`
+#### ELL Proficiency Growth Rate — `ell_proficiency_growth` · rate
 
 % of English Language Learners who advance at least one proficiency level annually.
 
@@ -922,7 +922,7 @@ Percentage of students scoring proficient or advanced on ELA state assessments
 - **Correlated:** [`student_proficiency`](#student_proficiency), [`student_attendance_rate`](#student_attendance_rate)
 
 <a id="enrollment_count"></a>
-#### Enrollment Count — `enrollment_count`
+#### Student Enrollment — `enrollment_count` · count
 
 Total enrolled students at a school or district as of census date.
 
@@ -935,7 +935,7 @@ Total enrolled students at a school or district as of census date.
 - **Correlated:** [`four_year_grad_rate`](#four_year_grad_rate), [`student_attendance_rate`](#student_attendance_rate), [`seat_fill_rate`](#seat_fill_rate), [`adm`](#adm), [`per_pupil_expenditure`](#per_pupil_expenditure)
 
 <a id="fafsa_completion_rate"></a>
-#### FAFSA Completion Rate — `fafsa_completion_rate`
+#### FAFSA Completion Rate — `fafsa_completion_rate` · rate
 
 % of 12th graders who complete the FAFSA — college access predictor.
 
@@ -949,9 +949,9 @@ Total enrolled students at a school or district as of census date.
 - **Correlated:** [`college_enrollment`](#college_enrollment), [`four_year_grad_rate`](#four_year_grad_rate)
 
 <a id="grade3_reading"></a>
-#### Gr3 Reading % — `grade3_reading`
+#### Grade 3 Reading Proficiency Rate — `grade3_reading` · rate
 
-Percentage of 3rd graders reading at or above grade level
+Percentage of 3rd graders reading at or above grade level.
 
 - **Domain:** Education · **Industry:** education
 - **Files:** [yml](dbt/models/metrics/education/grade3_reading.yml) · [sql](dbt/analyses/metrics/education/grade3_reading.sql)
@@ -964,7 +964,7 @@ Percentage of 3rd graders reading at or above grade level
 - **Correlated:** [`ela_proficiency_rate`](#ela_proficiency_rate), [`student_attendance_rate`](#student_attendance_rate), [`kinder_readiness`](#kinder_readiness)
 
 <a id="iep_goal_mastery_rate"></a>
-#### IEP Goal Mastery Rate — `iep_goal_mastery_rate`
+#### IEP Goal Mastery Rate — `iep_goal_mastery_rate` · rate
 
 % of IEP goals marked as mastered by end of evaluation period.
 
@@ -978,9 +978,9 @@ Percentage of 3rd graders reading at or above grade level
 - **Correlated:** [`student_proficiency`](#student_proficiency), [`student_attendance_rate`](#student_attendance_rate)
 
 <a id="instructional_spend_ratio"></a>
-#### Instructional Spend % — `instructional_spend_ratio`
+#### Instructional Spend Share — `instructional_spend_ratio` · rate
 
-Percentage of operating budget spent directly on instruction
+Percentage of operating budget spent directly on instruction.
 
 - **Domain:** Education · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/education/instructional_spend_ratio.yml) · [sql](dbt/analyses/metrics/education/instructional_spend_ratio.sql)
@@ -992,9 +992,9 @@ Percentage of operating budget spent directly on instruction
 - **Correlated:** [`per_pupil_expenditure`](#per_pupil_expenditure), [`ela_proficiency_rate`](#ela_proficiency_rate)
 
 <a id="kinder_readiness"></a>
-#### K-Readiness % — `kinder_readiness`
+#### Kindergarten Readiness Rate — `kinder_readiness` · rate
 
-Percentage of entering kindergarteners scoring ready on standardized screening
+Percentage of entering kindergarteners scoring ready on standardized screening.
 
 - **Domain:** Education · **Industry:** education
 - **Files:** [yml](dbt/models/metrics/education/kinder_readiness.yml) · [sql](dbt/analyses/metrics/education/kinder_readiness.sql)
@@ -1006,9 +1006,9 @@ Percentage of entering kindergarteners scoring ready on standardized screening
 - **Correlated:** [`grade3_reading`](#grade3_reading), [`student_attendance_rate`](#student_attendance_rate)
 
 <a id="math_proficiency_rate"></a>
-#### Math Proficiency % — `math_proficiency_rate`
+#### Math Proficiency Rate — `math_proficiency_rate` · rate
 
-Percentage of students scoring proficient or advanced on math state assessments
+Percentage of students scoring proficient or advanced on math state assessments.
 
 - **Domain:** Education · **Industry:** education
 - **Files:** [yml](dbt/models/metrics/education/math_proficiency_rate.yml) · [sql](dbt/analyses/metrics/education/math_proficiency_rate.sql)
@@ -1021,7 +1021,7 @@ Percentage of students scoring proficient or advanced on math state assessments
 - **Correlated:** [`ela_proficiency_rate`](#ela_proficiency_rate), [`student_attendance_rate`](#student_attendance_rate)
 
 <a id="per_pupil_expenditure"></a>
-#### Per Pupil Expenditure — `per_pupil_expenditure`
+#### Per-Pupil Expenditure — `per_pupil_expenditure` · currency
 
 Total operating spend divided by average daily membership.
 
@@ -1036,9 +1036,9 @@ Total operating spend divided by average daily membership.
 - **Correlated:** [`student_attendance_rate`](#student_attendance_rate), [`adm`](#adm), [`cost_per_outcome`](#cost_per_outcome), [`frl_pct`](#frl_pct), [`iep_pct`](#iep_pct), [`instructional_spend_ratio`](#instructional_spend_ratio), [`enrollment_count`](#enrollment_count), [`seat_fill_rate`](#seat_fill_rate), [`staff_student_cost_ratio`](#staff_student_cost_ratio), [`student_teacher_ratio`](#student_teacher_ratio)
 
 <a id="school_climate_score"></a>
-#### Climate Score — `school_climate_score`
+#### School Climate Score — `school_climate_score` · score
 
-Average score from student, staff, and family school climate surveys
+Average score from student, staff, and family school climate surveys.
 
 - **Domain:** Education · **Industry:** education
 - **Files:** [yml](dbt/models/metrics/education/school_climate_score.yml) · [sql](dbt/analyses/metrics/education/school_climate_score.sql)
@@ -1050,16 +1050,16 @@ Average score from student, staff, and family school climate surveys
 - **Correlated:** [`teacher_retention_rate`](#teacher_retention_rate), [`suspension_rate`](#suspension_rate), [`student_attendance_rate`](#student_attendance_rate), [`extracurricular_rate`](#extracurricular_rate), [`family_engagement_rate`](#family_engagement_rate), [`employee_engagement_score`](#employee_engagement_score)
 
 <a id="science_proficiency_rate"></a>
-#### Science Proficiency % — `science_proficiency_rate`
+#### Science Proficiency Rate — `science_proficiency_rate` · rate
 
-Percentage of students scoring proficient on science state assessments
+Percentage of students scoring proficient on science state assessments.
 
 - **Domain:** Education · **Industry:** education
 - **Files:** [yml](dbt/models/metrics/education/science_proficiency_rate.yml) · [sql](dbt/analyses/metrics/education/science_proficiency_rate.sql)
 - **Parents:** [`student_proficiency`](#student_proficiency)
 
 <a id="seat_fill_rate"></a>
-#### Seat Fill Rate — `seat_fill_rate`
+#### Seat Fill Rate — `seat_fill_rate` · rate
 
 % of available enrollment seats filled by students at a school.
 
@@ -1073,7 +1073,7 @@ Percentage of students scoring proficient on science state assessments
 - **Correlated:** [`enrollment_count`](#enrollment_count), [`per_pupil_expenditure`](#per_pupil_expenditure)
 
 <a id="staff_student_cost_ratio"></a>
-#### Staff-to-Student Cost Ratio — `staff_student_cost_ratio`
+#### Personnel Share of Operating Budget — `staff_student_cost_ratio` · rate
 
 Personnel costs as a share of total per-pupil expenditure — staffing investment intensity.
 
@@ -1088,9 +1088,9 @@ Personnel costs as a share of total per-pupil expenditure — staffing investmen
 - **Correlated:** [`teacher_retention_rate`](#teacher_retention_rate), [`per_pupil_expenditure`](#per_pupil_expenditure)
 
 <a id="student_attendance_rate"></a>
-#### Attendance Rate — `student_attendance_rate`
+#### Student Attendance Rate — `student_attendance_rate` · rate
 
-Percentage of scheduled school days attended across all students
+Percentage of scheduled school days attended across all students.
 
 - **Domain:** Education · **Industry:** education
 - **Files:** [yml](dbt/models/metrics/education/student_attendance_rate.yml) · [sql](dbt/analyses/metrics/education/student_attendance_rate.sql)
@@ -1103,9 +1103,9 @@ Percentage of scheduled school days attended across all students
 - **Correlated:** [`chronic_absenteeism_rate`](#chronic_absenteeism_rate), [`student_growth_percentile`](#student_growth_percentile), [`ela_proficiency_rate`](#ela_proficiency_rate), [`extracurricular_rate`](#extracurricular_rate), [`family_engagement_rate`](#family_engagement_rate), [`grade3_reading`](#grade3_reading), [`kinder_readiness`](#kinder_readiness), [`math_proficiency_rate`](#math_proficiency_rate), [`school_climate_score`](#school_climate_score), [`student_proficiency`](#student_proficiency), [`suspension_rate`](#suspension_rate), [`ell_proficiency_growth`](#ell_proficiency_growth), [`enrollment_count`](#enrollment_count), [`four_year_grad_rate`](#four_year_grad_rate), [`iep_goal_mastery_rate`](#iep_goal_mastery_rate), [`on_time_lesson_delivery`](#on_time_lesson_delivery), [`per_pupil_expenditure`](#per_pupil_expenditure)
 
 <a id="student_growth_percentile"></a>
-#### Student Growth Percentile — `student_growth_percentile`
+#### Median Student Growth Percentile — `student_growth_percentile` · score
 
-Median Student Growth Percentile — measures growth relative to academic peers
+Median Student Growth Percentile — measures growth relative to academic peers.
 
 - **Domain:** Education · **Industry:** education
 - **Files:** [yml](dbt/models/metrics/education/student_growth_percentile.yml) · [sql](dbt/analyses/metrics/education/student_growth_percentile.sql)
@@ -1116,9 +1116,9 @@ Median Student Growth Percentile — measures growth relative to academic peers
 - **Correlated:** [`student_proficiency`](#student_proficiency), [`student_attendance_rate`](#student_attendance_rate), [`student_teacher_ratio`](#student_teacher_ratio)
 
 <a id="student_teacher_ratio"></a>
-#### Student:Teacher Ratio — `student_teacher_ratio`
+#### Student-to-Teacher Ratio — `student_teacher_ratio` · ratio
 
-Number of enrolled students per FTE classroom teacher
+Number of enrolled students per FTE classroom teacher.
 
 - **Domain:** Education · **Industry:** education
 - **Files:** [yml](dbt/models/metrics/education/student_teacher_ratio.yml) · [sql](dbt/analyses/metrics/education/student_teacher_ratio.sql)
@@ -1131,7 +1131,7 @@ Number of enrolled students per FTE classroom teacher
 - **Correlated:** [`per_pupil_expenditure`](#per_pupil_expenditure), [`student_growth_percentile`](#student_growth_percentile), [`student_proficiency`](#student_proficiency), [`teacher_retention_rate`](#teacher_retention_rate)
 
 <a id="suspension_rate"></a>
-#### Suspension Rate — `suspension_rate`
+#### Suspension Rate — `suspension_rate` · rate
 
 % of students who received at least one out-of-school suspension in a year.
 
@@ -1146,7 +1146,7 @@ Number of enrolled students per FTE classroom teacher
 - **Correlated:** [`chronic_absenteeism_rate`](#chronic_absenteeism_rate), [`school_climate_score`](#school_climate_score), [`student_attendance_rate`](#student_attendance_rate), [`expulsion_rate`](#expulsion_rate)
 
 <a id="teacher_retention_rate"></a>
-#### Teacher Retention Rate — `teacher_retention_rate`
+#### Teacher Retention Rate — `teacher_retention_rate` · rate
 
 % of teachers who return the following school year.
 
@@ -1162,9 +1162,9 @@ Number of enrolled students per FTE classroom teacher
 ### KPI · Engineering (10)
 
 <a id="bug_escape_rate"></a>
-#### Bug Escape Rate — `bug_escape_rate`
+#### Bug Escape Rate — `bug_escape_rate` · rate
 
-Percentage of released code that contained production bugs
+Percentage of released code that contained production bugs.
 
 - **Domain:** Engineering · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/engineering/bug_escape_rate.yml) · [sql](dbt/analyses/metrics/engineering/bug_escape_rate.sql)
@@ -1177,9 +1177,9 @@ Percentage of released code that contained production bugs
 - **Correlated:** [`change_failure_rate`](#change_failure_rate), [`code_coverage`](#code_coverage), [`tech_debt_ratio`](#tech_debt_ratio)
 
 <a id="change_failure_rate"></a>
-#### Change Failure % — `change_failure_rate`
+#### Change Failure Rate — `change_failure_rate` · rate
 
-Percentage of deployments causing production incidents (DORA metric)
+Percentage of deployments causing production incidents (DORA metric).
 
 - **Domain:** Engineering · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/engineering/change_failure_rate.yml) · [sql](dbt/analyses/metrics/engineering/change_failure_rate.sql)
@@ -1192,7 +1192,7 @@ Percentage of deployments causing production incidents (DORA metric)
 - **Correlated:** [`mttr`](#mttr), [`bug_escape_rate`](#bug_escape_rate), [`code_coverage`](#code_coverage), [`deployment_frequency`](#deployment_frequency)
 
 <a id="deployment_frequency"></a>
-#### Deployment Frequency — `deployment_frequency`
+#### Deployment Frequency — `deployment_frequency` · count
 
 Number of production deployments per week — DORA engineering velocity metric.
 
@@ -1206,7 +1206,7 @@ Number of production deployments per week — DORA engineering velocity metric.
 - **Correlated:** [`change_failure_rate`](#change_failure_rate), [`pr_merge_time`](#pr_merge_time), [`lead_time_for_changes`](#lead_time_for_changes), [`rd_headcount`](#rd_headcount), [`rd_headcount_pct`](#rd_headcount_pct), [`sprint_velocity`](#sprint_velocity)
 
 <a id="lead_time_for_changes"></a>
-#### Lead Time for Changes — `lead_time_for_changes`
+#### Lead Time for Changes — `lead_time_for_changes` · hours
 
 Median time from code commit to production deployment — DORA metric.
 
@@ -1220,7 +1220,7 @@ Median time from code commit to production deployment — DORA metric.
 - **Correlated:** [`deployment_frequency`](#deployment_frequency), [`error_rate`](#error_rate)
 
 <a id="mtbf"></a>
-#### MTBF — `mtbf`
+#### Mean Time Between Failures — `mtbf` · hours
 
 Mean Time Between Failures — average operating time between unplanned stoppages.
 
@@ -1235,9 +1235,9 @@ Mean Time Between Failures — average operating time between unplanned stoppage
 - **Correlated:** [`preventive_maintenance_rate`](#preventive_maintenance_rate), [`uptime`](#uptime)
 
 <a id="mttd"></a>
-#### MTTD — `mttd`
+#### Mean Time to Detect — `mttd` · hours
 
-Average hours from incident start to detection
+Average hours from incident start to detection.
 
 - **Domain:** Engineering · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/engineering/mttd.yml) · [sql](dbt/analyses/metrics/engineering/mttd.sql)
@@ -1250,7 +1250,7 @@ Average hours from incident start to detection
 - **Correlated:** [`mttr`](#mttr), [`error_rate`](#error_rate), [`incident_count`](#incident_count)
 
 <a id="mttr"></a>
-#### MTTR — `mttr`
+#### Mean Time to Repair — `mttr` · hours
 
 Mean Time to Repair — average time to restore equipment after failure.
 
@@ -1265,9 +1265,9 @@ Mean Time to Repair — average time to restore equipment after failure.
 - **Correlated:** [`mttd`](#mttd), [`uptime`](#uptime), [`change_failure_rate`](#change_failure_rate), [`incident_count`](#incident_count), [`rcr_rate`](#rcr_rate)
 
 <a id="rcr_rate"></a>
-#### Root Cause Resolution % — `rcr_rate`
+#### Root Cause Resolution Rate — `rcr_rate` · rate
 
-Percentage of incidents with documented root cause and resolution
+Percentage of incidents with documented root cause and resolution.
 
 - **Domain:** Engineering · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/engineering/rcr_rate.yml) · [sql](dbt/analyses/metrics/engineering/rcr_rate.sql)
@@ -1279,9 +1279,9 @@ Percentage of incidents with documented root cause and resolution
 - **Correlated:** [`incident_count`](#incident_count), [`mttr`](#mttr)
 
 <a id="tech_debt_ratio"></a>
-#### Tech Debt Ratio — `tech_debt_ratio`
+#### Technical Debt Ratio — `tech_debt_ratio` · rate
 
-Estimated remediation cost of tech debt relative to development cost
+Estimated remediation cost of tech debt relative to development cost.
 
 - **Domain:** Engineering · **Industry:** financial_services
 - **Files:** [yml](dbt/models/metrics/engineering/tech_debt_ratio.yml) · [sql](dbt/analyses/metrics/engineering/tech_debt_ratio.sql)
@@ -1293,9 +1293,9 @@ Estimated remediation cost of tech debt relative to development cost
 - **Correlated:** [`code_coverage`](#code_coverage), [`bug_escape_rate`](#bug_escape_rate), [`sprint_velocity`](#sprint_velocity)
 
 <a id="uptime"></a>
-#### Uptime % — `uptime`
+#### Service Uptime — `uptime` · rate
 
-Percentage of scheduled uptime the service was available
+Percentage of scheduled uptime the service was available.
 
 - **Domain:** Engineering · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/engineering/uptime.yml) · [sql](dbt/analyses/metrics/engineering/uptime.sql)
@@ -1310,7 +1310,7 @@ Percentage of scheduled uptime the service was available
 ### KPI · Finance (62)
 
 <a id="ar_aging_90d"></a>
-#### AR Aging 90d+ — `ar_aging_90d`
+#### Accounts Receivable Over 90 Days — `ar_aging_90d` · currency
 
 Total outstanding receivables past 90 days — bad debt risk indicator.
 
@@ -1324,7 +1324,7 @@ Total outstanding receivables past 90 days — bad debt risk indicator.
 - **Correlated:** [`dso`](#dso), [`working_capital`](#working_capital), [`bad_debt_rate`](#bad_debt_rate)
 
 <a id="arpu"></a>
-#### ARPU — `arpu`
+#### Average Revenue per User — `arpu` · currency
 
 Average Revenue Per User — revenue efficiency across the base.
 
@@ -1339,7 +1339,7 @@ Average Revenue Per User — revenue efficiency across the base.
 - **Correlated:** [`customer_ltv`](#customer_ltv), [`churn_rate`](#churn_rate), [`account_health_score`](#account_health_score), [`iap_revenue`](#iap_revenue), [`revenue`](#revenue), [`revenue_per_account`](#revenue_per_account)
 
 <a id="asp"></a>
-#### ASP — `asp`
+#### Average Selling Price — `asp` · currency
 
 Average selling price per unit or transaction — pricing health signal.
 
@@ -1353,7 +1353,7 @@ Average selling price per unit or transaction — pricing health signal.
 - **Correlated:** [`revenue`](#revenue), [`gross_margin_pct`](#gross_margin_pct)
 
 <a id="bad_debt_rate"></a>
-#### Bad Debt Rate — `bad_debt_rate`
+#### Bad Debt Rate — `bad_debt_rate` · rate
 
 % of revenue written off as uncollectible bad debt.
 
@@ -1368,7 +1368,7 @@ Average selling price per unit or transaction — pricing health signal.
 - **Correlated:** [`dso`](#dso), [`ar_aging_90d`](#ar_aging_90d)
 
 <a id="billings"></a>
-#### Billings — `billings`
+#### Billings — `billings` · currency
 
 Total amounts invoiced to customers in a period — cash collection indicator.
 
@@ -1382,7 +1382,7 @@ Total amounts invoiced to customers in a period — cash collection indicator.
 - **Correlated:** [`arr`](#arr), [`revenue`](#revenue), [`free_cash_flow`](#free_cash_flow), [`accounts_receivable`](#accounts_receivable), [`contracted_unbilled`](#contracted_unbilled), [`deferred_revenue`](#deferred_revenue)
 
 <a id="budget_variance"></a>
-#### Budget Variance — `budget_variance`
+#### Budget Variance — `budget_variance` · currency
 
 Actual spend vs budget — positive = over budget, negative = under budget.
 
@@ -1397,7 +1397,7 @@ Actual spend vs budget — positive = over budget, negative = under budget.
 - **Correlated:** [`forecast_accuracy`](#forecast_accuracy), [`opex`](#opex), [`annual_budget`](#annual_budget), [`headcount_vs_budget`](#headcount_vs_budget)
 
 <a id="budget_variance_pct"></a>
-#### Budget Variance % — `budget_variance_pct`
+#### Budget Variance Rate — `budget_variance_pct` · rate
 
 Budget variance as a % of budget — normalized over/under indicator.
 
@@ -1412,7 +1412,7 @@ Budget variance as a % of budget — normalized over/under indicator.
 - **Correlated:** [`opex`](#opex), [`ebitda_margin`](#ebitda_margin)
 
 <a id="burn_rate"></a>
-#### Burn Rate — `burn_rate`
+#### Cash Burn Rate — `burn_rate` · currency
 
 Monthly net cash outflow — critical for pre-revenue or high-growth companies.
 
@@ -1426,7 +1426,7 @@ Monthly net cash outflow — critical for pre-revenue or high-growth companies.
 - **Correlated:** [`free_cash_flow`](#free_cash_flow), [`runway_months`](#runway_months), [`cash_and_equivalents`](#cash_and_equivalents)
 
 <a id="cac"></a>
-#### CAC — `cac`
+#### Customer Acquisition Cost — `cac` · currency
 
 Customer Acquisition Cost — total sales & marketing spend per new customer.
 
@@ -1441,9 +1441,9 @@ Customer Acquisition Cost — total sales & marketing spend per new customer.
 - **Correlated:** [`cac_payback`](#cac_payback), [`magic_number`](#magic_number), [`ltv_cac`](#ltv_cac), [`arr_per_rep`](#arr_per_rep), [`clv`](#clv), [`cost_per_sql`](#cost_per_sql), [`monthly_new_customers`](#monthly_new_customers), [`marketing_cac`](#marketing_cac), [`mql_to_sql_rate`](#mql_to_sql_rate), [`net_new_customers`](#net_new_customers), [`rev_from_new_customers`](#rev_from_new_customers), [`revenue`](#revenue), [`roas`](#roas), [`sales_cycle_length`](#sales_cycle_length), [`sales_spend`](#sales_spend), [`sm_spend`](#sm_spend), [`time_to_fill`](#time_to_fill), [`win_rate`](#win_rate)
 
 <a id="cac_payback"></a>
-#### CAC Payback (mo) — `cac_payback`
+#### Customer Acquisition Cost Payback Period — `cac_payback` · months
 
-Months to recover customer acquisition cost from gross margin
+Months to recover customer acquisition cost from gross margin.
 
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/cac_payback.yml) · [sql](dbt/analyses/metrics/finance/cac_payback.sql)
@@ -1456,7 +1456,7 @@ Months to recover customer acquisition cost from gross margin
 - **Correlated:** [`magic_number`](#magic_number), [`ltv_cac`](#ltv_cac), [`avg_sales_cycle`](#avg_sales_cycle), [`cac`](#cac), [`churn_rate`](#churn_rate), [`arr`](#arr)
 
 <a id="capex"></a>
-#### CapEx — `capex`
+#### Capital Expenditures — `capex` · currency
 
 Capital expenditures — spend on fixed assets and infrastructure.
 
@@ -1469,7 +1469,7 @@ Capital expenditures — spend on fixed assets and infrastructure.
 - **Correlated:** [`ebitda`](#ebitda), [`rd_expense`](#rd_expense), [`da`](#da)
 
 <a id="capex_pct_revenue"></a>
-#### CapEx % Revenue — `capex_pct_revenue`
+#### Capital Expenditures Share of Revenue — `capex_pct_revenue` · rate
 
 Capital spend intensity relative to revenue.
 
@@ -1485,7 +1485,7 @@ Capital spend intensity relative to revenue.
 - **Correlated:** [`free_cash_flow`](#free_cash_flow)
 
 <a id="cogs"></a>
-#### COGS — `cogs`
+#### Cost of Goods Sold — `cogs` · currency
 
 Total cost of goods sold in a period.
 
@@ -1499,7 +1499,7 @@ Total cost of goods sold in a period.
 - **Correlated:** [`revenue`](#revenue), [`gross_margin_pct`](#gross_margin_pct), [`inventory_turnover`](#inventory_turnover), [`inventory_value`](#inventory_value)
 
 <a id="current_ratio"></a>
-#### Current Ratio — `current_ratio`
+#### Current Ratio — `current_ratio` · ratio
 
 Current assets divided by current liabilities — liquidity benchmark (>1 = solvent).
 
@@ -1514,7 +1514,7 @@ Current assets divided by current liabilities — liquidity benchmark (>1 = solv
 - **Correlated:** [`working_capital`](#working_capital), [`debt_to_equity`](#debt_to_equity), [`net_debt`](#net_debt), [`quick_ratio`](#quick_ratio)
 
 <a id="customer_concentration_risk"></a>
-#### Customer Concentration — `customer_concentration_risk`
+#### Top 10 Customer ARR Share — `customer_concentration_risk` · rate
 
 Top 10 customers’ ARR as % of total ARR — revenue dependency risk indicator.
 
@@ -1529,7 +1529,7 @@ Top 10 customers’ ARR as % of total ARR — revenue dependency risk indicator.
 - **Correlated:** [`churn_rate`](#churn_rate), [`arr`](#arr), [`rev_concentration_top10`](#rev_concentration_top10)
 
 <a id="debt_ebitda"></a>
-#### Debt / EBITDA — `debt_ebitda`
+#### Debt to EBITDA Ratio — `debt_ebitda` · ratio
 
 Leverage ratio — total debt divided by trailing twelve-month EBITDA.
 
@@ -1544,9 +1544,9 @@ Leverage ratio — total debt divided by trailing twelve-month EBITDA.
 - **Correlated:** [`ebitda_margin`](#ebitda_margin), [`free_cash_flow`](#free_cash_flow), [`interest_coverage_ratio`](#interest_coverage_ratio), [`roa`](#roa), [`roe`](#roe)
 
 <a id="debt_to_equity"></a>
-#### D/E Ratio — `debt_to_equity`
+#### Debt-to-Equity Ratio — `debt_to_equity` · ratio
 
-Total debt divided by shareholder equity
+Total debt divided by shareholder equity.
 
 - **Domain:** Finance · **Industry:** financial_services
 - **Files:** [yml](dbt/models/metrics/finance/debt_to_equity.yml) · [sql](dbt/analyses/metrics/finance/debt_to_equity.sql)
@@ -1559,7 +1559,7 @@ Total debt divided by shareholder equity
 - **Correlated:** [`leverage_ratio`](#leverage_ratio), [`current_ratio`](#current_ratio), [`interest_coverage_ratio`](#interest_coverage_ratio), [`ev_ebitda`](#ev_ebitda), [`total_liabilities`](#total_liabilities)
 
 <a id="deferred_revenue"></a>
-#### Deferred Revenue — `deferred_revenue`
+#### Deferred Revenue — `deferred_revenue` · currency
 
 Cash collected but not yet recognized as revenue — forward revenue visibility.
 
@@ -1573,9 +1573,9 @@ Cash collected but not yet recognized as revenue — forward revenue visibility.
 - **Correlated:** [`arr`](#arr), [`billings`](#billings), [`revenue`](#revenue)
 
 <a id="dpo"></a>
-#### DPO — `dpo`
+#### Days Payable Outstanding — `dpo` · days
 
-Average days taken to pay suppliers
+Average days taken to pay suppliers.
 
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/dpo.yml) · [sql](dbt/analyses/metrics/finance/dpo.sql)
@@ -1588,7 +1588,7 @@ Average days taken to pay suppliers
 - **Correlated:** [`dso`](#dso), [`working_capital`](#working_capital), [`accounts_payable`](#accounts_payable), [`inventory_turnover`](#inventory_turnover)
 
 <a id="dso"></a>
-#### Days Sales Outstanding — `dso`
+#### Days Sales Outstanding — `dso` · days
 
 Average days to collect payment after a sale — cash conversion speed.
 
@@ -1604,9 +1604,9 @@ Average days to collect payment after a sale — cash conversion speed.
 - **Correlated:** [`dpo`](#dpo), [`cash_and_equivalents`](#cash_and_equivalents), [`accounts_receivable`](#accounts_receivable), [`ar_aging_90d`](#ar_aging_90d), [`bad_debt_rate`](#bad_debt_rate)
 
 <a id="ebit"></a>
-#### EBIT — `ebit`
+#### EBIT — `ebit` · currency
 
-Earnings before interest and taxes
+Earnings before interest and taxes.
 
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/ebit.yml) · [sql](dbt/analyses/metrics/finance/ebit.sql)
@@ -1614,7 +1614,7 @@ Earnings before interest and taxes
 - **Parents:** [`ebitda`](#ebitda), [`interest_coverage_ratio`](#interest_coverage_ratio)
 
 <a id="ebitda_margin"></a>
-#### EBITDA Margin — `ebitda_margin`
+#### EBITDA Margin — `ebitda_margin` · rate
 
 EBITDA as a % of revenue — core PE performance lens.
 
@@ -1628,7 +1628,7 @@ EBITDA as a % of revenue — core PE performance lens.
 - **Correlated:** [`gross_margin_pct`](#gross_margin_pct), [`budget_variance_pct`](#budget_variance_pct), [`debt_ebitda`](#debt_ebitda), [`ebitda`](#ebitda), [`gna_pct_revenue`](#gna_pct_revenue), [`net_income_margin`](#net_income_margin), [`rd_as_pct_revenue`](#rd_as_pct_revenue), [`revenue_per_employee`](#revenue_per_employee), [`sg_and_a`](#sg_and_a)
 
 <a id="effective_tax_rate"></a>
-#### Effective Tax Rate — `effective_tax_rate`
+#### Effective Tax Rate — `effective_tax_rate` · rate
 
 Actual income taxes paid divided by pre-tax income.
 
@@ -1642,9 +1642,9 @@ Actual income taxes paid divided by pre-tax income.
 - **Correlated:** [`ebitda`](#ebitda), [`free_cash_flow`](#free_cash_flow)
 
 <a id="ev_ebitda"></a>
-#### EV/EBITDA — `ev_ebitda`
+#### Enterprise Value to EBITDA Multiple — `ev_ebitda` · ratio
 
-Enterprise value divided by EBITDA — primary valuation multiple
+Enterprise value divided by EBITDA — primary valuation multiple.
 
 - **Domain:** Finance · **Industry:** financial_services
 - **Files:** [yml](dbt/models/metrics/finance/ev_ebitda.yml) · [sql](dbt/analyses/metrics/finance/ev_ebitda.sql)
@@ -1657,9 +1657,9 @@ Enterprise value divided by EBITDA — primary valuation multiple
 - **Correlated:** [`debt_to_equity`](#debt_to_equity), [`leverage_ratio`](#leverage_ratio), [`enterprise_value`](#enterprise_value)
 
 <a id="forecast_accuracy"></a>
-#### Forecast Accuracy % — `forecast_accuracy`
+#### Revenue Forecast Accuracy — `forecast_accuracy` · rate
 
-Actual revenue versus forecast, expressed as an error percentage
+Actual revenue versus forecast, expressed as an error percentage.
 
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/forecast_accuracy.yml) · [sql](dbt/analyses/metrics/finance/forecast_accuracy.sql)
@@ -1673,7 +1673,7 @@ Actual revenue versus forecast, expressed as an error percentage
 - **Correlated:** [`budget_variance`](#budget_variance), [`revenue_vs_py`](#revenue_vs_py), [`revenue_ytd`](#revenue_ytd)
 
 <a id="gna_pct_revenue"></a>
-#### G&A % Revenue — `gna_pct_revenue`
+#### G&A Share of Revenue — `gna_pct_revenue` · rate
 
 General and administrative expenses as a share of revenue — overhead efficiency.
 
@@ -1689,9 +1689,9 @@ General and administrative expenses as a share of revenue — overhead efficienc
 - **Correlated:** [`ebitda_margin`](#ebitda_margin), [`opex`](#opex)
 
 <a id="gross_margin_pct"></a>
-#### Gross Margin % — `gross_margin_pct`
+#### Gross Margin — `gross_margin_pct` · rate
 
-Gross profit as a percentage of revenue
+Gross profit as a percentage of revenue.
 
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/gross_margin_pct.yml) · [sql](dbt/analyses/metrics/finance/gross_margin_pct.sql)
@@ -1705,7 +1705,7 @@ Gross profit as a percentage of revenue
 - **Correlated:** [`ebitda_margin`](#ebitda_margin), [`net_income_margin`](#net_income_margin), [`gross_profit`](#gross_profit), [`ops_efficiency_ratio`](#ops_efficiency_ratio), [`revenue`](#revenue), [`cogs`](#cogs), [`asp`](#asp), [`procurement_savings_rate`](#procurement_savings_rate)
 
 <a id="gross_profit"></a>
-#### Gross Profit — `gross_profit`
+#### Gross Profit — `gross_profit` · currency
 
 Revenue minus COGS — contribution before operating expenses.
 
@@ -1721,9 +1721,9 @@ Revenue minus COGS — contribution before operating expenses.
 - **Correlated:** [`gross_margin_pct`](#gross_margin_pct), [`gross_profit_per_employee`](#gross_profit_per_employee)
 
 <a id="gross_profit_per_employee"></a>
-#### GP / Employee — `gross_profit_per_employee`
+#### Gross Profit per Employee — `gross_profit_per_employee` · currency
 
-Gross profit divided by headcount — productivity indicator
+Gross profit divided by headcount — productivity indicator.
 
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/gross_profit_per_employee.yml) · [sql](dbt/analyses/metrics/finance/gross_profit_per_employee.sql)
@@ -1737,9 +1737,9 @@ Gross profit divided by headcount — productivity indicator
 - **Correlated:** [`revenue_per_employee`](#revenue_per_employee), [`workforce_productivity`](#workforce_productivity), [`gross_profit`](#gross_profit)
 
 <a id="hr_cost_pct_revenue"></a>
-#### HR Cost % of Revenue — `hr_cost_pct_revenue`
+#### HR Cost Share of Revenue — `hr_cost_pct_revenue` · rate
 
-Total HR department cost as a fraction of company revenue
+Total HR department cost as a fraction of company revenue.
 
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/hr_cost_pct_revenue.yml) · [sql](dbt/analyses/metrics/finance/hr_cost_pct_revenue.sql)
@@ -1753,9 +1753,9 @@ Total HR department cost as a fraction of company revenue
 - **Correlated:** [`cost_per_hire`](#cost_per_hire), [`opex`](#opex), [`support_cost_per_ticket`](#support_cost_per_ticket)
 
 <a id="interest_coverage_ratio"></a>
-#### Interest Coverage Ratio — `interest_coverage_ratio`
+#### Interest Coverage Ratio — `interest_coverage_ratio` · ratio
 
-EBIT divided by interest expense — ability to service debt. <1.5x is distress signal.
+EBIT divided by interest expense — ability to service debt, with below 1.5x a distress signal.
 
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/interest_coverage_ratio.yml) · [sql](dbt/analyses/metrics/finance/interest_coverage_ratio.sql)
@@ -1769,9 +1769,9 @@ EBIT divided by interest expense — ability to service debt. <1.5x is distress 
 - **Correlated:** [`debt_ebitda`](#debt_ebitda), [`free_cash_flow`](#free_cash_flow), [`debt_to_equity`](#debt_to_equity), [`leverage_ratio`](#leverage_ratio), [`total_debt`](#total_debt)
 
 <a id="inventory_turnover"></a>
-#### Inventory Turnover — `inventory_turnover`
+#### Inventory Turnover — `inventory_turnover` · ratio
 
-COGS divided by average inventory — how many times inventory was sold and replaced
+COGS divided by average inventory — how many times inventory was sold and replaced.
 
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/inventory_turnover.yml) · [sql](dbt/analyses/metrics/finance/inventory_turnover.sql)
@@ -1784,9 +1784,9 @@ COGS divided by average inventory — how many times inventory was sold and repl
 - **Correlated:** [`stockout_rate`](#stockout_rate), [`dpo`](#dpo), [`on_time_delivery_rate`](#on_time_delivery_rate), [`fill_rate`](#fill_rate), [`inventory_value`](#inventory_value), [`inventory_items`](#inventory_items), [`supplier_lead_time`](#supplier_lead_time), [`warehouse_utilization`](#warehouse_utilization), [`cogs`](#cogs)
 
 <a id="leverage_ratio"></a>
-#### Leverage Ratio — `leverage_ratio`
+#### Net Leverage Ratio — `leverage_ratio` · ratio
 
-Net debt relative to EBITDA — key PE portfolio health metric
+Net debt relative to EBITDA — key PE portfolio health metric.
 
 - **Domain:** Finance · **Industry:** financial_services
 - **Files:** [yml](dbt/models/metrics/finance/leverage_ratio.yml) · [sql](dbt/analyses/metrics/finance/leverage_ratio.sql)
@@ -1800,9 +1800,9 @@ Net debt relative to EBITDA — key PE portfolio health metric
 - **Correlated:** [`debt_to_equity`](#debt_to_equity), [`interest_coverage_ratio`](#interest_coverage_ratio), [`ev_ebitda`](#ev_ebitda), [`total_debt`](#total_debt)
 
 <a id="license_revenue"></a>
-#### License Revenue — `license_revenue`
+#### License Revenue — `license_revenue` · currency
 
-Revenue from perpetual license sales
+Revenue from perpetual license sales.
 
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/license_revenue.yml) · [sql](dbt/analyses/metrics/finance/license_revenue.sql)
@@ -1813,7 +1813,7 @@ Revenue from perpetual license sales
 - **Correlated:** [`services_revenue`](#services_revenue), [`arr`](#arr)
 
 <a id="ltv_cac"></a>
-#### LTV : CAC — `ltv_cac`
+#### Lifetime Value to Customer Acquisition Cost Ratio — `ltv_cac` · ratio
 
 Ratio of customer lifetime value to acquisition cost — PE efficiency lens.
 
@@ -1829,9 +1829,9 @@ Ratio of customer lifetime value to acquisition cost — PE efficiency lens.
 - **Correlated:** [`cac_payback`](#cac_payback), [`magic_number`](#magic_number), [`cac`](#cac), [`churn_rate`](#churn_rate), [`customer_ltv`](#customer_ltv), [`nrr`](#nrr), [`roas`](#roas)
 
 <a id="market_share"></a>
-#### Market Share — `market_share`
+#### Market Share — `market_share` · rate
 
-Company revenue as a percentage of total addressable market
+Company revenue as a percentage of total addressable market.
 
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/market_share.yml) · [sql](dbt/analyses/metrics/finance/market_share.sql)
@@ -1843,9 +1843,9 @@ Company revenue as a percentage of total addressable market
 - **Correlated:** [`revenue_growth_rate`](#revenue_growth_rate), [`tam`](#tam), [`revenue`](#revenue), [`sam`](#sam)
 
 <a id="net_debt"></a>
-#### Net Debt — `net_debt`
+#### Net Debt — `net_debt` · currency
 
-Total debt minus cash and equivalents
+Total debt minus cash and equivalents.
 
 - **Domain:** Finance · **Industry:** financial_services
 - **Files:** [yml](dbt/models/metrics/finance/net_debt.yml) · [sql](dbt/analyses/metrics/finance/net_debt.sql)
@@ -1857,7 +1857,7 @@ Total debt minus cash and equivalents
 - **Correlated:** [`current_ratio`](#current_ratio), [`runway_months`](#runway_months), [`shareholder_equity`](#shareholder_equity)
 
 <a id="net_income"></a>
-#### Net Income — `net_income`
+#### Net Income — `net_income` · currency
 
 Bottom-line profit after all expenses and taxes.
 
@@ -1872,7 +1872,7 @@ Bottom-line profit after all expenses and taxes.
 - **Correlated:** [`free_cash_flow`](#free_cash_flow), [`ebitda`](#ebitda)
 
 <a id="net_income_margin"></a>
-#### Net Income Margin — `net_income_margin`
+#### Net Income Margin — `net_income_margin` · rate
 
 Net income as a % of revenue — bottom-line profitability.
 
@@ -1888,9 +1888,9 @@ Net income as a % of revenue — bottom-line profitability.
 - **Correlated:** [`ebitda_margin`](#ebitda_margin), [`gross_margin_pct`](#gross_margin_pct)
 
 <a id="operating_cash_flow"></a>
-#### Operating Cash Flow — `operating_cash_flow`
+#### Operating Cash Flow — `operating_cash_flow` · currency
 
-Cash generated from core business operations
+Cash generated from core business operations.
 
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/operating_cash_flow.yml) · [sql](dbt/analyses/metrics/finance/operating_cash_flow.sql)
@@ -1902,7 +1902,7 @@ Cash generated from core business operations
 - **Correlated:** [`ebitda`](#ebitda), [`free_cash_flow`](#free_cash_flow)
 
 <a id="opex"></a>
-#### OpEx — `opex`
+#### Operating Expenses — `opex` · currency
 
 Total operating expenses excluding COGS in a period.
 
@@ -1916,9 +1916,9 @@ Total operating expenses excluding COGS in a period.
 - **Correlated:** [`gna_pct_revenue`](#gna_pct_revenue), [`rd_as_pct_revenue`](#rd_as_pct_revenue), [`annual_budget`](#annual_budget), [`budget_variance`](#budget_variance), [`budget_variance_pct`](#budget_variance_pct), [`headcount_fte`](#headcount_fte), [`headcount_vs_budget`](#headcount_vs_budget), [`hr_cost_pct_revenue`](#hr_cost_pct_revenue)
 
 <a id="partner_revenue"></a>
-#### Partner Revenue — `partner_revenue`
+#### Partner Revenue — `partner_revenue` · currency
 
-Revenue sourced or influenced by channel partners
+Revenue sourced or influenced by channel partners.
 
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/partner_revenue.yml) · [sql](dbt/analyses/metrics/finance/partner_revenue.sql)
@@ -1929,9 +1929,9 @@ Revenue sourced or influenced by channel partners
 - **Correlated:** [`partner_revenue_pct`](#partner_revenue_pct), [`new_arr`](#new_arr)
 
 <a id="partner_revenue_pct"></a>
-#### Partner Revenue % — `partner_revenue_pct`
+#### Partner Revenue Share — `partner_revenue_pct` · rate
 
-Partner-sourced revenue as a share of total revenue
+Partner-sourced revenue as a share of total revenue.
 
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/partner_revenue_pct.yml) · [sql](dbt/analyses/metrics/finance/partner_revenue_pct.sql)
@@ -1945,7 +1945,7 @@ Partner-sourced revenue as a share of total revenue
 - **Correlated:** [`partner_revenue`](#partner_revenue), [`revenue`](#revenue)
 
 <a id="quick_ratio"></a>
-#### Quick Ratio — `quick_ratio`
+#### Quick Ratio — `quick_ratio` · ratio
 
 (Cash + Receivables) / Current Liabilities — excludes inventory from liquidity test.
 
@@ -1959,7 +1959,7 @@ Partner-sourced revenue as a share of total revenue
 - **Correlated:** [`current_ratio`](#current_ratio), [`working_capital`](#working_capital)
 
 <a id="rd_as_pct_revenue"></a>
-#### R&D % of Revenue — `rd_as_pct_revenue`
+#### R&D Share of Revenue — `rd_as_pct_revenue` · rate
 
 R&D spend as a share of total revenue — tech investment intensity.
 
@@ -1975,7 +1975,7 @@ R&D spend as a share of total revenue — tech investment intensity.
 - **Correlated:** [`ebitda_margin`](#ebitda_margin), [`rd_expense`](#rd_expense), [`rd_headcount_pct`](#rd_headcount_pct), [`opex`](#opex)
 
 <a id="rd_expense"></a>
-#### R&D Expense — `rd_expense`
+#### R&D Expense — `rd_expense` · currency
 
 Research and development spend in the period.
 
@@ -1988,9 +1988,9 @@ Research and development spend in the period.
 - **Correlated:** [`rd_as_pct_revenue`](#rd_as_pct_revenue), [`capex`](#capex)
 
 <a id="rev_concentration_top10"></a>
-#### Top 10 Customer Rev % — `rev_concentration_top10`
+#### Top 10 Customer Revenue Share — `rev_concentration_top10` · rate
 
-Percentage of total revenue from the top 10 customers
+Percentage of total revenue from the top 10 customers.
 
 - **Domain:** Finance · **Industry:** financial_services
 - **Files:** [yml](dbt/models/metrics/finance/rev_concentration_top10.yml) · [sql](dbt/analyses/metrics/finance/rev_concentration_top10.sql)
@@ -2003,9 +2003,9 @@ Percentage of total revenue from the top 10 customers
 - **Correlated:** [`customer_concentration_risk`](#customer_concentration_risk), [`nrr`](#nrr)
 
 <a id="rev_from_existing"></a>
-#### Existing Customer Revenue — `rev_from_existing`
+#### Existing Customer Revenue — `rev_from_existing` · currency
 
-Revenue from customers acquired prior to the current period
+Revenue from customers acquired prior to the current period.
 
 - **Domain:** Finance · **Industry:** financial_services
 - **Files:** [yml](dbt/models/metrics/finance/rev_from_existing.yml) · [sql](dbt/analyses/metrics/finance/rev_from_existing.sql)
@@ -2016,9 +2016,9 @@ Revenue from customers acquired prior to the current period
 - **Correlated:** [`nrr`](#nrr), [`expansion_arr`](#expansion_arr)
 
 <a id="rev_from_new_customers"></a>
-#### New Customer Revenue — `rev_from_new_customers`
+#### New Customer Revenue — `rev_from_new_customers` · currency
 
-Revenue from customers acquired in the period
+Revenue from customers acquired in the period.
 
 - **Domain:** Finance · **Industry:** financial_services
 - **Files:** [yml](dbt/models/metrics/finance/rev_from_new_customers.yml) · [sql](dbt/analyses/metrics/finance/rev_from_new_customers.sql)
@@ -2029,7 +2029,7 @@ Revenue from customers acquired in the period
 - **Correlated:** [`cac`](#cac), [`new_arr`](#new_arr)
 
 <a id="revenue_growth_rate"></a>
-#### Revenue Growth Rate — `revenue_growth_rate`
+#### Revenue Growth Rate — `revenue_growth_rate` · rate
 
 YoY or QoQ revenue growth percentage.
 
@@ -2045,9 +2045,9 @@ YoY or QoQ revenue growth percentage.
 - **Correlated:** [`arr_growth_rate`](#arr_growth_rate), [`revenue_vs_py`](#revenue_vs_py), [`arr`](#arr), [`market_penetration_rate`](#market_penetration_rate), [`market_share`](#market_share), [`monthly_new_customers`](#monthly_new_customers), [`revenue`](#revenue)
 
 <a id="revenue_per_account"></a>
-#### Revenue / Account — `revenue_per_account`
+#### Revenue per Account — `revenue_per_account` · currency
 
-Average monthly revenue per active account
+Average monthly revenue per active account.
 
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/revenue_per_account.yml) · [sql](dbt/analyses/metrics/finance/revenue_per_account.sql)
@@ -2059,7 +2059,7 @@ Average monthly revenue per active account
 - **Correlated:** [`arpu`](#arpu), [`acv`](#acv)
 
 <a id="revenue_per_employee"></a>
-#### Revenue per Employee — `revenue_per_employee`
+#### Revenue per Employee — `revenue_per_employee` · currency
 
 Total revenue divided by headcount — operating leverage metric.
 
@@ -2075,9 +2075,9 @@ Total revenue divided by headcount — operating leverage metric.
 - **Correlated:** [`ebitda_margin`](#ebitda_margin), [`employees_per_1m_arr`](#employees_per_1m_arr), [`gross_profit_per_employee`](#gross_profit_per_employee), [`headcount_cost`](#headcount_cost), [`workforce_productivity`](#workforce_productivity)
 
 <a id="revenue_vs_py"></a>
-#### Revenue vs PY — `revenue_vs_py`
+#### Year-over-Year Revenue Growth — `revenue_vs_py` · rate
 
-Current year revenue vs prior year — year-over-year growth
+Current year revenue vs prior year — year-over-year growth.
 
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/revenue_vs_py.yml) · [sql](dbt/analyses/metrics/finance/revenue_vs_py.sql)
@@ -2091,9 +2091,9 @@ Current year revenue vs prior year — year-over-year growth
 - **Correlated:** [`revenue_growth_rate`](#revenue_growth_rate), [`forecast_accuracy`](#forecast_accuracy), [`prior_year_revenue`](#prior_year_revenue), [`revenue_ytd`](#revenue_ytd), [`revenue`](#revenue)
 
 <a id="revenue_ytd"></a>
-#### Revenue YTD — `revenue_ytd`
+#### Year-to-Date Revenue — `revenue_ytd` · currency
 
-Cumulative revenue from the start of the fiscal year to current date
+Cumulative revenue from the start of the fiscal year to current date.
 
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/revenue_ytd.yml) · [sql](dbt/analyses/metrics/finance/revenue_ytd.sql)
@@ -2106,9 +2106,9 @@ Cumulative revenue from the start of the fiscal year to current date
 - **Correlated:** [`revenue_vs_py`](#revenue_vs_py), [`forecast_accuracy`](#forecast_accuracy)
 
 <a id="roa"></a>
-#### ROA — `roa`
+#### Return on Assets — `roa` · rate
 
-Net income as a percentage of total assets
+Net income as a percentage of total assets.
 
 - **Domain:** Finance · **Industry:** financial_services
 - **Files:** [yml](dbt/models/metrics/finance/roa.yml) · [sql](dbt/analyses/metrics/finance/roa.sql)
@@ -2121,9 +2121,9 @@ Net income as a percentage of total assets
 - **Correlated:** [`roe`](#roe), [`roic`](#roic), [`debt_ebitda`](#debt_ebitda)
 
 <a id="roic"></a>
-#### ROIC — `roic`
+#### Return on Invested Capital — `roic` · rate
 
-NOPAT divided by invested capital
+NOPAT divided by invested capital.
 
 - **Domain:** Finance · **Industry:** financial_services
 - **Files:** [yml](dbt/models/metrics/finance/roic.yml) · [sql](dbt/analyses/metrics/finance/roic.sql)
@@ -2136,7 +2136,7 @@ NOPAT divided by invested capital
 - **Correlated:** [`roe`](#roe), [`roa`](#roa)
 
 <a id="runway_months"></a>
-#### Runway (Months) — `runway_months`
+#### Cash Runway — `runway_months` · months
 
 How many months of runway at current burn rate — survival horizon metric.
 
@@ -2151,9 +2151,9 @@ How many months of runway at current burn rate — survival horizon metric.
 - **Correlated:** [`burn_rate`](#burn_rate), [`free_cash_flow`](#free_cash_flow), [`cash_and_equivalents`](#cash_and_equivalents), [`net_debt`](#net_debt)
 
 <a id="services_revenue"></a>
-#### Services Revenue — `services_revenue`
+#### Services Revenue — `services_revenue` · currency
 
-Revenue from professional services engagements
+Revenue from professional services engagements.
 
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/services_revenue.yml) · [sql](dbt/analyses/metrics/finance/services_revenue.sql)
@@ -2164,7 +2164,7 @@ Revenue from professional services engagements
 - **Correlated:** [`license_revenue`](#license_revenue), [`implementation_revenue`](#implementation_revenue)
 
 <a id="sg_and_a"></a>
-#### SG&A — `sg_and_a`
+#### Selling, General and Administrative Expenses — `sg_and_a` · currency
 
 Sales, general and administrative expenses in the period.
 
@@ -2178,9 +2178,9 @@ Sales, general and administrative expenses in the period.
 - **Correlated:** [`ebitda_margin`](#ebitda_margin)
 
 <a id="subscription_revenue"></a>
-#### Subscription Revenue — `subscription_revenue`
+#### Subscription Revenue — `subscription_revenue` · currency
 
-Revenue from recurring subscription contracts
+Revenue from recurring subscription contracts.
 
 - **Domain:** Finance · **Industry:** saas
 - **Files:** [yml](dbt/models/metrics/finance/subscription_revenue.yml) · [sql](dbt/analyses/metrics/finance/subscription_revenue.sql)
@@ -2192,9 +2192,9 @@ Revenue from recurring subscription contracts
 - **Correlated:** [`arr`](#arr), [`nrr`](#nrr)
 
 <a id="workforce_productivity"></a>
-#### Workforce Productivity — `workforce_productivity`
+#### Revenue per Labor Hour — `workforce_productivity` · currency
 
-Output or revenue generated per labor hour worked
+Output or revenue generated per labor hour worked.
 
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/workforce_productivity.yml) · [sql](dbt/analyses/metrics/finance/workforce_productivity.sql)
@@ -2208,7 +2208,7 @@ Output or revenue generated per labor hour worked
 - **Correlated:** [`revenue_per_employee`](#revenue_per_employee), [`gross_profit_per_employee`](#gross_profit_per_employee), [`overtime_hours`](#overtime_hours)
 
 <a id="working_capital"></a>
-#### Working Capital — `working_capital`
+#### Working Capital — `working_capital` · currency
 
 Current assets minus current liabilities — short-term liquidity indicator.
 
@@ -2224,9 +2224,9 @@ Current assets minus current liabilities — short-term liquidity indicator.
 ### KPI · People & HR (21)
 
 <a id="absenteeism_rate"></a>
-#### Absenteeism Rate — `absenteeism_rate`
+#### Employee Absenteeism Rate — `absenteeism_rate` · rate
 
-Percentage of scheduled workdays lost to unplanned absences
+Percentage of scheduled workdays lost to unplanned absences.
 
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/absenteeism_rate.yml) · [sql](dbt/analyses/metrics/hr/absenteeism_rate.sql)
@@ -2239,9 +2239,9 @@ Percentage of scheduled workdays lost to unplanned absences
 - **Correlated:** [`employee_engagement_score`](#employee_engagement_score), [`turnover_rate`](#turnover_rate), [`overtime_hours`](#overtime_hours), [`remote_work_rate`](#remote_work_rate)
 
 <a id="avg_tenure"></a>
-#### Avg Tenure (yrs) — `avg_tenure`
+#### Average Employee Tenure — `avg_tenure` · years
 
-Average years of service among current employees
+Average years of service among current employees.
 
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/avg_tenure.yml) · [sql](dbt/analyses/metrics/hr/avg_tenure.sql)
@@ -2252,7 +2252,7 @@ Average years of service among current employees
 - **Correlated:** [`voluntary_turnover`](#voluntary_turnover), [`employee_engagement_score`](#employee_engagement_score)
 
 <a id="compensation_ratio"></a>
-#### Compensation Ratio — `compensation_ratio`
+#### Compensation Ratio — `compensation_ratio` · ratio
 
 Employee pay relative to market midpoint for their role — pay equity signal.
 
@@ -2266,9 +2266,9 @@ Employee pay relative to market midpoint for their role — pay equity signal.
 - **Correlated:** [`voluntary_turnover`](#voluntary_turnover), [`headcount_cost`](#headcount_cost)
 
 <a id="cost_per_hire"></a>
-#### Cost Per Hire — `cost_per_hire`
+#### Cost per Hire — `cost_per_hire` · currency
 
-Total recruiting costs divided by hires made
+Total recruiting costs divided by hires made.
 
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/cost_per_hire.yml) · [sql](dbt/analyses/metrics/hr/cost_per_hire.sql)
@@ -2281,9 +2281,9 @@ Total recruiting costs divided by hires made
 - **Correlated:** [`time_to_fill`](#time_to_fill), [`hr_cost_pct_revenue`](#hr_cost_pct_revenue), [`new_hires`](#new_hires), [`total_comp_expense`](#total_comp_expense)
 
 <a id="diversity_hire_rate"></a>
-#### Diversity Hire % — `diversity_hire_rate`
+#### Diversity Hire Rate — `diversity_hire_rate` · rate
 
-Percentage of hires from underrepresented groups
+Percentage of hires from underrepresented groups.
 
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/diversity_hire_rate.yml) · [sql](dbt/analyses/metrics/hr/diversity_hire_rate.sql)
@@ -2295,7 +2295,7 @@ Percentage of hires from underrepresented groups
 - **Correlated:** [`gender_pay_gap`](#gender_pay_gap), [`employee_engagement_score`](#employee_engagement_score)
 
 <a id="employee_engagement_score"></a>
-#### Employee Engagement Score — `employee_engagement_score`
+#### Employee Engagement Score — `employee_engagement_score` · score
 
 Composite score from engagement surveys (eNPS, pulse).
 
@@ -2309,9 +2309,9 @@ Composite score from engagement surveys (eNPS, pulse).
 - **Correlated:** [`voluntary_turnover`](#voluntary_turnover), [`headcount_cost`](#headcount_cost), [`employee_lifetime_value`](#employee_lifetime_value), [`manager_effectiveness_score`](#manager_effectiveness_score), [`school_climate_score`](#school_climate_score), [`training_hours_per_employee`](#training_hours_per_employee), [`enps`](#enps), [`turnover_rate`](#turnover_rate), [`absenteeism_rate`](#absenteeism_rate), [`avg_tenure`](#avg_tenure), [`benefits_utilization`](#benefits_utilization), [`diversity_hire_rate`](#diversity_hire_rate), [`gender_pay_gap`](#gender_pay_gap), [`regrettable_attrition`](#regrettable_attrition), [`remote_work_rate`](#remote_work_rate), [`survey_response_rate`](#survey_response_rate)
 
 <a id="enps"></a>
-#### eNPS — `enps`
+#### Employee Net Promoter Score — `enps` · score
 
-Employee net promoter score — likelihood to recommend the company as a workplace
+Employee net promoter score — likelihood to recommend the company as a workplace.
 
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/enps.yml) · [sql](dbt/analyses/metrics/hr/enps.sql)
@@ -2322,9 +2322,9 @@ Employee net promoter score — likelihood to recommend the company as a workpla
 - **Correlated:** [`employee_engagement_score`](#employee_engagement_score), [`nps`](#nps)
 
 <a id="gender_pay_gap"></a>
-#### Gender Pay Gap — `gender_pay_gap`
+#### Gender Pay Gap — `gender_pay_gap` · rate
 
-Median pay of female employees as a percentage of male employee median
+Median pay of female employees as a percentage of male employee median.
 
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/gender_pay_gap.yml) · [sql](dbt/analyses/metrics/hr/gender_pay_gap.sql)
@@ -2337,7 +2337,7 @@ Median pay of female employees as a percentage of male employee median
 - **Correlated:** [`diversity_hire_rate`](#diversity_hire_rate), [`employee_engagement_score`](#employee_engagement_score)
 
 <a id="headcount_cost"></a>
-#### Headcount Cost — `headcount_cost`
+#### Headcount Cost — `headcount_cost` · currency
 
 Total fully-loaded compensation cost including salary, benefits, and employer taxes.
 
@@ -2350,9 +2350,9 @@ Total fully-loaded compensation cost including salary, benefits, and employer ta
 - **Correlated:** [`headcount_fte`](#headcount_fte), [`revenue_per_employee`](#revenue_per_employee), [`compensation_ratio`](#compensation_ratio), [`employee_engagement_score`](#employee_engagement_score), [`safety_incident_rate`](#safety_incident_rate)
 
 <a id="headcount_vs_budget"></a>
-#### HC vs Budget — `headcount_vs_budget`
+#### Headcount Variance to Budget — `headcount_vs_budget` · count
 
-Actual headcount relative to approved headcount budget
+Actual headcount relative to approved headcount budget.
 
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/headcount_vs_budget.yml) · [sql](dbt/analyses/metrics/hr/headcount_vs_budget.sql)
@@ -2365,7 +2365,7 @@ Actual headcount relative to approved headcount budget
 - **Correlated:** [`budget_variance`](#budget_variance), [`opex`](#opex), [`headcount`](#headcount), [`open_requisitions`](#open_requisitions), [`span_of_control`](#span_of_control)
 
 <a id="internal_promotion_rate"></a>
-#### Internal Promotion Rate — `internal_promotion_rate`
+#### Internal Promotion Rate — `internal_promotion_rate` · rate
 
 % of open roles filled by internal candidates — talent pipeline health.
 
@@ -2379,9 +2379,9 @@ Actual headcount relative to approved headcount budget
 - **Correlated:** [`voluntary_turnover`](#voluntary_turnover), [`time_to_fill`](#time_to_fill), [`span_of_control`](#span_of_control), [`training_hours_per_employee`](#training_hours_per_employee)
 
 <a id="interview_to_offer_rate"></a>
-#### Interview-to-Offer % — `interview_to_offer_rate`
+#### Interview-to-Offer Rate — `interview_to_offer_rate` · rate
 
-Percentage of final-round interviews that resulted in an offer
+Percentage of final-round interviews that resulted in an offer.
 
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/interview_to_offer_rate.yml) · [sql](dbt/analyses/metrics/hr/interview_to_offer_rate.sql)
@@ -2393,7 +2393,7 @@ Percentage of final-round interviews that resulted in an offer
 - **Correlated:** [`offer_acceptance_rate`](#offer_acceptance_rate), [`time_to_hire`](#time_to_hire)
 
 <a id="manager_effectiveness_score"></a>
-#### Manager Effectiveness — `manager_effectiveness_score`
+#### Manager Effectiveness Score — `manager_effectiveness_score` · score
 
 Upward feedback score measuring managerial quality from direct reports.
 
@@ -2407,7 +2407,7 @@ Upward feedback score measuring managerial quality from direct reports.
 - **Correlated:** [`voluntary_turnover`](#voluntary_turnover), [`employee_engagement_score`](#employee_engagement_score)
 
 <a id="offer_acceptance_rate"></a>
-#### Offer Acceptance Rate — `offer_acceptance_rate`
+#### Offer Acceptance Rate — `offer_acceptance_rate` · rate
 
 % of job offers accepted by candidates.
 
@@ -2422,9 +2422,9 @@ Upward feedback score measuring managerial quality from direct reports.
 - **Correlated:** [`time_to_hire`](#time_to_hire), [`interview_to_offer_rate`](#interview_to_offer_rate), [`recruiting_pipeline`](#recruiting_pipeline)
 
 <a id="rd_headcount_pct"></a>
-#### R&D % of Headcount — `rd_headcount_pct`
+#### R&D Share of Headcount — `rd_headcount_pct` · rate
 
-Engineering and product staff as a share of total headcount
+Engineering and product staff as a share of total headcount.
 
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/rd_headcount_pct.yml) · [sql](dbt/analyses/metrics/hr/rd_headcount_pct.sql)
@@ -2438,9 +2438,9 @@ Engineering and product staff as a share of total headcount
 - **Correlated:** [`rd_as_pct_revenue`](#rd_as_pct_revenue), [`deployment_frequency`](#deployment_frequency), [`headcount`](#headcount), [`rd_headcount`](#rd_headcount)
 
 <a id="regrettable_attrition"></a>
-#### Regrettable Attrition % — `regrettable_attrition`
+#### Regrettable Attrition Share — `regrettable_attrition` · rate
 
-Percentage of turnover classified as regrettable by management
+Percentage of turnover classified as regrettable by management.
 
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/regrettable_attrition.yml) · [sql](dbt/analyses/metrics/hr/regrettable_attrition.sql)
@@ -2453,9 +2453,9 @@ Percentage of turnover classified as regrettable by management
 - **Correlated:** [`voluntary_turnover`](#voluntary_turnover), [`employee_engagement_score`](#employee_engagement_score), [`separations`](#separations), [`turnover_rate`](#turnover_rate)
 
 <a id="span_of_control"></a>
-#### Span of Control — `span_of_control`
+#### Span of Control — `span_of_control` · ratio
 
-Average number of direct reports per manager
+Average number of direct reports per manager.
 
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/span_of_control.yml) · [sql](dbt/analyses/metrics/hr/span_of_control.sql)
@@ -2468,7 +2468,7 @@ Average number of direct reports per manager
 - **Correlated:** [`headcount_vs_budget`](#headcount_vs_budget), [`internal_promotion_rate`](#internal_promotion_rate)
 
 <a id="time_to_fill"></a>
-#### Time to Fill — `time_to_fill`
+#### Time to Fill — `time_to_fill` · days
 
 Average days from job posting to offer accepted.
 
@@ -2483,9 +2483,9 @@ Average days from job posting to offer accepted.
 - **Correlated:** [`headcount_fte`](#headcount_fte), [`cac`](#cac), [`cost_per_hire`](#cost_per_hire), [`internal_promotion_rate`](#internal_promotion_rate), [`new_hires`](#new_hires), [`open_requisitions`](#open_requisitions), [`time_to_hire`](#time_to_hire)
 
 <a id="time_to_hire"></a>
-#### Time to Hire — `time_to_hire`
+#### Time to Hire — `time_to_hire` · days
 
-Average days from application to accepted offer
+Average days from application to accepted offer.
 
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/time_to_hire.yml) · [sql](dbt/analyses/metrics/hr/time_to_hire.sql)
@@ -2497,7 +2497,7 @@ Average days from application to accepted offer
 - **Correlated:** [`time_to_fill`](#time_to_fill), [`offer_acceptance_rate`](#offer_acceptance_rate), [`interview_to_offer_rate`](#interview_to_offer_rate), [`recruiting_pipeline`](#recruiting_pipeline)
 
 <a id="training_hours_per_employee"></a>
-#### Training Hours / Employee — `training_hours_per_employee`
+#### Training Hours per Employee — `training_hours_per_employee` · hours
 
 Average learning and development hours per employee per period.
 
@@ -2511,9 +2511,9 @@ Average learning and development hours per employee per period.
 - **Correlated:** [`employee_engagement_score`](#employee_engagement_score), [`internal_promotion_rate`](#internal_promotion_rate)
 
 <a id="voluntary_turnover"></a>
-#### Voluntary Turnover — `voluntary_turnover`
+#### Voluntary Turnover Rate — `voluntary_turnover` · rate
 
-Turnover from employee-initiated separations only
+Turnover from employee-initiated separations only.
 
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/voluntary_turnover.yml) · [sql](dbt/analyses/metrics/hr/voluntary_turnover.sql)
@@ -2528,9 +2528,9 @@ Turnover from employee-initiated separations only
 ### KPI · Marketing (32)
 
 <a id="app_store_rating"></a>
-#### App Store Rating — `app_store_rating`
+#### App Store Rating — `app_store_rating` · score
 
-Average rating on iOS App Store and Google Play
+Average rating on iOS App Store and Google Play.
 
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/app_store_rating.yml) · [sql](dbt/analyses/metrics/marketing/app_store_rating.sql)
@@ -2541,7 +2541,7 @@ Average rating on iOS App Store and Google Play
 - **Correlated:** [`nps`](#nps), [`csat`](#csat), [`review_rating`](#review_rating)
 
 <a id="avg_session_duration"></a>
-#### Avg Session Duration — `avg_session_duration`
+#### Average Session Duration — `avg_session_duration` · seconds
 
 Average time users spend per session in the product.
 
@@ -2555,7 +2555,7 @@ Average time users spend per session in the product.
 - **Correlated:** [`feature_adoption_rate`](#feature_adoption_rate), [`dau`](#dau), [`bounce_rate`](#bounce_rate), [`dau_mau_ratio`](#dau_mau_ratio), [`sessions_per_user`](#sessions_per_user), [`website_sessions`](#website_sessions)
 
 <a id="bounce_rate"></a>
-#### Bounce Rate — `bounce_rate`
+#### Bounce Rate — `bounce_rate` · rate
 
 % of sessions where users leave after viewing only one page.
 
@@ -2570,9 +2570,9 @@ Average time users spend per session in the product.
 - **Correlated:** [`web_conversion_rate`](#web_conversion_rate), [`avg_session_duration`](#avg_session_duration), [`session_to_lead_rate`](#session_to_lead_rate), [`website_sessions`](#website_sessions)
 
 <a id="cost_per_event_attendee"></a>
-#### Cost / Attendee — `cost_per_event_attendee`
+#### Cost per Event Attendee — `cost_per_event_attendee` · currency
 
-Total event spend divided by number of attendees
+Total event spend divided by number of attendees.
 
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/cost_per_event_attendee.yml) · [sql](dbt/analyses/metrics/marketing/cost_per_event_attendee.sql)
@@ -2584,7 +2584,7 @@ Total event spend divided by number of attendees
 - **Correlated:** [`event_attendees`](#event_attendees), [`cpl`](#cpl)
 
 <a id="cost_per_mql"></a>
-#### Cost per MQL — `cost_per_mql`
+#### Cost per Marketing Qualified Lead — `cost_per_mql` · currency
 
 Total marketing spend divided by MQLs generated.
 
@@ -2600,7 +2600,7 @@ Total marketing spend divided by MQLs generated.
 - **Correlated:** [`cpl`](#cpl), [`marketing_cac`](#marketing_cac), [`cost_per_sql`](#cost_per_sql), [`mql`](#mql), [`web_conversion_rate`](#web_conversion_rate)
 
 <a id="cost_per_sql"></a>
-#### Cost per SQL — `cost_per_sql`
+#### Cost per Sales Qualified Lead — `cost_per_sql` · currency
 
 Total marketing spend per sales-qualified lead generated.
 
@@ -2615,7 +2615,7 @@ Total marketing spend per sales-qualified lead generated.
 - **Correlated:** [`cost_per_mql`](#cost_per_mql), [`cac`](#cac)
 
 <a id="cpc"></a>
-#### CPC — `cpc`
+#### Cost per Click — `cpc` · currency
 
 Average cost paid per ad click.
 
@@ -2630,9 +2630,9 @@ Average cost paid per ad click.
 - **Correlated:** [`ctr`](#ctr), [`roas`](#roas), [`impressions`](#impressions), [`cpl`](#cpl), [`cpm`](#cpm), [`marketing_spend`](#marketing_spend)
 
 <a id="cpl"></a>
-#### Cost Per Lead — `cpl`
+#### Cost per Lead — `cpl` · currency
 
-Total marketing spend divided by leads generated
+Total marketing spend divided by leads generated.
 
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/cpl.yml) · [sql](dbt/analyses/metrics/marketing/cpl.sql)
@@ -2645,7 +2645,7 @@ Total marketing spend divided by leads generated
 - **Correlated:** [`cost_per_mql`](#cost_per_mql), [`cpc`](#cpc), [`cost_per_event_attendee`](#cost_per_event_attendee), [`leads`](#leads)
 
 <a id="cpm"></a>
-#### CPM — `cpm`
+#### Cost per Thousand Impressions — `cpm` · currency
 
 Cost per thousand impressions — media efficiency benchmark.
 
@@ -2660,7 +2660,7 @@ Cost per thousand impressions — media efficiency benchmark.
 - **Correlated:** [`ctr`](#ctr), [`cpc`](#cpc)
 
 <a id="ctr"></a>
-#### CTR — `ctr`
+#### Click-Through Rate — `ctr` · rate
 
 Clicks divided by impressions — ad relevance and creative effectiveness.
 
@@ -2675,9 +2675,9 @@ Clicks divided by impressions — ad relevance and creative effectiveness.
 - **Correlated:** [`cpc`](#cpc), [`web_conversion_rate`](#web_conversion_rate), [`cpm`](#cpm), [`roas`](#roas), [`impressions`](#impressions)
 
 <a id="domain_authority"></a>
-#### Domain Authority — `domain_authority`
+#### Domain Authority — `domain_authority` · score
 
-Third-party domain authority score (Moz, Ahrefs) from 0 to 100
+Third-party domain authority score (Moz, Ahrefs) from 0 to 100.
 
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/domain_authority.yml) · [sql](dbt/analyses/metrics/marketing/domain_authority.sql)
@@ -2689,9 +2689,9 @@ Third-party domain authority score (Moz, Ahrefs) from 0 to 100
 - **Correlated:** [`organic_sessions`](#organic_sessions), [`top10_keyword_count`](#top10_keyword_count), [`backlinks_count`](#backlinks_count), [`backlink_count`](#backlink_count), [`content_published_count`](#content_published_count), [`oss_stars`](#oss_stars), [`pr_mentions`](#pr_mentions), [`social_engagement_rate`](#social_engagement_rate)
 
 <a id="earned_media_value"></a>
-#### Earned Media Value — `earned_media_value`
+#### Earned Media Value — `earned_media_value` · currency
 
-Estimated equivalent value of organic press coverage
+Estimated equivalent value of organic press coverage.
 
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/earned_media_value.yml) · [sql](dbt/analyses/metrics/marketing/earned_media_value.sql)
@@ -2703,7 +2703,7 @@ Estimated equivalent value of organic press coverage
 - **Correlated:** [`pr_mentions`](#pr_mentions), [`social_engagement_rate`](#social_engagement_rate)
 
 <a id="email_click_rate"></a>
-#### Email Click Rate — `email_click_rate`
+#### Email Click Rate — `email_click_rate` · rate
 
 % of delivered emails that received at least one click.
 
@@ -2718,7 +2718,7 @@ Estimated equivalent value of organic press coverage
 - **Correlated:** [`email_open_rate`](#email_open_rate), [`web_conversion_rate`](#web_conversion_rate), [`form_conversion_rate`](#form_conversion_rate), [`unsubscribe_rate`](#unsubscribe_rate)
 
 <a id="email_open_rate"></a>
-#### Email Open Rate — `email_open_rate`
+#### Email Open Rate — `email_open_rate` · rate
 
 % of delivered emails that were opened.
 
@@ -2732,9 +2732,9 @@ Estimated equivalent value of organic press coverage
 - **Correlated:** [`email_click_rate`](#email_click_rate), [`unsubscribe_rate`](#unsubscribe_rate), [`push_open_rate`](#push_open_rate), [`webinar_attendance_rate`](#webinar_attendance_rate)
 
 <a id="form_conversion_rate"></a>
-#### Form CVR % — `form_conversion_rate`
+#### Form Conversion Rate — `form_conversion_rate` · rate
 
-Percentage of form page visitors who submitted a form
+Percentage of form page visitors who submitted a form.
 
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/form_conversion_rate.yml) · [sql](dbt/analyses/metrics/marketing/form_conversion_rate.sql)
@@ -2747,9 +2747,9 @@ Percentage of form page visitors who submitted a form
 - **Correlated:** [`session_to_lead_rate`](#session_to_lead_rate), [`lead_to_mql_rate`](#lead_to_mql_rate), [`demo_requests`](#demo_requests), [`email_click_rate`](#email_click_rate), [`webinar_attendance_rate`](#webinar_attendance_rate)
 
 <a id="marketing_cac"></a>
-#### Marketing CAC — `marketing_cac`
+#### Marketing Customer Acquisition Cost — `marketing_cac` · currency
 
-Total marketing spend divided by new customers acquired
+Total marketing spend divided by new customers acquired.
 
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/marketing_cac.yml) · [sql](dbt/analyses/metrics/marketing/marketing_cac.sql)
@@ -2762,7 +2762,7 @@ Total marketing spend divided by new customers acquired
 - **Correlated:** [`cac`](#cac), [`cost_per_mql`](#cost_per_mql), [`marketing_roi`](#marketing_roi), [`sm_spend`](#sm_spend), [`marketing_spend`](#marketing_spend)
 
 <a id="marketing_spend"></a>
-#### Marketing Spend — `marketing_spend`
+#### Marketing Spend — `marketing_spend` · currency
 
 Total paid and owned marketing spend in the period.
 
@@ -2775,7 +2775,7 @@ Total paid and owned marketing spend in the period.
 - **Correlated:** [`revenue`](#revenue), [`mrr`](#mrr), [`sales_spend`](#sales_spend), [`roas`](#roas), [`cpc`](#cpc), [`marketing_cac`](#marketing_cac)
 
 <a id="organic_sessions"></a>
-#### Organic Sessions — `organic_sessions`
+#### Organic Sessions — `organic_sessions` · count
 
 Web sessions from unpaid search (SEO) traffic.
 
@@ -2789,7 +2789,7 @@ Web sessions from unpaid search (SEO) traffic.
 - **Correlated:** [`paid_sessions`](#paid_sessions), [`web_conversion_rate`](#web_conversion_rate), [`backlink_count`](#backlink_count), [`content_published_count`](#content_published_count), [`referral_sessions`](#referral_sessions), [`share_of_voice`](#share_of_voice), [`social_followers`](#social_followers), [`top10_keyword_count`](#top10_keyword_count), [`backlinks_count`](#backlinks_count), [`domain_authority`](#domain_authority)
 
 <a id="paid_sessions"></a>
-#### Paid Sessions — `paid_sessions`
+#### Paid Sessions — `paid_sessions` · count
 
 Web sessions from paid advertising channels (CPC, CPM).
 
@@ -2802,9 +2802,9 @@ Web sessions from paid advertising channels (CPC, CPM).
 - **Correlated:** [`organic_sessions`](#organic_sessions), [`roas`](#roas)
 
 <a id="push_open_rate"></a>
-#### Push Open Rate — `push_open_rate`
+#### Push Notification Open Rate — `push_open_rate` · rate
 
-Percentage of push notifications that were opened
+Percentage of push notifications that were opened.
 
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/push_open_rate.yml) · [sql](dbt/analyses/metrics/marketing/push_open_rate.sql)
@@ -2816,9 +2816,9 @@ Percentage of push notifications that were opened
 - **Correlated:** [`email_open_rate`](#email_open_rate), [`dau_mau_ratio`](#dau_mau_ratio)
 
 <a id="review_rating"></a>
-#### Review Rating — `review_rating`
+#### Third-Party Review Rating — `review_rating` · score
 
-Average rating on third-party review platforms (out of 5)
+Average rating on third-party review platforms (out of 5).
 
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/review_rating.yml) · [sql](dbt/analyses/metrics/marketing/review_rating.sql)
@@ -2829,7 +2829,7 @@ Average rating on third-party review platforms (out of 5)
 - **Correlated:** [`nps`](#nps), [`csat`](#csat), [`app_store_rating`](#app_store_rating), [`testimonials_count`](#testimonials_count)
 
 <a id="roas"></a>
-#### ROAS — `roas`
+#### Return on Ad Spend — `roas` · ratio
 
 Revenue attributed to ads divided by ad spend — direct campaign ROI.
 
@@ -2844,9 +2844,9 @@ Revenue attributed to ads divided by ad spend — direct campaign ROI.
 - **Correlated:** [`cac`](#cac), [`ltv_cac`](#ltv_cac), [`ctr`](#ctr), [`cpc`](#cpc), [`marketing_influenced_pipeline`](#marketing_influenced_pipeline), [`marketing_roi`](#marketing_roi), [`paid_attribution_pct`](#paid_attribution_pct), [`paid_sessions`](#paid_sessions), [`marketing_spend`](#marketing_spend)
 
 <a id="session_to_lead_rate"></a>
-#### Session → Lead % — `session_to_lead_rate`
+#### Session-to-Lead Conversion Rate — `session_to_lead_rate` · rate
 
-Percentage of web sessions that convert to a lead
+Percentage of web sessions that convert to a lead.
 
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/session_to_lead_rate.yml) · [sql](dbt/analyses/metrics/marketing/session_to_lead_rate.sql)
@@ -2859,9 +2859,9 @@ Percentage of web sessions that convert to a lead
 - **Correlated:** [`form_conversion_rate`](#form_conversion_rate), [`bounce_rate`](#bounce_rate), [`funnel_dropoff`](#funnel_dropoff)
 
 <a id="sessions_per_user"></a>
-#### Sessions / User — `sessions_per_user`
+#### Sessions per User — `sessions_per_user` · ratio
 
-Average number of sessions per active user in the period
+Average number of sessions per active user in the period.
 
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/sessions_per_user.yml) · [sql](dbt/analyses/metrics/marketing/sessions_per_user.sql)
@@ -2874,7 +2874,7 @@ Average number of sessions per active user in the period
 - **Correlated:** [`dau_mau_ratio`](#dau_mau_ratio), [`avg_session_duration`](#avg_session_duration)
 
 <a id="share_of_voice"></a>
-#### Share of Voice — `share_of_voice`
+#### Share of Voice — `share_of_voice` · rate
 
 Brand mentions as a % of total category mentions — competitive visibility.
 
@@ -2889,9 +2889,9 @@ Brand mentions as a % of total category mentions — competitive visibility.
 - **Correlated:** [`organic_sessions`](#organic_sessions), [`impressions`](#impressions)
 
 <a id="social_engagement_rate"></a>
-#### Social Engagement % — `social_engagement_rate`
+#### Social Engagement Rate — `social_engagement_rate` · rate
 
-Average engagements (likes, comments, shares) per post divided by reach
+Average engagements (likes, comments, shares) per post divided by reach.
 
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/social_engagement_rate.yml) · [sql](dbt/analyses/metrics/marketing/social_engagement_rate.sql)
@@ -2904,7 +2904,7 @@ Average engagements (likes, comments, shares) per post divided by reach
 - **Correlated:** [`domain_authority`](#domain_authority), [`earned_media_value`](#earned_media_value), [`pr_mentions`](#pr_mentions)
 
 <a id="top10_keyword_count"></a>
-#### Top 10 Keywords — `top10_keyword_count`
+#### Keywords Ranking in the Top 10 — `top10_keyword_count` · count
 
 Number of target keywords ranking in Google's top 10 results.
 
@@ -2918,7 +2918,7 @@ Number of target keywords ranking in Google's top 10 results.
 - **Correlated:** [`organic_sessions`](#organic_sessions), [`content_published_count`](#content_published_count), [`domain_authority`](#domain_authority), [`backlinks_count`](#backlinks_count)
 
 <a id="unsubscribe_rate"></a>
-#### Unsubscribe Rate — `unsubscribe_rate`
+#### Email Unsubscribe Rate — `unsubscribe_rate` · rate
 
 % of email recipients who unsubscribed — list health signal.
 
@@ -2932,9 +2932,9 @@ Number of target keywords ranking in Google's top 10 results.
 - **Correlated:** [`email_open_rate`](#email_open_rate), [`email_click_rate`](#email_click_rate)
 
 <a id="viral_coefficient"></a>
-#### Viral Coefficient (K) — `viral_coefficient`
+#### Viral Coefficient — `viral_coefficient` · ratio
 
-Average number of new customers each existing customer generates
+Average number of new customers each existing customer generates.
 
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/viral_coefficient.yml) · [sql](dbt/analyses/metrics/marketing/viral_coefficient.sql)
@@ -2946,7 +2946,7 @@ Average number of new customers each existing customer generates
 - **Correlated:** [`plg_rate`](#plg_rate), [`trial_to_paid_rate`](#trial_to_paid_rate), [`oss_stars`](#oss_stars), [`referral_attribution_pct`](#referral_attribution_pct)
 
 <a id="web_conversion_rate"></a>
-#### Web Conversion Rate — `web_conversion_rate`
+#### Website Conversion Rate — `web_conversion_rate` · rate
 
 % of sessions that result in a conversion event (form fill, signup, etc.).
 
@@ -2961,9 +2961,9 @@ Average number of new customers each existing customer generates
 - **Correlated:** [`ctr`](#ctr), [`cost_per_mql`](#cost_per_mql), [`ad_clicks`](#ad_clicks), [`bounce_rate`](#bounce_rate), [`email_click_rate`](#email_click_rate), [`organic_sessions`](#organic_sessions), [`website_sessions`](#website_sessions)
 
 <a id="webinar_attendance_rate"></a>
-#### Webinar Attendance % — `webinar_attendance_rate`
+#### Webinar Attendance Rate — `webinar_attendance_rate` · rate
 
-Percentage of webinar registrants who attended live
+Percentage of webinar registrants who attended live.
 
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/webinar_attendance_rate.yml) · [sql](dbt/analyses/metrics/marketing/webinar_attendance_rate.sql)
@@ -2976,7 +2976,7 @@ Percentage of webinar registrants who attended live
 - **Correlated:** [`email_open_rate`](#email_open_rate), [`form_conversion_rate`](#form_conversion_rate), [`webinar_registrants`](#webinar_registrants)
 
 <a id="website_sessions"></a>
-#### Website Sessions — `website_sessions`
+#### Website Sessions — `website_sessions` · count
 
 Total web sessions across all channels.
 
@@ -2992,9 +2992,9 @@ Total web sessions across all channels.
 ### KPI · Operations (17)
 
 <a id="capacity_utilization"></a>
-#### Capacity Utilization % — `capacity_utilization`
+#### Capacity Utilization Rate — `capacity_utilization` · rate
 
-Actual output as a percentage of total available capacity
+Actual output as a percentage of total available capacity.
 
 - **Domain:** Operations · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/operations/capacity_utilization.yml) · [sql](dbt/analyses/metrics/operations/capacity_utilization.sql)
@@ -3007,7 +3007,7 @@ Actual output as a percentage of total available capacity
 - **Correlated:** [`warehouse_utilization`](#warehouse_utilization), [`cycle_time`](#cycle_time), [`throughput`](#throughput), [`defect_rate`](#defect_rate), [`cost_per_unit`](#cost_per_unit), [`energy_cost_per_unit`](#energy_cost_per_unit)
 
 <a id="carbon_emissions_per_unit"></a>
-#### Carbon per Unit — `carbon_emissions_per_unit`
+#### Carbon Emissions per Unit — `carbon_emissions_per_unit` · ratio
 
 kg CO2 equivalent emitted per unit of output — ESG and sustainability metric.
 
@@ -3021,7 +3021,7 @@ kg CO2 equivalent emitted per unit of output — ESG and sustainability metric.
 - **Correlated:** [`energy_cost_per_unit`](#energy_cost_per_unit), [`cost_per_unit`](#cost_per_unit)
 
 <a id="cost_per_mile"></a>
-#### Cost per Mile — `cost_per_mile`
+#### Cost per Mile — `cost_per_mile` · currency
 
 Total fleet operating cost divided by total miles driven.
 
@@ -3036,7 +3036,7 @@ Total fleet operating cost divided by total miles driven.
 - **Correlated:** [`fleet_utilization_rate`](#fleet_utilization_rate)
 
 <a id="cost_per_unit"></a>
-#### Cost per Unit — `cost_per_unit`
+#### Cost per Unit — `cost_per_unit` · currency
 
 Total production cost divided by units produced in the period.
 
@@ -3051,9 +3051,9 @@ Total production cost divided by units produced in the period.
 - **Correlated:** [`defect_rate`](#defect_rate), [`capacity_utilization`](#capacity_utilization), [`carbon_emissions_per_unit`](#carbon_emissions_per_unit), [`procurement_savings_rate`](#procurement_savings_rate)
 
 <a id="cycle_time"></a>
-#### Cycle Time — `cycle_time`
+#### Cycle Time — `cycle_time` · hours
 
-Average time from work start to delivery
+Average time from work start to delivery.
 
 - **Domain:** Operations · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/operations/cycle_time.yml) · [sql](dbt/analyses/metrics/operations/cycle_time.sql)
@@ -3065,7 +3065,7 @@ Average time from work start to delivery
 - **Correlated:** [`lead_time`](#lead_time), [`throughput`](#throughput), [`on_time_delivery_rate`](#on_time_delivery_rate), [`capacity_utilization`](#capacity_utilization), [`process_automation_rate`](#process_automation_rate)
 
 <a id="defect_rate"></a>
-#### Defect Rate — `defect_rate`
+#### Defect Rate — `defect_rate` · rate
 
 % of units produced or received that fail quality inspection.
 
@@ -3079,7 +3079,7 @@ Average time from work start to delivery
 - **Correlated:** [`order_accuracy_rate`](#order_accuracy_rate), [`fill_rate`](#fill_rate), [`capacity_utilization`](#capacity_utilization), [`cost_per_unit`](#cost_per_unit), [`return_rate`](#return_rate), [`vendor_compliance_rate`](#vendor_compliance_rate), [`vendor_scorecard_rating`](#vendor_scorecard_rating)
 
 <a id="fleet_utilization_rate"></a>
-#### Fleet Utilization Rate — `fleet_utilization_rate`
+#### Fleet Utilization Rate — `fleet_utilization_rate` · rate
 
 % of available vehicle hours actually used in operations.
 
@@ -3093,7 +3093,7 @@ Average time from work start to delivery
 - **Correlated:** [`cost_per_mile`](#cost_per_mile)
 
 <a id="preventive_maintenance_rate"></a>
-#### Preventive Maintenance Rate — `preventive_maintenance_rate`
+#### Preventive Maintenance Rate — `preventive_maintenance_rate` · rate
 
 % of maintenance activity that is planned preventive vs reactive.
 
@@ -3108,9 +3108,9 @@ Average time from work start to delivery
 - **Correlated:** [`work_order_resolution_time`](#work_order_resolution_time), [`mtbf`](#mtbf), [`uptime`](#uptime)
 
 <a id="process_automation_rate"></a>
-#### Automation Rate — `process_automation_rate`
+#### Process Automation Rate — `process_automation_rate` · rate
 
-Percentage of defined processes that run without manual intervention
+Percentage of defined processes that run without manual intervention.
 
 - **Domain:** Operations · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/operations/process_automation_rate.yml) · [sql](dbt/analyses/metrics/operations/process_automation_rate.sql)
@@ -3121,7 +3121,7 @@ Percentage of defined processes that run without manual intervention
 - **Correlated:** [`cycle_time`](#cycle_time), [`throughput`](#throughput)
 
 <a id="procurement_savings_rate"></a>
-#### Procurement Savings Rate — `procurement_savings_rate`
+#### Procurement Savings Rate — `procurement_savings_rate` · rate
 
 Actual spend vs budgeted or baseline spend — cost reduction from procurement initiatives.
 
@@ -3135,7 +3135,7 @@ Actual spend vs budgeted or baseline spend — cost reduction from procurement i
 - **Correlated:** [`cost_per_unit`](#cost_per_unit), [`gross_margin_pct`](#gross_margin_pct)
 
 <a id="safety_incident_rate"></a>
-#### Safety Incident Rate — `safety_incident_rate`
+#### Safety Incident Rate — `safety_incident_rate` · ratio
 
 OSHA recordable incident rate per 100 full-time employees.
 
@@ -3149,7 +3149,7 @@ OSHA recordable incident rate per 100 full-time employees.
 - **Correlated:** [`voluntary_turnover`](#voluntary_turnover), [`headcount_cost`](#headcount_cost)
 
 <a id="supplier_lead_time"></a>
-#### Supplier Lead Time — `supplier_lead_time`
+#### Supplier Lead Time — `supplier_lead_time` · days
 
 Average days from purchase order creation to goods receipt.
 
@@ -3163,9 +3163,9 @@ Average days from purchase order creation to goods receipt.
 - **Correlated:** [`fill_rate`](#fill_rate), [`inventory_turnover`](#inventory_turnover), [`vendor_compliance_rate`](#vendor_compliance_rate)
 
 <a id="throughput"></a>
-#### Throughput — `throughput`
+#### Production Throughput — `throughput` · count
 
-Number of units completed per period
+Number of units completed per period.
 
 - **Domain:** Operations · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/operations/throughput.yml) · [sql](dbt/analyses/metrics/operations/throughput.sql)
@@ -3176,9 +3176,9 @@ Number of units completed per period
 - **Correlated:** [`cycle_time`](#cycle_time), [`capacity_utilization`](#capacity_utilization), [`ops_efficiency_ratio`](#ops_efficiency_ratio), [`process_automation_rate`](#process_automation_rate)
 
 <a id="vendor_compliance_rate"></a>
-#### Vendor Compliance % — `vendor_compliance_rate`
+#### Vendor Compliance Rate — `vendor_compliance_rate` · rate
 
-Percentage of purchase orders fulfilled by vendors per specifications
+Percentage of purchase orders fulfilled by vendors per specifications.
 
 - **Domain:** Operations · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/operations/vendor_compliance_rate.yml) · [sql](dbt/analyses/metrics/operations/vendor_compliance_rate.sql)
@@ -3190,7 +3190,7 @@ Percentage of purchase orders fulfilled by vendors per specifications
 - **Correlated:** [`supplier_lead_time`](#supplier_lead_time), [`defect_rate`](#defect_rate), [`shrinkage_rate`](#shrinkage_rate)
 
 <a id="vendor_scorecard_rating"></a>
-#### Vendor Scorecard Rating — `vendor_scorecard_rating`
+#### Vendor Scorecard Rating — `vendor_scorecard_rating` · score
 
 Composite supplier performance score across quality, delivery, and cost dimensions.
 
@@ -3204,9 +3204,9 @@ Composite supplier performance score across quality, delivery, and cost dimensio
 - **Correlated:** [`fill_rate`](#fill_rate), [`defect_rate`](#defect_rate)
 
 <a id="warehouse_utilization"></a>
-#### Warehouse Utilization % — `warehouse_utilization`
+#### Warehouse Utilization Rate — `warehouse_utilization` · rate
 
-Percentage of warehouse storage capacity currently in use
+Percentage of warehouse storage capacity currently in use.
 
 - **Domain:** Operations · **Industry:** manufacturing
 - **Files:** [yml](dbt/models/metrics/operations/warehouse_utilization.yml) · [sql](dbt/analyses/metrics/operations/warehouse_utilization.sql)
@@ -3218,7 +3218,7 @@ Percentage of warehouse storage capacity currently in use
 - **Correlated:** [`capacity_utilization`](#capacity_utilization), [`inventory_value`](#inventory_value), [`fill_rate`](#fill_rate), [`inventory_turnover`](#inventory_turnover)
 
 <a id="work_order_resolution_time"></a>
-#### Work Order Resolution Time — `work_order_resolution_time`
+#### Work Order Resolution Time — `work_order_resolution_time` · days
 
 Average days to close a maintenance work order from creation.
 
@@ -3235,7 +3235,7 @@ Average days to close a maintenance work order from creation.
 ### KPI · Product (21)
 
 <a id="activation_rate"></a>
-#### Activation Rate — `activation_rate`
+#### User Activation Rate — `activation_rate` · rate
 
 % of signups that reach the activation milestone within the first session or week.
 
@@ -3250,7 +3250,7 @@ Average days to close a maintenance work order from creation.
 - **Correlated:** [`onboarding_completion_rate`](#onboarding_completion_rate), [`time_to_value`](#time_to_value), [`app_downloads`](#app_downloads), [`d7_retention`](#d7_retention), [`feature_adoption_rate`](#feature_adoption_rate), [`free_to_paid_rate`](#free_to_paid_rate), [`funnel_dropoff`](#funnel_dropoff), [`new_user_signups`](#new_user_signups), [`customer_onboarding_time`](#customer_onboarding_time), [`time_to_activate`](#time_to_activate), [`trial_signups`](#trial_signups), [`trial_to_paid_rate`](#trial_to_paid_rate)
 
 <a id="api_latency_p95"></a>
-#### API Latency p95 — `api_latency_p95`
+#### 95th Percentile API Latency — `api_latency_p95` · milliseconds
 
 95th percentile API response time in milliseconds.
 
@@ -3264,7 +3264,7 @@ Average days to close a maintenance work order from creation.
 - **Correlated:** [`error_rate`](#error_rate), [`csat`](#csat), [`api_calls_total`](#api_calls_total), [`uptime`](#uptime)
 
 <a id="ces"></a>
-#### CES — `ces`
+#### Customer Effort Score — `ces` · score
 
 How easy it was for customers to resolve an issue — lower effort = better.
 
@@ -3277,7 +3277,7 @@ How easy it was for customers to resolve an issue — lower effort = better.
 - **Correlated:** [`csat`](#csat), [`nps`](#nps), [`cx_csat`](#cx_csat), [`first_response_time`](#first_response_time), [`ticket_resolution_rate`](#ticket_resolution_rate)
 
 <a id="csat"></a>
-#### CSAT — `csat`
+#### CSAT Score — `csat` · score
 
 Average satisfaction rating from post-interaction surveys (1–5 or 1–10).
 
@@ -3292,9 +3292,9 @@ Average satisfaction rating from post-interaction surveys (1–5 or 1–10).
 - **Correlated:** [`nps`](#nps), [`churn_rate`](#churn_rate), [`api_latency_p95`](#api_latency_p95), [`app_store_rating`](#app_store_rating), [`ces`](#ces), [`complaint_resolution_rate`](#complaint_resolution_rate), [`complaints_count`](#complaints_count), [`cx_csat`](#cx_csat), [`error_rate`](#error_rate), [`fcr_rate`](#fcr_rate), [`first_response_time`](#first_response_time), [`ops_north_star`](#ops_north_star), [`return_rate`](#return_rate), [`refund_rate`](#refund_rate), [`review_rating`](#review_rating), [`sla_breach_rate`](#sla_breach_rate), [`sla_compliance_rate`](#sla_compliance_rate), [`tickets_created`](#tickets_created), [`survey_response_rate`](#survey_response_rate), [`tickets_per_customer`](#tickets_per_customer), [`time_to_resolution`](#time_to_resolution)
 
 <a id="d30_retention"></a>
-#### D30 Retention — `d30_retention`
+#### Day-30 User Retention — `d30_retention` · rate
 
-Percentage of new users still active 30 days after signup
+Percentage of new users still active 30 days after signup.
 
 - **Domain:** Product · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/product/d30_retention.yml) · [sql](dbt/analyses/metrics/product/d30_retention.sql)
@@ -3307,9 +3307,9 @@ Percentage of new users still active 30 days after signup
 - **Correlated:** [`d7_retention`](#d7_retention), [`churn_rate`](#churn_rate), [`cohort_churn`](#cohort_churn), [`cohort_ltv_12m`](#cohort_ltv_12m), [`product_churn_rate`](#product_churn_rate), [`dau_mau_ratio`](#dau_mau_ratio), [`churn_prediction_score`](#churn_prediction_score)
 
 <a id="d7_retention"></a>
-#### D7 Retention — `d7_retention`
+#### Day-7 User Retention — `d7_retention` · rate
 
-Percentage of new users still active 7 days after signup
+Percentage of new users still active 7 days after signup.
 
 - **Domain:** Product · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/product/d7_retention.yml) · [sql](dbt/analyses/metrics/product/d7_retention.sql)
@@ -3322,7 +3322,7 @@ Percentage of new users still active 7 days after signup
 - **Correlated:** [`d30_retention`](#d30_retention), [`activation_rate`](#activation_rate), [`dau_mau_ratio`](#dau_mau_ratio)
 
 <a id="dau"></a>
-#### DAU — `dau`
+#### Daily Active Users — `dau` · count
 
 Daily Active Users — unique users who performed a qualifying action in a day.
 
@@ -3336,9 +3336,9 @@ Daily Active Users — unique users who performed a qualifying action in a day.
 - **Correlated:** [`mau`](#mau), [`wau`](#wau), [`api_consumers`](#api_consumers), [`app_downloads`](#app_downloads), [`avg_session_duration`](#avg_session_duration), [`website_sessions`](#website_sessions)
 
 <a id="dau_mau_ratio"></a>
-#### DAU/MAU — `dau_mau_ratio`
+#### Daily-to-Monthly Active User Ratio — `dau_mau_ratio` · rate
 
-Stickiness ratio — daily to monthly active user proportion
+Stickiness ratio — daily to monthly active user proportion.
 
 - **Domain:** Product · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/product/dau_mau_ratio.yml) · [sql](dbt/analyses/metrics/product/dau_mau_ratio.sql)
@@ -3351,7 +3351,7 @@ Stickiness ratio — daily to monthly active user proportion
 - **Correlated:** [`avg_session_duration`](#avg_session_duration), [`d7_retention`](#d7_retention), [`feature_adoption_rate`](#feature_adoption_rate), [`push_open_rate`](#push_open_rate), [`d30_retention`](#d30_retention), [`sessions_per_user`](#sessions_per_user)
 
 <a id="error_rate"></a>
-#### Error Rate — `error_rate`
+#### API Error Rate — `error_rate` · rate
 
 % of user sessions or API calls that result in an error.
 
@@ -3366,7 +3366,7 @@ Stickiness ratio — daily to monthly active user proportion
 - **Correlated:** [`csat`](#csat), [`churn_rate`](#churn_rate), [`api_latency_p95`](#api_latency_p95), [`lead_time_for_changes`](#lead_time_for_changes), [`mttd`](#mttd), [`uptime`](#uptime)
 
 <a id="feature_adoption_rate"></a>
-#### Feature Adoption Rate — `feature_adoption_rate`
+#### Feature Adoption Rate — `feature_adoption_rate` · rate
 
 % of active users who used a specific feature at least once in the period.
 
@@ -3381,9 +3381,9 @@ Stickiness ratio — daily to monthly active user proportion
 - **Correlated:** [`expansion_arr`](#expansion_arr), [`nps`](#nps), [`avg_session_duration`](#avg_session_duration), [`feature_request_volume`](#feature_request_volume), [`onboarding_completion_rate`](#onboarding_completion_rate), [`time_to_value`](#time_to_value), [`dau_mau_ratio`](#dau_mau_ratio), [`activation_rate`](#activation_rate)
 
 <a id="free_to_paid_rate"></a>
-#### Free-to-Paid % — `free_to_paid_rate`
+#### Free-to-Paid Conversion Rate — `free_to_paid_rate` · rate
 
-Percentage of free-tier users who convert to a paid plan
+Percentage of free-tier users who convert to a paid plan.
 
 - **Domain:** Product · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/product/free_to_paid_rate.yml) · [sql](dbt/analyses/metrics/product/free_to_paid_rate.sql)
@@ -3396,9 +3396,9 @@ Percentage of free-tier users who convert to a paid plan
 - **Correlated:** [`trial_to_paid_rate`](#trial_to_paid_rate), [`activation_rate`](#activation_rate), [`active_paying_users`](#active_paying_users), [`trial_signups`](#trial_signups)
 
 <a id="iap_revenue"></a>
-#### IAP Revenue — `iap_revenue`
+#### In-App Purchase Revenue — `iap_revenue` · currency
 
-Revenue from in-app purchases made by users
+Revenue from in-app purchases made by users.
 
 - **Domain:** Product · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/product/iap_revenue.yml) · [sql](dbt/analyses/metrics/product/iap_revenue.sql)
@@ -3409,7 +3409,7 @@ Revenue from in-app purchases made by users
 - **Correlated:** [`arpu`](#arpu), [`aov`](#aov)
 
 <a id="mau"></a>
-#### MAU — `mau`
+#### Monthly Active Users — `mau` · count
 
 Monthly Active Users — unique users active in the last 30 days.
 
@@ -3423,7 +3423,7 @@ Monthly Active Users — unique users active in the last 30 days.
 - **Correlated:** [`dau`](#dau), [`wau`](#wau)
 
 <a id="new_user_signups"></a>
-#### New Signups — `new_user_signups`
+#### New User Signups — `new_user_signups` · count
 
 Count of new user account registrations in the period.
 
@@ -3437,7 +3437,7 @@ Count of new user account registrations in the period.
 - **Correlated:** [`activation_rate`](#activation_rate), [`mql`](#mql), [`trial_signups`](#trial_signups)
 
 <a id="onboarding_completion_rate"></a>
-#### Onboarding Completion — `onboarding_completion_rate`
+#### User Onboarding Completion Rate — `onboarding_completion_rate` · rate
 
 % of new users who complete all onboarding steps.
 
@@ -3451,9 +3451,9 @@ Count of new user account registrations in the period.
 - **Correlated:** [`feature_adoption_rate`](#feature_adoption_rate), [`churn_rate`](#churn_rate), [`activation_rate`](#activation_rate)
 
 <a id="plg_rate"></a>
-#### PLG Rate — `plg_rate`
+#### Product-Led Signup Share — `plg_rate` · rate
 
-Percentage of new signups coming from product-driven virality (invites, sharing)
+Percentage of new signups coming from product-driven virality (invites, sharing).
 
 - **Domain:** Product · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/product/plg_rate.yml) · [sql](dbt/analyses/metrics/product/plg_rate.sql)
@@ -3466,9 +3466,9 @@ Percentage of new signups coming from product-driven virality (invites, sharing)
 - **Correlated:** [`viral_coefficient`](#viral_coefficient), [`trial_to_paid_rate`](#trial_to_paid_rate)
 
 <a id="product_churn_rate"></a>
-#### Product Churn — `product_churn_rate`
+#### Active User Churn Rate — `product_churn_rate` · rate
 
-Percentage of active users who became inactive this period
+Percentage of active users who became inactive this period.
 
 - **Domain:** Product · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/product/product_churn_rate.yml) · [sql](dbt/analyses/metrics/product/product_churn_rate.sql)
@@ -3480,9 +3480,9 @@ Percentage of active users who became inactive this period
 - **Correlated:** [`customer_churn_rate`](#customer_churn_rate), [`d30_retention`](#d30_retention)
 
 <a id="time_to_activate"></a>
-#### Time to Activate — `time_to_activate`
+#### Time to Activate — `time_to_activate` · hours
 
-Median hours from signup to activation event
+Median hours from signup to activation event.
 
 - **Domain:** Product · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/product/time_to_activate.yml) · [sql](dbt/analyses/metrics/product/time_to_activate.sql)
@@ -3493,7 +3493,7 @@ Median hours from signup to activation event
 - **Correlated:** [`activation_rate`](#activation_rate), [`time_to_value`](#time_to_value)
 
 <a id="time_to_value"></a>
-#### Time to Value — `time_to_value`
+#### Time to Value — `time_to_value` · days
 
 Days from signup to first meaningful value event (aha moment).
 
@@ -3508,9 +3508,9 @@ Days from signup to first meaningful value event (aha moment).
 - **Correlated:** [`churn_rate`](#churn_rate), [`feature_adoption_rate`](#feature_adoption_rate), [`activation_rate`](#activation_rate), [`customer_onboarding_time`](#customer_onboarding_time), [`time_to_activate`](#time_to_activate)
 
 <a id="trial_to_paid_rate"></a>
-#### Trial → Paid % — `trial_to_paid_rate`
+#### Trial-to-Paid Conversion Rate — `trial_to_paid_rate` · rate
 
-Percentage of trial users who converted to a paid plan
+Percentage of trial users who converted to a paid plan.
 
 - **Domain:** Product · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/product/trial_to_paid_rate.yml) · [sql](dbt/analyses/metrics/product/trial_to_paid_rate.sql)
@@ -3523,7 +3523,7 @@ Percentage of trial users who converted to a paid plan
 - **Correlated:** [`free_to_paid_rate`](#free_to_paid_rate), [`activation_rate`](#activation_rate), [`plg_rate`](#plg_rate), [`viral_coefficient`](#viral_coefficient)
 
 <a id="wau"></a>
-#### WAU — `wau`
+#### Weekly Active Users — `wau` · count
 
 Weekly Active Users — unique users who performed a qualifying action in a 7-day window.
 
@@ -3539,9 +3539,9 @@ Weekly Active Users — unique users who performed a qualifying action in a 7-da
 ### KPI · SaaS (27)
 
 <a id="active_paying_users"></a>
-#### Active Paying Users — `active_paying_users`
+#### Active Paying Users — `active_paying_users` · count
 
-Users on a paid plan who have been active in the past 30 days
+Users on a paid plan who have been active in the past 30 days.
 
 - **Domain:** SaaS · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/saas/active_paying_users.yml) · [sql](dbt/analyses/metrics/saas/active_paying_users.sql)
@@ -3553,7 +3553,7 @@ Users on a paid plan who have been active in the past 30 days
 - **Correlated:** [`arr`](#arr), [`free_to_paid_rate`](#free_to_paid_rate)
 
 <a id="acv"></a>
-#### ACV — `acv`
+#### Average Annual Contract Value — `acv` · currency
 
 Average annual contract value of new or existing customer agreements.
 
@@ -3567,7 +3567,7 @@ Average annual contract value of new or existing customer agreements.
 - **Correlated:** [`arr`](#arr), [`new_arr`](#new_arr), [`avg_deal_size`](#avg_deal_size), [`revenue_per_account`](#revenue_per_account)
 
 <a id="arr"></a>
-#### ARR — `arr`
+#### ARR — `arr` · currency
 
 Annual Recurring Revenue — annualized value of active subscriptions.
 
@@ -3581,9 +3581,9 @@ Annual Recurring Revenue — annualized value of active subscriptions.
 - **Correlated:** [`mrr`](#mrr), [`nrr`](#nrr), [`grr`](#grr), [`revenue_growth_rate`](#revenue_growth_rate), [`active_paying_users`](#active_paying_users), [`acv`](#acv), [`billings`](#billings), [`bookings`](#bookings), [`committed_arr`](#committed_arr), [`contracted_unbilled`](#contracted_unbilled), [`customer_concentration_risk`](#customer_concentration_risk), [`deferred_revenue`](#deferred_revenue), [`license_revenue`](#license_revenue), [`market_penetration_rate`](#market_penetration_rate), [`cac_payback`](#cac_payback), [`revenue`](#revenue), [`rule_of_40`](#rule_of_40), [`saas_quick_ratio`](#saas_quick_ratio), [`subscription_revenue`](#subscription_revenue)
 
 <a id="arr_growth_rate"></a>
-#### ARR Growth % — `arr_growth_rate`
+#### ARR Growth Rate — `arr_growth_rate` · rate
 
-Year-over-year growth in annual recurring revenue
+Year-over-year growth in annual recurring revenue.
 
 - **Domain:** SaaS · **Industry:** saas
 - **Files:** [yml](dbt/models/metrics/saas/arr_growth_rate.yml) · [sql](dbt/analyses/metrics/saas/arr_growth_rate.sql)
@@ -3596,9 +3596,9 @@ Year-over-year growth in annual recurring revenue
 - **Correlated:** [`revenue_growth_rate`](#revenue_growth_rate), [`nrr`](#nrr), [`net_new_customers`](#net_new_customers)
 
 <a id="arr_per_rep"></a>
-#### ARR / Sales Rep — `arr_per_rep`
+#### ARR per Sales Rep — `arr_per_rep` · currency
 
-Total ARR divided by number of quota-carrying reps
+Total ARR divided by number of quota-carrying reps.
 
 - **Domain:** SaaS · **Industry:** saas
 - **Files:** [yml](dbt/models/metrics/saas/arr_per_rep.yml) · [sql](dbt/analyses/metrics/saas/arr_per_rep.sql)
@@ -3611,7 +3611,7 @@ Total ARR divided by number of quota-carrying reps
 - **Correlated:** [`quota_attainment`](#quota_attainment), [`cac`](#cac), [`employees_per_1m_arr`](#employees_per_1m_arr), [`sales_headcount`](#sales_headcount)
 
 <a id="bookings"></a>
-#### Bookings — `bookings`
+#### Bookings — `bookings` · currency
 
 Total ARR value of contracts signed in the period, regardless of revenue recognition timing.
 
@@ -3625,7 +3625,7 @@ Total ARR value of contracts signed in the period, regardless of revenue recogni
 - **Correlated:** [`arr`](#arr), [`new_arr`](#new_arr), [`revenue`](#revenue), [`committed_arr`](#committed_arr), [`pipeline_generated`](#pipeline_generated)
 
 <a id="churn_prediction_score"></a>
-#### Churn Prediction Score — `churn_prediction_score`
+#### Churn Prediction Score — `churn_prediction_score` · rate
 
 ML model score (0–1) indicating probability of a user churning in the next 30 days.
 
@@ -3639,7 +3639,7 @@ ML model score (0–1) indicating probability of a user churning in the next 30 
 - **Correlated:** [`d30_retention`](#d30_retention), [`account_health_score`](#account_health_score)
 
 <a id="churn_rate"></a>
-#### Churn Rate — `churn_rate`
+#### Churn Rate — `churn_rate` · rate
 
 % of revenue or customers lost in a period.
 
@@ -3654,9 +3654,9 @@ ML model score (0–1) indicating probability of a user churning in the next 30 
 - **Correlated:** [`ltv_cac`](#ltv_cac), [`account_health_score`](#account_health_score), [`arpu`](#arpu), [`at_risk_accounts`](#at_risk_accounts), [`cohort_revenue_retention`](#cohort_revenue_retention), [`csat`](#csat), [`customer_concentration_risk`](#customer_concentration_risk), [`customer_onboarding_time`](#customer_onboarding_time), [`d30_retention`](#d30_retention), [`error_rate`](#error_rate), [`customer_churn_rate`](#customer_churn_rate), [`mrr`](#mrr), [`new_arr`](#new_arr), [`nps`](#nps), [`nrr`](#nrr), [`onboarding_completion_rate`](#onboarding_completion_rate), [`cac_payback`](#cac_payback), [`renewal_rate`](#renewal_rate), [`tickets_created`](#tickets_created), [`time_to_value`](#time_to_value)
 
 <a id="cohort_ltv_12m"></a>
-#### 12-Month Cohort LTV — `cohort_ltv_12m`
+#### 12-Month Cohort Lifetime Value — `cohort_ltv_12m` · currency
 
-Average cumulative revenue per customer 12 months after acquisition
+Average cumulative revenue per customer 12 months after acquisition.
 
 - **Domain:** SaaS · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/saas/cohort_ltv_12m.yml) · [sql](dbt/analyses/metrics/saas/cohort_ltv_12m.sql)
@@ -3668,9 +3668,9 @@ Average cumulative revenue per customer 12 months after acquisition
 - **Correlated:** [`cohort_ltv_24m`](#cohort_ltv_24m), [`d30_retention`](#d30_retention), [`clv`](#clv)
 
 <a id="cohort_ltv_24m"></a>
-#### 24-Month Cohort LTV — `cohort_ltv_24m`
+#### 24-Month Cohort Lifetime Value — `cohort_ltv_24m` · currency
 
-Average cumulative revenue per customer 24 months after acquisition
+Average cumulative revenue per customer 24 months after acquisition.
 
 - **Domain:** SaaS · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/saas/cohort_ltv_24m.yml) · [sql](dbt/analyses/metrics/saas/cohort_ltv_24m.sql)
@@ -3682,7 +3682,7 @@ Average cumulative revenue per customer 24 months after acquisition
 - **Correlated:** [`cohort_ltv_12m`](#cohort_ltv_12m), [`nrr`](#nrr)
 
 <a id="cohort_revenue_retention"></a>
-#### Cohort Revenue Retention — `cohort_revenue_retention`
+#### Cohort Revenue Retention — `cohort_revenue_retention` · rate
 
 Revenue retained from a signup cohort after N months relative to their initial value.
 
@@ -3697,9 +3697,9 @@ Revenue retained from a signup cohort after N months relative to their initial v
 - **Correlated:** [`churn_rate`](#churn_rate), [`expansion_arr`](#expansion_arr)
 
 <a id="customer_churn_rate"></a>
-#### Customer Churn % — `customer_churn_rate`
+#### Customer Churn Rate — `customer_churn_rate` · rate
 
-Percentage of customers who stopped purchasing in the period
+Percentage of customers who stopped purchasing in the period.
 
 - **Domain:** SaaS · **Industry:** saas
 - **Files:** [yml](dbt/models/metrics/saas/customer_churn_rate.yml) · [sql](dbt/analyses/metrics/saas/customer_churn_rate.sql)
@@ -3711,9 +3711,9 @@ Percentage of customers who stopped purchasing in the period
 - **Correlated:** [`nrr`](#nrr), [`renewal_rate`](#renewal_rate), [`churned_arr`](#churned_arr), [`customer_count`](#customer_count), [`churn_rate`](#churn_rate), [`account_health_score`](#account_health_score), [`cohort_churn`](#cohort_churn), [`contraction_arr`](#contraction_arr), [`grr`](#grr), [`mrr_churn_rate`](#mrr_churn_rate), [`product_churn_rate`](#product_churn_rate)
 
 <a id="customer_retention_rate"></a>
-#### Customer Retention % — `customer_retention_rate`
+#### Customer Retention Rate — `customer_retention_rate` · rate
 
-Percentage of customers retained from one period to the next
+Percentage of customers retained from one period to the next.
 
 - **Domain:** SaaS · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/saas/customer_retention_rate.yml) · [sql](dbt/analyses/metrics/saas/customer_retention_rate.sql)
@@ -3725,9 +3725,9 @@ Percentage of customers retained from one period to the next
 - **Correlated:** [`nrr`](#nrr), [`renewal_rate`](#renewal_rate), [`repeat_purchase_rate`](#repeat_purchase_rate)
 
 <a id="employees_per_1m_arr"></a>
-#### Employees / $1M ARR — `employees_per_1m_arr`
+#### Employees per Million ARR — `employees_per_1m_arr` · ratio
 
-Operational efficiency — fewer employees per $1M ARR indicates more scalable business
+Operational efficiency — fewer employees per $1M ARR indicates more scalable business.
 
 - **Domain:** SaaS · **Industry:** saas
 - **Files:** [yml](dbt/models/metrics/saas/employees_per_1m_arr.yml) · [sql](dbt/analyses/metrics/saas/employees_per_1m_arr.sql)
@@ -3741,9 +3741,9 @@ Operational efficiency — fewer employees per $1M ARR indicates more scalable b
 - **Correlated:** [`arr_per_rep`](#arr_per_rep), [`revenue_per_employee`](#revenue_per_employee)
 
 <a id="expansion_arr"></a>
-#### Expansion ARR — `expansion_arr`
+#### Expansion ARR — `expansion_arr` · currency
 
-ARR added from upsells and cross-sells to existing customers
+ARR added from upsells and cross-sells to existing customers.
 
 - **Domain:** SaaS · **Industry:** saas
 - **Files:** [yml](dbt/models/metrics/saas/expansion_arr.yml) · [sql](dbt/analyses/metrics/saas/expansion_arr.sql)
@@ -3752,9 +3752,9 @@ ARR added from upsells and cross-sells to existing customers
 - **Correlated:** [`cohort_revenue_retention`](#cohort_revenue_retention), [`feature_adoption_rate`](#feature_adoption_rate), [`new_arr`](#new_arr), [`rev_from_existing`](#rev_from_existing), [`upsell_rate`](#upsell_rate)
 
 <a id="grr"></a>
-#### GRR — `grr`
+#### Gross Revenue Retention — `grr` · rate
 
-Retained ARR from existing customers excluding expansions
+Retained ARR from existing customers excluding expansions.
 
 - **Domain:** SaaS · **Industry:** saas
 - **Files:** [yml](dbt/models/metrics/saas/grr.yml) · [sql](dbt/analyses/metrics/saas/grr.sql)
@@ -3767,9 +3767,9 @@ Retained ARR from existing customers excluding expansions
 - **Correlated:** [`nrr`](#nrr), [`customer_churn_rate`](#customer_churn_rate), [`arr`](#arr)
 
 <a id="magic_number"></a>
-#### Magic Number — `magic_number`
+#### SaaS Magic Number — `magic_number` · ratio
 
-Net new ARR divided by prior quarter S&M spend — go-to-market efficiency
+Net new ARR divided by prior quarter S&M spend — go-to-market efficiency.
 
 - **Domain:** SaaS · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/saas/magic_number.yml) · [sql](dbt/analyses/metrics/saas/magic_number.sql)
@@ -3782,7 +3782,7 @@ Net new ARR divided by prior quarter S&M spend — go-to-market efficiency
 - **Correlated:** [`cac_payback`](#cac_payback), [`cac`](#cac), [`ltv_cac`](#ltv_cac)
 
 <a id="market_penetration_rate"></a>
-#### Market Penetration Rate — `market_penetration_rate`
+#### Market Penetration Rate — `market_penetration_rate` · rate
 
 ARR as a % of Total Addressable Market — how much of the opportunity is captured.
 
@@ -3797,7 +3797,7 @@ ARR as a % of Total Addressable Market — how much of the opportunity is captur
 - **Correlated:** [`arr`](#arr), [`revenue_growth_rate`](#revenue_growth_rate)
 
 <a id="mrr"></a>
-#### MRR — `mrr`
+#### MRR — `mrr` · currency
 
 Monthly Recurring Revenue — annualized base ÷ 12.
 
@@ -3810,9 +3810,9 @@ Monthly Recurring Revenue — annualized base ÷ 12.
 - **Correlated:** [`churn_rate`](#churn_rate), [`nrr`](#nrr), [`arr`](#arr), [`marketing_spend`](#marketing_spend), [`net_mrr_growth`](#net_mrr_growth)
 
 <a id="mrr_churn_rate"></a>
-#### MRR Churn % — `mrr_churn_rate`
+#### MRR Churn Rate — `mrr_churn_rate` · rate
 
-Percentage of MRR lost in the period from cancellations
+Percentage of MRR lost in the period from cancellations.
 
 - **Domain:** SaaS · **Industry:** saas
 - **Files:** [yml](dbt/models/metrics/saas/mrr_churn_rate.yml) · [sql](dbt/analyses/metrics/saas/mrr_churn_rate.sql)
@@ -3825,9 +3825,9 @@ Percentage of MRR lost in the period from cancellations
 - **Correlated:** [`customer_churn_rate`](#customer_churn_rate), [`nrr`](#nrr)
 
 <a id="net_mrr_growth"></a>
-#### Net MRR Growth — `net_mrr_growth`
+#### Net New MRR — `net_mrr_growth` · currency
 
-New + expansion MRR minus churned + contraction MRR
+New + expansion MRR minus churned + contraction MRR.
 
 - **Domain:** SaaS · **Industry:** saas
 - **Files:** [yml](dbt/models/metrics/saas/net_mrr_growth.yml) · [sql](dbt/analyses/metrics/saas/net_mrr_growth.sql)
@@ -3838,9 +3838,9 @@ New + expansion MRR minus churned + contraction MRR
 - **Correlated:** [`mrr`](#mrr), [`nrr`](#nrr), [`saas_quick_ratio`](#saas_quick_ratio)
 
 <a id="net_new_customers"></a>
-#### Net New Customers — `net_new_customers`
+#### Net New Customers — `net_new_customers` · count
 
-New customers acquired minus churned customers
+New customers acquired minus churned customers.
 
 - **Domain:** SaaS · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/saas/net_new_customers.yml) · [sql](dbt/analyses/metrics/saas/net_new_customers.sql)
@@ -3852,9 +3852,9 @@ New customers acquired minus churned customers
 - **Correlated:** [`arr_growth_rate`](#arr_growth_rate), [`cac`](#cac), [`customer_count`](#customer_count)
 
 <a id="new_arr"></a>
-#### New ARR — `new_arr`
+#### New ARR — `new_arr` · currency
 
-ARR added from new customer logos in the period
+ARR added from new customer logos in the period.
 
 - **Domain:** SaaS · **Industry:** saas
 - **Files:** [yml](dbt/models/metrics/saas/new_arr.yml) · [sql](dbt/analyses/metrics/saas/new_arr.sql)
@@ -3866,9 +3866,9 @@ ARR added from new customer logos in the period
 - **Correlated:** [`expansion_arr`](#expansion_arr), [`churn_rate`](#churn_rate), [`acv`](#acv), [`bookings`](#bookings), [`monthly_new_customers`](#monthly_new_customers), [`partner_revenue`](#partner_revenue), [`pipeline_coverage`](#pipeline_coverage), [`pipeline_value`](#pipeline_value), [`quota_attainment`](#quota_attainment), [`rev_from_new_customers`](#rev_from_new_customers)
 
 <a id="nrr"></a>
-#### NRR — `nrr`
+#### Net Revenue Retention — `nrr` · rate
 
-Beginning ARR plus expansion minus churn and contraction over beginning ARR
+Beginning ARR plus expansion minus churn and contraction over beginning ARR.
 
 - **Domain:** SaaS · **Industry:** saas
 - **Files:** [yml](dbt/models/metrics/saas/nrr.yml) · [sql](dbt/analyses/metrics/saas/nrr.sql)
@@ -3881,7 +3881,7 @@ Beginning ARR plus expansion minus churn and contraction over beginning ARR
 - **Correlated:** [`grr`](#grr), [`customer_churn_rate`](#customer_churn_rate), [`account_health_score`](#account_health_score), [`arr`](#arr), [`arr_growth_rate`](#arr_growth_rate), [`clv`](#clv), [`cohort_ltv_24m`](#cohort_ltv_24m), [`customer_retention_rate`](#customer_retention_rate), [`expansion_pipeline`](#expansion_pipeline), [`mrr_churn_rate`](#mrr_churn_rate), [`net_mrr_growth`](#net_mrr_growth), [`rev_concentration_top10`](#rev_concentration_top10), [`rev_from_existing`](#rev_from_existing), [`saas_quick_ratio`](#saas_quick_ratio), [`subscription_revenue`](#subscription_revenue), [`upsell_rate`](#upsell_rate), [`ebitda`](#ebitda), [`ltv_cac`](#ltv_cac), [`customer_ltv`](#customer_ltv), [`mrr`](#mrr), [`rule_of_40`](#rule_of_40), [`churn_rate`](#churn_rate), [`renewal_rate`](#renewal_rate)
 
 <a id="renewal_rate"></a>
-#### Renewal Rate — `renewal_rate`
+#### Renewal Rate — `renewal_rate` · rate
 
 % of up-for-renewal contracts that successfully renew.
 
@@ -3896,9 +3896,9 @@ Beginning ARR plus expansion minus churn and contraction over beginning ARR
 - **Correlated:** [`nrr`](#nrr), [`churn_rate`](#churn_rate), [`at_risk_accounts`](#at_risk_accounts), [`customer_churn_rate`](#customer_churn_rate), [`customer_retention_rate`](#customer_retention_rate), [`qbr_completion_rate`](#qbr_completion_rate)
 
 <a id="saas_quick_ratio"></a>
-#### SaaS Quick Ratio — `saas_quick_ratio`
+#### SaaS Quick Ratio — `saas_quick_ratio` · ratio
 
-New + expansion ARR divided by churned + contraction ARR — growth efficiency
+New + expansion ARR divided by churned + contraction ARR — growth efficiency.
 
 - **Domain:** SaaS · **Industry:** saas
 - **Files:** [yml](dbt/models/metrics/saas/saas_quick_ratio.yml) · [sql](dbt/analyses/metrics/saas/saas_quick_ratio.sql)
@@ -3911,7 +3911,7 @@ New + expansion ARR divided by churned + contraction ARR — growth efficiency
 - **Correlated:** [`nrr`](#nrr), [`rule_of_40`](#rule_of_40), [`arr`](#arr), [`net_mrr_growth`](#net_mrr_growth)
 
 <a id="upsell_rate"></a>
-#### Upsell Rate — `upsell_rate`
+#### Upsell Rate — `upsell_rate` · rate
 
 % of existing customers who expanded to a higher tier or added seats.
 
@@ -3927,7 +3927,7 @@ New + expansion ARR divided by churned + contraction ARR — growth efficiency
 ### KPI · Sales (18)
 
 <a id="avg_deal_size"></a>
-#### Avg Deal Size — `avg_deal_size`
+#### Average Deal Size — `avg_deal_size` · currency
 
 Average ARR value of closed-won opportunities in the period.
 
@@ -3942,9 +3942,9 @@ Average ARR value of closed-won opportunities in the period.
 - **Correlated:** [`acv`](#acv), [`pipeline_coverage`](#pipeline_coverage), [`competitive_win_rate`](#competitive_win_rate)
 
 <a id="avg_sales_cycle"></a>
-#### Sales Cycle (days) — `avg_sales_cycle`
+#### Average Sales Cycle — `avg_sales_cycle` · days
 
-Average days from opportunity creation to close
+Average days from opportunity creation to close.
 
 - **Domain:** Sales · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/sales/avg_sales_cycle.yml) · [sql](dbt/analyses/metrics/sales/avg_sales_cycle.sql)
@@ -3957,9 +3957,9 @@ Average days from opportunity creation to close
 - **Correlated:** [`win_rate`](#win_rate), [`cac_payback`](#cac_payback)
 
 <a id="expansion_pipeline"></a>
-#### Expansion Pipeline — `expansion_pipeline`
+#### Expansion Pipeline — `expansion_pipeline` · currency
 
-Total potential expansion ARR in open upsell opportunities
+Total potential expansion ARR in open upsell opportunities.
 
 - **Domain:** Sales · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/sales/expansion_pipeline.yml) · [sql](dbt/analyses/metrics/sales/expansion_pipeline.sql)
@@ -3970,9 +3970,9 @@ Total potential expansion ARR in open upsell opportunities
 - **Correlated:** [`upsell_rate`](#upsell_rate), [`nrr`](#nrr), [`at_risk_accounts`](#at_risk_accounts)
 
 <a id="lead_to_mql_rate"></a>
-#### Lead → MQL % — `lead_to_mql_rate`
+#### Lead-to-Marketing Qualified Lead Rate — `lead_to_mql_rate` · rate
 
-Percentage of leads that reach MQL threshold
+Percentage of leads that reach MQL threshold.
 
 - **Domain:** Sales · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/sales/lead_to_mql_rate.yml) · [sql](dbt/analyses/metrics/sales/lead_to_mql_rate.sql)
@@ -3985,7 +3985,7 @@ Percentage of leads that reach MQL threshold
 - **Correlated:** [`mql_to_sql_rate`](#mql_to_sql_rate), [`form_conversion_rate`](#form_conversion_rate), [`mql`](#mql)
 
 <a id="marketing_influenced_pipeline"></a>
-#### Mktg Influenced Pipeline — `marketing_influenced_pipeline`
+#### Marketing-Influenced Pipeline — `marketing_influenced_pipeline` · currency
 
 Total pipeline ARR where marketing had at least one touchpoint before opportunity creation.
 
@@ -3998,9 +3998,9 @@ Total pipeline ARR where marketing had at least one touchpoint before opportunit
 - **Correlated:** [`pipeline_value`](#pipeline_value), [`roas`](#roas)
 
 <a id="mql"></a>
-#### MQLs — `mql`
+#### Marketing Qualified Leads — `mql` · count
 
-Leads meeting scoring threshold passed to sales
+Leads meeting scoring threshold passed to sales.
 
 - **Domain:** Sales · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/sales/mql.yml) · [sql](dbt/analyses/metrics/sales/mql.sql)
@@ -4012,7 +4012,7 @@ Leads meeting scoring threshold passed to sales
 - **Correlated:** [`sql`](#sql), [`lead_to_mql_rate`](#lead_to_mql_rate), [`demo_requests`](#demo_requests), [`event_attendees`](#event_attendees), [`pipeline_generated`](#pipeline_generated), [`leads`](#leads), [`webinar_registrants`](#webinar_registrants), [`cost_per_mql`](#cost_per_mql), [`content_published_count`](#content_published_count), [`new_user_signups`](#new_user_signups), [`website_sessions`](#website_sessions)
 
 <a id="mql_to_sql_rate"></a>
-#### MQL→SQL Rate — `mql_to_sql_rate`
+#### Marketing-to-Sales Qualified Lead Rate — `mql_to_sql_rate` · rate
 
 % of MQLs that convert to SQLs — marketing-to-sales handoff quality.
 
@@ -4027,9 +4027,9 @@ Leads meeting scoring threshold passed to sales
 - **Correlated:** [`win_rate`](#win_rate), [`cac`](#cac), [`lead_to_mql_rate`](#lead_to_mql_rate), [`sql`](#sql)
 
 <a id="organic_attribution_pct"></a>
-#### Organic Attribution % — `organic_attribution_pct`
+#### Organic Channel Revenue Share — `organic_attribution_pct` · rate
 
-Percentage of closed revenue attributed to organic channels
+Percentage of closed revenue attributed to organic channels.
 
 - **Domain:** Sales · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/sales/organic_attribution_pct.yml) · [sql](dbt/analyses/metrics/sales/organic_attribution_pct.sql)
@@ -4043,9 +4043,9 @@ Percentage of closed revenue attributed to organic channels
 - **Correlated:** [`paid_attribution_pct`](#paid_attribution_pct), [`referral_attribution_pct`](#referral_attribution_pct)
 
 <a id="paid_attribution_pct"></a>
-#### Paid Attribution % — `paid_attribution_pct`
+#### Paid Channel Revenue Share — `paid_attribution_pct` · rate
 
-Percentage of closed revenue attributed to paid channels
+Percentage of closed revenue attributed to paid channels.
 
 - **Domain:** Sales · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/sales/paid_attribution_pct.yml) · [sql](dbt/analyses/metrics/sales/paid_attribution_pct.sql)
@@ -4058,7 +4058,7 @@ Percentage of closed revenue attributed to paid channels
 - **Correlated:** [`organic_attribution_pct`](#organic_attribution_pct), [`roas`](#roas)
 
 <a id="pct_reps_at_quota"></a>
-#### % Reps at Quota — `pct_reps_at_quota`
+#### Share of Reps at Quota — `pct_reps_at_quota` · rate
 
 % of sales reps who hit or exceeded their quota — team productivity signal.
 
@@ -4073,7 +4073,7 @@ Percentage of closed revenue attributed to paid channels
 - **Correlated:** [`quota_attainment`](#quota_attainment), [`win_rate`](#win_rate)
 
 <a id="pipeline_coverage"></a>
-#### Pipeline Coverage — `pipeline_coverage`
+#### Pipeline Coverage Ratio — `pipeline_coverage` · ratio
 
 Total qualified pipeline divided by quota — leading indicator of quota achievement.
 
@@ -4088,7 +4088,7 @@ Total qualified pipeline divided by quota — leading indicator of quota achieve
 - **Correlated:** [`win_rate`](#win_rate), [`new_arr`](#new_arr), [`avg_deal_size`](#avg_deal_size), [`pipeline_generated`](#pipeline_generated)
 
 <a id="pipeline_value"></a>
-#### Pipeline Value — `pipeline_value`
+#### Open Pipeline Value — `pipeline_value` · currency
 
 Total ARR value of open opportunities in the pipeline.
 
@@ -4102,7 +4102,7 @@ Total ARR value of open opportunities in the pipeline.
 - **Correlated:** [`new_arr`](#new_arr), [`win_rate`](#win_rate), [`marketing_influenced_pipeline`](#marketing_influenced_pipeline)
 
 <a id="quota_attainment"></a>
-#### Quota Attainment — `quota_attainment`
+#### Quota Attainment — `quota_attainment` · rate
 
 Sales rep ARR closed as a % of their assigned quota.
 
@@ -4116,9 +4116,9 @@ Sales rep ARR closed as a % of their assigned quota.
 - **Correlated:** [`win_rate`](#win_rate), [`new_arr`](#new_arr), [`arr_per_rep`](#arr_per_rep), [`pct_reps_at_quota`](#pct_reps_at_quota), [`sales_headcount`](#sales_headcount)
 
 <a id="referral_attribution_pct"></a>
-#### Referral Attribution % — `referral_attribution_pct`
+#### Referral Channel Revenue Share — `referral_attribution_pct` · rate
 
-Percentage of closed revenue attributed to referral channels
+Percentage of closed revenue attributed to referral channels.
 
 - **Domain:** Sales · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/sales/referral_attribution_pct.yml) · [sql](dbt/analyses/metrics/sales/referral_attribution_pct.sql)
@@ -4131,7 +4131,7 @@ Percentage of closed revenue attributed to referral channels
 - **Correlated:** [`organic_attribution_pct`](#organic_attribution_pct), [`viral_coefficient`](#viral_coefficient)
 
 <a id="sales_cycle_length"></a>
-#### Sales Cycle Length — `sales_cycle_length`
+#### Sales Cycle Length — `sales_cycle_length` · days
 
 Average days from first touch to closed-won opportunity.
 
@@ -4145,7 +4145,7 @@ Average days from first touch to closed-won opportunity.
 - **Correlated:** [`cac`](#cac), [`win_rate`](#win_rate)
 
 <a id="sales_spend"></a>
-#### Sales Spend — `sales_spend`
+#### Sales Spend — `sales_spend` · currency
 
 Total sales team costs including salaries, commissions, and tools.
 
@@ -4158,9 +4158,9 @@ Total sales team costs including salaries, commissions, and tools.
 - **Correlated:** [`marketing_spend`](#marketing_spend), [`cac`](#cac)
 
 <a id="sql"></a>
-#### SQLs — `sql`
+#### Sales Qualified Leads — `sql` · count
 
-Leads accepted by sales as qualified opportunities
+Leads accepted by sales as qualified opportunities.
 
 - **Domain:** Sales · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/sales/sql.yml) · [sql](dbt/analyses/metrics/sales/sql.sql)
@@ -4172,7 +4172,7 @@ Leads accepted by sales as qualified opportunities
 - **Correlated:** [`mql`](#mql), [`win_rate`](#win_rate), [`demo_requests`](#demo_requests), [`mql_to_sql_rate`](#mql_to_sql_rate)
 
 <a id="win_rate"></a>
-#### Win Rate — `win_rate`
+#### Win Rate — `win_rate` · rate
 
 % of qualified opportunities that close as won.
 
@@ -4191,9 +4191,9 @@ Leads accepted by sales as qualified opportunities
 ### Input · Commerce (8)
 
 <a id="discount_rate"></a>
-#### Discount Rate — `discount_rate`
+#### Discount Rate — `discount_rate` · rate
 
-Percentage of gross revenue given away as discounts
+Percentage of gross revenue given away as discounts.
 
 - **Domain:** Commerce · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/commerce/discount_rate.yml) · [sql](dbt/analyses/metrics/commerce/discount_rate.sql)
@@ -4205,9 +4205,9 @@ Percentage of gross revenue given away as discounts
 - **Correlated:** [`gross_revenue`](#gross_revenue), [`aov`](#aov)
 
 <a id="gross_revenue"></a>
-#### Gross Revenue — `gross_revenue`
+#### Gross Revenue — `gross_revenue` · currency
 
-Total revenue before any discounts or returns
+Total revenue before any discounts or returns.
 
 - **Domain:** Commerce · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/commerce/gross_revenue.yml) · [sql](dbt/analyses/metrics/commerce/gross_revenue.sql)
@@ -4218,9 +4218,9 @@ Total revenue before any discounts or returns
 - **Correlated:** [`net_revenue`](#net_revenue), [`discount_rate`](#discount_rate), [`aov`](#aov)
 
 <a id="inventory_items"></a>
-#### Inventory Items — `inventory_items`
+#### Inventory Items — `inventory_items` · count
 
-Distinct SKUs with an inventory snapshot in the period
+Distinct SKUs with an inventory snapshot in the period.
 
 - **Domain:** Commerce · **Industry:** manufacturing
 - **Files:** [yml](dbt/models/metrics/commerce/inventory_items.yml) · [sql](dbt/analyses/metrics/commerce/inventory_items.sql)
@@ -4231,9 +4231,9 @@ Distinct SKUs with an inventory snapshot in the period
 - **Correlated:** [`inventory_turnover`](#inventory_turnover), [`stockout_rate`](#stockout_rate)
 
 <a id="inventory_value"></a>
-#### Inventory Value — `inventory_value`
+#### Inventory Value — `inventory_value` · currency
 
-Total cost basis of inventory on hand
+Total cost basis of inventory on hand.
 
 - **Domain:** Commerce · **Industry:** manufacturing
 - **Files:** [yml](dbt/models/metrics/commerce/inventory_value.yml) · [sql](dbt/analyses/metrics/commerce/inventory_value.sql)
@@ -4244,9 +4244,9 @@ Total cost basis of inventory on hand
 - **Correlated:** [`inventory_turnover`](#inventory_turnover), [`shrinkage_rate`](#shrinkage_rate), [`warehouse_utilization`](#warehouse_utilization), [`cogs`](#cogs)
 
 <a id="marketplace_buyers"></a>
-#### Active Buyers — `marketplace_buyers`
+#### Active Marketplace Buyers — `marketplace_buyers` · count
 
-Number of unique buyers transacting in the period
+Number of unique buyers transacting in the period.
 
 - **Domain:** Commerce · **Industry:** marketplace
 - **Files:** [yml](dbt/models/metrics/commerce/marketplace_buyers.yml) · [sql](dbt/analyses/metrics/commerce/marketplace_buyers.sql)
@@ -4257,9 +4257,9 @@ Number of unique buyers transacting in the period
 - **Correlated:** [`marketplace_sellers`](#marketplace_sellers), [`aov`](#aov)
 
 <a id="marketplace_sellers"></a>
-#### Active Sellers — `marketplace_sellers`
+#### Active Marketplace Sellers — `marketplace_sellers` · count
 
-Number of active sellers transacting on the platform in the period
+Number of active sellers transacting on the platform in the period.
 
 - **Domain:** Commerce · **Industry:** marketplace
 - **Files:** [yml](dbt/models/metrics/commerce/marketplace_sellers.yml) · [sql](dbt/analyses/metrics/commerce/marketplace_sellers.sql)
@@ -4270,9 +4270,9 @@ Number of active sellers transacting on the platform in the period
 - **Correlated:** [`marketplace_buyers`](#marketplace_buyers), [`take_rate`](#take_rate), [`liquidity_rate`](#liquidity_rate)
 
 <a id="order_lines"></a>
-#### Order Lines — `order_lines`
+#### Order Lines — `order_lines` · count
 
-Order lines placed in the period
+Order lines placed in the period.
 
 - **Domain:** Commerce · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/commerce/order_lines.yml) · [sql](dbt/analyses/metrics/commerce/order_lines.sql)
@@ -4282,9 +4282,9 @@ Order lines placed in the period
 - **Parents:** [`fill_rate`](#fill_rate)
 
 <a id="shrinkage_rate"></a>
-#### Shrinkage Rate — `shrinkage_rate`
+#### Inventory Shrinkage Rate — `shrinkage_rate` · rate
 
-Inventory lost to theft, damage, or administrative error as a percentage of stock
+Inventory lost to theft, damage, or administrative error as a percentage of stock.
 
 - **Domain:** Commerce · **Industry:** retail
 - **Files:** [yml](dbt/models/metrics/commerce/shrinkage_rate.yml) · [sql](dbt/analyses/metrics/commerce/shrinkage_rate.sql)
@@ -4298,9 +4298,9 @@ Inventory lost to theft, damage, or administrative error as a percentage of stoc
 ### Input · Customer (4)
 
 <a id="complaints_count"></a>
-#### Complaints — `complaints_count`
+#### Customer Complaints — `complaints_count` · count
 
-Total formal complaints received in the period
+Total formal complaints received in the period.
 
 - **Domain:** Customer · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/customer/complaints_count.yml) · [sql](dbt/analyses/metrics/customer/complaints_count.sql)
@@ -4311,9 +4311,9 @@ Total formal complaints received in the period
 - **Correlated:** [`complaint_resolution_rate`](#complaint_resolution_rate), [`csat`](#csat)
 
 <a id="monthly_new_customers"></a>
-#### Monthly New Customers — `monthly_new_customers`
+#### New Customers — `monthly_new_customers` · count
 
-Number of new unique paying customers acquired in the month
+Number of new unique paying customers acquired in the month.
 
 - **Domain:** Customer · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/customer/monthly_new_customers.yml) · [sql](dbt/analyses/metrics/customer/monthly_new_customers.sql)
@@ -4325,9 +4325,9 @@ Number of new unique paying customers acquired in the month
 - **Correlated:** [`cac`](#cac), [`revenue_growth_rate`](#revenue_growth_rate), [`new_arr`](#new_arr)
 
 <a id="tickets_created"></a>
-#### Tickets Created — `tickets_created`
+#### Tickets Created — `tickets_created` · count
 
-Total new support tickets opened in the period
+Total new support tickets opened in the period.
 
 - **Domain:** Customer · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/customer/tickets_created.yml) · [sql](dbt/analyses/metrics/customer/tickets_created.sql)
@@ -4338,9 +4338,9 @@ Total new support tickets opened in the period
 - **Correlated:** [`time_to_resolution`](#time_to_resolution), [`sla_breach_rate`](#sla_breach_rate), [`first_response_time`](#first_response_time), [`fcr_rate`](#fcr_rate), [`csat`](#csat), [`churn_rate`](#churn_rate)
 
 <a id="tickets_resolved"></a>
-#### Tickets Resolved — `tickets_resolved`
+#### Tickets Resolved — `tickets_resolved` · count
 
-Total support tickets closed in the period
+Total support tickets closed in the period.
 
 - **Domain:** Customer · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/customer/tickets_resolved.yml) · [sql](dbt/analyses/metrics/customer/tickets_resolved.sql)
@@ -4353,9 +4353,9 @@ Total support tickets closed in the period
 ### Input · Education (10)
 
 <a id="adm"></a>
-#### ADM — `adm`
+#### Average Daily Membership — `adm` · count
 
-Average number of students enrolled per day (used for funding calculations)
+Average number of students enrolled per day (used for funding calculations).
 
 - **Domain:** Education · **Industry:** education
 - **Files:** [yml](dbt/models/metrics/education/adm.yml) · [sql](dbt/analyses/metrics/education/adm.sql)
@@ -4366,9 +4366,9 @@ Average number of students enrolled per day (used for funding calculations)
 - **Correlated:** [`enrollment_count`](#enrollment_count), [`per_pupil_expenditure`](#per_pupil_expenditure)
 
 <a id="avg_teacher_experience"></a>
-#### Avg Teacher Exp (yrs) — `avg_teacher_experience`
+#### Average Teacher Experience — `avg_teacher_experience` · years
 
-Average years of teaching experience across the teaching staff
+Average years of teaching experience across the teaching staff.
 
 - **Domain:** Education · **Industry:** education
 - **Files:** [yml](dbt/models/metrics/education/avg_teacher_experience.yml) · [sql](dbt/analyses/metrics/education/avg_teacher_experience.sql)
@@ -4379,9 +4379,9 @@ Average years of teaching experience across the teaching staff
 - **Correlated:** [`teacher_retention_rate`](#teacher_retention_rate), [`ela_proficiency_rate`](#ela_proficiency_rate)
 
 <a id="ell_pct"></a>
-#### ELL Students % — `ell_pct`
+#### ELL Student Share — `ell_pct` · rate
 
-Percentage of enrolled students classified as English Language Learners
+Percentage of enrolled students classified as English Language Learners.
 
 - **Domain:** Education · **Industry:** education
 - **Files:** [yml](dbt/models/metrics/education/ell_pct.yml) · [sql](dbt/analyses/metrics/education/ell_pct.sql)
@@ -4393,9 +4393,9 @@ Percentage of enrolled students classified as English Language Learners
 - **Correlated:** [`ela_proficiency_rate`](#ela_proficiency_rate), [`chronic_absenteeism_rate`](#chronic_absenteeism_rate)
 
 <a id="expulsion_rate"></a>
-#### Expulsion Rate — `expulsion_rate`
+#### Expulsion Rate — `expulsion_rate` · rate
 
-Percentage of students expelled during the school year
+Percentage of students expelled during the school year.
 
 - **Domain:** Education · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/education/expulsion_rate.yml) · [sql](dbt/analyses/metrics/education/expulsion_rate.sql)
@@ -4407,9 +4407,9 @@ Percentage of students expelled during the school year
 - **Correlated:** [`suspension_rate`](#suspension_rate), [`dropout_rate`](#dropout_rate)
 
 <a id="extracurricular_rate"></a>
-#### Extracurricular % — `extracurricular_rate`
+#### Extracurricular Participation Rate — `extracurricular_rate` · rate
 
-Percentage of students participating in at least one extracurricular activity
+Percentage of students participating in at least one extracurricular activity.
 
 - **Domain:** Education · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/education/extracurricular_rate.yml) · [sql](dbt/analyses/metrics/education/extracurricular_rate.sql)
@@ -4421,9 +4421,9 @@ Percentage of students participating in at least one extracurricular activity
 - **Correlated:** [`school_climate_score`](#school_climate_score), [`student_attendance_rate`](#student_attendance_rate)
 
 <a id="family_engagement_rate"></a>
-#### Family Engagement % — `family_engagement_rate`
+#### Family Engagement Rate — `family_engagement_rate` · rate
 
-Percentage of families attending at least one school event or conference
+Percentage of families attending at least one school event or conference.
 
 - **Domain:** Education · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/education/family_engagement_rate.yml) · [sql](dbt/analyses/metrics/education/family_engagement_rate.sql)
@@ -4435,9 +4435,9 @@ Percentage of families attending at least one school event or conference
 - **Correlated:** [`school_climate_score`](#school_climate_score), [`student_attendance_rate`](#student_attendance_rate)
 
 <a id="frl_pct"></a>
-#### FRL % — `frl_pct`
+#### Free or Reduced-Price Lunch Share — `frl_pct` · rate
 
-Percentage of students eligible for free or reduced-price lunch (socioeconomic indicator)
+Percentage of students eligible for free or reduced-price lunch (socioeconomic indicator).
 
 - **Domain:** Education · **Industry:** education
 - **Files:** [yml](dbt/models/metrics/education/frl_pct.yml) · [sql](dbt/analyses/metrics/education/frl_pct.sql)
@@ -4449,9 +4449,9 @@ Percentage of students eligible for free or reduced-price lunch (socioeconomic i
 - **Correlated:** [`iep_pct`](#iep_pct), [`chronic_absenteeism_rate`](#chronic_absenteeism_rate), [`per_pupil_expenditure`](#per_pupil_expenditure)
 
 <a id="iep_pct"></a>
-#### IEP Students % — `iep_pct`
+#### IEP Student Share — `iep_pct` · rate
 
-Percentage of enrolled students with an Individualized Education Program
+Percentage of enrolled students with an Individualized Education Program.
 
 - **Domain:** Education · **Industry:** education
 - **Files:** [yml](dbt/models/metrics/education/iep_pct.yml) · [sql](dbt/analyses/metrics/education/iep_pct.sql)
@@ -4463,7 +4463,7 @@ Percentage of enrolled students with an Individualized Education Program
 - **Correlated:** [`per_pupil_expenditure`](#per_pupil_expenditure), [`ela_proficiency_rate`](#ela_proficiency_rate), [`frl_pct`](#frl_pct)
 
 <a id="instructional_minutes"></a>
-#### Instructional Minutes — `instructional_minutes`
+#### Instructional Minutes per Day — `instructional_minutes` · minutes
 
 Average minutes of scheduled instruction delivered per student per school day.
 
@@ -4476,7 +4476,7 @@ Average minutes of scheduled instruction delivered per student per school day.
 - **Parents:** [`student_proficiency`](#student_proficiency)
 
 <a id="on_time_lesson_delivery"></a>
-#### On-Time Lesson Delivery — `on_time_lesson_delivery`
+#### On-Time Lesson Delivery Rate — `on_time_lesson_delivery` · rate
 
 % of planned lessons delivered on schedule per teacher or classroom.
 
@@ -4492,9 +4492,9 @@ Average minutes of scheduled instruction delivered per student per school day.
 ### Input · Engineering (5)
 
 <a id="code_coverage"></a>
-#### Code Coverage % — `code_coverage`
+#### Code Coverage — `code_coverage` · rate
 
-Percentage of codebase covered by automated tests
+Percentage of codebase covered by automated tests.
 
 - **Domain:** Engineering · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/engineering/code_coverage.yml) · [sql](dbt/analyses/metrics/engineering/code_coverage.sql)
@@ -4506,9 +4506,9 @@ Percentage of codebase covered by automated tests
 - **Correlated:** [`bug_escape_rate`](#bug_escape_rate), [`change_failure_rate`](#change_failure_rate), [`tech_debt_ratio`](#tech_debt_ratio)
 
 <a id="incident_count"></a>
-#### Incident Count — `incident_count`
+#### Incidents — `incident_count` · count
 
-Total production or safety incidents in the period
+Total production or safety incidents in the period.
 
 - **Domain:** Engineering · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/engineering/incident_count.yml) · [sql](dbt/analyses/metrics/engineering/incident_count.sql)
@@ -4519,9 +4519,9 @@ Total production or safety incidents in the period
 - **Correlated:** [`mttr`](#mttr), [`mttd`](#mttd), [`rcr_rate`](#rcr_rate)
 
 <a id="oss_stars"></a>
-#### OSS Stars — `oss_stars`
+#### Open Source GitHub Stars — `oss_stars` · count
 
-GitHub stars on the company's primary open source repositories
+GitHub stars on the company's primary open source repositories.
 
 - **Domain:** Engineering · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/engineering/oss_stars.yml) · [sql](dbt/analyses/metrics/engineering/oss_stars.sql)
@@ -4532,9 +4532,9 @@ GitHub stars on the company's primary open source repositories
 - **Correlated:** [`domain_authority`](#domain_authority), [`viral_coefficient`](#viral_coefficient)
 
 <a id="pr_merge_time"></a>
-#### PR Merge Time — `pr_merge_time`
+#### Pull Request Merge Time — `pr_merge_time` · hours
 
-Average hours from PR opening to merge
+Average hours from PR opening to merge.
 
 - **Domain:** Engineering · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/engineering/pr_merge_time.yml) · [sql](dbt/analyses/metrics/engineering/pr_merge_time.sql)
@@ -4545,9 +4545,9 @@ Average hours from PR opening to merge
 - **Correlated:** [`deployment_frequency`](#deployment_frequency), [`sprint_velocity`](#sprint_velocity)
 
 <a id="sprint_velocity"></a>
-#### Sprint Velocity — `sprint_velocity`
+#### Sprint Velocity — `sprint_velocity` · count
 
-Average story points completed per two-week sprint
+Average story points completed per two-week sprint.
 
 - **Domain:** Engineering · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/engineering/sprint_velocity.yml) · [sql](dbt/analyses/metrics/engineering/sprint_velocity.sql)
@@ -4560,9 +4560,9 @@ Average story points completed per two-week sprint
 ### Input · Finance (20)
 
 <a id="accounts_payable"></a>
-#### Accounts Payable — `accounts_payable`
+#### Accounts Payable — `accounts_payable` · currency
 
-Outstanding amounts owed to vendors
+Outstanding amounts owed to vendors.
 
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/accounts_payable.yml) · [sql](dbt/analyses/metrics/finance/accounts_payable.sql)
@@ -4573,9 +4573,9 @@ Outstanding amounts owed to vendors
 - **Correlated:** [`dpo`](#dpo), [`working_capital`](#working_capital)
 
 <a id="accounts_receivable"></a>
-#### Accounts Receivable — `accounts_receivable`
+#### Accounts Receivable — `accounts_receivable` · currency
 
-Outstanding invoices owed to the company
+Outstanding invoices owed to the company.
 
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/accounts_receivable.yml) · [sql](dbt/analyses/metrics/finance/accounts_receivable.sql)
@@ -4586,9 +4586,9 @@ Outstanding invoices owed to the company
 - **Correlated:** [`dso`](#dso), [`billings`](#billings)
 
 <a id="annual_budget"></a>
-#### Annual Budget — `annual_budget`
+#### Annual Budget — `annual_budget` · currency
 
-Total approved budget for the fiscal year
+Total approved budget for the fiscal year.
 
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/annual_budget.yml) · [sql](dbt/analyses/metrics/finance/annual_budget.sql)
@@ -4599,9 +4599,9 @@ Total approved budget for the fiscal year
 - **Correlated:** [`budget_variance`](#budget_variance), [`opex`](#opex)
 
 <a id="cash_and_equivalents"></a>
-#### Cash & Equivalents — `cash_and_equivalents`
+#### Cash and Cash Equivalents — `cash_and_equivalents` · currency
 
-Cash on hand and liquid short-term instruments
+Cash on hand and liquid short-term instruments.
 
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/cash_and_equivalents.yml) · [sql](dbt/analyses/metrics/finance/cash_and_equivalents.sql)
@@ -4612,9 +4612,9 @@ Cash on hand and liquid short-term instruments
 - **Correlated:** [`burn_rate`](#burn_rate), [`runway_months`](#runway_months), [`dso`](#dso)
 
 <a id="da"></a>
-#### D&A — `da`
+#### Depreciation and Amortization — `da` · currency
 
-Non-cash charges for the period
+Non-cash charges for the period.
 
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/da.yml) · [sql](dbt/analyses/metrics/finance/da.sql)
@@ -4625,7 +4625,7 @@ Non-cash charges for the period
 - **Correlated:** [`capex`](#capex), [`free_cash_flow`](#free_cash_flow)
 
 <a id="ebitda_bridge_price"></a>
-#### EBITDA Bridge: Price — `ebitda_bridge_price`
+#### EBITDA Bridge Price Effect — `ebitda_bridge_price` · currency
 
 Price/mix contribution to EBITDA variance vs prior period.
 
@@ -4638,7 +4638,7 @@ Price/mix contribution to EBITDA variance vs prior period.
 - **Correlated:** [`ebitda_bridge_volume`](#ebitda_bridge_volume)
 
 <a id="ebitda_bridge_volume"></a>
-#### EBITDA Bridge: Volume — `ebitda_bridge_volume`
+#### EBITDA Bridge Volume Effect — `ebitda_bridge_volume` · currency
 
 Volume contribution to EBITDA variance vs prior period.
 
@@ -4651,9 +4651,9 @@ Volume contribution to EBITDA variance vs prior period.
 - **Correlated:** [`ebitda_bridge_price`](#ebitda_bridge_price)
 
 <a id="implementation_revenue"></a>
-#### Implementation Revenue — `implementation_revenue`
+#### Implementation Revenue — `implementation_revenue` · currency
 
-One-time revenue from customer onboarding and implementation
+One-time revenue from customer onboarding and implementation.
 
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/implementation_revenue.yml) · [sql](dbt/analyses/metrics/finance/implementation_revenue.sql)
@@ -4664,9 +4664,9 @@ One-time revenue from customer onboarding and implementation
 - **Correlated:** [`services_revenue`](#services_revenue)
 
 <a id="prior_year_revenue"></a>
-#### PY Revenue — `prior_year_revenue`
+#### Prior Year Revenue — `prior_year_revenue` · currency
 
-Full-year revenue from the prior fiscal year
+Full-year revenue from the prior fiscal year.
 
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/prior_year_revenue.yml) · [sql](dbt/analyses/metrics/finance/prior_year_revenue.sql)
@@ -4677,9 +4677,9 @@ Full-year revenue from the prior fiscal year
 - **Correlated:** [`revenue_vs_py`](#revenue_vs_py), [`revenue`](#revenue)
 
 <a id="q1_revenue"></a>
-#### Q1 Revenue — `q1_revenue`
+#### Q1 Revenue — `q1_revenue` · currency
 
-Revenue recognized in Q1
+Revenue recognized in Q1.
 
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/q1_revenue.yml) · [sql](dbt/analyses/metrics/finance/q1_revenue.sql)
@@ -4690,9 +4690,9 @@ Revenue recognized in Q1
 - **Correlated:** [`q2_revenue`](#q2_revenue), [`revenue`](#revenue)
 
 <a id="q2_revenue"></a>
-#### Q2 Revenue — `q2_revenue`
+#### Q2 Revenue — `q2_revenue` · currency
 
-Revenue recognized in Q2
+Revenue recognized in Q2.
 
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/q2_revenue.yml) · [sql](dbt/analyses/metrics/finance/q2_revenue.sql)
@@ -4703,9 +4703,9 @@ Revenue recognized in Q2
 - **Correlated:** [`q1_revenue`](#q1_revenue), [`q3_revenue`](#q3_revenue)
 
 <a id="q3_revenue"></a>
-#### Q3 Revenue — `q3_revenue`
+#### Q3 Revenue — `q3_revenue` · currency
 
-Revenue recognized in Q3
+Revenue recognized in Q3.
 
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/q3_revenue.yml) · [sql](dbt/analyses/metrics/finance/q3_revenue.sql)
@@ -4716,9 +4716,9 @@ Revenue recognized in Q3
 - **Correlated:** [`q2_revenue`](#q2_revenue), [`q4_revenue`](#q4_revenue)
 
 <a id="q4_revenue"></a>
-#### Q4 Revenue — `q4_revenue`
+#### Q4 Revenue — `q4_revenue` · currency
 
-Revenue recognized in Q4
+Revenue recognized in Q4.
 
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/q4_revenue.yml) · [sql](dbt/analyses/metrics/finance/q4_revenue.sql)
@@ -4729,9 +4729,9 @@ Revenue recognized in Q4
 - **Correlated:** [`q3_revenue`](#q3_revenue), [`revenue`](#revenue)
 
 <a id="sam"></a>
-#### SAM — `sam`
+#### Serviceable Addressable Market — `sam` · currency
 
-The portion of TAM that the company can realistically serve
+The portion of TAM that the company can realistically serve.
 
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/sam.yml) · [sql](dbt/analyses/metrics/finance/sam.sql)
@@ -4741,9 +4741,9 @@ The portion of TAM that the company can realistically serve
 - **Correlated:** [`tam`](#tam), [`market_share`](#market_share)
 
 <a id="shareholder_equity"></a>
-#### Shareholder Equity — `shareholder_equity`
+#### Shareholder Equity — `shareholder_equity` · currency
 
-Total assets minus total liabilities
+Total assets minus total liabilities.
 
 - **Domain:** Finance · **Industry:** financial_services
 - **Files:** [yml](dbt/models/metrics/finance/shareholder_equity.yml) · [sql](dbt/analyses/metrics/finance/shareholder_equity.sql)
@@ -4755,9 +4755,9 @@ Total assets minus total liabilities
 - **Correlated:** [`roe`](#roe), [`net_debt`](#net_debt), [`total_assets`](#total_assets)
 
 <a id="sm_spend"></a>
-#### S&M Spend — `sm_spend`
+#### S&M Spend — `sm_spend` · currency
 
-Total sales and marketing expenditure in the period
+Total sales and marketing expenditure in the period.
 
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/sm_spend.yml) · [sql](dbt/analyses/metrics/finance/sm_spend.sql)
@@ -4768,9 +4768,9 @@ Total sales and marketing expenditure in the period
 - **Correlated:** [`cac`](#cac), [`marketing_cac`](#marketing_cac)
 
 <a id="tam"></a>
-#### TAM — `tam`
+#### Total Addressable Market — `tam` · currency
 
-Estimated total market opportunity for the product or service
+Estimated total market opportunity for the product or service.
 
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/tam.yml) · [sql](dbt/analyses/metrics/finance/tam.sql)
@@ -4780,9 +4780,9 @@ Estimated total market opportunity for the product or service
 - **Correlated:** [`sam`](#sam), [`market_share`](#market_share)
 
 <a id="total_assets"></a>
-#### Total Assets — `total_assets`
+#### Total Assets — `total_assets` · currency
 
-Total value of assets on the balance sheet
+Total value of assets on the balance sheet.
 
 - **Domain:** Finance · **Industry:** financial_services
 - **Files:** [yml](dbt/models/metrics/finance/total_assets.yml) · [sql](dbt/analyses/metrics/finance/total_assets.sql)
@@ -4793,9 +4793,9 @@ Total value of assets on the balance sheet
 - **Correlated:** [`total_liabilities`](#total_liabilities), [`shareholder_equity`](#shareholder_equity)
 
 <a id="total_debt"></a>
-#### Total Debt — `total_debt`
+#### Total Debt — `total_debt` · currency
 
-Sum of short-term and long-term debt obligations
+Sum of short-term and long-term debt obligations.
 
 - **Domain:** Finance · **Industry:** financial_services
 - **Files:** [yml](dbt/models/metrics/finance/total_debt.yml) · [sql](dbt/analyses/metrics/finance/total_debt.sql)
@@ -4806,9 +4806,9 @@ Sum of short-term and long-term debt obligations
 - **Correlated:** [`leverage_ratio`](#leverage_ratio), [`interest_coverage_ratio`](#interest_coverage_ratio)
 
 <a id="total_liabilities"></a>
-#### Total Liabilities — `total_liabilities`
+#### Total Liabilities — `total_liabilities` · currency
 
-Total value of liabilities on the balance sheet
+Total value of liabilities on the balance sheet.
 
 - **Domain:** Finance · **Industry:** financial_services
 - **Files:** [yml](dbt/models/metrics/finance/total_liabilities.yml) · [sql](dbt/analyses/metrics/finance/total_liabilities.sql)
@@ -4821,9 +4821,9 @@ Total value of liabilities on the balance sheet
 ### Input · People & HR (11)
 
 <a id="benefits_utilization"></a>
-#### Benefits Utilization % — `benefits_utilization`
+#### Benefits Utilization Rate — `benefits_utilization` · rate
 
-Percentage of eligible employees actively using offered benefits
+Percentage of eligible employees actively using offered benefits.
 
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/benefits_utilization.yml) · [sql](dbt/analyses/metrics/hr/benefits_utilization.sql)
@@ -4835,7 +4835,7 @@ Percentage of eligible employees actively using offered benefits
 - **Correlated:** [`employee_engagement_score`](#employee_engagement_score), [`total_comp_expense`](#total_comp_expense)
 
 <a id="headcount_fte"></a>
-#### Headcount FTE — `headcount_fte`
+#### Full-Time Equivalent Headcount — `headcount_fte` · count
 
 Full-time equivalent employee count at end of period.
 
@@ -4848,9 +4848,9 @@ Full-time equivalent employee count at end of period.
 - **Correlated:** [`headcount_cost`](#headcount_cost), [`opex`](#opex), [`voluntary_turnover`](#voluntary_turnover), [`time_to_fill`](#time_to_fill)
 
 <a id="new_hires"></a>
-#### New Hires — `new_hires`
+#### New Hires — `new_hires` · count
 
-Number of employees who started in the period
+Number of employees who started in the period.
 
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/new_hires.yml) · [sql](dbt/analyses/metrics/hr/new_hires.sql)
@@ -4861,9 +4861,9 @@ Number of employees who started in the period
 - **Correlated:** [`cost_per_hire`](#cost_per_hire), [`time_to_fill`](#time_to_fill)
 
 <a id="open_requisitions"></a>
-#### Open Requisitions — `open_requisitions`
+#### Open Requisitions — `open_requisitions` · count
 
-Number of currently unfilled job postings
+Number of currently unfilled job postings.
 
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/open_requisitions.yml) · [sql](dbt/analyses/metrics/hr/open_requisitions.sql)
@@ -4874,9 +4874,9 @@ Number of currently unfilled job postings
 - **Correlated:** [`time_to_fill`](#time_to_fill), [`headcount_vs_budget`](#headcount_vs_budget)
 
 <a id="overtime_hours"></a>
-#### Overtime Hours — `overtime_hours`
+#### Overtime Hours — `overtime_hours` · hours
 
-Total overtime hours logged by employees in the period
+Total overtime hours logged by employees in the period.
 
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/overtime_hours.yml) · [sql](dbt/analyses/metrics/hr/overtime_hours.sql)
@@ -4887,9 +4887,9 @@ Total overtime hours logged by employees in the period
 - **Correlated:** [`workforce_productivity`](#workforce_productivity), [`absenteeism_rate`](#absenteeism_rate)
 
 <a id="rd_headcount"></a>
-#### R&D Headcount — `rd_headcount`
+#### R&D Headcount — `rd_headcount` · count
 
-Number of employees in engineering, product, and research roles
+Number of employees in engineering, product, and research roles.
 
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/rd_headcount.yml) · [sql](dbt/analyses/metrics/hr/rd_headcount.sql)
@@ -4900,9 +4900,9 @@ Number of employees in engineering, product, and research roles
 - **Correlated:** [`rd_headcount_pct`](#rd_headcount_pct), [`deployment_frequency`](#deployment_frequency)
 
 <a id="recruiting_pipeline"></a>
-#### Recruiting Pipeline — `recruiting_pipeline`
+#### Active Candidates — `recruiting_pipeline` · count
 
-Number of active candidates across all open requisitions
+Number of active candidates across all open requisitions.
 
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/recruiting_pipeline.yml) · [sql](dbt/analyses/metrics/hr/recruiting_pipeline.sql)
@@ -4913,9 +4913,9 @@ Number of active candidates across all open requisitions
 - **Correlated:** [`time_to_hire`](#time_to_hire), [`offer_acceptance_rate`](#offer_acceptance_rate)
 
 <a id="remote_work_rate"></a>
-#### Remote Work % — `remote_work_rate`
+#### Remote and Hybrid Work Rate — `remote_work_rate` · rate
 
-Percentage of employees on fully remote or hybrid schedules
+Percentage of employees on fully remote or hybrid schedules.
 
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/remote_work_rate.yml) · [sql](dbt/analyses/metrics/hr/remote_work_rate.sql)
@@ -4927,9 +4927,9 @@ Percentage of employees on fully remote or hybrid schedules
 - **Correlated:** [`absenteeism_rate`](#absenteeism_rate), [`employee_engagement_score`](#employee_engagement_score)
 
 <a id="sales_headcount"></a>
-#### Sales Headcount — `sales_headcount`
+#### Sales Headcount — `sales_headcount` · count
 
-Number of quota-carrying sales representatives
+Number of quota-carrying sales representatives.
 
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/sales_headcount.yml) · [sql](dbt/analyses/metrics/hr/sales_headcount.sql)
@@ -4940,9 +4940,9 @@ Number of quota-carrying sales representatives
 - **Correlated:** [`arr_per_rep`](#arr_per_rep), [`quota_attainment`](#quota_attainment)
 
 <a id="separations"></a>
-#### Separations — `separations`
+#### Employee Separations — `separations` · count
 
-Number of employees who left (voluntarily or involuntarily) in the period
+Number of employees who left (voluntarily or involuntarily) in the period.
 
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/separations.yml) · [sql](dbt/analyses/metrics/hr/separations.sql)
@@ -4953,9 +4953,9 @@ Number of employees who left (voluntarily or involuntarily) in the period
 - **Correlated:** [`voluntary_turnover`](#voluntary_turnover), [`regrettable_attrition`](#regrettable_attrition)
 
 <a id="total_comp_expense"></a>
-#### Total Comp Expense — `total_comp_expense`
+#### Total Compensation Expense — `total_comp_expense` · currency
 
-Total salaries, benefits, and equity costs for the period
+Total salaries, benefits, and equity costs for the period.
 
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/total_comp_expense.yml) · [sql](dbt/analyses/metrics/hr/total_comp_expense.sql)
@@ -4968,7 +4968,7 @@ Total salaries, benefits, and equity costs for the period
 ### Input · Marketing (11)
 
 <a id="ad_clicks"></a>
-#### Ad Clicks — `ad_clicks`
+#### Ad Clicks — `ad_clicks` · count
 
 Total clicks on paid ads in the period.
 
@@ -4981,7 +4981,7 @@ Total clicks on paid ads in the period.
 - **Correlated:** [`impressions`](#impressions), [`web_conversion_rate`](#web_conversion_rate)
 
 <a id="backlink_count"></a>
-#### Referring Domains — `backlink_count`
+#### Referring Domains — `backlink_count` · count
 
 Total referring domain backlinks to the site — SEO authority signal.
 
@@ -4994,9 +4994,9 @@ Total referring domain backlinks to the site — SEO authority signal.
 - **Correlated:** [`domain_authority`](#domain_authority), [`organic_sessions`](#organic_sessions), [`referral_sessions`](#referral_sessions)
 
 <a id="backlinks_count"></a>
-#### Backlinks — `backlinks_count`
+#### Backlinks — `backlinks_count` · count
 
-Total referring backlinks to the domain
+Total referring backlinks to the domain.
 
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/backlinks_count.yml) · [sql](dbt/analyses/metrics/marketing/backlinks_count.sql)
@@ -5007,7 +5007,7 @@ Total referring backlinks to the domain
 - **Correlated:** [`domain_authority`](#domain_authority), [`organic_sessions`](#organic_sessions), [`top10_keyword_count`](#top10_keyword_count)
 
 <a id="content_published_count"></a>
-#### Content Published — `content_published_count`
+#### Content Assets Published — `content_published_count` · count
 
 Count of content assets published in the period (blogs, whitepapers, videos).
 
@@ -5020,9 +5020,9 @@ Count of content assets published in the period (blogs, whitepapers, videos).
 - **Correlated:** [`organic_sessions`](#organic_sessions), [`mql`](#mql), [`top10_keyword_count`](#top10_keyword_count), [`domain_authority`](#domain_authority)
 
 <a id="event_attendees"></a>
-#### Event Attendees — `event_attendees`
+#### Event Attendees — `event_attendees` · count
 
-Total attendees at company-sponsored events in the period
+Total attendees at company-sponsored events in the period.
 
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/event_attendees.yml) · [sql](dbt/analyses/metrics/marketing/event_attendees.sql)
@@ -5033,7 +5033,7 @@ Total attendees at company-sponsored events in the period
 - **Correlated:** [`mql`](#mql), [`cost_per_event_attendee`](#cost_per_event_attendee)
 
 <a id="impressions"></a>
-#### Impressions — `impressions`
+#### Ad Impressions — `impressions` · count
 
 Total ad impressions served in the period.
 
@@ -5046,9 +5046,9 @@ Total ad impressions served in the period.
 - **Correlated:** [`ad_clicks`](#ad_clicks), [`share_of_voice`](#share_of_voice), [`social_followers`](#social_followers), [`ctr`](#ctr), [`cpc`](#cpc)
 
 <a id="pr_mentions"></a>
-#### PR Mentions — `pr_mentions`
+#### Press Mentions — `pr_mentions` · count
 
-Total brand mentions in press or media in the period
+Total brand mentions in press or media in the period.
 
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/pr_mentions.yml) · [sql](dbt/analyses/metrics/marketing/pr_mentions.sql)
@@ -5059,7 +5059,7 @@ Total brand mentions in press or media in the period
 - **Correlated:** [`earned_media_value`](#earned_media_value), [`domain_authority`](#domain_authority), [`social_engagement_rate`](#social_engagement_rate)
 
 <a id="referral_sessions"></a>
-#### Referral Sessions — `referral_sessions`
+#### Referral Sessions — `referral_sessions` · count
 
 Web sessions originating from referring websites (non-paid, non-organic).
 
@@ -5072,7 +5072,7 @@ Web sessions originating from referring websites (non-paid, non-organic).
 - **Correlated:** [`organic_sessions`](#organic_sessions), [`backlink_count`](#backlink_count)
 
 <a id="social_followers"></a>
-#### Social Followers — `social_followers`
+#### Social Followers — `social_followers` · count
 
 Total followers across social platforms at end of period.
 
@@ -5085,9 +5085,9 @@ Total followers across social platforms at end of period.
 - **Correlated:** [`organic_sessions`](#organic_sessions), [`impressions`](#impressions)
 
 <a id="testimonials_count"></a>
-#### Testimonials — `testimonials_count`
+#### Customer Testimonials — `testimonials_count` · count
 
-Number of customer testimonials or case studies collected YTD
+Number of customer testimonials or case studies collected YTD.
 
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/testimonials_count.yml) · [sql](dbt/analyses/metrics/marketing/testimonials_count.sql)
@@ -5098,9 +5098,9 @@ Number of customer testimonials or case studies collected YTD
 - **Correlated:** [`review_rating`](#review_rating), [`nps`](#nps)
 
 <a id="webinar_registrants"></a>
-#### Webinar Registrants — `webinar_registrants`
+#### Webinar Registrants — `webinar_registrants` · count
 
-Total registrations across all webinars in the period
+Total registrations across all webinars in the period.
 
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/webinar_registrants.yml) · [sql](dbt/analyses/metrics/marketing/webinar_registrants.sql)
@@ -5113,7 +5113,7 @@ Total registrations across all webinars in the period
 ### Input · Operations (2)
 
 <a id="energy_cost_per_unit"></a>
-#### Energy Cost per Unit — `energy_cost_per_unit`
+#### Energy Cost per Unit — `energy_cost_per_unit` · currency
 
 Energy expense allocated per unit of output — sustainability and efficiency signal.
 
@@ -5127,9 +5127,9 @@ Energy expense allocated per unit of output — sustainability and efficiency si
 - **Correlated:** [`capacity_utilization`](#capacity_utilization), [`carbon_emissions_per_unit`](#carbon_emissions_per_unit)
 
 <a id="work_orders"></a>
-#### Work Orders — `work_orders`
+#### Work Orders — `work_orders` · count
 
-Maintenance and facilities work orders created in the period
+Maintenance and facilities work orders created in the period.
 
 - **Domain:** Operations · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/operations/work_orders.yml) · [sql](dbt/analyses/metrics/operations/work_orders.sql)
@@ -5141,9 +5141,9 @@ Maintenance and facilities work orders created in the period
 ### Input · Product (7)
 
 <a id="api_calls_total"></a>
-#### API Calls (Total) — `api_calls_total`
+#### API Calls — `api_calls_total` · count
 
-Total API calls made by all integrations and users in the period
+Total API calls made by all integrations and users in the period.
 
 - **Domain:** Product · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/product/api_calls_total.yml) · [sql](dbt/analyses/metrics/product/api_calls_total.sql)
@@ -5154,9 +5154,9 @@ Total API calls made by all integrations and users in the period
 - **Correlated:** [`api_consumers`](#api_consumers), [`api_latency_p95`](#api_latency_p95)
 
 <a id="api_consumers"></a>
-#### API Consumers — `api_consumers`
+#### API Consumers — `api_consumers` · count
 
-Distinct applications or users making API calls in the period
+Distinct applications or users making API calls in the period.
 
 - **Domain:** Product · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/product/api_consumers.yml) · [sql](dbt/analyses/metrics/product/api_consumers.sql)
@@ -5167,9 +5167,9 @@ Distinct applications or users making API calls in the period
 - **Correlated:** [`api_calls_total`](#api_calls_total), [`dau`](#dau)
 
 <a id="app_downloads"></a>
-#### App Downloads — `app_downloads`
+#### App Downloads — `app_downloads` · count
 
-Total app installs from app stores in the period
+Total app installs from app stores in the period.
 
 - **Domain:** Product · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/product/app_downloads.yml) · [sql](dbt/analyses/metrics/product/app_downloads.sql)
@@ -5180,7 +5180,7 @@ Total app installs from app stores in the period
 - **Correlated:** [`dau`](#dau), [`activation_rate`](#activation_rate)
 
 <a id="feature_request_volume"></a>
-#### Feature Request Volume — `feature_request_volume`
+#### Feature Requests — `feature_request_volume` · count
 
 Count of feature requests submitted via support, NPS verbatims, or feedback tools.
 
@@ -5193,9 +5193,9 @@ Count of feature requests submitted via support, NPS verbatims, or feedback tool
 - **Correlated:** [`nps`](#nps), [`feature_adoption_rate`](#feature_adoption_rate)
 
 <a id="funnel_dropoff"></a>
-#### Funnel Drop-off — `funnel_dropoff`
+#### Funnel Drop-Off Rate — `funnel_dropoff` · rate
 
-Percentage of users who exit the conversion funnel at a given step
+Percentage of users who exit the conversion funnel at a given step.
 
 - **Domain:** Product · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/product/funnel_dropoff.yml) · [sql](dbt/analyses/metrics/product/funnel_dropoff.sql)
@@ -5207,9 +5207,9 @@ Percentage of users who exit the conversion funnel at a given step
 - **Correlated:** [`activation_rate`](#activation_rate), [`session_to_lead_rate`](#session_to_lead_rate)
 
 <a id="survey_response_rate"></a>
-#### Survey Response % — `survey_response_rate`
+#### Survey Response Rate — `survey_response_rate` · rate
 
-Percentage of customers who responded to surveys sent
+Percentage of customers who responded to surveys sent.
 
 - **Domain:** Product · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/product/survey_response_rate.yml) · [sql](dbt/analyses/metrics/product/survey_response_rate.sql)
@@ -5221,9 +5221,9 @@ Percentage of customers who responded to surveys sent
 - **Correlated:** [`nps`](#nps), [`csat`](#csat), [`employee_engagement_score`](#employee_engagement_score)
 
 <a id="trial_signups"></a>
-#### Trial Signups — `trial_signups`
+#### Trial Signups — `trial_signups` · count
 
-New free trial registrations in the period
+New free trial registrations in the period.
 
 - **Domain:** Product · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/product/trial_signups.yml) · [sql](dbt/analyses/metrics/product/trial_signups.sql)
@@ -5236,9 +5236,9 @@ New free trial registrations in the period
 ### Input · SaaS (6)
 
 <a id="churned_arr"></a>
-#### Churned ARR — `churned_arr`
+#### Churned ARR — `churned_arr` · currency
 
-ARR lost from customers who cancelled in the period
+ARR lost from customers who cancelled in the period.
 
 - **Domain:** SaaS · **Industry:** saas
 - **Files:** [yml](dbt/models/metrics/saas/churned_arr.yml) · [sql](dbt/analyses/metrics/saas/churned_arr.sql)
@@ -5249,9 +5249,9 @@ ARR lost from customers who cancelled in the period
 - **Correlated:** [`contraction_arr`](#contraction_arr), [`customer_churn_rate`](#customer_churn_rate)
 
 <a id="cohort_churn"></a>
-#### Cohort Churn — `cohort_churn`
+#### Cohort Churn Rate — `cohort_churn` · rate
 
-Cumulative churn for a given acquisition cohort at N months
+Cumulative churn for a given acquisition cohort at N months.
 
 - **Domain:** SaaS · **Industry:** saas
 - **Files:** [yml](dbt/models/metrics/saas/cohort_churn.yml) · [sql](dbt/analyses/metrics/saas/cohort_churn.sql)
@@ -5263,9 +5263,9 @@ Cumulative churn for a given acquisition cohort at N months
 - **Correlated:** [`customer_churn_rate`](#customer_churn_rate), [`d30_retention`](#d30_retention)
 
 <a id="committed_arr"></a>
-#### Committed ARR — `committed_arr`
+#### Committed ARR — `committed_arr` · currency
 
-ARR under signed contracts not yet recognized
+ARR under signed contracts not yet recognized.
 
 - **Domain:** SaaS · **Industry:** saas
 - **Files:** [yml](dbt/models/metrics/saas/committed_arr.yml) · [sql](dbt/analyses/metrics/saas/committed_arr.sql)
@@ -5276,9 +5276,9 @@ ARR under signed contracts not yet recognized
 - **Correlated:** [`arr`](#arr), [`bookings`](#bookings), [`contracted_unbilled`](#contracted_unbilled)
 
 <a id="contracted_unbilled"></a>
-#### Contracted Unbilled — `contracted_unbilled`
+#### Contracted Unbilled ARR — `contracted_unbilled` · currency
 
-ARR under contract not yet invoiced
+ARR under contract not yet invoiced.
 
 - **Domain:** SaaS · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/saas/contracted_unbilled.yml) · [sql](dbt/analyses/metrics/saas/contracted_unbilled.sql)
@@ -5289,9 +5289,9 @@ ARR under contract not yet invoiced
 - **Correlated:** [`arr`](#arr), [`billings`](#billings), [`committed_arr`](#committed_arr)
 
 <a id="contraction_arr"></a>
-#### Contraction ARR — `contraction_arr`
+#### Contraction ARR — `contraction_arr` · currency
 
-ARR lost from downgrades by existing customers
+ARR lost from downgrades by existing customers.
 
 - **Domain:** SaaS · **Industry:** saas
 - **Files:** [yml](dbt/models/metrics/saas/contraction_arr.yml) · [sql](dbt/analyses/metrics/saas/contraction_arr.sql)
@@ -5302,9 +5302,9 @@ ARR lost from downgrades by existing customers
 - **Correlated:** [`churned_arr`](#churned_arr), [`customer_churn_rate`](#customer_churn_rate)
 
 <a id="customer_count"></a>
-#### Customer Count — `customer_count`
+#### Active Customers — `customer_count` · count
 
-Total number of active paying customers
+Total number of active paying customers.
 
 - **Domain:** SaaS · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/saas/customer_count.yml) · [sql](dbt/analyses/metrics/saas/customer_count.sql)
@@ -5318,9 +5318,9 @@ Total number of active paying customers
 ### Input · Sales (3)
 
 <a id="competitive_win_rate"></a>
-#### Competitive Win % — `competitive_win_rate`
+#### Competitive Win Rate — `competitive_win_rate` · rate
 
-Win rate in deals that involved a named competitor
+Win rate in deals that involved a named competitor.
 
 - **Domain:** Sales · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/sales/competitive_win_rate.yml) · [sql](dbt/analyses/metrics/sales/competitive_win_rate.sql)
@@ -5332,9 +5332,9 @@ Win rate in deals that involved a named competitor
 - **Correlated:** [`win_rate`](#win_rate), [`avg_deal_size`](#avg_deal_size)
 
 <a id="demo_requests"></a>
-#### Demo Requests — `demo_requests`
+#### Demo Requests — `demo_requests` · count
 
-Product demo requests submitted in the period
+Product demo requests submitted in the period.
 
 - **Domain:** Sales · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/sales/demo_requests.yml) · [sql](dbt/analyses/metrics/sales/demo_requests.sql)
@@ -5345,9 +5345,9 @@ Product demo requests submitted in the period
 - **Correlated:** [`mql`](#mql), [`sql`](#sql), [`form_conversion_rate`](#form_conversion_rate)
 
 <a id="leads"></a>
-#### Leads — `leads`
+#### Leads — `leads` · count
 
-Leads created in the period, from CRM and marketing automation
+Leads created in the period, from CRM and marketing automation.
 
 - **Domain:** Sales · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/sales/leads.yml) · [sql](dbt/analyses/metrics/sales/leads.sql)

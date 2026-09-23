@@ -1,7 +1,7 @@
 metrics:
   - name: science_proficiency_rate
-    label: Science Proficiency %
-    description: Percentage of students scoring proficient on science state assessments
+    label: Science Proficiency Rate
+    description: Percentage of students scoring proficient on science state assessments.
     type: ratio
     type_params:
       numerator:
@@ -15,3 +15,5 @@ metrics:
         tier: kpi
         domain: education
         industry: education
+        shortLabel: Science Proficiency %
+        unit: rate

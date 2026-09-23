@@ -1,7 +1,7 @@
 metrics:
   - name: partner_revenue
     label: Partner Revenue
-    description: Revenue sourced or influenced by channel partners
+    description: Revenue sourced or influenced by channel partners.
     type: simple
     type_params:
       measure: revenue_amount
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: finance
         industry: cross_industry
+        shortLabel: Partner Revenue
+        unit: currency

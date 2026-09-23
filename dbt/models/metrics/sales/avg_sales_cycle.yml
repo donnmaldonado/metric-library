@@ -1,7 +1,7 @@
 metrics:
   - name: avg_sales_cycle
-    label: Sales Cycle (days)
-    description: Average days from opportunity creation to close
+    label: Average Sales Cycle
+    description: Average days from opportunity creation to close.
     type: simple
     type_params:
       measure: avg_sales_cycle_value
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: sales
         industry: cross_industry
+        shortLabel: Avg Sales Cycle
+        unit: days

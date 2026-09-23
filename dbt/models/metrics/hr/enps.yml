@@ -1,7 +1,7 @@
 metrics:
   - name: enps
-    label: eNPS
-    description: Employee net promoter score — likelihood to recommend the company as a workplace
+    label: Employee Net Promoter Score
+    description: Employee net promoter score — likelihood to recommend the company as a workplace.
     type: derived
     type_params:
       expr: (promoters - detractors) * 100.0 / responses
@@ -18,3 +18,5 @@ metrics:
         tier: kpi
         domain: hr
         industry: cross_industry
+        shortLabel: eNPS
+        unit: score

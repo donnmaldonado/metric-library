@@ -1,7 +1,7 @@
 metrics:
   - name: arr_per_rep
-    label: ARR / Sales Rep
-    description: Total ARR divided by number of quota-carrying reps
+    label: ARR per Sales Rep
+    description: Total ARR divided by number of quota-carrying reps.
     type: ratio
     type_params:
       numerator: arr
@@ -12,3 +12,5 @@ metrics:
         tier: kpi
         domain: saas
         industry: saas
+        shortLabel: ARR / Sales Rep
+        unit: currency

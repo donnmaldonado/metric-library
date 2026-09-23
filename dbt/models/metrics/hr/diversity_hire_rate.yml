@@ -1,7 +1,7 @@
 metrics:
   - name: diversity_hire_rate
-    label: Diversity Hire %
-    description: Percentage of hires from underrepresented groups
+    label: Diversity Hire Rate
+    description: Percentage of hires from underrepresented groups.
     type: ratio
     type_params:
       numerator:
@@ -14,3 +14,5 @@ metrics:
         tier: kpi
         domain: hr
         industry: cross_industry
+        shortLabel: Diversity Hire %
+        unit: rate
