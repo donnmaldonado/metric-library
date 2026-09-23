@@ -83,7 +83,8 @@ def derived_formula_inputs(library, marts=MARTS):
             for b, b_filters in by_measure.get(name, []):
                 (matches if not b_filters or b_filters == applied else others).append(b)
             inputs += matches
-            if not matches:  # A reads a quantity no library metric (A included) defines
+            # A simple or cumulative A defines the quantity it reads, so only flag reads no library metric matches
+            if not matches and formulas[mid]["type"] not in ("simple", "cumulative"):
                 flagged += others
         edges = {mid, *m.get("childMetrics", []), *m.get("parentMetrics", [])}
         inputs = list(dict.fromkeys(b for b in inputs if b not in edges))

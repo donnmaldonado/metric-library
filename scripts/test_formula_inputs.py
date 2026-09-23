@@ -113,6 +113,11 @@ class DerivedFormulaInputsTest(unittest.TestCase):
                         simple("headcount", "employee_count", FULL_TIME))
         self.assertEqual((d["active_staff"].flagged, d["headcount"].flagged), ([], []))
 
+    def test_cumulative_metric_is_not_flagged_against_sibling_slices(self):
+        d = self.derive(simple("headcount", "employee_count", FULL_TIME),
+                        metric("active_ytd", f"type: cumulative\ntype_params:\n  measure: employee_count\nfilter: {ACTIVE}\n"))
+        self.assertEqual(d["active_ytd"].flagged, [])
+
     def test_ratio_input_filter_is_part_of_the_filter_applied(self):
         d = self.derive(simple("active_staff", "employee_count", ACTIVE),
                         ratio("cost_per_active", "payroll", f"{{name: employee_days, filter: {ACTIVE}}}"))
@@ -140,14 +145,13 @@ class FormulaInputIssuesTest(unittest.TestCase):
 
     def test_mismatch_names_missing_and_extra(self):
         m = metric("combo", "", inputs=["b", "headcount"])
-        [issue] = formula_input_issues(m, ["a", "b"])
-        self.assertIn("combo", issue)
-        self.assertIn("'a'", issue)
-        self.assertIn("'headcount'", issue)
+        self.assertEqual(formula_input_issues(m, ["a", "b"]), [
+            "combo: formulaInputs is ['b', 'headcount'] but derives as ['a', 'b'] (missing ['a'], extra ['headcount'])"])
 
     def test_order_matters(self):
         m = metric("combo", "", inputs=["b", "a"])
-        self.assertEqual(len(formula_input_issues(m, ["a", "b"])), 1)
+        self.assertEqual(formula_input_issues(m, ["a", "b"]), [
+            "combo: formulaInputs is ['b', 'a'] but derives as ['a', 'b'] (wrong order)"])
 
 
 if __name__ == "__main__":
