@@ -10,5 +10,5 @@ metrics:
       meta:
         metricId: rev_from_new_customers
         tier: kpi
-        vertical: finance
+        domain: finance
         industry: financial_services

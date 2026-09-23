@@ -1,0 +1,16 @@
+metrics:
+  - name: vendor_compliance_rate
+    label: Vendor Compliance %
+    description: Percentage of purchase orders fulfilled by vendors per specifications
+    type: ratio
+    type_params:
+      numerator:
+        name: purchase_orders
+        filter: "{{ Dimension('purchase_order__is_compliant') }} = true"
+      denominator: purchase_orders
+    config:
+      meta:
+        metricId: vendor_compliance_rate
+        tier: kpi
+        domain: operations
+        industry: cross_industry

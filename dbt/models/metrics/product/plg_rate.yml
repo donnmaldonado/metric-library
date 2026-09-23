@@ -1,0 +1,16 @@
+metrics:
+  - name: plg_rate
+    label: PLG Rate
+    description: Percentage of new signups coming from product-driven virality (invites, sharing)
+    type: ratio
+    type_params:
+      numerator:
+        name: new_user_signups
+        filter: "{{ Dimension('user__is_product_led') }}"
+      denominator: new_user_signups
+    config:
+      meta:
+        metricId: plg_rate
+        tier: kpi
+        domain: product
+        industry: cross_industry

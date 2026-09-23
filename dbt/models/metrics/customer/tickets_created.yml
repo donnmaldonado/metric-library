@@ -1,0 +1,13 @@
+metrics:
+  - name: tickets_created
+    label: Tickets Created
+    description: Total new support tickets opened in the period
+    type: simple
+    type_params:
+      measure: ticket_count
+    config:
+      meta:
+        metricId: tickets_created
+        tier: input
+        domain: customer
+        industry: cross_industry

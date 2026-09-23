@@ -1,0 +1,16 @@
+metrics:
+  - name: rcr_rate
+    label: Root Cause Resolution %
+    description: Percentage of incidents with documented root cause and resolution
+    type: ratio
+    type_params:
+      numerator:
+        name: incident_count
+        filter: "{{ Dimension('incident__has_root_cause') }}"
+      denominator: incident_count
+    config:
+      meta:
+        metricId: rcr_rate
+        tier: kpi
+        domain: engineering
+        industry: cross_industry

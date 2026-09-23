@@ -1,0 +1,18 @@
+metrics:
+  - name: ops_north_star
+    label: Perfect Order Rate
+    description: '% of orders that are on time, complete, accurate, and undamaged — the gold standard ops metric.'
+    type: ratio
+    type_params:
+      numerator:
+        name: shipped_orders
+        filter: "{{ Dimension('shipment__order_is_on_time') }} = true AND {{ Dimension('shipment__order_is_complete') }} =\
+          \ true AND {{ Dimension('shipment__order_is_accurate') }} = true AND {{ Dimension('shipment__order_is_undamaged')\
+          \ }} = true"
+      denominator: shipped_orders
+    config:
+      meta:
+        metricId: ops_north_star
+        tier: north_star
+        domain: commerce
+        industry: cross_industry

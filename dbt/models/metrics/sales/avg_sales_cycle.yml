@@ -1,0 +1,14 @@
+metrics:
+  - name: avg_sales_cycle
+    label: Sales Cycle (days)
+    description: Average days from opportunity creation to close
+    type: simple
+    type_params:
+      measure: avg_sales_cycle_value
+    filter: "{{ Dimension('opportunity__is_won') }} = true"
+    config:
+      meta:
+        metricId: avg_sales_cycle
+        tier: kpi
+        domain: sales
+        industry: cross_industry

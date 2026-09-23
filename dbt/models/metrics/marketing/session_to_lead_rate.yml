@@ -12,5 +12,5 @@ metrics:
       meta:
         metricId: session_to_lead_rate
         tier: kpi
-        vertical: marketing
+        domain: marketing
         industry: cross_industry

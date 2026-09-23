@@ -10,5 +10,5 @@ metrics:
       meta:
         metricId: ctr
         tier: kpi
-        vertical: marketing
+        domain: marketing
         industry: cross_industry

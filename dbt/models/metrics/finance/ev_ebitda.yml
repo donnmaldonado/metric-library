@@ -10,5 +10,5 @@ metrics:
       meta:
         metricId: ev_ebitda
         tier: kpi
-        vertical: finance
+        domain: finance
         industry: financial_services

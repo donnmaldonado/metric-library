@@ -1,0 +1,17 @@
+metrics:
+  - name: free_to_paid_rate
+    label: Free-to-Paid %
+    description: Percentage of free-tier users who convert to a paid plan
+    type: ratio
+    type_params:
+      numerator:
+        name: new_user_signups
+        filter: "{{ Dimension('user__is_converted_to_paid') }}"
+      denominator: new_user_signups
+    filter: "{{ Dimension('user__signup_type') }} = 'free'"
+    config:
+      meta:
+        metricId: free_to_paid_rate
+        tier: kpi
+        domain: product
+        industry: cross_industry

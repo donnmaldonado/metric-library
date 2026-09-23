@@ -10,5 +10,5 @@ metrics:
       meta:
         metricId: rev_concentration_top10
         tier: kpi
-        vertical: finance
+        domain: finance
         industry: financial_services

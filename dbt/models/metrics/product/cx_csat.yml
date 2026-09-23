@@ -12,5 +12,5 @@ metrics:
       meta:
         metricId: cx_csat
         tier: north_star
-        vertical: product
+        domain: product
         industry: cross_industry

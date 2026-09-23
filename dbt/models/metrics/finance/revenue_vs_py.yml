@@ -1,0 +1,16 @@
+metrics:
+  - name: revenue_vs_py
+    label: Revenue vs PY
+    description: Current year revenue vs prior year — year-over-year growth
+    type: derived
+    type_params:
+      expr: (revenue - prior_year_revenue) / nullif(prior_year_revenue, 0)
+      metrics:
+        - name: revenue
+        - name: prior_year_revenue
+    config:
+      meta:
+        metricId: revenue_vs_py
+        tier: kpi
+        domain: finance
+        industry: cross_industry

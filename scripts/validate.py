@@ -4,11 +4,15 @@ from collections import defaultdict
 from pathlib import Path
 import yaml
 
+from domains import derived_domains, domain_issues
+
 ROOT = Path(__file__).resolve().parent.parent
 RANK = {"north_star": 0, "kpi": 1, "input": 2}
 MF_TYPES = {"simple", "ratio", "derived", "cumulative", "conversion"}
 ms = json.loads((ROOT / "data/metrics.json").read_text())
 by = {m["metricId"]: m for m in ms}
+taxonomy = json.loads((ROOT / "data/taxonomy.json").read_text())
+derived_domain = derived_domains(ms)
 
 
 def bare_alias_of(d):
@@ -32,6 +36,9 @@ for m in ms:
     mid = m["metricId"]
     if re.search(r"^stg_|_stg$", mid):
         issues.append(f"{mid}: staging metricId (stg_ prefix or _stg suffix); the library holds business metrics only")
+    issues += domain_issues(m, derived_domain[mid], taxonomy)
+    if m.get("industry") not in taxonomy["industries"]:
+        issues.append(f"{mid}: industry {m.get('industry')!r} is not in taxonomy.industries")
     try:
         d = yaml.safe_load(m["formulaYaml"])["metrics"][0]
         if d.get("name") != mid:

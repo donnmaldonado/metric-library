@@ -9,5 +9,5 @@ metrics:
       meta:
         metricId: social_followers
         tier: input
-        vertical: marketing
+        domain: marketing
         industry: cross_industry

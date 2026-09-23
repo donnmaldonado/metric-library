@@ -9,5 +9,5 @@ metrics:
       meta:
         metricId: total_comp_expense
         tier: input
-        vertical: hr
+        domain: hr
         industry: cross_industry

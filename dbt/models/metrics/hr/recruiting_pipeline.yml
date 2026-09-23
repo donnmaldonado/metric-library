@@ -1,0 +1,14 @@
+metrics:
+  - name: recruiting_pipeline
+    label: Recruiting Pipeline
+    description: Number of active candidates across all open requisitions
+    type: simple
+    type_params:
+      measure: candidate_count
+    filter: "{{ Dimension('candidate__status') }} NOT IN ('rejected', 'hired', 'withdrawn')"
+    config:
+      meta:
+        metricId: recruiting_pipeline
+        tier: input
+        domain: hr
+        industry: cross_industry

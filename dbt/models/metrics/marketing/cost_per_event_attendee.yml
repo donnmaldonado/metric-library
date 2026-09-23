@@ -1,0 +1,14 @@
+metrics:
+  - name: cost_per_event_attendee
+    label: Cost / Attendee
+    description: Total event spend divided by number of attendees
+    type: ratio
+    type_params:
+      numerator: event_cost
+      denominator: event_attendees
+    config:
+      meta:
+        metricId: cost_per_event_attendee
+        tier: kpi
+        domain: marketing
+        industry: cross_industry

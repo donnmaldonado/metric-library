@@ -1,0 +1,15 @@
+metrics:
+  - name: revenue_ytd
+    label: Revenue YTD
+    description: Cumulative revenue from the start of the fiscal year to current date
+    type: cumulative
+    type_params:
+      measure: revenue_amount
+      cumulative_type_params:
+        grain_to_date: year
+    config:
+      meta:
+        metricId: revenue_ytd
+        tier: kpi
+        domain: finance
+        industry: cross_industry

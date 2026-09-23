@@ -1,0 +1,13 @@
+metrics:
+  - name: domain_authority
+    label: Domain Authority
+    description: Third-party domain authority score (Moz, Ahrefs) from 0 to 100
+    type: simple
+    type_params:
+      measure: max_domain_authority_score
+    config:
+      meta:
+        metricId: domain_authority
+        tier: kpi
+        domain: marketing
+        industry: cross_industry

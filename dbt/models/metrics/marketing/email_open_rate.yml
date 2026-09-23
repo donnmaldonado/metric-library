@@ -10,5 +10,5 @@ metrics:
       meta:
         metricId: email_open_rate
         tier: kpi
-        vertical: marketing
+        domain: marketing
         industry: cross_industry

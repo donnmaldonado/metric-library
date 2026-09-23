@@ -1,0 +1,14 @@
+metrics:
+  - name: contracted_unbilled
+    label: Contracted Unbilled
+    description: ARR under contract not yet invoiced
+    type: simple
+    type_params:
+      measure: unbilled_contract_arr
+    filter: "{{ Dimension('contract__status') }} = 'active'"
+    config:
+      meta:
+        metricId: contracted_unbilled
+        tier: input
+        domain: saas
+        industry: cross_industry

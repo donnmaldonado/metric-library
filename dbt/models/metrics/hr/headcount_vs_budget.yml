@@ -12,5 +12,5 @@ metrics:
       meta:
         metricId: headcount_vs_budget
         tier: kpi
-        vertical: hr
+        domain: hr
         industry: cross_industry

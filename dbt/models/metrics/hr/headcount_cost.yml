@@ -9,5 +9,5 @@ metrics:
       meta:
         metricId: headcount_cost
         tier: kpi
-        vertical: hr
+        domain: hr
         industry: cross_industry

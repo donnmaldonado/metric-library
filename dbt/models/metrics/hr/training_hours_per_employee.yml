@@ -1,0 +1,16 @@
+metrics:
+  - name: training_hours_per_employee
+    label: Training Hours / Employee
+    description: Average learning and development hours per employee per period.
+    type: derived
+    type_params:
+      expr: total_training_hours / avg_fte
+      metrics:
+        - name: total_training_hours
+        - name: avg_fte
+    config:
+      meta:
+        metricId: training_hours_per_employee
+        tier: kpi
+        domain: hr
+        industry: cross_industry

@@ -1,8 +1,8 @@
 """Regenerate derived artifacts from data/metrics.json + data/taxonomy.json.
 
   data/relationships.csv                            one row per edge
-  dbt/models/metrics/<vertical>/<metric_id>.yml     MetricFlow metric (formulaYaml, meta refreshed)
-  dbt/analyses/metrics/<vertical>/<metric_id>.sql   SQL formula (formulaSql)
+  dbt/models/metrics/<domain>/<metric_id>.yml       MetricFlow metric (formulaYaml, meta refreshed)
+  dbt/analyses/metrics/<domain>/<metric_id>.sql     SQL formula (formulaSql)
   CATALOG.md                                        human-readable index
 
 Never edit those outputs by hand; edit data/metrics.json and re-run.
@@ -18,6 +18,7 @@ ROOT = Path(__file__).resolve().parent.parent
 TAXONOMY = json.loads((ROOT / "data/taxonomy.json").read_text())
 YML_DIR = "dbt/models/metrics"
 SQL_DIR = "dbt/analyses/metrics"
+META_KEYS = ("metricId", "tier", "domain", "industry")  # config.meta keys build.py owns
 
 
 class _Dumper(yaml.SafeDumper):
@@ -40,16 +41,15 @@ def dump_yaml(obj):
 
 
 def metric_meta(m, **extra):
-    return OrderedDict([("metricId", m["metricId"]), ("tier", m["tier"]), ("vertical", m["vertical"]),
-                        ("industry", m["industry"])] + list(extra.items()))
+    return OrderedDict([(k, m[k]) for k in META_KEYS] + list(extra.items()))
 
 
 def metric_yaml(m):
-    """formulaYaml with config.meta refreshed from the metric's current tier/vertical/industry."""
+    """formulaYaml with config.meta refreshed from the metric's current tier/domain/industry."""
     doc = yaml.safe_load(m["formulaYaml"])
     metric = doc["metrics"][0]
     old = (metric.get("config") or {}).get("meta") or {}
-    extra = {k: v for k, v in old.items() if k not in ("metricId", "tier", "vertical", "industry")}
+    extra = {k: v for k, v in old.items() if k not in META_KEYS}
     metric.setdefault("config", {})["meta"] = metric_meta(m, **extra)
     return dump_yaml(doc)
 
@@ -77,42 +77,49 @@ def main():
     shutil.rmtree(sql_root, ignore_errors=True)
     for m in metrics:
         for root, ext, text in ((yml_root, "yml", metric_yaml(m)), (sql_root, "sql", m["formulaSql"].rstrip() + "\n")):
-            d = root / m["vertical"]
+            d = root / m["domain"]
             d.mkdir(parents=True, exist_ok=True)
             (d / f"{m['metricId']}.{ext}").write_text(text)
 
-    write_catalog(sorted(metrics, key=lambda m: (TAXONOMY["tiers"][m["tier"]]["rank"], m["vertical"], m["metricId"])), by_id)
+    write_catalog(sorted(metrics, key=lambda m: (TAXONOMY["tiers"][m["tier"]]["rank"], m["domain"], m["metricId"])), by_id)
     print(f"built {len(metrics)} metrics", file=sys.stderr)
 
 
 def write_catalog(metrics, by_id):
     link = lambda i: f"[`{i}`](#{i})" if i in by_id else f"`{i}` (missing)"
     out = ["# Metric Catalog", "", f"{len(metrics)} metrics.", ""]
-    groups = defaultdict(list)
+    groups = defaultdict(lambda: defaultdict(list))
     for m in metrics:
-        groups[m["tier"]].append(m)
+        groups[m["tier"]][m["domain"]].append(m)
     for tier, t in TAXONOMY["tiers"].items():
-        out += [f"## {t['label']} ({len(groups[tier])})", ""]
-        for m in groups[tier]:
-            v = TAXONOMY["verticals"][m["vertical"]]["label"]
-            out += [
-                f'<a id="{m["metricId"]}"></a>',
-                f"### {m['label']} — `{m['metricId']}`",
-                "",
-                m["shortDescription"],
-                "",
-                f"- **Vertical:** {v} · **Industry:** {m['industry']}",
-                f"- **Files:** [yml]({YML_DIR}/{m['vertical']}/{m['metricId']}.yml) · [sql]({SQL_DIR}/{m['vertical']}/{m['metricId']}.sql)",
-            ]
-            if m["numerator"]: out.append(f"- **Numerator:** {m['numerator']}")
-            if m["denominator"]: out.append(f"- **Denominator:** {m['denominator']}")
-            if m["dimensions"]: out.append(f"- **Dimensions:** {', '.join(m['dimensions'])}")
-            if m["dataSources"]: out.append(f"- **Data sources:** {', '.join(m['dataSources'])}")
-            for key, lbl in [("parentMetrics", "Parents"), ("childMetrics", "Children"),
-                             ("formulaInputs", "Formula inputs"), ("correlatedMetrics", "Correlated")]:
-                if m.get(key): out.append(f"- **{lbl}:** {', '.join(link(x) for x in m[key])}")
-            out.append("")
+        out += [f"## {t['label']} ({sum(map(len, groups[tier].values()))})", ""]
+        for domain, ms in groups[tier].items():
+            domain_label = TAXONOMY["domains"][domain]["label"]
+            out += [f"### {t['label']} · {domain_label} ({len(ms)})", ""]
+            for m in ms:
+                out += catalog_entry(m, domain_label, link)
     (ROOT / "CATALOG.md").write_text("\n".join(out))
+
+
+def catalog_entry(m, domain_label, link):
+    out = [
+        f'<a id="{m["metricId"]}"></a>',
+        f"#### {m['label']} — `{m['metricId']}`",
+        "",
+        m["shortDescription"],
+        "",
+        f"- **Domain:** {domain_label} · **Industry:** {m['industry']}",
+        f"- **Files:** [yml]({YML_DIR}/{m['domain']}/{m['metricId']}.yml) · [sql]({SQL_DIR}/{m['domain']}/{m['metricId']}.sql)",
+    ]
+    if m["numerator"]: out.append(f"- **Numerator:** {m['numerator']}")
+    if m["denominator"]: out.append(f"- **Denominator:** {m['denominator']}")
+    if m["dimensions"]: out.append(f"- **Dimensions:** {', '.join(m['dimensions'])}")
+    if m["dataSources"]: out.append(f"- **Data sources:** {', '.join(m['dataSources'])}")
+    for key, lbl in [("parentMetrics", "Parents"), ("childMetrics", "Children"),
+                     ("formulaInputs", "Formula inputs"), ("correlatedMetrics", "Correlated")]:
+        if m.get(key): out.append(f"- **{lbl}:** {', '.join(link(x) for x in m[key])}")
+    out.append("")
+    return out
 
 
 

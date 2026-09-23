@@ -1,0 +1,14 @@
+metrics:
+  - name: quota_attainment
+    label: Quota Attainment
+    description: Sales rep ARR closed as a % of their assigned quota.
+    type: ratio
+    type_params:
+      numerator: arr_closed
+      denominator: quota
+    config:
+      meta:
+        metricId: quota_attainment
+        tier: kpi
+        domain: sales
+        industry: cross_industry

@@ -1,0 +1,13 @@
+metrics:
+  - name: gmv
+    label: GMV
+    description: Total value of merchandise sold through a marketplace before returns and fees.
+    type: simple
+    type_params:
+      measure: transaction_value
+    config:
+      meta:
+        metricId: gmv
+        tier: kpi
+        domain: commerce
+        industry: marketplace

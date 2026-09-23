@@ -12,5 +12,5 @@ metrics:
       meta:
         metricId: ebit
         tier: kpi
-        vertical: finance
+        domain: finance
         industry: cross_industry

@@ -1,0 +1,13 @@
+metrics:
+  - name: churn_prediction_score
+    label: Churn Prediction Score
+    description: ML model score (0–1) indicating probability of a user churning in the next 30 days.
+    type: simple
+    type_params:
+      measure: avg_churn_probability
+    config:
+      meta:
+        metricId: churn_prediction_score
+        tier: kpi
+        domain: saas
+        industry: saas

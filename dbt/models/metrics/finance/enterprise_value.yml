@@ -12,5 +12,5 @@ metrics:
       meta:
         metricId: enterprise_value
         tier: north_star
-        vertical: finance
+        domain: finance
         industry: cross_industry

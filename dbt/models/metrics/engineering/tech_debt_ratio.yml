@@ -1,0 +1,14 @@
+metrics:
+  - name: tech_debt_ratio
+    label: Tech Debt Ratio
+    description: Estimated remediation cost of tech debt relative to development cost
+    type: ratio
+    type_params:
+      numerator: tech_debt_hours
+      denominator: total_dev_hours
+    config:
+      meta:
+        metricId: tech_debt_ratio
+        tier: kpi
+        domain: engineering
+        industry: financial_services

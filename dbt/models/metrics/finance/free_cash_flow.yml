@@ -12,5 +12,5 @@ metrics:
       meta:
         metricId: free_cash_flow
         tier: north_star
-        vertical: finance
+        domain: finance
         industry: cross_industry

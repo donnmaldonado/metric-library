@@ -10,5 +10,5 @@ metrics:
       meta:
         metricId: ops_efficiency_ratio
         tier: north_star
-        vertical: finance
+        domain: finance
         industry: cross_industry

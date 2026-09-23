@@ -14,38 +14,59 @@
       "rank": 2
     }
   },
-  "verticals": {
+  "domains": {
+    "commerce": {
+      "label": "Commerce",
+      "desc": "Orders, returns, shipments, inventory, marketplace"
+    },
+    "customer": {
+      "label": "Customer",
+      "desc": "Support tickets, SLAs, complaints, account health"
+    },
+    "education": {
+      "label": "Education",
+      "desc": "Enrollment, attendance, assessment, student outcomes"
+    },
+    "engineering": {
+      "label": "Engineering",
+      "desc": "Deployments, pull requests, incidents, availability"
+    },
     "finance": {
-      "label": "Finance & FP&A",
-      "desc": "Revenue, profitability, financial planning"
-    },
-    "pe": {
-      "label": "Private Equity / SaaS",
-      "desc": "ARR, MRR, growth, portfolio metrics"
-    },
-    "marketing": {
-      "label": "Marketing",
-      "desc": "CAC, ROAS, pipeline, conversions"
-    },
-    "product": {
-      "label": "Product & Engineering",
-      "desc": "Adoption, engagement, technical metrics"
+      "label": "Finance",
+      "desc": "Revenue, P&L, balance sheet, cash, budgets, valuation"
     },
     "hr": {
       "label": "People & HR",
-      "desc": "Headcount, retention, culture metrics"
+      "desc": "Headcount, hiring, payroll, retention, engagement"
     },
-    "ops": {
+    "marketing": {
+      "label": "Marketing",
+      "desc": "Ad spend, web traffic, email, SEO, social"
+    },
+    "operations": {
       "label": "Operations",
-      "desc": "Efficiency, productivity, process metrics"
+      "desc": "Production, purchasing, quality, fleet, safety"
     },
-    "customer": {
-      "label": "Customer & Revenue",
-      "desc": "LTV, churn, satisfaction, NPS"
+    "product": {
+      "label": "Product",
+      "desc": "Users, events, engagement, app performance"
     },
-    "edu": {
-      "label": "Education",
-      "desc": "Enrollment, retention, outcomes"
+    "saas": {
+      "label": "SaaS",
+      "desc": "ARR, subscriptions, contracts, renewals, churn"
+    },
+    "sales": {
+      "label": "Sales",
+      "desc": "Leads, opportunities, rep quota"
     }
-  }
+  },
+  "industries": [
+    "cross_industry",
+    "education",
+    "financial_services",
+    "manufacturing",
+    "marketplace",
+    "retail",
+    "saas"
+  ]
 }

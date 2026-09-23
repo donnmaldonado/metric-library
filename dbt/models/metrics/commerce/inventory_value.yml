@@ -1,0 +1,13 @@
+metrics:
+  - name: inventory_value
+    label: Inventory Value
+    description: Total cost basis of inventory on hand
+    type: simple
+    type_params:
+      measure: inventory_value_value
+    config:
+      meta:
+        metricId: inventory_value
+        tier: input
+        domain: commerce
+        industry: manufacturing

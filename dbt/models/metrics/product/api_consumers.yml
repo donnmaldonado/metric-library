@@ -9,5 +9,5 @@ metrics:
       meta:
         metricId: api_consumers
         tier: input
-        vertical: product
+        domain: product
         industry: cross_industry

@@ -9,5 +9,5 @@ metrics:
       meta:
         metricId: account_health_score
         tier: kpi
-        vertical: customer
+        domain: customer
         industry: cross_industry

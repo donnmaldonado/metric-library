@@ -9,5 +9,5 @@ metrics:
       meta:
         metricId: ad_clicks
         tier: input
-        vertical: marketing
+        domain: marketing
         industry: cross_industry

@@ -1,0 +1,15 @@
+metrics:
+  - name: active_paying_users
+    label: Active Paying Users
+    description: Users on a paid plan who have been active in the past 30 days
+    type: simple
+    type_params:
+      measure: subscriptions_distinct_user_count
+    filter: "{{ Dimension('subscription_snapshot__status') }} = 'active' AND {{ Dimension('subscription_snapshot__plan_tier')\
+      \ }} != 'free' AND {{ Dimension('subscription_snapshot__is_active_30d') }} = true"
+    config:
+      meta:
+        metricId: active_paying_users
+        tier: kpi
+        domain: saas
+        industry: cross_industry

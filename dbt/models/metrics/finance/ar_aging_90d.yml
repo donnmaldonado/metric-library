@@ -10,5 +10,5 @@ metrics:
       meta:
         metricId: ar_aging_90d
         tier: kpi
-        vertical: finance
+        domain: finance
         industry: cross_industry

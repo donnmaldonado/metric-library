@@ -10,5 +10,5 @@ metrics:
       meta:
         metricId: organic_sessions
         tier: kpi
-        vertical: marketing
+        domain: marketing
         industry: cross_industry

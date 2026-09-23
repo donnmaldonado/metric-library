@@ -1,0 +1,16 @@
+metrics:
+  - name: refund_rate
+    label: Refund Rate
+    description: Percentage of transactions that were refunded
+    type: ratio
+    type_params:
+      numerator:
+        name: order_count
+        filter: "{{ Dimension('order__is_refunded') }} = true"
+      denominator: order_count
+    config:
+      meta:
+        metricId: refund_rate
+        tier: kpi
+        domain: commerce
+        industry: retail

@@ -1,0 +1,14 @@
+metrics:
+  - name: instructional_spend_ratio
+    label: Instructional Spend %
+    description: Percentage of operating budget spent directly on instruction
+    type: ratio
+    type_params:
+      numerator: instructional_expenditure
+      denominator: total_expenditure
+    config:
+      meta:
+        metricId: instructional_spend_ratio
+        tier: kpi
+        domain: education
+        industry: cross_industry

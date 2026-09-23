@@ -1,0 +1,16 @@
+metrics:
+  - name: fill_rate
+    label: Fill Rate
+    description: '% of order lines fulfilled completely from available inventory.'
+    type: ratio
+    type_params:
+      numerator:
+        name: order_lines
+        filter: "{{ Dimension('order_line__is_fully_shipped') }} = true"
+      denominator: order_lines
+    config:
+      meta:
+        metricId: fill_rate
+        tier: kpi
+        domain: commerce
+        industry: manufacturing

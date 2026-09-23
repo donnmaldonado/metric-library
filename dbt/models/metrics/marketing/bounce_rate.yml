@@ -1,0 +1,16 @@
+metrics:
+  - name: bounce_rate
+    label: Bounce Rate
+    description: '% of sessions where users leave after viewing only one page.'
+    type: ratio
+    type_params:
+      numerator:
+        name: website_sessions
+        filter: "{{ Dimension('session__is_bounce') }}"
+      denominator: website_sessions
+    config:
+      meta:
+        metricId: bounce_rate
+        tier: kpi
+        domain: marketing
+        industry: cross_industry

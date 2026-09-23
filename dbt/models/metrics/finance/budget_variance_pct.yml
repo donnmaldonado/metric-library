@@ -10,5 +10,5 @@ metrics:
       meta:
         metricId: budget_variance_pct
         tier: kpi
-        vertical: finance
+        domain: finance
         industry: cross_industry

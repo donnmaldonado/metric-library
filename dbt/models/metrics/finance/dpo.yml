@@ -12,5 +12,5 @@ metrics:
       meta:
         metricId: dpo
         tier: kpi
-        vertical: finance
+        domain: finance
         industry: cross_industry

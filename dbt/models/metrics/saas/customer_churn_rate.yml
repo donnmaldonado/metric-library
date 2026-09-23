@@ -1,0 +1,14 @@
+metrics:
+  - name: customer_churn_rate
+    label: Customer Churn %
+    description: Percentage of customers who stopped purchasing in the period
+    type: ratio
+    type_params:
+      numerator: churned_customers
+      denominator: beginning_customers
+    config:
+      meta:
+        metricId: customer_churn_rate
+        tier: kpi
+        domain: saas
+        industry: saas

@@ -1,0 +1,14 @@
+metrics:
+  - name: warehouse_utilization
+    label: Warehouse Utilization %
+    description: Percentage of warehouse storage capacity currently in use
+    type: ratio
+    type_params:
+      numerator: occupied_sqft
+      denominator: total_sqft
+    config:
+      meta:
+        metricId: warehouse_utilization
+        tier: kpi
+        domain: operations
+        industry: manufacturing

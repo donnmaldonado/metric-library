@@ -12,5 +12,5 @@ metrics:
       meta:
         metricId: gross_profit
         tier: kpi
-        vertical: finance
+        domain: finance
         industry: cross_industry

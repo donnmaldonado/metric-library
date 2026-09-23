@@ -1,0 +1,14 @@
+metrics:
+  - name: lead_time_for_changes
+    label: Lead Time for Changes
+    description: Median time from code commit to production deployment — DORA metric.
+    type: simple
+    type_params:
+      measure: median_lead_time_hours
+    filter: "{{ Dimension('deployment__environment') }} = 'production'"
+    config:
+      meta:
+        metricId: lead_time_for_changes
+        tier: kpi
+        domain: engineering
+        industry: cross_industry

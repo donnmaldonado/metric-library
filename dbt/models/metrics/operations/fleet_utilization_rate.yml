@@ -1,0 +1,14 @@
+metrics:
+  - name: fleet_utilization_rate
+    label: Fleet Utilization Rate
+    description: '% of available vehicle hours actually used in operations.'
+    type: ratio
+    type_params:
+      numerator: hours_in_service
+      denominator: available_hours
+    config:
+      meta:
+        metricId: fleet_utilization_rate
+        tier: kpi
+        domain: operations
+        industry: cross_industry

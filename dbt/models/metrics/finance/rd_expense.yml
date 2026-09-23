@@ -10,5 +10,5 @@ metrics:
       meta:
         metricId: rd_expense
         tier: kpi
-        vertical: finance
+        domain: finance
         industry: cross_industry

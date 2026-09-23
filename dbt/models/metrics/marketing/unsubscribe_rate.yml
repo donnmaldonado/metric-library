@@ -1,0 +1,14 @@
+metrics:
+  - name: unsubscribe_rate
+    label: Unsubscribe Rate
+    description: '% of email recipients who unsubscribed — list health signal.'
+    type: ratio
+    type_params:
+      numerator: emails_unsubscribed
+      denominator: emails_delivered
+    config:
+      meta:
+        metricId: unsubscribe_rate
+        tier: kpi
+        domain: marketing
+        industry: cross_industry

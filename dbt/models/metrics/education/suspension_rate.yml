@@ -1,0 +1,16 @@
+metrics:
+  - name: suspension_rate
+    label: Suspension Rate
+    description: '% of students who received at least one out-of-school suspension in a year.'
+    type: ratio
+    type_params:
+      numerator:
+        name: disciplined_students
+        filter: "{{ Dimension('discipline_incident__consequence') }} = 'out_of_school_suspension'"
+      denominator: enrollment_count
+    config:
+      meta:
+        metricId: suspension_rate
+        tier: kpi
+        domain: education
+        industry: cross_industry

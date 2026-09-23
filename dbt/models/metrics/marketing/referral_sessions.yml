@@ -1,0 +1,14 @@
+metrics:
+  - name: referral_sessions
+    label: Referral Sessions
+    description: Web sessions originating from referring websites (non-paid, non-organic).
+    type: simple
+    type_params:
+      measure: session_count
+    filter: "{{ Dimension('session__medium') }} = 'referral'"
+    config:
+      meta:
+        metricId: referral_sessions
+        tier: input
+        domain: marketing
+        industry: cross_industry

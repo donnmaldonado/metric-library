@@ -1,0 +1,14 @@
+metrics:
+  - name: purchase_frequency
+    label: Purchase Frequency
+    description: Average number of orders per customer per year
+    type: ratio
+    type_params:
+      numerator: order_count
+      denominator: ordering_customers
+    config:
+      meta:
+        metricId: purchase_frequency
+        tier: kpi
+        domain: commerce
+        industry: retail

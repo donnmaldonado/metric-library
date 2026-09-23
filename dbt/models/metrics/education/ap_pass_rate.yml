@@ -1,0 +1,16 @@
+metrics:
+  - name: ap_pass_rate
+    label: AP Pass Rate
+    description: Percentage of AP exam takers scoring 3, 4, or 5
+    type: ratio
+    type_params:
+      numerator:
+        name: ap_exams_taken
+        filter: "{{ Dimension('assessment_result__met_standard') }} = true"
+      denominator: ap_exams_taken
+    config:
+      meta:
+        metricId: ap_pass_rate
+        tier: kpi
+        domain: education
+        industry: cross_industry

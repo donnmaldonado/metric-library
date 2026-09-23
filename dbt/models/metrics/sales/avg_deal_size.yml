@@ -1,0 +1,14 @@
+metrics:
+  - name: avg_deal_size
+    label: Avg Deal Size
+    description: Average ARR value of closed-won opportunities in the period.
+    type: ratio
+    type_params:
+      numerator: closed_won_arr
+      denominator: closed_won_deals
+    config:
+      meta:
+        metricId: avg_deal_size
+        tier: kpi
+        domain: sales
+        industry: cross_industry

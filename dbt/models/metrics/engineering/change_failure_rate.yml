@@ -1,0 +1,16 @@
+metrics:
+  - name: change_failure_rate
+    label: Change Failure %
+    description: Percentage of deployments causing production incidents (DORA metric)
+    type: ratio
+    type_params:
+      numerator:
+        name: deployment_frequency
+        filter: "{{ Dimension('deployment__is_failed') }}"
+      denominator: deployment_frequency
+    config:
+      meta:
+        metricId: change_failure_rate
+        tier: kpi
+        domain: engineering
+        industry: cross_industry

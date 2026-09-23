@@ -10,5 +10,5 @@ metrics:
       meta:
         metricId: sg_and_a
         tier: kpi
-        vertical: finance
+        domain: finance
         industry: cross_industry

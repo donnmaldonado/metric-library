@@ -1,0 +1,14 @@
+metrics:
+  - name: customer_count
+    label: Customer Count
+    description: Total number of active paying customers
+    type: simple
+    type_params:
+      measure: active_customer_count
+    filter: "{{ Dimension('subscription_snapshot__status') }} = 'active'"
+    config:
+      meta:
+        metricId: customer_count
+        tier: input
+        domain: saas
+        industry: cross_industry

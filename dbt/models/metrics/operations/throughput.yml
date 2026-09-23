@@ -1,0 +1,13 @@
+metrics:
+  - name: throughput
+    label: Throughput
+    description: Number of units completed per period
+    type: simple
+    type_params:
+      measure: units_produced
+    config:
+      meta:
+        metricId: throughput
+        tier: kpi
+        domain: operations
+        industry: cross_industry

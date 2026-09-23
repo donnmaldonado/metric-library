@@ -1,0 +1,14 @@
+metrics:
+  - name: q2_revenue
+    label: Q2 Revenue
+    description: Revenue recognized in Q2
+    type: simple
+    type_params:
+      measure: revenue_amount
+    filter: "{{ Dimension('revenue_event__fiscal_quarter') }} = 2"
+    config:
+      meta:
+        metricId: q2_revenue
+        tier: input
+        domain: finance
+        industry: cross_industry

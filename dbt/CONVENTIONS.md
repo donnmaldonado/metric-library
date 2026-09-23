@@ -41,12 +41,12 @@ A new cumulative metric adds one warning of each kind; update this list when you
 
 | Path | Source of truth | How to change it |
 |---|---|---|
-| `dbt/models/metrics/<vertical>/<id>.yml` | `formulaYaml` in `data/metrics.json` | Edit `formulaYaml`, run `build.py`. Never edit the file directly. |
-| `dbt/analyses/metrics/<vertical>/<id>.sql` | `formulaSql` in `data/metrics.json` | Edit `formulaSql`, run `build.py`. |
+| `dbt/models/metrics/<domain>/<id>.yml` | `formulaYaml` in `data/metrics.json` | Edit `formulaYaml`, run `build.py`. Never edit the file directly. |
+| `dbt/analyses/metrics/<domain>/<id>.sql` | `formulaSql` in `data/metrics.json` | Edit `formulaSql`, run `build.py`. |
 | `dbt/models/marts/<domain>/<model>.sql/.yml` | these files | Edit by hand. |
 | `dbt/models/utilities/` | these files | Time spine; leave it alone. |
 
-`build.py` rewrites `config.meta.{metricId,tier,vertical,industry}` from the metric's current fields on every build. Tier changes therefore flow into dbt without touching `formulaYaml`, and you don't need to maintain those four keys by hand. Other meta keys are preserved.
+`build.py` rewrites `config.meta.{metricId,tier,domain,industry}` from the metric's current fields on every build. Tier changes therefore flow into dbt without touching `formulaYaml`, and you don't need to maintain those four keys by hand. Other meta keys are preserved.
 
 Keep `data/metrics.json` formatted as `json.dumps(metrics, indent=2, ensure_ascii=False) + "\n"`, in the same metric order.
 
@@ -94,7 +94,7 @@ If two semantic models want the same name, both get the model name as a prefix, 
 3. A ratio or derived input needs a metric. Add a helper `type: simple` metric under `metrics:` in the same file, or put a `filter` on it: a count with a filter usually beats a pre-computed 0/1 column (`escalated_tickets` = `ticket_count` filtered on `{{ Dimension('ticket__is_escalated') }}`). When you replace a helper, delete the old one and its column if nothing else uses them (grep `dbt/models`).
 4. Reference it from the library metric's `formulaYaml` and run `scripts/check_dbt.sh`.
 
-Semantic model files are shared between verticals (the header lists the metrics on each model). Make additive edits, and don't rename or delete measures or helpers another vertical's metric uses.
+Semantic model files are shared between domains: a metric in one domain often reads models in another (the header lists the metrics on each model). Make additive edits, and don't rename or delete measures or helpers another metric uses. Moving a measure to another domain's model can change the `domain` of the metrics built on it; `validate.py` will flag them.
 
 ## Metrics (`formulaYaml`)
 
@@ -113,7 +113,7 @@ metrics:
       meta:                          # refreshed by build.py
         metricId: mql
         tier: north_star
-        vertical: marketing
+        domain: marketing
         industry: cross_industry
 ```
 
@@ -125,7 +125,7 @@ metrics:
 
 ## Metric SQL (`formulaSql`)
 
-- Each `formulaSql` runs against the dbt models via `{{ ref('<model>') }}`. **Always use `ref()`; plain model names don't work.** `build.py` writes it to `dbt/analyses/metrics/<vertical>/<metricId>.sql`. dbt parses these as analyses, so a `ref()` to a model that doesn't exist fails `dbt parse`. `check_dbt.sh` then compiles and executes every analysis against the zero-row stubs, which catches missing columns and type errors.
+- Each `formulaSql` runs against the dbt models via `{{ ref('<model>') }}`. **Always use `ref()`; plain model names don't work.** `build.py` writes it to `dbt/analyses/metrics/<domain>/<metricId>.sql`. dbt parses these as analyses, so a `ref()` to a model that doesn't exist fails `dbt parse`. `check_dbt.sh` then compiles and executes every analysis against the zero-row stubs, which catches missing columns and type errors.
 - Use only columns that exist in the stubs. If you need a new column, add it to the stub (and to the semantic model if a metric needs it).
 - Match the metric's definition in `formulaYaml`, and return one row per the metric's natural dimensions: `date_trunc('month', <time col>) as period` plus the categorical dimensions. Name the metric column after the metricId.
 - Write multi-line, lower-case SQL with `nullif(x, 0)` on every denominator. It must be duckdb-compatible (`datediff('day', a, b)`, `date_trunc`).

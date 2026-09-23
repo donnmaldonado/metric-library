@@ -12,5 +12,5 @@ metrics:
       meta:
         metricId: mau
         tier: kpi
-        vertical: product
+        domain: product
         industry: cross_industry

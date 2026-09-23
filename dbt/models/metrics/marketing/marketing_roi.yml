@@ -1,0 +1,16 @@
+metrics:
+  - name: marketing_roi
+    label: Marketing ROI
+    description: Return on total marketing investment — revenue driven per dollar spent.
+    type: derived
+    type_params:
+      expr: (attributed_revenue - marketing_spend) / nullif(marketing_spend, 0)
+      metrics:
+        - name: attributed_revenue
+        - name: marketing_spend
+    config:
+      meta:
+        metricId: marketing_roi
+        tier: north_star
+        domain: marketing
+        industry: cross_industry

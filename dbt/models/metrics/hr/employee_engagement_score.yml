@@ -9,5 +9,5 @@ metrics:
       meta:
         metricId: employee_engagement_score
         tier: kpi
-        vertical: hr
+        domain: hr
         industry: cross_industry

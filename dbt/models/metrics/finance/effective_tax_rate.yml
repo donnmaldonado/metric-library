@@ -10,5 +10,5 @@ metrics:
       meta:
         metricId: effective_tax_rate
         tier: kpi
-        vertical: finance
+        domain: finance
         industry: cross_industry

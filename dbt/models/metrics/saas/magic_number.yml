@@ -1,0 +1,18 @@
+metrics:
+  - name: magic_number
+    label: Magic Number
+    description: Net new ARR divided by prior quarter S&M spend — go-to-market efficiency
+    type: derived
+    type_params:
+      expr: net_new_arr / nullif(sm_spend_prior_quarter, 0)
+      metrics:
+        - name: net_new_arr
+        - name: sm_spend
+          offset_window: 1 quarter
+          alias: sm_spend_prior_quarter
+    config:
+      meta:
+        metricId: magic_number
+        tier: kpi
+        domain: saas
+        industry: cross_industry

@@ -11,5 +11,5 @@ metrics:
       meta:
         metricId: rd_headcount
         tier: input
-        vertical: hr
+        domain: hr
         industry: cross_industry

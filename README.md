@@ -1,22 +1,23 @@
 # Metric Library
 
-375 business metrics (22 North Star, 266 KPI, 87 Input) across 8 verticals. Each one has a definition, a MetricFlow metric, runnable SQL and its place in a driver tree.
+375 business metrics (22 North Star, 266 KPI, 87 Input) across 11 domains. Each one has a definition, a MetricFlow metric, runnable SQL and its place in a driver tree.
 
 ## Layout
 
 | Path | Contents |
 |---|---|
-| `data/metrics.json` | **Source of truth.** Per metric: metricId, retiredIds, label, tier, vertical, industry, description, SQL, YAML, numerator/denominator, dimensions, data sources, parent/child/correlated metrics and `formulaInputs`. |
-| `data/taxonomy.json` | Tier and vertical labels and descriptions. |
+| `data/metrics.json` | **Source of truth.** Per metric: metricId, retiredIds, label, domain (and `domainOverride` where set), industry, tier, description, SQL, YAML, numerator/denominator, dimensions, data sources, parent/child/correlated metrics and `formulaInputs`. |
+| `data/taxonomy.json` | Tier and domain labels and descriptions, and the allowed industries. |
 | `data/relationships.csv` | Edge list: `parent_of`, `correlated_with` and `formula_input` (`A formula_input B` = B is computed from A), noting which metric declared each edge. |
-| `CATALOG.md` | Readable index grouped by tier, with links between related metrics. |
+| `CATALOG.md` | Readable index grouped by tier and domain, with links between related metrics. |
 | `dbt/` | dbt-core + duckdb project: 107 zero-row model stubs with semantic models (`models/marts/<domain>/`), a time spine and conventions ([dbt/CONVENTIONS.md](dbt/CONVENTIONS.md)). |
-| `dbt/models/metrics/<vertical>/<id>.yml` | MetricFlow metric (generated from `formulaYaml`). |
-| `dbt/analyses/metrics/<vertical>/<id>.sql` | SQL formula (generated from `formulaSql`). |
+| `dbt/models/metrics/<domain>/<id>.yml` | MetricFlow metric (generated from `formulaYaml`). |
+| `dbt/analyses/metrics/<domain>/<id>.sql` | SQL formula (generated from `formulaSql`). |
 | `scripts/build.py` | Regenerates `dbt/models/metrics/`, `dbt/analyses/metrics/`, `relationships.csv` and `CATALOG.md` from `data/metrics.json`. |
 | `scripts/validate.py` | Graph and YAML integrity checks; exits non-zero if any issue is found. |
 | `scripts/check_dbt.sh` | Runs build.py, `dbt parse`, `dbt build`, the metric SQL and `mf validate-configs`. |
-| `scripts/owned_metrics.py` | Lists metrics by the mart domain of their model (`python3 scripts/owned_metrics.py finance`). |
+| `scripts/domains.py` | Derives each metric's domain from the marts and checks the stored `domain`; used by `validate.py` and `owned_metrics.py`. Tests: `python3 -m unittest discover -s scripts`. |
+| `scripts/owned_metrics.py` | Lists metrics by derived domain (`python3 scripts/owned_metrics.py finance`). |
 
 ## Working on the library
 
@@ -37,9 +38,10 @@ scripts/check_dbt.sh          # dbt parse + build, run every metric's SQL, mf va
 - **Rates are fractions (0–1)**, not percentages; score scales such as NPS/eNPS (−100 to 100) keep their native range.
 - **Balances are never summed over time.** Snapshot models use `non_additive_dimension`; opening balances come from the prior period's close.
 - **One metric per concept.** Duplicates are merged, not aliased: the surviving metric lists the IDs merged into it in `retiredIds` (present on every metric, empty by default), so old references can be traced. A slice of a metric (`revenue_by_region`) is a dimension on it, not a separate metric. `validate.py` rejects bare aliases (`type: derived`, one input, `expr` equal to the input) and retired IDs that are live or listed twice.
-- `config.meta` carries `metricId`, `tier`, `vertical` and `industry`, refreshed from the JSON by `build.py`.
+- **`domain` follows the data.** It is the mart domain (`dbt/models/marts/<domain>/`) of the semantic model behind the metric's first measure, following ratio/derived inputs through other metrics (`scripts/domains.py`). It is stored in the JSON, and `validate.py` checks it against the derivation. Where a reader of another domain would clearly look for a cross-domain metric, `domainOverride: {domain, reason}` sets it instead (e.g. `ltv_cac` → finance). Use overrides sparingly.
+- **`industry`** is `cross_industry` unless the metric only makes sense for one industry (`saas`, `education`, …); the allowed values are listed in `data/taxonomy.json`.
+- `config.meta` carries `metricId`, `tier`, `domain` and `industry`, refreshed from the JSON by `build.py`.
 - The dbt models are zero-row stubs with the right columns and types; wiring them to real sources is the next step for a live deployment.
-- The `vertical` field is unreliable (see [Known issues](#known-issues)); `scripts/owned_metrics.py` groups by model domain instead.
 
 ## Graph conventions
 
@@ -88,5 +90,4 @@ Open questions about specific definitions. Resolve one by updating the metric, t
 - Some parent edges are weak: the leverage family → `roe`, `roic` → `enterprise_value`, `ltv_cac` → `marketing_roi`, `magic_number` → `rule_of_40`, `forecast_accuracy` → `ebitda`, `carbon_emissions_per_unit` → `ops_efficiency_ratio`, `diversity_hire_rate` → `headcount`, survey metrics → `nps`, and `ell_pct`/`frl_pct`/`iep_pct` → `student_proficiency`.
 - North Star → North Star links are recorded as `correlatedMetrics`; check that none is a real driver edge.
 - `formulaInputs` is out of step with some definitions (e.g. `enrollment_count` on education metrics, `headcount` still listed on `absenteeism_rate`/`turnover_rate`/`span_of_control`).
-- `vertical` is wrong on some metrics (e.g. `inventory_turnover` is tagged hr, `cross_sell_rate` edu, `lead_time`/`supplier_lead_time` marketing).
 - `relationships.csv` lists each parent/child edge twice (declared on both sides).

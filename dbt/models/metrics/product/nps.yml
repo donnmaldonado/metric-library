@@ -18,5 +18,5 @@ metrics:
       meta:
         metricId: nps
         tier: north_star
-        vertical: product
+        domain: product
         industry: cross_industry

@@ -1,0 +1,14 @@
+metrics:
+  - name: event_attendees
+    label: Event Attendees
+    description: Total attendees at company-sponsored events in the period
+    type: simple
+    type_params:
+      measure: registration_count
+    filter: "{{ Dimension('event_registration__attended') }}"
+    config:
+      meta:
+        metricId: event_attendees
+        tier: input
+        domain: marketing
+        industry: cross_industry

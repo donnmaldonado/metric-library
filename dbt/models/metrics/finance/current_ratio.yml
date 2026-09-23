@@ -10,5 +10,5 @@ metrics:
       meta:
         metricId: current_ratio
         tier: kpi
-        vertical: finance
+        domain: finance
         industry: cross_industry

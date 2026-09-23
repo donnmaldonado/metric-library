@@ -10,5 +10,5 @@ metrics:
       meta:
         metricId: span_of_control
         tier: kpi
-        vertical: hr
+        domain: hr
         industry: cross_industry

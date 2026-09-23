@@ -1,0 +1,15 @@
+metrics:
+  - name: customer_retention_rate
+    label: Customer Retention %
+    description: Percentage of customers retained from one period to the next
+    type: derived
+    type_params:
+      expr: 1 - customer_churn_rate
+      metrics:
+        - name: customer_churn_rate
+    config:
+      meta:
+        metricId: customer_retention_rate
+        tier: kpi
+        domain: saas
+        industry: cross_industry

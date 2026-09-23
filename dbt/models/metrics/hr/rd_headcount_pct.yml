@@ -10,5 +10,5 @@ metrics:
       meta:
         metricId: rd_headcount_pct
         tier: kpi
-        vertical: hr
+        domain: hr
         industry: cross_industry

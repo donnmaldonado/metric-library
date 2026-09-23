@@ -1,0 +1,19 @@
+metrics:
+  - name: ap_participation_rate
+    label: AP Participation %
+    description: Percentage of 11th and 12th graders enrolled in at least one AP course
+    type: ratio
+    type_params:
+      numerator:
+        name: course_students
+        filter: "{{ Dimension('course_enrollment__course_level') }} = 'ap' AND {{ Dimension('course_enrollment__grade_level')\
+          \ }} IN ('11', '12')"
+      denominator:
+        name: enrollment_count
+        filter: "{{ Dimension('enrollment__grade_level') }} IN ('11', '12')"
+    config:
+      meta:
+        metricId: ap_participation_rate
+        tier: kpi
+        domain: education
+        industry: cross_industry

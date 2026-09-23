@@ -1,0 +1,14 @@
+metrics:
+  - name: form_conversion_rate
+    label: Form CVR %
+    description: Percentage of form page visitors who submitted a form
+    type: ratio
+    type_params:
+      numerator: form_submissions
+      denominator: form_views
+    config:
+      meta:
+        metricId: form_conversion_rate
+        tier: kpi
+        domain: marketing
+        industry: cross_industry

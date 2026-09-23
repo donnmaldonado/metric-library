@@ -9,5 +9,5 @@ metrics:
       meta:
         metricId: accounts_payable
         tier: input
-        vertical: finance
+        domain: finance
         industry: cross_industry

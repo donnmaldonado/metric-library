@@ -9,5 +9,5 @@ metrics:
       meta:
         metricId: tam
         tier: input
-        vertical: finance
+        domain: finance
         industry: cross_industry

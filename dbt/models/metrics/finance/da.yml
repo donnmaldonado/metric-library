@@ -9,5 +9,5 @@ metrics:
       meta:
         metricId: da
         tier: input
-        vertical: finance
+        domain: finance
         industry: cross_industry

@@ -1,0 +1,16 @@
+metrics:
+  - name: aov
+    label: AOV
+    description: Average value per transaction
+    type: ratio
+    type_params:
+      numerator: gross_revenue
+      denominator:
+        name: order_count
+        filter: "{{ Dimension('order__status') }} = 'completed'"
+    config:
+      meta:
+        metricId: aov
+        tier: kpi
+        domain: commerce
+        industry: retail

@@ -10,5 +10,5 @@ metrics:
       meta:
         metricId: debt_to_equity
         tier: kpi
-        vertical: finance
+        domain: finance
         industry: financial_services

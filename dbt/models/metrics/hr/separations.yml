@@ -1,0 +1,13 @@
+metrics:
+  - name: separations
+    label: Separations
+    description: Number of employees who left (voluntarily or involuntarily) in the period
+    type: simple
+    type_params:
+      measure: separations_employee_count
+    config:
+      meta:
+        metricId: separations
+        tier: input
+        domain: hr
+        industry: cross_industry

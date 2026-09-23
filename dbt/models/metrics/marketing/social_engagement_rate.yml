@@ -10,5 +10,5 @@ metrics:
       meta:
         metricId: social_engagement_rate
         tier: kpi
-        vertical: marketing
+        domain: marketing
         industry: cross_industry

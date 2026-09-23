@@ -1,0 +1,16 @@
+metrics:
+  - name: chronic_absenteeism_rate
+    label: Chronic Absence %
+    description: Percentage of students missing 10% or more of enrolled days
+    type: ratio
+    type_params:
+      numerator:
+        name: attendance_students
+        filter: "{{ Dimension('student_attendance_year__is_chronically_absent') }} = true"
+      denominator: attendance_students
+    config:
+      meta:
+        metricId: chronic_absenteeism_rate
+        tier: kpi
+        domain: education
+        industry: cross_industry

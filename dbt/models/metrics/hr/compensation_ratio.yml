@@ -9,5 +9,5 @@ metrics:
       meta:
         metricId: compensation_ratio
         tier: kpi
-        vertical: hr
+        domain: hr
         industry: cross_industry

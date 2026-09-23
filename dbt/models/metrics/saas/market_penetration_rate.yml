@@ -1,0 +1,14 @@
+metrics:
+  - name: market_penetration_rate
+    label: Market Penetration Rate
+    description: ARR as a % of Total Addressable Market — how much of the opportunity is captured.
+    type: ratio
+    type_params:
+      numerator: arr
+      denominator: tam
+    config:
+      meta:
+        metricId: market_penetration_rate
+        tier: kpi
+        domain: saas
+        industry: saas

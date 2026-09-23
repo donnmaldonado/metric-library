@@ -1,0 +1,14 @@
+metrics:
+  - name: pipeline_value
+    label: Pipeline Value
+    description: Total ARR value of open opportunities in the pipeline.
+    type: simple
+    type_params:
+      measure: opportunities_arr_value
+    filter: "{{ Dimension('opportunity__is_closed') }} = false"
+    config:
+      meta:
+        metricId: pipeline_value
+        tier: kpi
+        domain: sales
+        industry: cross_industry

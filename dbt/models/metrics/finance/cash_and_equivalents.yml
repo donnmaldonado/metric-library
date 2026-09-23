@@ -9,5 +9,5 @@ metrics:
       meta:
         metricId: cash_and_equivalents
         tier: input
-        vertical: finance
+        domain: finance
         industry: cross_industry

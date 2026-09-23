@@ -1,0 +1,15 @@
+metrics:
+  - name: expansion_pipeline
+    label: Expansion Pipeline
+    description: Total potential expansion ARR in open upsell opportunities
+    type: simple
+    type_params:
+      measure: opportunities_arr_value
+    filter: "{{ Dimension('opportunity__opportunity_type') }} = 'expansion' AND {{ Dimension('opportunity__is_closed') }}\
+      \ = false"
+    config:
+      meta:
+        metricId: expansion_pipeline
+        tier: kpi
+        domain: sales
+        industry: cross_industry

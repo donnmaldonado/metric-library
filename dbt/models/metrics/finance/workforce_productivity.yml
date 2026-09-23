@@ -10,5 +10,5 @@ metrics:
       meta:
         metricId: workforce_productivity
         tier: kpi
-        vertical: finance
+        domain: finance
         industry: cross_industry

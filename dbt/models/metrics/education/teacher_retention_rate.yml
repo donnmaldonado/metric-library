@@ -1,0 +1,16 @@
+metrics:
+  - name: teacher_retention_rate
+    label: Teacher Retention Rate
+    description: '% of teachers who return the following school year.'
+    type: ratio
+    type_params:
+      numerator:
+        name: teacher_headcount
+        filter: "{{ Dimension('staff_member__returned_next_year') }} = true"
+      denominator: teacher_headcount
+    config:
+      meta:
+        metricId: teacher_retention_rate
+        tier: kpi
+        domain: education
+        industry: education

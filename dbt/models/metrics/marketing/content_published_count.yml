@@ -10,5 +10,5 @@ metrics:
       meta:
         metricId: content_published_count
         tier: input
-        vertical: marketing
+        domain: marketing
         industry: cross_industry

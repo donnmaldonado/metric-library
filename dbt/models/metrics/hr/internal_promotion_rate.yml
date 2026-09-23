@@ -1,0 +1,16 @@
+metrics:
+  - name: internal_promotion_rate
+    label: Internal Promotion Rate
+    description: '% of open roles filled by internal candidates — talent pipeline health.'
+    type: ratio
+    type_params:
+      numerator:
+        name: total_hires
+        filter: "{{ Dimension('hire__hire_type') }} = 'internal'"
+      denominator: total_hires
+    config:
+      meta:
+        metricId: internal_promotion_rate
+        tier: kpi
+        domain: hr
+        industry: cross_industry

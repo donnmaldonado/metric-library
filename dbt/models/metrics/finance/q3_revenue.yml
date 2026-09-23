@@ -1,0 +1,14 @@
+metrics:
+  - name: q3_revenue
+    label: Q3 Revenue
+    description: Revenue recognized in Q3
+    type: simple
+    type_params:
+      measure: revenue_amount
+    filter: "{{ Dimension('revenue_event__fiscal_quarter') }} = 3"
+    config:
+      meta:
+        metricId: q3_revenue
+        tier: input
+        domain: finance
+        industry: cross_industry

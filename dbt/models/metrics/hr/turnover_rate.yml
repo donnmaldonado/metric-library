@@ -12,5 +12,5 @@ metrics:
       meta:
         metricId: turnover_rate
         tier: north_star
-        vertical: hr
+        domain: hr
         industry: cross_industry

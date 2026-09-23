@@ -1,0 +1,13 @@
+metrics:
+  - name: website_sessions
+    label: Website Sessions
+    description: Total web sessions across all channels.
+    type: simple
+    type_params:
+      measure: session_count
+    config:
+      meta:
+        metricId: website_sessions
+        tier: kpi
+        domain: marketing
+        industry: cross_industry

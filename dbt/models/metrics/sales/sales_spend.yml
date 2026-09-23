@@ -1,0 +1,13 @@
+metrics:
+  - name: sales_spend
+    label: Sales Spend
+    description: Total sales team costs including salaries, commissions, and tools.
+    type: simple
+    type_params:
+      measure: total_sales_cost
+    config:
+      meta:
+        metricId: sales_spend
+        tier: kpi
+        domain: sales
+        industry: cross_industry

@@ -1,0 +1,14 @@
+metrics:
+  - name: pipeline_generated
+    label: Pipeline Generated
+    description: Total value of opportunities sourced by marketing
+    type: simple
+    type_params:
+      measure: opportunity_value
+    filter: "{{ Dimension('opportunity__source') }} = 'marketing'"
+    config:
+      meta:
+        metricId: pipeline_generated
+        tier: north_star
+        domain: sales
+        industry: cross_industry

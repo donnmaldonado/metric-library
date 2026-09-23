@@ -10,5 +10,5 @@ metrics:
       meta:
         metricId: dau
         tier: kpi
-        vertical: product
+        domain: product
         industry: cross_industry

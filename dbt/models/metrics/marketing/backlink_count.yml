@@ -1,0 +1,13 @@
+metrics:
+  - name: backlink_count
+    label: Referring Domains
+    description: Total referring domain backlinks to the site — SEO authority signal.
+    type: simple
+    type_params:
+      measure: referring_domain_count
+    config:
+      meta:
+        metricId: backlink_count
+        tier: input
+        domain: marketing
+        industry: cross_industry

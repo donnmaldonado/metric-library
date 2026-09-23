@@ -1,0 +1,13 @@
+metrics:
+  - name: lead_time
+    label: Lead Time
+    description: Average time from request to delivery
+    type: simple
+    type_params:
+      measure: lead_time_value
+    config:
+      meta:
+        metricId: lead_time
+        tier: kpi
+        domain: commerce
+        industry: cross_industry

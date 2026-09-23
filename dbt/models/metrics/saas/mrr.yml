@@ -1,0 +1,14 @@
+metrics:
+  - name: mrr
+    label: MRR
+    description: Monthly Recurring Revenue — annualized base ÷ 12.
+    type: simple
+    type_params:
+      measure: monthly_amount
+    filter: "{{ Dimension('subscription_snapshot__status') }} = 'active'"
+    config:
+      meta:
+        metricId: mrr
+        tier: kpi
+        domain: saas
+        industry: saas

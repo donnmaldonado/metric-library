@@ -1,0 +1,14 @@
+metrics:
+  - name: energy_cost_per_unit
+    label: Energy Cost per Unit
+    description: Energy expense allocated per unit of output — sustainability and efficiency signal.
+    type: ratio
+    type_params:
+      numerator: energy_cost
+      denominator: throughput
+    config:
+      meta:
+        metricId: energy_cost_per_unit
+        tier: input
+        domain: operations
+        industry: cross_industry

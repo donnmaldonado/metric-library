@@ -10,5 +10,5 @@ metrics:
       meta:
         metricId: gross_profit_per_employee
         tier: kpi
-        vertical: finance
+        domain: finance
         industry: cross_industry

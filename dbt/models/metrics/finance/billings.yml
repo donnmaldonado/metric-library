@@ -1,0 +1,13 @@
+metrics:
+  - name: billings
+    label: Billings
+    description: Total amounts invoiced to customers in a period — cash collection indicator.
+    type: simple
+    type_params:
+      measure: invoice_amount
+    config:
+      meta:
+        metricId: billings
+        tier: kpi
+        domain: finance
+        industry: cross_industry

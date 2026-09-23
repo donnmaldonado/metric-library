@@ -1,0 +1,17 @@
+metrics:
+  - name: credit_accumulation_rate
+    label: Credit Accumulation Rate
+    description: '% of students on track to graduate based on credit accumulation milestones.'
+    type: ratio
+    type_params:
+      numerator:
+        name: enrollment_count
+        filter: "{{ Dimension('enrollment__is_on_credit_pace') }} = true"
+      denominator: enrollment_count
+    filter: "{{ Dimension('enrollment__grade_level') }} IN ('9', '10', '11', '12')"
+    config:
+      meta:
+        metricId: credit_accumulation_rate
+        tier: kpi
+        domain: education
+        industry: cross_industry

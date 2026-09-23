@@ -9,5 +9,5 @@ metrics:
       meta:
         metricId: time_to_hire
         tier: kpi
-        vertical: hr
+        domain: hr
         industry: cross_industry

@@ -1,0 +1,14 @@
+metrics:
+  - name: cost_per_mile
+    label: Cost per Mile
+    description: Total fleet operating cost divided by total miles driven.
+    type: ratio
+    type_params:
+      numerator: total_operating_cost
+      denominator: total_miles
+    config:
+      meta:
+        metricId: cost_per_mile
+        tier: kpi
+        domain: operations
+        industry: cross_industry

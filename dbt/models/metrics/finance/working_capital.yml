@@ -9,5 +9,5 @@ metrics:
       meta:
         metricId: working_capital
         tier: kpi
-        vertical: finance
+        domain: finance
         industry: cross_industry

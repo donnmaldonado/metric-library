@@ -1,0 +1,14 @@
+metrics:
+  - name: trial_signups
+    label: Trial Signups
+    description: New free trial registrations in the period
+    type: simple
+    type_params:
+      measure: user_count
+    filter: "{{ Dimension('user__signup_type') }} = 'trial'"
+    config:
+      meta:
+        metricId: trial_signups
+        tier: input
+        domain: product
+        industry: cross_industry

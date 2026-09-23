@@ -12,5 +12,5 @@ metrics:
       meta:
         metricId: forecast_accuracy
         tier: kpi
-        vertical: finance
+        domain: finance
         industry: cross_industry

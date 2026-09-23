@@ -9,5 +9,5 @@ metrics:
       meta:
         metricId: ebitda_bridge_volume
         tier: input
-        vertical: finance
+        domain: finance
         industry: financial_services

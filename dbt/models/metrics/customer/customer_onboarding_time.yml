@@ -9,5 +9,5 @@ metrics:
       meta:
         metricId: customer_onboarding_time
         tier: kpi
-        vertical: customer
+        domain: customer
         industry: cross_industry

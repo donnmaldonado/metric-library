@@ -1,0 +1,14 @@
+metrics:
+  - name: funnel_dropoff
+    label: Funnel Drop-off
+    description: Percentage of users who exit the conversion funnel at a given step
+    type: ratio
+    type_params:
+      numerator: funnel_step_dropoffs
+      denominator: funnel_step_users
+    config:
+      meta:
+        metricId: funnel_dropoff
+        tier: input
+        domain: product
+        industry: cross_industry

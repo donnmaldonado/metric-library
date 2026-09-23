@@ -12,5 +12,5 @@ metrics:
       meta:
         metricId: ebitda
         tier: north_star
-        vertical: finance
+        domain: finance
         industry: financial_services

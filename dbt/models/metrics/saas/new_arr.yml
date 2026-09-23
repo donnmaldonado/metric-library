@@ -1,0 +1,14 @@
+metrics:
+  - name: new_arr
+    label: New ARR
+    description: ARR added from new customer logos in the period
+    type: simple
+    type_params:
+      measure: arr_delta
+    filter: "{{ Dimension('arr_movement__movement_type') }} = 'new_business'"
+    config:
+      meta:
+        metricId: new_arr
+        tier: kpi
+        domain: saas
+        industry: saas

@@ -11,5 +11,5 @@ metrics:
       meta:
         metricId: webinar_attendance_rate
         tier: kpi
-        vertical: marketing
+        domain: marketing
         industry: cross_industry

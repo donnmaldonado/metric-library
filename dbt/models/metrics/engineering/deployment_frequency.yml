@@ -1,0 +1,14 @@
+metrics:
+  - name: deployment_frequency
+    label: Deployment Frequency
+    description: Number of production deployments per week — DORA engineering velocity metric.
+    type: simple
+    type_params:
+      measure: deployment_count
+    filter: "{{ Dimension('deployment__environment') }} = 'production'"
+    config:
+      meta:
+        metricId: deployment_frequency
+        tier: kpi
+        domain: engineering
+        industry: cross_industry

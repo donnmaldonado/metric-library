@@ -12,5 +12,5 @@ metrics:
       meta:
         metricId: shareholder_equity
         tier: input
-        vertical: finance
+        domain: finance
         industry: financial_services

@@ -9,5 +9,5 @@ metrics:
       meta:
         metricId: csat
         tier: kpi
-        vertical: product
+        domain: product
         industry: cross_industry

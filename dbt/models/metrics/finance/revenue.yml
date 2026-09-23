@@ -1,0 +1,13 @@
+metrics:
+  - name: revenue
+    label: Revenue
+    description: Total recognized revenue in the period.
+    type: simple
+    type_params:
+      measure: revenue_amount
+    config:
+      meta:
+        metricId: revenue
+        tier: north_star
+        domain: finance
+        industry: cross_industry

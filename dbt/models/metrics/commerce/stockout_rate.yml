@@ -1,0 +1,16 @@
+metrics:
+  - name: stockout_rate
+    label: Stockout Rate
+    description: Percentage of orders that could not be fulfilled due to zero inventory
+    type: ratio
+    type_params:
+      numerator:
+        name: inventory_items
+        filter: "{{ Dimension('inventory_snapshot__is_stocked_out') }} = true"
+      denominator: inventory_items
+    config:
+      meta:
+        metricId: stockout_rate
+        tier: kpi
+        domain: commerce
+        industry: manufacturing

@@ -14,5 +14,5 @@ metrics:
       meta:
         metricId: voluntary_turnover
         tier: kpi
-        vertical: hr
+        domain: hr
         industry: cross_industry

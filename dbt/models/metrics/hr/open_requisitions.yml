@@ -1,0 +1,14 @@
+metrics:
+  - name: open_requisitions
+    label: Open Requisitions
+    description: Number of currently unfilled job postings
+    type: simple
+    type_params:
+      measure: req_count
+    filter: "{{ Dimension('requisition__status') }} = 'open'"
+    config:
+      meta:
+        metricId: open_requisitions
+        tier: input
+        domain: hr
+        industry: cross_industry

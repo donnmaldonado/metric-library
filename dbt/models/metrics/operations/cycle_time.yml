@@ -1,0 +1,13 @@
+metrics:
+  - name: cycle_time
+    label: Cycle Time
+    description: Average time from work start to delivery
+    type: simple
+    type_params:
+      measure: avg_cycle_time_hours
+    config:
+      meta:
+        metricId: cycle_time
+        tier: kpi
+        domain: operations
+        industry: cross_industry

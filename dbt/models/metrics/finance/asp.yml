@@ -10,5 +10,5 @@ metrics:
       meta:
         metricId: asp
         tier: kpi
-        vertical: finance
+        domain: finance
         industry: saas

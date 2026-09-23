@@ -1,0 +1,14 @@
+metrics:
+  - name: marketing_influenced_pipeline
+    label: Mktg Influenced Pipeline
+    description: Total pipeline ARR where marketing had at least one touchpoint before opportunity creation.
+    type: simple
+    type_params:
+      measure: opportunities_arr_value
+    filter: "{{ Dimension('opportunity__marketing_touched') }} = true"
+    config:
+      meta:
+        metricId: marketing_influenced_pipeline
+        tier: kpi
+        domain: sales
+        industry: cross_industry

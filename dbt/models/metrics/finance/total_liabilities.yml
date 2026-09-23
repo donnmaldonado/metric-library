@@ -9,5 +9,5 @@ metrics:
       meta:
         metricId: total_liabilities
         tier: input
-        vertical: finance
+        domain: finance
         industry: financial_services

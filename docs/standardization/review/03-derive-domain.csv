@@ -1,0 +1,376 @@
+metricId,label,old_vertical,derived_domain,cross_domain,proposed_override,override_reason,old_industry,proposed_industry
+clv,Customer LTV,customer,commerce,y,,,cross_industry,cross_industry
+ltv_cac,LTV : CAC,customer,commerce,y,finance,LTV:CAC is a unit-economics ratio read alongside CAC and payback in finance; first-measure order puts it in commerce via clv's AOV.,cross_industry,cross_industry
+tickets_per_customer,Tickets / Customer,ops,customer,y,,,cross_industry,cross_industry
+arpu,ARPU,finance,finance,y,,,cross_industry,cross_industry
+gross_profit_per_employee,GP / Employee,finance,finance,y,,,cross_industry,cross_industry
+inventory_turnover,Inventory Turnover,hr,finance,y,,,cross_industry,cross_industry
+revenue_per_employee,Revenue per Employee,pe,finance,y,,,saas,cross_industry
+workforce_productivity,Workforce Productivity,finance,finance,y,,,cross_industry,cross_industry
+employees_per_1m_arr,Employees / $1M ARR,pe,hr,y,saas,A SaaS scaling benchmark read per $1M ARR; first-measure order puts it in hr via headcount.,saas,saas
+cost_per_mql,Cost per MQL,marketing,marketing,y,,,cross_industry,cross_industry
+cost_per_sql,Cost per SQL,marketing,marketing,y,,,cross_industry,cross_industry
+arr_per_rep,ARR / Sales Rep,pe,saas,y,,,saas,saas
+magic_number,Magic Number,finance,saas,y,,,cross_industry,cross_industry
+market_penetration_rate,Market Penetration Rate,pe,saas,y,,,saas,saas
+aov,AOV,customer,commerce,n,,,retail,retail
+cross_sell_rate,Cross-Sell Rate,edu,commerce,n,,,education,education
+customer_ltv,Realized Customer LTV,customer,commerce,n,,,cross_industry,cross_industry
+discount_rate,Discount Rate,finance,commerce,n,,,cross_industry,cross_industry
+fill_rate,Fill Rate,ops,commerce,n,,,manufacturing,manufacturing
+gmv,GMV,finance,commerce,n,,,marketplace,marketplace
+gross_revenue,Gross Revenue,pe,commerce,n,,,saas,cross_industry
+inventory_items,Inventory Items,ops,commerce,n,,,manufacturing,manufacturing
+inventory_value,Inventory Value,ops,commerce,n,,,manufacturing,manufacturing
+lead_time,Lead Time,marketing,commerce,n,,,cross_industry,cross_industry
+liquidity_rate,Marketplace Liquidity %,finance,commerce,n,,,marketplace,marketplace
+marketplace_buyers,Active Buyers,finance,commerce,n,,,marketplace,marketplace
+marketplace_sellers,Active Sellers,finance,commerce,n,,,marketplace,marketplace
+net_revenue,Net Revenue,pe,commerce,n,,,saas,cross_industry
+on_time_delivery_rate,On-Time Delivery Rate,ops,commerce,n,,,cross_industry,cross_industry
+ops_north_star,Perfect Order Rate,finance,commerce,n,,,cross_industry,cross_industry
+order_accuracy_rate,Order Accuracy Rate,finance,commerce,n,,,cross_industry,cross_industry
+order_fulfillment_rate,Order Fulfillment %,ops,commerce,n,,,manufacturing,manufacturing
+order_lines,Order Lines,ops,commerce,n,,,cross_industry,cross_industry
+purchase_frequency,Purchase Frequency,customer,commerce,n,,,retail,retail
+refund_rate,Refund Rate,customer,commerce,n,,,retail,retail
+repeat_purchase_rate,Repeat Purchase %,customer,commerce,n,,,retail,retail
+return_rate,Return Rate,ops,commerce,n,,,retail,retail
+shrinkage_rate,Shrinkage Rate,customer,commerce,n,,,retail,retail
+stockout_rate,Stockout Rate,ops,commerce,n,,,manufacturing,manufacturing
+take_rate,Take Rate,finance,commerce,n,,,marketplace,marketplace
+account_health_score,Account Health,customer,customer,n,,,cross_industry,cross_industry
+at_risk_accounts,At-Risk Accounts,finance,customer,n,,,cross_industry,cross_industry
+complaint_resolution_rate,Complaint Resolution %,hr,customer,n,,,cross_industry,cross_industry
+complaints_count,Complaints,hr,customer,n,,,cross_industry,cross_industry
+customer_onboarding_time,Customer Onboarding Time,customer,customer,n,,,cross_industry,cross_industry
+escalation_rate,Escalation Rate,ops,customer,n,,,cross_industry,cross_industry
+fcr_rate,FCR Rate,finance,customer,n,,,cross_industry,cross_industry
+first_response_time,First Response Time,finance,customer,n,,,cross_industry,cross_industry
+monthly_new_customers,Monthly New Customers,finance,customer,n,,,cross_industry,cross_industry
+qbr_completion_rate,QBR Completion %,hr,customer,n,,,cross_industry,cross_industry
+sla_breach_rate,SLA Breach %,ops,customer,n,,,cross_industry,cross_industry
+sla_compliance_rate,SLA Compliance Rate,hr,customer,n,,,cross_industry,cross_industry
+support_cost_per_ticket,Support Cost / Ticket,ops,customer,n,,,cross_industry,cross_industry
+ticket_backlog,Ticket Backlog,ops,customer,n,,,cross_industry,cross_industry
+ticket_resolution_rate,Ticket Resolution Rate,ops,customer,n,,,cross_industry,cross_industry
+tickets_created,Tickets Created,ops,customer,n,,,cross_industry,cross_industry
+tickets_per_agent,Tickets / Agent / Day,ops,customer,n,,,cross_industry,cross_industry
+tickets_resolved,Tickets Resolved,ops,customer,n,,,cross_industry,cross_industry
+time_to_resolution,Time to Resolution,finance,customer,n,,,cross_industry,cross_industry
+adm,ADM,edu,education,n,,,education,education
+advanced_course_enrollment_rate,Advanced Course Enrollment,edu,education,n,,,education,education
+ap_participation_rate,AP Participation %,finance,education,n,,,cross_industry,cross_industry
+ap_pass_rate,AP Pass Rate,finance,education,n,,,cross_industry,cross_industry
+avg_teacher_experience,Avg Teacher Exp (yrs),edu,education,n,,,education,education
+chronic_absenteeism_rate,Chronic Absence %,finance,education,n,,,cross_industry,cross_industry
+college_enrollment,College Enrollment Rate,finance,education,n,,,cross_industry,cross_industry
+college_enrollment_rate,College Enrollment %,finance,education,n,,,cross_industry,cross_industry
+cost_per_outcome,Cost per Outcome,finance,education,n,,,cross_industry,cross_industry
+course_completion_rate,Course Completion %,hr,education,n,,,cross_industry,cross_industry
+credit_accumulation_rate,Credit Accumulation Rate,finance,education,n,,,cross_industry,cross_industry
+dropout_rate,Dropout Rate,edu,education,n,,,education,education
+ela_proficiency_rate,ELA Proficiency %,edu,education,n,,,education,education
+ell_pct,ELL Students %,edu,education,n,,,education,education
+ell_proficiency_growth,ELL Proficiency Growth,edu,education,n,,,education,education
+enrollment_count,Enrollment Count,finance,education,n,,,cross_industry,cross_industry
+expulsion_rate,Expulsion Rate,finance,education,n,,,cross_industry,cross_industry
+extracurricular_rate,Extracurricular %,finance,education,n,,,cross_industry,cross_industry
+fafsa_completion_rate,FAFSA Completion Rate,edu,education,n,,,education,education
+family_engagement_rate,Family Engagement %,finance,education,n,,,cross_industry,cross_industry
+four_year_grad_rate,4-Year Grad Rate,marketing,education,n,,,cross_industry,cross_industry
+frl_pct,FRL %,edu,education,n,,,education,education
+grade3_reading,Gr3 Reading %,edu,education,n,,,education,education
+iep_goal_mastery_rate,IEP Goal Mastery Rate,edu,education,n,,,education,education
+iep_pct,IEP Students %,edu,education,n,,,education,education
+instructional_minutes,Instructional Minutes,edu,education,n,,,education,education
+instructional_spend_ratio,Instructional Spend %,finance,education,n,,,cross_industry,cross_industry
+kinder_readiness,K-Readiness %,edu,education,n,,,education,education
+math_proficiency_rate,Math Proficiency %,edu,education,n,,,education,education
+on_time_lesson_delivery,On-Time Lesson Delivery,finance,education,n,,,cross_industry,cross_industry
+per_pupil_expenditure,Per Pupil Expenditure,finance,education,n,,,cross_industry,cross_industry
+school_climate_score,Climate Score,edu,education,n,,,education,education
+science_proficiency_rate,Science Proficiency %,edu,education,n,,,education,education
+seat_fill_rate,Seat Fill Rate,ops,education,n,,,manufacturing,manufacturing
+staff_student_cost_ratio,Staff-to-Student Cost Ratio,edu,education,n,,,education,education
+student_attendance_rate,Attendance Rate,edu,education,n,,,education,education
+student_growth_percentile,Student Growth Percentile,edu,education,n,,,education,education
+student_proficiency,Student Proficiency Rate,edu,education,n,,,education,education
+student_teacher_ratio,Student:Teacher Ratio,edu,education,n,,,education,education
+suspension_rate,Suspension Rate,finance,education,n,,,cross_industry,cross_industry
+teacher_retention_rate,Teacher Retention Rate,edu,education,n,,,education,education
+bug_escape_rate,Bug Escape Rate,product,engineering,n,,,cross_industry,cross_industry
+change_failure_rate,Change Failure %,finance,engineering,n,,,cross_industry,cross_industry
+code_coverage,Code Coverage %,finance,engineering,n,,,cross_industry,cross_industry
+deployment_frequency,Deployment Frequency,product,engineering,n,,,cross_industry,cross_industry
+incident_count,Incident Count,ops,engineering,n,,,cross_industry,cross_industry
+lead_time_for_changes,Lead Time for Changes,marketing,engineering,n,,,cross_industry,cross_industry
+mtbf,MTBF,finance,engineering,n,,,cross_industry,cross_industry
+mttd,MTTD,finance,engineering,n,,,cross_industry,cross_industry
+mttr,MTTR,finance,engineering,n,,,cross_industry,cross_industry
+oss_stars,OSS Stars,finance,engineering,n,,,cross_industry,cross_industry
+pr_merge_time,PR Merge Time,finance,engineering,n,,,cross_industry,cross_industry
+rcr_rate,Root Cause Resolution %,ops,engineering,n,,,cross_industry,cross_industry
+sprint_velocity,Sprint Velocity,product,engineering,n,,,cross_industry,cross_industry
+tech_debt_ratio,Tech Debt Ratio,finance,engineering,n,,,financial_services,financial_services
+uptime,Uptime %,product,engineering,n,,,cross_industry,cross_industry
+accounts_payable,Accounts Payable,finance,finance,n,,,cross_industry,cross_industry
+accounts_receivable,Accounts Receivable,finance,finance,n,,,cross_industry,cross_industry
+annual_budget,Annual Budget,finance,finance,n,,,cross_industry,cross_industry
+ar_aging_90d,AR Aging 90d+,finance,finance,n,,,cross_industry,cross_industry
+asp,ASP,finance,finance,n,,,saas,saas
+bad_debt_rate,Bad Debt Rate,marketing,finance,n,,,cross_industry,cross_industry
+billings,Billings,pe,finance,n,,,saas,cross_industry
+budget_variance,Budget Variance,finance,finance,n,,,cross_industry,cross_industry
+budget_variance_pct,Budget Variance %,finance,finance,n,,,cross_industry,cross_industry
+burn_rate,Burn Rate,finance,finance,n,,,cross_industry,cross_industry
+cac,CAC,customer,finance,n,,,cross_industry,cross_industry
+cac_payback,CAC Payback (mo),customer,finance,n,,,cross_industry,cross_industry
+capex,CapEx,finance,finance,n,,,cross_industry,cross_industry
+capex_pct_revenue,CapEx % Revenue,pe,finance,n,,,saas,cross_industry
+cash_and_equivalents,Cash & Equivalents,finance,finance,n,,,cross_industry,cross_industry
+cogs,COGS,finance,finance,n,,,cross_industry,cross_industry
+current_ratio,Current Ratio,finance,finance,n,,,cross_industry,cross_industry
+customer_concentration_risk,Customer Concentration,pe,finance,n,,,saas,saas
+da,D&A,finance,finance,n,,,cross_industry,cross_industry
+debt_ebitda,Debt / EBITDA,finance,finance,n,,,financial_services,financial_services
+debt_to_equity,D/E Ratio,finance,finance,n,,,financial_services,financial_services
+deferred_revenue,Deferred Revenue,pe,finance,n,,,saas,cross_industry
+dpo,DPO,finance,finance,n,,,cross_industry,cross_industry
+dso,Days Sales Outstanding,finance,finance,n,,,cross_industry,cross_industry
+ebit,EBIT,finance,finance,n,,,cross_industry,cross_industry
+ebitda,EBITDA,finance,finance,n,,,financial_services,financial_services
+ebitda_bridge_price,EBITDA Bridge: Price,finance,finance,n,,,financial_services,financial_services
+ebitda_bridge_volume,EBITDA Bridge: Volume,finance,finance,n,,,financial_services,financial_services
+ebitda_margin,EBITDA Margin,finance,finance,n,,,financial_services,financial_services
+effective_tax_rate,Effective Tax Rate,finance,finance,n,,,cross_industry,cross_industry
+enterprise_value,Enterprise Value,finance,finance,n,,,cross_industry,cross_industry
+ev_ebitda,EV/EBITDA,finance,finance,n,,,financial_services,financial_services
+forecast_accuracy,Forecast Accuracy %,finance,finance,n,,,cross_industry,cross_industry
+free_cash_flow,Free Cash Flow,finance,finance,n,,,cross_industry,cross_industry
+gna_pct_revenue,G&A % Revenue,pe,finance,n,,,saas,cross_industry
+gross_margin_pct,Gross Margin %,finance,finance,n,,,cross_industry,cross_industry
+gross_profit,Gross Profit,finance,finance,n,,,cross_industry,cross_industry
+hr_cost_pct_revenue,HR Cost % of Revenue,pe,finance,n,,,saas,cross_industry
+implementation_revenue,Implementation Revenue,pe,finance,n,,,saas,cross_industry
+interest_coverage_ratio,Interest Coverage Ratio,finance,finance,n,,,cross_industry,cross_industry
+leverage_ratio,Leverage Ratio,finance,finance,n,,,financial_services,financial_services
+license_revenue,License Revenue,pe,finance,n,,,saas,cross_industry
+market_share,Market Share,finance,finance,n,,,cross_industry,cross_industry
+net_debt,Net Debt,finance,finance,n,,,financial_services,financial_services
+net_income,Net Income,finance,finance,n,,,cross_industry,cross_industry
+net_income_margin,Net Income Margin,finance,finance,n,,,cross_industry,cross_industry
+operating_cash_flow,Operating Cash Flow,finance,finance,n,,,cross_industry,cross_industry
+opex,OpEx,finance,finance,n,,,cross_industry,cross_industry
+ops_efficiency_ratio,Ops Efficiency,finance,finance,n,,,cross_industry,cross_industry
+partner_revenue,Partner Revenue,pe,finance,n,,,saas,cross_industry
+partner_revenue_pct,Partner Revenue %,pe,finance,n,,,saas,cross_industry
+prior_year_revenue,PY Revenue,pe,finance,n,,,saas,cross_industry
+q1_revenue,Q1 Revenue,pe,finance,n,,,saas,cross_industry
+q2_revenue,Q2 Revenue,pe,finance,n,,,saas,cross_industry
+q3_revenue,Q3 Revenue,pe,finance,n,,,saas,cross_industry
+q4_revenue,Q4 Revenue,pe,finance,n,,,saas,cross_industry
+quick_ratio,Quick Ratio,finance,finance,n,,,cross_industry,cross_industry
+rd_as_pct_revenue,R&D % of Revenue,pe,finance,n,,,saas,cross_industry
+rd_expense,R&D Expense,finance,finance,n,,,cross_industry,cross_industry
+rev_concentration_top10,Top 10 Customer Rev %,finance,finance,n,,,financial_services,financial_services
+rev_from_existing,Existing Customer Revenue,finance,finance,n,,,financial_services,financial_services
+rev_from_new_customers,New Customer Revenue,finance,finance,n,,,financial_services,financial_services
+revenue,Revenue,pe,finance,n,,,saas,cross_industry
+revenue_growth_rate,Revenue Growth Rate,pe,finance,n,,,saas,cross_industry
+revenue_per_account,Revenue / Account,pe,finance,n,,,saas,cross_industry
+revenue_vs_py,Revenue vs PY,pe,finance,n,,,saas,cross_industry
+revenue_ytd,Revenue YTD,pe,finance,n,,,saas,cross_industry
+roa,ROA,finance,finance,n,,,financial_services,financial_services
+roe,ROE,finance,finance,n,,,financial_services,financial_services
+roic,ROIC,finance,finance,n,,,financial_services,financial_services
+rule_of_40,Rule of 40,finance,finance,n,,,cross_industry,cross_industry
+runway_months,Runway (Months),finance,finance,n,,,cross_industry,cross_industry
+sam,SAM,finance,finance,n,,,cross_industry,cross_industry
+services_revenue,Services Revenue,pe,finance,n,,,saas,cross_industry
+sg_and_a,SG&A,finance,finance,n,,,cross_industry,cross_industry
+shareholder_equity,Shareholder Equity,finance,finance,n,,,financial_services,financial_services
+sm_spend,S&M Spend,finance,finance,n,,,cross_industry,cross_industry
+subscription_revenue,Subscription Revenue,pe,finance,n,,,saas,saas
+tam,TAM,finance,finance,n,,,cross_industry,cross_industry
+total_assets,Total Assets,finance,finance,n,,,financial_services,financial_services
+total_debt,Total Debt,finance,finance,n,,,financial_services,financial_services
+total_liabilities,Total Liabilities,finance,finance,n,,,financial_services,financial_services
+working_capital,Working Capital,finance,finance,n,,,cross_industry,cross_industry
+absenteeism_rate,Absenteeism Rate,finance,hr,n,,,cross_industry,cross_industry
+avg_tenure,Avg Tenure (yrs),hr,hr,n,,,cross_industry,cross_industry
+benefits_utilization,Benefits Utilization %,finance,hr,n,,,cross_industry,cross_industry
+compensation_ratio,Compensation Ratio,hr,hr,n,,,cross_industry,cross_industry
+cost_per_hire,Cost Per Hire,hr,hr,n,,,cross_industry,cross_industry
+diversity_hire_rate,Diversity Hire %,hr,hr,n,,,cross_industry,cross_industry
+employee_engagement_score,Employee Engagement Score,hr,hr,n,,,cross_industry,cross_industry
+employee_lifetime_value,Employee Lifetime Value,hr,hr,n,,,cross_industry,cross_industry
+enps,eNPS,product,hr,n,,,cross_industry,cross_industry
+gender_pay_gap,Gender Pay Gap,finance,hr,n,,,cross_industry,cross_industry
+headcount,Headcount,hr,hr,n,,,cross_industry,cross_industry
+headcount_cost,Headcount Cost,hr,hr,n,,,cross_industry,cross_industry
+headcount_fte,Headcount FTE,hr,hr,n,,,cross_industry,cross_industry
+headcount_vs_budget,HC vs Budget,hr,hr,n,,,cross_industry,cross_industry
+internal_promotion_rate,Internal Promotion Rate,finance,hr,n,,,cross_industry,cross_industry
+interview_to_offer_rate,Interview-to-Offer %,finance,hr,n,,,cross_industry,cross_industry
+manager_effectiveness_score,Manager Effectiveness,finance,hr,n,,,cross_industry,cross_industry
+new_hires,New Hires,hr,hr,n,,,cross_industry,cross_industry
+offer_acceptance_rate,Offer Acceptance Rate,finance,hr,n,,,cross_industry,cross_industry
+open_requisitions,Open Requisitions,finance,hr,n,,,cross_industry,cross_industry
+overtime_hours,Overtime Hours,finance,hr,n,,,cross_industry,cross_industry
+rd_headcount,R&D Headcount,hr,hr,n,,,cross_industry,cross_industry
+rd_headcount_pct,R&D % of Headcount,hr,hr,n,,,cross_industry,cross_industry
+recruiting_pipeline,Recruiting Pipeline,finance,hr,n,,,cross_industry,cross_industry
+regrettable_attrition,Regrettable Attrition %,hr,hr,n,,,cross_industry,cross_industry
+remote_work_rate,Remote Work %,finance,hr,n,,,cross_industry,cross_industry
+sales_headcount,Sales Headcount,hr,hr,n,,,cross_industry,cross_industry
+separations,Separations,finance,hr,n,,,cross_industry,cross_industry
+span_of_control,Span of Control,hr,hr,n,,,cross_industry,cross_industry
+time_to_fill,Time to Fill,finance,hr,n,,,cross_industry,cross_industry
+time_to_hire,Time to Hire,hr,hr,n,,,cross_industry,cross_industry
+total_comp_expense,Total Comp Expense,hr,hr,n,,,cross_industry,cross_industry
+training_hours_per_employee,Training Hours / Employee,finance,hr,n,,,cross_industry,cross_industry
+turnover_rate,Turnover Rate,hr,hr,n,,,cross_industry,cross_industry
+voluntary_turnover,Voluntary Turnover,hr,hr,n,,,cross_industry,cross_industry
+ad_clicks,Ad Clicks,marketing,marketing,n,,,cross_industry,cross_industry
+app_store_rating,App Store Rating,finance,marketing,n,,,cross_industry,cross_industry
+avg_session_duration,Avg Session Duration,finance,marketing,n,,,cross_industry,cross_industry
+backlink_count,Referring Domains,finance,marketing,n,,,cross_industry,cross_industry
+backlinks_count,Backlinks,finance,marketing,n,,,cross_industry,cross_industry
+bounce_rate,Bounce Rate,finance,marketing,n,,,cross_industry,cross_industry
+content_published_count,Content Published,marketing,marketing,n,,,cross_industry,cross_industry
+cost_per_event_attendee,Cost / Attendee,finance,marketing,n,,,cross_industry,cross_industry
+cpc,CPC,marketing,marketing,n,,,cross_industry,cross_industry
+cpl,Cost Per Lead,finance,marketing,n,,,cross_industry,cross_industry
+cpm,CPM,finance,marketing,n,,,cross_industry,cross_industry
+ctr,CTR,marketing,marketing,n,,,cross_industry,cross_industry
+domain_authority,Domain Authority,finance,marketing,n,,,cross_industry,cross_industry
+earned_media_value,Earned Media Value,finance,marketing,n,,,cross_industry,cross_industry
+email_click_rate,Email Click Rate,marketing,marketing,n,,,cross_industry,cross_industry
+email_open_rate,Email Open Rate,marketing,marketing,n,,,cross_industry,cross_industry
+event_attendees,Event Attendees,finance,marketing,n,,,cross_industry,cross_industry
+form_conversion_rate,Form CVR %,finance,marketing,n,,,cross_industry,cross_industry
+impressions,Impressions,finance,marketing,n,,,cross_industry,cross_industry
+marketing_cac,Marketing CAC,customer,marketing,n,,,cross_industry,cross_industry
+marketing_roi,Marketing ROI,finance,marketing,n,,,cross_industry,cross_industry
+marketing_spend,Marketing Spend,finance,marketing,n,,,cross_industry,cross_industry
+organic_sessions,Organic Sessions,marketing,marketing,n,,,cross_industry,cross_industry
+paid_sessions,Paid Sessions,finance,marketing,n,,,cross_industry,cross_industry
+pr_mentions,PR Mentions,finance,marketing,n,,,cross_industry,cross_industry
+push_open_rate,Push Open Rate,finance,marketing,n,,,cross_industry,cross_industry
+referral_sessions,Referral Sessions,finance,marketing,n,,,cross_industry,cross_industry
+review_rating,Review Rating,finance,marketing,n,,,cross_industry,cross_industry
+roas,ROAS,marketing,marketing,n,,,cross_industry,cross_industry
+session_to_lead_rate,Session → Lead %,marketing,marketing,n,,,cross_industry,cross_industry
+sessions_per_user,Sessions / User,finance,marketing,n,,,cross_industry,cross_industry
+share_of_voice,Share of Voice,finance,marketing,n,,,cross_industry,cross_industry
+social_engagement_rate,Social Engagement %,marketing,marketing,n,,,cross_industry,cross_industry
+social_followers,Social Followers,marketing,marketing,n,,,cross_industry,cross_industry
+testimonials_count,Testimonials,finance,marketing,n,,,cross_industry,cross_industry
+top10_keyword_count,Top 10 Keywords,marketing,marketing,n,,,cross_industry,cross_industry
+unsubscribe_rate,Unsubscribe Rate,finance,marketing,n,,,cross_industry,cross_industry
+viral_coefficient,Viral Coefficient (K),finance,marketing,n,,,cross_industry,cross_industry
+web_conversion_rate,Web Conversion Rate,finance,marketing,n,,,cross_industry,cross_industry
+webinar_attendance_rate,Webinar Attendance %,marketing,marketing,n,,,cross_industry,cross_industry
+webinar_registrants,Webinar Registrants,marketing,marketing,n,,,cross_industry,cross_industry
+website_sessions,Website Sessions,finance,marketing,n,,,cross_industry,cross_industry
+capacity_utilization,Capacity Utilization %,finance,operations,n,,,cross_industry,cross_industry
+carbon_emissions_per_unit,Carbon per Unit,finance,operations,n,,,cross_industry,cross_industry
+cost_per_mile,Cost per Mile,finance,operations,n,,,cross_industry,cross_industry
+cost_per_unit,Cost per Unit,finance,operations,n,,,cross_industry,cross_industry
+cycle_time,Cycle Time,ops,operations,n,,,cross_industry,cross_industry
+defect_rate,Defect Rate,ops,operations,n,,,cross_industry,cross_industry
+energy_cost_per_unit,Energy Cost per Unit,finance,operations,n,,,cross_industry,cross_industry
+fleet_utilization_rate,Fleet Utilization Rate,finance,operations,n,,,cross_industry,cross_industry
+preventive_maintenance_rate,Preventive Maintenance Rate,finance,operations,n,,,cross_industry,cross_industry
+process_automation_rate,Automation Rate,customer,operations,n,,,cross_industry,cross_industry
+procurement_savings_rate,Procurement Savings Rate,ops,operations,n,,,manufacturing,manufacturing
+safety_incident_rate,Safety Incident Rate,ops,operations,n,,,manufacturing,manufacturing
+supplier_lead_time,Supplier Lead Time,marketing,operations,n,,,cross_industry,cross_industry
+throughput,Throughput,ops,operations,n,,,cross_industry,cross_industry
+vendor_compliance_rate,Vendor Compliance %,hr,operations,n,,,cross_industry,cross_industry
+vendor_scorecard_rating,Vendor Scorecard Rating,ops,operations,n,,,manufacturing,manufacturing
+warehouse_utilization,Warehouse Utilization %,ops,operations,n,,,manufacturing,manufacturing
+work_order_resolution_time,Work Order Resolution Time,finance,operations,n,,,cross_industry,cross_industry
+work_orders,Work Orders,finance,operations,n,,,cross_industry,cross_industry
+activation_rate,Activation Rate,finance,product,n,,,cross_industry,cross_industry
+api_calls_total,API Calls (Total),product,product,n,,,cross_industry,cross_industry
+api_consumers,API Consumers,product,product,n,,,cross_industry,cross_industry
+api_latency_p95,API Latency p95,product,product,n,,,cross_industry,cross_industry
+app_downloads,App Downloads,finance,product,n,,,cross_industry,cross_industry
+ces,CES,customer,product,n,,,cross_industry,cross_industry
+csat,CSAT,product,product,n,,,cross_industry,cross_industry
+cx_csat,CX CSAT,product,product,n,,,cross_industry,cross_industry
+d30_retention,D30 Retention,product,product,n,,,cross_industry,cross_industry
+d7_retention,D7 Retention,product,product,n,,,cross_industry,cross_industry
+dau,DAU,product,product,n,,,cross_industry,cross_industry
+dau_mau_ratio,DAU/MAU,product,product,n,,,cross_industry,cross_industry
+error_rate,Error Rate,finance,product,n,,,cross_industry,cross_industry
+feature_adoption_rate,Feature Adoption Rate,product,product,n,,,cross_industry,cross_industry
+feature_request_volume,Feature Request Volume,finance,product,n,,,cross_industry,cross_industry
+free_to_paid_rate,Free-to-Paid %,finance,product,n,,,cross_industry,cross_industry
+funnel_dropoff,Funnel Drop-off,finance,product,n,,,cross_industry,cross_industry
+iap_revenue,IAP Revenue,pe,product,n,,,saas,cross_industry
+mau,MAU,product,product,n,,,cross_industry,cross_industry
+new_user_signups,New Signups,finance,product,n,,,cross_industry,cross_industry
+nps,NPS,product,product,n,,,cross_industry,cross_industry
+onboarding_completion_rate,Onboarding Completion,hr,product,n,,,cross_industry,cross_industry
+plg_rate,PLG Rate,finance,product,n,,,cross_industry,cross_industry
+product_churn_rate,Product Churn,pe,product,n,,,saas,cross_industry
+survey_response_rate,Survey Response %,finance,product,n,,,cross_industry,cross_industry
+time_to_activate,Time to Activate,finance,product,n,,,cross_industry,cross_industry
+time_to_value,Time to Value,finance,product,n,,,cross_industry,cross_industry
+trial_signups,Trial Signups,finance,product,n,,,cross_industry,cross_industry
+trial_to_paid_rate,Trial → Paid %,finance,product,n,,,cross_industry,cross_industry
+wau,WAU,product,product,n,,,cross_industry,cross_industry
+active_paying_users,Active Paying Users,finance,saas,n,,,cross_industry,cross_industry
+acv,ACV,finance,saas,n,,,cross_industry,cross_industry
+arr,ARR,pe,saas,n,,,saas,saas
+arr_growth_rate,ARR Growth %,pe,saas,n,,,saas,saas
+bookings,Bookings,pe,saas,n,,,saas,saas
+churn_prediction_score,Churn Prediction Score,pe,saas,n,,,saas,saas
+churn_rate,Churn Rate,pe,saas,n,,,saas,saas
+churned_arr,Churned ARR,pe,saas,n,,,saas,saas
+cohort_churn,Cohort Churn,pe,saas,n,,,saas,saas
+cohort_ltv_12m,12-Month Cohort LTV,customer,saas,n,,,cross_industry,cross_industry
+cohort_ltv_24m,24-Month Cohort LTV,customer,saas,n,,,cross_industry,cross_industry
+cohort_revenue_retention,Cohort Revenue Retention,pe,saas,n,,,saas,saas
+committed_arr,Committed ARR,pe,saas,n,,,saas,saas
+contracted_unbilled,Contracted Unbilled,finance,saas,n,,,cross_industry,cross_industry
+contraction_arr,Contraction ARR,pe,saas,n,,,saas,saas
+customer_churn_rate,Customer Churn %,pe,saas,n,,,saas,saas
+customer_count,Customer Count,finance,saas,n,,,cross_industry,cross_industry
+customer_retention_rate,Customer Retention %,product,saas,n,,,cross_industry,cross_industry
+expansion_arr,Expansion ARR,pe,saas,n,,,saas,saas
+grr,GRR,pe,saas,n,,,saas,saas
+mrr,MRR,pe,saas,n,,,saas,saas
+mrr_churn_rate,MRR Churn %,pe,saas,n,,,saas,saas
+net_mrr_growth,Net MRR Growth,pe,saas,n,,,saas,saas
+net_new_customers,Net New Customers,finance,saas,n,,,cross_industry,cross_industry
+new_arr,New ARR,pe,saas,n,,,saas,saas
+nrr,NRR,pe,saas,n,,,saas,saas
+renewal_rate,Renewal Rate,customer,saas,n,,,cross_industry,cross_industry
+saas_quick_ratio,SaaS Quick Ratio,pe,saas,n,,,saas,saas
+upsell_rate,Upsell Rate,edu,saas,n,,,education,education
+avg_deal_size,Avg Deal Size,finance,sales,n,,,cross_industry,cross_industry
+avg_sales_cycle,Sales Cycle (days),finance,sales,n,,,cross_industry,cross_industry
+competitive_win_rate,Competitive Win %,hr,sales,n,,,cross_industry,cross_industry
+demo_requests,Demo Requests,finance,sales,n,,,cross_industry,cross_industry
+expansion_pipeline,Expansion Pipeline,finance,sales,n,,,cross_industry,cross_industry
+lead_to_mql_rate,Lead → MQL %,marketing,sales,n,,,cross_industry,cross_industry
+leads,Leads,marketing,sales,n,,,cross_industry,cross_industry
+marketing_influenced_pipeline,Mktg Influenced Pipeline,finance,sales,n,,,cross_industry,cross_industry
+mql,MQLs,marketing,sales,n,,,cross_industry,cross_industry
+mql_to_sql_rate,MQL→SQL Rate,marketing,sales,n,,,cross_industry,cross_industry
+organic_attribution_pct,Organic Attribution %,marketing,sales,n,,,cross_industry,cross_industry
+paid_attribution_pct,Paid Attribution %,finance,sales,n,,,cross_industry,cross_industry
+pct_reps_at_quota,% Reps at Quota,hr,sales,n,,,cross_industry,cross_industry
+pipeline_coverage,Pipeline Coverage,finance,sales,n,,,cross_industry,cross_industry
+pipeline_generated,Pipeline Generated,finance,sales,n,,,cross_industry,cross_industry
+pipeline_value,Pipeline Value,finance,sales,n,,,cross_industry,cross_industry
+quota_attainment,Quota Attainment,finance,sales,n,,,cross_industry,cross_industry
+referral_attribution_pct,Referral Attribution %,finance,sales,n,,,cross_industry,cross_industry
+sales_cycle_length,Sales Cycle Length,finance,sales,n,,,cross_industry,cross_industry
+sales_spend,Sales Spend,finance,sales,n,,,cross_industry,cross_industry
+sql,SQLs,marketing,sales,n,,,cross_industry,cross_industry
+win_rate,Win Rate,finance,sales,n,,,cross_industry,cross_industry

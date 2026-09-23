@@ -9,5 +9,5 @@ metrics:
       meta:
         metricId: api_latency_p95
         tier: kpi
-        vertical: product
+        domain: product
         industry: cross_industry

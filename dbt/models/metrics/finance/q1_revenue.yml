@@ -1,0 +1,14 @@
+metrics:
+  - name: q1_revenue
+    label: Q1 Revenue
+    description: Revenue recognized in Q1
+    type: simple
+    type_params:
+      measure: revenue_amount
+    filter: "{{ Dimension('revenue_event__fiscal_quarter') }} = 1"
+    config:
+      meta:
+        metricId: q1_revenue
+        tier: input
+        domain: finance
+        industry: cross_industry

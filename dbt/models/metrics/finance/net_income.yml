@@ -9,5 +9,5 @@ metrics:
       meta:
         metricId: net_income
         tier: kpi
-        vertical: finance
+        domain: finance
         industry: cross_industry

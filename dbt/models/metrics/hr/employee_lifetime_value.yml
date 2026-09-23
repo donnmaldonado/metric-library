@@ -10,5 +10,5 @@ metrics:
       meta:
         metricId: employee_lifetime_value
         tier: north_star
-        vertical: hr
+        domain: hr
         industry: cross_industry

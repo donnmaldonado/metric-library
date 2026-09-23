@@ -1,0 +1,13 @@
+metrics:
+  - name: marketplace_buyers
+    label: Active Buyers
+    description: Number of unique buyers transacting in the period
+    type: simple
+    type_params:
+      measure: distinct_buyer_count
+    config:
+      meta:
+        metricId: marketplace_buyers
+        tier: input
+        domain: commerce
+        industry: marketplace

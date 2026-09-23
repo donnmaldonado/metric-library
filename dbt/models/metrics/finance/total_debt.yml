@@ -9,5 +9,5 @@ metrics:
       meta:
         metricId: total_debt
         tier: input
-        vertical: finance
+        domain: finance
         industry: financial_services

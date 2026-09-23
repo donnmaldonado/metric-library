@@ -10,5 +10,5 @@ metrics:
       meta:
         metricId: feature_adoption_rate
         tier: kpi
-        vertical: product
+        domain: product
         industry: cross_industry

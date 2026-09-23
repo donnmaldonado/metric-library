@@ -1,0 +1,13 @@
+metrics:
+  - name: marketplace_sellers
+    label: Active Sellers
+    description: Number of active sellers transacting on the platform in the period
+    type: simple
+    type_params:
+      measure: distinct_seller_count
+    config:
+      meta:
+        metricId: marketplace_sellers
+        tier: input
+        domain: commerce
+        industry: marketplace
