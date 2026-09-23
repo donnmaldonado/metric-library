@@ -112,7 +112,6 @@ marketing_roi,share_of_voice,parent_of,marketing_roi,True
 marketing_roi,marketing_spend,parent_of,marketing_roi,True
 marketing_roi,roas,correlated_with,marketing_roi,True
 marketing_roi,marketing_cac,correlated_with,marketing_roi,True
-pipeline_generated,marketing_roi,formula_input,marketing_roi,True
 ops_efficiency_ratio,opex,parent_of,ops_efficiency_ratio,True
 ops_efficiency_ratio,budget_variance_pct,parent_of,ops_efficiency_ratio,True
 ops_efficiency_ratio,carbon_emissions_per_unit,parent_of,ops_efficiency_ratio,True
@@ -148,6 +147,7 @@ rule_of_40,arr,correlated_with,rule_of_40,True
 rule_of_40,nrr,correlated_with,rule_of_40,True
 rule_of_40,enterprise_value,correlated_with,rule_of_40,True
 rule_of_40,saas_quick_ratio,correlated_with,rule_of_40,True
+revenue_vs_py,rule_of_40,formula_input,rule_of_40,True
 employee_lifetime_value,headcount_cost,parent_of,employee_lifetime_value,True
 employee_lifetime_value,revenue_per_employee,parent_of,employee_lifetime_value,True
 employee_lifetime_value,avg_tenure,parent_of,employee_lifetime_value,True
@@ -170,7 +170,6 @@ turnover_rate,regrettable_attrition,correlated_with,turnover_rate,True
 turnover_rate,employee_engagement_score,correlated_with,turnover_rate,True
 turnover_rate,absenteeism_rate,correlated_with,turnover_rate,True
 turnover_rate,headcount,correlated_with,turnover_rate,True
-headcount,turnover_rate,formula_input,turnover_rate,True
 four_year_grad_rate,student_attendance_rate,parent_of,four_year_grad_rate,True
 four_year_grad_rate,dropout_rate,parent_of,four_year_grad_rate,True
 four_year_grad_rate,advanced_course_enrollment_rate,parent_of,four_year_grad_rate,True
@@ -259,7 +258,6 @@ account_health_score,churn_prediction_score,correlated_with,account_health_score
 account_health_score,churn_rate,correlated_with,account_health_score,True
 account_health_score,customer_churn_rate,correlated_with,account_health_score,True
 account_health_score,nps,correlated_with,account_health_score,True
-nps,account_health_score,formula_input,account_health_score,True
 clv,aov,parent_of,aov,True
 cohort_ltv_12m,aov,parent_of,aov,True
 aov,gross_revenue,parent_of,aov,True
@@ -377,6 +375,7 @@ repeat_purchase_rate,customer_retention_rate,correlated_with,repeat_purchase_rat
 four_year_grad_rate,advanced_course_enrollment_rate,parent_of,advanced_course_enrollment_rate,True
 advanced_course_enrollment_rate,college_enrollment,correlated_with,advanced_course_enrollment_rate,True
 advanced_course_enrollment_rate,student_proficiency,correlated_with,advanced_course_enrollment_rate,True
+enrollment_count,advanced_course_enrollment_rate,formula_input,advanced_course_enrollment_rate,True
 clv,cross_sell_rate,parent_of,cross_sell_rate,True
 cross_sell_rate,upsell_rate,correlated_with,cross_sell_rate,True
 cross_sell_rate,aov,correlated_with,cross_sell_rate,True
@@ -411,6 +410,7 @@ grade3_reading,kinder_readiness,parent_of,grade3_reading,True
 grade3_reading,ela_proficiency_rate,correlated_with,grade3_reading,True
 grade3_reading,student_attendance_rate,correlated_with,grade3_reading,True
 grade3_reading,kinder_readiness,correlated_with,grade3_reading,True
+enrollment_count,grade3_reading,formula_input,grade3_reading,True
 student_proficiency,iep_goal_mastery_rate,parent_of,iep_goal_mastery_rate,True
 iep_goal_mastery_rate,student_proficiency,correlated_with,iep_goal_mastery_rate,True
 iep_goal_mastery_rate,student_attendance_rate,correlated_with,iep_goal_mastery_rate,True
@@ -482,7 +482,6 @@ absenteeism_rate,employee_engagement_score,correlated_with,absenteeism_rate,True
 absenteeism_rate,turnover_rate,correlated_with,absenteeism_rate,True
 absenteeism_rate,overtime_hours,correlated_with,absenteeism_rate,True
 absenteeism_rate,remote_work_rate,correlated_with,absenteeism_rate,True
-headcount,absenteeism_rate,formula_input,absenteeism_rate,True
 dau_mau_ratio,activation_rate,parent_of,activation_rate,True
 activation_rate,funnel_dropoff,parent_of,activation_rate,True
 activation_rate,time_to_activate,parent_of,activation_rate,True
@@ -498,6 +497,7 @@ activation_rate,customer_onboarding_time,correlated_with,activation_rate,True
 activation_rate,time_to_activate,correlated_with,activation_rate,True
 activation_rate,trial_signups,correlated_with,activation_rate,True
 activation_rate,trial_to_paid_rate,correlated_with,activation_rate,True
+new_user_signups,activation_rate,formula_input,activation_rate,True
 free_to_paid_rate,active_paying_users,parent_of,active_paying_users,True
 active_paying_users,mau,parent_of,active_paying_users,True
 active_paying_users,arr,correlated_with,active_paying_users,True
@@ -507,6 +507,7 @@ acv,arr,correlated_with,acv,True
 acv,new_arr,correlated_with,acv,True
 acv,avg_deal_size,correlated_with,acv,True
 acv,revenue_per_account,correlated_with,acv,True
+bookings,acv,formula_input,acv,True
 college_enrollment_rate,ap_participation_rate,parent_of,ap_participation_rate,True
 ap_participation_rate,enrollment_count,parent_of,ap_participation_rate,True
 ap_participation_rate,ap_pass_rate,correlated_with,ap_participation_rate,True
@@ -578,6 +579,7 @@ ops_efficiency_ratio,budget_variance_pct,parent_of,budget_variance_pct,True
 budget_variance_pct,budget_variance,parent_of,budget_variance_pct,True
 budget_variance_pct,opex,correlated_with,budget_variance_pct,True
 budget_variance_pct,ebitda_margin,correlated_with,budget_variance_pct,True
+annual_budget,budget_variance_pct,formula_input,budget_variance_pct,True
 runway_months,burn_rate,parent_of,burn_rate,True
 burn_rate,opex,parent_of,burn_rate,True
 burn_rate,capex,parent_of,burn_rate,True
@@ -601,6 +603,7 @@ capex,da,correlated_with,capex,True
 ops_efficiency_ratio,carbon_emissions_per_unit,parent_of,carbon_emissions_per_unit,True
 carbon_emissions_per_unit,energy_cost_per_unit,correlated_with,carbon_emissions_per_unit,True
 carbon_emissions_per_unit,cost_per_unit,correlated_with,carbon_emissions_per_unit,True
+throughput,carbon_emissions_per_unit,formula_input,carbon_emissions_per_unit,True
 uptime,change_failure_rate,parent_of,change_failure_rate,True
 change_failure_rate,deployment_frequency,parent_of,change_failure_rate,True
 change_failure_rate,tech_debt_ratio,parent_of,change_failure_rate,True
@@ -633,6 +636,7 @@ cogs,inventory_value,correlated_with,cogs,True
 cpl,cost_per_event_attendee,parent_of,cost_per_event_attendee,True
 cost_per_event_attendee,event_attendees,correlated_with,cost_per_event_attendee,True
 cost_per_event_attendee,cpl,correlated_with,cost_per_event_attendee,True
+event_attendees,cost_per_event_attendee,formula_input,cost_per_event_attendee,True
 ops_efficiency_ratio,cost_per_mile,parent_of,cost_per_mile,True
 cost_per_mile,fleet_utilization_rate,parent_of,cost_per_mile,True
 cost_per_mile,fleet_utilization_rate,correlated_with,cost_per_mile,True
@@ -642,6 +646,7 @@ cost_per_unit,defect_rate,correlated_with,cost_per_unit,True
 cost_per_unit,capacity_utilization,correlated_with,cost_per_unit,True
 cost_per_unit,carbon_emissions_per_unit,correlated_with,cost_per_unit,True
 cost_per_unit,procurement_savings_rate,correlated_with,cost_per_unit,True
+throughput,cost_per_unit,formula_input,cost_per_unit,True
 cost_per_mql,cpl,parent_of,cpl,True
 cpl,leads,parent_of,cpl,True
 cpl,cost_per_event_attendee,parent_of,cpl,True
@@ -660,6 +665,7 @@ four_year_grad_rate,credit_accumulation_rate,parent_of,credit_accumulation_rate,
 credit_accumulation_rate,course_completion_rate,parent_of,credit_accumulation_rate,True
 credit_accumulation_rate,four_year_grad_rate,correlated_with,credit_accumulation_rate,True
 credit_accumulation_rate,chronic_absenteeism_rate,correlated_with,credit_accumulation_rate,True
+enrollment_count,credit_accumulation_rate,formula_input,credit_accumulation_rate,True
 working_capital,current_ratio,parent_of,current_ratio,True
 current_ratio,cash_and_equivalents,parent_of,current_ratio,True
 current_ratio,accounts_receivable,parent_of,current_ratio,True
@@ -675,7 +681,11 @@ debt_ebitda,free_cash_flow,correlated_with,debt_ebitda,True
 debt_ebitda,interest_coverage_ratio,correlated_with,debt_ebitda,True
 debt_ebitda,roa,correlated_with,debt_ebitda,True
 debt_ebitda,roe,correlated_with,debt_ebitda,True
-ebitda,debt_ebitda,formula_input,debt_ebitda,True
+total_debt,debt_ebitda,formula_input,debt_ebitda,True
+revenue,debt_ebitda,formula_input,debt_ebitda,True
+cogs,debt_ebitda,formula_input,debt_ebitda,True
+opex,debt_ebitda,formula_input,debt_ebitda,True
+da,debt_ebitda,formula_input,debt_ebitda,True
 roe,debt_to_equity,parent_of,debt_to_equity,True
 debt_to_equity,total_debt,parent_of,debt_to_equity,True
 debt_to_equity,shareholder_equity,parent_of,debt_to_equity,True
@@ -718,6 +728,8 @@ earned_media_value,pr_mentions,correlated_with,earned_media_value,True
 earned_media_value,social_engagement_rate,correlated_with,earned_media_value,True
 ebitda,ebit,parent_of,ebit,True
 interest_coverage_ratio,ebit,parent_of,ebit,True
+gross_profit,ebit,formula_input,ebit,True
+opex,ebit,formula_input,ebit,True
 ebitda,ebitda_margin,parent_of,ebitda_margin,True
 rule_of_40,ebitda_margin,parent_of,ebitda_margin,True
 ebitda_margin,gross_margin_pct,correlated_with,ebitda_margin,True
@@ -729,6 +741,7 @@ ebitda_margin,net_income_margin,correlated_with,ebitda_margin,True
 ebitda_margin,rd_as_pct_revenue,correlated_with,ebitda_margin,True
 ebitda_margin,revenue_per_employee,correlated_with,ebitda_margin,True
 ebitda_margin,sg_and_a,correlated_with,ebitda_margin,True
+revenue,ebitda_margin,formula_input,ebitda_margin,True
 net_income,effective_tax_rate,parent_of,effective_tax_rate,True
 effective_tax_rate,ebitda,correlated_with,effective_tax_rate,True
 effective_tax_rate,free_cash_flow,correlated_with,effective_tax_rate,True
@@ -750,12 +763,15 @@ error_rate,api_latency_p95,correlated_with,error_rate,True
 error_rate,lead_time_for_changes,correlated_with,error_rate,True
 error_rate,mttd,correlated_with,error_rate,True
 error_rate,uptime,correlated_with,error_rate,True
+api_calls_total,error_rate,formula_input,error_rate,True
 enterprise_value,ev_ebitda,parent_of,ev_ebitda,True
 ev_ebitda,debt_to_equity,correlated_with,ev_ebitda,True
 ev_ebitda,leverage_ratio,correlated_with,ev_ebitda,True
 ev_ebitda,enterprise_value,correlated_with,ev_ebitda,True
-ebitda,ev_ebitda,formula_input,ev_ebitda,True
-enterprise_value,ev_ebitda,formula_input,ev_ebitda,True
+revenue,ev_ebitda,formula_input,ev_ebitda,True
+cogs,ev_ebitda,formula_input,ev_ebitda,True
+opex,ev_ebitda,formula_input,ev_ebitda,True
+da,ev_ebitda,formula_input,ev_ebitda,True
 expansion_arr,expansion_pipeline,parent_of,expansion_pipeline,True
 expansion_pipeline,upsell_rate,correlated_with,expansion_pipeline,True
 expansion_pipeline,nrr,correlated_with,expansion_pipeline,True
@@ -783,7 +799,6 @@ forecast_accuracy,annual_budget,parent_of,forecast_accuracy,True
 forecast_accuracy,budget_variance,correlated_with,forecast_accuracy,True
 forecast_accuracy,revenue_vs_py,correlated_with,forecast_accuracy,True
 forecast_accuracy,revenue_ytd,correlated_with,forecast_accuracy,True
-revenue,forecast_accuracy,formula_input,forecast_accuracy,True
 mql,form_conversion_rate,parent_of,form_conversion_rate,True
 form_conversion_rate,website_sessions,parent_of,form_conversion_rate,True
 form_conversion_rate,leads,parent_of,form_conversion_rate,True
@@ -800,6 +815,7 @@ free_to_paid_rate,trial_to_paid_rate,correlated_with,free_to_paid_rate,True
 free_to_paid_rate,activation_rate,correlated_with,free_to_paid_rate,True
 free_to_paid_rate,active_paying_users,correlated_with,free_to_paid_rate,True
 free_to_paid_rate,trial_signups,correlated_with,free_to_paid_rate,True
+new_user_signups,free_to_paid_rate,formula_input,free_to_paid_rate,True
 voluntary_turnover,gender_pay_gap,parent_of,gender_pay_gap,True
 gender_pay_gap,total_comp_expense,parent_of,gender_pay_gap,True
 gender_pay_gap,diversity_hire_rate,correlated_with,gender_pay_gap,True
@@ -849,7 +865,6 @@ interest_coverage_ratio,free_cash_flow,correlated_with,interest_coverage_ratio,T
 interest_coverage_ratio,debt_to_equity,correlated_with,interest_coverage_ratio,True
 interest_coverage_ratio,leverage_ratio,correlated_with,interest_coverage_ratio,True
 interest_coverage_ratio,total_debt,correlated_with,interest_coverage_ratio,True
-ebitda,interest_coverage_ratio,formula_input,interest_coverage_ratio,True
 voluntary_turnover,internal_promotion_rate,parent_of,internal_promotion_rate,True
 internal_promotion_rate,voluntary_turnover,correlated_with,internal_promotion_rate,True
 internal_promotion_rate,time_to_fill,correlated_with,internal_promotion_rate,True
@@ -865,7 +880,10 @@ leverage_ratio,debt_to_equity,correlated_with,leverage_ratio,True
 leverage_ratio,interest_coverage_ratio,correlated_with,leverage_ratio,True
 leverage_ratio,ev_ebitda,correlated_with,leverage_ratio,True
 leverage_ratio,total_debt,correlated_with,leverage_ratio,True
-ebitda,leverage_ratio,formula_input,leverage_ratio,True
+revenue,leverage_ratio,formula_input,leverage_ratio,True
+cogs,leverage_ratio,formula_input,leverage_ratio,True
+opex,leverage_ratio,formula_input,leverage_ratio,True
+da,leverage_ratio,formula_input,leverage_ratio,True
 gmv,liquidity_rate,parent_of,liquidity_rate,True
 liquidity_rate,take_rate,correlated_with,liquidity_rate,True
 liquidity_rate,marketplace_sellers,correlated_with,liquidity_rate,True
@@ -885,6 +903,7 @@ market_share,revenue_growth_rate,correlated_with,market_share,True
 market_share,tam,correlated_with,market_share,True
 market_share,revenue,correlated_with,market_share,True
 market_share,sam,correlated_with,market_share,True
+tam,market_share,formula_input,market_share,True
 marketing_roi,marketing_influenced_pipeline,parent_of,marketing_influenced_pipeline,True
 marketing_influenced_pipeline,pipeline_value,correlated_with,marketing_influenced_pipeline,True
 marketing_influenced_pipeline,roas,correlated_with,marketing_influenced_pipeline,True
@@ -934,7 +953,6 @@ roic,net_income,parent_of,net_income,True
 net_income,effective_tax_rate,parent_of,net_income,True
 net_income,free_cash_flow,correlated_with,net_income,True
 net_income,ebitda,correlated_with,net_income,True
-ebitda,net_income,formula_input,net_income,True
 roe,net_income_margin,parent_of,net_income_margin,True
 net_income_margin,net_income,parent_of,net_income_margin,True
 net_income_margin,ebitda_margin,correlated_with,net_income_margin,True
@@ -992,7 +1010,6 @@ order_accuracy_rate,return_rate,correlated_with,order_accuracy_rate,True
 marketing_roi,paid_attribution_pct,parent_of,paid_attribution_pct,True
 paid_attribution_pct,organic_attribution_pct,correlated_with,paid_attribution_pct,True
 paid_attribution_pct,roas,correlated_with,paid_attribution_pct,True
-mql,paid_attribution_pct,formula_input,paid_attribution_pct,True
 website_sessions,paid_sessions,parent_of,paid_sessions,True
 paid_sessions,organic_sessions,correlated_with,paid_sessions,True
 paid_sessions,roas,correlated_with,paid_sessions,True
@@ -1031,6 +1048,7 @@ plg_rate,free_to_paid_rate,parent_of,plg_rate,True
 plg_rate,trial_to_paid_rate,parent_of,plg_rate,True
 plg_rate,viral_coefficient,correlated_with,plg_rate,True
 plg_rate,trial_to_paid_rate,correlated_with,plg_rate,True
+new_user_signups,plg_rate,formula_input,plg_rate,True
 mtbf,preventive_maintenance_rate,parent_of,preventive_maintenance_rate,True
 preventive_maintenance_rate,work_orders,parent_of,preventive_maintenance_rate,True
 preventive_maintenance_rate,work_order_resolution_time,correlated_with,preventive_maintenance_rate,True
@@ -1042,6 +1060,8 @@ push_open_rate,dau_mau_ratio,correlated_with,push_open_rate,True
 working_capital,quick_ratio,parent_of,quick_ratio,True
 quick_ratio,current_ratio,correlated_with,quick_ratio,True
 quick_ratio,working_capital,correlated_with,quick_ratio,True
+cash_and_equivalents,quick_ratio,formula_input,quick_ratio,True
+accounts_receivable,quick_ratio,formula_input,quick_ratio,True
 new_arr,quota_attainment,parent_of,quota_attainment,True
 pct_reps_at_quota,quota_attainment,parent_of,quota_attainment,True
 pipeline_coverage,quota_attainment,parent_of,quota_attainment,True
@@ -1057,11 +1077,9 @@ rd_expense,capex,correlated_with,rd_expense,True
 marketing_roi,referral_attribution_pct,parent_of,referral_attribution_pct,True
 referral_attribution_pct,organic_attribution_pct,correlated_with,referral_attribution_pct,True
 referral_attribution_pct,viral_coefficient,correlated_with,referral_attribution_pct,True
-mql,referral_attribution_pct,formula_input,referral_attribution_pct,True
 customer_concentration_risk,rev_concentration_top10,parent_of,rev_concentration_top10,True
 rev_concentration_top10,customer_concentration_risk,correlated_with,rev_concentration_top10,True
 rev_concentration_top10,nrr,correlated_with,rev_concentration_top10,True
-revenue,rev_concentration_top10,formula_input,rev_concentration_top10,True
 revenue,rev_from_existing,parent_of,rev_from_existing,True
 rev_from_existing,nrr,correlated_with,rev_from_existing,True
 rev_from_existing,expansion_arr,correlated_with,rev_from_existing,True
@@ -1103,6 +1121,7 @@ runway_months,burn_rate,correlated_with,runway_months,True
 runway_months,free_cash_flow,correlated_with,runway_months,True
 runway_months,cash_and_equivalents,correlated_with,runway_months,True
 runway_months,net_debt,correlated_with,runway_months,True
+cash_and_equivalents,runway_months,formula_input,runway_months,True
 new_arr,sales_cycle_length,parent_of,sales_cycle_length,True
 sales_cycle_length,cac,correlated_with,sales_cycle_length,True
 sales_cycle_length,win_rate,correlated_with,sales_cycle_length,True
@@ -1137,6 +1156,7 @@ suspension_rate,chronic_absenteeism_rate,correlated_with,suspension_rate,True
 suspension_rate,school_climate_score,correlated_with,suspension_rate,True
 suspension_rate,student_attendance_rate,correlated_with,suspension_rate,True
 suspension_rate,expulsion_rate,correlated_with,suspension_rate,True
+enrollment_count,suspension_rate,formula_input,suspension_rate,True
 revenue,take_rate,parent_of,take_rate,True
 take_rate,gmv,parent_of,take_rate,True
 take_rate,gmv,correlated_with,take_rate,True
@@ -1241,7 +1261,6 @@ workforce_productivity,safety_incident_rate,parent_of,workforce_productivity,Tru
 workforce_productivity,revenue_per_employee,correlated_with,workforce_productivity,True
 workforce_productivity,gross_profit_per_employee,correlated_with,workforce_productivity,True
 workforce_productivity,overtime_hours,correlated_with,workforce_productivity,True
-headcount,workforce_productivity,formula_input,workforce_productivity,True
 revenue,workforce_productivity,formula_input,workforce_productivity,True
 free_cash_flow,working_capital,parent_of,working_capital,True
 working_capital,current_ratio,parent_of,working_capital,True
@@ -1268,6 +1287,7 @@ cx_csat,complaint_resolution_rate,parent_of,complaint_resolution_rate,True
 complaint_resolution_rate,csat,correlated_with,complaint_resolution_rate,True
 complaint_resolution_rate,sla_breach_rate,correlated_with,complaint_resolution_rate,True
 complaint_resolution_rate,complaints_count,correlated_with,complaint_resolution_rate,True
+complaints_count,complaint_resolution_rate,formula_input,complaint_resolution_rate,True
 hr_cost_pct_revenue,cost_per_hire,parent_of,cost_per_hire,True
 cost_per_hire,total_comp_expense,parent_of,cost_per_hire,True
 cost_per_hire,new_hires,parent_of,cost_per_hire,True
@@ -1319,7 +1339,6 @@ headcount_vs_budget,opex,correlated_with,headcount_vs_budget,True
 headcount_vs_budget,headcount,correlated_with,headcount_vs_budget,True
 headcount_vs_budget,open_requisitions,correlated_with,headcount_vs_budget,True
 headcount_vs_budget,span_of_control,correlated_with,headcount_vs_budget,True
-headcount,headcount_vs_budget,formula_input,headcount_vs_budget,True
 working_capital,inventory_turnover,parent_of,inventory_turnover,True
 inventory_turnover,inventory_value,parent_of,inventory_turnover,True
 inventory_turnover,inventory_items,parent_of,inventory_turnover,True
@@ -1337,6 +1356,7 @@ time_to_value,onboarding_completion_rate,parent_of,onboarding_completion_rate,Tr
 onboarding_completion_rate,feature_adoption_rate,correlated_with,onboarding_completion_rate,True
 onboarding_completion_rate,churn_rate,correlated_with,onboarding_completion_rate,True
 onboarding_completion_rate,activation_rate,correlated_with,onboarding_completion_rate,True
+new_user_signups,onboarding_completion_rate,formula_input,onboarding_completion_rate,True
 new_arr,pct_reps_at_quota,parent_of,pct_reps_at_quota,True
 pct_reps_at_quota,quota_attainment,parent_of,pct_reps_at_quota,True
 pct_reps_at_quota,quota_attainment,correlated_with,pct_reps_at_quota,True
@@ -1350,7 +1370,6 @@ rd_headcount_pct,rd_as_pct_revenue,correlated_with,rd_headcount_pct,True
 rd_headcount_pct,deployment_frequency,correlated_with,rd_headcount_pct,True
 rd_headcount_pct,headcount,correlated_with,rd_headcount_pct,True
 rd_headcount_pct,rd_headcount,correlated_with,rd_headcount_pct,True
-headcount,rd_headcount_pct,formula_input,rd_headcount_pct,True
 turnover_rate,regrettable_attrition,parent_of,regrettable_attrition,True
 regrettable_attrition,separations,parent_of,regrettable_attrition,True
 regrettable_attrition,voluntary_turnover,correlated_with,regrettable_attrition,True
@@ -1363,7 +1382,6 @@ sla_compliance_rate,csat,correlated_with,sla_compliance_rate,True
 manager_effectiveness_score,span_of_control,parent_of,span_of_control,True
 span_of_control,headcount_vs_budget,correlated_with,span_of_control,True
 span_of_control,internal_promotion_rate,correlated_with,span_of_control,True
-headcount,span_of_control,formula_input,span_of_control,True
 time_to_fill,time_to_hire,parent_of,time_to_hire,True
 time_to_hire,open_requisitions,parent_of,time_to_hire,True
 time_to_hire,recruiting_pipeline,parent_of,time_to_hire,True
@@ -1398,6 +1416,7 @@ ebitda,bad_debt_rate,parent_of,bad_debt_rate,True
 bad_debt_rate,ar_aging_90d,parent_of,bad_debt_rate,True
 bad_debt_rate,dso,correlated_with,bad_debt_rate,True
 bad_debt_rate,ar_aging_90d,correlated_with,bad_debt_rate,True
+revenue,bad_debt_rate,formula_input,bad_debt_rate,True
 cac,cost_per_mql,parent_of,cost_per_mql,True
 cost_per_mql,cpl,parent_of,cost_per_mql,True
 cost_per_mql,marketing_spend,parent_of,cost_per_mql,True
@@ -1465,7 +1484,6 @@ marketing_roi,organic_attribution_pct,parent_of,organic_attribution_pct,True
 organic_attribution_pct,organic_sessions,parent_of,organic_attribution_pct,True
 organic_attribution_pct,paid_attribution_pct,correlated_with,organic_attribution_pct,True
 organic_attribution_pct,referral_attribution_pct,correlated_with,organic_attribution_pct,True
-mql,organic_attribution_pct,formula_input,organic_attribution_pct,True
 marketing_roi,roas,parent_of,roas,True
 roas,marketing_spend,parent_of,roas,True
 roas,cac,correlated_with,roas,True
@@ -1514,6 +1532,7 @@ webinar_attendance_rate,webinar_registrants,parent_of,webinar_attendance_rate,Tr
 webinar_attendance_rate,email_open_rate,correlated_with,webinar_attendance_rate,True
 webinar_attendance_rate,form_conversion_rate,correlated_with,webinar_attendance_rate,True
 webinar_attendance_rate,webinar_registrants,correlated_with,webinar_attendance_rate,True
+event_attendees,webinar_attendance_rate,formula_input,webinar_attendance_rate,True
 on_time_delivery_rate,cycle_time,parent_of,cycle_time,True
 cycle_time,process_automation_rate,parent_of,cycle_time,True
 cycle_time,lead_time,correlated_with,cycle_time,True
@@ -1553,6 +1572,7 @@ procurement_savings_rate,gross_margin_pct,correlated_with,procurement_savings_ra
 uptime,rcr_rate,parent_of,rcr_rate,True
 rcr_rate,incident_count,correlated_with,rcr_rate,True
 rcr_rate,mttr,correlated_with,rcr_rate,True
+incident_count,rcr_rate,formula_input,rcr_rate,True
 ops_north_star,return_rate,parent_of,return_rate,True
 return_rate,defect_rate,correlated_with,return_rate,True
 return_rate,order_accuracy_rate,correlated_with,return_rate,True
@@ -1564,6 +1584,7 @@ safety_incident_rate,headcount_cost,correlated_with,safety_incident_rate,True
 per_pupil_expenditure,seat_fill_rate,parent_of,seat_fill_rate,True
 seat_fill_rate,enrollment_count,correlated_with,seat_fill_rate,True
 seat_fill_rate,per_pupil_expenditure,correlated_with,seat_fill_rate,True
+enrollment_count,seat_fill_rate,formula_input,seat_fill_rate,True
 csat,sla_breach_rate,parent_of,sla_breach_rate,True
 sla_breach_rate,time_to_resolution,parent_of,sla_breach_rate,True
 sla_breach_rate,first_response_time,parent_of,sla_breach_rate,True
@@ -1575,6 +1596,7 @@ sla_breach_rate,support_cost_per_ticket,correlated_with,sla_breach_rate,True
 sla_breach_rate,ticket_backlog,correlated_with,sla_breach_rate,True
 sla_breach_rate,tickets_created,correlated_with,sla_breach_rate,True
 sla_breach_rate,tickets_per_agent,correlated_with,sla_breach_rate,True
+tickets_created,sla_breach_rate,formula_input,sla_breach_rate,True
 fill_rate,stockout_rate,parent_of,stockout_rate,True
 stockout_rate,inventory_items,parent_of,stockout_rate,True
 stockout_rate,inventory_turnover,correlated_with,stockout_rate,True
@@ -1597,6 +1619,7 @@ throughput,process_automation_rate,correlated_with,throughput,True
 sla_breach_rate,ticket_backlog,parent_of,ticket_backlog,True
 ticket_backlog,sla_breach_rate,correlated_with,ticket_backlog,True
 ticket_backlog,first_response_time,correlated_with,ticket_backlog,True
+tickets_created,ticket_backlog,formula_input,ticket_backlog,True
 csat,ticket_resolution_rate,parent_of,ticket_resolution_rate,True
 ticket_resolution_rate,tickets_created,parent_of,ticket_resolution_rate,True
 ticket_resolution_rate,first_response_time,correlated_with,ticket_resolution_rate,True
@@ -1606,10 +1629,12 @@ tickets_per_agent,tickets_created,parent_of,tickets_per_agent,True
 tickets_per_agent,support_cost_per_ticket,correlated_with,tickets_per_agent,True
 tickets_per_agent,fcr_rate,correlated_with,tickets_per_agent,True
 tickets_per_agent,sla_breach_rate,correlated_with,tickets_per_agent,True
+tickets_resolved,tickets_per_agent,formula_input,tickets_per_agent,True
 csat,tickets_per_customer,parent_of,tickets_per_customer,True
 tickets_per_customer,tickets_created,parent_of,tickets_per_customer,True
 tickets_per_customer,csat,correlated_with,tickets_per_customer,True
 tickets_per_customer,support_cost_per_ticket,correlated_with,tickets_per_customer,True
+customer_count,tickets_per_customer,formula_input,tickets_per_customer,True
 ops_north_star,vendor_scorecard_rating,parent_of,vendor_scorecard_rating,True
 vendor_scorecard_rating,supplier_lead_time,parent_of,vendor_scorecard_rating,True
 vendor_scorecard_rating,defect_rate,parent_of,vendor_scorecard_rating,True
@@ -1722,6 +1747,7 @@ grr,contraction_arr,parent_of,grr,True
 grr,nrr,correlated_with,grr,True
 grr,customer_churn_rate,correlated_with,grr,True
 grr,arr,correlated_with,grr,True
+arr,grr,formula_input,grr,True
 opex,hr_cost_pct_revenue,parent_of,hr_cost_pct_revenue,True
 hr_cost_pct_revenue,total_comp_expense,parent_of,hr_cost_pct_revenue,True
 hr_cost_pct_revenue,cost_per_hire,parent_of,hr_cost_pct_revenue,True
@@ -1758,6 +1784,7 @@ mrr_churn_rate,mrr,parent_of,mrr_churn_rate,True
 mrr_churn_rate,churned_arr,parent_of,mrr_churn_rate,True
 mrr_churn_rate,customer_churn_rate,correlated_with,mrr_churn_rate,True
 mrr_churn_rate,nrr,correlated_with,mrr_churn_rate,True
+arr,mrr_churn_rate,formula_input,mrr_churn_rate,True
 arr_growth_rate,net_mrr_growth,parent_of,net_mrr_growth,True
 net_mrr_growth,mrr,correlated_with,net_mrr_growth,True
 net_mrr_growth,nrr,correlated_with,net_mrr_growth,True
@@ -1830,7 +1857,6 @@ revenue,partner_revenue_pct,parent_of,partner_revenue_pct,True
 partner_revenue_pct,partner_revenue,parent_of,partner_revenue_pct,True
 partner_revenue_pct,partner_revenue,correlated_with,partner_revenue_pct,True
 partner_revenue_pct,revenue,correlated_with,partner_revenue_pct,True
-revenue,partner_revenue_pct,formula_input,partner_revenue_pct,True
 mau,product_churn_rate,parent_of,product_churn_rate,True
 product_churn_rate,customer_churn_rate,correlated_with,product_churn_rate,True
 product_churn_rate,d30_retention,correlated_with,product_churn_rate,True
@@ -1897,6 +1923,7 @@ revenue,revenue_growth_rate,formula_input,revenue_growth_rate,True
 arpu,revenue_per_account,parent_of,revenue_per_account,True
 revenue_per_account,arpu,correlated_with,revenue_per_account,True
 revenue_per_account,acv,correlated_with,revenue_per_account,True
+revenue,revenue_per_account,formula_input,revenue_per_account,True
 ebitda,revenue_per_employee,parent_of,revenue_per_employee,True
 employee_lifetime_value,revenue_per_employee,parent_of,revenue_per_employee,True
 revenue_per_employee,headcount_fte,parent_of,revenue_per_employee,True
@@ -1907,8 +1934,8 @@ revenue_per_employee,employees_per_1m_arr,correlated_with,revenue_per_employee,T
 revenue_per_employee,gross_profit_per_employee,correlated_with,revenue_per_employee,True
 revenue_per_employee,headcount_cost,correlated_with,revenue_per_employee,True
 revenue_per_employee,workforce_productivity,correlated_with,revenue_per_employee,True
-headcount,revenue_per_employee,formula_input,revenue_per_employee,True
 revenue,revenue_per_employee,formula_input,revenue_per_employee,True
+headcount,revenue_per_employee,formula_input,revenue_per_employee,True
 revenue_growth_rate,revenue_vs_py,parent_of,revenue_vs_py,True
 revenue_vs_py,prior_year_revenue,parent_of,revenue_vs_py,True
 revenue_vs_py,revenue_growth_rate,correlated_with,revenue_vs_py,True
@@ -1924,7 +1951,6 @@ revenue_ytd,q3_revenue,parent_of,revenue_ytd,True
 revenue_ytd,q4_revenue,parent_of,revenue_ytd,True
 revenue_ytd,revenue_vs_py,correlated_with,revenue_ytd,True
 revenue_ytd,forecast_accuracy,correlated_with,revenue_ytd,True
-revenue,revenue_ytd,formula_input,revenue_ytd,True
 arr_growth_rate,saas_quick_ratio,parent_of,saas_quick_ratio,True
 saas_quick_ratio,new_arr,parent_of,saas_quick_ratio,True
 saas_quick_ratio,expansion_arr,parent_of,saas_quick_ratio,True
@@ -2066,6 +2092,7 @@ mau,new_user_signups,parent_of,mau,True
 mau,product_churn_rate,parent_of,mau,True
 mau,dau,correlated_with,mau,True
 mau,wau,correlated_with,mau,True
+dau,mau,formula_input,mau,True
 error_rate,uptime,parent_of,uptime,True
 ops_north_star,uptime,parent_of,uptime,True
 uptime,incident_count,parent_of,uptime,True
@@ -2087,6 +2114,7 @@ wau,mau,correlated_with,wau,True
 cogs,shrinkage_rate,parent_of,shrinkage_rate,True
 shrinkage_rate,inventory_value,correlated_with,shrinkage_rate,True
 shrinkage_rate,vendor_compliance_rate,correlated_with,shrinkage_rate,True
+inventory_value,shrinkage_rate,formula_input,shrinkage_rate,True
 student_attendance_rate,adm,parent_of,adm,True
 adm,enrollment_count,correlated_with,adm,True
 adm,per_pupil_expenditure,correlated_with,adm,True
@@ -2096,14 +2124,17 @@ avg_teacher_experience,ela_proficiency_rate,correlated_with,avg_teacher_experien
 student_proficiency,ell_pct,parent_of,ell_pct,True
 ell_pct,ela_proficiency_rate,correlated_with,ell_pct,True
 ell_pct,chronic_absenteeism_rate,correlated_with,ell_pct,True
+enrollment_count,ell_pct,formula_input,ell_pct,True
 student_proficiency,frl_pct,parent_of,frl_pct,True
 frl_pct,iep_pct,correlated_with,frl_pct,True
 frl_pct,chronic_absenteeism_rate,correlated_with,frl_pct,True
 frl_pct,per_pupil_expenditure,correlated_with,frl_pct,True
+enrollment_count,frl_pct,formula_input,frl_pct,True
 student_proficiency,iep_pct,parent_of,iep_pct,True
 iep_pct,per_pupil_expenditure,correlated_with,iep_pct,True
 iep_pct,ela_proficiency_rate,correlated_with,iep_pct,True
 iep_pct,frl_pct,correlated_with,iep_pct,True
+enrollment_count,iep_pct,formula_input,iep_pct,True
 current_ratio,accounts_payable,parent_of,accounts_payable,True
 dpo,accounts_payable,parent_of,accounts_payable,True
 working_capital,accounts_payable,parent_of,accounts_payable,True
@@ -2166,9 +2197,11 @@ mql,demo_requests,parent_of,demo_requests,True
 demo_requests,mql,correlated_with,demo_requests,True
 demo_requests,sql,correlated_with,demo_requests,True
 demo_requests,form_conversion_rate,correlated_with,demo_requests,True
+leads,demo_requests,formula_input,demo_requests,True
 net_revenue,discount_rate,parent_of,discount_rate,True
 discount_rate,gross_revenue,correlated_with,discount_rate,True
 discount_rate,aov,correlated_with,discount_rate,True
+gross_revenue,discount_rate,formula_input,discount_rate,True
 ebitda,ebitda_bridge_price,parent_of,ebitda_bridge_price,True
 ebitda_bridge_price,ebitda_bridge_volume,correlated_with,ebitda_bridge_price,True
 ebitda,ebitda_bridge_volume,parent_of,ebitda_bridge_volume,True
@@ -2176,15 +2209,18 @@ ebitda_bridge_volume,ebitda_bridge_price,correlated_with,ebitda_bridge_volume,Tr
 cost_per_unit,energy_cost_per_unit,parent_of,energy_cost_per_unit,True
 energy_cost_per_unit,capacity_utilization,correlated_with,energy_cost_per_unit,True
 energy_cost_per_unit,carbon_emissions_per_unit,correlated_with,energy_cost_per_unit,True
+throughput,energy_cost_per_unit,formula_input,energy_cost_per_unit,True
 mql,event_attendees,parent_of,event_attendees,True
 event_attendees,mql,correlated_with,event_attendees,True
 event_attendees,cost_per_event_attendee,correlated_with,event_attendees,True
 suspension_rate,expulsion_rate,parent_of,expulsion_rate,True
 expulsion_rate,suspension_rate,correlated_with,expulsion_rate,True
 expulsion_rate,dropout_rate,correlated_with,expulsion_rate,True
+enrollment_count,expulsion_rate,formula_input,expulsion_rate,True
 school_climate_score,extracurricular_rate,parent_of,extracurricular_rate,True
 extracurricular_rate,school_climate_score,correlated_with,extracurricular_rate,True
 extracurricular_rate,student_attendance_rate,correlated_with,extracurricular_rate,True
+enrollment_count,extracurricular_rate,formula_input,extracurricular_rate,True
 school_climate_score,family_engagement_rate,parent_of,family_engagement_rate,True
 family_engagement_rate,school_climate_score,correlated_with,family_engagement_rate,True
 family_engagement_rate,student_attendance_rate,correlated_with,family_engagement_rate,True
@@ -2297,6 +2333,7 @@ free_to_paid_rate,trial_signups,parent_of,trial_signups,True
 trial_signups,activation_rate,correlated_with,trial_signups,True
 trial_signups,free_to_paid_rate,correlated_with,trial_signups,True
 trial_signups,new_user_signups,correlated_with,trial_signups,True
+new_user_signups,trial_signups,formula_input,trial_signups,True
 win_rate,competitive_win_rate,parent_of,competitive_win_rate,True
 competitive_win_rate,win_rate,correlated_with,competitive_win_rate,True
 competitive_win_rate,avg_deal_size,correlated_with,competitive_win_rate,True
@@ -2461,6 +2498,8 @@ churn_rate,cac_payback,correlated_with,churn_rate,True
 churn_rate,renewal_rate,correlated_with,churn_rate,True
 churn_rate,tickets_created,correlated_with,churn_rate,True
 churn_rate,time_to_value,correlated_with,churn_rate,True
+churned_arr,churn_rate,formula_input,churn_rate,True
+contraction_arr,churn_rate,formula_input,churn_rate,True
 arr,churned_arr,parent_of,churned_arr,True
 grr,churned_arr,parent_of,churned_arr,True
 mrr_churn_rate,churned_arr,parent_of,churned_arr,True
@@ -2475,6 +2514,7 @@ arr,committed_arr,parent_of,committed_arr,True
 committed_arr,arr,correlated_with,committed_arr,True
 committed_arr,bookings,correlated_with,committed_arr,True
 committed_arr,contracted_unbilled,correlated_with,committed_arr,True
+bookings,committed_arr,formula_input,committed_arr,True
 arr,contraction_arr,parent_of,contraction_arr,True
 nrr,contraction_arr,parent_of,contraction_arr,True
 grr,contraction_arr,parent_of,contraction_arr,True
@@ -2492,18 +2532,23 @@ implementation_revenue,services_revenue,correlated_with,implementation_revenue,T
 revenue_vs_py,prior_year_revenue,parent_of,prior_year_revenue,True
 prior_year_revenue,revenue_vs_py,correlated_with,prior_year_revenue,True
 prior_year_revenue,revenue,correlated_with,prior_year_revenue,True
+revenue,prior_year_revenue,formula_input,prior_year_revenue,True
 revenue_ytd,q1_revenue,parent_of,q1_revenue,True
 q1_revenue,q2_revenue,correlated_with,q1_revenue,True
 q1_revenue,revenue,correlated_with,q1_revenue,True
+revenue,q1_revenue,formula_input,q1_revenue,True
 revenue_ytd,q2_revenue,parent_of,q2_revenue,True
 q2_revenue,q1_revenue,correlated_with,q2_revenue,True
 q2_revenue,q3_revenue,correlated_with,q2_revenue,True
+revenue,q2_revenue,formula_input,q2_revenue,True
 revenue_ytd,q3_revenue,parent_of,q3_revenue,True
 q3_revenue,q2_revenue,correlated_with,q3_revenue,True
 q3_revenue,q4_revenue,correlated_with,q3_revenue,True
+revenue,q3_revenue,formula_input,q3_revenue,True
 revenue_ytd,q4_revenue,parent_of,q4_revenue,True
 q4_revenue,q3_revenue,correlated_with,q4_revenue,True
 q4_revenue,revenue,correlated_with,q4_revenue,True
+revenue,q4_revenue,formula_input,q4_revenue,True
 api_latency_p95,api_calls_total,parent_of,api_calls_total,True
 api_calls_total,api_consumers,correlated_with,api_calls_total,True
 api_calls_total,api_latency_p95,correlated_with,api_calls_total,True

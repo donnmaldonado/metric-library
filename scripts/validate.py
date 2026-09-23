@@ -6,6 +6,7 @@ import yaml
 
 from dimensions import dimension_issues
 from domains import derived_domains, domain_issues
+from formula_inputs import derived_formula_inputs, formula_input_issues
 from labels import label_issues
 from sources import source_issues
 
@@ -18,6 +19,7 @@ taxonomy = json.loads((ROOT / "data/taxonomy.json").read_text())
 sources = json.loads((ROOT / "data/sources.json").read_text())
 dimensions = json.loads((ROOT / "data/dimensions.json").read_text())
 derived_domain = derived_domains(ms)
+derived_inputs = derived_formula_inputs(ms)
 
 
 def bare_alias_of(d):
@@ -86,6 +88,7 @@ for m in ms:
             issues.append(f"{mid}: formulaInputs references itself")
         elif f not in by:
             issues.append(f"{mid}: formulaInputs -> unknown metric {f!r}")
+    issues += formula_input_issues(m, derived_inputs[mid].inputs)
     for key in ("parentMetrics", "childMetrics", "correlatedMetrics"):
         if mid in m[key]:
             issues.append(f"{mid}: {key} references itself")

@@ -1,0 +1,79 @@
+metricId,current,derived,added,removed,flagged,notes
+marketing_roi,pipeline_generated,,,pipeline_generated,,Drops pipeline_generated (not read by the formula).
+rule_of_40,,revenue_vs_py,revenue_vs_py,,,Adds revenue_vs_py (named in the formula).
+turnover_rate,headcount,,,headcount,,Drops headcount (not read by the formula).
+account_health_score,nps,,,nps,,Drops nps (not read by the formula).
+advanced_course_enrollment_rate,,enrollment_count,enrollment_count,,,Adds enrollment_count (named in the formula).
+grade3_reading,,enrollment_count,enrollment_count,,,Adds enrollment_count (named in the formula).
+absenteeism_rate,headcount,,,headcount,,Drops headcount (not read by the formula).
+activation_rate,,new_user_signups,new_user_signups,,,Adds new_user_signups (named in the formula).
+acv,,bookings,bookings,,,Adds bookings (named in the formula).
+budget_variance_pct,,annual_budget,annual_budget,,,Adds annual_budget (named in the formula).
+carbon_emissions_per_unit,,throughput,throughput,,,Adds throughput (named in the formula).
+cost_per_event_attendee,,event_attendees,event_attendees,,,Adds event_attendees (named in the formula).
+cost_per_unit,,throughput,throughput,,,Adds throughput (named in the formula).
+credit_accumulation_rate,,enrollment_count,enrollment_count,,,Adds enrollment_count (named in the formula).
+debt_ebitda,ebitda,total_debt revenue cogs opex da,total_debt revenue cogs opex da,ebitda,,Adds total_debt (named in the formula). Adds revenue cogs opex da (formula reads its measure). Drops ebitda (not read by the formula).
+ebit,,gross_profit opex,gross_profit opex,,,Adds gross_profit opex (named in the formula).
+ebitda_margin,,revenue,revenue,,,Adds revenue (named in the formula).
+error_rate,,api_calls_total,api_calls_total,,,Adds api_calls_total (named in the formula).
+ev_ebitda,ebitda enterprise_value,revenue cogs opex da,revenue cogs opex da,ebitda enterprise_value,,Adds revenue cogs opex da (formula reads its measure). Drops ebitda (not read by the formula). Drops enterprise_value (driver edge).
+forecast_accuracy,revenue,,,revenue,,Drops revenue (not read by the formula).
+free_to_paid_rate,,new_user_signups,new_user_signups,,,Adds new_user_signups (named in the formula).
+interest_coverage_ratio,ebitda,,,ebitda,,Drops ebitda (not read by the formula).
+internal_promotion_rate,,,,,new_hires,Flag not a bug: denominator is all hires (internal + external); `new_hires` counts external only.
+interview_to_offer_rate,,,,,recruiting_pipeline,Flag not a bug: offers and final-round candidates are different slices from open `recruiting_pipeline`.
+leverage_ratio,ebitda,revenue cogs opex da,revenue cogs opex da,ebitda,,Adds revenue cogs opex da (formula reads its measure). Drops ebitda (not read by the formula).
+magic_number,,,,,expansion_arr,Flag not a bug: `net_new_arr` (mart) is every ARR movement; `expansion_arr` is one slice. No library net new ARR metric exists.
+market_share,,tam,tam,,,Adds tam (named in the formula).
+net_income,ebitda,,,ebitda,,Drops ebitda (not read by the formula).
+paid_attribution_pct,mql,,,mql,expansion_pipeline marketing_influenced_pipeline pipeline_value,"Drops mql (not read by the formula). Likely bug (description): description says share of closed revenue, but formula and SQL divide all opportunity ARR by creation date (open + closed). `mql` is not read."
+plg_rate,,new_user_signups,new_user_signups,,,Adds new_user_signups (named in the formula).
+quick_ratio,,cash_and_equivalents accounts_receivable,cash_and_equivalents accounts_receivable,,,Adds cash_and_equivalents accounts_receivable (named in the formula).
+referral_attribution_pct,mql,,,mql,expansion_pipeline marketing_influenced_pipeline pipeline_value,"Drops mql (not read by the formula). Likely bug (description): description says share of closed revenue, but formula and SQL divide all opportunity ARR by creation date (open + closed). `mql` is not read."
+rev_concentration_top10,revenue,,,revenue,,Drops revenue (not read by the formula).
+runway_months,,cash_and_equivalents,cash_and_equivalents,,,Adds cash_and_equivalents (named in the formula).
+suspension_rate,,enrollment_count,enrollment_count,,,Adds enrollment_count (named in the formula).
+workforce_productivity,headcount revenue,revenue,,headcount,,Drops headcount (not read by the formula).
+complaint_resolution_rate,,complaints_count,complaints_count,,,Adds complaints_count (named in the formula).
+diversity_hire_rate,,,,,new_hires,Flag not a bug: rate is over all hires; `new_hires` counts external only.
+headcount_vs_budget,headcount,,,headcount,,Drops headcount (driver edge).
+onboarding_completion_rate,,new_user_signups,new_user_signups,,,Adds new_user_signups (named in the formula).
+rd_headcount_pct,headcount,,,headcount,headcount sales_headcount,"Drops headcount (not read by the formula). Unsure: denominator `active_headcount` (mart) counts all active employees, like numerator `rd_headcount`, so the ratio is consistent; but `headcount` is full-time only, so this is not R&D / `headcount`. Not listed as a bug."
+span_of_control,headcount,,,headcount,,Drops headcount (not read by the formula).
+bad_debt_rate,,revenue,revenue,,,Adds revenue (named in the formula).
+organic_attribution_pct,mql,,,mql,expansion_pipeline marketing_influenced_pipeline pipeline_value,"Drops mql (not read by the formula). Likely bug (description): description says share of closed revenue, but formula and SQL divide all opportunity ARR by creation date (open + closed). `mql` is not read."
+webinar_attendance_rate,,event_attendees,event_attendees,,,Adds event_attendees (named in the formula).
+rcr_rate,,incident_count,incident_count,,,Adds incident_count (named in the formula).
+seat_fill_rate,,enrollment_count,enrollment_count,,,Adds enrollment_count (named in the formula).
+sla_breach_rate,,tickets_created,tickets_created,,,Adds tickets_created (named in the formula).
+ticket_backlog,,tickets_created,tickets_created,,,Adds tickets_created (formula reads its measure). This metric is a filtered slice or window of that measure.
+tickets_per_agent,,tickets_resolved,tickets_resolved,,,Adds tickets_resolved (named in the formula).
+tickets_per_customer,,customer_count,customer_count,,,Adds customer_count (named in the formula).
+grr,,arr,arr,,expansion_arr new_arr,Adds arr (formula reads its measure). Flag not a bug: `starting_arr` (mart) = `arr` - net new ARR; `expansion_arr`/`new_arr` are slices of the movement.
+mrr_churn_rate,,arr,arr,,expansion_arr new_arr,Adds arr (formula reads its measure). Flag not a bug: `starting_arr` (mart) = `arr` - net new ARR; `expansion_arr`/`new_arr` are slices of the movement.
+net_mrr_growth,,,,,expansion_arr new_arr,Flag not a bug: `net_new_arr` (mart) is every ARR movement; `expansion_arr`/`new_arr` are slices.
+nrr,,,,,new_arr,Flag not a bug: `starting_arr` (mart) = `arr` - net new ARR; `new_arr` is a slice of the movement.
+partner_revenue_pct,revenue,,,revenue,,Drops revenue (driver edge).
+revenue_per_account,,revenue,revenue,,,Adds revenue (named in the formula).
+revenue_per_employee,headcount revenue,revenue headcount,,,,Reorders to formula order.
+revenue_ytd,revenue,,,revenue,,Drops revenue (driver edge).
+mau,,dau,dau,,,Adds dau (formula reads its measure). This metric is a filtered slice or window of that measure.
+shrinkage_rate,,inventory_value,inventory_value,,,Adds inventory_value (named in the formula).
+ell_pct,,enrollment_count,enrollment_count,,,Adds enrollment_count (named in the formula).
+frl_pct,,enrollment_count,enrollment_count,,,Adds enrollment_count (named in the formula).
+iep_pct,,enrollment_count,enrollment_count,,,Adds enrollment_count (named in the formula).
+demo_requests,,leads,leads,,,Adds leads (formula reads its measure). This metric is a filtered slice or window of that measure.
+discount_rate,,gross_revenue,gross_revenue,,,Adds gross_revenue (named in the formula).
+energy_cost_per_unit,,throughput,throughput,,,Adds throughput (named in the formula).
+expulsion_rate,,enrollment_count,enrollment_count,,,Adds enrollment_count (named in the formula).
+extracurricular_rate,,enrollment_count,enrollment_count,,,Adds enrollment_count (named in the formula).
+remote_work_rate,,,,,headcount rd_headcount sales_headcount,Flag not a bug: rate over all active employees (any employment type or department); `headcount`/`rd_headcount`/`sales_headcount` are slices.
+trial_signups,,new_user_signups,new_user_signups,,,Adds new_user_signups (formula reads its measure). This metric is a filtered slice or window of that measure.
+churn_rate,,churned_arr contraction_arr,churned_arr contraction_arr,,expansion_arr new_arr,Adds churned_arr contraction_arr (named in the formula). Flag not a bug: `starting_arr` (mart) = `arr` - net new ARR; `expansion_arr`/`new_arr` are slices of the movement.
+committed_arr,,bookings,bookings,,,Adds bookings (formula reads its measure). This metric is a filtered slice or window of that measure.
+prior_year_revenue,,revenue,revenue,,,Adds revenue (named in the formula).
+q1_revenue,,revenue,revenue,,,Adds revenue (formula reads its measure). This metric is a filtered slice or window of that measure.
+q2_revenue,,revenue,revenue,,,Adds revenue (formula reads its measure). This metric is a filtered slice or window of that measure.
+q3_revenue,,revenue,revenue,,,Adds revenue (formula reads its measure). This metric is a filtered slice or window of that measure.
+q4_revenue,,revenue,revenue,,,Adds revenue (formula reads its measure). This metric is a filtered slice or window of that measure.

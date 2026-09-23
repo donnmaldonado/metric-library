@@ -21,6 +21,7 @@
 | `scripts/domains.py` | Derives each metric's domain from the marts and checks the stored `domain`; used by `validate.py` and `owned_metrics.py`. Tests: `python3 -m unittest discover -s scripts`. |
 | `scripts/sources.py` | Checks each metric's `dataSources` against `data/sources.json`; used by `validate.py`. |
 | `scripts/dimensions.py` | Checks each metric's `dimensions` against `data/dimensions.json`; used by `validate.py`. |
+| `scripts/formula_inputs.py` | Derives each metric's `formulaInputs` from its `formulaYaml` and checks the stored list; used by `validate.py`. |
 | `scripts/labels.py` | Checks `label`, `shortLabel`, `unit` and `shortDescription` against the conventions below; used by `validate.py`. |
 | `scripts/owned_metrics.py` | Lists metrics by derived domain (`python3 scripts/owned_metrics.py finance`). |
 
@@ -59,7 +60,7 @@ scripts/check_dbt.sh          # dbt parse + build, run every metric's SQL, mf va
 - **Parent/child is the driver tree.** A child drives its parent (`new_arr` → `arr`). Both sides always list the edge (`childMetrics` on the parent, `parentMetrics` on the child), and there are no cycles.
 - **Tiers only flow downward.** A child's tier rank is ≥ its parent's (North Star 0 → KPI 1 → Input 2; equal is allowed).
 - **North Stars are roots.** They have children and no parent. Every KPI and Input rolls up to at least one parent.
-- **`formulaInputs`** lists metrics that a metric is *computed from* when that dependency isn't a driver edge, usually because it would run up the tree. For example, `gross_margin_pct` is computed from `revenue`, and `turnover_rate` from `headcount`. It is present on every metric (empty by default) and never self-referencing.
+- **`formulaInputs`** lists the metrics a metric is *computed from* that aren't already driver edges, usually because the dependency would run up the tree (`gross_margin_pct` is computed from `revenue`). It is derived from `formulaYaml` (`scripts/formula_inputs.py`), in the order the formula names them: library metrics named as ratio or derived inputs, plus any unfiltered `simple` metric whose measure the formula reads (directly or through metrics defined in the marts), or a filtered one when the formula applies the same filter. Metrics in `parentMetrics`/`childMetrics` are left out. It is present on every metric (empty by default), and `validate.py` checks it against the derivation.
 - **`correlatedMetrics` is symmetric.**
 - When you change the graph in `data/metrics.json`, update both sides of every edge, then run `build.py` and `validate.py`, which enforce all of the above.
 
@@ -75,6 +76,7 @@ Open questions about specific definitions. Resolve one by updating the metric, t
 - `employee_lifetime_value`: the description implies a currency amount (value minus cost), but it's implemented as a ratio.
 - `stockout_rate`: the description is "% of orders unfulfilled due to zero inventory", but it's implemented as stockout events / SKUs.
 - `ops_efficiency_ratio`: the description and the numerator/denominator disagree.
+- `paid_attribution_pct`, `organic_attribution_pct` and `referral_attribution_pct`: the description is "% of closed revenue", but they're implemented as channel share of all opportunity ARR (open and closed) by creation date.
 
 **Choices to confirm**
 - `revenue_growth_rate` is month over month (`revenue_vs_py` covers YoY).
@@ -101,5 +103,4 @@ Open questions about specific definitions. Resolve one by updating the metric, t
 **Graph and catalog**
 - Some parent edges are weak: the leverage family → `roe`, `roic` → `enterprise_value`, `ltv_cac` → `marketing_roi`, `magic_number` → `rule_of_40`, `forecast_accuracy` → `ebitda`, `carbon_emissions_per_unit` → `ops_efficiency_ratio`, `diversity_hire_rate` → `headcount`, survey metrics → `nps`, and `ell_pct`/`frl_pct`/`iep_pct` → `student_proficiency`.
 - North Star → North Star links are recorded as `correlatedMetrics`; check that none is a real driver edge.
-- `formulaInputs` is out of step with some definitions (e.g. `enrollment_count` on education metrics, `headcount` still listed on `absenteeism_rate`/`turnover_rate`/`span_of_control`).
 - `relationships.csv` lists each parent/child edge twice (declared on both sides).

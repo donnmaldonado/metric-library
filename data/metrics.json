@@ -375,9 +375,7 @@
       "roas",
       "marketing_cac"
     ],
-    "formulaInputs": [
-      "pipeline_generated"
-    ]
+    "formulaInputs": []
   },
   {
     "metricId": "ops_efficiency_ratio",
@@ -528,7 +526,9 @@
       "enterprise_value",
       "saas_quick_ratio"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "revenue_vs_py"
+    ]
   },
   {
     "metricId": "employee_lifetime_value",
@@ -639,9 +639,7 @@
       "absenteeism_rate",
       "headcount"
     ],
-    "formulaInputs": [
-      "headcount"
-    ]
+    "formulaInputs": []
   },
   {
     "metricId": "four_year_grad_rate",
@@ -922,9 +920,7 @@
       "customer_churn_rate",
       "nps"
     ],
-    "formulaInputs": [
-      "nps"
-    ]
+    "formulaInputs": []
   },
   {
     "metricId": "aov",
@@ -1494,7 +1490,9 @@
       "college_enrollment",
       "student_proficiency"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "enrollment_count"
+    ]
   },
   {
     "metricId": "cross_sell_rate",
@@ -1705,7 +1703,9 @@
       "student_attendance_rate",
       "kinder_readiness"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "enrollment_count"
+    ]
   },
   {
     "metricId": "iep_goal_mastery_rate",
@@ -2106,9 +2106,7 @@
       "overtime_hours",
       "remote_work_rate"
     ],
-    "formulaInputs": [
-      "headcount"
-    ]
+    "formulaInputs": []
   },
   {
     "metricId": "activation_rate",
@@ -2153,7 +2151,9 @@
       "trial_signups",
       "trial_to_paid_rate"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "new_user_signups"
+    ]
   },
   {
     "metricId": "active_paying_users",
@@ -2222,7 +2222,9 @@
       "avg_deal_size",
       "revenue_per_account"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "bookings"
+    ]
   },
   {
     "metricId": "ap_participation_rate",
@@ -2685,7 +2687,9 @@
       "opex",
       "ebitda_margin"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "annual_budget"
+    ]
   },
   {
     "metricId": "burn_rate",
@@ -2829,7 +2833,9 @@
       "energy_cost_per_unit",
       "cost_per_unit"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "throughput"
+    ]
   },
   {
     "metricId": "change_failure_rate",
@@ -2984,7 +2990,9 @@
       "event_attendees",
       "cpl"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "event_attendees"
+    ]
   },
   {
     "metricId": "cost_per_mile",
@@ -3055,7 +3063,9 @@
       "carbon_emissions_per_unit",
       "procurement_savings_rate"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "throughput"
+    ]
   },
   {
     "metricId": "cpl",
@@ -3164,7 +3174,9 @@
       "four_year_grad_rate",
       "chronic_absenteeism_rate"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "enrollment_count"
+    ]
   },
   {
     "metricId": "current_ratio",
@@ -3236,7 +3248,11 @@
       "roe"
     ],
     "formulaInputs": [
-      "ebitda"
+      "total_debt",
+      "revenue",
+      "cogs",
+      "opex",
+      "da"
     ]
   },
   {
@@ -3444,7 +3460,10 @@
     ],
     "childMetrics": [],
     "correlatedMetrics": [],
-    "formulaInputs": []
+    "formulaInputs": [
+      "gross_profit",
+      "opex"
+    ]
   },
   {
     "metricId": "ebitda_margin",
@@ -3483,7 +3502,9 @@
       "revenue_per_employee",
       "sg_and_a"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "revenue"
+    ]
   },
   {
     "metricId": "effective_tax_rate",
@@ -3597,7 +3618,9 @@
       "mttd",
       "uptime"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "api_calls_total"
+    ]
   },
   {
     "metricId": "ev_ebitda",
@@ -3630,8 +3653,10 @@
       "enterprise_value"
     ],
     "formulaInputs": [
-      "ebitda",
-      "enterprise_value"
+      "revenue",
+      "cogs",
+      "opex",
+      "da"
     ]
   },
   {
@@ -3806,9 +3831,7 @@
       "revenue_vs_py",
       "revenue_ytd"
     ],
-    "formulaInputs": [
-      "revenue"
-    ]
+    "formulaInputs": []
   },
   {
     "metricId": "form_conversion_rate",
@@ -3885,7 +3908,9 @@
       "active_paying_users",
       "trial_signups"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "new_user_signups"
+    ]
   },
   {
     "metricId": "gender_pay_gap",
@@ -4153,9 +4178,7 @@
       "leverage_ratio",
       "total_debt"
     ],
-    "formulaInputs": [
-      "ebitda"
-    ]
+    "formulaInputs": []
   },
   {
     "metricId": "internal_promotion_rate",
@@ -4257,7 +4280,10 @@
       "total_debt"
     ],
     "formulaInputs": [
-      "ebitda"
+      "revenue",
+      "cogs",
+      "opex",
+      "da"
     ]
   },
   {
@@ -4391,7 +4417,9 @@
       "revenue",
       "sam"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "tam"
+    ]
   },
   {
     "metricId": "marketing_influenced_pipeline",
@@ -4644,9 +4672,7 @@
       "free_cash_flow",
       "ebitda"
     ],
-    "formulaInputs": [
-      "ebitda"
-    ]
+    "formulaInputs": []
   },
   {
     "metricId": "net_income_margin",
@@ -4945,9 +4971,7 @@
       "organic_attribution_pct",
       "roas"
     ],
-    "formulaInputs": [
-      "mql"
-    ]
+    "formulaInputs": []
   },
   {
     "metricId": "paid_sessions",
@@ -5137,7 +5161,9 @@
       "viral_coefficient",
       "trial_to_paid_rate"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "new_user_signups"
+    ]
   },
   {
     "metricId": "preventive_maintenance_rate",
@@ -5234,7 +5260,10 @@
       "current_ratio",
       "working_capital"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "cash_and_equivalents",
+      "accounts_receivable"
+    ]
   },
   {
     "metricId": "quota_attainment",
@@ -5336,9 +5365,7 @@
       "organic_attribution_pct",
       "viral_coefficient"
     ],
-    "formulaInputs": [
-      "mql"
-    ]
+    "formulaInputs": []
   },
   {
     "metricId": "rev_concentration_top10",
@@ -5368,9 +5395,7 @@
       "customer_concentration_risk",
       "nrr"
     ],
-    "formulaInputs": [
-      "revenue"
-    ]
+    "formulaInputs": []
   },
   {
     "metricId": "rev_from_existing",
@@ -5612,7 +5637,9 @@
       "cash_and_equivalents",
       "net_debt"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "cash_and_equivalents"
+    ]
   },
   {
     "metricId": "sales_cycle_length",
@@ -5859,7 +5886,9 @@
       "student_attendance_rate",
       "expulsion_rate"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "enrollment_count"
+    ]
   },
   {
     "metricId": "take_rate",
@@ -6416,7 +6445,6 @@
       "overtime_hours"
     ],
     "formulaInputs": [
-      "headcount",
       "revenue"
     ]
   },
@@ -6558,7 +6586,9 @@
       "sla_breach_rate",
       "complaints_count"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "complaints_count"
+    ]
   },
   {
     "metricId": "cost_per_hire",
@@ -6791,9 +6821,7 @@
       "open_requisitions",
       "span_of_control"
     ],
-    "formulaInputs": [
-      "headcount"
-    ]
+    "formulaInputs": []
   },
   {
     "metricId": "inventory_turnover",
@@ -6870,7 +6898,9 @@
       "churn_rate",
       "activation_rate"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "new_user_signups"
+    ]
   },
   {
     "metricId": "pct_reps_at_quota",
@@ -6970,9 +7000,7 @@
       "headcount",
       "rd_headcount"
     ],
-    "formulaInputs": [
-      "headcount"
-    ]
+    "formulaInputs": []
   },
   {
     "metricId": "regrettable_attrition",
@@ -7071,9 +7099,7 @@
       "headcount_vs_budget",
       "internal_promotion_rate"
     ],
-    "formulaInputs": [
-      "headcount"
-    ]
+    "formulaInputs": []
   },
   {
     "metricId": "time_to_hire",
@@ -7228,7 +7254,9 @@
       "dso",
       "ar_aging_90d"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "revenue"
+    ]
   },
   {
     "metricId": "cost_per_mql",
@@ -7630,9 +7658,7 @@
       "paid_attribution_pct",
       "referral_attribution_pct"
     ],
-    "formulaInputs": [
-      "mql"
-    ]
+    "formulaInputs": []
   },
   {
     "metricId": "roas",
@@ -7896,7 +7922,9 @@
       "form_conversion_rate",
       "webinar_registrants"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "event_attendees"
+    ]
   },
   {
     "metricId": "cycle_time",
@@ -8141,7 +8169,9 @@
       "incident_count",
       "mttr"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "incident_count"
+    ]
   },
   {
     "metricId": "return_rate",
@@ -8245,7 +8275,9 @@
       "enrollment_count",
       "per_pupil_expenditure"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "enrollment_count"
+    ]
   },
   {
     "metricId": "sla_breach_rate",
@@ -8285,7 +8317,9 @@
       "tickets_created",
       "tickets_per_agent"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "tickets_created"
+    ]
   },
   {
     "metricId": "stockout_rate",
@@ -8422,7 +8456,9 @@
       "sla_breach_rate",
       "first_response_time"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "tickets_created"
+    ]
   },
   {
     "metricId": "ticket_resolution_rate",
@@ -8490,7 +8526,9 @@
       "fcr_rate",
       "sla_breach_rate"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "tickets_resolved"
+    ]
   },
   {
     "metricId": "tickets_per_customer",
@@ -8524,7 +8562,9 @@
       "csat",
       "support_cost_per_ticket"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "customer_count"
+    ]
   },
   {
     "metricId": "vendor_scorecard_rating",
@@ -9124,7 +9164,9 @@
       "customer_churn_rate",
       "arr"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "arr"
+    ]
   },
   {
     "metricId": "hr_cost_pct_revenue",
@@ -9334,7 +9376,9 @@
       "customer_churn_rate",
       "nrr"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "arr"
+    ]
   },
   {
     "metricId": "net_mrr_growth",
@@ -9584,9 +9628,7 @@
       "partner_revenue",
       "revenue"
     ],
-    "formulaInputs": [
-      "revenue"
-    ]
+    "formulaInputs": []
   },
   {
     "metricId": "product_churn_rate",
@@ -9808,7 +9850,9 @@
       "arpu",
       "acv"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "revenue"
+    ]
   },
   {
     "metricId": "revenue_per_employee",
@@ -9849,8 +9893,8 @@
       "workforce_productivity"
     ],
     "formulaInputs": [
-      "headcount",
-      "revenue"
+      "revenue",
+      "headcount"
     ]
   },
   {
@@ -9923,9 +9967,7 @@
       "revenue_vs_py",
       "forecast_accuracy"
     ],
-    "formulaInputs": [
-      "revenue"
-    ]
+    "formulaInputs": []
   },
   {
     "metricId": "saas_quick_ratio",
@@ -10515,7 +10557,9 @@
       "dau",
       "wau"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "dau"
+    ]
   },
   {
     "metricId": "uptime",
@@ -10628,7 +10672,9 @@
       "inventory_value",
       "vendor_compliance_rate"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "inventory_value"
+    ]
   },
   {
     "metricId": "adm",
@@ -10720,7 +10766,9 @@
       "ela_proficiency_rate",
       "chronic_absenteeism_rate"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "enrollment_count"
+    ]
   },
   {
     "metricId": "frl_pct",
@@ -10752,7 +10800,9 @@
       "chronic_absenteeism_rate",
       "per_pupil_expenditure"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "enrollment_count"
+    ]
   },
   {
     "metricId": "iep_pct",
@@ -10784,7 +10834,9 @@
       "ela_proficiency_rate",
       "frl_pct"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "enrollment_count"
+    ]
   },
   {
     "metricId": "accounts_payable",
@@ -11237,7 +11289,9 @@
       "sql",
       "form_conversion_rate"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "leads"
+    ]
   },
   {
     "metricId": "discount_rate",
@@ -11268,7 +11322,9 @@
       "gross_revenue",
       "aov"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "gross_revenue"
+    ]
   },
   {
     "metricId": "ebitda_bridge_price",
@@ -11364,7 +11420,9 @@
       "capacity_utilization",
       "carbon_emissions_per_unit"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "throughput"
+    ]
   },
   {
     "metricId": "event_attendees",
@@ -11426,7 +11484,9 @@
       "suspension_rate",
       "dropout_rate"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "enrollment_count"
+    ]
   },
   {
     "metricId": "extracurricular_rate",
@@ -11457,7 +11517,9 @@
       "school_climate_score",
       "student_attendance_rate"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "enrollment_count"
+    ]
   },
   {
     "metricId": "family_engagement_rate",
@@ -12358,7 +12420,9 @@
       "free_to_paid_rate",
       "new_user_signups"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "new_user_signups"
+    ]
   },
   {
     "metricId": "competitive_win_rate",
@@ -13133,7 +13197,10 @@
       "tickets_created",
       "time_to_value"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "churned_arr",
+      "contraction_arr"
+    ]
   },
   {
     "metricId": "churned_arr",
@@ -13232,7 +13299,9 @@
       "bookings",
       "contracted_unbilled"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "bookings"
+    ]
   },
   {
     "metricId": "contraction_arr",
@@ -13359,7 +13428,9 @@
       "revenue_vs_py",
       "revenue"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "revenue"
+    ]
   },
   {
     "metricId": "q1_revenue",
@@ -13389,7 +13460,9 @@
       "q2_revenue",
       "revenue"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "revenue"
+    ]
   },
   {
     "metricId": "q2_revenue",
@@ -13419,7 +13492,9 @@
       "q1_revenue",
       "q3_revenue"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "revenue"
+    ]
   },
   {
     "metricId": "q3_revenue",
@@ -13449,7 +13524,9 @@
       "q2_revenue",
       "q4_revenue"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "revenue"
+    ]
   },
   {
     "metricId": "q4_revenue",
@@ -13479,7 +13556,9 @@
       "q3_revenue",
       "revenue"
     ],
-    "formulaInputs": []
+    "formulaInputs": [
+      "revenue"
+    ]
   },
   {
     "metricId": "api_calls_total",
