@@ -14,7 +14,7 @@ Total expected revenue from a customer over their lifetime.
 - **Domain:** Commerce · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/commerce/clv.yml) · [sql](dbt/analyses/metrics/commerce/clv.sql)
 - **Numerator:** Avg purchase value × frequency × lifespan
-- **Dimensions:** date, customer_segment, cohort
+- **Dimensions:** Time, Customer Segment, Cohort
 - **Data sources:** Commerce / order management
 - **Children:** [`aov`](#aov), [`purchase_frequency`](#purchase_frequency), [`customer_churn_rate`](#customer_churn_rate), [`cohort_ltv_12m`](#cohort_ltv_12m), [`cohort_ltv_24m`](#cohort_ltv_24m), [`cross_sell_rate`](#cross_sell_rate), [`customer_retention_rate`](#customer_retention_rate), [`refund_rate`](#refund_rate)
 - **Correlated:** [`cac`](#cac), [`nrr`](#nrr), [`cohort_ltv_12m`](#cohort_ltv_12m), [`aov`](#aov)
@@ -27,7 +27,7 @@ Realized average revenue per customer to date (lifetime order revenue / customer
 - **Domain:** Commerce · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/commerce/customer_ltv.yml) · [sql](dbt/analyses/metrics/commerce/customer_ltv.sql)
 - **Numerator:** SUM(lifetime revenue per customer)
-- **Dimensions:** customer_id, segment, cohort_month, acquisition_channel
+- **Dimensions:** Customer, Customer Segment, Cohort Month, Acquisition Channel
 - **Data sources:** Application database, CRM
 - **Children:** [`arpu`](#arpu), [`churn_rate`](#churn_rate)
 - **Correlated:** [`ltv_cac`](#ltv_cac), [`nrr`](#nrr), [`arpu`](#arpu)
@@ -41,7 +41,7 @@ Percentage of orders or deliverables completed by the committed date.
 - **Files:** [yml](dbt/models/metrics/commerce/on_time_delivery_rate.yml) · [sql](dbt/analyses/metrics/commerce/on_time_delivery_rate.sql)
 - **Numerator:** On-time deliveries
 - **Denominator:** Total deliveries
-- **Dimensions:** date, region, carrier, product_category, period
+- **Dimensions:** Time, Region, Carrier, Product Category
 - **Data sources:** Commerce / order management, TMS
 - **Children:** [`cycle_time`](#cycle_time), [`lead_time`](#lead_time)
 - **Correlated:** [`order_fulfillment_rate`](#order_fulfillment_rate), [`cycle_time`](#cycle_time), [`inventory_turnover`](#inventory_turnover), [`lead_time`](#lead_time), [`fill_rate`](#fill_rate), [`order_accuracy_rate`](#order_accuracy_rate), [`sla_compliance_rate`](#sla_compliance_rate), [`ops_north_star`](#ops_north_star)
@@ -55,7 +55,7 @@ Percentage of orders or deliverables completed by the committed date.
 - **Files:** [yml](dbt/models/metrics/commerce/ops_north_star.yml) · [sql](dbt/analyses/metrics/commerce/ops_north_star.sql)
 - **Numerator:** Orders meeting all criteria
 - **Denominator:** Total Orders
-- **Dimensions:** warehouse_id, carrier, period
+- **Dimensions:** Warehouse, Carrier, Time
 - **Data sources:** WMS / inventory, TMS, ERP / general ledger
 - **Children:** [`fill_rate`](#fill_rate), [`order_accuracy_rate`](#order_accuracy_rate), [`capacity_utilization`](#capacity_utilization), [`defect_rate`](#defect_rate), [`order_fulfillment_rate`](#order_fulfillment_rate), [`return_rate`](#return_rate), [`sla_compliance_rate`](#sla_compliance_rate), [`uptime`](#uptime), [`vendor_scorecard_rating`](#vendor_scorecard_rating)
 - **Correlated:** [`csat`](#csat), [`on_time_delivery_rate`](#on_time_delivery_rate)
@@ -71,7 +71,7 @@ Percentage of graduates enrolled in a 2- or 4-year college within 16 months.
 - **Files:** [yml](dbt/models/metrics/education/college_enrollment_rate.yml) · [sql](dbt/analyses/metrics/education/college_enrollment_rate.sql)
 - **Numerator:** Graduates enrolling in college
 - **Denominator:** Graduates
-- **Dimensions:** school_year, school
+- **Dimensions:** School Year, School
 - **Data sources:** SIS, National Student Clearinghouse
 - **Children:** [`fafsa_completion_rate`](#fafsa_completion_rate), [`ap_participation_rate`](#ap_participation_rate), [`ap_pass_rate`](#ap_pass_rate), [`college_enrollment`](#college_enrollment)
 - **Correlated:** [`four_year_grad_rate`](#four_year_grad_rate), [`ap_pass_rate`](#ap_pass_rate), [`ap_participation_rate`](#ap_participation_rate)
@@ -85,7 +85,7 @@ Per-pupil expenditure divided by % of students meeting proficiency — efficienc
 - **Files:** [yml](dbt/models/metrics/education/cost_per_outcome.yml) · [sql](dbt/analyses/metrics/education/cost_per_outcome.sql)
 - **Numerator:** Per-Pupil Expenditure
 - **Denominator:** Proficiency Rate
-- **Dimensions:** school_id, period
+- **Dimensions:** School, Time
 - **Data sources:** ERP / general ledger, SIS, Assessment platform
 - **Children:** [`per_pupil_expenditure`](#per_pupil_expenditure)
 - **Formula inputs:** [`student_proficiency`](#student_proficiency)
@@ -100,7 +100,7 @@ Percentage of students graduating within 4 years of entering 9th grade.
 - **Files:** [yml](dbt/models/metrics/education/four_year_grad_rate.yml) · [sql](dbt/analyses/metrics/education/four_year_grad_rate.sql)
 - **Numerator:** On-time graduates
 - **Denominator:** Entering 9th grade cohort
-- **Dimensions:** school_year, school, subgroup, school_id, cohort_year
+- **Dimensions:** School Year, School, Student Subgroup, Cohort Year
 - **Data sources:** SIS
 - **Children:** [`student_attendance_rate`](#student_attendance_rate), [`dropout_rate`](#dropout_rate), [`advanced_course_enrollment_rate`](#advanced_course_enrollment_rate), [`credit_accumulation_rate`](#credit_accumulation_rate)
 - **Correlated:** [`college_enrollment_rate`](#college_enrollment_rate), [`dropout_rate`](#dropout_rate), [`student_proficiency`](#student_proficiency), [`student_attendance_rate`](#student_attendance_rate), [`college_enrollment`](#college_enrollment), [`credit_accumulation_rate`](#credit_accumulation_rate), [`enrollment_count`](#enrollment_count), [`fafsa_completion_rate`](#fafsa_completion_rate)
@@ -114,7 +114,7 @@ Percentage of students graduating within 4 years of entering 9th grade.
 - **Files:** [yml](dbt/models/metrics/education/student_proficiency.yml) · [sql](dbt/analyses/metrics/education/student_proficiency.sql)
 - **Numerator:** Students scoring ≥ Level 3
 - **Denominator:** Total students tested
-- **Dimensions:** school_id, subject, grade_level, subgroup, academic_year, school_year, grade
+- **Dimensions:** School, Subject, Grade Level, Student Subgroup, School Year
 - **Data sources:** Assessment platform, SIS
 - **Children:** [`student_attendance_rate`](#student_attendance_rate), [`chronic_absenteeism_rate`](#chronic_absenteeism_rate), [`instructional_minutes`](#instructional_minutes), [`avg_teacher_experience`](#avg_teacher_experience), [`ell_pct`](#ell_pct), [`ell_proficiency_growth`](#ell_proficiency_growth), [`frl_pct`](#frl_pct), [`iep_goal_mastery_rate`](#iep_goal_mastery_rate), [`iep_pct`](#iep_pct), [`on_time_lesson_delivery`](#on_time_lesson_delivery), [`per_pupil_expenditure`](#per_pupil_expenditure), [`school_climate_score`](#school_climate_score), [`student_growth_percentile`](#student_growth_percentile), [`teacher_retention_rate`](#teacher_retention_rate), [`ela_proficiency_rate`](#ela_proficiency_rate), [`math_proficiency_rate`](#math_proficiency_rate), [`science_proficiency_rate`](#science_proficiency_rate)
 - **Correlated:** [`four_year_grad_rate`](#four_year_grad_rate), [`college_enrollment`](#college_enrollment), [`chronic_absenteeism_rate`](#chronic_absenteeism_rate), [`advanced_course_enrollment_rate`](#advanced_course_enrollment_rate), [`student_attendance_rate`](#student_attendance_rate), [`cost_per_outcome`](#cost_per_outcome), [`ell_proficiency_growth`](#ell_proficiency_growth), [`iep_goal_mastery_rate`](#iep_goal_mastery_rate), [`student_growth_percentile`](#student_growth_percentile), [`teacher_retention_rate`](#teacher_retention_rate), [`student_teacher_ratio`](#student_teacher_ratio), [`ap_pass_rate`](#ap_pass_rate)
@@ -129,7 +129,7 @@ Earnings before interest, taxes, depreciation & amortization.
 - **Domain:** Finance · **Industry:** financial_services
 - **Files:** [yml](dbt/models/metrics/finance/ebitda.yml) · [sql](dbt/analyses/metrics/finance/ebitda.sql)
 - **Numerator:** EBIT + Depreciation + Amortization
-- **Dimensions:** date, segment
+- **Dimensions:** Time, Customer Segment
 - **Data sources:** ERP / general ledger
 - **Children:** [`gross_profit`](#gross_profit), [`opex`](#opex), [`da`](#da), [`bad_debt_rate`](#bad_debt_rate), [`cogs`](#cogs), [`ebit`](#ebit), [`ebitda_bridge_price`](#ebitda_bridge_price), [`ebitda_bridge_volume`](#ebitda_bridge_volume), [`ebitda_margin`](#ebitda_margin), [`forecast_accuracy`](#forecast_accuracy), [`gross_margin_pct`](#gross_margin_pct), [`revenue_per_employee`](#revenue_per_employee)
 - **Correlated:** [`ebitda_margin`](#ebitda_margin), [`free_cash_flow`](#free_cash_flow), [`net_income`](#net_income), [`capex`](#capex), [`effective_tax_rate`](#effective_tax_rate), [`enterprise_value`](#enterprise_value), [`nrr`](#nrr), [`operating_cash_flow`](#operating_cash_flow), [`roe`](#roe), [`revenue`](#revenue)
@@ -142,7 +142,7 @@ Market cap plus net debt — basis for EV/EBITDA multiples.
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/enterprise_value.yml) · [sql](dbt/analyses/metrics/finance/enterprise_value.sql)
 - **Numerator:** Market cap + net debt
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Cap table, ERP / general ledger
 - **Children:** [`net_debt`](#net_debt), [`customer_concentration_risk`](#customer_concentration_risk), [`ev_ebitda`](#ev_ebitda), [`roic`](#roic)
 - **Correlated:** [`ev_ebitda`](#ev_ebitda), [`rule_of_40`](#rule_of_40), [`ebitda`](#ebitda)
@@ -155,7 +155,7 @@ Operating cash flow minus capital expenditures.
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/free_cash_flow.yml) · [sql](dbt/analyses/metrics/finance/free_cash_flow.sql)
 - **Numerator:** Operating Cash Flow − CapEx
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** ERP / general ledger
 - **Children:** [`operating_cash_flow`](#operating_cash_flow), [`capex`](#capex), [`capex_pct_revenue`](#capex_pct_revenue), [`runway_months`](#runway_months), [`working_capital`](#working_capital)
 - **Correlated:** [`burn_rate`](#burn_rate), [`ebitda`](#ebitda), [`net_income`](#net_income), [`billings`](#billings), [`capex_pct_revenue`](#capex_pct_revenue), [`da`](#da), [`debt_ebitda`](#debt_ebitda), [`effective_tax_rate`](#effective_tax_rate), [`interest_coverage_ratio`](#interest_coverage_ratio), [`operating_cash_flow`](#operating_cash_flow), [`runway_months`](#runway_months), [`working_capital`](#working_capital)
@@ -169,7 +169,7 @@ Output produced per unit of cost — higher is better.
 - **Files:** [yml](dbt/models/metrics/finance/ops_efficiency_ratio.yml) · [sql](dbt/analyses/metrics/finance/ops_efficiency_ratio.sql)
 - **Numerator:** OpEx
 - **Denominator:** Revenue
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** ERP / general ledger
 - **Children:** [`opex`](#opex), [`budget_variance_pct`](#budget_variance_pct), [`carbon_emissions_per_unit`](#carbon_emissions_per_unit), [`cost_per_mile`](#cost_per_mile), [`support_cost_per_ticket`](#support_cost_per_ticket), [`warehouse_utilization`](#warehouse_utilization)
 - **Formula inputs:** [`revenue`](#revenue)
@@ -183,7 +183,7 @@ Total recognized revenue in the period.
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/revenue.yml) · [sql](dbt/analyses/metrics/finance/revenue.sql)
 - **Numerator:** SUM(recognized_amount)
-- **Dimensions:** company_id, product_line, geography, channel, date, region
+- **Dimensions:** Company, Product Line, Geography, Channel, Time, Region
 - **Data sources:** ERP / general ledger, CRM, Billing / subscriptions
 - **Children:** [`arr`](#arr), [`mrr`](#mrr), [`arpu`](#arpu), [`asp`](#asp), [`billings`](#billings), [`customer_count`](#customer_count), [`gmv`](#gmv), [`iap_revenue`](#iap_revenue), [`take_rate`](#take_rate), [`net_revenue`](#net_revenue), [`gross_revenue`](#gross_revenue), [`services_revenue`](#services_revenue), [`license_revenue`](#license_revenue), [`subscription_revenue`](#subscription_revenue), [`implementation_revenue`](#implementation_revenue), [`partner_revenue`](#partner_revenue), [`partner_revenue_pct`](#partner_revenue_pct), [`rev_from_existing`](#rev_from_existing), [`rev_from_new_customers`](#rev_from_new_customers), [`revenue_ytd`](#revenue_ytd)
 - **Correlated:** [`customer_count`](#customer_count), [`arpu`](#arpu), [`asp`](#asp), [`billings`](#billings), [`bookings`](#bookings), [`cogs`](#cogs), [`deferred_revenue`](#deferred_revenue), [`gmv`](#gmv), [`marketing_spend`](#marketing_spend), [`take_rate`](#take_rate), [`revenue_growth_rate`](#revenue_growth_rate), [`revenue_vs_py`](#revenue_vs_py), [`arr`](#arr), [`ebitda`](#ebitda), [`prior_year_revenue`](#prior_year_revenue), [`q1_revenue`](#q1_revenue), [`q4_revenue`](#q4_revenue), [`cac`](#cac), [`partner_revenue_pct`](#partner_revenue_pct), [`gross_margin_pct`](#gross_margin_pct), [`market_share`](#market_share)
@@ -197,7 +197,7 @@ Net income as a percentage of shareholders equity.
 - **Files:** [yml](dbt/models/metrics/finance/roe.yml) · [sql](dbt/analyses/metrics/finance/roe.sql)
 - **Numerator:** Net Income
 - **Denominator:** Shareholders' Equity
-- **Dimensions:** date, company_id, fiscal_period
+- **Dimensions:** Time, Company
 - **Data sources:** ERP / general ledger
 - **Children:** [`net_income`](#net_income), [`shareholder_equity`](#shareholder_equity), [`debt_to_equity`](#debt_to_equity), [`interest_coverage_ratio`](#interest_coverage_ratio), [`leverage_ratio`](#leverage_ratio), [`net_income_margin`](#net_income_margin), [`roa`](#roa)
 - **Correlated:** [`roa`](#roa), [`roic`](#roic), [`shareholder_equity`](#shareholder_equity), [`debt_ebitda`](#debt_ebitda), [`ebitda`](#ebitda)
@@ -210,7 +210,7 @@ Revenue growth rate + EBITDA margin — benchmark for SaaS health, where 40 or m
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/rule_of_40.yml) · [sql](dbt/analyses/metrics/finance/rule_of_40.sql)
 - **Numerator:** Revenue Growth % + EBITDA Margin %
-- **Dimensions:** company_id, fiscal_period
+- **Dimensions:** Company, Time
 - **Data sources:** ERP / general ledger, Billing / subscriptions
 - **Children:** [`ebitda_margin`](#ebitda_margin), [`revenue_growth_rate`](#revenue_growth_rate), [`arr_growth_rate`](#arr_growth_rate), [`magic_number`](#magic_number), [`nrr`](#nrr)
 - **Correlated:** [`arr`](#arr), [`nrr`](#nrr), [`enterprise_value`](#enterprise_value), [`saas_quick_ratio`](#saas_quick_ratio)
@@ -226,7 +226,7 @@ Estimated total value an employee contributes over their tenure minus fully-load
 - **Files:** [yml](dbt/models/metrics/hr/employee_lifetime_value.yml) · [sql](dbt/analyses/metrics/hr/employee_lifetime_value.sql)
 - **Numerator:** Revenue Contribution over Tenure
 - **Denominator:** Fully-Loaded Employment Cost over Tenure
-- **Dimensions:** job_level, department, hire_cohort
+- **Dimensions:** Job Level, Department, Hire Cohort
 - **Data sources:** HRIS, ERP / general ledger
 - **Children:** [`headcount_cost`](#headcount_cost), [`revenue_per_employee`](#revenue_per_employee), [`avg_tenure`](#avg_tenure), [`gross_profit_per_employee`](#gross_profit_per_employee), [`workforce_productivity`](#workforce_productivity)
 - **Correlated:** [`voluntary_turnover`](#voluntary_turnover), [`employee_engagement_score`](#employee_engagement_score)
@@ -239,7 +239,7 @@ Total active full-time employees at end of period.
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/headcount.yml) · [sql](dbt/analyses/metrics/hr/headcount.sql)
 - **Numerator:** Active employees at period end
-- **Dimensions:** date, department, location
+- **Dimensions:** Time, Department, Location
 - **Data sources:** HRIS
 - **Children:** [`diversity_hire_rate`](#diversity_hire_rate), [`headcount_vs_budget`](#headcount_vs_budget), [`new_hires`](#new_hires)
 - **Correlated:** [`turnover_rate`](#turnover_rate), [`headcount_vs_budget`](#headcount_vs_budget), [`total_comp_expense`](#total_comp_expense), [`rd_headcount_pct`](#rd_headcount_pct)
@@ -253,7 +253,7 @@ Percentage of employees who left during the period (voluntary + involuntary).
 - **Files:** [yml](dbt/models/metrics/hr/turnover_rate.yml) · [sql](dbt/analyses/metrics/hr/turnover_rate.sql)
 - **Numerator:** Separations
 - **Denominator:** Average headcount
-- **Dimensions:** date, department
+- **Dimensions:** Time, Department
 - **Data sources:** HRIS
 - **Children:** [`separations`](#separations), [`voluntary_turnover`](#voluntary_turnover), [`regrettable_attrition`](#regrettable_attrition)
 - **Formula inputs:** [`headcount`](#headcount)
@@ -270,7 +270,7 @@ Return on total marketing investment — revenue driven per dollar spent.
 - **Files:** [yml](dbt/models/metrics/marketing/marketing_roi.yml) · [sql](dbt/analyses/metrics/marketing/marketing_roi.sql)
 - **Numerator:** Pipeline generated
 - **Denominator:** Marketing spend
-- **Dimensions:** date, campaign
+- **Dimensions:** Time, Campaign
 - **Data sources:** Ad platforms, CRM
 - **Children:** [`ltv_cac`](#ltv_cac), [`marketing_influenced_pipeline`](#marketing_influenced_pipeline), [`organic_attribution_pct`](#organic_attribution_pct), [`paid_attribution_pct`](#paid_attribution_pct), [`referral_attribution_pct`](#referral_attribution_pct), [`roas`](#roas), [`share_of_voice`](#share_of_voice), [`marketing_spend`](#marketing_spend)
 - **Formula inputs:** [`pipeline_generated`](#pipeline_generated)
@@ -287,7 +287,7 @@ Satisfaction score from customer service interactions.
 - **Files:** [yml](dbt/models/metrics/product/cx_csat.yml) · [sql](dbt/analyses/metrics/product/cx_csat.sql)
 - **Numerator:** Satisfied customers
 - **Denominator:** Survey responses
-- **Dimensions:** date, product, channel
+- **Dimensions:** Time, Product, Channel
 - **Data sources:** Survey platform
 - **Children:** [`complaint_resolution_rate`](#complaint_resolution_rate), [`complaints_count`](#complaints_count), [`csat`](#csat)
 - **Correlated:** [`nps`](#nps), [`ces`](#ces), [`csat`](#csat)
@@ -300,7 +300,7 @@ Net Promoter Score — % Promoters minus % Detractors on 0–10 likelihood-to-re
 - **Domain:** Product · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/product/nps.yml) · [sql](dbt/analyses/metrics/product/nps.sql)
 - **Numerator:** % Promoters (9-10) - % Detractors (0-6)
-- **Dimensions:** segment, product, survey_period
+- **Dimensions:** Customer Segment, Product, Time
 - **Data sources:** Survey platform
 - **Children:** [`app_store_rating`](#app_store_rating), [`feature_request_volume`](#feature_request_volume), [`review_rating`](#review_rating), [`survey_response_rate`](#survey_response_rate), [`testimonials_count`](#testimonials_count)
 - **Correlated:** [`account_health_score`](#account_health_score), [`churn_rate`](#churn_rate), [`app_store_rating`](#app_store_rating), [`ces`](#ces), [`csat`](#csat), [`cx_csat`](#cx_csat), [`enps`](#enps), [`feature_adoption_rate`](#feature_adoption_rate), [`feature_request_volume`](#feature_request_volume), [`review_rating`](#review_rating), [`survey_response_rate`](#survey_response_rate), [`testimonials_count`](#testimonials_count)
@@ -315,7 +315,7 @@ Total value of opportunities sourced by marketing.
 - **Domain:** Sales · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/sales/pipeline_generated.yml) · [sql](dbt/analyses/metrics/sales/pipeline_generated.sql)
 - **Numerator:** Sum of opportunity values created
-- **Dimensions:** date, channel
+- **Dimensions:** Time, Channel
 - **Data sources:** CRM
 - **Children:** [`sql`](#sql), [`avg_deal_size`](#avg_deal_size), [`mql`](#mql)
 - **Correlated:** [`bookings`](#bookings), [`mql`](#mql), [`pipeline_coverage`](#pipeline_coverage)
@@ -333,7 +333,7 @@ Average value per transaction.
 - **Files:** [yml](dbt/models/metrics/commerce/aov.yml) · [sql](dbt/analyses/metrics/commerce/aov.sql)
 - **Numerator:** Total order revenue
 - **Denominator:** Number of orders
-- **Dimensions:** date, customer_segment, channel
+- **Dimensions:** Time, Customer Segment, Channel
 - **Data sources:** Commerce / order management
 - **Parents:** [`clv`](#clv), [`cohort_ltv_12m`](#cohort_ltv_12m)
 - **Children:** [`gross_revenue`](#gross_revenue)
@@ -348,7 +348,7 @@ Percentage of customers who purchased products from more than one category.
 - **Files:** [yml](dbt/models/metrics/commerce/cross_sell_rate.yml) · [sql](dbt/analyses/metrics/commerce/cross_sell_rate.sql)
 - **Numerator:** Customers buying across categories
 - **Denominator:** Total customers
-- **Dimensions:** date, product_category
+- **Dimensions:** Time, Product Category
 - **Data sources:** Commerce / order management
 - **Parents:** [`clv`](#clv)
 - **Correlated:** [`upsell_rate`](#upsell_rate), [`aov`](#aov)
@@ -362,7 +362,7 @@ Percentage of customers who purchased products from more than one category.
 - **Files:** [yml](dbt/models/metrics/commerce/fill_rate.yml) · [sql](dbt/analyses/metrics/commerce/fill_rate.sql)
 - **Numerator:** Order Lines Fully Shipped
 - **Denominator:** Total Order Lines
-- **Dimensions:** warehouse_id, product_category, period
+- **Dimensions:** Warehouse, Product Category, Time
 - **Data sources:** WMS / inventory, ERP / general ledger
 - **Parents:** [`ops_north_star`](#ops_north_star)
 - **Children:** [`order_lines`](#order_lines), [`stockout_rate`](#stockout_rate)
@@ -376,7 +376,7 @@ Total value of merchandise sold through a marketplace before returns and fees.
 - **Domain:** Commerce · **Industry:** marketplace
 - **Files:** [yml](dbt/models/metrics/commerce/gmv.yml) · [sql](dbt/analyses/metrics/commerce/gmv.sql)
 - **Numerator:** SUM(transaction_value)
-- **Dimensions:** category, channel, seller_id, period
+- **Dimensions:** Category, Channel, Seller, Time
 - **Data sources:** Commerce / order management, ERP / general ledger
 - **Parents:** [`revenue`](#revenue), [`take_rate`](#take_rate)
 - **Children:** [`liquidity_rate`](#liquidity_rate), [`marketplace_buyers`](#marketplace_buyers), [`marketplace_sellers`](#marketplace_sellers)
@@ -390,7 +390,7 @@ Average time from request to delivery.
 - **Domain:** Commerce · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/commerce/lead_time.yml) · [sql](dbt/analyses/metrics/commerce/lead_time.sql)
 - **Numerator:** Time from order to delivery
-- **Dimensions:** date, product
+- **Dimensions:** Time, Product
 - **Data sources:** MES
 - **Parents:** [`on_time_delivery_rate`](#on_time_delivery_rate)
 - **Correlated:** [`cycle_time`](#cycle_time), [`on_time_delivery_rate`](#on_time_delivery_rate)
@@ -404,7 +404,7 @@ Percentage of listings that resulted in a transaction.
 - **Files:** [yml](dbt/models/metrics/commerce/liquidity_rate.yml) · [sql](dbt/analyses/metrics/commerce/liquidity_rate.sql)
 - **Numerator:** Transacting listings
 - **Denominator:** Total active listings
-- **Dimensions:** date, category
+- **Dimensions:** Time, Category
 - **Data sources:** Commerce / order management
 - **Parents:** [`gmv`](#gmv)
 - **Correlated:** [`take_rate`](#take_rate), [`marketplace_sellers`](#marketplace_sellers)
@@ -417,7 +417,7 @@ Gross revenue minus returns, allowances, and discounts.
 - **Domain:** Commerce · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/commerce/net_revenue.yml) · [sql](dbt/analyses/metrics/commerce/net_revenue.sql)
 - **Numerator:** Gross revenue − returns − discounts
-- **Dimensions:** date, channel
+- **Dimensions:** Time, Channel
 - **Data sources:** Commerce / order management
 - **Parents:** [`revenue`](#revenue)
 - **Children:** [`gross_revenue`](#gross_revenue), [`discount_rate`](#discount_rate)
@@ -432,7 +432,7 @@ Gross revenue minus returns, allowances, and discounts.
 - **Files:** [yml](dbt/models/metrics/commerce/order_accuracy_rate.yml) · [sql](dbt/analyses/metrics/commerce/order_accuracy_rate.sql)
 - **Numerator:** Error-Free Orders
 - **Denominator:** Total Orders Shipped
-- **Dimensions:** warehouse_id, carrier, period
+- **Dimensions:** Warehouse, Carrier, Time
 - **Data sources:** WMS / inventory, Helpdesk
 - **Parents:** [`ops_north_star`](#ops_north_star)
 - **Correlated:** [`fill_rate`](#fill_rate), [`on_time_delivery_rate`](#on_time_delivery_rate), [`defect_rate`](#defect_rate), [`return_rate`](#return_rate)
@@ -446,7 +446,7 @@ Percentage of orders fulfilled completely and on time.
 - **Files:** [yml](dbt/models/metrics/commerce/order_fulfillment_rate.yml) · [sql](dbt/analyses/metrics/commerce/order_fulfillment_rate.sql)
 - **Numerator:** Fulfilled orders
 - **Denominator:** Total orders
-- **Dimensions:** date, region
+- **Dimensions:** Time, Region
 - **Data sources:** Commerce / order management, WMS / inventory
 - **Parents:** [`ops_north_star`](#ops_north_star)
 - **Correlated:** [`on_time_delivery_rate`](#on_time_delivery_rate), [`stockout_rate`](#stockout_rate)
@@ -460,7 +460,7 @@ Average number of orders per customer per year.
 - **Files:** [yml](dbt/models/metrics/commerce/purchase_frequency.yml) · [sql](dbt/analyses/metrics/commerce/purchase_frequency.sql)
 - **Numerator:** Total orders
 - **Denominator:** Unique customers
-- **Dimensions:** date, customer_segment
+- **Dimensions:** Time, Customer Segment
 - **Data sources:** Commerce / order management
 - **Parents:** [`clv`](#clv), [`cohort_ltv_12m`](#cohort_ltv_12m)
 - **Children:** [`repeat_purchase_rate`](#repeat_purchase_rate)
@@ -475,7 +475,7 @@ Percentage of transactions that were refunded.
 - **Files:** [yml](dbt/models/metrics/commerce/refund_rate.yml) · [sql](dbt/analyses/metrics/commerce/refund_rate.sql)
 - **Numerator:** Refunds processed
 - **Denominator:** Total orders
-- **Dimensions:** date, product
+- **Dimensions:** Time, Product
 - **Data sources:** Commerce / order management
 - **Parents:** [`clv`](#clv)
 - **Correlated:** [`return_rate`](#return_rate), [`csat`](#csat), [`net_revenue`](#net_revenue)
@@ -489,7 +489,7 @@ Percentage of customers who made more than one purchase.
 - **Files:** [yml](dbt/models/metrics/commerce/repeat_purchase_rate.yml) · [sql](dbt/analyses/metrics/commerce/repeat_purchase_rate.sql)
 - **Numerator:** Customers with 2+ orders
 - **Denominator:** Total customers
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Commerce / order management
 - **Parents:** [`purchase_frequency`](#purchase_frequency)
 - **Correlated:** [`purchase_frequency`](#purchase_frequency), [`customer_retention_rate`](#customer_retention_rate)
@@ -503,7 +503,7 @@ Percentage of customers who made more than one purchase.
 - **Files:** [yml](dbt/models/metrics/commerce/return_rate.yml) · [sql](dbt/analyses/metrics/commerce/return_rate.sql)
 - **Numerator:** Units Returned
 - **Denominator:** Units Sold
-- **Dimensions:** product_category, channel, period, date, product
+- **Dimensions:** Product Category, Channel, Time, Product
 - **Data sources:** ERP / general ledger, WMS / inventory
 - **Parents:** [`ops_north_star`](#ops_north_star)
 - **Correlated:** [`defect_rate`](#defect_rate), [`order_accuracy_rate`](#order_accuracy_rate), [`refund_rate`](#refund_rate), [`csat`](#csat)
@@ -517,7 +517,7 @@ Percentage of orders that could not be fulfilled due to zero inventory.
 - **Files:** [yml](dbt/models/metrics/commerce/stockout_rate.yml) · [sql](dbt/analyses/metrics/commerce/stockout_rate.sql)
 - **Numerator:** Stockout events
 - **Denominator:** Total SKUs
-- **Dimensions:** date, product, location
+- **Dimensions:** Time, Product, Location
 - **Data sources:** WMS / inventory, Commerce / order management
 - **Parents:** [`fill_rate`](#fill_rate)
 - **Children:** [`inventory_items`](#inventory_items)
@@ -532,7 +532,7 @@ Platform revenue as a % of GMV — marketplace monetization efficiency.
 - **Files:** [yml](dbt/models/metrics/commerce/take_rate.yml) · [sql](dbt/analyses/metrics/commerce/take_rate.sql)
 - **Numerator:** Platform Revenue (Fees)
 - **Denominator:** GMV
-- **Dimensions:** category, tier, period
+- **Dimensions:** Category, Seller Tier, Time
 - **Data sources:** Commerce / order management
 - **Parents:** [`revenue`](#revenue)
 - **Children:** [`gmv`](#gmv)
@@ -548,7 +548,7 @@ Composite score combining product usage, support tickets, NPS, and contract size
 - **Domain:** Customer · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/customer/account_health_score.yml) · [sql](dbt/analyses/metrics/customer/account_health_score.sql)
 - **Numerator:** Composite score (usage + NPS + support)
-- **Dimensions:** date, account, customer_id, segment, plan_tier, cohort_month
+- **Dimensions:** Time, Customer, Customer Segment, Plan Tier, Cohort Month
 - **Data sources:** CRM, Product analytics, Survey platform
 - **Parents:** [`at_risk_accounts`](#at_risk_accounts), [`churn_rate`](#churn_rate)
 - **Children:** [`dau`](#dau), [`renewal_rate`](#renewal_rate), [`ces`](#ces), [`churn_prediction_score`](#churn_prediction_score), [`csat`](#csat), [`customer_onboarding_time`](#customer_onboarding_time), [`dau_mau_ratio`](#dau_mau_ratio), [`feature_adoption_rate`](#feature_adoption_rate)
@@ -563,7 +563,7 @@ Number of accounts with health score below the risk threshold.
 - **Domain:** Customer · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/customer/at_risk_accounts.yml) · [sql](dbt/analyses/metrics/customer/at_risk_accounts.sql)
 - **Numerator:** Accounts below health score threshold
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** CRM
 - **Parents:** [`churn_rate`](#churn_rate)
 - **Children:** [`account_health_score`](#account_health_score)
@@ -578,7 +578,7 @@ Percentage of complaints resolved within the SLA.
 - **Files:** [yml](dbt/models/metrics/customer/complaint_resolution_rate.yml) · [sql](dbt/analyses/metrics/customer/complaint_resolution_rate.sql)
 - **Numerator:** Complaints resolved within SLA
 - **Denominator:** Total complaints
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** CRM
 - **Parents:** [`cx_csat`](#cx_csat)
 - **Correlated:** [`csat`](#csat), [`sla_breach_rate`](#sla_breach_rate), [`complaints_count`](#complaints_count)
@@ -592,7 +592,7 @@ Average days from contract signed to customer fully live and using the product.
 - **Files:** [yml](dbt/models/metrics/customer/customer_onboarding_time.yml) · [sql](dbt/analyses/metrics/customer/customer_onboarding_time.sql)
 - **Numerator:** SUM(go_live_date - contract_date)
 - **Denominator:** COUNT(onboarded customers)
-- **Dimensions:** segment, product, cs_rep_id, period, date, customer_segment
+- **Dimensions:** Customer Segment, Product, Customer Success Manager, Time
 - **Data sources:** CRM, Product analytics
 - **Parents:** [`account_health_score`](#account_health_score), [`time_to_value`](#time_to_value)
 - **Correlated:** [`time_to_value`](#time_to_value), [`churn_rate`](#churn_rate), [`activation_rate`](#activation_rate)
@@ -606,7 +606,7 @@ Percentage of tickets escalated to tier 2 or above.
 - **Files:** [yml](dbt/models/metrics/customer/escalation_rate.yml) · [sql](dbt/analyses/metrics/customer/escalation_rate.sql)
 - **Numerator:** Escalated tickets
 - **Denominator:** Total tickets
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Helpdesk
 - **Parents:** [`time_to_resolution`](#time_to_resolution)
 - **Children:** [`tickets_created`](#tickets_created)
@@ -621,7 +621,7 @@ Percentage of support cases resolved on the first contact.
 - **Files:** [yml](dbt/models/metrics/customer/fcr_rate.yml) · [sql](dbt/analyses/metrics/customer/fcr_rate.sql)
 - **Numerator:** Tickets resolved on first contact
 - **Denominator:** Total tickets
-- **Dimensions:** date, channel
+- **Dimensions:** Time, Channel
 - **Data sources:** Helpdesk
 - **Parents:** [`csat`](#csat)
 - **Children:** [`tickets_created`](#tickets_created)
@@ -636,7 +636,7 @@ Average hours from ticket creation to first agent response.
 - **Files:** [yml](dbt/models/metrics/customer/first_response_time.yml) · [sql](dbt/analyses/metrics/customer/first_response_time.sql)
 - **Numerator:** SUM(first_response_at - created_at)
 - **Denominator:** COUNT(tickets)
-- **Dimensions:** priority, channel, team, period
+- **Dimensions:** Priority, Channel, Team, Time
 - **Data sources:** Helpdesk
 - **Parents:** [`csat`](#csat), [`sla_breach_rate`](#sla_breach_rate)
 - **Children:** [`tickets_created`](#tickets_created)
@@ -651,7 +651,7 @@ Percentage of accounts that had a quarterly business review in the period.
 - **Files:** [yml](dbt/models/metrics/customer/qbr_completion_rate.yml) · [sql](dbt/analyses/metrics/customer/qbr_completion_rate.sql)
 - **Numerator:** QBRs completed
 - **Denominator:** QBRs scheduled
-- **Dimensions:** date, csm
+- **Dimensions:** Time, Customer Success Manager
 - **Data sources:** CRM
 - **Parents:** [`renewal_rate`](#renewal_rate)
 - **Correlated:** [`renewal_rate`](#renewal_rate), [`account_health_score`](#account_health_score)
@@ -665,7 +665,7 @@ Percentage of tickets that exceeded the committed SLA response or resolution tim
 - **Files:** [yml](dbt/models/metrics/customer/sla_breach_rate.yml) · [sql](dbt/analyses/metrics/customer/sla_breach_rate.sql)
 - **Numerator:** SLA breaches
 - **Denominator:** Total tickets
-- **Dimensions:** date, priority
+- **Dimensions:** Time, Priority
 - **Data sources:** Helpdesk
 - **Parents:** [`csat`](#csat)
 - **Children:** [`time_to_resolution`](#time_to_resolution), [`first_response_time`](#first_response_time), [`ticket_backlog`](#ticket_backlog)
@@ -680,7 +680,7 @@ Percentage of tickets that exceeded the committed SLA response or resolution tim
 - **Files:** [yml](dbt/models/metrics/customer/sla_compliance_rate.yml) · [sql](dbt/analyses/metrics/customer/sla_compliance_rate.sql)
 - **Numerator:** SLA-Compliant Events
 - **Denominator:** Total SLA-Tracked Events
-- **Dimensions:** service_type, client_id, period
+- **Dimensions:** Service Type, Client, Time
 - **Data sources:** Helpdesk, CRM
 - **Parents:** [`ops_north_star`](#ops_north_star)
 - **Correlated:** [`on_time_delivery_rate`](#on_time_delivery_rate), [`csat`](#csat)
@@ -694,7 +694,7 @@ Total support cost divided by tickets resolved.
 - **Files:** [yml](dbt/models/metrics/customer/support_cost_per_ticket.yml) · [sql](dbt/analyses/metrics/customer/support_cost_per_ticket.sql)
 - **Numerator:** Support team cost
 - **Denominator:** Tickets resolved
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Helpdesk, ERP / general ledger
 - **Parents:** [`ops_efficiency_ratio`](#ops_efficiency_ratio)
 - **Children:** [`total_comp_expense`](#total_comp_expense), [`tickets_resolved`](#tickets_resolved), [`tickets_per_agent`](#tickets_per_agent)
@@ -708,7 +708,7 @@ Open tickets that have been unresolved beyond standard SLA.
 - **Domain:** Customer · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/customer/ticket_backlog.yml) · [sql](dbt/analyses/metrics/customer/ticket_backlog.sql)
 - **Numerator:** Open tickets beyond SLA threshold
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Helpdesk
 - **Parents:** [`sla_breach_rate`](#sla_breach_rate)
 - **Correlated:** [`sla_breach_rate`](#sla_breach_rate), [`first_response_time`](#first_response_time)
@@ -722,7 +722,7 @@ Open tickets that have been unresolved beyond standard SLA.
 - **Files:** [yml](dbt/models/metrics/customer/ticket_resolution_rate.yml) · [sql](dbt/analyses/metrics/customer/ticket_resolution_rate.sql)
 - **Numerator:** Tickets Resolved within SLA
 - **Denominator:** Total Tickets Opened
-- **Dimensions:** priority, category, team, period
+- **Dimensions:** Priority, Category, Team, Time
 - **Data sources:** Helpdesk
 - **Parents:** [`csat`](#csat)
 - **Children:** [`tickets_created`](#tickets_created)
@@ -737,7 +737,7 @@ Agent productivity measured by tickets closed.
 - **Files:** [yml](dbt/models/metrics/customer/tickets_per_agent.yml) · [sql](dbt/analyses/metrics/customer/tickets_per_agent.sql)
 - **Numerator:** Tickets handled
 - **Denominator:** Support agents
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Helpdesk
 - **Parents:** [`support_cost_per_ticket`](#support_cost_per_ticket)
 - **Children:** [`tickets_created`](#tickets_created)
@@ -752,7 +752,7 @@ Average support burden per customer — proxy for product quality.
 - **Files:** [yml](dbt/models/metrics/customer/tickets_per_customer.yml) · [sql](dbt/analyses/metrics/customer/tickets_per_customer.sql)
 - **Numerator:** Support tickets
 - **Denominator:** Active customers
-- **Dimensions:** date, segment
+- **Dimensions:** Time, Customer Segment
 - **Data sources:** Helpdesk, CRM
 - **Parents:** [`csat`](#csat)
 - **Children:** [`tickets_created`](#tickets_created)
@@ -767,7 +767,7 @@ Average total hours from ticket creation to final resolution.
 - **Files:** [yml](dbt/models/metrics/customer/time_to_resolution.yml) · [sql](dbt/analyses/metrics/customer/time_to_resolution.sql)
 - **Numerator:** SUM(resolved_at - created_at)
 - **Denominator:** COUNT(resolved tickets)
-- **Dimensions:** priority, category, channel, team, period, date
+- **Dimensions:** Priority, Category, Channel, Team, Time
 - **Data sources:** Helpdesk
 - **Parents:** [`csat`](#csat), [`sla_breach_rate`](#sla_breach_rate)
 - **Children:** [`tickets_created`](#tickets_created), [`escalation_rate`](#escalation_rate)
@@ -784,7 +784,7 @@ Average total hours from ticket creation to final resolution.
 - **Files:** [yml](dbt/models/metrics/education/advanced_course_enrollment_rate.yml) · [sql](dbt/analyses/metrics/education/advanced_course_enrollment_rate.sql)
 - **Numerator:** Students in Advanced Courses
 - **Denominator:** Total Enrollment
-- **Dimensions:** school_id, grade_level, demographic_group, period
+- **Dimensions:** School, Grade Level, Demographic Group, Time
 - **Data sources:** SIS
 - **Parents:** [`four_year_grad_rate`](#four_year_grad_rate)
 - **Correlated:** [`college_enrollment`](#college_enrollment), [`student_proficiency`](#student_proficiency)
@@ -798,7 +798,7 @@ Percentage of 11th and 12th graders enrolled in at least one AP course.
 - **Files:** [yml](dbt/models/metrics/education/ap_participation_rate.yml) · [sql](dbt/analyses/metrics/education/ap_participation_rate.sql)
 - **Numerator:** Students in AP courses
 - **Denominator:** 11th–12th grade enrollment
-- **Dimensions:** school_year, school
+- **Dimensions:** School Year, School
 - **Data sources:** SIS
 - **Parents:** [`college_enrollment_rate`](#college_enrollment_rate)
 - **Children:** [`enrollment_count`](#enrollment_count)
@@ -813,7 +813,7 @@ Percentage of AP exam takers scoring 3, 4, or 5.
 - **Files:** [yml](dbt/models/metrics/education/ap_pass_rate.yml) · [sql](dbt/analyses/metrics/education/ap_pass_rate.sql)
 - **Numerator:** AP scores of 3+
 - **Denominator:** AP tests taken
-- **Dimensions:** school_year, subject
+- **Dimensions:** School Year, Subject
 - **Data sources:** Assessment platform
 - **Parents:** [`college_enrollment_rate`](#college_enrollment_rate)
 - **Correlated:** [`college_enrollment_rate`](#college_enrollment_rate), [`student_proficiency`](#student_proficiency), [`ap_participation_rate`](#ap_participation_rate)
@@ -827,7 +827,7 @@ Percentage of students missing 10% or more of enrolled days.
 - **Files:** [yml](dbt/models/metrics/education/chronic_absenteeism_rate.yml) · [sql](dbt/analyses/metrics/education/chronic_absenteeism_rate.sql)
 - **Numerator:** Students missing 10%+ of school days
 - **Denominator:** Enrolled students
-- **Dimensions:** school_year, grade, school, school_id, subgroup, grade_level, period, academic_year
+- **Dimensions:** School Year, Grade Level, School, Student Subgroup, Time
 - **Data sources:** SIS
 - **Parents:** [`student_attendance_rate`](#student_attendance_rate), [`dropout_rate`](#dropout_rate), [`student_proficiency`](#student_proficiency)
 - **Children:** [`suspension_rate`](#suspension_rate)
@@ -842,7 +842,7 @@ Percentage of students missing 10% or more of enrolled days.
 - **Files:** [yml](dbt/models/metrics/education/college_enrollment.yml) · [sql](dbt/analyses/metrics/education/college_enrollment.sql)
 - **Numerator:** Graduates enrolled in college
 - **Denominator:** Total graduates
-- **Dimensions:** school_id, grad_year, college_type, subgroup
+- **Dimensions:** School, Graduation Year, College Type, Student Subgroup
 - **Data sources:** National Student Clearinghouse, SIS
 - **Parents:** [`college_enrollment_rate`](#college_enrollment_rate)
 - **Children:** [`fafsa_completion_rate`](#fafsa_completion_rate)
@@ -857,7 +857,7 @@ Percentage of enrolled students who successfully completed a course.
 - **Files:** [yml](dbt/models/metrics/education/course_completion_rate.yml) · [sql](dbt/analyses/metrics/education/course_completion_rate.sql)
 - **Numerator:** Courses completed
 - **Denominator:** Courses enrolled
-- **Dimensions:** school_year, school
+- **Dimensions:** School Year, School
 - **Data sources:** SIS
 - **Parents:** [`credit_accumulation_rate`](#credit_accumulation_rate)
 - **Correlated:** [`dropout_rate`](#dropout_rate), [`ela_proficiency_rate`](#ela_proficiency_rate)
@@ -871,7 +871,7 @@ Percentage of enrolled students who successfully completed a course.
 - **Files:** [yml](dbt/models/metrics/education/credit_accumulation_rate.yml) · [sql](dbt/analyses/metrics/education/credit_accumulation_rate.sql)
 - **Numerator:** Students on credit pace
 - **Denominator:** Total Students
-- **Dimensions:** school_id, grade_level, period
+- **Dimensions:** School, Grade Level, Time
 - **Data sources:** SIS
 - **Parents:** [`four_year_grad_rate`](#four_year_grad_rate)
 - **Children:** [`course_completion_rate`](#course_completion_rate)
@@ -886,7 +886,7 @@ Percentage of students who left school without graduating or transferring.
 - **Files:** [yml](dbt/models/metrics/education/dropout_rate.yml) · [sql](dbt/analyses/metrics/education/dropout_rate.sql)
 - **Numerator:** Dropouts in cohort
 - **Denominator:** Beginning enrollment
-- **Dimensions:** school_year, school, subgroup
+- **Dimensions:** School Year, School, Student Subgroup
 - **Data sources:** SIS
 - **Parents:** [`four_year_grad_rate`](#four_year_grad_rate)
 - **Children:** [`chronic_absenteeism_rate`](#chronic_absenteeism_rate), [`suspension_rate`](#suspension_rate)
@@ -901,7 +901,7 @@ Percentage of students scoring proficient or advanced on ELA state assessments.
 - **Files:** [yml](dbt/models/metrics/education/ela_proficiency_rate.yml) · [sql](dbt/analyses/metrics/education/ela_proficiency_rate.sql)
 - **Numerator:** Proficient in ELA
 - **Denominator:** Enrolled students tested
-- **Dimensions:** school_year, grade, school
+- **Dimensions:** School Year, Grade Level, School
 - **Data sources:** Assessment platform
 - **Parents:** [`student_proficiency`](#student_proficiency)
 - **Children:** [`grade3_reading`](#grade3_reading), [`student_growth_percentile`](#student_growth_percentile), [`student_attendance_rate`](#student_attendance_rate)
@@ -916,7 +916,7 @@ Percentage of students scoring proficient or advanced on ELA state assessments.
 - **Files:** [yml](dbt/models/metrics/education/ell_proficiency_growth.yml) · [sql](dbt/analyses/metrics/education/ell_proficiency_growth.sql)
 - **Numerator:** ELLs advancing one or more levels
 - **Denominator:** Total ELL Students
-- **Dimensions:** school_id, grade_level, home_language, period
+- **Dimensions:** School, Grade Level, Home Language, Time
 - **Data sources:** SIS, Assessment platform
 - **Parents:** [`student_proficiency`](#student_proficiency)
 - **Correlated:** [`student_proficiency`](#student_proficiency), [`student_attendance_rate`](#student_attendance_rate)
@@ -929,7 +929,7 @@ Total enrolled students at a school or district as of census date.
 - **Domain:** Education · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/education/enrollment_count.yml) · [sql](dbt/analyses/metrics/education/enrollment_count.sql)
 - **Numerator:** COUNT(active enrollments)
-- **Dimensions:** school_id, grade_level, demographic_group, period, school_year, school
+- **Dimensions:** School, Grade Level, Demographic Group, Time, School Year
 - **Data sources:** SIS
 - **Parents:** [`per_pupil_expenditure`](#per_pupil_expenditure), [`student_teacher_ratio`](#student_teacher_ratio), [`ap_participation_rate`](#ap_participation_rate)
 - **Correlated:** [`four_year_grad_rate`](#four_year_grad_rate), [`student_attendance_rate`](#student_attendance_rate), [`seat_fill_rate`](#seat_fill_rate), [`adm`](#adm), [`per_pupil_expenditure`](#per_pupil_expenditure)
@@ -943,7 +943,7 @@ Total enrolled students at a school or district as of census date.
 - **Files:** [yml](dbt/models/metrics/education/fafsa_completion_rate.yml) · [sql](dbt/analyses/metrics/education/fafsa_completion_rate.sql)
 - **Numerator:** Seniors who completed FAFSA
 - **Denominator:** Total 12th Grade Enrollment
-- **Dimensions:** school_id, demographic_group, period
+- **Dimensions:** School, Demographic Group, Time
 - **Data sources:** SIS
 - **Parents:** [`college_enrollment`](#college_enrollment), [`college_enrollment_rate`](#college_enrollment_rate)
 - **Correlated:** [`college_enrollment`](#college_enrollment), [`four_year_grad_rate`](#four_year_grad_rate)
@@ -957,7 +957,7 @@ Percentage of 3rd graders reading at or above grade level.
 - **Files:** [yml](dbt/models/metrics/education/grade3_reading.yml) · [sql](dbt/analyses/metrics/education/grade3_reading.sql)
 - **Numerator:** Grade 3 reading proficient
 - **Denominator:** Grade 3 enrolled
-- **Dimensions:** school_year, school
+- **Dimensions:** School Year, School
 - **Data sources:** Assessment platform
 - **Parents:** [`ela_proficiency_rate`](#ela_proficiency_rate)
 - **Children:** [`kinder_readiness`](#kinder_readiness)
@@ -972,7 +972,7 @@ Percentage of 3rd graders reading at or above grade level.
 - **Files:** [yml](dbt/models/metrics/education/iep_goal_mastery_rate.yml) · [sql](dbt/analyses/metrics/education/iep_goal_mastery_rate.sql)
 - **Numerator:** Mastered IEP Goals
 - **Denominator:** Total IEP Goals
-- **Dimensions:** school_id, disability_category, grade_level, period
+- **Dimensions:** School, Disability Category, Grade Level, Time
 - **Data sources:** SIS
 - **Parents:** [`student_proficiency`](#student_proficiency)
 - **Correlated:** [`student_proficiency`](#student_proficiency), [`student_attendance_rate`](#student_attendance_rate)
@@ -986,7 +986,7 @@ Percentage of operating budget spent directly on instruction.
 - **Files:** [yml](dbt/models/metrics/education/instructional_spend_ratio.yml) · [sql](dbt/analyses/metrics/education/instructional_spend_ratio.sql)
 - **Numerator:** Instructional spending
 - **Denominator:** Total expenditure
-- **Dimensions:** school_year
+- **Dimensions:** School Year
 - **Data sources:** ERP / general ledger
 - **Parents:** [`per_pupil_expenditure`](#per_pupil_expenditure)
 - **Correlated:** [`per_pupil_expenditure`](#per_pupil_expenditure), [`ela_proficiency_rate`](#ela_proficiency_rate)
@@ -1000,7 +1000,7 @@ Percentage of entering kindergarteners scoring ready on standardized screening.
 - **Files:** [yml](dbt/models/metrics/education/kinder_readiness.yml) · [sql](dbt/analyses/metrics/education/kinder_readiness.sql)
 - **Numerator:** Kindergarteners testing ready
 - **Denominator:** Total kindergarteners
-- **Dimensions:** school_year, school
+- **Dimensions:** School Year, School
 - **Data sources:** Assessment platform
 - **Parents:** [`grade3_reading`](#grade3_reading)
 - **Correlated:** [`grade3_reading`](#grade3_reading), [`student_attendance_rate`](#student_attendance_rate)
@@ -1014,7 +1014,7 @@ Percentage of students scoring proficient or advanced on math state assessments.
 - **Files:** [yml](dbt/models/metrics/education/math_proficiency_rate.yml) · [sql](dbt/analyses/metrics/education/math_proficiency_rate.sql)
 - **Numerator:** Proficient in math
 - **Denominator:** Enrolled students tested
-- **Dimensions:** school_year, grade, school
+- **Dimensions:** School Year, Grade Level, School
 - **Data sources:** Assessment platform
 - **Parents:** [`student_proficiency`](#student_proficiency)
 - **Children:** [`student_growth_percentile`](#student_growth_percentile)
@@ -1029,7 +1029,7 @@ Total operating spend divided by average daily membership.
 - **Files:** [yml](dbt/models/metrics/education/per_pupil_expenditure.yml) · [sql](dbt/analyses/metrics/education/per_pupil_expenditure.sql)
 - **Numerator:** Total expenditures
 - **Denominator:** Average daily membership (ADM)
-- **Dimensions:** school_id, fiscal_year, function_code, fund
+- **Dimensions:** School, Time, Function Code, Fund
 - **Data sources:** ERP / general ledger
 - **Parents:** [`cost_per_outcome`](#cost_per_outcome), [`student_proficiency`](#student_proficiency)
 - **Children:** [`enrollment_count`](#enrollment_count), [`instructional_spend_ratio`](#instructional_spend_ratio), [`seat_fill_rate`](#seat_fill_rate), [`staff_student_cost_ratio`](#staff_student_cost_ratio), [`student_teacher_ratio`](#student_teacher_ratio)
@@ -1043,7 +1043,7 @@ Average score from student, staff, and family school climate surveys.
 - **Domain:** Education · **Industry:** education
 - **Files:** [yml](dbt/models/metrics/education/school_climate_score.yml) · [sql](dbt/analyses/metrics/education/school_climate_score.sql)
 - **Numerator:** Composite climate survey score (0–100)
-- **Dimensions:** school_year, school, school_id, respondent_type, survey_cycle
+- **Dimensions:** School Year, School, Respondent Type, Survey Cycle
 - **Data sources:** Survey platform
 - **Parents:** [`student_proficiency`](#student_proficiency)
 - **Children:** [`extracurricular_rate`](#extracurricular_rate), [`family_engagement_rate`](#family_engagement_rate)
@@ -1067,7 +1067,7 @@ Percentage of students scoring proficient on science state assessments.
 - **Files:** [yml](dbt/models/metrics/education/seat_fill_rate.yml) · [sql](dbt/analyses/metrics/education/seat_fill_rate.sql)
 - **Numerator:** Enrolled Students
 - **Denominator:** Available Seats
-- **Dimensions:** school_id, grade_level, period
+- **Dimensions:** School, Grade Level, Time
 - **Data sources:** SIS
 - **Parents:** [`per_pupil_expenditure`](#per_pupil_expenditure)
 - **Correlated:** [`enrollment_count`](#enrollment_count), [`per_pupil_expenditure`](#per_pupil_expenditure)
@@ -1081,7 +1081,7 @@ Personnel costs as a share of total per-pupil expenditure — staffing investmen
 - **Files:** [yml](dbt/models/metrics/education/staff_student_cost_ratio.yml) · [sql](dbt/analyses/metrics/education/staff_student_cost_ratio.sql)
 - **Numerator:** Total Personnel Cost
 - **Denominator:** Total Operating Budget
-- **Dimensions:** school_id, fiscal_year
+- **Dimensions:** School, Time
 - **Data sources:** ERP / general ledger, HRIS
 - **Parents:** [`per_pupil_expenditure`](#per_pupil_expenditure)
 - **Children:** [`headcount_cost`](#headcount_cost)
@@ -1096,7 +1096,7 @@ Percentage of scheduled school days attended across all students.
 - **Files:** [yml](dbt/models/metrics/education/student_attendance_rate.yml) · [sql](dbt/analyses/metrics/education/student_attendance_rate.sql)
 - **Numerator:** Days attended
 - **Denominator:** Days enrolled
-- **Dimensions:** school_year, grade, school, school_id, grade_level, subgroup, month, period
+- **Dimensions:** School Year, Grade Level, School, Student Subgroup, Time
 - **Data sources:** SIS
 - **Parents:** [`four_year_grad_rate`](#four_year_grad_rate), [`ela_proficiency_rate`](#ela_proficiency_rate), [`student_proficiency`](#student_proficiency)
 - **Children:** [`chronic_absenteeism_rate`](#chronic_absenteeism_rate), [`adm`](#adm)
@@ -1110,7 +1110,7 @@ Median Student Growth Percentile — measures growth relative to academic peers.
 - **Domain:** Education · **Industry:** education
 - **Files:** [yml](dbt/models/metrics/education/student_growth_percentile.yml) · [sql](dbt/analyses/metrics/education/student_growth_percentile.sql)
 - **Numerator:** Student's percentile relative to academic peers
-- **Dimensions:** school_year, grade, school, student_id, subject, grade_level, period
+- **Dimensions:** School Year, Grade Level, School, Student, Subject, Time
 - **Data sources:** Assessment platform
 - **Parents:** [`ela_proficiency_rate`](#ela_proficiency_rate), [`math_proficiency_rate`](#math_proficiency_rate), [`student_proficiency`](#student_proficiency)
 - **Correlated:** [`student_proficiency`](#student_proficiency), [`student_attendance_rate`](#student_attendance_rate), [`student_teacher_ratio`](#student_teacher_ratio)
@@ -1124,7 +1124,7 @@ Number of enrolled students per FTE classroom teacher.
 - **Files:** [yml](dbt/models/metrics/education/student_teacher_ratio.yml) · [sql](dbt/analyses/metrics/education/student_teacher_ratio.sql)
 - **Numerator:** Students
 - **Denominator:** Full-time-equivalent teachers
-- **Dimensions:** school_year, school, school_id, grade_level, period
+- **Dimensions:** School Year, School, Grade Level, Time
 - **Data sources:** SIS, HRIS
 - **Parents:** [`per_pupil_expenditure`](#per_pupil_expenditure)
 - **Children:** [`enrollment_count`](#enrollment_count), [`headcount_fte`](#headcount_fte)
@@ -1139,7 +1139,7 @@ Number of enrolled students per FTE classroom teacher.
 - **Files:** [yml](dbt/models/metrics/education/suspension_rate.yml) · [sql](dbt/analyses/metrics/education/suspension_rate.sql)
 - **Numerator:** Students suspended
 - **Denominator:** Enrolled students
-- **Dimensions:** school_year, school, subgroup
+- **Dimensions:** School Year, School, Student Subgroup
 - **Data sources:** SIS
 - **Parents:** [`chronic_absenteeism_rate`](#chronic_absenteeism_rate), [`dropout_rate`](#dropout_rate)
 - **Children:** [`expulsion_rate`](#expulsion_rate)
@@ -1154,7 +1154,7 @@ Number of enrolled students per FTE classroom teacher.
 - **Files:** [yml](dbt/models/metrics/education/teacher_retention_rate.yml) · [sql](dbt/analyses/metrics/education/teacher_retention_rate.sql)
 - **Numerator:** Teachers returning next year
 - **Denominator:** Teachers at end of prior year
-- **Dimensions:** school_id, subject_area, experience_band, period
+- **Dimensions:** School, Subject Area, Experience Band, Time
 - **Data sources:** HRIS, SIS
 - **Parents:** [`student_proficiency`](#student_proficiency)
 - **Correlated:** [`voluntary_turnover`](#voluntary_turnover), [`student_proficiency`](#student_proficiency), [`avg_teacher_experience`](#avg_teacher_experience), [`on_time_lesson_delivery`](#on_time_lesson_delivery), [`school_climate_score`](#school_climate_score), [`staff_student_cost_ratio`](#staff_student_cost_ratio), [`student_teacher_ratio`](#student_teacher_ratio)
@@ -1170,7 +1170,7 @@ Percentage of released code that contained production bugs.
 - **Files:** [yml](dbt/models/metrics/engineering/bug_escape_rate.yml) · [sql](dbt/analyses/metrics/engineering/bug_escape_rate.sql)
 - **Numerator:** Bugs found in prod
 - **Denominator:** Total bugs
-- **Dimensions:** date, severity
+- **Dimensions:** Time, Severity
 - **Data sources:** Issue tracker
 - **Parents:** [`error_rate`](#error_rate)
 - **Children:** [`code_coverage`](#code_coverage)
@@ -1185,7 +1185,7 @@ Percentage of deployments causing production incidents (DORA metric).
 - **Files:** [yml](dbt/models/metrics/engineering/change_failure_rate.yml) · [sql](dbt/analyses/metrics/engineering/change_failure_rate.sql)
 - **Numerator:** Failed deployments
 - **Denominator:** Total deployments
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** CI/CD, Incident management
 - **Parents:** [`uptime`](#uptime)
 - **Children:** [`deployment_frequency`](#deployment_frequency), [`tech_debt_ratio`](#tech_debt_ratio)
@@ -1199,7 +1199,7 @@ Number of production deployments per week — DORA engineering velocity metric.
 - **Domain:** Engineering · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/engineering/deployment_frequency.yml) · [sql](dbt/analyses/metrics/engineering/deployment_frequency.sql)
 - **Numerator:** Deployments in period
-- **Dimensions:** date, service
+- **Dimensions:** Time, Service
 - **Data sources:** CI/CD
 - **Parents:** [`change_failure_rate`](#change_failure_rate)
 - **Children:** [`lead_time_for_changes`](#lead_time_for_changes), [`sprint_velocity`](#sprint_velocity)
@@ -1213,7 +1213,7 @@ Median time from code commit to production deployment — DORA metric.
 - **Domain:** Engineering · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/engineering/lead_time_for_changes.yml) · [sql](dbt/analyses/metrics/engineering/lead_time_for_changes.sql)
 - **Numerator:** MEDIAN(deploy_time - commit_time)
-- **Dimensions:** team, service, period
+- **Dimensions:** Team, Service, Time
 - **Data sources:** CI/CD, Version control
 - **Parents:** [`deployment_frequency`](#deployment_frequency)
 - **Children:** [`pr_merge_time`](#pr_merge_time)
@@ -1228,7 +1228,7 @@ Mean Time Between Failures — average operating time between unplanned stoppage
 - **Files:** [yml](dbt/models/metrics/engineering/mtbf.yml) · [sql](dbt/analyses/metrics/engineering/mtbf.sql)
 - **Numerator:** Total Uptime Hours
 - **Denominator:** Number of Failures
-- **Dimensions:** system_id, facility_id, period
+- **Dimensions:** System, Facility, Time
 - **Data sources:** CMMS
 - **Parents:** [`uptime`](#uptime)
 - **Children:** [`preventive_maintenance_rate`](#preventive_maintenance_rate)
@@ -1243,7 +1243,7 @@ Average hours from incident start to detection.
 - **Files:** [yml](dbt/models/metrics/engineering/mttd.yml) · [sql](dbt/analyses/metrics/engineering/mttd.sql)
 - **Numerator:** Sum of detection times
 - **Denominator:** Number of incidents
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** APM / monitoring
 - **Parents:** [`uptime`](#uptime)
 - **Children:** [`incident_count`](#incident_count)
@@ -1258,7 +1258,7 @@ Mean Time to Repair — average time to restore equipment after failure.
 - **Files:** [yml](dbt/models/metrics/engineering/mttr.yml) · [sql](dbt/analyses/metrics/engineering/mttr.sql)
 - **Numerator:** Sum of resolution times
 - **Denominator:** Number of incidents
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Incident management
 - **Parents:** [`uptime`](#uptime)
 - **Children:** [`incident_count`](#incident_count)
@@ -1273,7 +1273,7 @@ Percentage of incidents with documented root cause and resolution.
 - **Files:** [yml](dbt/models/metrics/engineering/rcr_rate.yml) · [sql](dbt/analyses/metrics/engineering/rcr_rate.sql)
 - **Numerator:** Incidents with documented root cause
 - **Denominator:** Total incidents
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Incident management
 - **Parents:** [`uptime`](#uptime)
 - **Correlated:** [`incident_count`](#incident_count), [`mttr`](#mttr)
@@ -1287,7 +1287,7 @@ Estimated remediation cost of tech debt relative to development cost.
 - **Files:** [yml](dbt/models/metrics/engineering/tech_debt_ratio.yml) · [sql](dbt/analyses/metrics/engineering/tech_debt_ratio.sql)
 - **Numerator:** Technical debt hours
 - **Denominator:** Total dev hours
-- **Dimensions:** date, service
+- **Dimensions:** Time, Service
 - **Data sources:** CI/CD
 - **Parents:** [`change_failure_rate`](#change_failure_rate)
 - **Correlated:** [`code_coverage`](#code_coverage), [`bug_escape_rate`](#bug_escape_rate), [`sprint_velocity`](#sprint_velocity)
@@ -1301,7 +1301,7 @@ Percentage of scheduled uptime the service was available.
 - **Files:** [yml](dbt/models/metrics/engineering/uptime.yml) · [sql](dbt/analyses/metrics/engineering/uptime.sql)
 - **Numerator:** Minutes available
 - **Denominator:** Total minutes
-- **Dimensions:** date, service, environment, period, system_id, facility_id
+- **Dimensions:** Time, Service, Environment, System, Facility
 - **Data sources:** APM / monitoring
 - **Parents:** [`error_rate`](#error_rate), [`ops_north_star`](#ops_north_star)
 - **Children:** [`incident_count`](#incident_count), [`change_failure_rate`](#change_failure_rate), [`mttd`](#mttd), [`rcr_rate`](#rcr_rate), [`mtbf`](#mtbf), [`mttr`](#mttr), [`work_order_resolution_time`](#work_order_resolution_time)
@@ -1317,7 +1317,7 @@ Total outstanding receivables past 90 days — bad debt risk indicator.
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/ar_aging_90d.yml) · [sql](dbt/analyses/metrics/finance/ar_aging_90d.sql)
 - **Numerator:** SUM(invoice_amount WHERE days_outstanding > 90)
-- **Dimensions:** company_id, customer_segment, period
+- **Dimensions:** Company, Customer Segment, Time
 - **Data sources:** ERP / general ledger
 - **Parents:** [`dso`](#dso), [`bad_debt_rate`](#bad_debt_rate)
 - **Children:** [`billings`](#billings)
@@ -1332,7 +1332,7 @@ Average Revenue Per User — revenue efficiency across the base.
 - **Files:** [yml](dbt/models/metrics/finance/arpu.yml) · [sql](dbt/analyses/metrics/finance/arpu.sql)
 - **Numerator:** Total Revenue
 - **Denominator:** Active Customers (period)
-- **Dimensions:** segment, product_category, channel, month
+- **Dimensions:** Customer Segment, Product Category, Channel, Time
 - **Data sources:** Application database, Billing / subscriptions
 - **Parents:** [`customer_ltv`](#customer_ltv), [`revenue`](#revenue), [`cac_payback`](#cac_payback)
 - **Children:** [`revenue_per_account`](#revenue_per_account)
@@ -1347,7 +1347,7 @@ Average selling price per unit or transaction — pricing health signal.
 - **Files:** [yml](dbt/models/metrics/finance/asp.yml) · [sql](dbt/analyses/metrics/finance/asp.sql)
 - **Numerator:** Total Revenue
 - **Denominator:** Units Sold
-- **Dimensions:** product_line, channel, geography, period
+- **Dimensions:** Product Line, Channel, Geography, Time
 - **Data sources:** ERP / general ledger, Billing / subscriptions
 - **Parents:** [`revenue`](#revenue)
 - **Correlated:** [`revenue`](#revenue), [`gross_margin_pct`](#gross_margin_pct)
@@ -1361,7 +1361,7 @@ Average selling price per unit or transaction — pricing health signal.
 - **Files:** [yml](dbt/models/metrics/finance/bad_debt_rate.yml) · [sql](dbt/analyses/metrics/finance/bad_debt_rate.sql)
 - **Numerator:** Bad Debt Write-Offs
 - **Denominator:** Revenue
-- **Dimensions:** company_id, customer_segment, fiscal_period
+- **Dimensions:** Company, Customer Segment, Time
 - **Data sources:** ERP / general ledger
 - **Parents:** [`ebitda`](#ebitda)
 - **Children:** [`ar_aging_90d`](#ar_aging_90d)
@@ -1375,7 +1375,7 @@ Total amounts invoiced to customers in a period — cash collection indicator.
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/billings.yml) · [sql](dbt/analyses/metrics/finance/billings.sql)
 - **Numerator:** SUM(invoiced amounts)
-- **Dimensions:** segment, product_tier, period
+- **Dimensions:** Customer Segment, Product Tier, Time
 - **Data sources:** Billing / subscriptions
 - **Parents:** [`revenue`](#revenue), [`dso`](#dso), [`ar_aging_90d`](#ar_aging_90d), [`deferred_revenue`](#deferred_revenue)
 - **Children:** [`contracted_unbilled`](#contracted_unbilled)
@@ -1390,7 +1390,7 @@ Actual spend vs budget — positive = over budget, negative = under budget.
 - **Files:** [yml](dbt/models/metrics/finance/budget_variance.yml) · [sql](dbt/analyses/metrics/finance/budget_variance.sql)
 - **Numerator:** Actual spend − Budgeted spend
 - **Denominator:** Budgeted spend
-- **Dimensions:** date, department
+- **Dimensions:** Time, Department
 - **Data sources:** FP&A / budgeting, ERP / general ledger
 - **Parents:** [`budget_variance_pct`](#budget_variance_pct)
 - **Children:** [`annual_budget`](#annual_budget)
@@ -1405,7 +1405,7 @@ Budget variance as a % of budget — normalized over/under indicator.
 - **Files:** [yml](dbt/models/metrics/finance/budget_variance_pct.yml) · [sql](dbt/analyses/metrics/finance/budget_variance_pct.sql)
 - **Numerator:** Actual - Budget
 - **Denominator:** Budget
-- **Dimensions:** department, cost_center, fiscal_period
+- **Dimensions:** Department, Cost Center, Time
 - **Data sources:** ERP / general ledger, FP&A / budgeting
 - **Parents:** [`ops_efficiency_ratio`](#ops_efficiency_ratio)
 - **Children:** [`budget_variance`](#budget_variance)
@@ -1419,7 +1419,7 @@ Monthly net cash outflow — critical for pre-revenue or high-growth companies.
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/burn_rate.yml) · [sql](dbt/analyses/metrics/finance/burn_rate.sql)
 - **Numerator:** Monthly net cash outflow
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Bank accounts, ERP / general ledger
 - **Parents:** [`runway_months`](#runway_months)
 - **Children:** [`opex`](#opex), [`capex`](#capex)
@@ -1434,7 +1434,7 @@ Customer Acquisition Cost — total sales & marketing spend per new customer.
 - **Files:** [yml](dbt/models/metrics/finance/cac.yml) · [sql](dbt/analyses/metrics/finance/cac.sql)
 - **Numerator:** Total sales & marketing spend
 - **Denominator:** New customers
-- **Dimensions:** date, channel
+- **Dimensions:** Time, Channel
 - **Data sources:** ERP / general ledger, Commerce / order management
 - **Parents:** [`ltv_cac`](#ltv_cac), [`cac_payback`](#cac_payback)
 - **Children:** [`marketing_cac`](#marketing_cac), [`monthly_new_customers`](#monthly_new_customers), [`cost_per_mql`](#cost_per_mql), [`cost_per_sql`](#cost_per_sql), [`marketing_spend`](#marketing_spend), [`mql`](#mql), [`sales_spend`](#sales_spend)
@@ -1449,7 +1449,7 @@ Months to recover customer acquisition cost from gross margin.
 - **Files:** [yml](dbt/models/metrics/finance/cac_payback.yml) · [sql](dbt/analyses/metrics/finance/cac_payback.sql)
 - **Numerator:** CAC
 - **Denominator:** MRR × Gross Margin %
-- **Dimensions:** date, channel, segment, cohort
+- **Dimensions:** Time, Channel, Customer Segment, Cohort
 - **Data sources:** Billing / subscriptions, ERP / general ledger
 - **Parents:** [`ltv_cac`](#ltv_cac)
 - **Children:** [`cac`](#cac), [`gross_margin_pct`](#gross_margin_pct), [`arpu`](#arpu), [`sm_spend`](#sm_spend), [`mrr`](#mrr)
@@ -1463,7 +1463,7 @@ Capital expenditures — spend on fixed assets and infrastructure.
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/capex.yml) · [sql](dbt/analyses/metrics/finance/capex.sql)
 - **Numerator:** SUM(capex_amount)
-- **Dimensions:** company_id, asset_category, fiscal_period
+- **Dimensions:** Company, Asset Category, Time
 - **Data sources:** ERP / general ledger
 - **Parents:** [`free_cash_flow`](#free_cash_flow), [`burn_rate`](#burn_rate), [`capex_pct_revenue`](#capex_pct_revenue)
 - **Correlated:** [`ebitda`](#ebitda), [`rd_expense`](#rd_expense), [`da`](#da)
@@ -1477,7 +1477,7 @@ Capital spend intensity relative to revenue.
 - **Files:** [yml](dbt/models/metrics/finance/capex_pct_revenue.yml) · [sql](dbt/analyses/metrics/finance/capex_pct_revenue.sql)
 - **Numerator:** CapEx
 - **Denominator:** Revenue
-- **Dimensions:** company_id, fiscal_period
+- **Dimensions:** Company, Time
 - **Data sources:** ERP / general ledger
 - **Parents:** [`free_cash_flow`](#free_cash_flow)
 - **Children:** [`capex`](#capex)
@@ -1492,7 +1492,7 @@ Total cost of goods sold in a period.
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/cogs.yml) · [sql](dbt/analyses/metrics/finance/cogs.sql)
 - **Numerator:** SUM(cogs_amount)
-- **Dimensions:** company_id, product_line, fiscal_period
+- **Dimensions:** Company, Product Line, Time
 - **Data sources:** ERP / general ledger
 - **Parents:** [`ebitda`](#ebitda), [`gross_margin_pct`](#gross_margin_pct), [`gross_profit`](#gross_profit), [`dpo`](#dpo), [`inventory_turnover`](#inventory_turnover)
 - **Children:** [`procurement_savings_rate`](#procurement_savings_rate), [`shrinkage_rate`](#shrinkage_rate)
@@ -1507,7 +1507,7 @@ Current assets divided by current liabilities — liquidity benchmark (>1 = solv
 - **Files:** [yml](dbt/models/metrics/finance/current_ratio.yml) · [sql](dbt/analyses/metrics/finance/current_ratio.sql)
 - **Numerator:** Current Assets
 - **Denominator:** Current Liabilities
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** ERP / general ledger
 - **Parents:** [`working_capital`](#working_capital)
 - **Children:** [`cash_and_equivalents`](#cash_and_equivalents), [`accounts_receivable`](#accounts_receivable), [`accounts_payable`](#accounts_payable), [`total_assets`](#total_assets)
@@ -1522,7 +1522,7 @@ Top 10 customers’ ARR as % of total ARR — revenue dependency risk indicator.
 - **Files:** [yml](dbt/models/metrics/finance/customer_concentration_risk.yml) · [sql](dbt/analyses/metrics/finance/customer_concentration_risk.sql)
 - **Numerator:** ARR from Top 10 Customers
 - **Denominator:** Total ARR
-- **Dimensions:** company_id, period
+- **Dimensions:** Company, Time
 - **Data sources:** Billing / subscriptions, CRM
 - **Parents:** [`enterprise_value`](#enterprise_value)
 - **Children:** [`rev_concentration_top10`](#rev_concentration_top10), [`mrr`](#mrr)
@@ -1537,7 +1537,7 @@ Leverage ratio — total debt divided by trailing twelve-month EBITDA.
 - **Files:** [yml](dbt/models/metrics/finance/debt_ebitda.yml) · [sql](dbt/analyses/metrics/finance/debt_ebitda.sql)
 - **Numerator:** Total Debt
 - **Denominator:** TTM EBITDA
-- **Dimensions:** company_id, quarter
+- **Dimensions:** Company, Time
 - **Data sources:** ERP / general ledger
 - **Parents:** [`leverage_ratio`](#leverage_ratio)
 - **Formula inputs:** [`ebitda`](#ebitda)
@@ -1552,7 +1552,7 @@ Total debt divided by shareholder equity.
 - **Files:** [yml](dbt/models/metrics/finance/debt_to_equity.yml) · [sql](dbt/analyses/metrics/finance/debt_to_equity.sql)
 - **Numerator:** Total Debt
 - **Denominator:** Shareholders' Equity
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** ERP / general ledger
 - **Parents:** [`roe`](#roe)
 - **Children:** [`total_debt`](#total_debt), [`shareholder_equity`](#shareholder_equity)
@@ -1566,7 +1566,7 @@ Cash collected but not yet recognized as revenue — forward revenue visibility.
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/deferred_revenue.yml) · [sql](dbt/analyses/metrics/finance/deferred_revenue.sql)
 - **Numerator:** SUM(unrecognized billed amounts)
-- **Dimensions:** company_id, product_tier, period
+- **Dimensions:** Company, Product Tier, Time
 - **Data sources:** ERP / general ledger, Billing / subscriptions
 - **Parents:** [`operating_cash_flow`](#operating_cash_flow)
 - **Children:** [`billings`](#billings)
@@ -1581,7 +1581,7 @@ Average days taken to pay suppliers.
 - **Files:** [yml](dbt/models/metrics/finance/dpo.yml) · [sql](dbt/analyses/metrics/finance/dpo.sql)
 - **Numerator:** Accounts Payable × 365
 - **Denominator:** COGS
-- **Dimensions:** date, vendor
+- **Dimensions:** Time, Vendor
 - **Data sources:** ERP / general ledger
 - **Parents:** [`working_capital`](#working_capital)
 - **Children:** [`accounts_payable`](#accounts_payable), [`cogs`](#cogs)
@@ -1596,7 +1596,7 @@ Average days to collect payment after a sale — cash conversion speed.
 - **Files:** [yml](dbt/models/metrics/finance/dso.yml) · [sql](dbt/analyses/metrics/finance/dso.sql)
 - **Numerator:** Accounts Receivable × 365
 - **Denominator:** Annual Revenue
-- **Dimensions:** date, customer_segment
+- **Dimensions:** Time, Customer Segment
 - **Data sources:** ERP / general ledger
 - **Parents:** [`working_capital`](#working_capital)
 - **Children:** [`accounts_receivable`](#accounts_receivable), [`ar_aging_90d`](#ar_aging_90d), [`billings`](#billings)
@@ -1622,7 +1622,7 @@ EBITDA as a % of revenue — core PE performance lens.
 - **Files:** [yml](dbt/models/metrics/finance/ebitda_margin.yml) · [sql](dbt/analyses/metrics/finance/ebitda_margin.sql)
 - **Numerator:** EBITDA
 - **Denominator:** Revenue
-- **Dimensions:** company_id, fiscal_period, segment
+- **Dimensions:** Company, Time, Customer Segment
 - **Data sources:** ERP / general ledger
 - **Parents:** [`ebitda`](#ebitda), [`rule_of_40`](#rule_of_40)
 - **Correlated:** [`gross_margin_pct`](#gross_margin_pct), [`budget_variance_pct`](#budget_variance_pct), [`debt_ebitda`](#debt_ebitda), [`ebitda`](#ebitda), [`gna_pct_revenue`](#gna_pct_revenue), [`net_income_margin`](#net_income_margin), [`rd_as_pct_revenue`](#rd_as_pct_revenue), [`revenue_per_employee`](#revenue_per_employee), [`sg_and_a`](#sg_and_a)
@@ -1636,7 +1636,7 @@ Actual income taxes paid divided by pre-tax income.
 - **Files:** [yml](dbt/models/metrics/finance/effective_tax_rate.yml) · [sql](dbt/analyses/metrics/finance/effective_tax_rate.sql)
 - **Numerator:** Income Tax Expense
 - **Denominator:** Pre-Tax Income (EBT)
-- **Dimensions:** company_id, fiscal_period, jurisdiction
+- **Dimensions:** Company, Time, Tax Jurisdiction
 - **Data sources:** ERP / general ledger
 - **Parents:** [`net_income`](#net_income)
 - **Correlated:** [`ebitda`](#ebitda), [`free_cash_flow`](#free_cash_flow)
@@ -1650,7 +1650,7 @@ Enterprise value divided by EBITDA — primary valuation multiple.
 - **Files:** [yml](dbt/models/metrics/finance/ev_ebitda.yml) · [sql](dbt/analyses/metrics/finance/ev_ebitda.sql)
 - **Numerator:** Enterprise Value
 - **Denominator:** EBITDA
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Cap table, ERP / general ledger
 - **Parents:** [`enterprise_value`](#enterprise_value)
 - **Formula inputs:** [`ebitda`](#ebitda), [`enterprise_value`](#enterprise_value)
@@ -1665,7 +1665,7 @@ Actual revenue versus forecast, expressed as an error percentage.
 - **Files:** [yml](dbt/models/metrics/finance/forecast_accuracy.yml) · [sql](dbt/analyses/metrics/finance/forecast_accuracy.sql)
 - **Numerator:** 1 − |Actual − Forecast|
 - **Denominator:** Forecast
-- **Dimensions:** date, segment
+- **Dimensions:** Time, Customer Segment
 - **Data sources:** FP&A / budgeting
 - **Parents:** [`ebitda`](#ebitda)
 - **Children:** [`annual_budget`](#annual_budget)
@@ -1681,7 +1681,7 @@ General and administrative expenses as a share of revenue — overhead efficienc
 - **Files:** [yml](dbt/models/metrics/finance/gna_pct_revenue.yml) · [sql](dbt/analyses/metrics/finance/gna_pct_revenue.sql)
 - **Numerator:** G&A Spend
 - **Denominator:** Revenue
-- **Dimensions:** company_id, fiscal_period, date
+- **Dimensions:** Company, Time
 - **Data sources:** ERP / general ledger
 - **Parents:** [`opex`](#opex)
 - **Children:** [`sg_and_a`](#sg_and_a)
@@ -1697,7 +1697,7 @@ Gross profit as a percentage of revenue.
 - **Files:** [yml](dbt/models/metrics/finance/gross_margin_pct.yml) · [sql](dbt/analyses/metrics/finance/gross_margin_pct.sql)
 - **Numerator:** Gross Profit
 - **Denominator:** Revenue
-- **Dimensions:** date, product_line, company_id, fiscal_period, segment, channel
+- **Dimensions:** Time, Product Line, Company, Customer Segment, Channel
 - **Data sources:** Commerce / order management, ERP / general ledger
 - **Parents:** [`ebitda`](#ebitda), [`cac_payback`](#cac_payback)
 - **Children:** [`gross_profit`](#gross_profit), [`cogs`](#cogs), [`cost_per_unit`](#cost_per_unit)
@@ -1713,7 +1713,7 @@ Revenue minus COGS — contribution before operating expenses.
 - **Files:** [yml](dbt/models/metrics/finance/gross_profit.yml) · [sql](dbt/analyses/metrics/finance/gross_profit.sql)
 - **Numerator:** Revenue
 - **Denominator:** COGS
-- **Dimensions:** date, product_line
+- **Dimensions:** Time, Product Line
 - **Data sources:** Commerce / order management, ERP / general ledger
 - **Parents:** [`ebitda`](#ebitda), [`gross_margin_pct`](#gross_margin_pct), [`gross_profit_per_employee`](#gross_profit_per_employee)
 - **Children:** [`cogs`](#cogs)
@@ -1729,7 +1729,7 @@ Gross profit divided by headcount — productivity indicator.
 - **Files:** [yml](dbt/models/metrics/finance/gross_profit_per_employee.yml) · [sql](dbt/analyses/metrics/finance/gross_profit_per_employee.sql)
 - **Numerator:** Gross Profit
 - **Denominator:** Headcount
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** ERP / general ledger, HRIS
 - **Parents:** [`employee_lifetime_value`](#employee_lifetime_value)
 - **Children:** [`gross_profit`](#gross_profit)
@@ -1745,7 +1745,7 @@ Total HR department cost as a fraction of company revenue.
 - **Files:** [yml](dbt/models/metrics/finance/hr_cost_pct_revenue.yml) · [sql](dbt/analyses/metrics/finance/hr_cost_pct_revenue.sql)
 - **Numerator:** HR total cost
 - **Denominator:** Revenue
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** HRIS, ERP / general ledger
 - **Parents:** [`opex`](#opex)
 - **Children:** [`total_comp_expense`](#total_comp_expense), [`cost_per_hire`](#cost_per_hire)
@@ -1761,7 +1761,7 @@ EBIT divided by interest expense — ability to service debt, with below 1.5x a 
 - **Files:** [yml](dbt/models/metrics/finance/interest_coverage_ratio.yml) · [sql](dbt/analyses/metrics/finance/interest_coverage_ratio.sql)
 - **Numerator:** EBIT
 - **Denominator:** Interest Expense
-- **Dimensions:** company_id, fiscal_period, date
+- **Dimensions:** Company, Time
 - **Data sources:** ERP / general ledger
 - **Parents:** [`roe`](#roe)
 - **Children:** [`ebit`](#ebit), [`total_debt`](#total_debt)
@@ -1777,7 +1777,7 @@ COGS divided by average inventory — how many times inventory was sold and repl
 - **Files:** [yml](dbt/models/metrics/finance/inventory_turnover.yml) · [sql](dbt/analyses/metrics/finance/inventory_turnover.sql)
 - **Numerator:** COGS
 - **Denominator:** Average inventory value
-- **Dimensions:** date, product, location
+- **Dimensions:** Time, Product, Location
 - **Data sources:** WMS / inventory, Commerce / order management
 - **Parents:** [`working_capital`](#working_capital)
 - **Children:** [`inventory_value`](#inventory_value), [`inventory_items`](#inventory_items), [`cogs`](#cogs)
@@ -1792,7 +1792,7 @@ Net debt relative to EBITDA — key PE portfolio health metric.
 - **Files:** [yml](dbt/models/metrics/finance/leverage_ratio.yml) · [sql](dbt/analyses/metrics/finance/leverage_ratio.sql)
 - **Numerator:** Net Debt
 - **Denominator:** EBITDA
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** ERP / general ledger
 - **Parents:** [`roe`](#roe)
 - **Children:** [`net_debt`](#net_debt), [`debt_ebitda`](#debt_ebitda)
@@ -1807,7 +1807,7 @@ Revenue from perpetual license sales.
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/license_revenue.yml) · [sql](dbt/analyses/metrics/finance/license_revenue.sql)
 - **Numerator:** Revenue from perpetual licenses
-- **Dimensions:** date, product
+- **Dimensions:** Time, Product
 - **Data sources:** Commerce / order management
 - **Parents:** [`revenue`](#revenue)
 - **Correlated:** [`services_revenue`](#services_revenue), [`arr`](#arr)
@@ -1821,7 +1821,7 @@ Ratio of customer lifetime value to acquisition cost — PE efficiency lens.
 - **Files:** [yml](dbt/models/metrics/finance/ltv_cac.yml) · [sql](dbt/analyses/metrics/finance/ltv_cac.sql)
 - **Numerator:** Customer LTV
 - **Denominator:** CAC
-- **Dimensions:** date, channel
+- **Dimensions:** Time, Channel
 - **Data sources:** Commerce / order management, ERP / general ledger
 - **Parents:** [`marketing_roi`](#marketing_roi)
 - **Children:** [`cac`](#cac), [`cac_payback`](#cac_payback)
@@ -1837,7 +1837,7 @@ Company revenue as a percentage of total addressable market.
 - **Files:** [yml](dbt/models/metrics/finance/market_share.yml) · [sql](dbt/analyses/metrics/finance/market_share.sql)
 - **Numerator:** Company revenue
 - **Denominator:** Total addressable market
-- **Dimensions:** date, region
+- **Dimensions:** Time, Region
 - **Parents:** [`revenue_growth_rate`](#revenue_growth_rate)
 - **Children:** [`market_penetration_rate`](#market_penetration_rate)
 - **Correlated:** [`revenue_growth_rate`](#revenue_growth_rate), [`tam`](#tam), [`revenue`](#revenue), [`sam`](#sam)
@@ -1850,7 +1850,7 @@ Total debt minus cash and equivalents.
 - **Domain:** Finance · **Industry:** financial_services
 - **Files:** [yml](dbt/models/metrics/finance/net_debt.yml) · [sql](dbt/analyses/metrics/finance/net_debt.sql)
 - **Numerator:** Total Debt − Cash
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** ERP / general ledger
 - **Parents:** [`enterprise_value`](#enterprise_value), [`leverage_ratio`](#leverage_ratio)
 - **Children:** [`total_debt`](#total_debt), [`cash_and_equivalents`](#cash_and_equivalents)
@@ -1864,7 +1864,7 @@ Bottom-line profit after all expenses and taxes.
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/net_income.yml) · [sql](dbt/analyses/metrics/finance/net_income.sql)
 - **Numerator:** Revenue - All Expenses - Taxes
-- **Dimensions:** company_id, fiscal_period
+- **Dimensions:** Company, Time
 - **Data sources:** ERP / general ledger
 - **Parents:** [`roe`](#roe), [`net_income_margin`](#net_income_margin), [`operating_cash_flow`](#operating_cash_flow), [`roa`](#roa), [`roic`](#roic)
 - **Children:** [`effective_tax_rate`](#effective_tax_rate)
@@ -1880,7 +1880,7 @@ Net income as a % of revenue — bottom-line profitability.
 - **Files:** [yml](dbt/models/metrics/finance/net_income_margin.yml) · [sql](dbt/analyses/metrics/finance/net_income_margin.sql)
 - **Numerator:** Net Income
 - **Denominator:** Revenue
-- **Dimensions:** company_id, fiscal_period, date
+- **Dimensions:** Company, Time
 - **Data sources:** ERP / general ledger
 - **Parents:** [`roe`](#roe)
 - **Children:** [`net_income`](#net_income)
@@ -1895,7 +1895,7 @@ Cash generated from core business operations.
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/operating_cash_flow.yml) · [sql](dbt/analyses/metrics/finance/operating_cash_flow.sql)
 - **Numerator:** Net income + D&A − working capital changes
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** ERP / general ledger
 - **Parents:** [`free_cash_flow`](#free_cash_flow)
 - **Children:** [`net_income`](#net_income), [`da`](#da), [`deferred_revenue`](#deferred_revenue)
@@ -1909,7 +1909,7 @@ Total operating expenses excluding COGS in a period.
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/opex.yml) · [sql](dbt/analyses/metrics/finance/opex.sql)
 - **Numerator:** Total operating expenses
-- **Dimensions:** date, department
+- **Dimensions:** Time, Department
 - **Data sources:** ERP / general ledger
 - **Parents:** [`ebitda`](#ebitda), [`burn_rate`](#burn_rate), [`ops_efficiency_ratio`](#ops_efficiency_ratio)
 - **Children:** [`sg_and_a`](#sg_and_a), [`total_comp_expense`](#total_comp_expense), [`gna_pct_revenue`](#gna_pct_revenue), [`headcount_cost`](#headcount_cost), [`hr_cost_pct_revenue`](#hr_cost_pct_revenue), [`rd_as_pct_revenue`](#rd_as_pct_revenue), [`rd_expense`](#rd_expense)
@@ -1923,7 +1923,7 @@ Revenue sourced or influenced by channel partners.
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/partner_revenue.yml) · [sql](dbt/analyses/metrics/finance/partner_revenue.sql)
 - **Numerator:** Revenue sourced via partners
-- **Dimensions:** date, partner
+- **Dimensions:** Time, Partner
 - **Data sources:** Commerce / order management, Partner relationship management
 - **Parents:** [`revenue`](#revenue), [`partner_revenue_pct`](#partner_revenue_pct)
 - **Correlated:** [`partner_revenue_pct`](#partner_revenue_pct), [`new_arr`](#new_arr)
@@ -1937,7 +1937,7 @@ Partner-sourced revenue as a share of total revenue.
 - **Files:** [yml](dbt/models/metrics/finance/partner_revenue_pct.yml) · [sql](dbt/analyses/metrics/finance/partner_revenue_pct.sql)
 - **Numerator:** Partner revenue
 - **Denominator:** Total revenue
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Commerce / order management
 - **Parents:** [`revenue`](#revenue)
 - **Children:** [`partner_revenue`](#partner_revenue)
@@ -1953,7 +1953,7 @@ Partner-sourced revenue as a share of total revenue.
 - **Files:** [yml](dbt/models/metrics/finance/quick_ratio.yml) · [sql](dbt/analyses/metrics/finance/quick_ratio.sql)
 - **Numerator:** Cash + Accounts Receivable
 - **Denominator:** Current Liabilities
-- **Dimensions:** company_id, quarter
+- **Dimensions:** Company, Time
 - **Data sources:** ERP / general ledger
 - **Parents:** [`working_capital`](#working_capital)
 - **Correlated:** [`current_ratio`](#current_ratio), [`working_capital`](#working_capital)
@@ -1967,7 +1967,7 @@ R&D spend as a share of total revenue — tech investment intensity.
 - **Files:** [yml](dbt/models/metrics/finance/rd_as_pct_revenue.yml) · [sql](dbt/analyses/metrics/finance/rd_as_pct_revenue.sql)
 - **Numerator:** R&D Expense
 - **Denominator:** Revenue
-- **Dimensions:** company_id, fiscal_period, date
+- **Dimensions:** Company, Time
 - **Data sources:** ERP / general ledger
 - **Parents:** [`opex`](#opex)
 - **Children:** [`rd_expense`](#rd_expense), [`rd_headcount_pct`](#rd_headcount_pct)
@@ -1982,7 +1982,7 @@ Research and development spend in the period.
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/rd_expense.yml) · [sql](dbt/analyses/metrics/finance/rd_expense.sql)
 - **Numerator:** SUM(opex_amount WHERE gl_category = 'R&D')
-- **Dimensions:** company_id, department, fiscal_period
+- **Dimensions:** Company, Department, Time
 - **Data sources:** ERP / general ledger
 - **Parents:** [`opex`](#opex), [`rd_as_pct_revenue`](#rd_as_pct_revenue)
 - **Correlated:** [`rd_as_pct_revenue`](#rd_as_pct_revenue), [`capex`](#capex)
@@ -1996,7 +1996,7 @@ Percentage of total revenue from the top 10 customers.
 - **Files:** [yml](dbt/models/metrics/finance/rev_concentration_top10.yml) · [sql](dbt/analyses/metrics/finance/rev_concentration_top10.sql)
 - **Numerator:** Revenue from top 10 customers
 - **Denominator:** Total revenue
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Commerce / order management
 - **Parents:** [`customer_concentration_risk`](#customer_concentration_risk)
 - **Formula inputs:** [`revenue`](#revenue)
@@ -2010,7 +2010,7 @@ Revenue from customers acquired prior to the current period.
 - **Domain:** Finance · **Industry:** financial_services
 - **Files:** [yml](dbt/models/metrics/finance/rev_from_existing.yml) · [sql](dbt/analyses/metrics/finance/rev_from_existing.sql)
 - **Numerator:** Revenue from existing customers
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Commerce / order management
 - **Parents:** [`revenue`](#revenue)
 - **Correlated:** [`nrr`](#nrr), [`expansion_arr`](#expansion_arr)
@@ -2023,7 +2023,7 @@ Revenue from customers acquired in the period.
 - **Domain:** Finance · **Industry:** financial_services
 - **Files:** [yml](dbt/models/metrics/finance/rev_from_new_customers.yml) · [sql](dbt/analyses/metrics/finance/rev_from_new_customers.sql)
 - **Numerator:** Revenue from new customer acquisitions
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Commerce / order management
 - **Parents:** [`revenue`](#revenue)
 - **Correlated:** [`cac`](#cac), [`new_arr`](#new_arr)
@@ -2037,7 +2037,7 @@ YoY or QoQ revenue growth percentage.
 - **Files:** [yml](dbt/models/metrics/finance/revenue_growth_rate.yml) · [sql](dbt/analyses/metrics/finance/revenue_growth_rate.sql)
 - **Numerator:** Revenue(t) − Revenue(t−1)
 - **Denominator:** Revenue(t−1)
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Commerce / order management
 - **Parents:** [`rule_of_40`](#rule_of_40)
 - **Children:** [`market_share`](#market_share), [`revenue_vs_py`](#revenue_vs_py)
@@ -2053,7 +2053,7 @@ Average monthly revenue per active account.
 - **Files:** [yml](dbt/models/metrics/finance/revenue_per_account.yml) · [sql](dbt/analyses/metrics/finance/revenue_per_account.sql)
 - **Numerator:** Revenue
 - **Denominator:** Active accounts
-- **Dimensions:** date, segment
+- **Dimensions:** Time, Customer Segment
 - **Data sources:** Commerce / order management
 - **Parents:** [`arpu`](#arpu)
 - **Correlated:** [`arpu`](#arpu), [`acv`](#acv)
@@ -2067,7 +2067,7 @@ Total revenue divided by headcount — operating leverage metric.
 - **Files:** [yml](dbt/models/metrics/finance/revenue_per_employee.yml) · [sql](dbt/analyses/metrics/finance/revenue_per_employee.sql)
 - **Numerator:** Revenue
 - **Denominator:** Full-Time Equivalent Headcount
-- **Dimensions:** company_id, fiscal_period, department
+- **Dimensions:** Company, Time, Department
 - **Data sources:** ERP / general ledger, HRIS
 - **Parents:** [`ebitda`](#ebitda), [`employee_lifetime_value`](#employee_lifetime_value)
 - **Children:** [`headcount_fte`](#headcount_fte), [`arr_per_rep`](#arr_per_rep), [`employees_per_1m_arr`](#employees_per_1m_arr)
@@ -2083,7 +2083,7 @@ Current year revenue vs prior year — year-over-year growth.
 - **Files:** [yml](dbt/models/metrics/finance/revenue_vs_py.yml) · [sql](dbt/analyses/metrics/finance/revenue_vs_py.sql)
 - **Numerator:** Current revenue − Prior year revenue
 - **Denominator:** Prior year revenue
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Commerce / order management
 - **Parents:** [`revenue_growth_rate`](#revenue_growth_rate)
 - **Children:** [`prior_year_revenue`](#prior_year_revenue)
@@ -2098,7 +2098,7 @@ Cumulative revenue from the start of the fiscal year to current date.
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/revenue_ytd.yml) · [sql](dbt/analyses/metrics/finance/revenue_ytd.sql)
 - **Numerator:** Revenue from fiscal year start to date
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Commerce / order management
 - **Parents:** [`revenue`](#revenue)
 - **Children:** [`q1_revenue`](#q1_revenue), [`q2_revenue`](#q2_revenue), [`q3_revenue`](#q3_revenue), [`q4_revenue`](#q4_revenue)
@@ -2114,7 +2114,7 @@ Net income as a percentage of total assets.
 - **Files:** [yml](dbt/models/metrics/finance/roa.yml) · [sql](dbt/analyses/metrics/finance/roa.sql)
 - **Numerator:** Net Income
 - **Denominator:** Total Assets
-- **Dimensions:** date, company_id, fiscal_period
+- **Dimensions:** Time, Company
 - **Data sources:** ERP / general ledger
 - **Parents:** [`roe`](#roe)
 - **Children:** [`net_income`](#net_income), [`total_assets`](#total_assets)
@@ -2129,7 +2129,7 @@ NOPAT divided by invested capital.
 - **Files:** [yml](dbt/models/metrics/finance/roic.yml) · [sql](dbt/analyses/metrics/finance/roic.sql)
 - **Numerator:** NOPAT
 - **Denominator:** Invested Capital
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** ERP / general ledger
 - **Parents:** [`enterprise_value`](#enterprise_value)
 - **Children:** [`net_income`](#net_income), [`total_assets`](#total_assets), [`total_debt`](#total_debt)
@@ -2144,7 +2144,7 @@ How many months of runway at current burn rate — survival horizon metric.
 - **Files:** [yml](dbt/models/metrics/finance/runway_months.yml) · [sql](dbt/analyses/metrics/finance/runway_months.sql)
 - **Numerator:** Cash on Hand
 - **Denominator:** Monthly Burn Rate
-- **Dimensions:** company_id, as_of_date
+- **Dimensions:** Company, Time
 - **Data sources:** Bank accounts, ERP / general ledger
 - **Parents:** [`free_cash_flow`](#free_cash_flow)
 - **Children:** [`burn_rate`](#burn_rate)
@@ -2158,7 +2158,7 @@ Revenue from professional services engagements.
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/services_revenue.yml) · [sql](dbt/analyses/metrics/finance/services_revenue.sql)
 - **Numerator:** Revenue from professional services
-- **Dimensions:** date, client
+- **Dimensions:** Time, Client
 - **Data sources:** Commerce / order management
 - **Parents:** [`revenue`](#revenue)
 - **Correlated:** [`license_revenue`](#license_revenue), [`implementation_revenue`](#implementation_revenue)
@@ -2171,7 +2171,7 @@ Sales, general and administrative expenses in the period.
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/sg_and_a.yml) · [sql](dbt/analyses/metrics/finance/sg_and_a.sql)
 - **Numerator:** SUM(opex_amount WHERE gl_category = 'SG&A')
-- **Dimensions:** company_id, department, fiscal_period
+- **Dimensions:** Company, Department, Time
 - **Data sources:** ERP / general ledger
 - **Parents:** [`opex`](#opex), [`gna_pct_revenue`](#gna_pct_revenue)
 - **Children:** [`sales_spend`](#sales_spend)
@@ -2185,7 +2185,7 @@ Revenue from recurring subscription contracts.
 - **Domain:** Finance · **Industry:** saas
 - **Files:** [yml](dbt/models/metrics/finance/subscription_revenue.yml) · [sql](dbt/analyses/metrics/finance/subscription_revenue.sql)
 - **Numerator:** Revenue from subscription contracts
-- **Dimensions:** date, plan
+- **Dimensions:** Time, Plan Tier
 - **Data sources:** Billing / subscriptions, Commerce / order management
 - **Parents:** [`revenue`](#revenue)
 - **Children:** [`arr`](#arr), [`mrr`](#mrr)
@@ -2200,7 +2200,7 @@ Output or revenue generated per labor hour worked.
 - **Files:** [yml](dbt/models/metrics/finance/workforce_productivity.yml) · [sql](dbt/analyses/metrics/finance/workforce_productivity.sql)
 - **Numerator:** Revenue
 - **Denominator:** Labor hours worked
-- **Dimensions:** date, department
+- **Dimensions:** Time, Department
 - **Data sources:** HRIS, Commerce / order management
 - **Parents:** [`employee_lifetime_value`](#employee_lifetime_value)
 - **Children:** [`absenteeism_rate`](#absenteeism_rate), [`overtime_hours`](#overtime_hours), [`safety_incident_rate`](#safety_incident_rate)
@@ -2215,7 +2215,7 @@ Current assets minus current liabilities — short-term liquidity indicator.
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/working_capital.yml) · [sql](dbt/analyses/metrics/finance/working_capital.sql)
 - **Numerator:** Current Assets - Current Liabilities
-- **Dimensions:** company_id, quarter
+- **Dimensions:** Company, Time
 - **Data sources:** ERP / general ledger
 - **Parents:** [`free_cash_flow`](#free_cash_flow)
 - **Children:** [`current_ratio`](#current_ratio), [`accounts_payable`](#accounts_payable), [`accounts_receivable`](#accounts_receivable), [`cash_and_equivalents`](#cash_and_equivalents), [`dpo`](#dpo), [`dso`](#dso), [`inventory_turnover`](#inventory_turnover), [`quick_ratio`](#quick_ratio)
@@ -2232,7 +2232,7 @@ Percentage of scheduled workdays lost to unplanned absences.
 - **Files:** [yml](dbt/models/metrics/hr/absenteeism_rate.yml) · [sql](dbt/analyses/metrics/hr/absenteeism_rate.sql)
 - **Numerator:** Unplanned absence days
 - **Denominator:** Available working days
-- **Dimensions:** date, department
+- **Dimensions:** Time, Department
 - **Data sources:** HRIS, Time and attendance
 - **Parents:** [`workforce_productivity`](#workforce_productivity)
 - **Formula inputs:** [`headcount`](#headcount)
@@ -2246,7 +2246,7 @@ Average years of service among current employees.
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/avg_tenure.yml) · [sql](dbt/analyses/metrics/hr/avg_tenure.sql)
 - **Numerator:** Average years of service
-- **Dimensions:** date, department
+- **Dimensions:** Time, Department
 - **Data sources:** HRIS
 - **Parents:** [`employee_lifetime_value`](#employee_lifetime_value)
 - **Correlated:** [`voluntary_turnover`](#voluntary_turnover), [`employee_engagement_score`](#employee_engagement_score)
@@ -2260,7 +2260,7 @@ Employee pay relative to market midpoint for their role — pay equity signal.
 - **Files:** [yml](dbt/models/metrics/hr/compensation_ratio.yml) · [sql](dbt/analyses/metrics/hr/compensation_ratio.sql)
 - **Numerator:** Employee Salary
 - **Denominator:** Market Midpoint for Role
-- **Dimensions:** job_level, department, location, period
+- **Dimensions:** Job Level, Department, Location, Time
 - **Data sources:** HRIS, Compensation benchmarks
 - **Parents:** [`voluntary_turnover`](#voluntary_turnover)
 - **Correlated:** [`voluntary_turnover`](#voluntary_turnover), [`headcount_cost`](#headcount_cost)
@@ -2274,7 +2274,7 @@ Total recruiting costs divided by hires made.
 - **Files:** [yml](dbt/models/metrics/hr/cost_per_hire.yml) · [sql](dbt/analyses/metrics/hr/cost_per_hire.sql)
 - **Numerator:** Total recruiting costs
 - **Denominator:** Hires made
-- **Dimensions:** date, department
+- **Dimensions:** Time, Department
 - **Data sources:** ATS, HRIS, ERP / general ledger
 - **Parents:** [`hr_cost_pct_revenue`](#hr_cost_pct_revenue)
 - **Children:** [`total_comp_expense`](#total_comp_expense), [`new_hires`](#new_hires)
@@ -2289,7 +2289,7 @@ Percentage of hires from underrepresented groups.
 - **Files:** [yml](dbt/models/metrics/hr/diversity_hire_rate.yml) · [sql](dbt/analyses/metrics/hr/diversity_hire_rate.sql)
 - **Numerator:** Hires from underrepresented groups
 - **Denominator:** Total hires
-- **Dimensions:** date, department
+- **Dimensions:** Time, Department
 - **Data sources:** HRIS
 - **Parents:** [`headcount`](#headcount)
 - **Correlated:** [`gender_pay_gap`](#gender_pay_gap), [`employee_engagement_score`](#employee_engagement_score)
@@ -2302,7 +2302,7 @@ Composite score from engagement surveys (eNPS, pulse).
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/employee_engagement_score.yml) · [sql](dbt/analyses/metrics/hr/employee_engagement_score.sql)
 - **Numerator:** Weighted average of survey responses
-- **Dimensions:** department, job_level, location, survey_cycle, date
+- **Dimensions:** Department, Job Level, Location, Survey Cycle, Time
 - **Data sources:** Survey platform
 - **Parents:** [`voluntary_turnover`](#voluntary_turnover)
 - **Children:** [`manager_effectiveness_score`](#manager_effectiveness_score), [`training_hours_per_employee`](#training_hours_per_employee), [`benefits_utilization`](#benefits_utilization), [`enps`](#enps), [`remote_work_rate`](#remote_work_rate)
@@ -2316,7 +2316,7 @@ Employee net promoter score — likelihood to recommend the company as a workpla
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/enps.yml) · [sql](dbt/analyses/metrics/hr/enps.sql)
 - **Numerator:** % Promoters − % Detractors
-- **Dimensions:** date, department
+- **Dimensions:** Time, Department
 - **Data sources:** Survey platform
 - **Parents:** [`employee_engagement_score`](#employee_engagement_score)
 - **Correlated:** [`employee_engagement_score`](#employee_engagement_score), [`nps`](#nps)
@@ -2330,7 +2330,7 @@ Median pay of female employees as a percentage of male employee median.
 - **Files:** [yml](dbt/models/metrics/hr/gender_pay_gap.yml) · [sql](dbt/analyses/metrics/hr/gender_pay_gap.sql)
 - **Numerator:** Median male pay − Median female pay
 - **Denominator:** Median male pay
-- **Dimensions:** date, department, level
+- **Dimensions:** Time, Department, Job Level
 - **Data sources:** HRIS, Payroll
 - **Parents:** [`voluntary_turnover`](#voluntary_turnover)
 - **Children:** [`total_comp_expense`](#total_comp_expense)
@@ -2344,7 +2344,7 @@ Total fully-loaded compensation cost including salary, benefits, and employer ta
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/headcount_cost.yml) · [sql](dbt/analyses/metrics/hr/headcount_cost.sql)
 - **Numerator:** SUM(total_comp + benefits + employer_taxes)
-- **Dimensions:** department, location, job_level, period
+- **Dimensions:** Department, Location, Job Level, Time
 - **Data sources:** HRIS, Payroll
 - **Parents:** [`opex`](#opex), [`employee_lifetime_value`](#employee_lifetime_value), [`staff_student_cost_ratio`](#staff_student_cost_ratio)
 - **Correlated:** [`headcount_fte`](#headcount_fte), [`revenue_per_employee`](#revenue_per_employee), [`compensation_ratio`](#compensation_ratio), [`employee_engagement_score`](#employee_engagement_score), [`safety_incident_rate`](#safety_incident_rate)
@@ -2357,7 +2357,7 @@ Actual headcount relative to approved headcount budget.
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/headcount_vs_budget.yml) · [sql](dbt/analyses/metrics/hr/headcount_vs_budget.sql)
 - **Numerator:** Actual headcount − Budget headcount
-- **Dimensions:** date, department
+- **Dimensions:** Time, Department
 - **Data sources:** HRIS, ERP / general ledger
 - **Parents:** [`headcount`](#headcount)
 - **Children:** [`annual_budget`](#annual_budget), [`time_to_fill`](#time_to_fill)
@@ -2373,7 +2373,7 @@ Actual headcount relative to approved headcount budget.
 - **Files:** [yml](dbt/models/metrics/hr/internal_promotion_rate.yml) · [sql](dbt/analyses/metrics/hr/internal_promotion_rate.sql)
 - **Numerator:** Internal Hires
 - **Denominator:** Total Hires
-- **Dimensions:** department, job_level, period
+- **Dimensions:** Department, Job Level, Time
 - **Data sources:** HRIS, ATS
 - **Parents:** [`voluntary_turnover`](#voluntary_turnover)
 - **Correlated:** [`voluntary_turnover`](#voluntary_turnover), [`time_to_fill`](#time_to_fill), [`span_of_control`](#span_of_control), [`training_hours_per_employee`](#training_hours_per_employee)
@@ -2387,7 +2387,7 @@ Percentage of final-round interviews that resulted in an offer.
 - **Files:** [yml](dbt/models/metrics/hr/interview_to_offer_rate.yml) · [sql](dbt/analyses/metrics/hr/interview_to_offer_rate.sql)
 - **Numerator:** Offers extended
 - **Denominator:** Final round interviews
-- **Dimensions:** date, department
+- **Dimensions:** Time, Department
 - **Data sources:** ATS
 - **Parents:** [`time_to_hire`](#time_to_hire)
 - **Correlated:** [`offer_acceptance_rate`](#offer_acceptance_rate), [`time_to_hire`](#time_to_hire)
@@ -2400,7 +2400,7 @@ Upward feedback score measuring managerial quality from direct reports.
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/manager_effectiveness_score.yml) · [sql](dbt/analyses/metrics/hr/manager_effectiveness_score.sql)
 - **Numerator:** AVG(upward feedback scores)
-- **Dimensions:** manager_id, department, survey_cycle
+- **Dimensions:** Manager, Department, Survey Cycle
 - **Data sources:** Performance management
 - **Parents:** [`employee_engagement_score`](#employee_engagement_score)
 - **Children:** [`span_of_control`](#span_of_control)
@@ -2415,7 +2415,7 @@ Upward feedback score measuring managerial quality from direct reports.
 - **Files:** [yml](dbt/models/metrics/hr/offer_acceptance_rate.yml) · [sql](dbt/analyses/metrics/hr/offer_acceptance_rate.sql)
 - **Numerator:** Accepted offers
 - **Denominator:** Offers extended
-- **Dimensions:** date, department
+- **Dimensions:** Time, Department
 - **Data sources:** ATS
 - **Parents:** [`time_to_fill`](#time_to_fill)
 - **Children:** [`recruiting_pipeline`](#recruiting_pipeline), [`new_hires`](#new_hires)
@@ -2430,7 +2430,7 @@ Engineering and product staff as a share of total headcount.
 - **Files:** [yml](dbt/models/metrics/hr/rd_headcount_pct.yml) · [sql](dbt/analyses/metrics/hr/rd_headcount_pct.sql)
 - **Numerator:** R&D headcount
 - **Denominator:** Total headcount
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** HRIS
 - **Parents:** [`rd_as_pct_revenue`](#rd_as_pct_revenue)
 - **Children:** [`rd_headcount`](#rd_headcount)
@@ -2446,7 +2446,7 @@ Percentage of turnover classified as regrettable by management.
 - **Files:** [yml](dbt/models/metrics/hr/regrettable_attrition.yml) · [sql](dbt/analyses/metrics/hr/regrettable_attrition.sql)
 - **Numerator:** Regrettable departures
 - **Denominator:** Total separations
-- **Dimensions:** date, department
+- **Dimensions:** Time, Department
 - **Data sources:** HRIS
 - **Parents:** [`turnover_rate`](#turnover_rate)
 - **Children:** [`separations`](#separations)
@@ -2461,7 +2461,7 @@ Average number of direct reports per manager.
 - **Files:** [yml](dbt/models/metrics/hr/span_of_control.yml) · [sql](dbt/analyses/metrics/hr/span_of_control.sql)
 - **Numerator:** Direct reports
 - **Denominator:** Manager count
-- **Dimensions:** date, department
+- **Dimensions:** Time, Department
 - **Data sources:** HRIS
 - **Parents:** [`manager_effectiveness_score`](#manager_effectiveness_score)
 - **Formula inputs:** [`headcount`](#headcount)
@@ -2476,7 +2476,7 @@ Average days from job posting to offer accepted.
 - **Files:** [yml](dbt/models/metrics/hr/time_to_fill.yml) · [sql](dbt/analyses/metrics/hr/time_to_fill.sql)
 - **Numerator:** SUM(days from open to offer accepted)
 - **Denominator:** COUNT(filled roles)
-- **Dimensions:** department, job_level, location, period
+- **Dimensions:** Department, Job Level, Location, Time
 - **Data sources:** ATS
 - **Parents:** [`headcount_vs_budget`](#headcount_vs_budget)
 - **Children:** [`offer_acceptance_rate`](#offer_acceptance_rate), [`time_to_hire`](#time_to_hire)
@@ -2490,7 +2490,7 @@ Average days from application to accepted offer.
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/time_to_hire.yml) · [sql](dbt/analyses/metrics/hr/time_to_hire.sql)
 - **Numerator:** Days from application to offer acceptance
-- **Dimensions:** date, department
+- **Dimensions:** Time, Department
 - **Data sources:** ATS
 - **Parents:** [`time_to_fill`](#time_to_fill)
 - **Children:** [`open_requisitions`](#open_requisitions), [`recruiting_pipeline`](#recruiting_pipeline), [`interview_to_offer_rate`](#interview_to_offer_rate)
@@ -2505,7 +2505,7 @@ Average learning and development hours per employee per period.
 - **Files:** [yml](dbt/models/metrics/hr/training_hours_per_employee.yml) · [sql](dbt/analyses/metrics/hr/training_hours_per_employee.sql)
 - **Numerator:** Total Training Hours
 - **Denominator:** Average FTE Headcount
-- **Dimensions:** department, training_type, period
+- **Dimensions:** Department, Training Type, Time
 - **Data sources:** LMS
 - **Parents:** [`employee_engagement_score`](#employee_engagement_score)
 - **Correlated:** [`employee_engagement_score`](#employee_engagement_score), [`internal_promotion_rate`](#internal_promotion_rate)
@@ -2519,7 +2519,7 @@ Turnover from employee-initiated separations only.
 - **Files:** [yml](dbt/models/metrics/hr/voluntary_turnover.yml) · [sql](dbt/analyses/metrics/hr/voluntary_turnover.sql)
 - **Numerator:** Voluntary departures
 - **Denominator:** Average headcount
-- **Dimensions:** date, department, job_level, location, period
+- **Dimensions:** Time, Department, Job Level, Location
 - **Data sources:** HRIS
 - **Parents:** [`turnover_rate`](#turnover_rate)
 - **Children:** [`separations`](#separations), [`employee_engagement_score`](#employee_engagement_score), [`compensation_ratio`](#compensation_ratio), [`gender_pay_gap`](#gender_pay_gap), [`internal_promotion_rate`](#internal_promotion_rate)
@@ -2535,7 +2535,7 @@ Average rating on iOS App Store and Google Play.
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/app_store_rating.yml) · [sql](dbt/analyses/metrics/marketing/app_store_rating.sql)
 - **Numerator:** Average app store rating
-- **Dimensions:** date, platform
+- **Dimensions:** Time, Platform
 - **Data sources:** App stores
 - **Parents:** [`nps`](#nps)
 - **Correlated:** [`nps`](#nps), [`csat`](#csat), [`review_rating`](#review_rating)
@@ -2549,7 +2549,7 @@ Average time users spend per session in the product.
 - **Files:** [yml](dbt/models/metrics/marketing/avg_session_duration.yml) · [sql](dbt/analyses/metrics/marketing/avg_session_duration.sql)
 - **Numerator:** SUM(session_duration_seconds)
 - **Denominator:** COUNT(sessions)
-- **Dimensions:** platform, product_area, user_segment, period, date
+- **Dimensions:** Platform, Product Area, User Segment, Time
 - **Data sources:** Product analytics
 - **Parents:** [`dau_mau_ratio`](#dau_mau_ratio)
 - **Correlated:** [`feature_adoption_rate`](#feature_adoption_rate), [`dau`](#dau), [`bounce_rate`](#bounce_rate), [`dau_mau_ratio`](#dau_mau_ratio), [`sessions_per_user`](#sessions_per_user), [`website_sessions`](#website_sessions)
@@ -2563,7 +2563,7 @@ Average time users spend per session in the product.
 - **Files:** [yml](dbt/models/metrics/marketing/bounce_rate.yml) · [sql](dbt/analyses/metrics/marketing/bounce_rate.sql)
 - **Numerator:** Single-Page Sessions
 - **Denominator:** Total Sessions
-- **Dimensions:** landing_page, channel, device, period
+- **Dimensions:** Landing Page, Channel, Device, Time
 - **Data sources:** Web analytics
 - **Parents:** [`web_conversion_rate`](#web_conversion_rate)
 - **Children:** [`website_sessions`](#website_sessions)
@@ -2578,7 +2578,7 @@ Total event spend divided by number of attendees.
 - **Files:** [yml](dbt/models/metrics/marketing/cost_per_event_attendee.yml) · [sql](dbt/analyses/metrics/marketing/cost_per_event_attendee.sql)
 - **Numerator:** Event cost
 - **Denominator:** Attendees
-- **Dimensions:** date, event
+- **Dimensions:** Time, Event
 - **Data sources:** Events and webinar platform, ERP / general ledger
 - **Parents:** [`cpl`](#cpl)
 - **Correlated:** [`event_attendees`](#event_attendees), [`cpl`](#cpl)
@@ -2592,7 +2592,7 @@ Total marketing spend divided by MQLs generated.
 - **Files:** [yml](dbt/models/metrics/marketing/cost_per_mql.yml) · [sql](dbt/analyses/metrics/marketing/cost_per_mql.sql)
 - **Numerator:** Marketing spend
 - **Denominator:** MQLs
-- **Dimensions:** date, channel
+- **Dimensions:** Time, Channel
 - **Data sources:** Ad platforms, CRM
 - **Parents:** [`cac`](#cac)
 - **Children:** [`cpl`](#cpl), [`marketing_spend`](#marketing_spend)
@@ -2608,7 +2608,7 @@ Total marketing spend per sales-qualified lead generated.
 - **Files:** [yml](dbt/models/metrics/marketing/cost_per_sql.yml) · [sql](dbt/analyses/metrics/marketing/cost_per_sql.sql)
 - **Numerator:** Marketing Spend
 - **Denominator:** SQL Count
-- **Dimensions:** channel, campaign, period
+- **Dimensions:** Channel, Campaign, Time
 - **Data sources:** Marketing automation, CRM
 - **Parents:** [`cac`](#cac)
 - **Children:** [`marketing_spend`](#marketing_spend), [`sql`](#sql)
@@ -2623,7 +2623,7 @@ Average cost paid per ad click.
 - **Files:** [yml](dbt/models/metrics/marketing/cpc.yml) · [sql](dbt/analyses/metrics/marketing/cpc.sql)
 - **Numerator:** Ad spend
 - **Denominator:** Clicks
-- **Dimensions:** date, channel
+- **Dimensions:** Time, Channel
 - **Data sources:** Ad platforms
 - **Parents:** [`cpl`](#cpl)
 - **Children:** [`impressions`](#impressions), [`ad_clicks`](#ad_clicks), [`ctr`](#ctr), [`cpm`](#cpm), [`marketing_spend`](#marketing_spend)
@@ -2638,7 +2638,7 @@ Total marketing spend divided by leads generated.
 - **Files:** [yml](dbt/models/metrics/marketing/cpl.yml) · [sql](dbt/analyses/metrics/marketing/cpl.sql)
 - **Numerator:** Marketing spend
 - **Denominator:** Leads generated
-- **Dimensions:** date, channel, campaign
+- **Dimensions:** Time, Channel, Campaign
 - **Data sources:** Ad platforms, CRM
 - **Parents:** [`cost_per_mql`](#cost_per_mql)
 - **Children:** [`leads`](#leads), [`cost_per_event_attendee`](#cost_per_event_attendee), [`cpc`](#cpc), [`marketing_spend`](#marketing_spend)
@@ -2653,7 +2653,7 @@ Cost per thousand impressions — media efficiency benchmark.
 - **Files:** [yml](dbt/models/metrics/marketing/cpm.yml) · [sql](dbt/analyses/metrics/marketing/cpm.sql)
 - **Numerator:** Spend × 1000
 - **Denominator:** Impressions
-- **Dimensions:** channel, campaign, period
+- **Dimensions:** Channel, Campaign, Time
 - **Data sources:** Ad platforms
 - **Parents:** [`cpc`](#cpc)
 - **Children:** [`marketing_spend`](#marketing_spend), [`impressions`](#impressions)
@@ -2668,7 +2668,7 @@ Clicks divided by impressions — ad relevance and creative effectiveness.
 - **Files:** [yml](dbt/models/metrics/marketing/ctr.yml) · [sql](dbt/analyses/metrics/marketing/ctr.sql)
 - **Numerator:** Clicks
 - **Denominator:** Impressions
-- **Dimensions:** channel, campaign, ad_set, period, date, ad
+- **Dimensions:** Channel, Campaign, Ad Set, Time, Ad
 - **Data sources:** Ad platforms
 - **Parents:** [`cpc`](#cpc)
 - **Children:** [`ad_clicks`](#ad_clicks), [`impressions`](#impressions)
@@ -2682,7 +2682,7 @@ Third-party domain authority score (Moz, Ahrefs) from 0 to 100.
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/domain_authority.yml) · [sql](dbt/analyses/metrics/marketing/domain_authority.sql)
 - **Numerator:** SEO authority score (0–100)
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** SEO tools
 - **Parents:** [`top10_keyword_count`](#top10_keyword_count)
 - **Children:** [`backlink_count`](#backlink_count), [`backlinks_count`](#backlinks_count)
@@ -2696,7 +2696,7 @@ Estimated equivalent value of organic press coverage.
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/earned_media_value.yml) · [sql](dbt/analyses/metrics/marketing/earned_media_value.sql)
 - **Numerator:** Estimated value of earned media coverage
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Media monitoring
 - **Parents:** [`share_of_voice`](#share_of_voice)
 - **Children:** [`pr_mentions`](#pr_mentions)
@@ -2711,7 +2711,7 @@ Estimated equivalent value of organic press coverage.
 - **Files:** [yml](dbt/models/metrics/marketing/email_click_rate.yml) · [sql](dbt/analyses/metrics/marketing/email_click_rate.sql)
 - **Numerator:** Emails Clicked
 - **Denominator:** Emails Delivered
-- **Dimensions:** campaign_id, segment, period, date, campaign
+- **Dimensions:** Campaign, Customer Segment, Time
 - **Data sources:** Email and push platform
 - **Parents:** [`mql`](#mql)
 - **Children:** [`email_open_rate`](#email_open_rate)
@@ -2726,7 +2726,7 @@ Estimated equivalent value of organic press coverage.
 - **Files:** [yml](dbt/models/metrics/marketing/email_open_rate.yml) · [sql](dbt/analyses/metrics/marketing/email_open_rate.sql)
 - **Numerator:** Emails Opened
 - **Denominator:** Emails Delivered
-- **Dimensions:** campaign_id, segment, period
+- **Dimensions:** Campaign, Customer Segment, Time
 - **Data sources:** Email and push platform
 - **Parents:** [`email_click_rate`](#email_click_rate)
 - **Correlated:** [`email_click_rate`](#email_click_rate), [`unsubscribe_rate`](#unsubscribe_rate), [`push_open_rate`](#push_open_rate), [`webinar_attendance_rate`](#webinar_attendance_rate)
@@ -2740,7 +2740,7 @@ Percentage of form page visitors who submitted a form.
 - **Files:** [yml](dbt/models/metrics/marketing/form_conversion_rate.yml) · [sql](dbt/analyses/metrics/marketing/form_conversion_rate.sql)
 - **Numerator:** Form submissions
 - **Denominator:** Form views
-- **Dimensions:** date, form, page
+- **Dimensions:** Time, Form, Page
 - **Data sources:** Web analytics, CRM
 - **Parents:** [`mql`](#mql)
 - **Children:** [`website_sessions`](#website_sessions), [`leads`](#leads)
@@ -2755,7 +2755,7 @@ Total marketing spend divided by new customers acquired.
 - **Files:** [yml](dbt/models/metrics/marketing/marketing_cac.yml) · [sql](dbt/analyses/metrics/marketing/marketing_cac.sql)
 - **Numerator:** Total marketing spend
 - **Denominator:** New customers acquired
-- **Dimensions:** date, channel
+- **Dimensions:** Time, Channel
 - **Data sources:** Ad platforms, CRM
 - **Parents:** [`cac`](#cac)
 - **Children:** [`net_new_customers`](#net_new_customers), [`marketing_spend`](#marketing_spend)
@@ -2769,7 +2769,7 @@ Total paid and owned marketing spend in the period.
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/marketing_spend.yml) · [sql](dbt/analyses/metrics/marketing/marketing_spend.sql)
 - **Numerator:** SUM(spend)
-- **Dimensions:** channel, campaign, period
+- **Dimensions:** Channel, Campaign, Time
 - **Data sources:** Ad platforms, ERP / general ledger
 - **Parents:** [`cac`](#cac), [`cost_per_mql`](#cost_per_mql), [`cost_per_sql`](#cost_per_sql), [`cpm`](#cpm), [`roas`](#roas), [`cpc`](#cpc), [`cpl`](#cpl), [`marketing_cac`](#marketing_cac), [`marketing_roi`](#marketing_roi)
 - **Correlated:** [`revenue`](#revenue), [`mrr`](#mrr), [`sales_spend`](#sales_spend), [`roas`](#roas), [`cpc`](#cpc), [`marketing_cac`](#marketing_cac)
@@ -2782,7 +2782,7 @@ Web sessions from unpaid search (SEO) traffic.
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/organic_sessions.yml) · [sql](dbt/analyses/metrics/marketing/organic_sessions.sql)
 - **Numerator:** COUNT(sessions WHERE medium = 'organic')
-- **Dimensions:** landing_page, keyword, device, period
+- **Dimensions:** Landing Page, Keyword, Device, Time
 - **Data sources:** Web analytics
 - **Parents:** [`website_sessions`](#website_sessions), [`organic_attribution_pct`](#organic_attribution_pct)
 - **Children:** [`content_published_count`](#content_published_count), [`top10_keyword_count`](#top10_keyword_count)
@@ -2796,7 +2796,7 @@ Web sessions from paid advertising channels (CPC, CPM).
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/paid_sessions.yml) · [sql](dbt/analyses/metrics/marketing/paid_sessions.sql)
 - **Numerator:** COUNT(sessions WHERE medium = 'cpc' or 'paid')
-- **Dimensions:** channel, campaign, period
+- **Dimensions:** Channel, Campaign, Time
 - **Data sources:** Web analytics
 - **Parents:** [`website_sessions`](#website_sessions)
 - **Correlated:** [`organic_sessions`](#organic_sessions), [`roas`](#roas)
@@ -2810,7 +2810,7 @@ Percentage of push notifications that were opened.
 - **Files:** [yml](dbt/models/metrics/marketing/push_open_rate.yml) · [sql](dbt/analyses/metrics/marketing/push_open_rate.sql)
 - **Numerator:** Push notification opens
 - **Denominator:** Delivered notifications
-- **Dimensions:** date, campaign
+- **Dimensions:** Time, Campaign
 - **Data sources:** Email and push platform
 - **Parents:** [`dau`](#dau)
 - **Correlated:** [`email_open_rate`](#email_open_rate), [`dau_mau_ratio`](#dau_mau_ratio)
@@ -2823,7 +2823,7 @@ Average rating on third-party review platforms (out of 5).
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/review_rating.yml) · [sql](dbt/analyses/metrics/marketing/review_rating.sql)
 - **Numerator:** Average review score
-- **Dimensions:** date, platform
+- **Dimensions:** Time, Platform
 - **Data sources:** Review platforms
 - **Parents:** [`nps`](#nps)
 - **Correlated:** [`nps`](#nps), [`csat`](#csat), [`app_store_rating`](#app_store_rating), [`testimonials_count`](#testimonials_count)
@@ -2837,7 +2837,7 @@ Revenue attributed to ads divided by ad spend — direct campaign ROI.
 - **Files:** [yml](dbt/models/metrics/marketing/roas.yml) · [sql](dbt/analyses/metrics/marketing/roas.sql)
 - **Numerator:** Revenue Attributed to Ads
 - **Denominator:** Ad Spend
-- **Dimensions:** channel, campaign, period
+- **Dimensions:** Channel, Campaign, Time
 - **Data sources:** Ad platforms, Marketing attribution
 - **Parents:** [`marketing_roi`](#marketing_roi)
 - **Children:** [`marketing_spend`](#marketing_spend)
@@ -2852,7 +2852,7 @@ Percentage of web sessions that convert to a lead.
 - **Files:** [yml](dbt/models/metrics/marketing/session_to_lead_rate.yml) · [sql](dbt/analyses/metrics/marketing/session_to_lead_rate.sql)
 - **Numerator:** Leads created
 - **Denominator:** Sessions
-- **Dimensions:** date, channel
+- **Dimensions:** Time, Channel
 - **Data sources:** Web analytics, CRM
 - **Parents:** [`mql`](#mql)
 - **Children:** [`website_sessions`](#website_sessions), [`leads`](#leads)
@@ -2867,7 +2867,7 @@ Average number of sessions per active user in the period.
 - **Files:** [yml](dbt/models/metrics/marketing/sessions_per_user.yml) · [sql](dbt/analyses/metrics/marketing/sessions_per_user.sql)
 - **Numerator:** Sessions
 - **Denominator:** Active users
-- **Dimensions:** date, platform
+- **Dimensions:** Time, Platform
 - **Data sources:** Web analytics
 - **Parents:** [`dau_mau_ratio`](#dau_mau_ratio)
 - **Children:** [`website_sessions`](#website_sessions)
@@ -2882,7 +2882,7 @@ Brand mentions as a % of total category mentions — competitive visibility.
 - **Files:** [yml](dbt/models/metrics/marketing/share_of_voice.yml) · [sql](dbt/analyses/metrics/marketing/share_of_voice.sql)
 - **Numerator:** Brand Mentions
 - **Denominator:** Total Category Mentions
-- **Dimensions:** platform, keyword_group, period
+- **Dimensions:** Platform, Keyword Group, Time
 - **Data sources:** Media monitoring
 - **Parents:** [`marketing_roi`](#marketing_roi)
 - **Children:** [`social_followers`](#social_followers), [`earned_media_value`](#earned_media_value), [`social_engagement_rate`](#social_engagement_rate)
@@ -2897,7 +2897,7 @@ Average engagements (likes, comments, shares) per post divided by reach.
 - **Files:** [yml](dbt/models/metrics/marketing/social_engagement_rate.yml) · [sql](dbt/analyses/metrics/marketing/social_engagement_rate.sql)
 - **Numerator:** Engagements (likes + comments + shares)
 - **Denominator:** Followers
-- **Dimensions:** date, platform
+- **Dimensions:** Time, Platform
 - **Data sources:** Social media accounts
 - **Parents:** [`share_of_voice`](#share_of_voice)
 - **Children:** [`social_followers`](#social_followers)
@@ -2911,7 +2911,7 @@ Number of target keywords ranking in Google's top 10 results.
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/top10_keyword_count.yml) · [sql](dbt/analyses/metrics/marketing/top10_keyword_count.sql)
 - **Numerator:** COUNT(keywords WHERE rank <= 10)
-- **Dimensions:** keyword_group, page, period, date
+- **Dimensions:** Keyword Group, Page, Time
 - **Data sources:** SEO tools
 - **Parents:** [`organic_sessions`](#organic_sessions)
 - **Children:** [`domain_authority`](#domain_authority)
@@ -2926,7 +2926,7 @@ Number of target keywords ranking in Google's top 10 results.
 - **Files:** [yml](dbt/models/metrics/marketing/unsubscribe_rate.yml) · [sql](dbt/analyses/metrics/marketing/unsubscribe_rate.sql)
 - **Numerator:** Unsubscribes
 - **Denominator:** Emails Delivered
-- **Dimensions:** campaign_id, segment, period, date, campaign
+- **Dimensions:** Campaign, Customer Segment, Time
 - **Data sources:** Email and push platform
 - **Parents:** [`mql`](#mql)
 - **Correlated:** [`email_open_rate`](#email_open_rate), [`email_click_rate`](#email_click_rate)
@@ -2939,7 +2939,7 @@ Average number of new customers each existing customer generates.
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/viral_coefficient.yml) · [sql](dbt/analyses/metrics/marketing/viral_coefficient.sql)
 - **Numerator:** Invites sent × conversion rate
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Referral program, Application database
 - **Parents:** [`new_user_signups`](#new_user_signups)
 - **Children:** [`oss_stars`](#oss_stars)
@@ -2954,7 +2954,7 @@ Average number of new customers each existing customer generates.
 - **Files:** [yml](dbt/models/metrics/marketing/web_conversion_rate.yml) · [sql](dbt/analyses/metrics/marketing/web_conversion_rate.sql)
 - **Numerator:** Conversions
 - **Denominator:** Sessions
-- **Dimensions:** landing_page, channel, period
+- **Dimensions:** Landing Page, Channel, Time
 - **Data sources:** Web analytics
 - **Parents:** [`mql`](#mql)
 - **Children:** [`website_sessions`](#website_sessions), [`bounce_rate`](#bounce_rate)
@@ -2969,7 +2969,7 @@ Percentage of webinar registrants who attended live.
 - **Files:** [yml](dbt/models/metrics/marketing/webinar_attendance_rate.yml) · [sql](dbt/analyses/metrics/marketing/webinar_attendance_rate.sql)
 - **Numerator:** Attendees
 - **Denominator:** Registrants
-- **Dimensions:** date, webinar
+- **Dimensions:** Time, Webinar
 - **Data sources:** Events and webinar platform, Marketing automation
 - **Parents:** [`mql`](#mql)
 - **Children:** [`webinar_registrants`](#webinar_registrants)
@@ -2983,7 +2983,7 @@ Total web sessions across all channels.
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/website_sessions.yml) · [sql](dbt/analyses/metrics/marketing/website_sessions.sql)
 - **Numerator:** COUNT(sessions)
-- **Dimensions:** channel, source, medium, period
+- **Dimensions:** Channel, Source, Medium, Time
 - **Data sources:** Web analytics
 - **Parents:** [`form_conversion_rate`](#form_conversion_rate), [`session_to_lead_rate`](#session_to_lead_rate), [`web_conversion_rate`](#web_conversion_rate), [`bounce_rate`](#bounce_rate), [`sessions_per_user`](#sessions_per_user)
 - **Children:** [`organic_sessions`](#organic_sessions), [`paid_sessions`](#paid_sessions), [`referral_sessions`](#referral_sessions)
@@ -3000,7 +3000,7 @@ Actual output as a percentage of total available capacity.
 - **Files:** [yml](dbt/models/metrics/operations/capacity_utilization.yml) · [sql](dbt/analyses/metrics/operations/capacity_utilization.sql)
 - **Numerator:** Actual output
 - **Denominator:** Maximum capacity
-- **Dimensions:** date, facility, production_line, plant_id, period
+- **Dimensions:** Time, Facility, Production Line, Plant
 - **Data sources:** MES
 - **Parents:** [`ops_north_star`](#ops_north_star)
 - **Children:** [`throughput`](#throughput)
@@ -3015,7 +3015,7 @@ kg CO2 equivalent emitted per unit of output — ESG and sustainability metric.
 - **Files:** [yml](dbt/models/metrics/operations/carbon_emissions_per_unit.yml) · [sql](dbt/analyses/metrics/operations/carbon_emissions_per_unit.sql)
 - **Numerator:** Total CO2e Emissions (kg)
 - **Denominator:** Units Produced
-- **Dimensions:** facility_id, process_type, period
+- **Dimensions:** Facility, Process Type, Time
 - **Data sources:** Energy and emissions monitoring, ERP / general ledger
 - **Parents:** [`ops_efficiency_ratio`](#ops_efficiency_ratio)
 - **Correlated:** [`energy_cost_per_unit`](#energy_cost_per_unit), [`cost_per_unit`](#cost_per_unit)
@@ -3029,7 +3029,7 @@ Total fleet operating cost divided by total miles driven.
 - **Files:** [yml](dbt/models/metrics/operations/cost_per_mile.yml) · [sql](dbt/analyses/metrics/operations/cost_per_mile.sql)
 - **Numerator:** Total Fleet Operating Cost
 - **Denominator:** Total Miles Driven
-- **Dimensions:** fleet_type, vehicle_id, period
+- **Dimensions:** Fleet Type, Vehicle, Time
 - **Data sources:** Fleet management, ERP / general ledger
 - **Parents:** [`ops_efficiency_ratio`](#ops_efficiency_ratio)
 - **Children:** [`fleet_utilization_rate`](#fleet_utilization_rate)
@@ -3044,7 +3044,7 @@ Total production cost divided by units produced in the period.
 - **Files:** [yml](dbt/models/metrics/operations/cost_per_unit.yml) · [sql](dbt/analyses/metrics/operations/cost_per_unit.sql)
 - **Numerator:** Total Production Cost
 - **Denominator:** Units Produced
-- **Dimensions:** product_id, production_line, period
+- **Dimensions:** Product, Production Line, Time
 - **Data sources:** ERP / general ledger, MES
 - **Parents:** [`gross_margin_pct`](#gross_margin_pct)
 - **Children:** [`energy_cost_per_unit`](#energy_cost_per_unit)
@@ -3058,7 +3058,7 @@ Average time from work start to delivery.
 - **Domain:** Operations · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/operations/cycle_time.yml) · [sql](dbt/analyses/metrics/operations/cycle_time.sql)
 - **Numerator:** Order complete − Order start
-- **Dimensions:** date, product
+- **Dimensions:** Time, Product
 - **Data sources:** MES, Commerce / order management
 - **Parents:** [`on_time_delivery_rate`](#on_time_delivery_rate)
 - **Children:** [`process_automation_rate`](#process_automation_rate)
@@ -3073,7 +3073,7 @@ Average time from work start to delivery.
 - **Files:** [yml](dbt/models/metrics/operations/defect_rate.yml) · [sql](dbt/analyses/metrics/operations/defect_rate.sql)
 - **Numerator:** Defective Units
 - **Denominator:** Total Units Inspected
-- **Dimensions:** production_line, supplier_id, product_id, period
+- **Dimensions:** Production Line, Supplier, Product, Time
 - **Data sources:** QMS, ERP / general ledger
 - **Parents:** [`ops_north_star`](#ops_north_star), [`vendor_scorecard_rating`](#vendor_scorecard_rating)
 - **Correlated:** [`order_accuracy_rate`](#order_accuracy_rate), [`fill_rate`](#fill_rate), [`capacity_utilization`](#capacity_utilization), [`cost_per_unit`](#cost_per_unit), [`return_rate`](#return_rate), [`vendor_compliance_rate`](#vendor_compliance_rate), [`vendor_scorecard_rating`](#vendor_scorecard_rating)
@@ -3087,7 +3087,7 @@ Average time from work start to delivery.
 - **Files:** [yml](dbt/models/metrics/operations/fleet_utilization_rate.yml) · [sql](dbt/analyses/metrics/operations/fleet_utilization_rate.sql)
 - **Numerator:** Hours in Service
 - **Denominator:** Available Hours
-- **Dimensions:** vehicle_id, fleet_type, region, period
+- **Dimensions:** Vehicle, Fleet Type, Region, Time
 - **Data sources:** Fleet management
 - **Parents:** [`cost_per_mile`](#cost_per_mile)
 - **Correlated:** [`cost_per_mile`](#cost_per_mile)
@@ -3101,7 +3101,7 @@ Average time from work start to delivery.
 - **Files:** [yml](dbt/models/metrics/operations/preventive_maintenance_rate.yml) · [sql](dbt/analyses/metrics/operations/preventive_maintenance_rate.sql)
 - **Numerator:** Preventive Work Orders
 - **Denominator:** Total Work Orders
-- **Dimensions:** facility_id, asset_type, period
+- **Dimensions:** Facility, Asset Type, Time
 - **Data sources:** CMMS
 - **Parents:** [`mtbf`](#mtbf)
 - **Children:** [`work_orders`](#work_orders)
@@ -3116,7 +3116,7 @@ Percentage of defined processes that run without manual intervention.
 - **Files:** [yml](dbt/models/metrics/operations/process_automation_rate.yml) · [sql](dbt/analyses/metrics/operations/process_automation_rate.sql)
 - **Numerator:** Automated processes
 - **Denominator:** Total defined processes
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Parents:** [`cycle_time`](#cycle_time)
 - **Correlated:** [`cycle_time`](#cycle_time), [`throughput`](#throughput)
 
@@ -3129,7 +3129,7 @@ Actual spend vs budgeted or baseline spend — cost reduction from procurement i
 - **Files:** [yml](dbt/models/metrics/operations/procurement_savings_rate.yml) · [sql](dbt/analyses/metrics/operations/procurement_savings_rate.sql)
 - **Numerator:** Baseline Spend - Actual Spend
 - **Denominator:** Baseline Spend
-- **Dimensions:** category_manager, spend_category, period
+- **Dimensions:** Category Manager, Spend Category, Time
 - **Data sources:** ERP / general ledger, Procurement
 - **Parents:** [`cogs`](#cogs)
 - **Correlated:** [`cost_per_unit`](#cost_per_unit), [`gross_margin_pct`](#gross_margin_pct)
@@ -3143,7 +3143,7 @@ OSHA recordable incident rate per 100 full-time employees.
 - **Files:** [yml](dbt/models/metrics/operations/safety_incident_rate.yml) · [sql](dbt/analyses/metrics/operations/safety_incident_rate.sql)
 - **Numerator:** Recordable Incidents × 200,000
 - **Denominator:** Total Employee-Hours Worked
-- **Dimensions:** facility_id, department, incident_type, period
+- **Dimensions:** Facility, Department, Incident Type, Time
 - **Data sources:** EHS / safety, HRIS
 - **Parents:** [`workforce_productivity`](#workforce_productivity)
 - **Correlated:** [`voluntary_turnover`](#voluntary_turnover), [`headcount_cost`](#headcount_cost)
@@ -3157,7 +3157,7 @@ Average days from purchase order creation to goods receipt.
 - **Files:** [yml](dbt/models/metrics/operations/supplier_lead_time.yml) · [sql](dbt/analyses/metrics/operations/supplier_lead_time.sql)
 - **Numerator:** SUM(receipt_date - po_date)
 - **Denominator:** COUNT(purchase orders)
-- **Dimensions:** supplier_id, product_category, period
+- **Dimensions:** Supplier, Product Category, Time
 - **Data sources:** ERP / general ledger, Procurement
 - **Parents:** [`vendor_scorecard_rating`](#vendor_scorecard_rating)
 - **Correlated:** [`fill_rate`](#fill_rate), [`inventory_turnover`](#inventory_turnover), [`vendor_compliance_rate`](#vendor_compliance_rate)
@@ -3170,7 +3170,7 @@ Number of units completed per period.
 - **Domain:** Operations · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/operations/throughput.yml) · [sql](dbt/analyses/metrics/operations/throughput.sql)
 - **Numerator:** Units produced or delivered in period
-- **Dimensions:** date, line
+- **Dimensions:** Time, Production Line
 - **Data sources:** MES
 - **Parents:** [`capacity_utilization`](#capacity_utilization)
 - **Correlated:** [`cycle_time`](#cycle_time), [`capacity_utilization`](#capacity_utilization), [`ops_efficiency_ratio`](#ops_efficiency_ratio), [`process_automation_rate`](#process_automation_rate)
@@ -3184,7 +3184,7 @@ Percentage of purchase orders fulfilled by vendors per specifications.
 - **Files:** [yml](dbt/models/metrics/operations/vendor_compliance_rate.yml) · [sql](dbt/analyses/metrics/operations/vendor_compliance_rate.sql)
 - **Numerator:** Compliant POs
 - **Denominator:** Total POs
-- **Dimensions:** date, vendor
+- **Dimensions:** Time, Vendor
 - **Data sources:** Procurement, QMS
 - **Parents:** [`vendor_scorecard_rating`](#vendor_scorecard_rating)
 - **Correlated:** [`supplier_lead_time`](#supplier_lead_time), [`defect_rate`](#defect_rate), [`shrinkage_rate`](#shrinkage_rate)
@@ -3197,7 +3197,7 @@ Composite supplier performance score across quality, delivery, and cost dimensio
 - **Domain:** Operations · **Industry:** manufacturing
 - **Files:** [yml](dbt/models/metrics/operations/vendor_scorecard_rating.yml) · [sql](dbt/analyses/metrics/operations/vendor_scorecard_rating.sql)
 - **Numerator:** Weighted average of quality, delivery, and cost scores
-- **Dimensions:** supplier_id, category, period
+- **Dimensions:** Supplier, Category, Time
 - **Data sources:** Procurement, WMS / inventory, QMS
 - **Parents:** [`ops_north_star`](#ops_north_star)
 - **Children:** [`supplier_lead_time`](#supplier_lead_time), [`defect_rate`](#defect_rate), [`vendor_compliance_rate`](#vendor_compliance_rate)
@@ -3212,7 +3212,7 @@ Percentage of warehouse storage capacity currently in use.
 - **Files:** [yml](dbt/models/metrics/operations/warehouse_utilization.yml) · [sql](dbt/analyses/metrics/operations/warehouse_utilization.sql)
 - **Numerator:** Occupied square footage
 - **Denominator:** Total square footage
-- **Dimensions:** date, facility, warehouse_id, product_zone, period
+- **Dimensions:** Time, Facility, Warehouse, Product Zone
 - **Data sources:** WMS / inventory
 - **Parents:** [`ops_efficiency_ratio`](#ops_efficiency_ratio)
 - **Correlated:** [`capacity_utilization`](#capacity_utilization), [`inventory_value`](#inventory_value), [`fill_rate`](#fill_rate), [`inventory_turnover`](#inventory_turnover)
@@ -3226,7 +3226,7 @@ Average days to close a maintenance work order from creation.
 - **Files:** [yml](dbt/models/metrics/operations/work_order_resolution_time.yml) · [sql](dbt/analyses/metrics/operations/work_order_resolution_time.sql)
 - **Numerator:** SUM(completed_date - created_date)
 - **Denominator:** COUNT(completed work orders)
-- **Dimensions:** facility_id, category, priority, period
+- **Dimensions:** Facility, Category, Priority, Time
 - **Data sources:** CMMS
 - **Parents:** [`uptime`](#uptime)
 - **Children:** [`work_orders`](#work_orders)
@@ -3243,7 +3243,7 @@ Average days to close a maintenance work order from creation.
 - **Files:** [yml](dbt/models/metrics/product/activation_rate.yml) · [sql](dbt/analyses/metrics/product/activation_rate.sql)
 - **Numerator:** Users who hit activation event
 - **Denominator:** Total Signups
-- **Dimensions:** cohort, acquisition_channel, plan_tier
+- **Dimensions:** Cohort, Acquisition Channel, Plan Tier
 - **Data sources:** Product analytics
 - **Parents:** [`dau_mau_ratio`](#dau_mau_ratio)
 - **Children:** [`funnel_dropoff`](#funnel_dropoff), [`time_to_activate`](#time_to_activate)
@@ -3257,7 +3257,7 @@ Average days to close a maintenance work order from creation.
 - **Domain:** Product · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/product/api_latency_p95.yml) · [sql](dbt/analyses/metrics/product/api_latency_p95.sql)
 - **Numerator:** PERCENTILE_CONT(0.95) of response_time_ms
-- **Dimensions:** endpoint, environment, period
+- **Dimensions:** Endpoint, Environment, Time
 - **Data sources:** APM / monitoring
 - **Parents:** [`error_rate`](#error_rate)
 - **Children:** [`api_calls_total`](#api_calls_total)
@@ -3271,7 +3271,7 @@ How easy it was for customers to resolve an issue — lower effort = better.
 - **Domain:** Product · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/product/ces.yml) · [sql](dbt/analyses/metrics/product/ces.sql)
 - **Numerator:** AVG(effort_score)
-- **Dimensions:** channel, interaction_type, period
+- **Dimensions:** Channel, Interaction Type, Time
 - **Data sources:** Survey platform, Helpdesk
 - **Parents:** [`account_health_score`](#account_health_score)
 - **Correlated:** [`csat`](#csat), [`nps`](#nps), [`cx_csat`](#cx_csat), [`first_response_time`](#first_response_time), [`ticket_resolution_rate`](#ticket_resolution_rate)
@@ -3285,7 +3285,7 @@ Average satisfaction rating from post-interaction surveys (1–5 or 1–10).
 - **Files:** [yml](dbt/models/metrics/product/csat.yml) · [sql](dbt/analyses/metrics/product/csat.sql)
 - **Numerator:** SUM(satisfaction_score)
 - **Denominator:** COUNT(responses)
-- **Dimensions:** product, channel, support_team, period
+- **Dimensions:** Product, Channel, Support Team, Time
 - **Data sources:** Survey platform, CRM
 - **Parents:** [`account_health_score`](#account_health_score), [`cx_csat`](#cx_csat)
 - **Children:** [`fcr_rate`](#fcr_rate), [`first_response_time`](#first_response_time), [`sla_breach_rate`](#sla_breach_rate), [`ticket_resolution_rate`](#ticket_resolution_rate), [`tickets_per_customer`](#tickets_per_customer), [`time_to_resolution`](#time_to_resolution)
@@ -3300,7 +3300,7 @@ Percentage of new users still active 30 days after signup.
 - **Files:** [yml](dbt/models/metrics/product/d30_retention.yml) · [sql](dbt/analyses/metrics/product/d30_retention.sql)
 - **Numerator:** Day-30 retained users
 - **Denominator:** New users in cohort
-- **Dimensions:** date, cohort, acquisition_channel, plan_tier
+- **Dimensions:** Time, Cohort, Acquisition Channel, Plan Tier
 - **Data sources:** Product analytics, Application database
 - **Parents:** [`dau_mau_ratio`](#dau_mau_ratio)
 - **Children:** [`mau`](#mau), [`new_user_signups`](#new_user_signups), [`d7_retention`](#d7_retention)
@@ -3315,7 +3315,7 @@ Percentage of new users still active 7 days after signup.
 - **Files:** [yml](dbt/models/metrics/product/d7_retention.yml) · [sql](dbt/analyses/metrics/product/d7_retention.sql)
 - **Numerator:** Day-7 retained users
 - **Denominator:** New users in cohort
-- **Dimensions:** date, cohort
+- **Dimensions:** Time, Cohort
 - **Data sources:** Product analytics, Application database
 - **Parents:** [`d30_retention`](#d30_retention)
 - **Children:** [`dau`](#dau), [`new_user_signups`](#new_user_signups)
@@ -3329,7 +3329,7 @@ Daily Active Users — unique users who performed a qualifying action in a day.
 - **Domain:** Product · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/product/dau.yml) · [sql](dbt/analyses/metrics/product/dau.sql)
 - **Numerator:** COUNT(DISTINCT user_id WHERE active_event = true)
-- **Dimensions:** platform, product_area, user_segment, date
+- **Dimensions:** Platform, Product Area, User Segment, Time
 - **Data sources:** Product analytics
 - **Parents:** [`dau_mau_ratio`](#dau_mau_ratio), [`account_health_score`](#account_health_score), [`churn_prediction_score`](#churn_prediction_score), [`d7_retention`](#d7_retention), [`feature_adoption_rate`](#feature_adoption_rate), [`wau`](#wau)
 - **Children:** [`push_open_rate`](#push_open_rate)
@@ -3344,7 +3344,7 @@ Stickiness ratio — daily to monthly active user proportion.
 - **Files:** [yml](dbt/models/metrics/product/dau_mau_ratio.yml) · [sql](dbt/analyses/metrics/product/dau_mau_ratio.sql)
 - **Numerator:** DAU
 - **Denominator:** MAU
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Product analytics
 - **Parents:** [`account_health_score`](#account_health_score)
 - **Children:** [`dau`](#dau), [`mau`](#mau), [`activation_rate`](#activation_rate), [`avg_session_duration`](#avg_session_duration), [`d30_retention`](#d30_retention), [`error_rate`](#error_rate), [`feature_adoption_rate`](#feature_adoption_rate), [`sessions_per_user`](#sessions_per_user), [`time_to_value`](#time_to_value), [`wau`](#wau)
@@ -3359,7 +3359,7 @@ Stickiness ratio — daily to monthly active user proportion.
 - **Files:** [yml](dbt/models/metrics/product/error_rate.yml) · [sql](dbt/analyses/metrics/product/error_rate.sql)
 - **Numerator:** Error Events
 - **Denominator:** Total Events
-- **Dimensions:** endpoint, error_type, platform, period
+- **Dimensions:** Endpoint, Error Type, Platform, Time
 - **Data sources:** Error tracking
 - **Parents:** [`dau_mau_ratio`](#dau_mau_ratio)
 - **Children:** [`api_latency_p95`](#api_latency_p95), [`bug_escape_rate`](#bug_escape_rate), [`uptime`](#uptime)
@@ -3374,7 +3374,7 @@ Stickiness ratio — daily to monthly active user proportion.
 - **Files:** [yml](dbt/models/metrics/product/feature_adoption_rate.yml) · [sql](dbt/analyses/metrics/product/feature_adoption_rate.sql)
 - **Numerator:** Users who used feature
 - **Denominator:** Total Active Users
-- **Dimensions:** feature_name, user_segment, plan_tier, period, date, feature
+- **Dimensions:** Feature, User Segment, Plan Tier, Time
 - **Data sources:** Product analytics
 - **Parents:** [`dau_mau_ratio`](#dau_mau_ratio), [`account_health_score`](#account_health_score), [`churn_prediction_score`](#churn_prediction_score)
 - **Children:** [`dau`](#dau)
@@ -3389,7 +3389,7 @@ Percentage of free-tier users who convert to a paid plan.
 - **Files:** [yml](dbt/models/metrics/product/free_to_paid_rate.yml) · [sql](dbt/analyses/metrics/product/free_to_paid_rate.sql)
 - **Numerator:** Free-to-paid conversions
 - **Denominator:** Free users
-- **Dimensions:** date, cohort
+- **Dimensions:** Time, Cohort
 - **Data sources:** Application database, Billing / subscriptions
 - **Parents:** [`plg_rate`](#plg_rate), [`trial_to_paid_rate`](#trial_to_paid_rate)
 - **Children:** [`trial_signups`](#trial_signups), [`active_paying_users`](#active_paying_users)
@@ -3403,7 +3403,7 @@ Revenue from in-app purchases made by users.
 - **Domain:** Product · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/product/iap_revenue.yml) · [sql](dbt/analyses/metrics/product/iap_revenue.sql)
 - **Numerator:** In-app purchase revenue
-- **Dimensions:** date, product
+- **Dimensions:** Time, Product
 - **Data sources:** App stores
 - **Parents:** [`revenue`](#revenue)
 - **Correlated:** [`arpu`](#arpu), [`aov`](#aov)
@@ -3416,7 +3416,7 @@ Monthly Active Users — unique users active in the last 30 days.
 - **Domain:** Product · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/product/mau.yml) · [sql](dbt/analyses/metrics/product/mau.sql)
 - **Numerator:** COUNT(DISTINCT user_id WHERE active in last 30 days)
-- **Dimensions:** platform, product_area, user_segment
+- **Dimensions:** Platform, Product Area, User Segment
 - **Data sources:** Product analytics
 - **Parents:** [`dau_mau_ratio`](#dau_mau_ratio), [`active_paying_users`](#active_paying_users), [`d30_retention`](#d30_retention)
 - **Children:** [`api_consumers`](#api_consumers), [`new_user_signups`](#new_user_signups), [`product_churn_rate`](#product_churn_rate)
@@ -3430,7 +3430,7 @@ Count of new user account registrations in the period.
 - **Domain:** Product · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/product/new_user_signups.yml) · [sql](dbt/analyses/metrics/product/new_user_signups.sql)
 - **Numerator:** COUNT(new user registrations)
-- **Dimensions:** acquisition_channel, plan_tier, geography, period, date, channel
+- **Dimensions:** Acquisition Channel, Plan Tier, Geography, Time, Channel
 - **Data sources:** Application database, CRM
 - **Parents:** [`mau`](#mau), [`d30_retention`](#d30_retention), [`d7_retention`](#d7_retention)
 - **Children:** [`app_downloads`](#app_downloads), [`viral_coefficient`](#viral_coefficient)
@@ -3445,7 +3445,7 @@ Count of new user account registrations in the period.
 - **Files:** [yml](dbt/models/metrics/product/onboarding_completion_rate.yml) · [sql](dbt/analyses/metrics/product/onboarding_completion_rate.sql)
 - **Numerator:** Users who completed onboarding
 - **Denominator:** Users who started onboarding
-- **Dimensions:** cohort, plan_tier, acquisition_channel
+- **Dimensions:** Cohort, Plan Tier, Acquisition Channel
 - **Data sources:** Product analytics
 - **Parents:** [`time_to_value`](#time_to_value)
 - **Correlated:** [`feature_adoption_rate`](#feature_adoption_rate), [`churn_rate`](#churn_rate), [`activation_rate`](#activation_rate)
@@ -3459,7 +3459,7 @@ Percentage of new signups coming from product-driven virality (invites, sharing)
 - **Files:** [yml](dbt/models/metrics/product/plg_rate.yml) · [sql](dbt/analyses/metrics/product/plg_rate.sql)
 - **Numerator:** Self-serve signups
 - **Denominator:** Total new signups
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Application database, Billing / subscriptions
 - **Parents:** [`new_arr`](#new_arr)
 - **Children:** [`trial_signups`](#trial_signups), [`free_to_paid_rate`](#free_to_paid_rate), [`trial_to_paid_rate`](#trial_to_paid_rate)
@@ -3474,7 +3474,7 @@ Percentage of active users who became inactive this period.
 - **Files:** [yml](dbt/models/metrics/product/product_churn_rate.yml) · [sql](dbt/analyses/metrics/product/product_churn_rate.sql)
 - **Numerator:** Users who stopped using product
 - **Denominator:** Active users
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Application database
 - **Parents:** [`mau`](#mau)
 - **Correlated:** [`customer_churn_rate`](#customer_churn_rate), [`d30_retention`](#d30_retention)
@@ -3487,7 +3487,7 @@ Median hours from signup to activation event.
 - **Domain:** Product · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/product/time_to_activate.yml) · [sql](dbt/analyses/metrics/product/time_to_activate.sql)
 - **Numerator:** Days from signup to activation event
-- **Dimensions:** date, cohort
+- **Dimensions:** Time, Cohort
 - **Data sources:** Product analytics, Application database
 - **Parents:** [`activation_rate`](#activation_rate)
 - **Correlated:** [`activation_rate`](#activation_rate), [`time_to_value`](#time_to_value)
@@ -3501,7 +3501,7 @@ Days from signup to first meaningful value event (aha moment).
 - **Files:** [yml](dbt/models/metrics/product/time_to_value.yml) · [sql](dbt/analyses/metrics/product/time_to_value.sql)
 - **Numerator:** SUM(days from signup to value event)
 - **Denominator:** COUNT(users who reached value event)
-- **Dimensions:** cohort, plan_tier, acquisition_channel
+- **Dimensions:** Cohort, Plan Tier, Acquisition Channel
 - **Data sources:** Product analytics
 - **Parents:** [`dau_mau_ratio`](#dau_mau_ratio)
 - **Children:** [`onboarding_completion_rate`](#onboarding_completion_rate), [`customer_onboarding_time`](#customer_onboarding_time)
@@ -3516,7 +3516,7 @@ Percentage of trial users who converted to a paid plan.
 - **Files:** [yml](dbt/models/metrics/product/trial_to_paid_rate.yml) · [sql](dbt/analyses/metrics/product/trial_to_paid_rate.sql)
 - **Numerator:** Paid conversions
 - **Denominator:** Trial starts
-- **Dimensions:** date, cohort
+- **Dimensions:** Time, Cohort
 - **Data sources:** Application database, Billing / subscriptions
 - **Parents:** [`plg_rate`](#plg_rate)
 - **Children:** [`trial_signups`](#trial_signups), [`free_to_paid_rate`](#free_to_paid_rate)
@@ -3530,7 +3530,7 @@ Weekly Active Users — unique users who performed a qualifying action in a 7-da
 - **Domain:** Product · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/product/wau.yml) · [sql](dbt/analyses/metrics/product/wau.sql)
 - **Numerator:** Distinct active users in 7 days
-- **Dimensions:** date, platform
+- **Dimensions:** Time, Platform
 - **Data sources:** Product analytics
 - **Parents:** [`dau_mau_ratio`](#dau_mau_ratio)
 - **Children:** [`dau`](#dau)
@@ -3546,7 +3546,7 @@ Users on a paid plan who have been active in the past 30 days.
 - **Domain:** SaaS · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/saas/active_paying_users.yml) · [sql](dbt/analyses/metrics/saas/active_paying_users.sql)
 - **Numerator:** Paid users active in last 30 days
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Application database, Billing / subscriptions
 - **Parents:** [`free_to_paid_rate`](#free_to_paid_rate)
 - **Children:** [`mau`](#mau)
@@ -3561,7 +3561,7 @@ Average annual contract value of new or existing customer agreements.
 - **Files:** [yml](dbt/models/metrics/saas/acv.yml) · [sql](dbt/analyses/metrics/saas/acv.sql)
 - **Numerator:** Total Contract ARR Value
 - **Denominator:** Number of Contracts
-- **Dimensions:** segment, product_tier, channel, period
+- **Dimensions:** Customer Segment, Product Tier, Channel, Time
 - **Data sources:** CRM, Billing / subscriptions
 - **Parents:** [`arr`](#arr)
 - **Correlated:** [`arr`](#arr), [`new_arr`](#new_arr), [`avg_deal_size`](#avg_deal_size), [`revenue_per_account`](#revenue_per_account)
@@ -3574,7 +3574,7 @@ Annual Recurring Revenue — annualized value of active subscriptions.
 - **Domain:** SaaS · **Industry:** saas
 - **Files:** [yml](dbt/models/metrics/saas/arr.yml) · [sql](dbt/analyses/metrics/saas/arr.sql)
 - **Numerator:** Sum of active annual contract values
-- **Dimensions:** date, customer_segment, product
+- **Dimensions:** Time, Customer Segment, Product
 - **Data sources:** Billing / subscriptions
 - **Parents:** [`arr_growth_rate`](#arr_growth_rate), [`arr_per_rep`](#arr_per_rep), [`employees_per_1m_arr`](#employees_per_1m_arr), [`market_penetration_rate`](#market_penetration_rate), [`revenue`](#revenue), [`subscription_revenue`](#subscription_revenue)
 - **Children:** [`new_arr`](#new_arr), [`expansion_arr`](#expansion_arr), [`contraction_arr`](#contraction_arr), [`churned_arr`](#churned_arr), [`acv`](#acv), [`bookings`](#bookings), [`churn_rate`](#churn_rate), [`committed_arr`](#committed_arr), [`mrr`](#mrr), [`nrr`](#nrr)
@@ -3589,7 +3589,7 @@ Year-over-year growth in annual recurring revenue.
 - **Files:** [yml](dbt/models/metrics/saas/arr_growth_rate.yml) · [sql](dbt/analyses/metrics/saas/arr_growth_rate.sql)
 - **Numerator:** ARR(end) − ARR(start)
 - **Denominator:** ARR(start)
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Billing / subscriptions
 - **Parents:** [`rule_of_40`](#rule_of_40)
 - **Children:** [`arr`](#arr), [`new_arr`](#new_arr), [`net_mrr_growth`](#net_mrr_growth), [`saas_quick_ratio`](#saas_quick_ratio)
@@ -3604,7 +3604,7 @@ Total ARR divided by number of quota-carrying reps.
 - **Files:** [yml](dbt/models/metrics/saas/arr_per_rep.yml) · [sql](dbt/analyses/metrics/saas/arr_per_rep.sql)
 - **Numerator:** Total ARR
 - **Denominator:** Quota-carrying reps
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Billing / subscriptions, HRIS
 - **Parents:** [`revenue_per_employee`](#revenue_per_employee)
 - **Children:** [`arr`](#arr), [`sales_headcount`](#sales_headcount)
@@ -3618,7 +3618,7 @@ Total ARR value of contracts signed in the period, regardless of revenue recogni
 - **Domain:** SaaS · **Industry:** saas
 - **Files:** [yml](dbt/models/metrics/saas/bookings.yml) · [sql](dbt/analyses/metrics/saas/bookings.sql)
 - **Numerator:** SUM(contract ARR signed in period)
-- **Dimensions:** segment, product_tier, channel, period
+- **Dimensions:** Customer Segment, Product Tier, Channel, Time
 - **Data sources:** CRM, ERP / general ledger
 - **Parents:** [`arr`](#arr), [`avg_deal_size`](#avg_deal_size), [`avg_sales_cycle`](#avg_sales_cycle), [`new_arr`](#new_arr)
 - **Children:** [`sql`](#sql)
@@ -3632,7 +3632,7 @@ ML model score (0–1) indicating probability of a user churning in the next 30 
 - **Domain:** SaaS · **Industry:** saas
 - **Files:** [yml](dbt/models/metrics/saas/churn_prediction_score.yml) · [sql](dbt/analyses/metrics/saas/churn_prediction_score.sql)
 - **Numerator:** Model output probability
-- **Dimensions:** user_id, plan_tier, cohort, score_date
+- **Dimensions:** User, Plan Tier, Cohort, Time
 - **Data sources:** Product analytics
 - **Parents:** [`account_health_score`](#account_health_score)
 - **Children:** [`dau`](#dau), [`feature_adoption_rate`](#feature_adoption_rate)
@@ -3647,7 +3647,7 @@ ML model score (0–1) indicating probability of a user churning in the next 30 
 - **Files:** [yml](dbt/models/metrics/saas/churn_rate.yml) · [sql](dbt/analyses/metrics/saas/churn_rate.sql)
 - **Numerator:** Lost ARR
 - **Denominator:** Starting ARR
-- **Dimensions:** cohort_month, plan_tier, geography, segment
+- **Dimensions:** Cohort Month, Plan Tier, Geography, Customer Segment
 - **Data sources:** Billing / subscriptions, CRM
 - **Parents:** [`arr`](#arr), [`nrr`](#nrr), [`customer_ltv`](#customer_ltv)
 - **Children:** [`at_risk_accounts`](#at_risk_accounts), [`cohort_churn`](#cohort_churn), [`account_health_score`](#account_health_score), [`customer_churn_rate`](#customer_churn_rate), [`mrr_churn_rate`](#mrr_churn_rate)
@@ -3661,7 +3661,7 @@ Average cumulative revenue per customer 12 months after acquisition.
 - **Domain:** SaaS · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/saas/cohort_ltv_12m.yml) · [sql](dbt/analyses/metrics/saas/cohort_ltv_12m.sql)
 - **Numerator:** Revenue per cohort member over 12 months
-- **Dimensions:** date, cohort, channel
+- **Dimensions:** Time, Cohort, Channel
 - **Data sources:** Commerce / order management
 - **Parents:** [`clv`](#clv), [`cohort_ltv_24m`](#cohort_ltv_24m)
 - **Children:** [`aov`](#aov), [`purchase_frequency`](#purchase_frequency)
@@ -3675,7 +3675,7 @@ Average cumulative revenue per customer 24 months after acquisition.
 - **Domain:** SaaS · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/saas/cohort_ltv_24m.yml) · [sql](dbt/analyses/metrics/saas/cohort_ltv_24m.sql)
 - **Numerator:** Revenue per cohort member over 24 months
-- **Dimensions:** date, cohort
+- **Dimensions:** Time, Cohort
 - **Data sources:** Commerce / order management
 - **Parents:** [`clv`](#clv)
 - **Children:** [`cohort_ltv_12m`](#cohort_ltv_12m)
@@ -3690,7 +3690,7 @@ Revenue retained from a signup cohort after N months relative to their initial v
 - **Files:** [yml](dbt/models/metrics/saas/cohort_revenue_retention.yml) · [sql](dbt/analyses/metrics/saas/cohort_revenue_retention.sql)
 - **Numerator:** Revenue from Cohort in Month N
 - **Denominator:** Revenue from Cohort in Month 0
-- **Dimensions:** cohort_month, month_number, segment
+- **Dimensions:** Cohort Month, Months Since Acquisition, Customer Segment
 - **Data sources:** Billing / subscriptions
 - **Parents:** [`nrr`](#nrr)
 - **Children:** [`mrr`](#mrr)
@@ -3705,7 +3705,7 @@ Percentage of customers who stopped purchasing in the period.
 - **Files:** [yml](dbt/models/metrics/saas/customer_churn_rate.yml) · [sql](dbt/analyses/metrics/saas/customer_churn_rate.sql)
 - **Numerator:** Churned customers
 - **Denominator:** Beginning customers
-- **Dimensions:** date, customer_segment, segment, product_tier, period
+- **Dimensions:** Time, Customer Segment, Product Tier
 - **Data sources:** CRM, Billing / subscriptions
 - **Parents:** [`clv`](#clv), [`customer_retention_rate`](#customer_retention_rate), [`net_new_customers`](#net_new_customers), [`churn_rate`](#churn_rate)
 - **Correlated:** [`nrr`](#nrr), [`renewal_rate`](#renewal_rate), [`churned_arr`](#churned_arr), [`customer_count`](#customer_count), [`churn_rate`](#churn_rate), [`account_health_score`](#account_health_score), [`cohort_churn`](#cohort_churn), [`contraction_arr`](#contraction_arr), [`grr`](#grr), [`mrr_churn_rate`](#mrr_churn_rate), [`product_churn_rate`](#product_churn_rate)
@@ -3718,7 +3718,7 @@ Percentage of customers retained from one period to the next.
 - **Domain:** SaaS · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/saas/customer_retention_rate.yml) · [sql](dbt/analyses/metrics/saas/customer_retention_rate.sql)
 - **Numerator:** 1 − churn rate
-- **Dimensions:** date, customer_segment
+- **Dimensions:** Time, Customer Segment
 - **Data sources:** CRM
 - **Parents:** [`clv`](#clv)
 - **Children:** [`customer_churn_rate`](#customer_churn_rate)
@@ -3733,7 +3733,7 @@ Operational efficiency — fewer employees per $1M ARR indicates more scalable b
 - **Files:** [yml](dbt/models/metrics/saas/employees_per_1m_arr.yml) · [sql](dbt/analyses/metrics/saas/employees_per_1m_arr.sql)
 - **Numerator:** Headcount
 - **Denominator:** ARR ($M)
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Billing / subscriptions, HRIS
 - **Parents:** [`revenue_per_employee`](#revenue_per_employee)
 - **Children:** [`arr`](#arr)
@@ -3760,7 +3760,7 @@ Retained ARR from existing customers excluding expansions.
 - **Files:** [yml](dbt/models/metrics/saas/grr.yml) · [sql](dbt/analyses/metrics/saas/grr.sql)
 - **Numerator:** Beginning ARR − churn − contraction
 - **Denominator:** Beginning ARR
-- **Dimensions:** date, customer_segment, segment
+- **Dimensions:** Time, Customer Segment
 - **Data sources:** Billing / subscriptions
 - **Parents:** [`nrr`](#nrr)
 - **Children:** [`churned_arr`](#churned_arr), [`contraction_arr`](#contraction_arr)
@@ -3775,7 +3775,7 @@ Net new ARR divided by prior quarter S&M spend — go-to-market efficiency.
 - **Files:** [yml](dbt/models/metrics/saas/magic_number.yml) · [sql](dbt/analyses/metrics/saas/magic_number.sql)
 - **Numerator:** Net new ARR × 4
 - **Denominator:** S&M spend (prior quarter)
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Billing / subscriptions, ERP / general ledger
 - **Parents:** [`rule_of_40`](#rule_of_40)
 - **Children:** [`new_arr`](#new_arr), [`sm_spend`](#sm_spend)
@@ -3790,7 +3790,7 @@ ARR as a % of Total Addressable Market — how much of the opportunity is captur
 - **Files:** [yml](dbt/models/metrics/saas/market_penetration_rate.yml) · [sql](dbt/analyses/metrics/saas/market_penetration_rate.sql)
 - **Numerator:** ARR
 - **Denominator:** TAM
-- **Dimensions:** segment, geography, period
+- **Dimensions:** Customer Segment, Geography, Time
 - **Data sources:** ERP / general ledger
 - **Parents:** [`market_share`](#market_share)
 - **Children:** [`arr`](#arr), [`tam`](#tam), [`sam`](#sam)
@@ -3804,7 +3804,7 @@ Monthly Recurring Revenue — annualized base ÷ 12.
 - **Domain:** SaaS · **Industry:** saas
 - **Files:** [yml](dbt/models/metrics/saas/mrr.yml) · [sql](dbt/analyses/metrics/saas/mrr.sql)
 - **Numerator:** SUM(monthly_amount) WHERE status = 'active'
-- **Dimensions:** company_id, plan_tier, customer_id
+- **Dimensions:** Company, Plan Tier, Customer
 - **Data sources:** Billing / subscriptions
 - **Parents:** [`arr`](#arr), [`revenue`](#revenue), [`mrr_churn_rate`](#mrr_churn_rate), [`cac_payback`](#cac_payback), [`subscription_revenue`](#subscription_revenue), [`cohort_revenue_retention`](#cohort_revenue_retention), [`customer_concentration_risk`](#customer_concentration_risk)
 - **Correlated:** [`churn_rate`](#churn_rate), [`nrr`](#nrr), [`arr`](#arr), [`marketing_spend`](#marketing_spend), [`net_mrr_growth`](#net_mrr_growth)
@@ -3818,7 +3818,7 @@ Percentage of MRR lost in the period from cancellations.
 - **Files:** [yml](dbt/models/metrics/saas/mrr_churn_rate.yml) · [sql](dbt/analyses/metrics/saas/mrr_churn_rate.sql)
 - **Numerator:** Churned MRR
 - **Denominator:** Beginning MRR
-- **Dimensions:** date, customer_segment
+- **Dimensions:** Time, Customer Segment
 - **Data sources:** Billing / subscriptions
 - **Parents:** [`churn_rate`](#churn_rate)
 - **Children:** [`mrr`](#mrr), [`churned_arr`](#churned_arr)
@@ -3832,7 +3832,7 @@ New + expansion MRR minus churned + contraction MRR.
 - **Domain:** SaaS · **Industry:** saas
 - **Files:** [yml](dbt/models/metrics/saas/net_mrr_growth.yml) · [sql](dbt/analyses/metrics/saas/net_mrr_growth.sql)
 - **Numerator:** MRR(end) − MRR(start)
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Billing / subscriptions
 - **Parents:** [`arr_growth_rate`](#arr_growth_rate)
 - **Correlated:** [`mrr`](#mrr), [`nrr`](#nrr), [`saas_quick_ratio`](#saas_quick_ratio)
@@ -3845,7 +3845,7 @@ New customers acquired minus churned customers.
 - **Domain:** SaaS · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/saas/net_new_customers.yml) · [sql](dbt/analyses/metrics/saas/net_new_customers.sql)
 - **Numerator:** New customers − Churned customers
-- **Dimensions:** date, channel
+- **Dimensions:** Time, Channel
 - **Data sources:** CRM, Commerce / order management
 - **Parents:** [`marketing_cac`](#marketing_cac)
 - **Children:** [`monthly_new_customers`](#monthly_new_customers), [`customer_churn_rate`](#customer_churn_rate)
@@ -3859,7 +3859,7 @@ ARR added from new customer logos in the period.
 - **Domain:** SaaS · **Industry:** saas
 - **Files:** [yml](dbt/models/metrics/saas/new_arr.yml) · [sql](dbt/analyses/metrics/saas/new_arr.sql)
 - **Numerator:** ARR from new logos in period
-- **Dimensions:** date, sales_rep, channel
+- **Dimensions:** Time, Sales Rep, Channel
 - **Data sources:** Billing / subscriptions, CRM
 - **Parents:** [`arr`](#arr), [`arr_growth_rate`](#arr_growth_rate), [`magic_number`](#magic_number), [`saas_quick_ratio`](#saas_quick_ratio)
 - **Children:** [`bookings`](#bookings), [`avg_deal_size`](#avg_deal_size), [`avg_sales_cycle`](#avg_sales_cycle), [`pct_reps_at_quota`](#pct_reps_at_quota), [`pipeline_coverage`](#pipeline_coverage), [`plg_rate`](#plg_rate), [`quota_attainment`](#quota_attainment), [`sales_cycle_length`](#sales_cycle_length), [`win_rate`](#win_rate)
@@ -3874,7 +3874,7 @@ Beginning ARR plus expansion minus churn and contraction over beginning ARR.
 - **Files:** [yml](dbt/models/metrics/saas/nrr.yml) · [sql](dbt/analyses/metrics/saas/nrr.sql)
 - **Numerator:** Beginning ARR + expansion − contraction − churn
 - **Denominator:** Beginning ARR
-- **Dimensions:** date, customer_segment, company_id, period, plan_tier, segment
+- **Dimensions:** Time, Customer Segment, Company, Plan Tier
 - **Data sources:** Billing / subscriptions
 - **Parents:** [`rule_of_40`](#rule_of_40), [`arr`](#arr)
 - **Children:** [`expansion_arr`](#expansion_arr), [`contraction_arr`](#contraction_arr), [`churned_arr`](#churned_arr), [`grr`](#grr), [`churn_rate`](#churn_rate), [`cohort_revenue_retention`](#cohort_revenue_retention), [`renewal_rate`](#renewal_rate)
@@ -3889,7 +3889,7 @@ Beginning ARR plus expansion minus churn and contraction over beginning ARR.
 - **Files:** [yml](dbt/models/metrics/saas/renewal_rate.yml) · [sql](dbt/analyses/metrics/saas/renewal_rate.sql)
 - **Numerator:** Contracts Renewed
 - **Denominator:** Contracts Up for Renewal
-- **Dimensions:** segment, plan_tier, cs_rep_id, period
+- **Dimensions:** Customer Segment, Plan Tier, Customer Success Manager, Time
 - **Data sources:** CRM, Billing / subscriptions
 - **Parents:** [`nrr`](#nrr), [`account_health_score`](#account_health_score)
 - **Children:** [`qbr_completion_rate`](#qbr_completion_rate)
@@ -3904,7 +3904,7 @@ New + expansion ARR divided by churned + contraction ARR — growth efficiency.
 - **Files:** [yml](dbt/models/metrics/saas/saas_quick_ratio.yml) · [sql](dbt/analyses/metrics/saas/saas_quick_ratio.sql)
 - **Numerator:** New ARR + Expansion ARR
 - **Denominator:** Contraction ARR + Churned ARR
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Billing / subscriptions
 - **Parents:** [`arr_growth_rate`](#arr_growth_rate)
 - **Children:** [`new_arr`](#new_arr), [`expansion_arr`](#expansion_arr), [`contraction_arr`](#contraction_arr), [`churned_arr`](#churned_arr)
@@ -3919,7 +3919,7 @@ New + expansion ARR divided by churned + contraction ARR — growth efficiency.
 - **Files:** [yml](dbt/models/metrics/saas/upsell_rate.yml) · [sql](dbt/analyses/metrics/saas/upsell_rate.sql)
 - **Numerator:** Upsell events
 - **Denominator:** Total customers
-- **Dimensions:** date, product
+- **Dimensions:** Time, Product
 - **Data sources:** CRM, Commerce / order management
 - **Parents:** [`expansion_arr`](#expansion_arr)
 - **Correlated:** [`cross_sell_rate`](#cross_sell_rate), [`expansion_arr`](#expansion_arr), [`nrr`](#nrr), [`expansion_pipeline`](#expansion_pipeline)
@@ -3935,7 +3935,7 @@ Average ARR value of closed-won opportunities in the period.
 - **Files:** [yml](dbt/models/metrics/sales/avg_deal_size.yml) · [sql](dbt/analyses/metrics/sales/avg_deal_size.sql)
 - **Numerator:** Total bookings value
 - **Denominator:** Number of deals closed
-- **Dimensions:** date, sales_rep, segment
+- **Dimensions:** Time, Sales Rep, Customer Segment
 - **Data sources:** CRM
 - **Parents:** [`new_arr`](#new_arr), [`pipeline_generated`](#pipeline_generated)
 - **Children:** [`bookings`](#bookings)
@@ -3950,7 +3950,7 @@ Average days from opportunity creation to close.
 - **Files:** [yml](dbt/models/metrics/sales/avg_sales_cycle.yml) · [sql](dbt/analyses/metrics/sales/avg_sales_cycle.sql)
 - **Numerator:** Sum of sales cycle days
 - **Denominator:** Closed opportunities
-- **Dimensions:** date, segment, product
+- **Dimensions:** Time, Customer Segment, Product
 - **Data sources:** CRM
 - **Parents:** [`new_arr`](#new_arr)
 - **Children:** [`sql`](#sql), [`bookings`](#bookings)
@@ -3964,7 +3964,7 @@ Total potential expansion ARR in open upsell opportunities.
 - **Domain:** Sales · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/sales/expansion_pipeline.yml) · [sql](dbt/analyses/metrics/sales/expansion_pipeline.sql)
 - **Numerator:** Pipeline value from expansion opportunities
-- **Dimensions:** date, csm
+- **Dimensions:** Time, Customer Success Manager
 - **Data sources:** CRM
 - **Parents:** [`expansion_arr`](#expansion_arr)
 - **Correlated:** [`upsell_rate`](#upsell_rate), [`nrr`](#nrr), [`at_risk_accounts`](#at_risk_accounts)
@@ -3978,7 +3978,7 @@ Percentage of leads that reach MQL threshold.
 - **Files:** [yml](dbt/models/metrics/sales/lead_to_mql_rate.yml) · [sql](dbt/analyses/metrics/sales/lead_to_mql_rate.sql)
 - **Numerator:** MQLs
 - **Denominator:** All leads
-- **Dimensions:** date, channel
+- **Dimensions:** Time, Channel
 - **Data sources:** Marketing automation, CRM
 - **Parents:** [`mql`](#mql)
 - **Children:** [`leads`](#leads)
@@ -3992,7 +3992,7 @@ Total pipeline ARR where marketing had at least one touchpoint before opportunit
 - **Domain:** Sales · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/sales/marketing_influenced_pipeline.yml) · [sql](dbt/analyses/metrics/sales/marketing_influenced_pipeline.sql)
 - **Numerator:** SUM(arr_value of influenced opportunities)
-- **Dimensions:** channel, campaign, segment, period
+- **Dimensions:** Channel, Campaign, Customer Segment, Time
 - **Data sources:** CRM, Marketing attribution
 - **Parents:** [`marketing_roi`](#marketing_roi)
 - **Correlated:** [`pipeline_value`](#pipeline_value), [`roas`](#roas)
@@ -4005,7 +4005,7 @@ Leads meeting scoring threshold passed to sales.
 - **Domain:** Sales · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/sales/mql.yml) · [sql](dbt/analyses/metrics/sales/mql.sql)
 - **Numerator:** Leads meeting MQL criteria in period
-- **Dimensions:** date, channel, campaign, source, period
+- **Dimensions:** Time, Channel, Campaign, Source
 - **Data sources:** CRM, Marketing automation
 - **Parents:** [`pipeline_generated`](#pipeline_generated), [`sql`](#sql), [`cac`](#cac), [`mql_to_sql_rate`](#mql_to_sql_rate)
 - **Children:** [`leads`](#leads), [`form_conversion_rate`](#form_conversion_rate), [`demo_requests`](#demo_requests), [`event_attendees`](#event_attendees), [`lead_to_mql_rate`](#lead_to_mql_rate), [`session_to_lead_rate`](#session_to_lead_rate), [`webinar_attendance_rate`](#webinar_attendance_rate), [`email_click_rate`](#email_click_rate), [`unsubscribe_rate`](#unsubscribe_rate), [`web_conversion_rate`](#web_conversion_rate)
@@ -4020,7 +4020,7 @@ Leads meeting scoring threshold passed to sales.
 - **Files:** [yml](dbt/models/metrics/sales/mql_to_sql_rate.yml) · [sql](dbt/analyses/metrics/sales/mql_to_sql_rate.sql)
 - **Numerator:** SQLs
 - **Denominator:** MQLs
-- **Dimensions:** channel, campaign, period
+- **Dimensions:** Channel, Campaign, Time
 - **Data sources:** CRM, Marketing automation
 - **Parents:** [`sql`](#sql)
 - **Children:** [`mql`](#mql)
@@ -4035,7 +4035,7 @@ Percentage of closed revenue attributed to organic channels.
 - **Files:** [yml](dbt/models/metrics/sales/organic_attribution_pct.yml) · [sql](dbt/analyses/metrics/sales/organic_attribution_pct.sql)
 - **Numerator:** Organic-attributed pipeline
 - **Denominator:** Total pipeline
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Web analytics, CRM
 - **Parents:** [`marketing_roi`](#marketing_roi)
 - **Children:** [`organic_sessions`](#organic_sessions)
@@ -4051,7 +4051,7 @@ Percentage of closed revenue attributed to paid channels.
 - **Files:** [yml](dbt/models/metrics/sales/paid_attribution_pct.yml) · [sql](dbt/analyses/metrics/sales/paid_attribution_pct.sql)
 - **Numerator:** Paid-attributed pipeline
 - **Denominator:** Total pipeline
-- **Dimensions:** date, channel
+- **Dimensions:** Time, Channel
 - **Data sources:** Ad platforms, CRM
 - **Parents:** [`marketing_roi`](#marketing_roi)
 - **Formula inputs:** [`mql`](#mql)
@@ -4066,7 +4066,7 @@ Percentage of closed revenue attributed to paid channels.
 - **Files:** [yml](dbt/models/metrics/sales/pct_reps_at_quota.yml) · [sql](dbt/analyses/metrics/sales/pct_reps_at_quota.sql)
 - **Numerator:** Reps at or above quota
 - **Denominator:** Total Active Reps
-- **Dimensions:** segment, team, period
+- **Dimensions:** Customer Segment, Team, Time
 - **Data sources:** CRM, ERP / general ledger
 - **Parents:** [`new_arr`](#new_arr)
 - **Children:** [`quota_attainment`](#quota_attainment)
@@ -4081,7 +4081,7 @@ Total qualified pipeline divided by quota — leading indicator of quota achieve
 - **Files:** [yml](dbt/models/metrics/sales/pipeline_coverage.yml) · [sql](dbt/analyses/metrics/sales/pipeline_coverage.sql)
 - **Numerator:** Qualified Pipeline Value
 - **Denominator:** Remaining Quota for Period
-- **Dimensions:** team, segment, period
+- **Dimensions:** Team, Customer Segment, Time
 - **Data sources:** CRM
 - **Parents:** [`new_arr`](#new_arr)
 - **Children:** [`pipeline_value`](#pipeline_value), [`quota_attainment`](#quota_attainment)
@@ -4095,7 +4095,7 @@ Total ARR value of open opportunities in the pipeline.
 - **Domain:** Sales · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/sales/pipeline_value.yml) · [sql](dbt/analyses/metrics/sales/pipeline_value.sql)
 - **Numerator:** SUM(arr_value) WHERE stage NOT IN ('Closed Won','Closed Lost')
-- **Dimensions:** segment, stage, rep_id, period
+- **Dimensions:** Customer Segment, Stage, Sales Rep, Time
 - **Data sources:** CRM
 - **Parents:** [`pipeline_coverage`](#pipeline_coverage)
 - **Children:** [`sql`](#sql)
@@ -4110,7 +4110,7 @@ Sales rep ARR closed as a % of their assigned quota.
 - **Files:** [yml](dbt/models/metrics/sales/quota_attainment.yml) · [sql](dbt/analyses/metrics/sales/quota_attainment.sql)
 - **Numerator:** ARR Closed
 - **Denominator:** Quota
-- **Dimensions:** rep_id, segment, period
+- **Dimensions:** Sales Rep, Customer Segment, Time
 - **Data sources:** CRM, ERP / general ledger
 - **Parents:** [`new_arr`](#new_arr), [`pct_reps_at_quota`](#pct_reps_at_quota), [`pipeline_coverage`](#pipeline_coverage)
 - **Correlated:** [`win_rate`](#win_rate), [`new_arr`](#new_arr), [`arr_per_rep`](#arr_per_rep), [`pct_reps_at_quota`](#pct_reps_at_quota), [`sales_headcount`](#sales_headcount)
@@ -4124,7 +4124,7 @@ Percentage of closed revenue attributed to referral channels.
 - **Files:** [yml](dbt/models/metrics/sales/referral_attribution_pct.yml) · [sql](dbt/analyses/metrics/sales/referral_attribution_pct.sql)
 - **Numerator:** Referral-attributed pipeline
 - **Denominator:** Total pipeline
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** CRM, Referral program
 - **Parents:** [`marketing_roi`](#marketing_roi)
 - **Formula inputs:** [`mql`](#mql)
@@ -4139,7 +4139,7 @@ Average days from first touch to closed-won opportunity.
 - **Files:** [yml](dbt/models/metrics/sales/sales_cycle_length.yml) · [sql](dbt/analyses/metrics/sales/sales_cycle_length.sql)
 - **Numerator:** SUM(days_to_close)
 - **Denominator:** COUNT(closed_won_opportunities)
-- **Dimensions:** segment, rep_id, deal_size_tier, period
+- **Dimensions:** Customer Segment, Sales Rep, Deal Size Tier, Time
 - **Data sources:** CRM
 - **Parents:** [`new_arr`](#new_arr)
 - **Correlated:** [`cac`](#cac), [`win_rate`](#win_rate)
@@ -4152,7 +4152,7 @@ Total sales team costs including salaries, commissions, and tools.
 - **Domain:** Sales · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/sales/sales_spend.yml) · [sql](dbt/analyses/metrics/sales/sales_spend.sql)
 - **Numerator:** SUM(sales team headcount cost + tools)
-- **Dimensions:** company_id, team, fiscal_period
+- **Dimensions:** Company, Team, Time
 - **Data sources:** HRIS, ERP / general ledger
 - **Parents:** [`cac`](#cac), [`sg_and_a`](#sg_and_a)
 - **Correlated:** [`marketing_spend`](#marketing_spend), [`cac`](#cac)
@@ -4165,7 +4165,7 @@ Leads accepted by sales as qualified opportunities.
 - **Domain:** Sales · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/sales/sql.yml) · [sql](dbt/analyses/metrics/sales/sql.sql)
 - **Numerator:** Opportunities accepted by sales
-- **Dimensions:** date, sales_rep, channel, campaign, segment, period
+- **Dimensions:** Time, Sales Rep, Channel, Campaign, Customer Segment
 - **Data sources:** CRM
 - **Parents:** [`pipeline_generated`](#pipeline_generated), [`bookings`](#bookings), [`avg_sales_cycle`](#avg_sales_cycle), [`pipeline_value`](#pipeline_value), [`cost_per_sql`](#cost_per_sql)
 - **Children:** [`mql`](#mql), [`mql_to_sql_rate`](#mql_to_sql_rate)
@@ -4180,7 +4180,7 @@ Leads accepted by sales as qualified opportunities.
 - **Files:** [yml](dbt/models/metrics/sales/win_rate.yml) · [sql](dbt/analyses/metrics/sales/win_rate.sql)
 - **Numerator:** Closed Won Opportunities
 - **Denominator:** Total Qualified Opportunities
-- **Dimensions:** segment, rep_id, source, period
+- **Dimensions:** Customer Segment, Sales Rep, Source, Time
 - **Data sources:** CRM
 - **Parents:** [`new_arr`](#new_arr)
 - **Children:** [`competitive_win_rate`](#competitive_win_rate)
@@ -4199,7 +4199,7 @@ Percentage of gross revenue given away as discounts.
 - **Files:** [yml](dbt/models/metrics/commerce/discount_rate.yml) · [sql](dbt/analyses/metrics/commerce/discount_rate.sql)
 - **Numerator:** Total discounts given
 - **Denominator:** Gross revenue
-- **Dimensions:** date, product
+- **Dimensions:** Time, Product
 - **Data sources:** Commerce / order management
 - **Parents:** [`net_revenue`](#net_revenue)
 - **Correlated:** [`gross_revenue`](#gross_revenue), [`aov`](#aov)
@@ -4212,7 +4212,7 @@ Total revenue before any discounts or returns.
 - **Domain:** Commerce · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/commerce/gross_revenue.yml) · [sql](dbt/analyses/metrics/commerce/gross_revenue.sql)
 - **Numerator:** Sum of gross order amounts
-- **Dimensions:** date, channel
+- **Dimensions:** Time, Channel
 - **Data sources:** Commerce / order management
 - **Parents:** [`revenue`](#revenue), [`net_revenue`](#net_revenue), [`aov`](#aov)
 - **Correlated:** [`net_revenue`](#net_revenue), [`discount_rate`](#discount_rate), [`aov`](#aov)
@@ -4225,7 +4225,7 @@ Distinct SKUs with an inventory snapshot in the period.
 - **Domain:** Commerce · **Industry:** manufacturing
 - **Files:** [yml](dbt/models/metrics/commerce/inventory_items.yml) · [sql](dbt/analyses/metrics/commerce/inventory_items.sql)
 - **Numerator:** Distinct SKUs in inventory
-- **Dimensions:** date, product, location
+- **Dimensions:** Time, Product, Location
 - **Data sources:** WMS / inventory
 - **Parents:** [`inventory_turnover`](#inventory_turnover), [`stockout_rate`](#stockout_rate)
 - **Correlated:** [`inventory_turnover`](#inventory_turnover), [`stockout_rate`](#stockout_rate)
@@ -4238,7 +4238,7 @@ Total cost basis of inventory on hand.
 - **Domain:** Commerce · **Industry:** manufacturing
 - **Files:** [yml](dbt/models/metrics/commerce/inventory_value.yml) · [sql](dbt/analyses/metrics/commerce/inventory_value.sql)
 - **Numerator:** Units on hand × unit cost
-- **Dimensions:** date, product
+- **Dimensions:** Time, Product
 - **Data sources:** WMS / inventory
 - **Parents:** [`inventory_turnover`](#inventory_turnover)
 - **Correlated:** [`inventory_turnover`](#inventory_turnover), [`shrinkage_rate`](#shrinkage_rate), [`warehouse_utilization`](#warehouse_utilization), [`cogs`](#cogs)
@@ -4251,7 +4251,7 @@ Number of unique buyers transacting in the period.
 - **Domain:** Commerce · **Industry:** marketplace
 - **Files:** [yml](dbt/models/metrics/commerce/marketplace_buyers.yml) · [sql](dbt/analyses/metrics/commerce/marketplace_buyers.sql)
 - **Numerator:** Active buyers in period
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Commerce / order management
 - **Parents:** [`gmv`](#gmv)
 - **Correlated:** [`marketplace_sellers`](#marketplace_sellers), [`aov`](#aov)
@@ -4264,7 +4264,7 @@ Number of active sellers transacting on the platform in the period.
 - **Domain:** Commerce · **Industry:** marketplace
 - **Files:** [yml](dbt/models/metrics/commerce/marketplace_sellers.yml) · [sql](dbt/analyses/metrics/commerce/marketplace_sellers.sql)
 - **Numerator:** Active sellers in period
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Commerce / order management
 - **Parents:** [`gmv`](#gmv)
 - **Correlated:** [`marketplace_buyers`](#marketplace_buyers), [`take_rate`](#take_rate), [`liquidity_rate`](#liquidity_rate)
@@ -4277,7 +4277,7 @@ Order lines placed in the period.
 - **Domain:** Commerce · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/commerce/order_lines.yml) · [sql](dbt/analyses/metrics/commerce/order_lines.sql)
 - **Numerator:** Order lines
-- **Dimensions:** order_id, line_id, product_id, qty_ordered, qty_shipped, warehouse_id
+- **Dimensions:** Order, Order Line, Product, Warehouse
 - **Data sources:** ERP / general ledger, WMS / inventory
 - **Parents:** [`fill_rate`](#fill_rate)
 
@@ -4290,7 +4290,7 @@ Inventory lost to theft, damage, or administrative error as a percentage of stoc
 - **Files:** [yml](dbt/models/metrics/commerce/shrinkage_rate.yml) · [sql](dbt/analyses/metrics/commerce/shrinkage_rate.sql)
 - **Numerator:** Inventory shrinkage
 - **Denominator:** Beginning inventory value
-- **Dimensions:** date, location
+- **Dimensions:** Time, Location
 - **Data sources:** WMS / inventory
 - **Parents:** [`cogs`](#cogs)
 - **Correlated:** [`inventory_value`](#inventory_value), [`vendor_compliance_rate`](#vendor_compliance_rate)
@@ -4305,7 +4305,7 @@ Total formal complaints received in the period.
 - **Domain:** Customer · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/customer/complaints_count.yml) · [sql](dbt/analyses/metrics/customer/complaints_count.sql)
 - **Numerator:** Formal complaints received
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** CRM
 - **Parents:** [`cx_csat`](#cx_csat)
 - **Correlated:** [`complaint_resolution_rate`](#complaint_resolution_rate), [`csat`](#csat)
@@ -4318,7 +4318,7 @@ Number of new unique paying customers acquired in the month.
 - **Domain:** Customer · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/customer/monthly_new_customers.yml) · [sql](dbt/analyses/metrics/customer/monthly_new_customers.sql)
 - **Numerator:** New customers acquired in month
-- **Dimensions:** date, channel, acquisition_channel, segment, period
+- **Dimensions:** Time, Channel, Acquisition Channel, Customer Segment
 - **Data sources:** CRM, Commerce / order management
 - **Parents:** [`net_new_customers`](#net_new_customers), [`cac`](#cac), [`customer_count`](#customer_count)
 - **Children:** [`leads`](#leads)
@@ -4332,7 +4332,7 @@ Total new support tickets opened in the period.
 - **Domain:** Customer · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/customer/tickets_created.yml) · [sql](dbt/analyses/metrics/customer/tickets_created.sql)
 - **Numerator:** Support tickets opened
-- **Dimensions:** date, priority, category, channel, product, period
+- **Dimensions:** Time, Priority, Category, Channel, Product
 - **Data sources:** Helpdesk
 - **Parents:** [`tickets_per_customer`](#tickets_per_customer), [`escalation_rate`](#escalation_rate), [`fcr_rate`](#fcr_rate), [`time_to_resolution`](#time_to_resolution), [`tickets_per_agent`](#tickets_per_agent), [`first_response_time`](#first_response_time), [`ticket_resolution_rate`](#ticket_resolution_rate)
 - **Correlated:** [`time_to_resolution`](#time_to_resolution), [`sla_breach_rate`](#sla_breach_rate), [`first_response_time`](#first_response_time), [`fcr_rate`](#fcr_rate), [`csat`](#csat), [`churn_rate`](#churn_rate)
@@ -4345,7 +4345,7 @@ Total support tickets closed in the period.
 - **Domain:** Customer · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/customer/tickets_resolved.yml) · [sql](dbt/analyses/metrics/customer/tickets_resolved.sql)
 - **Numerator:** Support tickets closed
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Helpdesk
 - **Parents:** [`support_cost_per_ticket`](#support_cost_per_ticket)
 - **Correlated:** [`fcr_rate`](#fcr_rate), [`support_cost_per_ticket`](#support_cost_per_ticket)
@@ -4360,7 +4360,7 @@ Average number of students enrolled per day (used for funding calculations).
 - **Domain:** Education · **Industry:** education
 - **Files:** [yml](dbt/models/metrics/education/adm.yml) · [sql](dbt/analyses/metrics/education/adm.sql)
 - **Numerator:** Average daily membership
-- **Dimensions:** school_year
+- **Dimensions:** School Year
 - **Data sources:** SIS
 - **Parents:** [`student_attendance_rate`](#student_attendance_rate)
 - **Correlated:** [`enrollment_count`](#enrollment_count), [`per_pupil_expenditure`](#per_pupil_expenditure)
@@ -4373,7 +4373,7 @@ Average years of teaching experience across the teaching staff.
 - **Domain:** Education · **Industry:** education
 - **Files:** [yml](dbt/models/metrics/education/avg_teacher_experience.yml) · [sql](dbt/analyses/metrics/education/avg_teacher_experience.sql)
 - **Numerator:** Average years of teaching experience
-- **Dimensions:** school_year, school
+- **Dimensions:** School Year, School
 - **Data sources:** HRIS
 - **Parents:** [`student_proficiency`](#student_proficiency)
 - **Correlated:** [`teacher_retention_rate`](#teacher_retention_rate), [`ela_proficiency_rate`](#ela_proficiency_rate)
@@ -4387,7 +4387,7 @@ Percentage of enrolled students classified as English Language Learners.
 - **Files:** [yml](dbt/models/metrics/education/ell_pct.yml) · [sql](dbt/analyses/metrics/education/ell_pct.sql)
 - **Numerator:** English Language Learner students
 - **Denominator:** Enrolled students
-- **Dimensions:** school_year, school
+- **Dimensions:** School Year, School
 - **Data sources:** SIS
 - **Parents:** [`student_proficiency`](#student_proficiency)
 - **Correlated:** [`ela_proficiency_rate`](#ela_proficiency_rate), [`chronic_absenteeism_rate`](#chronic_absenteeism_rate)
@@ -4401,7 +4401,7 @@ Percentage of students expelled during the school year.
 - **Files:** [yml](dbt/models/metrics/education/expulsion_rate.yml) · [sql](dbt/analyses/metrics/education/expulsion_rate.sql)
 - **Numerator:** Students expelled
 - **Denominator:** Enrolled students
-- **Dimensions:** school_year, school
+- **Dimensions:** School Year, School
 - **Data sources:** SIS
 - **Parents:** [`suspension_rate`](#suspension_rate)
 - **Correlated:** [`suspension_rate`](#suspension_rate), [`dropout_rate`](#dropout_rate)
@@ -4415,7 +4415,7 @@ Percentage of students participating in at least one extracurricular activity.
 - **Files:** [yml](dbt/models/metrics/education/extracurricular_rate.yml) · [sql](dbt/analyses/metrics/education/extracurricular_rate.sql)
 - **Numerator:** Students in extracurriculars
 - **Denominator:** Enrolled students
-- **Dimensions:** school_year, school
+- **Dimensions:** School Year, School
 - **Data sources:** SIS
 - **Parents:** [`school_climate_score`](#school_climate_score)
 - **Correlated:** [`school_climate_score`](#school_climate_score), [`student_attendance_rate`](#student_attendance_rate)
@@ -4429,7 +4429,7 @@ Percentage of families attending at least one school event or conference.
 - **Files:** [yml](dbt/models/metrics/education/family_engagement_rate.yml) · [sql](dbt/analyses/metrics/education/family_engagement_rate.sql)
 - **Numerator:** Families attending events or conferences
 - **Denominator:** Total families
-- **Dimensions:** school_year, school
+- **Dimensions:** School Year, School
 - **Data sources:** SIS
 - **Parents:** [`school_climate_score`](#school_climate_score)
 - **Correlated:** [`school_climate_score`](#school_climate_score), [`student_attendance_rate`](#student_attendance_rate)
@@ -4443,7 +4443,7 @@ Percentage of students eligible for free or reduced-price lunch (socioeconomic i
 - **Files:** [yml](dbt/models/metrics/education/frl_pct.yml) · [sql](dbt/analyses/metrics/education/frl_pct.sql)
 - **Numerator:** Free/reduced-price lunch eligible students
 - **Denominator:** Enrolled students
-- **Dimensions:** school_year, school
+- **Dimensions:** School Year, School
 - **Data sources:** SIS
 - **Parents:** [`student_proficiency`](#student_proficiency)
 - **Correlated:** [`iep_pct`](#iep_pct), [`chronic_absenteeism_rate`](#chronic_absenteeism_rate), [`per_pupil_expenditure`](#per_pupil_expenditure)
@@ -4457,7 +4457,7 @@ Percentage of enrolled students with an Individualized Education Program.
 - **Files:** [yml](dbt/models/metrics/education/iep_pct.yml) · [sql](dbt/analyses/metrics/education/iep_pct.sql)
 - **Numerator:** Students with IEPs
 - **Denominator:** Enrolled students
-- **Dimensions:** school_year, school
+- **Dimensions:** School Year, School
 - **Data sources:** SIS
 - **Parents:** [`student_proficiency`](#student_proficiency)
 - **Correlated:** [`per_pupil_expenditure`](#per_pupil_expenditure), [`ela_proficiency_rate`](#ela_proficiency_rate), [`frl_pct`](#frl_pct)
@@ -4471,7 +4471,7 @@ Average minutes of scheduled instruction delivered per student per school day.
 - **Files:** [yml](dbt/models/metrics/education/instructional_minutes.yml) · [sql](dbt/analyses/metrics/education/instructional_minutes.sql)
 - **Numerator:** Scheduled instructional minutes delivered
 - **Denominator:** Student school days
-- **Dimensions:** school_year, school, grade_level
+- **Dimensions:** School Year, School, Grade Level
 - **Data sources:** SIS
 - **Parents:** [`student_proficiency`](#student_proficiency)
 
@@ -4484,7 +4484,7 @@ Average minutes of scheduled instruction delivered per student per school day.
 - **Files:** [yml](dbt/models/metrics/education/on_time_lesson_delivery.yml) · [sql](dbt/analyses/metrics/education/on_time_lesson_delivery.sql)
 - **Numerator:** Lessons Delivered on Time
 - **Denominator:** Total Lessons Planned
-- **Dimensions:** teacher_id, school_id, subject, period
+- **Dimensions:** Teacher, School, Subject, Time
 - **Data sources:** LMS
 - **Parents:** [`student_proficiency`](#student_proficiency)
 - **Correlated:** [`teacher_retention_rate`](#teacher_retention_rate), [`student_attendance_rate`](#student_attendance_rate)
@@ -4500,7 +4500,7 @@ Percentage of codebase covered by automated tests.
 - **Files:** [yml](dbt/models/metrics/engineering/code_coverage.yml) · [sql](dbt/analyses/metrics/engineering/code_coverage.sql)
 - **Numerator:** Lines covered by tests
 - **Denominator:** Total lines
-- **Dimensions:** date, service
+- **Dimensions:** Time, Service
 - **Data sources:** CI/CD
 - **Parents:** [`bug_escape_rate`](#bug_escape_rate)
 - **Correlated:** [`bug_escape_rate`](#bug_escape_rate), [`change_failure_rate`](#change_failure_rate), [`tech_debt_ratio`](#tech_debt_ratio)
@@ -4513,7 +4513,7 @@ Total production or safety incidents in the period.
 - **Domain:** Engineering · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/engineering/incident_count.yml) · [sql](dbt/analyses/metrics/engineering/incident_count.sql)
 - **Numerator:** Production/safety incidents in period
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Incident management
 - **Parents:** [`mttd`](#mttd), [`mttr`](#mttr), [`uptime`](#uptime)
 - **Correlated:** [`mttr`](#mttr), [`mttd`](#mttd), [`rcr_rate`](#rcr_rate)
@@ -4526,7 +4526,7 @@ GitHub stars on the company's primary open source repositories.
 - **Domain:** Engineering · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/engineering/oss_stars.yml) · [sql](dbt/analyses/metrics/engineering/oss_stars.sql)
 - **Numerator:** GitHub stars on public repositories
-- **Dimensions:** date, repo
+- **Dimensions:** Time, Repository
 - **Data sources:** Version control
 - **Parents:** [`viral_coefficient`](#viral_coefficient)
 - **Correlated:** [`domain_authority`](#domain_authority), [`viral_coefficient`](#viral_coefficient)
@@ -4539,7 +4539,7 @@ Average hours from PR opening to merge.
 - **Domain:** Engineering · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/engineering/pr_merge_time.yml) · [sql](dbt/analyses/metrics/engineering/pr_merge_time.sql)
 - **Numerator:** Time from PR open to merge (hours)
-- **Dimensions:** date, team
+- **Dimensions:** Time, Team
 - **Data sources:** Version control
 - **Parents:** [`lead_time_for_changes`](#lead_time_for_changes)
 - **Correlated:** [`deployment_frequency`](#deployment_frequency), [`sprint_velocity`](#sprint_velocity)
@@ -4552,7 +4552,7 @@ Average story points completed per two-week sprint.
 - **Domain:** Engineering · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/engineering/sprint_velocity.yml) · [sql](dbt/analyses/metrics/engineering/sprint_velocity.sql)
 - **Numerator:** Story points completed per sprint
-- **Dimensions:** date, team
+- **Dimensions:** Time, Team
 - **Data sources:** Issue tracker
 - **Parents:** [`deployment_frequency`](#deployment_frequency)
 - **Correlated:** [`deployment_frequency`](#deployment_frequency), [`tech_debt_ratio`](#tech_debt_ratio), [`pr_merge_time`](#pr_merge_time)
@@ -4567,7 +4567,7 @@ Outstanding amounts owed to vendors.
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/accounts_payable.yml) · [sql](dbt/analyses/metrics/finance/accounts_payable.sql)
 - **Numerator:** Outstanding vendor invoices
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** ERP / general ledger
 - **Parents:** [`current_ratio`](#current_ratio), [`dpo`](#dpo), [`working_capital`](#working_capital)
 - **Correlated:** [`dpo`](#dpo), [`working_capital`](#working_capital)
@@ -4580,7 +4580,7 @@ Outstanding invoices owed to the company.
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/accounts_receivable.yml) · [sql](dbt/analyses/metrics/finance/accounts_receivable.sql)
 - **Numerator:** Outstanding customer invoices
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** ERP / general ledger
 - **Parents:** [`current_ratio`](#current_ratio), [`dso`](#dso), [`working_capital`](#working_capital)
 - **Correlated:** [`dso`](#dso), [`billings`](#billings)
@@ -4593,7 +4593,7 @@ Total approved budget for the fiscal year.
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/annual_budget.yml) · [sql](dbt/analyses/metrics/finance/annual_budget.sql)
 - **Numerator:** Approved annual budget
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** FP&A / budgeting
 - **Parents:** [`budget_variance`](#budget_variance), [`forecast_accuracy`](#forecast_accuracy), [`headcount_vs_budget`](#headcount_vs_budget)
 - **Correlated:** [`budget_variance`](#budget_variance), [`opex`](#opex)
@@ -4606,7 +4606,7 @@ Cash on hand and liquid short-term instruments.
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/cash_and_equivalents.yml) · [sql](dbt/analyses/metrics/finance/cash_and_equivalents.sql)
 - **Numerator:** Cash on balance sheet
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** ERP / general ledger
 - **Parents:** [`current_ratio`](#current_ratio), [`net_debt`](#net_debt), [`working_capital`](#working_capital)
 - **Correlated:** [`burn_rate`](#burn_rate), [`runway_months`](#runway_months), [`dso`](#dso)
@@ -4619,7 +4619,7 @@ Non-cash charges for the period.
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/da.yml) · [sql](dbt/analyses/metrics/finance/da.sql)
 - **Numerator:** Depreciation + amortization
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** ERP / general ledger
 - **Parents:** [`ebitda`](#ebitda), [`operating_cash_flow`](#operating_cash_flow)
 - **Correlated:** [`capex`](#capex), [`free_cash_flow`](#free_cash_flow)
@@ -4632,7 +4632,7 @@ Price/mix contribution to EBITDA variance vs prior period.
 - **Domain:** Finance · **Industry:** financial_services
 - **Files:** [yml](dbt/models/metrics/finance/ebitda_bridge_price.yml) · [sql](dbt/analyses/metrics/finance/ebitda_bridge_price.sql)
 - **Numerator:** (Current Price - Prior Price) × Prior Volume
-- **Dimensions:** company_id, product_line, fiscal_period
+- **Dimensions:** Company, Product Line, Time
 - **Data sources:** ERP / general ledger, CRM
 - **Parents:** [`ebitda`](#ebitda)
 - **Correlated:** [`ebitda_bridge_volume`](#ebitda_bridge_volume)
@@ -4645,7 +4645,7 @@ Volume contribution to EBITDA variance vs prior period.
 - **Domain:** Finance · **Industry:** financial_services
 - **Files:** [yml](dbt/models/metrics/finance/ebitda_bridge_volume.yml) · [sql](dbt/analyses/metrics/finance/ebitda_bridge_volume.sql)
 - **Numerator:** (Current Volume - Prior Volume) × Prior Price
-- **Dimensions:** company_id, product_line, fiscal_period
+- **Dimensions:** Company, Product Line, Time
 - **Data sources:** ERP / general ledger
 - **Parents:** [`ebitda`](#ebitda)
 - **Correlated:** [`ebitda_bridge_price`](#ebitda_bridge_price)
@@ -4658,7 +4658,7 @@ One-time revenue from customer onboarding and implementation.
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/implementation_revenue.yml) · [sql](dbt/analyses/metrics/finance/implementation_revenue.sql)
 - **Numerator:** Onboarding/implementation fees
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Commerce / order management
 - **Parents:** [`revenue`](#revenue)
 - **Correlated:** [`services_revenue`](#services_revenue)
@@ -4671,7 +4671,7 @@ Full-year revenue from the prior fiscal year.
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/prior_year_revenue.yml) · [sql](dbt/analyses/metrics/finance/prior_year_revenue.sql)
 - **Numerator:** Full prior year revenue
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Commerce / order management
 - **Parents:** [`revenue_vs_py`](#revenue_vs_py)
 - **Correlated:** [`revenue_vs_py`](#revenue_vs_py), [`revenue`](#revenue)
@@ -4684,7 +4684,7 @@ Revenue recognized in Q1.
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/q1_revenue.yml) · [sql](dbt/analyses/metrics/finance/q1_revenue.sql)
 - **Numerator:** Revenue recognized in Q1
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Commerce / order management
 - **Parents:** [`revenue_ytd`](#revenue_ytd)
 - **Correlated:** [`q2_revenue`](#q2_revenue), [`revenue`](#revenue)
@@ -4697,7 +4697,7 @@ Revenue recognized in Q2.
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/q2_revenue.yml) · [sql](dbt/analyses/metrics/finance/q2_revenue.sql)
 - **Numerator:** Revenue recognized in Q2
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Commerce / order management
 - **Parents:** [`revenue_ytd`](#revenue_ytd)
 - **Correlated:** [`q1_revenue`](#q1_revenue), [`q3_revenue`](#q3_revenue)
@@ -4710,7 +4710,7 @@ Revenue recognized in Q3.
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/q3_revenue.yml) · [sql](dbt/analyses/metrics/finance/q3_revenue.sql)
 - **Numerator:** Revenue recognized in Q3
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Commerce / order management
 - **Parents:** [`revenue_ytd`](#revenue_ytd)
 - **Correlated:** [`q2_revenue`](#q2_revenue), [`q4_revenue`](#q4_revenue)
@@ -4723,7 +4723,7 @@ Revenue recognized in Q4.
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/q4_revenue.yml) · [sql](dbt/analyses/metrics/finance/q4_revenue.sql)
 - **Numerator:** Revenue recognized in Q4
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Commerce / order management
 - **Parents:** [`revenue_ytd`](#revenue_ytd)
 - **Correlated:** [`q3_revenue`](#q3_revenue), [`revenue`](#revenue)
@@ -4736,7 +4736,7 @@ The portion of TAM that the company can realistically serve.
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/sam.yml) · [sql](dbt/analyses/metrics/finance/sam.sql)
 - **Numerator:** Serviceable addressable market estimate
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Parents:** [`market_penetration_rate`](#market_penetration_rate)
 - **Correlated:** [`tam`](#tam), [`market_share`](#market_share)
 
@@ -4748,7 +4748,7 @@ Total assets minus total liabilities.
 - **Domain:** Finance · **Industry:** financial_services
 - **Files:** [yml](dbt/models/metrics/finance/shareholder_equity.yml) · [sql](dbt/analyses/metrics/finance/shareholder_equity.sql)
 - **Numerator:** Total assets − total liabilities
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** ERP / general ledger
 - **Parents:** [`roe`](#roe), [`debt_to_equity`](#debt_to_equity)
 - **Children:** [`total_assets`](#total_assets), [`total_liabilities`](#total_liabilities)
@@ -4762,7 +4762,7 @@ Total sales and marketing expenditure in the period.
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/sm_spend.yml) · [sql](dbt/analyses/metrics/finance/sm_spend.sql)
 - **Numerator:** Sales & marketing total spend
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** ERP / general ledger
 - **Parents:** [`magic_number`](#magic_number), [`cac_payback`](#cac_payback)
 - **Correlated:** [`cac`](#cac), [`marketing_cac`](#marketing_cac)
@@ -4775,7 +4775,7 @@ Estimated total market opportunity for the product or service.
 - **Domain:** Finance · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/finance/tam.yml) · [sql](dbt/analyses/metrics/finance/tam.sql)
 - **Numerator:** Total addressable market estimate
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Parents:** [`market_penetration_rate`](#market_penetration_rate)
 - **Correlated:** [`sam`](#sam), [`market_share`](#market_share)
 
@@ -4787,7 +4787,7 @@ Total value of assets on the balance sheet.
 - **Domain:** Finance · **Industry:** financial_services
 - **Files:** [yml](dbt/models/metrics/finance/total_assets.yml) · [sql](dbt/analyses/metrics/finance/total_assets.sql)
 - **Numerator:** Sum of all asset values
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** ERP / general ledger
 - **Parents:** [`roa`](#roa), [`current_ratio`](#current_ratio), [`roic`](#roic), [`shareholder_equity`](#shareholder_equity)
 - **Correlated:** [`total_liabilities`](#total_liabilities), [`shareholder_equity`](#shareholder_equity)
@@ -4800,7 +4800,7 @@ Sum of short-term and long-term debt obligations.
 - **Domain:** Finance · **Industry:** financial_services
 - **Files:** [yml](dbt/models/metrics/finance/total_debt.yml) · [sql](dbt/analyses/metrics/finance/total_debt.sql)
 - **Numerator:** Short-term + long-term debt
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** ERP / general ledger
 - **Parents:** [`debt_to_equity`](#debt_to_equity), [`net_debt`](#net_debt), [`interest_coverage_ratio`](#interest_coverage_ratio), [`roic`](#roic)
 - **Correlated:** [`leverage_ratio`](#leverage_ratio), [`interest_coverage_ratio`](#interest_coverage_ratio)
@@ -4813,7 +4813,7 @@ Total value of liabilities on the balance sheet.
 - **Domain:** Finance · **Industry:** financial_services
 - **Files:** [yml](dbt/models/metrics/finance/total_liabilities.yml) · [sql](dbt/analyses/metrics/finance/total_liabilities.sql)
 - **Numerator:** Sum of all liability values
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** ERP / general ledger
 - **Parents:** [`shareholder_equity`](#shareholder_equity)
 - **Correlated:** [`total_assets`](#total_assets), [`debt_to_equity`](#debt_to_equity)
@@ -4829,7 +4829,7 @@ Percentage of eligible employees actively using offered benefits.
 - **Files:** [yml](dbt/models/metrics/hr/benefits_utilization.yml) · [sql](dbt/analyses/metrics/hr/benefits_utilization.sql)
 - **Numerator:** Employees using benefits
 - **Denominator:** Eligible employees
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** HRIS
 - **Parents:** [`employee_engagement_score`](#employee_engagement_score)
 - **Correlated:** [`employee_engagement_score`](#employee_engagement_score), [`total_comp_expense`](#total_comp_expense)
@@ -4842,7 +4842,7 @@ Full-time equivalent employee count at end of period.
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/headcount_fte.yml) · [sql](dbt/analyses/metrics/hr/headcount_fte.sql)
 - **Numerator:** COUNT(active_employees) weighted by employment fraction
-- **Dimensions:** company_id, department, location, period
+- **Dimensions:** Company, Department, Location, Time
 - **Data sources:** HRIS
 - **Parents:** [`revenue_per_employee`](#revenue_per_employee), [`student_teacher_ratio`](#student_teacher_ratio)
 - **Correlated:** [`headcount_cost`](#headcount_cost), [`opex`](#opex), [`voluntary_turnover`](#voluntary_turnover), [`time_to_fill`](#time_to_fill)
@@ -4855,7 +4855,7 @@ Number of employees who started in the period.
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/new_hires.yml) · [sql](dbt/analyses/metrics/hr/new_hires.sql)
 - **Numerator:** Employees started in period
-- **Dimensions:** date, department
+- **Dimensions:** Time, Department
 - **Data sources:** HRIS
 - **Parents:** [`headcount`](#headcount), [`cost_per_hire`](#cost_per_hire), [`offer_acceptance_rate`](#offer_acceptance_rate)
 - **Correlated:** [`cost_per_hire`](#cost_per_hire), [`time_to_fill`](#time_to_fill)
@@ -4868,7 +4868,7 @@ Number of currently unfilled job postings.
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/open_requisitions.yml) · [sql](dbt/analyses/metrics/hr/open_requisitions.sql)
 - **Numerator:** Open job requisitions
-- **Dimensions:** date, department
+- **Dimensions:** Time, Department
 - **Data sources:** ATS
 - **Parents:** [`time_to_hire`](#time_to_hire)
 - **Correlated:** [`time_to_fill`](#time_to_fill), [`headcount_vs_budget`](#headcount_vs_budget)
@@ -4881,7 +4881,7 @@ Total overtime hours logged by employees in the period.
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/overtime_hours.yml) · [sql](dbt/analyses/metrics/hr/overtime_hours.sql)
 - **Numerator:** Overtime hours logged
-- **Dimensions:** date, department
+- **Dimensions:** Time, Department
 - **Data sources:** Time and attendance
 - **Parents:** [`workforce_productivity`](#workforce_productivity)
 - **Correlated:** [`workforce_productivity`](#workforce_productivity), [`absenteeism_rate`](#absenteeism_rate)
@@ -4894,7 +4894,7 @@ Number of employees in engineering, product, and research roles.
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/rd_headcount.yml) · [sql](dbt/analyses/metrics/hr/rd_headcount.sql)
 - **Numerator:** R&D/engineering/product employees
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** HRIS
 - **Parents:** [`rd_headcount_pct`](#rd_headcount_pct)
 - **Correlated:** [`rd_headcount_pct`](#rd_headcount_pct), [`deployment_frequency`](#deployment_frequency)
@@ -4907,7 +4907,7 @@ Number of active candidates across all open requisitions.
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/recruiting_pipeline.yml) · [sql](dbt/analyses/metrics/hr/recruiting_pipeline.sql)
 - **Numerator:** Active candidates in pipeline
-- **Dimensions:** date, department
+- **Dimensions:** Time, Department
 - **Data sources:** ATS
 - **Parents:** [`offer_acceptance_rate`](#offer_acceptance_rate), [`time_to_hire`](#time_to_hire)
 - **Correlated:** [`time_to_hire`](#time_to_hire), [`offer_acceptance_rate`](#offer_acceptance_rate)
@@ -4921,7 +4921,7 @@ Percentage of employees on fully remote or hybrid schedules.
 - **Files:** [yml](dbt/models/metrics/hr/remote_work_rate.yml) · [sql](dbt/analyses/metrics/hr/remote_work_rate.sql)
 - **Numerator:** Remote and hybrid employees
 - **Denominator:** Total headcount
-- **Dimensions:** date, department
+- **Dimensions:** Time, Department
 - **Data sources:** HRIS
 - **Parents:** [`employee_engagement_score`](#employee_engagement_score)
 - **Correlated:** [`absenteeism_rate`](#absenteeism_rate), [`employee_engagement_score`](#employee_engagement_score)
@@ -4934,7 +4934,7 @@ Number of quota-carrying sales representatives.
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/sales_headcount.yml) · [sql](dbt/analyses/metrics/hr/sales_headcount.sql)
 - **Numerator:** Quota-carrying sales reps
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** HRIS
 - **Parents:** [`arr_per_rep`](#arr_per_rep)
 - **Correlated:** [`arr_per_rep`](#arr_per_rep), [`quota_attainment`](#quota_attainment)
@@ -4947,7 +4947,7 @@ Number of employees who left (voluntarily or involuntarily) in the period.
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/separations.yml) · [sql](dbt/analyses/metrics/hr/separations.sql)
 - **Numerator:** Employees who left in period
-- **Dimensions:** date, department
+- **Dimensions:** Time, Department
 - **Data sources:** HRIS
 - **Parents:** [`turnover_rate`](#turnover_rate), [`regrettable_attrition`](#regrettable_attrition), [`voluntary_turnover`](#voluntary_turnover)
 - **Correlated:** [`voluntary_turnover`](#voluntary_turnover), [`regrettable_attrition`](#regrettable_attrition)
@@ -4960,7 +4960,7 @@ Total salaries, benefits, and equity costs for the period.
 - **Domain:** People & HR · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/hr/total_comp_expense.yml) · [sql](dbt/analyses/metrics/hr/total_comp_expense.sql)
 - **Numerator:** Total compensation and benefits cost
-- **Dimensions:** date, department
+- **Dimensions:** Time, Department
 - **Data sources:** Payroll
 - **Parents:** [`opex`](#opex), [`hr_cost_pct_revenue`](#hr_cost_pct_revenue), [`cost_per_hire`](#cost_per_hire), [`gender_pay_gap`](#gender_pay_gap), [`support_cost_per_ticket`](#support_cost_per_ticket)
 - **Correlated:** [`headcount`](#headcount), [`cost_per_hire`](#cost_per_hire), [`benefits_utilization`](#benefits_utilization)
@@ -4975,7 +4975,7 @@ Total clicks on paid ads in the period.
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/ad_clicks.yml) · [sql](dbt/analyses/metrics/marketing/ad_clicks.sql)
 - **Numerator:** SUM(clicks)
-- **Dimensions:** channel, campaign, ad_set, date
+- **Dimensions:** Channel, Campaign, Ad Set, Time
 - **Data sources:** Ad platforms
 - **Parents:** [`ctr`](#ctr), [`cpc`](#cpc)
 - **Correlated:** [`impressions`](#impressions), [`web_conversion_rate`](#web_conversion_rate)
@@ -4988,7 +4988,7 @@ Total referring domain backlinks to the site — SEO authority signal.
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/backlink_count.yml) · [sql](dbt/analyses/metrics/marketing/backlink_count.sql)
 - **Numerator:** COUNT(referring domains)
-- **Dimensions:** domain, link_type, period
+- **Dimensions:** Referring Domain, Link Type, Time
 - **Data sources:** SEO tools
 - **Parents:** [`domain_authority`](#domain_authority)
 - **Correlated:** [`domain_authority`](#domain_authority), [`organic_sessions`](#organic_sessions), [`referral_sessions`](#referral_sessions)
@@ -5001,7 +5001,7 @@ Total referring backlinks to the domain.
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/backlinks_count.yml) · [sql](dbt/analyses/metrics/marketing/backlinks_count.sql)
 - **Numerator:** External links pointing to site
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** SEO tools
 - **Parents:** [`domain_authority`](#domain_authority)
 - **Correlated:** [`domain_authority`](#domain_authority), [`organic_sessions`](#organic_sessions), [`top10_keyword_count`](#top10_keyword_count)
@@ -5014,7 +5014,7 @@ Count of content assets published in the period (blogs, whitepapers, videos).
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/content_published_count.yml) · [sql](dbt/analyses/metrics/marketing/content_published_count.sql)
 - **Numerator:** COUNT(published content assets)
-- **Dimensions:** content_type, topic, channel, period, date, type
+- **Dimensions:** Content Type, Topic, Channel, Time
 - **Data sources:** CMS
 - **Parents:** [`organic_sessions`](#organic_sessions)
 - **Correlated:** [`organic_sessions`](#organic_sessions), [`mql`](#mql), [`top10_keyword_count`](#top10_keyword_count), [`domain_authority`](#domain_authority)
@@ -5027,7 +5027,7 @@ Total attendees at company-sponsored events in the period.
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/event_attendees.yml) · [sql](dbt/analyses/metrics/marketing/event_attendees.sql)
 - **Numerator:** Event attendees
-- **Dimensions:** date, event
+- **Dimensions:** Time, Event
 - **Data sources:** Events and webinar platform
 - **Parents:** [`mql`](#mql)
 - **Correlated:** [`mql`](#mql), [`cost_per_event_attendee`](#cost_per_event_attendee)
@@ -5040,7 +5040,7 @@ Total ad impressions served in the period.
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/impressions.yml) · [sql](dbt/analyses/metrics/marketing/impressions.sql)
 - **Numerator:** SUM(impressions)
-- **Dimensions:** channel, campaign, ad_set, date, ad
+- **Dimensions:** Channel, Campaign, Ad Set, Time, Ad
 - **Data sources:** Ad platforms
 - **Parents:** [`ctr`](#ctr), [`cpm`](#cpm), [`cpc`](#cpc)
 - **Correlated:** [`ad_clicks`](#ad_clicks), [`share_of_voice`](#share_of_voice), [`social_followers`](#social_followers), [`ctr`](#ctr), [`cpc`](#cpc)
@@ -5053,7 +5053,7 @@ Total brand mentions in press or media in the period.
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/pr_mentions.yml) · [sql](dbt/analyses/metrics/marketing/pr_mentions.sql)
 - **Numerator:** PR mentions in period
-- **Dimensions:** date, outlet
+- **Dimensions:** Time, Media Outlet
 - **Data sources:** Media monitoring
 - **Parents:** [`earned_media_value`](#earned_media_value)
 - **Correlated:** [`earned_media_value`](#earned_media_value), [`domain_authority`](#domain_authority), [`social_engagement_rate`](#social_engagement_rate)
@@ -5066,7 +5066,7 @@ Web sessions originating from referring websites (non-paid, non-organic).
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/referral_sessions.yml) · [sql](dbt/analyses/metrics/marketing/referral_sessions.sql)
 - **Numerator:** COUNT(sessions WHERE medium = 'referral')
-- **Dimensions:** referrer_domain, landing_page, period
+- **Dimensions:** Referrer Domain, Landing Page, Time
 - **Data sources:** Web analytics
 - **Parents:** [`website_sessions`](#website_sessions)
 - **Correlated:** [`organic_sessions`](#organic_sessions), [`backlink_count`](#backlink_count)
@@ -5079,7 +5079,7 @@ Total followers across social platforms at end of period.
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/social_followers.yml) · [sql](dbt/analyses/metrics/marketing/social_followers.sql)
 - **Numerator:** SUM(followers)
-- **Dimensions:** platform, account, period
+- **Dimensions:** Platform, Social Account, Time
 - **Data sources:** Social media accounts
 - **Parents:** [`share_of_voice`](#share_of_voice), [`social_engagement_rate`](#social_engagement_rate)
 - **Correlated:** [`organic_sessions`](#organic_sessions), [`impressions`](#impressions)
@@ -5092,7 +5092,7 @@ Number of customer testimonials or case studies collected YTD.
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/testimonials_count.yml) · [sql](dbt/analyses/metrics/marketing/testimonials_count.sql)
 - **Numerator:** Testimonials published
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** CRM, Review platforms
 - **Parents:** [`nps`](#nps)
 - **Correlated:** [`review_rating`](#review_rating), [`nps`](#nps)
@@ -5105,7 +5105,7 @@ Total registrations across all webinars in the period.
 - **Domain:** Marketing · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/marketing/webinar_registrants.yml) · [sql](dbt/analyses/metrics/marketing/webinar_registrants.sql)
 - **Numerator:** Webinar registrations
-- **Dimensions:** date, webinar
+- **Dimensions:** Time, Webinar
 - **Data sources:** Events and webinar platform
 - **Parents:** [`webinar_attendance_rate`](#webinar_attendance_rate)
 - **Correlated:** [`webinar_attendance_rate`](#webinar_attendance_rate), [`mql`](#mql)
@@ -5121,7 +5121,7 @@ Energy expense allocated per unit of output — sustainability and efficiency si
 - **Files:** [yml](dbt/models/metrics/operations/energy_cost_per_unit.yml) · [sql](dbt/analyses/metrics/operations/energy_cost_per_unit.sql)
 - **Numerator:** Energy Cost
 - **Denominator:** Units Produced
-- **Dimensions:** facility_id, production_line, period
+- **Dimensions:** Facility, Production Line, Time
 - **Data sources:** Energy and emissions monitoring, ERP / general ledger
 - **Parents:** [`cost_per_unit`](#cost_per_unit)
 - **Correlated:** [`capacity_utilization`](#capacity_utilization), [`carbon_emissions_per_unit`](#carbon_emissions_per_unit)
@@ -5134,7 +5134,7 @@ Maintenance and facilities work orders created in the period.
 - **Domain:** Operations · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/operations/work_orders.yml) · [sql](dbt/analyses/metrics/operations/work_orders.sql)
 - **Numerator:** Work orders created
-- **Dimensions:** work_order_id, facility_id, category, priority, created_date
+- **Dimensions:** Work Order, Facility, Category, Priority, Time
 - **Data sources:** CMMS
 - **Parents:** [`work_order_resolution_time`](#work_order_resolution_time), [`preventive_maintenance_rate`](#preventive_maintenance_rate)
 
@@ -5148,7 +5148,7 @@ Total API calls made by all integrations and users in the period.
 - **Domain:** Product · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/product/api_calls_total.yml) · [sql](dbt/analyses/metrics/product/api_calls_total.sql)
 - **Numerator:** Total API calls
-- **Dimensions:** date, endpoint
+- **Dimensions:** Time, Endpoint
 - **Data sources:** API gateway
 - **Parents:** [`api_latency_p95`](#api_latency_p95)
 - **Correlated:** [`api_consumers`](#api_consumers), [`api_latency_p95`](#api_latency_p95)
@@ -5161,7 +5161,7 @@ Distinct applications or users making API calls in the period.
 - **Domain:** Product · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/product/api_consumers.yml) · [sql](dbt/analyses/metrics/product/api_consumers.sql)
 - **Numerator:** Unique API consumers
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** API gateway
 - **Parents:** [`mau`](#mau)
 - **Correlated:** [`api_calls_total`](#api_calls_total), [`dau`](#dau)
@@ -5174,7 +5174,7 @@ Total app installs from app stores in the period.
 - **Domain:** Product · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/product/app_downloads.yml) · [sql](dbt/analyses/metrics/product/app_downloads.sql)
 - **Numerator:** App installs in period
-- **Dimensions:** date, platform
+- **Dimensions:** Time, Platform
 - **Data sources:** App stores
 - **Parents:** [`new_user_signups`](#new_user_signups)
 - **Correlated:** [`dau`](#dau), [`activation_rate`](#activation_rate)
@@ -5187,7 +5187,7 @@ Count of feature requests submitted via support, NPS verbatims, or feedback tool
 - **Domain:** Product · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/product/feature_request_volume.yml) · [sql](dbt/analyses/metrics/product/feature_request_volume.sql)
 - **Numerator:** COUNT(feature requests)
-- **Dimensions:** feature_area, segment, channel, period
+- **Dimensions:** Feature Area, Customer Segment, Channel, Time
 - **Data sources:** Product feedback
 - **Parents:** [`nps`](#nps)
 - **Correlated:** [`nps`](#nps), [`feature_adoption_rate`](#feature_adoption_rate)
@@ -5201,7 +5201,7 @@ Percentage of users who exit the conversion funnel at a given step.
 - **Files:** [yml](dbt/models/metrics/product/funnel_dropoff.yml) · [sql](dbt/analyses/metrics/product/funnel_dropoff.sql)
 - **Numerator:** Users at step N
 - **Denominator:** Users at step N−1
-- **Dimensions:** date, funnel_step
+- **Dimensions:** Time, Funnel Step
 - **Data sources:** Web analytics
 - **Parents:** [`activation_rate`](#activation_rate)
 - **Correlated:** [`activation_rate`](#activation_rate), [`session_to_lead_rate`](#session_to_lead_rate)
@@ -5215,7 +5215,7 @@ Percentage of customers who responded to surveys sent.
 - **Files:** [yml](dbt/models/metrics/product/survey_response_rate.yml) · [sql](dbt/analyses/metrics/product/survey_response_rate.sql)
 - **Numerator:** Responses received
 - **Denominator:** Surveys sent
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** Survey platform
 - **Parents:** [`nps`](#nps)
 - **Correlated:** [`nps`](#nps), [`csat`](#csat), [`employee_engagement_score`](#employee_engagement_score)
@@ -5228,7 +5228,7 @@ New free trial registrations in the period.
 - **Domain:** Product · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/product/trial_signups.yml) · [sql](dbt/analyses/metrics/product/trial_signups.sql)
 - **Numerator:** Trial account signups
-- **Dimensions:** date, channel
+- **Dimensions:** Time, Channel
 - **Data sources:** Application database
 - **Parents:** [`plg_rate`](#plg_rate), [`trial_to_paid_rate`](#trial_to_paid_rate), [`free_to_paid_rate`](#free_to_paid_rate)
 - **Correlated:** [`activation_rate`](#activation_rate), [`free_to_paid_rate`](#free_to_paid_rate), [`new_user_signups`](#new_user_signups)
@@ -5243,7 +5243,7 @@ ARR lost from customers who cancelled in the period.
 - **Domain:** SaaS · **Industry:** saas
 - **Files:** [yml](dbt/models/metrics/saas/churned_arr.yml) · [sql](dbt/analyses/metrics/saas/churned_arr.sql)
 - **Numerator:** ARR from cancelled contracts
-- **Dimensions:** date, customer_segment
+- **Dimensions:** Time, Customer Segment
 - **Data sources:** Billing / subscriptions
 - **Parents:** [`arr`](#arr), [`grr`](#grr), [`mrr_churn_rate`](#mrr_churn_rate), [`nrr`](#nrr), [`saas_quick_ratio`](#saas_quick_ratio)
 - **Correlated:** [`contraction_arr`](#contraction_arr), [`customer_churn_rate`](#customer_churn_rate)
@@ -5257,7 +5257,7 @@ Cumulative churn for a given acquisition cohort at N months.
 - **Files:** [yml](dbt/models/metrics/saas/cohort_churn.yml) · [sql](dbt/analyses/metrics/saas/cohort_churn.sql)
 - **Numerator:** Churned users in cohort
 - **Denominator:** Cohort starting size
-- **Dimensions:** date, cohort
+- **Dimensions:** Time, Cohort
 - **Data sources:** Billing / subscriptions, Application database
 - **Parents:** [`churn_rate`](#churn_rate)
 - **Correlated:** [`customer_churn_rate`](#customer_churn_rate), [`d30_retention`](#d30_retention)
@@ -5270,7 +5270,7 @@ ARR under signed contracts not yet recognized.
 - **Domain:** SaaS · **Industry:** saas
 - **Files:** [yml](dbt/models/metrics/saas/committed_arr.yml) · [sql](dbt/analyses/metrics/saas/committed_arr.sql)
 - **Numerator:** ARR under signed contracts not yet active
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** CRM, Billing / subscriptions
 - **Parents:** [`arr`](#arr)
 - **Correlated:** [`arr`](#arr), [`bookings`](#bookings), [`contracted_unbilled`](#contracted_unbilled)
@@ -5283,7 +5283,7 @@ ARR under contract not yet invoiced.
 - **Domain:** SaaS · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/saas/contracted_unbilled.yml) · [sql](dbt/analyses/metrics/saas/contracted_unbilled.sql)
 - **Numerator:** Contracted value not yet invoiced
-- **Dimensions:** date
+- **Dimensions:** Time
 - **Data sources:** CRM
 - **Parents:** [`billings`](#billings)
 - **Correlated:** [`arr`](#arr), [`billings`](#billings), [`committed_arr`](#committed_arr)
@@ -5296,7 +5296,7 @@ ARR lost from downgrades by existing customers.
 - **Domain:** SaaS · **Industry:** saas
 - **Files:** [yml](dbt/models/metrics/saas/contraction_arr.yml) · [sql](dbt/analyses/metrics/saas/contraction_arr.sql)
 - **Numerator:** ARR lost to downgrades
-- **Dimensions:** date, customer_segment
+- **Dimensions:** Time, Customer Segment
 - **Data sources:** Billing / subscriptions
 - **Parents:** [`arr`](#arr), [`nrr`](#nrr), [`grr`](#grr), [`saas_quick_ratio`](#saas_quick_ratio)
 - **Correlated:** [`churned_arr`](#churned_arr), [`customer_churn_rate`](#customer_churn_rate)
@@ -5309,7 +5309,7 @@ Total number of active paying customers.
 - **Domain:** SaaS · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/saas/customer_count.yml) · [sql](dbt/analyses/metrics/saas/customer_count.sql)
 - **Numerator:** Active customers at period end
-- **Dimensions:** date, segment
+- **Dimensions:** Time, Customer Segment
 - **Data sources:** CRM
 - **Parents:** [`revenue`](#revenue)
 - **Children:** [`monthly_new_customers`](#monthly_new_customers)
@@ -5326,7 +5326,7 @@ Win rate in deals that involved a named competitor.
 - **Files:** [yml](dbt/models/metrics/sales/competitive_win_rate.yml) · [sql](dbt/analyses/metrics/sales/competitive_win_rate.sql)
 - **Numerator:** Wins in competitive deals
 - **Denominator:** Total competitive opportunities
-- **Dimensions:** date, competitor
+- **Dimensions:** Time, Competitor
 - **Data sources:** CRM
 - **Parents:** [`win_rate`](#win_rate)
 - **Correlated:** [`win_rate`](#win_rate), [`avg_deal_size`](#avg_deal_size)
@@ -5339,7 +5339,7 @@ Product demo requests submitted in the period.
 - **Domain:** Sales · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/sales/demo_requests.yml) · [sql](dbt/analyses/metrics/sales/demo_requests.sql)
 - **Numerator:** Demo requests submitted
-- **Dimensions:** date, channel
+- **Dimensions:** Time, Channel
 - **Data sources:** CRM, Marketing automation
 - **Parents:** [`mql`](#mql)
 - **Correlated:** [`mql`](#mql), [`sql`](#sql), [`form_conversion_rate`](#form_conversion_rate)
@@ -5352,7 +5352,7 @@ Leads created in the period, from CRM and marketing automation.
 - **Domain:** Sales · **Industry:** cross_industry
 - **Files:** [yml](dbt/models/metrics/sales/leads.yml) · [sql](dbt/analyses/metrics/sales/leads.sql)
 - **Numerator:** Leads created
-- **Dimensions:** date, channel
+- **Dimensions:** Time, Channel
 - **Data sources:** CRM
 - **Parents:** [`cpl`](#cpl), [`form_conversion_rate`](#form_conversion_rate), [`lead_to_mql_rate`](#lead_to_mql_rate), [`mql`](#mql), [`session_to_lead_rate`](#session_to_lead_rate), [`monthly_new_customers`](#monthly_new_customers)
 - **Correlated:** [`mql`](#mql), [`cpl`](#cpl)

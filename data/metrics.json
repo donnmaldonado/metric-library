@@ -14,8 +14,8 @@
     "numerator": "Avg purchase value × frequency × lifespan",
     "denominator": "",
     "dimensions": [
-      "date",
-      "customer_segment",
+      "metric_time",
+      "segment",
       "cohort"
     ],
     "dataSources": [
@@ -55,7 +55,7 @@
     "numerator": "SUM(lifetime revenue per customer)",
     "denominator": "",
     "dimensions": [
-      "customer_id",
+      "customer",
       "segment",
       "cohort_month",
       "acquisition_channel"
@@ -93,13 +93,11 @@
     "numerator": "Students scoring ≥ Level 3",
     "denominator": "Total students tested",
     "dimensions": [
-      "school_id",
+      "school",
       "subject",
       "grade_level",
       "subgroup",
-      "academic_year",
-      "school_year",
-      "grade"
+      "school_year"
     ],
     "dataSources": [
       "assessment_platform",
@@ -192,8 +190,8 @@
     "numerator": "Per-Pupil Expenditure",
     "denominator": "Proficiency Rate",
     "dimensions": [
-      "school_id",
-      "period"
+      "school",
+      "metric_time"
     ],
     "dataSources": [
       "erp",
@@ -227,7 +225,7 @@
     "numerator": "EBIT + Depreciation + Amortization",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "segment"
     ],
     "dataSources": [
@@ -277,7 +275,7 @@
     "numerator": "Market cap + net debt",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "cap_table",
@@ -312,7 +310,7 @@
     "numerator": "Operating Cash Flow − CapEx",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "erp"
@@ -356,7 +354,7 @@
     "numerator": "Pipeline generated",
     "denominator": "Marketing spend",
     "dimensions": [
-      "date",
+      "metric_time",
       "campaign"
     ],
     "dataSources": [
@@ -397,7 +395,7 @@
     "numerator": "OpEx",
     "denominator": "Revenue",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "erp"
@@ -434,9 +432,9 @@
     "numerator": "Orders meeting all criteria",
     "denominator": "Total Orders",
     "dimensions": [
-      "warehouse_id",
+      "warehouse",
       "carrier",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "wms",
@@ -476,7 +474,7 @@
     "numerator": "Sum of opportunity values created",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "channel"
     ],
     "dataSources": [
@@ -510,8 +508,8 @@
     "numerator": "Revenue Growth % + EBITDA Margin %",
     "denominator": "",
     "dimensions": [
-      "company_id",
-      "fiscal_period"
+      "company",
+      "metric_time"
     ],
     "dataSources": [
       "erp",
@@ -587,7 +585,7 @@
     "numerator": "Active employees at period end",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "department",
       "location"
     ],
@@ -623,7 +621,7 @@
     "numerator": "Separations",
     "denominator": "Average headcount",
     "dimensions": [
-      "date",
+      "metric_time",
       "department"
     ],
     "dataSources": [
@@ -666,7 +664,6 @@
       "school_year",
       "school",
       "subgroup",
-      "school_id",
       "cohort_year"
     ],
     "dataSources": [
@@ -708,11 +705,10 @@
     "numerator": "Leads meeting MQL criteria in period",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "channel",
       "campaign",
-      "source",
-      "period"
+      "source"
     ],
     "dataSources": [
       "crm",
@@ -768,11 +764,10 @@
     "numerator": "On-time deliveries",
     "denominator": "Total deliveries",
     "dimensions": [
-      "date",
+      "metric_time",
       "region",
       "carrier",
-      "product_category",
-      "period"
+      "product_category"
     ],
     "dataSources": [
       "commerce_platform",
@@ -810,7 +805,7 @@
     "numerator": "Satisfied customers",
     "denominator": "Survey responses",
     "dimensions": [
-      "date",
+      "metric_time",
       "product",
       "channel"
     ],
@@ -847,7 +842,7 @@
     "dimensions": [
       "segment",
       "product",
-      "survey_period"
+      "metric_time"
     ],
     "dataSources": [
       "survey_platform"
@@ -893,9 +888,8 @@
     "numerator": "Composite score (usage + NPS + support)",
     "denominator": "",
     "dimensions": [
-      "date",
-      "account",
-      "customer_id",
+      "metric_time",
+      "customer",
       "segment",
       "plan_tier",
       "cohort_month"
@@ -948,8 +942,8 @@
     "numerator": "Total order revenue",
     "denominator": "Number of orders",
     "dimensions": [
-      "date",
-      "customer_segment",
+      "metric_time",
+      "segment",
       "channel"
     ],
     "dataSources": [
@@ -988,7 +982,7 @@
     "numerator": "Total sales & marketing spend",
     "denominator": "New customers",
     "dimensions": [
-      "date",
+      "metric_time",
       "channel"
     ],
     "dataSources": [
@@ -1048,7 +1042,7 @@
     "numerator": "CAC",
     "denominator": "MRR × Gross Margin %",
     "dimensions": [
-      "date",
+      "metric_time",
       "channel",
       "segment",
       "cohort"
@@ -1094,7 +1088,7 @@
     "dimensions": [
       "channel",
       "interaction_type",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "survey_platform",
@@ -1128,7 +1122,7 @@
     "numerator": "Revenue per cohort member over 12 months",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "cohort",
       "channel"
     ],
@@ -1165,7 +1159,7 @@
     "numerator": "Revenue per cohort member over 24 months",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "cohort"
     ],
     "dataSources": [
@@ -1202,10 +1196,8 @@
     "dimensions": [
       "segment",
       "product",
-      "cs_rep_id",
-      "period",
-      "date",
-      "customer_segment"
+      "cs_rep",
+      "metric_time"
     ],
     "dataSources": [
       "crm",
@@ -1242,7 +1234,7 @@
     "numerator": "Customer LTV",
     "denominator": "CAC",
     "dimensions": [
-      "date",
+      "metric_time",
       "channel"
     ],
     "dataSources": [
@@ -1284,7 +1276,7 @@
     "numerator": "Total marketing spend",
     "denominator": "New customers acquired",
     "dimensions": [
-      "date",
+      "metric_time",
       "channel"
     ],
     "dataSources": [
@@ -1322,7 +1314,7 @@
     "numerator": "Automated processes",
     "denominator": "Total defined processes",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [],
     "parentMetrics": [
@@ -1350,8 +1342,8 @@
     "numerator": "Total orders",
     "denominator": "Unique customers",
     "dimensions": [
-      "date",
-      "customer_segment"
+      "metric_time",
+      "segment"
     ],
     "dataSources": [
       "commerce_platform"
@@ -1384,7 +1376,7 @@
     "numerator": "Refunds processed",
     "denominator": "Total orders",
     "dimensions": [
-      "date",
+      "metric_time",
       "product"
     ],
     "dataSources": [
@@ -1418,8 +1410,8 @@
     "dimensions": [
       "segment",
       "plan_tier",
-      "cs_rep_id",
-      "period"
+      "cs_rep",
+      "metric_time"
     ],
     "dataSources": [
       "crm",
@@ -1457,7 +1449,7 @@
     "numerator": "Customers with 2+ orders",
     "denominator": "Total customers",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "commerce_platform"
@@ -1487,10 +1479,10 @@
     "numerator": "Students in Advanced Courses",
     "denominator": "Total Enrollment",
     "dimensions": [
-      "school_id",
+      "school",
       "grade_level",
       "demographic_group",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "sis"
@@ -1520,7 +1512,7 @@
     "numerator": "Customers buying across categories",
     "denominator": "Total customers",
     "dimensions": [
-      "date",
+      "metric_time",
       "product_category"
     ],
     "dataSources": [
@@ -1589,7 +1581,7 @@
     "denominator": "Enrolled students tested",
     "dimensions": [
       "school_year",
-      "grade",
+      "grade_level",
       "school"
     ],
     "dataSources": [
@@ -1630,10 +1622,10 @@
     "numerator": "ELLs advancing one or more levels",
     "denominator": "Total ELL Students",
     "dimensions": [
-      "school_id",
+      "school",
       "grade_level",
       "home_language",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "sis",
@@ -1664,9 +1656,9 @@
     "numerator": "Seniors who completed FAFSA",
     "denominator": "Total 12th Grade Enrollment",
     "dimensions": [
-      "school_id",
+      "school",
       "demographic_group",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "sis"
@@ -1731,10 +1723,10 @@
     "numerator": "Mastered IEP Goals",
     "denominator": "Total IEP Goals",
     "dimensions": [
-      "school_id",
+      "school",
       "disability_category",
       "grade_level",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "sis"
@@ -1796,7 +1788,7 @@
     "denominator": "Enrolled students tested",
     "dimensions": [
       "school_year",
-      "grade",
+      "grade_level",
       "school"
     ],
     "dataSources": [
@@ -1833,7 +1825,6 @@
     "dimensions": [
       "school_year",
       "school",
-      "school_id",
       "respondent_type",
       "survey_cycle"
     ],
@@ -1895,8 +1886,8 @@
     "numerator": "Total Personnel Cost",
     "denominator": "Total Operating Budget",
     "dimensions": [
-      "school_id",
-      "fiscal_year"
+      "school",
+      "metric_time"
     ],
     "dataSources": [
       "erp",
@@ -1933,13 +1924,10 @@
     "denominator": "Days enrolled",
     "dimensions": [
       "school_year",
-      "grade",
-      "school",
-      "school_id",
       "grade_level",
+      "school",
       "subgroup",
-      "month",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "sis"
@@ -1993,9 +1981,8 @@
     "dimensions": [
       "school_year",
       "school",
-      "school_id",
       "grade_level",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "sis",
@@ -2031,10 +2018,10 @@
     "numerator": "Teachers returning next year",
     "denominator": "Teachers at end of prior year",
     "dimensions": [
-      "school_id",
+      "school",
       "subject_area",
       "experience_band",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "hris",
@@ -2070,7 +2057,7 @@
     "numerator": "Upsell events",
     "denominator": "Total customers",
     "dimensions": [
-      "date",
+      "metric_time",
       "product"
     ],
     "dataSources": [
@@ -2104,7 +2091,7 @@
     "numerator": "Unplanned absence days",
     "denominator": "Available working days",
     "dimensions": [
-      "date",
+      "metric_time",
       "department"
     ],
     "dataSources": [
@@ -2185,7 +2172,7 @@
     "numerator": "Paid users active in last 30 days",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "app_database",
@@ -2221,7 +2208,7 @@
       "segment",
       "product_tier",
       "channel",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "crm",
@@ -2319,7 +2306,7 @@
     "numerator": "Average app store rating",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "platform"
     ],
     "dataSources": [
@@ -2351,9 +2338,9 @@
     "numerator": "SUM(invoice_amount WHERE days_outstanding > 90)",
     "denominator": "",
     "dimensions": [
-      "company_id",
-      "customer_segment",
-      "period"
+      "company",
+      "segment",
+      "metric_time"
     ],
     "dataSources": [
       "erp"
@@ -2390,7 +2377,7 @@
       "segment",
       "product_category",
       "channel",
-      "month"
+      "metric_time"
     ],
     "dataSources": [
       "app_database",
@@ -2432,7 +2419,7 @@
       "product_line",
       "channel",
       "geography",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "erp",
@@ -2463,7 +2450,7 @@
     "numerator": "Accounts below health score threshold",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "crm"
@@ -2497,8 +2484,8 @@
     "numerator": "Total bookings value",
     "denominator": "Number of deals closed",
     "dimensions": [
-      "date",
-      "sales_rep",
+      "metric_time",
+      "rep",
       "segment"
     ],
     "dataSources": [
@@ -2535,7 +2522,7 @@
     "numerator": "Sum of sales cycle days",
     "denominator": "Closed opportunities",
     "dimensions": [
-      "date",
+      "metric_time",
       "segment",
       "product"
     ],
@@ -2575,8 +2562,7 @@
       "platform",
       "product_area",
       "user_segment",
-      "period",
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "product_analytics"
@@ -2613,7 +2599,7 @@
       "landing_page",
       "channel",
       "device",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "web_analytics"
@@ -2647,7 +2633,7 @@
     "numerator": "Actual spend − Budgeted spend",
     "denominator": "Budgeted spend",
     "dimensions": [
-      "date",
+      "metric_time",
       "department"
     ],
     "dataSources": [
@@ -2685,7 +2671,7 @@
     "dimensions": [
       "department",
       "cost_center",
-      "fiscal_period"
+      "metric_time"
     ],
     "dataSources": [
       "erp",
@@ -2718,7 +2704,7 @@
     "numerator": "Monthly net cash outflow",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "banking",
@@ -2755,11 +2741,10 @@
     "numerator": "Actual output",
     "denominator": "Maximum capacity",
     "dimensions": [
-      "date",
+      "metric_time",
       "facility",
       "production_line",
-      "plant_id",
-      "period"
+      "plant"
     ],
     "dataSources": [
       "mes"
@@ -2795,9 +2780,9 @@
     "numerator": "SUM(capex_amount)",
     "denominator": "",
     "dimensions": [
-      "company_id",
+      "company",
       "asset_category",
-      "fiscal_period"
+      "metric_time"
     ],
     "dataSources": [
       "erp"
@@ -2830,9 +2815,9 @@
     "numerator": "Total CO2e Emissions (kg)",
     "denominator": "Units Produced",
     "dimensions": [
-      "facility_id",
+      "facility",
       "process_type",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "energy_monitoring",
@@ -2863,7 +2848,7 @@
     "numerator": "Failed deployments",
     "denominator": "Total deployments",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "ci_cd",
@@ -2903,13 +2888,10 @@
     "denominator": "Enrolled students",
     "dimensions": [
       "school_year",
-      "grade",
-      "school",
-      "school_id",
-      "subgroup",
       "grade_level",
-      "period",
-      "academic_year"
+      "school",
+      "subgroup",
+      "metric_time"
     ],
     "dataSources": [
       "sis"
@@ -2948,9 +2930,9 @@
     "numerator": "SUM(cogs_amount)",
     "denominator": "",
     "dimensions": [
-      "company_id",
+      "company",
       "product_line",
-      "fiscal_period"
+      "metric_time"
     ],
     "dataSources": [
       "erp"
@@ -2989,7 +2971,7 @@
     "numerator": "Event cost",
     "denominator": "Attendees",
     "dimensions": [
-      "date",
+      "metric_time",
       "event"
     ],
     "dataSources": [
@@ -3022,8 +3004,8 @@
     "denominator": "Total Miles Driven",
     "dimensions": [
       "fleet_type",
-      "vehicle_id",
-      "period"
+      "vehicle",
+      "metric_time"
     ],
     "dataSources": [
       "fleet_management",
@@ -3055,9 +3037,9 @@
     "numerator": "Total Production Cost",
     "denominator": "Units Produced",
     "dimensions": [
-      "product_id",
+      "product",
       "production_line",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "erp",
@@ -3092,7 +3074,7 @@
     "numerator": "Marketing spend",
     "denominator": "Leads generated",
     "dimensions": [
-      "date",
+      "metric_time",
       "channel",
       "campaign"
     ],
@@ -3134,7 +3116,7 @@
     "dimensions": [
       "channel",
       "campaign",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "ad_platforms"
@@ -3167,9 +3149,9 @@
     "numerator": "Students on credit pace",
     "denominator": "Total Students",
     "dimensions": [
-      "school_id",
+      "school",
       "grade_level",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "sis"
@@ -3201,7 +3183,7 @@
     "numerator": "Current Assets",
     "denominator": "Current Liabilities",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "erp"
@@ -3238,8 +3220,8 @@
     "numerator": "Total Debt",
     "denominator": "TTM EBITDA",
     "dimensions": [
-      "company_id",
-      "quarter"
+      "company",
+      "metric_time"
     ],
     "dataSources": [
       "erp"
@@ -3274,7 +3256,7 @@
     "numerator": "Total Debt",
     "denominator": "Shareholders' Equity",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "erp"
@@ -3310,7 +3292,7 @@
     "numerator": "SEO authority score (0–100)",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "seo_tools"
@@ -3349,7 +3331,7 @@
     "numerator": "Accounts Payable × 365",
     "denominator": "COGS",
     "dimensions": [
-      "date",
+      "metric_time",
       "vendor"
     ],
     "dataSources": [
@@ -3385,8 +3367,8 @@
     "numerator": "Accounts Receivable × 365",
     "denominator": "Annual Revenue",
     "dimensions": [
-      "date",
-      "customer_segment"
+      "metric_time",
+      "segment"
     ],
     "dataSources": [
       "erp"
@@ -3425,7 +3407,7 @@
     "numerator": "Estimated value of earned media coverage",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "media_monitoring"
@@ -3481,8 +3463,8 @@
     "numerator": "EBITDA",
     "denominator": "Revenue",
     "dimensions": [
-      "company_id",
-      "fiscal_period",
+      "company",
+      "metric_time",
       "segment"
     ],
     "dataSources": [
@@ -3521,8 +3503,8 @@
     "numerator": "Income Tax Expense",
     "denominator": "Pre-Tax Income (EBT)",
     "dimensions": [
-      "company_id",
-      "fiscal_period",
+      "company",
+      "metric_time",
       "jurisdiction"
     ],
     "dataSources": [
@@ -3555,12 +3537,11 @@
     "numerator": "COUNT(active enrollments)",
     "denominator": "",
     "dimensions": [
-      "school_id",
+      "school",
       "grade_level",
       "demographic_group",
-      "period",
-      "school_year",
-      "school"
+      "metric_time",
+      "school_year"
     ],
     "dataSources": [
       "sis"
@@ -3598,7 +3579,7 @@
       "endpoint",
       "error_type",
       "platform",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "error_tracking"
@@ -3636,7 +3617,7 @@
     "numerator": "Enterprise Value",
     "denominator": "EBITDA",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "cap_table",
@@ -3671,8 +3652,8 @@
     "numerator": "Pipeline value from expansion opportunities",
     "denominator": "",
     "dimensions": [
-      "date",
-      "csm"
+      "metric_time",
+      "cs_rep"
     ],
     "dataSources": [
       "crm"
@@ -3703,7 +3684,7 @@
     "numerator": "Tickets resolved on first contact",
     "denominator": "Total tickets",
     "dimensions": [
-      "date",
+      "metric_time",
       "channel"
     ],
     "dataSources": [
@@ -3742,7 +3723,7 @@
       "priority",
       "channel",
       "team",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "helpdesk"
@@ -3779,10 +3760,10 @@
     "numerator": "Hours in Service",
     "denominator": "Available Hours",
     "dimensions": [
-      "vehicle_id",
+      "vehicle",
       "fleet_type",
       "region",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "fleet_management"
@@ -3811,7 +3792,7 @@
     "numerator": "1 − |Actual − Forecast|",
     "denominator": "Forecast",
     "dimensions": [
-      "date",
+      "metric_time",
       "segment"
     ],
     "dataSources": [
@@ -3847,8 +3828,8 @@
     "numerator": "Form submissions",
     "denominator": "Form views",
     "dimensions": [
-      "date",
-      "form",
+      "metric_time",
+      "form_name",
       "page"
     ],
     "dataSources": [
@@ -3886,7 +3867,7 @@
     "numerator": "Free-to-paid conversions",
     "denominator": "Free users",
     "dimensions": [
-      "date",
+      "metric_time",
       "cohort"
     ],
     "dataSources": [
@@ -3924,9 +3905,9 @@
     "numerator": "Median male pay − Median female pay",
     "denominator": "Median male pay",
     "dimensions": [
-      "date",
+      "metric_time",
       "department",
-      "level"
+      "job_level"
     ],
     "dataSources": [
       "hris",
@@ -3961,8 +3942,8 @@
     "dimensions": [
       "category",
       "channel",
-      "seller_id",
-      "period"
+      "seller",
+      "metric_time"
     ],
     "dataSources": [
       "commerce_platform",
@@ -4001,10 +3982,9 @@
     "numerator": "Gross Profit",
     "denominator": "Revenue",
     "dimensions": [
-      "date",
+      "metric_time",
       "product_line",
-      "company_id",
-      "fiscal_period",
+      "company",
       "segment",
       "channel"
     ],
@@ -4050,7 +4030,7 @@
     "numerator": "Revenue",
     "denominator": "COGS",
     "dimensions": [
-      "date",
+      "metric_time",
       "product_line"
     ],
     "dataSources": [
@@ -4088,7 +4068,7 @@
     "numerator": "Gross Profit",
     "denominator": "Headcount",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "erp",
@@ -4156,9 +4136,8 @@
     "numerator": "EBIT",
     "denominator": "Interest Expense",
     "dimensions": [
-      "company_id",
-      "fiscal_period",
-      "date"
+      "company",
+      "metric_time"
     ],
     "dataSources": [
       "erp"
@@ -4198,7 +4177,7 @@
     "dimensions": [
       "department",
       "job_level",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "hris",
@@ -4231,7 +4210,7 @@
     "numerator": "Offers extended",
     "denominator": "Final round interviews",
     "dimensions": [
-      "date",
+      "metric_time",
       "department"
     ],
     "dataSources": [
@@ -4262,7 +4241,7 @@
     "numerator": "Net Debt",
     "denominator": "EBITDA",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "erp"
@@ -4299,7 +4278,7 @@
     "numerator": "Transacting listings",
     "denominator": "Total active listings",
     "dimensions": [
-      "date",
+      "metric_time",
       "category"
     ],
     "dataSources": [
@@ -4330,7 +4309,7 @@
     "numerator": "Net new ARR × 4",
     "denominator": "S&M spend (prior quarter)",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "billing",
@@ -4365,7 +4344,7 @@
     "numerator": "AVG(upward feedback scores)",
     "denominator": "",
     "dimensions": [
-      "manager_id",
+      "manager",
       "department",
       "survey_cycle"
     ],
@@ -4399,7 +4378,7 @@
     "numerator": "Company revenue",
     "denominator": "Total addressable market",
     "dimensions": [
-      "date",
+      "metric_time",
       "region"
     ],
     "dataSources": [],
@@ -4435,7 +4414,7 @@
       "channel",
       "campaign",
       "segment",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "crm",
@@ -4468,7 +4447,7 @@
     "dimensions": [
       "channel",
       "campaign",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "ad_platforms",
@@ -4511,9 +4490,9 @@
     "numerator": "Total Uptime Hours",
     "denominator": "Number of Failures",
     "dimensions": [
-      "system_id",
-      "facility_id",
-      "period"
+      "system",
+      "facility",
+      "metric_time"
     ],
     "dataSources": [
       "cmms"
@@ -4545,7 +4524,7 @@
     "numerator": "Sum of detection times",
     "denominator": "Number of incidents",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "apm"
@@ -4578,7 +4557,7 @@
     "numerator": "Sum of resolution times",
     "denominator": "Number of incidents",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "incident_management"
@@ -4613,7 +4592,7 @@
     "numerator": "Total Debt − Cash",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "erp"
@@ -4648,8 +4627,8 @@
     "numerator": "Revenue - All Expenses - Taxes",
     "denominator": "",
     "dimensions": [
-      "company_id",
-      "fiscal_period"
+      "company",
+      "metric_time"
     ],
     "dataSources": [
       "erp"
@@ -4689,9 +4668,8 @@
     "numerator": "Net Income",
     "denominator": "Revenue",
     "dimensions": [
-      "company_id",
-      "fiscal_period",
-      "date"
+      "company",
+      "metric_time"
     ],
     "dataSources": [
       "erp"
@@ -4725,7 +4703,7 @@
     "numerator": "New customers − Churned customers",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "channel"
     ],
     "dataSources": [
@@ -4766,8 +4744,7 @@
       "acquisition_channel",
       "plan_tier",
       "geography",
-      "period",
-      "date",
+      "metric_time",
       "channel"
     ],
     "dataSources": [
@@ -4805,7 +4782,7 @@
     "numerator": "Accepted offers",
     "denominator": "Offers extended",
     "dimensions": [
-      "date",
+      "metric_time",
       "department"
     ],
     "dataSources": [
@@ -4840,7 +4817,7 @@
     "numerator": "Net income + D&A − working capital changes",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "erp"
@@ -4874,7 +4851,7 @@
     "numerator": "Total operating expenses",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "department"
     ],
     "dataSources": [
@@ -4921,9 +4898,9 @@
     "numerator": "Error-Free Orders",
     "denominator": "Total Orders Shipped",
     "dimensions": [
-      "warehouse_id",
+      "warehouse",
       "carrier",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "wms",
@@ -4956,7 +4933,7 @@
     "numerator": "Paid-attributed pipeline",
     "denominator": "Total pipeline",
     "dimensions": [
-      "date",
+      "metric_time",
       "channel"
     ],
     "dataSources": [
@@ -4994,7 +4971,7 @@
     "dimensions": [
       "channel",
       "campaign",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "web_analytics"
@@ -5024,8 +5001,8 @@
     "numerator": "Total expenditures",
     "denominator": "Average daily membership (ADM)",
     "dimensions": [
-      "school_id",
-      "fiscal_year",
+      "school",
+      "metric_time",
       "function_code",
       "fund"
     ],
@@ -5074,7 +5051,7 @@
     "dimensions": [
       "team",
       "segment",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "crm"
@@ -5111,8 +5088,8 @@
     "dimensions": [
       "segment",
       "stage",
-      "rep_id",
-      "period"
+      "rep",
+      "metric_time"
     ],
     "dataSources": [
       "crm"
@@ -5145,7 +5122,7 @@
     "numerator": "Self-serve signups",
     "denominator": "Total new signups",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "app_database",
@@ -5180,9 +5157,9 @@
     "numerator": "Preventive Work Orders",
     "denominator": "Total Work Orders",
     "dimensions": [
-      "facility_id",
+      "facility",
       "asset_type",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "cmms"
@@ -5215,7 +5192,7 @@
     "numerator": "Push notification opens",
     "denominator": "Delivered notifications",
     "dimensions": [
-      "date",
+      "metric_time",
       "campaign"
     ],
     "dataSources": [
@@ -5246,8 +5223,8 @@
     "numerator": "Cash + Accounts Receivable",
     "denominator": "Current Liabilities",
     "dimensions": [
-      "company_id",
-      "quarter"
+      "company",
+      "metric_time"
     ],
     "dataSources": [
       "erp"
@@ -5277,9 +5254,9 @@
     "numerator": "ARR Closed",
     "denominator": "Quota",
     "dimensions": [
-      "rep_id",
+      "rep",
       "segment",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "crm",
@@ -5315,9 +5292,9 @@
     "numerator": "SUM(opex_amount WHERE gl_category = 'R&D')",
     "denominator": "",
     "dimensions": [
-      "company_id",
+      "company",
       "department",
-      "fiscal_period"
+      "metric_time"
     ],
     "dataSources": [
       "erp"
@@ -5348,7 +5325,7 @@
     "numerator": "Referral-attributed pipeline",
     "denominator": "Total pipeline",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "crm",
@@ -5381,7 +5358,7 @@
     "numerator": "Revenue from top 10 customers",
     "denominator": "Total revenue",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "commerce_platform"
@@ -5413,7 +5390,7 @@
     "numerator": "Revenue from existing customers",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "commerce_platform"
@@ -5443,7 +5420,7 @@
     "numerator": "Revenue from new customer acquisitions",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "commerce_platform"
@@ -5473,7 +5450,7 @@
     "numerator": "Average review score",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "platform"
     ],
     "dataSources": [
@@ -5508,9 +5485,8 @@
     "numerator": "Net Income",
     "denominator": "Total Assets",
     "dimensions": [
-      "date",
-      "company_id",
-      "fiscal_period"
+      "metric_time",
+      "company"
     ],
     "dataSources": [
       "erp"
@@ -5546,9 +5522,8 @@
     "numerator": "Net Income",
     "denominator": "Shareholders' Equity",
     "dimensions": [
-      "date",
-      "company_id",
-      "fiscal_period"
+      "metric_time",
+      "company"
     ],
     "dataSources": [
       "erp"
@@ -5587,7 +5562,7 @@
     "numerator": "NOPAT",
     "denominator": "Invested Capital",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "erp"
@@ -5621,8 +5596,8 @@
     "numerator": "Cash on Hand",
     "denominator": "Monthly Burn Rate",
     "dimensions": [
-      "company_id",
-      "as_of_date"
+      "company",
+      "metric_time"
     ],
     "dataSources": [
       "banking",
@@ -5658,9 +5633,9 @@
     "denominator": "COUNT(closed_won_opportunities)",
     "dimensions": [
       "segment",
-      "rep_id",
+      "rep",
       "deal_size_tier",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "crm"
@@ -5690,9 +5665,9 @@
     "numerator": "SUM(sales team headcount cost + tools)",
     "denominator": "",
     "dimensions": [
-      "company_id",
+      "company",
       "team",
-      "fiscal_period"
+      "metric_time"
     ],
     "dataSources": [
       "hris",
@@ -5724,7 +5699,7 @@
     "numerator": "Sessions",
     "denominator": "Active users",
     "dimensions": [
-      "date",
+      "metric_time",
       "platform"
     ],
     "dataSources": [
@@ -5757,9 +5732,9 @@
     "numerator": "SUM(opex_amount WHERE gl_category = 'SG&A')",
     "denominator": "",
     "dimensions": [
-      "company_id",
+      "company",
       "department",
-      "fiscal_period"
+      "metric_time"
     ],
     "dataSources": [
       "erp"
@@ -5794,12 +5769,11 @@
     "denominator": "",
     "dimensions": [
       "school_year",
-      "grade",
-      "school",
-      "student_id",
-      "subject",
       "grade_level",
-      "period"
+      "school",
+      "student",
+      "subject",
+      "metric_time"
     ],
     "dataSources": [
       "assessment_platform"
@@ -5834,7 +5808,7 @@
     "dimensions": [
       "platform",
       "keyword_group",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "media_monitoring"
@@ -5907,7 +5881,7 @@
     "dimensions": [
       "category",
       "tier",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "commerce_platform"
@@ -5941,7 +5915,7 @@
     "numerator": "Technical debt hours",
     "denominator": "Total dev hours",
     "dimensions": [
-      "date",
+      "metric_time",
       "service"
     ],
     "dataSources": [
@@ -5973,7 +5947,7 @@
     "numerator": "Days from signup to activation event",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "cohort"
     ],
     "dataSources": [
@@ -6008,7 +5982,7 @@
       "department",
       "job_level",
       "location",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "ats"
@@ -6052,8 +6026,7 @@
       "category",
       "channel",
       "team",
-      "period",
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "helpdesk"
@@ -6130,7 +6103,7 @@
     "dimensions": [
       "department",
       "training_type",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "lms"
@@ -6160,7 +6133,7 @@
     "numerator": "Paid conversions",
     "denominator": "Trial starts",
     "dimensions": [
-      "date",
+      "metric_time",
       "cohort"
     ],
     "dataSources": [
@@ -6199,11 +6172,9 @@
     "numerator": "Unsubscribes",
     "denominator": "Emails Delivered",
     "dimensions": [
-      "campaign_id",
+      "campaign",
       "segment",
-      "period",
-      "date",
-      "campaign"
+      "metric_time"
     ],
     "dataSources": [
       "messaging_platform"
@@ -6233,7 +6204,7 @@
     "numerator": "Invites sent × conversion rate",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "referral_program",
@@ -6270,7 +6241,7 @@
     "dimensions": [
       "landing_page",
       "channel",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "web_analytics"
@@ -6311,7 +6282,7 @@
       "channel",
       "source",
       "medium",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "web_analytics"
@@ -6353,9 +6324,9 @@
     "denominator": "Total Qualified Opportunities",
     "dimensions": [
       "segment",
-      "rep_id",
+      "rep",
       "source",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "crm"
@@ -6395,10 +6366,10 @@
     "numerator": "SUM(completed_date - created_date)",
     "denominator": "COUNT(completed work orders)",
     "dimensions": [
-      "facility_id",
+      "facility",
       "category",
       "priority",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "cmms"
@@ -6429,7 +6400,7 @@
     "numerator": "Revenue",
     "denominator": "Labor hours worked",
     "dimensions": [
-      "date",
+      "metric_time",
       "department"
     ],
     "dataSources": [
@@ -6469,8 +6440,8 @@
     "numerator": "Current Assets - Current Liabilities",
     "denominator": "",
     "dimensions": [
-      "company_id",
-      "quarter"
+      "company",
+      "metric_time"
     ],
     "dataSources": [
       "erp"
@@ -6513,7 +6484,7 @@
     "numerator": "Average years of service",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "department"
     ],
     "dataSources": [
@@ -6547,7 +6518,7 @@
       "job_level",
       "department",
       "location",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "hris",
@@ -6578,7 +6549,7 @@
     "numerator": "Complaints resolved within SLA",
     "denominator": "Total complaints",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "crm"
@@ -6609,7 +6580,7 @@
     "numerator": "Total recruiting costs",
     "denominator": "Hires made",
     "dimensions": [
-      "date",
+      "metric_time",
       "department"
     ],
     "dataSources": [
@@ -6678,7 +6649,7 @@
     "numerator": "Hires from underrepresented groups",
     "denominator": "Total hires",
     "dimensions": [
-      "date",
+      "metric_time",
       "department"
     ],
     "dataSources": [
@@ -6715,7 +6686,7 @@
       "job_level",
       "location",
       "survey_cycle",
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "survey_platform"
@@ -6768,7 +6739,7 @@
       "department",
       "location",
       "job_level",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "hris",
@@ -6804,7 +6775,7 @@
     "numerator": "Actual headcount − Budget headcount",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "department"
     ],
     "dataSources": [
@@ -6844,7 +6815,7 @@
     "numerator": "COGS",
     "denominator": "Average inventory value",
     "dimensions": [
-      "date",
+      "metric_time",
       "product",
       "location"
     ],
@@ -6923,7 +6894,7 @@
     "dimensions": [
       "segment",
       "team",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "crm",
@@ -6956,8 +6927,8 @@
     "numerator": "QBRs completed",
     "denominator": "QBRs scheduled",
     "dimensions": [
-      "date",
-      "csm"
+      "metric_time",
+      "cs_rep"
     ],
     "dataSources": [
       "crm"
@@ -6987,7 +6958,7 @@
     "numerator": "R&D headcount",
     "denominator": "Total headcount",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "hris"
@@ -7023,7 +6994,7 @@
     "numerator": "Regrettable departures",
     "denominator": "Total separations",
     "dimensions": [
-      "date",
+      "metric_time",
       "department"
     ],
     "dataSources": [
@@ -7059,8 +7030,8 @@
     "denominator": "Total SLA-Tracked Events",
     "dimensions": [
       "service_type",
-      "client_id",
-      "period"
+      "client",
+      "metric_time"
     ],
     "dataSources": [
       "helpdesk",
@@ -7091,7 +7062,7 @@
     "numerator": "Direct reports",
     "denominator": "Manager count",
     "dimensions": [
-      "date",
+      "metric_time",
       "department"
     ],
     "dataSources": [
@@ -7124,7 +7095,7 @@
     "numerator": "Days from application to offer acceptance",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "department"
     ],
     "dataSources": [
@@ -7161,7 +7132,7 @@
     "numerator": "Compliant POs",
     "denominator": "Total POs",
     "dimensions": [
-      "date",
+      "metric_time",
       "vendor"
     ],
     "dataSources": [
@@ -7196,11 +7167,10 @@
     "numerator": "Voluntary departures",
     "denominator": "Average headcount",
     "dimensions": [
-      "date",
+      "metric_time",
       "department",
       "job_level",
-      "location",
-      "period"
+      "location"
     ],
     "dataSources": [
       "hris"
@@ -7246,9 +7216,9 @@
     "numerator": "Bad Debt Write-Offs",
     "denominator": "Revenue",
     "dimensions": [
-      "company_id",
-      "customer_segment",
-      "fiscal_period"
+      "company",
+      "segment",
+      "metric_time"
     ],
     "dataSources": [
       "erp"
@@ -7280,7 +7250,7 @@
     "numerator": "Marketing spend",
     "denominator": "MQLs",
     "dimensions": [
-      "date",
+      "metric_time",
       "channel"
     ],
     "dataSources": [
@@ -7322,7 +7292,7 @@
     "dimensions": [
       "channel",
       "campaign",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "marketing_automation",
@@ -7356,7 +7326,7 @@
     "numerator": "Ad spend",
     "denominator": "Clicks",
     "dimensions": [
-      "date",
+      "metric_time",
       "channel"
     ],
     "dataSources": [
@@ -7402,8 +7372,7 @@
       "channel",
       "campaign",
       "ad_set",
-      "period",
-      "date",
+      "metric_time",
       "ad"
     ],
     "dataSources": [
@@ -7442,11 +7411,9 @@
     "numerator": "Emails Clicked",
     "denominator": "Emails Delivered",
     "dimensions": [
-      "campaign_id",
+      "campaign",
       "segment",
-      "period",
-      "date",
-      "campaign"
+      "metric_time"
     ],
     "dataSources": [
       "messaging_platform"
@@ -7480,9 +7447,9 @@
     "numerator": "Emails Opened",
     "denominator": "Emails Delivered",
     "dimensions": [
-      "campaign_id",
+      "campaign",
       "segment",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "messaging_platform"
@@ -7514,7 +7481,7 @@
     "numerator": "Time from order to delivery",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "product"
     ],
     "dataSources": [
@@ -7547,7 +7514,7 @@
     "dimensions": [
       "team",
       "service",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "ci_cd",
@@ -7580,7 +7547,7 @@
     "numerator": "MQLs",
     "denominator": "All leads",
     "dimensions": [
-      "date",
+      "metric_time",
       "channel"
     ],
     "dataSources": [
@@ -7617,7 +7584,7 @@
     "dimensions": [
       "channel",
       "campaign",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "crm",
@@ -7652,7 +7619,7 @@
     "numerator": "Organic-attributed pipeline",
     "denominator": "Total pipeline",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "web_analytics",
@@ -7689,7 +7656,7 @@
     "dimensions": [
       "channel",
       "campaign",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "ad_platforms",
@@ -7729,7 +7696,7 @@
     "numerator": "Leads created",
     "denominator": "Sessions",
     "dimensions": [
-      "date",
+      "metric_time",
       "channel"
     ],
     "dataSources": [
@@ -7765,7 +7732,7 @@
     "numerator": "Engagements (likes + comments + shares)",
     "denominator": "Followers",
     "dimensions": [
-      "date",
+      "metric_time",
       "platform"
     ],
     "dataSources": [
@@ -7801,12 +7768,11 @@
     "numerator": "Opportunities accepted by sales",
     "denominator": "",
     "dimensions": [
-      "date",
-      "sales_rep",
+      "metric_time",
+      "rep",
       "channel",
       "campaign",
-      "segment",
-      "period"
+      "segment"
     ],
     "dataSources": [
       "crm"
@@ -7845,9 +7811,9 @@
     "numerator": "SUM(receipt_date - po_date)",
     "denominator": "COUNT(purchase orders)",
     "dimensions": [
-      "supplier_id",
+      "supplier",
       "product_category",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "erp",
@@ -7883,8 +7849,7 @@
     "dimensions": [
       "keyword_group",
       "page",
-      "period",
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "seo_tools"
@@ -7918,7 +7883,7 @@
     "numerator": "Attendees",
     "denominator": "Registrants",
     "dimensions": [
-      "date",
+      "metric_time",
       "webinar"
     ],
     "dataSources": [
@@ -7953,7 +7918,7 @@
     "numerator": "Order complete − Order start",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "product"
     ],
     "dataSources": [
@@ -7991,9 +7956,9 @@
     "denominator": "Total Units Inspected",
     "dimensions": [
       "production_line",
-      "supplier_id",
-      "product_id",
-      "period"
+      "supplier",
+      "product",
+      "metric_time"
     ],
     "dataSources": [
       "qms",
@@ -8030,7 +7995,7 @@
     "numerator": "Escalated tickets",
     "denominator": "Total tickets",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "helpdesk"
@@ -8062,9 +8027,9 @@
     "numerator": "Order Lines Fully Shipped",
     "denominator": "Total Order Lines",
     "dimensions": [
-      "warehouse_id",
+      "warehouse",
       "product_category",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "wms",
@@ -8103,7 +8068,7 @@
     "numerator": "Fulfilled orders",
     "denominator": "Total orders",
     "dimensions": [
-      "date",
+      "metric_time",
       "region"
     ],
     "dataSources": [
@@ -8137,7 +8102,7 @@
     "dimensions": [
       "category_manager",
       "spend_category",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "erp",
@@ -8168,7 +8133,7 @@
     "numerator": "Incidents with documented root cause",
     "denominator": "Total incidents",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "incident_management"
@@ -8202,8 +8167,7 @@
     "dimensions": [
       "product_category",
       "channel",
-      "period",
-      "date",
+      "metric_time",
       "product"
     ],
     "dataSources": [
@@ -8237,10 +8201,10 @@
     "numerator": "Recordable Incidents × 200,000",
     "denominator": "Total Employee-Hours Worked",
     "dimensions": [
-      "facility_id",
+      "facility",
       "department",
       "incident_type",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "ehs",
@@ -8271,9 +8235,9 @@
     "numerator": "Enrolled Students",
     "denominator": "Available Seats",
     "dimensions": [
-      "school_id",
+      "school",
       "grade_level",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "sis"
@@ -8303,7 +8267,7 @@
     "numerator": "SLA breaches",
     "denominator": "Total tickets",
     "dimensions": [
-      "date",
+      "metric_time",
       "priority"
     ],
     "dataSources": [
@@ -8343,7 +8307,7 @@
     "numerator": "Stockout events",
     "denominator": "Total SKUs",
     "dimensions": [
-      "date",
+      "metric_time",
       "product",
       "location"
     ],
@@ -8379,7 +8343,7 @@
     "numerator": "Support team cost",
     "denominator": "Tickets resolved",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "helpdesk",
@@ -8417,8 +8381,8 @@
     "numerator": "Units produced or delivered in period",
     "denominator": "",
     "dimensions": [
-      "date",
-      "line"
+      "metric_time",
+      "production_line"
     ],
     "dataSources": [
       "mes"
@@ -8450,7 +8414,7 @@
     "numerator": "Open tickets beyond SLA threshold",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "helpdesk"
@@ -8483,7 +8447,7 @@
       "priority",
       "category",
       "team",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "helpdesk"
@@ -8515,7 +8479,7 @@
     "numerator": "Tickets handled",
     "denominator": "Support agents",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "helpdesk"
@@ -8548,7 +8512,7 @@
     "numerator": "Support tickets",
     "denominator": "Active customers",
     "dimensions": [
-      "date",
+      "metric_time",
       "segment"
     ],
     "dataSources": [
@@ -8582,9 +8546,9 @@
     "numerator": "Weighted average of quality, delivery, and cost scores",
     "denominator": "",
     "dimensions": [
-      "supplier_id",
+      "supplier",
       "category",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "procurement",
@@ -8622,11 +8586,10 @@
     "numerator": "Occupied square footage",
     "denominator": "Total square footage",
     "dimensions": [
-      "date",
+      "metric_time",
       "facility",
-      "warehouse_id",
-      "product_zone",
-      "period"
+      "warehouse",
+      "product_zone"
     ],
     "dataSources": [
       "wms"
@@ -8658,7 +8621,7 @@
     "numerator": "ARR(end) − ARR(start)",
     "denominator": "ARR(start)",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "billing"
@@ -8694,7 +8657,7 @@
     "numerator": "Total ARR",
     "denominator": "Quota-carrying reps",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "billing",
@@ -8732,7 +8695,7 @@
     "dimensions": [
       "segment",
       "product_tier",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "billing"
@@ -8774,7 +8737,7 @@
       "segment",
       "product_tier",
       "channel",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "crm",
@@ -8813,8 +8776,8 @@
     "numerator": "CapEx",
     "denominator": "Revenue",
     "dimensions": [
-      "company_id",
-      "fiscal_period"
+      "company",
+      "metric_time"
     ],
     "dataSources": [
       "erp"
@@ -8847,10 +8810,10 @@
     "numerator": "Model output probability",
     "denominator": "",
     "dimensions": [
-      "user_id",
+      "user",
       "plan_tier",
       "cohort",
-      "score_date"
+      "metric_time"
     ],
     "dataSources": [
       "product_analytics"
@@ -8884,7 +8847,7 @@
     "denominator": "Revenue from Cohort in Month 0",
     "dimensions": [
       "cohort_month",
-      "month_number",
+      "months_since_acquisition",
       "segment"
     ],
     "dataSources": [
@@ -8919,11 +8882,9 @@
     "numerator": "Churned customers",
     "denominator": "Beginning customers",
     "dimensions": [
-      "date",
-      "customer_segment",
+      "metric_time",
       "segment",
-      "product_tier",
-      "period"
+      "product_tier"
     ],
     "dataSources": [
       "crm",
@@ -8966,8 +8927,8 @@
     "numerator": "ARR from Top 10 Customers",
     "denominator": "Total ARR",
     "dimensions": [
-      "company_id",
-      "period"
+      "company",
+      "metric_time"
     ],
     "dataSources": [
       "billing",
@@ -9002,9 +8963,9 @@
     "numerator": "SUM(unrecognized billed amounts)",
     "denominator": "",
     "dimensions": [
-      "company_id",
+      "company",
       "product_tier",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "erp",
@@ -9042,7 +9003,7 @@
     "numerator": "Headcount",
     "denominator": "ARR ($M)",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "billing",
@@ -9113,9 +9074,8 @@
     "numerator": "G&A Spend",
     "denominator": "Revenue",
     "dimensions": [
-      "company_id",
-      "fiscal_period",
-      "date"
+      "company",
+      "metric_time"
     ],
     "dataSources": [
       "erp"
@@ -9151,8 +9111,7 @@
     "numerator": "Beginning ARR − churn − contraction",
     "denominator": "Beginning ARR",
     "dimensions": [
-      "date",
-      "customer_segment",
+      "metric_time",
       "segment"
     ],
     "dataSources": [
@@ -9187,7 +9146,7 @@
     "numerator": "HR total cost",
     "denominator": "Revenue",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "hris",
@@ -9224,7 +9183,7 @@
     "numerator": "In-app purchase revenue",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "product"
     ],
     "dataSources": [
@@ -9255,7 +9214,7 @@
     "numerator": "Revenue from perpetual licenses",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "product"
     ],
     "dataSources": [
@@ -9288,7 +9247,7 @@
     "dimensions": [
       "segment",
       "geography",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "erp"
@@ -9322,9 +9281,9 @@
     "numerator": "SUM(monthly_amount) WHERE status = 'active'",
     "denominator": "",
     "dimensions": [
-      "company_id",
+      "company",
       "plan_tier",
-      "customer_id"
+      "customer"
     ],
     "dataSources": [
       "billing"
@@ -9363,8 +9322,8 @@
     "numerator": "Churned MRR",
     "denominator": "Beginning MRR",
     "dimensions": [
-      "date",
-      "customer_segment"
+      "metric_time",
+      "segment"
     ],
     "dataSources": [
       "billing"
@@ -9397,7 +9356,7 @@
     "numerator": "MRR(end) − MRR(start)",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "billing"
@@ -9428,7 +9387,7 @@
     "numerator": "Gross revenue − returns − discounts",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "channel"
     ],
     "dataSources": [
@@ -9462,8 +9421,8 @@
     "numerator": "ARR from new logos in period",
     "denominator": "",
     "dimensions": [
-      "date",
-      "sales_rep",
+      "metric_time",
+      "rep",
       "channel"
     ],
     "dataSources": [
@@ -9519,12 +9478,10 @@
     "numerator": "Beginning ARR + expansion − contraction − churn",
     "denominator": "Beginning ARR",
     "dimensions": [
-      "date",
-      "customer_segment",
-      "company_id",
-      "period",
-      "plan_tier",
-      "segment"
+      "metric_time",
+      "segment",
+      "company",
+      "plan_tier"
     ],
     "dataSources": [
       "billing"
@@ -9584,7 +9541,7 @@
     "numerator": "Revenue sourced via partners",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "partner"
     ],
     "dataSources": [
@@ -9617,7 +9574,7 @@
     "numerator": "Partner revenue",
     "denominator": "Total revenue",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "commerce_platform"
@@ -9651,7 +9608,7 @@
     "numerator": "Users who stopped using product",
     "denominator": "Active users",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "app_database"
@@ -9683,9 +9640,8 @@
     "numerator": "R&D Expense",
     "denominator": "Revenue",
     "dimensions": [
-      "company_id",
-      "fiscal_period",
-      "date"
+      "company",
+      "metric_time"
     ],
     "dataSources": [
       "erp"
@@ -9728,11 +9684,11 @@
     "numerator": "SUM(recognized_amount)",
     "denominator": "",
     "dimensions": [
-      "company_id",
+      "company",
       "product_line",
       "geography",
       "channel",
-      "date",
+      "metric_time",
       "region"
     ],
     "dataSources": [
@@ -9803,7 +9759,7 @@
     "numerator": "Revenue(t) − Revenue(t−1)",
     "denominator": "Revenue(t−1)",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "commerce_platform"
@@ -9843,7 +9799,7 @@
     "numerator": "Revenue",
     "denominator": "Active accounts",
     "dimensions": [
-      "date",
+      "metric_time",
       "segment"
     ],
     "dataSources": [
@@ -9874,8 +9830,8 @@
     "numerator": "Revenue",
     "denominator": "Full-Time Equivalent Headcount",
     "dimensions": [
-      "company_id",
-      "fiscal_period",
+      "company",
+      "metric_time",
       "department"
     ],
     "dataSources": [
@@ -9918,7 +9874,7 @@
     "numerator": "Current revenue − Prior year revenue",
     "denominator": "Prior year revenue",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "commerce_platform"
@@ -9955,7 +9911,7 @@
     "numerator": "Revenue from fiscal year start to date",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "commerce_platform"
@@ -9992,7 +9948,7 @@
     "numerator": "New ARR + Expansion ARR",
     "denominator": "Contraction ARR + Churned ARR",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "billing"
@@ -10029,7 +9985,7 @@
     "numerator": "Revenue from professional services",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "client"
     ],
     "dataSources": [
@@ -10060,8 +10016,8 @@
     "numerator": "Revenue from subscription contracts",
     "denominator": "",
     "dimensions": [
-      "date",
-      "plan"
+      "metric_time",
+      "plan_tier"
     ],
     "dataSources": [
       "billing",
@@ -10097,7 +10053,7 @@
     "dimensions": [
       "endpoint",
       "environment",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "apm"
@@ -10131,7 +10087,7 @@
     "numerator": "Bugs found in prod",
     "denominator": "Total bugs",
     "dimensions": [
-      "date",
+      "metric_time",
       "severity"
     ],
     "dataSources": [
@@ -10168,7 +10124,7 @@
       "product",
       "channel",
       "support_team",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "survey_platform",
@@ -10226,8 +10182,8 @@
     "numerator": "1 − churn rate",
     "denominator": "",
     "dimensions": [
-      "date",
-      "customer_segment"
+      "metric_time",
+      "segment"
     ],
     "dataSources": [
       "crm"
@@ -10262,7 +10218,7 @@
     "numerator": "Day-30 retained users",
     "denominator": "New users in cohort",
     "dimensions": [
-      "date",
+      "metric_time",
       "cohort",
       "acquisition_channel",
       "plan_tier"
@@ -10305,7 +10261,7 @@
     "numerator": "Day-7 retained users",
     "denominator": "New users in cohort",
     "dimensions": [
-      "date",
+      "metric_time",
       "cohort"
     ],
     "dataSources": [
@@ -10344,7 +10300,7 @@
       "platform",
       "product_area",
       "user_segment",
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "product_analytics"
@@ -10385,7 +10341,7 @@
     "numerator": "DAU",
     "denominator": "MAU",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "product_analytics"
@@ -10430,7 +10386,7 @@
     "numerator": "Deployments in period",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "service"
     ],
     "dataSources": [
@@ -10468,7 +10424,7 @@
     "numerator": "% Promoters − % Detractors",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "department"
     ],
     "dataSources": [
@@ -10504,9 +10460,7 @@
       "feature_name",
       "user_segment",
       "plan_tier",
-      "period",
-      "date",
-      "feature"
+      "metric_time"
     ],
     "dataSources": [
       "product_analytics"
@@ -10587,12 +10541,11 @@
     "numerator": "Minutes available",
     "denominator": "Total minutes",
     "dimensions": [
-      "date",
+      "metric_time",
       "service",
       "environment",
-      "period",
-      "system_id",
-      "facility_id"
+      "system",
+      "facility"
     ],
     "dataSources": [
       "apm"
@@ -10634,7 +10587,7 @@
     "numerator": "Distinct active users in 7 days",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "platform"
     ],
     "dataSources": [
@@ -10667,7 +10620,7 @@
     "numerator": "Inventory shrinkage",
     "denominator": "Beginning inventory value",
     "dimensions": [
-      "date",
+      "metric_time",
       "location"
     ],
     "dataSources": [
@@ -10854,7 +10807,7 @@
     "numerator": "Outstanding vendor invoices",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "erp"
@@ -10886,7 +10839,7 @@
     "numerator": "Outstanding customer invoices",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "erp"
@@ -10918,7 +10871,7 @@
     "numerator": "Approved annual budget",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "fpa"
@@ -10950,7 +10903,7 @@
     "numerator": "App installs in period",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "platform"
     ],
     "dataSources": [
@@ -10983,7 +10936,7 @@
     "dimensions": [
       "domain",
       "link_type",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "seo_tools"
@@ -11014,7 +10967,7 @@
     "numerator": "External links pointing to site",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "seo_tools"
@@ -11045,7 +10998,7 @@
     "numerator": "Employees using benefits",
     "denominator": "Eligible employees",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "hris"
@@ -11075,7 +11028,7 @@
     "numerator": "Cash on balance sheet",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "erp"
@@ -11108,7 +11061,7 @@
     "numerator": "Lines covered by tests",
     "denominator": "Total lines",
     "dimensions": [
-      "date",
+      "metric_time",
       "service"
     ],
     "dataSources": [
@@ -11140,7 +11093,7 @@
     "numerator": "Graduates enrolled in college",
     "denominator": "Total graduates",
     "dimensions": [
-      "school_id",
+      "school",
       "grad_year",
       "college_type",
       "subgroup"
@@ -11178,7 +11131,7 @@
     "numerator": "Contracted value not yet invoiced",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "crm"
@@ -11209,7 +11162,7 @@
     "numerator": "Active customers at period end",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "segment"
     ],
     "dataSources": [
@@ -11243,7 +11196,7 @@
     "numerator": "Depreciation + amortization",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "erp"
@@ -11274,7 +11227,7 @@
     "numerator": "Demo requests submitted",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "channel"
     ],
     "dataSources": [
@@ -11307,7 +11260,7 @@
     "numerator": "Total discounts given",
     "denominator": "Gross revenue",
     "dimensions": [
-      "date",
+      "metric_time",
       "product"
     ],
     "dataSources": [
@@ -11338,9 +11291,9 @@
     "numerator": "(Current Price - Prior Price) × Prior Volume",
     "denominator": "",
     "dimensions": [
-      "company_id",
+      "company",
       "product_line",
-      "fiscal_period"
+      "metric_time"
     ],
     "dataSources": [
       "erp",
@@ -11370,9 +11323,9 @@
     "numerator": "(Current Volume - Prior Volume) × Prior Price",
     "denominator": "",
     "dimensions": [
-      "company_id",
+      "company",
       "product_line",
-      "fiscal_period"
+      "metric_time"
     ],
     "dataSources": [
       "erp"
@@ -11401,9 +11354,9 @@
     "numerator": "Energy Cost",
     "denominator": "Units Produced",
     "dimensions": [
-      "facility_id",
+      "facility",
       "production_line",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "energy_monitoring",
@@ -11434,7 +11387,7 @@
     "numerator": "Event attendees",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "event"
     ],
     "dataSources": [
@@ -11561,7 +11514,7 @@
       "feature_area",
       "segment",
       "channel",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "product_feedback"
@@ -11591,7 +11544,7 @@
     "numerator": "Users at step N",
     "denominator": "Users at step N−1",
     "dimensions": [
-      "date",
+      "metric_time",
       "funnel_step"
     ],
     "dataSources": [
@@ -11627,7 +11580,7 @@
       "channel",
       "campaign",
       "ad_set",
-      "date",
+      "metric_time",
       "ad"
     ],
     "dataSources": [
@@ -11663,7 +11616,7 @@
     "numerator": "Active buyers in period",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "commerce_platform"
@@ -11693,7 +11646,7 @@
     "numerator": "Active sellers in period",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "commerce_platform"
@@ -11726,11 +11679,10 @@
     "numerator": "New customers acquired in month",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "channel",
       "acquisition_channel",
-      "segment",
-      "period"
+      "segment"
     ],
     "dataSources": [
       "crm",
@@ -11766,10 +11718,10 @@
     "numerator": "Lessons Delivered on Time",
     "denominator": "Total Lessons Planned",
     "dimensions": [
-      "teacher_id",
-      "school_id",
+      "teacher",
+      "school",
       "subject",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "lms"
@@ -11799,7 +11751,7 @@
     "numerator": "Open job requisitions",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "department"
     ],
     "dataSources": [
@@ -11830,7 +11782,7 @@
     "numerator": "GitHub stars on public repositories",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "repo"
     ],
     "dataSources": [
@@ -11861,7 +11813,7 @@
     "numerator": "Overtime hours logged",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "department"
     ],
     "dataSources": [
@@ -11892,7 +11844,7 @@
     "numerator": "PR mentions in period",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "outlet"
     ],
     "dataSources": [
@@ -11924,7 +11876,7 @@
     "numerator": "Time from PR open to merge (hours)",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "team"
     ],
     "dataSources": [
@@ -11955,7 +11907,7 @@
     "numerator": "Active candidates in pipeline",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "department"
     ],
     "dataSources": [
@@ -11989,7 +11941,7 @@
     "dimensions": [
       "referrer_domain",
       "landing_page",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "web_analytics"
@@ -12019,7 +11971,7 @@
     "numerator": "Remote and hybrid employees",
     "denominator": "Total headcount",
     "dimensions": [
-      "date",
+      "metric_time",
       "department"
     ],
     "dataSources": [
@@ -12050,7 +12002,7 @@
     "numerator": "Serviceable addressable market estimate",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [],
     "parentMetrics": [
@@ -12078,7 +12030,7 @@
     "numerator": "Employees who left in period",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "department"
     ],
     "dataSources": [
@@ -12111,7 +12063,7 @@
     "numerator": "Total assets − total liabilities",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "erp"
@@ -12146,7 +12098,7 @@
     "numerator": "Sales & marketing total spend",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "erp"
@@ -12177,11 +12129,11 @@
     "numerator": "Work orders created",
     "denominator": "",
     "dimensions": [
-      "work_order_id",
-      "facility_id",
+      "work_order",
+      "facility",
       "category",
       "priority",
-      "created_date"
+      "metric_time"
     ],
     "dataSources": [
       "cmms"
@@ -12209,7 +12161,7 @@
     "numerator": "Responses received",
     "denominator": "Surveys sent",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "survey_platform"
@@ -12240,7 +12192,7 @@
     "numerator": "Total addressable market estimate",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [],
     "parentMetrics": [
@@ -12268,7 +12220,7 @@
     "numerator": "Testimonials published",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "crm",
@@ -12299,7 +12251,7 @@
     "numerator": "Sum of all asset values",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "erp"
@@ -12332,7 +12284,7 @@
     "numerator": "Short-term + long-term debt",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "erp"
@@ -12365,7 +12317,7 @@
     "numerator": "Sum of all liability values",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "erp"
@@ -12395,7 +12347,7 @@
     "numerator": "Trial account signups",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "channel"
     ],
     "dataSources": [
@@ -12429,7 +12381,7 @@
     "numerator": "Wins in competitive deals",
     "denominator": "Total competitive opportunities",
     "dimensions": [
-      "date",
+      "metric_time",
       "competitor"
     ],
     "dataSources": [
@@ -12460,7 +12412,7 @@
     "numerator": "Formal complaints received",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "crm"
@@ -12490,10 +12442,10 @@
     "numerator": "COUNT(active_employees) weighted by employment fraction",
     "denominator": "",
     "dimensions": [
-      "company_id",
+      "company",
       "department",
       "location",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "hris"
@@ -12526,7 +12478,7 @@
     "numerator": "Employees started in period",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "department"
     ],
     "dataSources": [
@@ -12559,7 +12511,7 @@
     "numerator": "R&D/engineering/product employees",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "hris"
@@ -12589,7 +12541,7 @@
     "numerator": "Quota-carrying sales reps",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "hris"
@@ -12619,7 +12571,7 @@
     "numerator": "Total compensation and benefits cost",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "department"
     ],
     "dataSources": [
@@ -12658,7 +12610,7 @@
       "channel",
       "campaign",
       "ad_set",
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "ad_platforms"
@@ -12694,9 +12646,7 @@
       "content_type",
       "topic",
       "channel",
-      "period",
-      "date",
-      "type"
+      "metric_time"
     ],
     "dataSources": [
       "cms"
@@ -12733,7 +12683,7 @@
       "landing_page",
       "keyword",
       "device",
-      "period"
+      "metric_time"
     ],
     "dataSources": [
       "web_analytics"
@@ -12776,8 +12726,8 @@
     "denominator": "",
     "dimensions": [
       "platform",
-      "account",
-      "period"
+      "social_account",
+      "metric_time"
     ],
     "dataSources": [
       "social_media"
@@ -12808,7 +12758,7 @@
     "numerator": "Leads created",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "channel"
     ],
     "dataSources": [
@@ -12844,7 +12794,7 @@
     "numerator": "Webinar registrations",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "webinar"
     ],
     "dataSources": [
@@ -12875,7 +12825,7 @@
     "numerator": "Production/safety incidents in period",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "incident_management"
@@ -12908,7 +12858,7 @@
     "numerator": "Units on hand × unit cost",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "product"
     ],
     "dataSources": [
@@ -12941,7 +12891,7 @@
     "numerator": "Distinct SKUs in inventory",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "product",
       "location"
     ],
@@ -12974,12 +12924,10 @@
     "numerator": "Order lines",
     "denominator": "",
     "dimensions": [
-      "order_id",
-      "line_id",
-      "product_id",
-      "qty_ordered",
-      "qty_shipped",
-      "warehouse_id"
+      "order",
+      "order_line",
+      "product",
+      "warehouse"
     ],
     "dataSources": [
       "erp",
@@ -13009,12 +12957,11 @@
     "numerator": "Support tickets opened",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "priority",
       "category",
       "channel",
-      "product",
-      "period"
+      "product"
     ],
     "dataSources": [
       "helpdesk"
@@ -13054,7 +13001,7 @@
     "numerator": "Support tickets closed",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "helpdesk"
@@ -13084,8 +13031,8 @@
     "numerator": "Sum of active annual contract values",
     "denominator": "",
     "dimensions": [
-      "date",
-      "customer_segment",
+      "metric_time",
+      "segment",
       "product"
     ],
     "dataSources": [
@@ -13209,8 +13156,8 @@
     "numerator": "ARR from cancelled contracts",
     "denominator": "",
     "dimensions": [
-      "date",
-      "customer_segment"
+      "metric_time",
+      "segment"
     ],
     "dataSources": [
       "billing"
@@ -13244,7 +13191,7 @@
     "numerator": "Churned users in cohort",
     "denominator": "Cohort starting size",
     "dimensions": [
-      "date",
+      "metric_time",
       "cohort"
     ],
     "dataSources": [
@@ -13276,7 +13223,7 @@
     "numerator": "ARR under signed contracts not yet active",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "crm",
@@ -13308,8 +13255,8 @@
     "numerator": "ARR lost to downgrades",
     "denominator": "",
     "dimensions": [
-      "date",
-      "customer_segment"
+      "metric_time",
+      "segment"
     ],
     "dataSources": [
       "billing"
@@ -13342,7 +13289,7 @@
     "numerator": "Sum of gross order amounts",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "channel"
     ],
     "dataSources": [
@@ -13376,7 +13323,7 @@
     "numerator": "Onboarding/implementation fees",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "commerce_platform"
@@ -13405,7 +13352,7 @@
     "numerator": "Full prior year revenue",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "commerce_platform"
@@ -13435,7 +13382,7 @@
     "numerator": "Revenue recognized in Q1",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "commerce_platform"
@@ -13465,7 +13412,7 @@
     "numerator": "Revenue recognized in Q2",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "commerce_platform"
@@ -13495,7 +13442,7 @@
     "numerator": "Revenue recognized in Q3",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "commerce_platform"
@@ -13525,7 +13472,7 @@
     "numerator": "Revenue recognized in Q4",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "commerce_platform"
@@ -13555,7 +13502,7 @@
     "numerator": "Total API calls",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "endpoint"
     ],
     "dataSources": [
@@ -13586,7 +13533,7 @@
     "numerator": "Unique API consumers",
     "denominator": "",
     "dimensions": [
-      "date"
+      "metric_time"
     ],
     "dataSources": [
       "api_gateway"
@@ -13616,7 +13563,7 @@
     "numerator": "Story points completed per sprint",
     "denominator": "",
     "dimensions": [
-      "date",
+      "metric_time",
       "team"
     ],
     "dataSources": [

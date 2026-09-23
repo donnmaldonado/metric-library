@@ -1,0 +1,176 @@
+raw_dimension,count,example_metrics,dimension_id,notes
+date,234,clv ebitda enterprise_value free_cash_flow marketing_roi,metric_time,Time grain is a query choice (metric_time__<grain>).
+period,100,cost_per_outcome ops_north_star mql on_time_delivery_rate ces,metric_time,Time grain is a query choice (metric_time__<grain>).
+channel,54,pipeline_generated mql cx_csat aov cac,channel,
+department,39,employee_lifetime_value headcount turnover_rate absenteeism_rate budget_variance,department,
+segment,1,customer_ltv,segment,Metric's models carry segment (customer segment).
+segment,1,ebitda,segment,No model behind this metric carries segment yet; kept as customer segment (unqueryable).
+segment,1,nps,segment,Metric's models carry segment (customer segment).
+segment,1,account_health_score,segment,Metric's models carry segment (customer segment).
+segment,1,cac_payback,segment,No model behind this metric carries segment yet; kept as customer segment (unqueryable).
+segment,1,customer_onboarding_time,segment,Metric's models carry segment (customer segment).
+segment,1,renewal_rate,segment,Metric's models carry segment (customer segment).
+segment,1,acv,segment,Metric's models carry segment (customer segment).
+segment,1,arpu,segment,Metric's models carry segment (customer segment).
+segment,1,avg_deal_size,segment,Metric's models carry segment (customer segment).
+segment,1,avg_sales_cycle,segment,Metric's models carry segment (customer segment).
+segment,1,ebitda_margin,segment,No model behind this metric carries segment yet; kept as customer segment (unqueryable).
+segment,1,forecast_accuracy,segment,Metric's models carry segment (customer segment).
+segment,1,gross_margin_pct,segment,No model behind this metric carries segment yet; kept as customer segment (unqueryable).
+segment,1,marketing_influenced_pipeline,segment,Metric's models carry segment (customer segment).
+segment,1,pipeline_coverage,segment,Metric's models carry segment (customer segment).
+segment,1,pipeline_value,segment,Metric's models carry segment (customer segment).
+segment,1,quota_attainment,segment,Metric's models carry segment (customer segment).
+segment,1,sales_cycle_length,segment,Metric's models carry segment (customer segment).
+segment,1,unsubscribe_rate,segment,Metric's models carry segment (customer segment).
+segment,1,win_rate,segment,Metric's models carry segment (customer segment).
+segment,1,pct_reps_at_quota,segment,Metric's models carry segment (customer segment).
+segment,1,email_click_rate,segment,Metric's models carry segment (customer segment).
+segment,1,email_open_rate,segment,Metric's models carry segment (customer segment).
+segment,1,sql,segment,Metric's models carry segment (customer segment).
+segment,1,tickets_per_customer,segment,Metric's models carry segment (customer segment).
+segment,1,billings,segment,Metric's models carry segment (customer segment).
+segment,1,bookings,segment,Metric's models carry segment (customer segment).
+segment,1,cohort_revenue_retention,segment,Metric's models carry segment (customer segment).
+segment,1,customer_churn_rate,segment,Metric's models carry segment (customer segment).
+segment,1,grr,segment,No model behind this metric carries segment yet; kept as customer segment (unqueryable).
+segment,1,market_penetration_rate,segment,No model behind this metric carries segment yet; kept as customer segment (unqueryable).
+segment,1,nrr,segment,No model behind this metric carries segment yet; kept as customer segment (unqueryable).
+segment,1,revenue_per_account,segment,Metric's models carry segment (customer segment).
+segment,1,customer_count,segment,Metric's models carry segment (customer segment).
+segment,1,feature_request_volume,segment,Metric's models carry segment (customer segment).
+segment,1,monthly_new_customers,segment,Metric's models carry segment (customer segment).
+segment,1,churn_rate,segment,No model behind this metric carries segment yet; kept as customer segment (unqueryable).
+company_id,32,rule_of_40 ar_aging_90d capex cogs debt_ebitda,company,Synonym of company.
+school_year,28,student_proficiency college_enrollment_rate four_year_grad_rate dropout_rate ela_proficiency_rate,school_year,
+school,24,college_enrollment_rate four_year_grad_rate dropout_rate ela_proficiency_rate grade3_reading,school,
+fiscal_period,22,rule_of_40 budget_variance_pct capex cogs ebitda_margin,metric_time,Time grain; fiscal calendar is an open README issue.
+product,19,cx_csat nps customer_onboarding_time refund_rate upsell_rate,product,Product entity (dim_products) plus product_name on models without the entity.
+school_id,19,student_proficiency cost_per_outcome four_year_grad_rate advanced_course_enrollment_rate ell_proficiency_growth,school,Synonym of school.
+campaign,17,marketing_roi mql cpl cpm marketing_influenced_pipeline,campaign,
+customer_segment,15,clv aov customer_onboarding_time purchase_frequency ar_aging_90d,segment,Synonym of segment.
+cohort,14,clv cac_payback cohort_ltv_12m cohort_ltv_24m activation_rate,cohort,
+grade_level,12,student_proficiency advanced_course_enrollment_rate ell_proficiency_growth iep_goal_mastery_rate student_attendance_rate,grade_level,
+plan_tier,12,account_health_score renewal_rate activation_rate new_user_signups time_to_value,plan_tier,
+platform,12,app_store_rating avg_session_duration error_rate review_rating sessions_per_user,platform,
+location,11,headcount time_to_fill compensation_ratio employee_engagement_score headcount_cost,location,
+category,9,gmv liquidity_rate take_rate time_to_resolution work_order_resolution_time,category,
+team,9,first_response_time pipeline_coverage sales_spend time_to_resolution pct_reps_at_quota,team,
+facility_id,8,carbon_emissions_per_unit mtbf preventive_maintenance_rate work_order_resolution_time safety_incident_rate,facility,Synonym of facility.
+acquisition_channel,7,customer_ltv activation_rate new_user_signups time_to_value onboarding_completion_rate,acquisition_channel,
+job_level,7,employee_lifetime_value internal_promotion_rate time_to_fill compensation_ratio employee_engagement_score,job_level,
+priority,7,first_response_time time_to_resolution work_order_resolution_time sla_breach_rate ticket_resolution_rate,priority,
+product_line,7,asp cogs gross_margin_pct gross_profit revenue,product_line,
+subgroup,7,student_proficiency four_year_grad_rate dropout_rate student_attendance_rate chronic_absenteeism_rate,subgroup,
+grade,6,student_proficiency ela_proficiency_rate math_proficiency_rate student_attendance_rate chronic_absenteeism_rate,grade_level,Synonym of grade_level.
+product_category,6,on_time_delivery_rate cross_sell_rate arpu supplier_lead_time fill_rate,product_category,
+geography,5,asp new_user_signups market_penetration_rate revenue churn_rate,geography,
+product_tier,5,acv billings bookings customer_churn_rate deferred_revenue,product_tier,
+region,5,on_time_delivery_rate fleet_utilization_rate market_share order_fulfillment_rate revenue,region,
+service,5,tech_debt_ratio lead_time_for_changes deployment_frequency uptime code_coverage,service,
+warehouse_id,5,ops_north_star order_accuracy_rate fill_rate warehouse_utilization order_lines,warehouse,Synonym of warehouse.
+cohort_month,4,customer_ltv account_health_score cohort_revenue_retention churn_rate,cohort_month,
+landing_page,4,bounce_rate web_conversion_rate referral_sessions organic_sessions,landing_page,
+production_line,4,capacity_utilization cost_per_unit defect_rate energy_cost_per_unit,production_line,
+rep_id,4,pipeline_value quota_attainment sales_cycle_length win_rate,rep,Synonym of rep.
+subject,4,student_proficiency ap_pass_rate student_growth_percentile on_time_lesson_delivery,subject,
+user_segment,4,avg_session_duration dau feature_adoption_rate mau,user_segment,
+ad_set,3,ctr impressions ad_clicks,ad_set,
+campaign_id,3,unsubscribe_rate email_click_rate email_open_rate,campaign,Synonym of campaign.
+carrier,3,ops_north_star on_time_delivery_rate order_accuracy_rate,carrier,
+customer_id,3,customer_ltv account_health_score mrr,customer,Synonym of customer.
+demographic_group,3,advanced_course_enrollment_rate fafsa_completion_rate enrollment_count,demographic_group,
+endpoint,3,error_rate api_latency_p95 api_calls_total,endpoint,
+product_area,3,avg_session_duration dau mau,product_area,
+product_id,3,cost_per_unit defect_rate order_lines,product,Synonym of product.
+quarter,3,debt_ebitda quick_ratio working_capital,metric_time,Time grain is a query choice (metric_time__<grain>).
+sales_rep,3,avg_deal_size sql new_arr,rep,Synonym of rep.
+source,3,mql website_sessions win_rate,source,
+supplier_id,3,supplier_lead_time defect_rate vendor_scorecard_rating,supplier,Synonym of supplier.
+survey_cycle,3,school_climate_score manager_effectiveness_score employee_engagement_score,survey_cycle,
+academic_year,2,student_proficiency chronic_absenteeism_rate,school_year,Synonym of school_year; assessment_result and attendance_record carry both columns.
+account,1,account_health_score,customer,Customer account.
+account,1,social_followers,social_account,Social media account (social_account_day__account_name).
+ad,2,ctr impressions,ad,
+cs_rep_id,2,customer_onboarding_time renewal_rate,cs_rep,Synonym of cs_rep.
+csm,2,expansion_pipeline qbr_completion_rate,cs_rep,CSM = CS rep; opportunity__csm and qbr__csm listed in cs_rep.semantic.
+device,2,bounce_rate organic_sessions,device,
+environment,2,api_latency_p95 uptime,environment,
+event,2,cost_per_event_attendee event_attendees,event,
+facility,2,capacity_utilization warehouse_utilization,facility,
+fiscal_year,2,staff_student_cost_ratio per_pupil_expenditure,metric_time,Time grain; fiscal calendar is an open README issue (revenue_event and school_financial_period carry a fiscal_year column).
+fleet_type,2,cost_per_mile fleet_utilization_rate,fleet_type,
+keyword_group,2,share_of_voice top10_keyword_count,keyword_group,
+month,2,student_attendance_rate arpu,metric_time,Time grain is a query choice (metric_time__<grain>).
+page,2,form_conversion_rate top10_keyword_count,page,
+system_id,2,mtbf uptime,system,Synonym of system.
+vehicle_id,2,cost_per_mile fleet_utilization_rate,vehicle,Synonym of vehicle.
+vendor,2,dpo vendor_compliance_rate,vendor,
+webinar,2,webinar_attendance_rate webinar_registrants,webinar,
+as_of_date,1,runway_months,metric_time,Time grain is a query choice (metric_time__<grain>).
+asset_category,1,capex,asset_category,
+asset_type,1,preventive_maintenance_rate,asset_type,
+category_manager,1,procurement_savings_rate,category_manager,
+client,1,services_revenue,client,Services client; client entity (fct_sla_events) and revenue_event__client_name.
+client_id,1,sla_compliance_rate,client,Synonym of client.
+cohort_year,1,four_year_grad_rate,cohort_year,
+college_type,1,college_enrollment,college_type,
+competitor,1,competitive_win_rate,competitor,
+content_type,1,content_published_count,content_type,
+cost_center,1,budget_variance_pct,cost_center,
+created_date,1,work_orders,metric_time,Time grain is a query choice (metric_time__<grain>).
+deal_size_tier,1,sales_cycle_length,deal_size_tier,
+disability_category,1,iep_goal_mastery_rate,disability_category,
+domain,1,backlink_count,domain,
+error_type,1,error_rate,error_type,
+experience_band,1,teacher_retention_rate,experience_band,
+feature,1,feature_adoption_rate,feature_name,Synonym of feature_name.
+feature_area,1,feature_request_volume,feature_area,
+feature_name,1,feature_adoption_rate,feature_name,
+form,1,form_conversion_rate,form_name,Synonym of form_name.
+function_code,1,per_pupil_expenditure,function_code,No model carries it (school finance function code).
+fund,1,per_pupil_expenditure,fund,No model carries it (school finance fund).
+funnel_step,1,funnel_dropoff,funnel_step,
+grad_year,1,college_enrollment,grad_year,
+hire_cohort,1,employee_lifetime_value,hire_cohort,
+home_language,1,ell_proficiency_growth,home_language,
+incident_type,1,safety_incident_rate,incident_type,
+interaction_type,1,ces,interaction_type,
+jurisdiction,1,effective_tax_rate,jurisdiction,
+keyword,1,organic_sessions,keyword,
+level,1,gender_pay_gap,job_level,Synonym of job_level.
+line,1,throughput,production_line,production_run carries both line and production_line.
+line_id,1,order_lines,order_line,Synonym of order_line.
+link_type,1,backlink_count,link_type,
+manager_id,1,manager_effectiveness_score,manager,Synonym of manager.
+medium,1,website_sessions,medium,
+month_number,1,cohort_revenue_retention,months_since_acquisition,cohort age in months; fct_customer_cohorts has months_since_acquisition.
+order_id,1,order_lines,order,Synonym of order.
+outlet,1,pr_mentions,outlet,
+partner,1,partner_revenue,partner,revenue_event__partner.
+plan,1,subscription_revenue,plan_tier,Synonym of plan_tier.
+plant_id,1,capacity_utilization,plant,Synonym of plant.
+process_type,1,carbon_emissions_per_unit,process_type,
+product_zone,1,warehouse_utilization,product_zone,
+qty_ordered,1,order_lines,(drop),"a quantity (measure input), not a dimension. Proposed drop."
+qty_shipped,1,order_lines,(drop),"a quantity (measure input), not a dimension. Proposed drop."
+referrer_domain,1,referral_sessions,referrer_domain,
+repo,1,oss_stars,repo,
+respondent_type,1,school_climate_score,respondent_type,
+score_date,1,churn_prediction_score,metric_time,Time grain is a query choice (metric_time__<grain>).
+seller_id,1,gmv,seller,Synonym of seller.
+service_type,1,sla_compliance_rate,service_type,
+severity,1,bug_escape_rate,severity,
+spend_category,1,procurement_savings_rate,spend_category,
+stage,1,pipeline_value,stage,
+student_id,1,student_growth_percentile,student,Synonym of student.
+subject_area,1,teacher_retention_rate,subject_area,
+support_team,1,csat,support_team,
+survey_period,1,nps,metric_time,"NPS survey wave; no survey dimension on fct_customer_survey_responses, so time."
+teacher_id,1,on_time_lesson_delivery,teacher,Synonym of teacher.
+tier,1,take_rate,tier,Seller tier on fct_marketplace_transactions.
+topic,1,content_published_count,topic,
+training_type,1,training_hours_per_employee,training_type,
+type,1,content_published_count,content_type,Same metric already lists content_type (deduped).
+user_id,1,churn_prediction_score,user,Synonym of user.
+work_order_id,1,work_orders,work_order,Synonym of work_order.

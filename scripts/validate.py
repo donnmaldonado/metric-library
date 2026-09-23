@@ -4,6 +4,7 @@ from collections import defaultdict
 from pathlib import Path
 import yaml
 
+from dimensions import dimension_issues
 from domains import derived_domains, domain_issues
 from labels import label_issues
 from sources import source_issues
@@ -15,6 +16,7 @@ ms = json.loads((ROOT / "data/metrics.json").read_text())
 by = {m["metricId"]: m for m in ms}
 taxonomy = json.loads((ROOT / "data/taxonomy.json").read_text())
 sources = json.loads((ROOT / "data/sources.json").read_text())
+dimensions = json.loads((ROOT / "data/dimensions.json").read_text())
 derived_domain = derived_domains(ms)
 
 
@@ -98,6 +100,7 @@ for m in ms:
         issues.append(f"{mid}: {m['tier']} doesn't roll up to any parent")
 
 issues += source_issues(ms, sources)
+issues += dimension_issues(ms, dimensions)
 issues += label_issues(ms, taxonomy)
 
 for r, owners in retired_on.items():

@@ -1,0 +1,976 @@
+{
+  "metric_time": {
+    "label": "Time",
+    "desc": "The metric's time axis; pick the grain (day, week, month, quarter, year) at query time.",
+    "semantic": [
+      "metric_time"
+    ]
+  },
+  "channel": {
+    "label": "Channel",
+    "desc": "Sales or marketing channel, such as online, retail or partner.",
+    "semantic": [
+      "marketplace_transaction__channel",
+      "order__channel",
+      "order_return__channel",
+      "customer__channel",
+      "ticket__channel",
+      "financial_period__channel",
+      "revenue_event__channel",
+      "unit_economics_period__channel",
+      "ad_day__channel",
+      "content_asset__channel",
+      "session__channel",
+      "user__channel",
+      "survey_response__channel",
+      "feedback_item__channel",
+      "arr_movement__channel",
+      "contract__channel",
+      "customer_cohort_period__channel",
+      "customer_movement_period__channel",
+      "lead__channel",
+      "opportunity__channel"
+    ]
+  },
+  "segment": {
+    "label": "Customer Segment",
+    "desc": "Customer segment, such as SMB, mid-market or enterprise.",
+    "semantic": [
+      "order__segment",
+      "customer__segment",
+      "customer_health_snapshot__segment",
+      "ticket__segment",
+      "financial_period__segment",
+      "invoice__segment",
+      "market_estimate__segment",
+      "revenue_event__segment",
+      "revenue_forecast__segment",
+      "unit_economics_period__segment",
+      "email_send__segment",
+      "survey_response__segment",
+      "feedback_item__segment",
+      "arr_movement__segment",
+      "contract__segment",
+      "customer_cohort_period__segment",
+      "customer_movement_period__segment",
+      "renewal__segment",
+      "subscription_snapshot__segment",
+      "lead__segment",
+      "opportunity__segment",
+      "sales_rep_period__segment"
+    ]
+  },
+  "department": {
+    "label": "Department",
+    "desc": "Organizational department.",
+    "semantic": [
+      "budget_line__department",
+      "gl_entry__department",
+      "financial_period__department",
+      "employee__department",
+      "candidate__department",
+      "employee_snapshot__department",
+      "employee_survey_response__department",
+      "employee_value__department",
+      "headcount_plan_line__department",
+      "hire__department",
+      "pay_record__department",
+      "recruiting_cost_period__department",
+      "requisition__department",
+      "separation__department",
+      "time_record__department",
+      "training_record__department",
+      "process__department",
+      "safety_incident__department"
+    ]
+  },
+  "school": {
+    "label": "School",
+    "desc": "Individual school.",
+    "semantic": [
+      "school",
+      "staff_member__school_name",
+      "assessment_result__school_name",
+      "course_enrollment__school_name",
+      "discipline_incident__school_name",
+      "enrollment__school_name",
+      "family_engagement_record__school_name",
+      "climate_survey_response__school_name",
+      "school_period__school_name",
+      "attendance_record__school_name",
+      "student_cohort_outcome__school_name"
+    ]
+  },
+  "company": {
+    "label": "Company",
+    "desc": "Reporting company or legal entity.",
+    "semantic": [
+      "company"
+    ]
+  },
+  "school_year": {
+    "label": "School Year",
+    "desc": "Academic year, such as 2025-26.",
+    "semantic": [
+      "staff_member__school_year",
+      "assessment_result__school_year",
+      "course_enrollment__school_year",
+      "discipline_incident__school_year",
+      "enrollment__school_year",
+      "family_engagement_record__school_year",
+      "climate_survey_response__school_year",
+      "school_financial_period__school_year",
+      "school_period__school_year",
+      "attendance_record__school_year",
+      "student_attendance_year__school_year",
+      "student_cohort_outcome__school_year"
+    ]
+  },
+  "product": {
+    "label": "Product",
+    "desc": "Individual product or SKU.",
+    "semantic": [
+      "product",
+      "inventory_snapshot__product_name",
+      "order__product_name",
+      "order_return__product_name",
+      "shipment__product_name",
+      "customer__product_name",
+      "ticket__product_name",
+      "revenue_event__product_name",
+      "production_run__product_name",
+      "app_store_event__product_name",
+      "survey_response__product_name",
+      "customer_movement_period__product_name",
+      "subscription_snapshot__product_name",
+      "opportunity__product_name"
+    ]
+  },
+  "campaign": {
+    "label": "Campaign",
+    "desc": "Marketing campaign.",
+    "semantic": [
+      "campaign",
+      "ad_day__campaign_name",
+      "email_send__campaign_name",
+      "push_notification__campaign_name",
+      "session__campaign_name",
+      "lead__campaign_name",
+      "opportunity__campaign_name"
+    ]
+  },
+  "cohort": {
+    "label": "Cohort",
+    "desc": "Signup or acquisition cohort a customer or user belongs to.",
+    "semantic": [
+      "unit_economics_period__cohort",
+      "user__cohort",
+      "churn_score__cohort",
+      "customer_cohort_period__cohort"
+    ]
+  },
+  "grade_level": {
+    "label": "Grade Level",
+    "desc": "Student grade level, K through 12.",
+    "semantic": [
+      "assessment_result__grade_level",
+      "course_enrollment__grade_level",
+      "enrollment__grade_level",
+      "iep_goal__grade_level",
+      "school_period__grade_level",
+      "attendance_record__grade_level",
+      "student_attendance_year__grade_level"
+    ]
+  },
+  "plan_tier": {
+    "label": "Plan Tier",
+    "desc": "Subscription plan tier, such as free, pro or enterprise.",
+    "semantic": [
+      "customer_health_snapshot__plan_tier",
+      "revenue_event__plan_tier",
+      "user__plan_tier",
+      "user_month__plan_tier",
+      "user_event__plan_tier",
+      "arr_movement__plan_tier",
+      "churn_score__plan_tier",
+      "renewal__plan_tier",
+      "subscription_snapshot__plan_tier"
+    ]
+  },
+  "platform": {
+    "label": "Platform",
+    "desc": "Device platform or channel, such as iOS, Android, web or a social network.",
+    "semantic": [
+      "review__platform",
+      "social_account_day__platform",
+      "session__platform",
+      "api_request__platform",
+      "app_store_event__platform",
+      "user_month__platform",
+      "user_event__platform"
+    ]
+  },
+  "location": {
+    "label": "Location",
+    "desc": "Office, store or site location.",
+    "semantic": [
+      "inventory_snapshot__location",
+      "employee__location",
+      "employee_snapshot__location",
+      "employee_survey_response__location",
+      "pay_record__location",
+      "requisition__location",
+      "separation__location"
+    ]
+  },
+  "facility": {
+    "label": "Facility",
+    "desc": "Plant, site or facility.",
+    "semantic": [
+      "facility"
+    ]
+  },
+  "category": {
+    "label": "Category",
+    "desc": "Category of the ticket, work order, listing or item.",
+    "semantic": [
+      "product__category",
+      "listing_day__category",
+      "marketplace_transaction__category",
+      "ticket__category",
+      "purchase_order__category",
+      "work_order__category"
+    ]
+  },
+  "team": {
+    "label": "Team",
+    "desc": "Team that owns the work: support, sales or engineering.",
+    "semantic": [
+      "ticket__team",
+      "deployment__team",
+      "pull_request__team",
+      "sprint__team",
+      "sales_rep_period__team"
+    ]
+  },
+  "job_level": {
+    "label": "Job Level",
+    "desc": "Employee job level or grade.",
+    "semantic": [
+      "employee__job_level",
+      "employee_snapshot__job_level",
+      "employee_survey_response__job_level",
+      "employee_value__job_level",
+      "hire__job_level",
+      "pay_record__job_level",
+      "requisition__job_level",
+      "separation__job_level"
+    ]
+  },
+  "acquisition_channel": {
+    "label": "Acquisition Channel",
+    "desc": "Channel that first brought in the customer or user.",
+    "semantic": [
+      "order__acquisition_channel",
+      "customer__acquisition_channel",
+      "user__acquisition_channel"
+    ]
+  },
+  "priority": {
+    "label": "Priority",
+    "desc": "Ticket or work order priority.",
+    "semantic": [
+      "ticket__priority",
+      "work_order__priority"
+    ]
+  },
+  "product_line": {
+    "label": "Product Line",
+    "desc": "Product line used in financial reporting.",
+    "semantic": [
+      "ebitda_bridge_line__product_line",
+      "gl_entry__product_line",
+      "financial_period__product_line",
+      "revenue_event__product_line"
+    ]
+  },
+  "rep": {
+    "label": "Sales Rep",
+    "desc": "Sales representative who owns the deal.",
+    "semantic": [
+      "rep"
+    ]
+  },
+  "subgroup": {
+    "label": "Student Subgroup",
+    "desc": "Accountability subgroup, such as ELL, FRL or students with disabilities.",
+    "semantic": [
+      "assessment_result__subgroup",
+      "discipline_incident__subgroup",
+      "enrollment__subgroup",
+      "attendance_record__subgroup",
+      "student_attendance_year__subgroup",
+      "student_cohort_outcome__subgroup"
+    ]
+  },
+  "product_category": {
+    "label": "Product Category",
+    "desc": "Merchandise category of a product.",
+    "semantic": [
+      "order_line__product_category",
+      "order__product_category",
+      "order_return__product_category",
+      "shipment__product_category",
+      "purchase_order__product_category"
+    ]
+  },
+  "geography": {
+    "label": "Geography",
+    "desc": "Country or market geography.",
+    "semantic": [
+      "market_estimate__geography",
+      "revenue_event__geography",
+      "user__geography",
+      "arr_movement__geography"
+    ]
+  },
+  "product_tier": {
+    "label": "Product Tier",
+    "desc": "Product or package tier sold on the contract.",
+    "semantic": [
+      "deferred_revenue_snapshot__product_tier",
+      "invoice__product_tier",
+      "contract__product_tier",
+      "customer_movement_period__product_tier"
+    ]
+  },
+  "production_line": {
+    "label": "Production Line",
+    "desc": "Manufacturing production line.",
+    "semantic": [
+      "production_run__production_line",
+      "inspection__production_line",
+      "production_run__line"
+    ]
+  },
+  "region": {
+    "label": "Region",
+    "desc": "Sales or operating region.",
+    "semantic": [
+      "shipment__region",
+      "market_estimate__region",
+      "revenue_event__region",
+      "trip__region"
+    ]
+  },
+  "service": {
+    "label": "Service",
+    "desc": "Software service or application.",
+    "semantic": [
+      "code_quality_snapshot__service",
+      "deployment__service",
+      "incident__service",
+      "availability_window__service"
+    ]
+  },
+  "warehouse": {
+    "label": "Warehouse",
+    "desc": "Warehouse or distribution center.",
+    "semantic": [
+      "warehouse"
+    ]
+  },
+  "cohort_month": {
+    "label": "Cohort Month",
+    "desc": "Month the customer was acquired or first ordered.",
+    "semantic": [
+      "order__cohort_month",
+      "customer_health_snapshot__cohort_month",
+      "arr_movement__cohort_month",
+      "customer_cohort_period__cohort_month"
+    ]
+  },
+  "cs_rep": {
+    "label": "Customer Success Manager",
+    "desc": "Customer success manager who owns the account.",
+    "semantic": [
+      "cs_rep",
+      "qbr__csm",
+      "opportunity__csm"
+    ]
+  },
+  "landing_page": {
+    "label": "Landing Page",
+    "desc": "First page of a web session.",
+    "semantic": [
+      "session__landing_page"
+    ]
+  },
+  "subject": {
+    "label": "Subject",
+    "desc": "Academic subject, such as ELA or math.",
+    "semantic": [
+      "assessment_result__subject",
+      "lesson__subject"
+    ]
+  },
+  "user_segment": {
+    "label": "User Segment",
+    "desc": "Behavioral or persona segment of a product user.",
+    "semantic": [
+      "session__user_segment",
+      "user_event__user_segment"
+    ]
+  },
+  "ad_set": {
+    "label": "Ad Set",
+    "desc": "Ad set or ad group.",
+    "semantic": [
+      "ad_set",
+      "ad_day__ad_set_name"
+    ]
+  },
+  "carrier": {
+    "label": "Carrier",
+    "desc": "Shipping carrier.",
+    "semantic": [
+      "shipment__carrier"
+    ]
+  },
+  "customer": {
+    "label": "Customer",
+    "desc": "Individual customer account.",
+    "semantic": [
+      "customer"
+    ]
+  },
+  "demographic_group": {
+    "label": "Demographic Group",
+    "desc": "Student race or ethnicity group.",
+    "semantic": [
+      "course_enrollment__demographic_group",
+      "enrollment__demographic_group",
+      "student_cohort_outcome__demographic_group"
+    ]
+  },
+  "endpoint": {
+    "label": "Endpoint",
+    "desc": "API endpoint or route.",
+    "semantic": [
+      "api_request__endpoint",
+      "app_error__endpoint"
+    ]
+  },
+  "product_area": {
+    "label": "Product Area",
+    "desc": "Area of the product the user was in.",
+    "semantic": [
+      "session__product_area",
+      "user_event__product_area"
+    ]
+  },
+  "source": {
+    "label": "Source",
+    "desc": "Traffic or lead source.",
+    "semantic": [
+      "session__source",
+      "lead__source",
+      "opportunity__source"
+    ]
+  },
+  "supplier": {
+    "label": "Supplier",
+    "desc": "Supplier of materials or goods.",
+    "semantic": [
+      "supplier"
+    ]
+  },
+  "survey_cycle": {
+    "label": "Survey Cycle",
+    "desc": "Survey wave or administration.",
+    "semantic": [
+      "climate_survey_response__survey_cycle",
+      "employee_survey_response__survey_cycle"
+    ]
+  },
+  "ad": {
+    "label": "Ad",
+    "desc": "Individual ad creative.",
+    "semantic": [
+      "ad_day__ad"
+    ]
+  },
+  "client": {
+    "label": "Client",
+    "desc": "Services client.",
+    "semantic": [
+      "client",
+      "revenue_event__client_name"
+    ]
+  },
+  "device": {
+    "label": "Device",
+    "desc": "Device type: desktop, mobile or tablet.",
+    "semantic": [
+      "page_view__device",
+      "session__device"
+    ]
+  },
+  "environment": {
+    "label": "Environment",
+    "desc": "Deployment environment, such as production or staging.",
+    "semantic": [
+      "deployment__environment",
+      "availability_window__environment",
+      "api_request__environment"
+    ]
+  },
+  "event": {
+    "label": "Event",
+    "desc": "Marketing event.",
+    "semantic": [
+      "event_registration__event"
+    ]
+  },
+  "fleet_type": {
+    "label": "Fleet Type",
+    "desc": "Vehicle fleet type.",
+    "semantic": [
+      "trip__fleet_type"
+    ]
+  },
+  "keyword_group": {
+    "label": "Keyword Group",
+    "desc": "Group of tracked search keywords.",
+    "semantic": [
+      "keyword_ranking__keyword_group",
+      "social_account_day__keyword_group"
+    ]
+  },
+  "page": {
+    "label": "Page",
+    "desc": "Web page.",
+    "semantic": [
+      "page",
+      "form_day__page_name",
+      "page_view__page_name",
+      "keyword_ranking__page_name"
+    ]
+  },
+  "system": {
+    "label": "System",
+    "desc": "Monitored system or asset.",
+    "semantic": [
+      "system"
+    ]
+  },
+  "vehicle": {
+    "label": "Vehicle",
+    "desc": "Individual fleet vehicle.",
+    "semantic": [
+      "vehicle"
+    ]
+  },
+  "vendor": {
+    "label": "Vendor",
+    "desc": "Supplier being paid or purchased from.",
+    "semantic": [
+      "bill__vendor",
+      "purchase_order__vendor"
+    ]
+  },
+  "webinar": {
+    "label": "Webinar",
+    "desc": "Individual webinar.",
+    "semantic": [
+      "event_registration__webinar"
+    ]
+  },
+  "asset_category": {
+    "label": "Asset Category",
+    "desc": "Fixed-asset category, such as equipment or buildings.",
+    "semantic": [
+      "fixed_asset_entry__asset_category"
+    ]
+  },
+  "asset_type": {
+    "label": "Asset Type",
+    "desc": "Type of maintained asset.",
+    "semantic": [
+      "work_order__asset_type"
+    ]
+  },
+  "category_manager": {
+    "label": "Category Manager",
+    "desc": "Procurement category manager.",
+    "semantic": [
+      "purchase_order__category_manager"
+    ]
+  },
+  "cohort_year": {
+    "label": "Cohort Year",
+    "desc": "Year a student cohort entered grade 9.",
+    "semantic": [
+      "student_cohort_outcome__cohort_year"
+    ]
+  },
+  "college_type": {
+    "label": "College Type",
+    "desc": "Two-year or four-year college.",
+    "semantic": [
+      "student_cohort_outcome__college_type"
+    ]
+  },
+  "competitor": {
+    "label": "Competitor",
+    "desc": "Competitor on the deal.",
+    "semantic": [
+      "opportunity__competitor"
+    ]
+  },
+  "content_type": {
+    "label": "Content Type",
+    "desc": "Content format, such as blog post, video or ebook.",
+    "semantic": [
+      "content_asset__content_type"
+    ]
+  },
+  "cost_center": {
+    "label": "Cost Center",
+    "desc": "Accounting cost center.",
+    "semantic": [
+      "budget_line__cost_center",
+      "gl_entry__cost_center"
+    ]
+  },
+  "deal_size_tier": {
+    "label": "Deal Size Tier",
+    "desc": "Band of deal size.",
+    "semantic": [
+      "opportunity__deal_size_tier"
+    ]
+  },
+  "disability_category": {
+    "label": "Disability Category",
+    "desc": "Student's primary disability category.",
+    "semantic": [
+      "iep_goal__disability_category"
+    ]
+  },
+  "domain": {
+    "label": "Referring Domain",
+    "desc": "Domain that links to the site.",
+    "semantic": [
+      "seo_domain_snapshot__domain"
+    ]
+  },
+  "error_type": {
+    "label": "Error Type",
+    "desc": "Error class or HTTP status family.",
+    "semantic": [
+      "api_request__error_type",
+      "app_error__error_type"
+    ]
+  },
+  "experience_band": {
+    "label": "Experience Band",
+    "desc": "Teacher years-of-experience band.",
+    "semantic": [
+      "staff_member__experience_band"
+    ]
+  },
+  "feature_area": {
+    "label": "Feature Area",
+    "desc": "Product area a feature request is about.",
+    "semantic": [
+      "feedback_item__feature_area"
+    ]
+  },
+  "feature_name": {
+    "label": "Feature",
+    "desc": "Product feature.",
+    "semantic": [
+      "user_event__feature_name"
+    ]
+  },
+  "form_name": {
+    "label": "Form",
+    "desc": "Web form.",
+    "semantic": [
+      "form_day__form_name"
+    ]
+  },
+  "function_code": {
+    "label": "Function Code",
+    "desc": "School finance function code, such as instruction or administration.",
+    "semantic": null
+  },
+  "fund": {
+    "label": "Fund",
+    "desc": "School finance fund.",
+    "semantic": null
+  },
+  "funnel_step": {
+    "label": "Funnel Step",
+    "desc": "Step in a conversion funnel.",
+    "semantic": [
+      "funnel_step_user__funnel_step"
+    ]
+  },
+  "grad_year": {
+    "label": "Graduation Year",
+    "desc": "Year the student graduated.",
+    "semantic": [
+      "student_cohort_outcome__grad_year"
+    ]
+  },
+  "hire_cohort": {
+    "label": "Hire Cohort",
+    "desc": "Period the employee was hired.",
+    "semantic": [
+      "employee_value__hire_cohort"
+    ]
+  },
+  "home_language": {
+    "label": "Home Language",
+    "desc": "Language spoken at a student's home.",
+    "semantic": [
+      "assessment_result__home_language"
+    ]
+  },
+  "incident_type": {
+    "label": "Incident Type",
+    "desc": "Kind of safety or discipline incident.",
+    "semantic": [
+      "discipline_incident__incident_type",
+      "safety_incident__incident_type"
+    ]
+  },
+  "interaction_type": {
+    "label": "Interaction Type",
+    "desc": "Kind of customer interaction surveyed, such as support or onboarding.",
+    "semantic": [
+      "survey_response__interaction_type"
+    ]
+  },
+  "jurisdiction": {
+    "label": "Tax Jurisdiction",
+    "desc": "Tax jurisdiction.",
+    "semantic": [
+      "financial_period__jurisdiction"
+    ]
+  },
+  "keyword": {
+    "label": "Keyword",
+    "desc": "Search keyword.",
+    "semantic": [
+      "session__keyword"
+    ]
+  },
+  "link_type": {
+    "label": "Link Type",
+    "desc": "Backlink type: follow or nofollow.",
+    "semantic": [
+      "seo_domain_snapshot__link_type"
+    ]
+  },
+  "manager": {
+    "label": "Manager",
+    "desc": "Employee's direct manager.",
+    "semantic": [
+      "manager"
+    ]
+  },
+  "medium": {
+    "label": "Medium",
+    "desc": "Traffic medium, such as organic, cpc or email.",
+    "semantic": [
+      "session__medium"
+    ]
+  },
+  "months_since_acquisition": {
+    "label": "Months Since Acquisition",
+    "desc": "Cohort age in months since acquisition.",
+    "semantic": [
+      "customer_cohort_period__months_since_acquisition"
+    ]
+  },
+  "order": {
+    "label": "Order",
+    "desc": "Individual customer order.",
+    "semantic": [
+      "order"
+    ]
+  },
+  "order_line": {
+    "label": "Order Line",
+    "desc": "Individual line on an order.",
+    "semantic": [
+      "order_line"
+    ]
+  },
+  "outlet": {
+    "label": "Media Outlet",
+    "desc": "Publication or media outlet.",
+    "semantic": [
+      "media_mention__outlet"
+    ]
+  },
+  "partner": {
+    "label": "Partner",
+    "desc": "Channel or reseller partner.",
+    "semantic": [
+      "revenue_event__partner"
+    ]
+  },
+  "plant": {
+    "label": "Plant",
+    "desc": "Manufacturing plant.",
+    "semantic": [
+      "plant"
+    ]
+  },
+  "process_type": {
+    "label": "Process Type",
+    "desc": "Manufacturing process type.",
+    "semantic": [
+      "production_run__process_type"
+    ]
+  },
+  "product_zone": {
+    "label": "Product Zone",
+    "desc": "Warehouse storage zone.",
+    "semantic": [
+      "warehouse_snapshot__product_zone"
+    ]
+  },
+  "referrer_domain": {
+    "label": "Referrer Domain",
+    "desc": "Domain the web session came from.",
+    "semantic": [
+      "session__referrer_domain"
+    ]
+  },
+  "repo": {
+    "label": "Repository",
+    "desc": "Source code repository.",
+    "semantic": [
+      "repo_snapshot__repo"
+    ]
+  },
+  "respondent_type": {
+    "label": "Respondent Type",
+    "desc": "Survey respondent role: student, parent or staff.",
+    "semantic": [
+      "climate_survey_response__respondent_type"
+    ]
+  },
+  "seller": {
+    "label": "Seller",
+    "desc": "Marketplace seller.",
+    "semantic": [
+      "seller"
+    ]
+  },
+  "service_type": {
+    "label": "Service Type",
+    "desc": "Contracted service type covered by the SLA.",
+    "semantic": [
+      "sla_event__service_type"
+    ]
+  },
+  "severity": {
+    "label": "Severity",
+    "desc": "Severity of the bug, incident or finding.",
+    "semantic": [
+      "code_quality_snapshot__severity",
+      "incident__severity",
+      "safety_incident__severity"
+    ]
+  },
+  "social_account": {
+    "label": "Social Account",
+    "desc": "Brand's social media account.",
+    "semantic": [
+      "social_account_day__account_name"
+    ]
+  },
+  "spend_category": {
+    "label": "Spend Category",
+    "desc": "Procurement spend category.",
+    "semantic": [
+      "purchase_order__spend_category"
+    ]
+  },
+  "stage": {
+    "label": "Stage",
+    "desc": "Pipeline or lifecycle stage.",
+    "semantic": [
+      "lead__stage",
+      "opportunity__stage"
+    ]
+  },
+  "student": {
+    "label": "Student",
+    "desc": "Individual student.",
+    "semantic": [
+      "student"
+    ]
+  },
+  "subject_area": {
+    "label": "Subject Area",
+    "desc": "Subject a teacher teaches.",
+    "semantic": [
+      "staff_member__subject_area"
+    ]
+  },
+  "support_team": {
+    "label": "Support Team",
+    "desc": "Support team that handled the interaction.",
+    "semantic": [
+      "survey_response__support_team"
+    ]
+  },
+  "teacher": {
+    "label": "Teacher",
+    "desc": "Individual teacher.",
+    "semantic": [
+      "teacher"
+    ]
+  },
+  "tier": {
+    "label": "Seller Tier",
+    "desc": "Marketplace seller tier.",
+    "semantic": [
+      "marketplace_transaction__tier"
+    ]
+  },
+  "topic": {
+    "label": "Topic",
+    "desc": "Content topic.",
+    "semantic": [
+      "content_asset__topic"
+    ]
+  },
+  "training_type": {
+    "label": "Training Type",
+    "desc": "Kind of employee training.",
+    "semantic": [
+      "training_record__training_type"
+    ]
+  },
+  "user": {
+    "label": "User",
+    "desc": "Individual product user.",
+    "semantic": [
+      "user"
+    ]
+  },
+  "work_order": {
+    "label": "Work Order",
+    "desc": "Individual maintenance work order.",
+    "semantic": [
+      "work_order"
+    ]
+  }
+}
