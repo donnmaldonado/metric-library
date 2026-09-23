@@ -5,6 +5,7 @@ from pathlib import Path
 import yaml
 
 from domains import derived_domains, domain_issues
+from sources import source_issues
 
 ROOT = Path(__file__).resolve().parent.parent
 RANK = {"north_star": 0, "kpi": 1, "input": 2}
@@ -12,6 +13,7 @@ MF_TYPES = {"simple", "ratio", "derived", "cumulative", "conversion"}
 ms = json.loads((ROOT / "data/metrics.json").read_text())
 by = {m["metricId"]: m for m in ms}
 taxonomy = json.loads((ROOT / "data/taxonomy.json").read_text())
+sources = json.loads((ROOT / "data/sources.json").read_text())
 derived_domain = derived_domains(ms)
 
 
@@ -90,6 +92,8 @@ for m in ms:
         issues.append(f"{mid}: north star has no children")
     elif m["tier"] != "north_star" and not m["parentMetrics"]:
         issues.append(f"{mid}: {m['tier']} doesn't roll up to any parent")
+
+issues += source_issues(ms, sources)
 
 for r, owners in retired_on.items():
     if len(owners) > 1:

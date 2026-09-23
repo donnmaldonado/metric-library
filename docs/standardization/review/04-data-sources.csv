@@ -1,0 +1,169 @@
+raw_string,count,example_metrics,source_id,notes
+ad_platforms,6,marketing_roi marketing_cac cpl,ad_platforms,
+Ad platforms,3,cpm marketing_spend roas,ad_platforms,
+Google Ads,3,ctr impressions ad_clicks,ad_platforms,vendor
+Meta Ads,3,ctr impressions ad_clicks,ad_platforms,vendor
+LinkedIn Ads,1,impressions,ad_platforms,vendor
+api_gateway,2,api_calls_total api_consumers,api_gateway,
+monitoring,2,mttd uptime,apm,
+APM (Datadog / New Relic),1,api_latency_p95,apm,
+users,11,active_paying_users free_to_paid_rate plg_rate,app_database,
+Transactional DB,2,customer_ltv arpu,app_database,
+Product database,1,new_user_signups,app_database,
+app_stores,3,app_store_rating iap_revenue app_downloads,app_stores,
+assessment_data,6,ela_proficiency_rate grade3_reading kinder_readiness,assessment_platform,
+Assessment platform,1,cost_per_outcome,assessment_platform,
+ELL assessment system,1,ell_proficiency_growth,assessment_platform,
+State assessment platform,1,student_proficiency,assessment_platform,
+ats,6,interview_to_offer_rate offer_acceptance_rate cost_per_hire,ats,
+ATS,1,internal_promotion_rate,ats,
+ATS (Greenhouse / Lever),1,time_to_fill,ats,
+Attribution model,1,marketing_influenced_pipeline,attribution,attribution tool output; a real input only if an attribution tool is connected
+Revenue attribution model,1,roas,attribution,attribution tool output; a real input only if an attribution tool is connected
+Bank statements,1,runway_months,banking,
+bank_transactions,1,burn_rate,banking,
+subscriptions,22,cac_payback active_paying_users free_to_paid_rate,billing,
+Billing system,12,rule_of_40 renewal_rate acv,billing,
+cap_table,2,enterprise_value ev_ebitda,cap_table,
+ci_cd,3,change_failure_rate deployment_frequency code_coverage,ci_cd,
+CI/CD platform,1,lead_time_for_changes,ci_cd,
+code_analysis,1,tech_debt_ratio,ci_cd,"static analysis, merged into ci_cd"
+CMMS,3,mtbf preventive_maintenance_rate work_order_resolution_time,cmms,
+CMMS (Computerized Maintenance Management System),1,work_orders,cmms,
+SCADA,1,mtbf,cmms,"machine telemetry, merged into cmms"
+CMS (Contentful / WordPress),1,content_published_count,cms,
+orders,41,clv on_time_delivery_rate aov,commerce_platform,table owned by the commerce/order system
+customers,7,clv cac cohort_ltv_12m,commerce_platform,table owned by the commerce/order system
+marketplace,3,liquidity_rate marketplace_buyers marketplace_sellers,commerce_platform,marketplace transactions and listings
+Marketplace platform,2,gmv take_rate,commerce_platform,marketplace transactions and listings
+returns,1,refund_rate,commerce_platform,table owned by the commerce/order system
+Market compensation data,1,compensation_ratio,compensation_benchmarks,
+crm,31,marketing_roi pipeline_generated mql,crm,
+CRM,19,customer_ltv customer_onboarding_time renewal_rate,crm,
+contracts,2,contracted_unbilled committed_arr,crm,signed contracts; CRM closed-won vs. a CLM (Ironclad) — chose CRM
+opportunities,2,avg_deal_size new_arr,crm,
+CRM (Salesforce / HubSpot),1,sales_cycle_length,crm,
+Pricing system,1,ebitda_bridge_price,crm,"pricing/CPQ, merged into crm"
+Safety management system,1,safety_incident_rate,ehs,
+Energy monitoring,1,energy_cost_per_unit,energy_monitoring,
+Environmental monitoring,1,carbon_emissions_per_unit,energy_monitoring,
+ERP,34,ops_north_star rule_of_40 ar_aging_90d,erp,
+balance_sheet,13,enterprise_value current_ratio debt_to_equity,erp,table/report owned by the ERP
+Finance,10,cost_per_outcome employee_lifetime_value staff_student_cost_ratio,erp,
+general_ledger,8,cac cac_payback ltv_cac,erp,table/report owned by the ERP
+finance,7,ops_efficiency_ratio cost_per_event_attendee instructional_spend_ratio,erp,
+income_statement,7,ebitda ev_ebitda gross_profit_per_employee,erp,table/report owned by the ERP
+Balance sheet,3,debt_ebitda quick_ratio working_capital,erp,table/report owned by the ERP
+Income statement,3,interest_coverage_ratio net_income net_income_margin,erp,table/report owned by the ERP
+cash_flow_statement,2,free_cash_flow operating_cash_flow,erp,table/report owned by the ERP
+cogs,2,gross_margin_pct gross_profit,erp,table/report owned by the ERP
+invoices,2,dso accounts_receivable,erp,table/report owned by the ERP
+payments,2,dpo dso,erp,table/report owned by the ERP
+purchase_orders,2,dpo accounts_payable,erp,POs for AP/DPO; could be procurement
+AR aging report,1,ar_aging_90d,erp,table/report owned by the ERP
+Finance system (Infinite Visions / QuickBooks),1,per_pupil_expenditure,erp,
+Fixed asset register,1,capex,erp,table/report owned by the ERP
+fixed_assets,1,da,erp,table/report owned by the ERP
+General Ledger,1,rd_expense,erp,table/report owned by the ERP
+Internal finance,1,market_penetration_rate,erp,
+Portfolio data room,1,ebitda_margin,erp,PE portfolio financials; the underlying system is the ERP
+Tax system,1,effective_tax_rate,erp,tax expense for effective_tax_rate comes from the GL; a tax engine (Avalara) would be its own system
+Error tracking (Sentry / Datadog),1,error_rate,error_tracking,
+events_platform,2,cost_per_event_attendee event_attendees,events_platform,
+webinar_platform,2,webinar_attendance_rate webinar_registrants,events_platform,
+Fleet management,1,cost_per_mile,fleet_management,
+Fleet management system (GPS,1,fleet_utilization_rate,fleet_management,"fragment of ""Fleet management system (GPS, telematics)"""
+telematics),1,fleet_utilization_rate,fleet_management,"fragment of ""Fleet management system (GPS, telematics)"""
+budget_tracking,1,budget_variance,fpa,
+Budgeting system,1,budget_variance_pct,fpa,
+budgets,1,annual_budget,fpa,
+revenue_forecasts,1,forecast_accuracy,fpa,
+helpdesk,9,fcr_rate escalation_rate sla_breach_rate,helpdesk,
+Support platform,3,first_response_time time_to_resolution ticket_resolution_rate,helpdesk,
+Customer service system,1,order_accuracy_rate,helpdesk,
+Operations platform,1,sla_compliance_rate,helpdesk,SLA windows for sla_compliance_rate; assumed tracked in the helpdesk
+Support ticket system,1,ces,helpdesk,
+hris,21,headcount turnover_rate student_teacher_ratio,hris,
+HRIS,10,employee_lifetime_value staff_student_cost_ratio teacher_retention_rate,hris,
+employees,3,gross_profit_per_employee arr_per_rep employees_per_1m_arr,hris,
+benefits_admin,1,benefits_utilization,hris,benefits enrollment usually lives in the HRIS; a separate benefits platform would be its own source
+incident_management,4,change_failure_rate mttr rcr_rate,incident_management,
+bug_tracker,1,bug_escape_rate,issue_tracker,
+project_management,1,sprint_velocity,issue_tracker,
+Curriculum management system,1,on_time_lesson_delivery,lms,lesson plans/delivery; a curriculum tool (Atlas) could be its own source
+LMS (Learning Management System),1,training_hours_per_employee,lms,
+marketing_automation,3,mql lead_to_mql_rate webinar_attendance_rate,marketing_automation,
+Marketing automation,2,cost_per_sql mql_to_sql_rate,marketing_automation,
+website,1,demo_requests,marketing_automation,demo request form fills; could be web_analytics
+media_monitoring,2,earned_media_value pr_mentions,media_monitoring,
+Social listening tools (Brandwatch / Mention),1,share_of_voice,media_monitoring,
+production,3,lead_time cycle_time throughput,mes,
+capacity_planning,1,capacity_utilization,mes,available vs. actual production capacity
+MES,1,cost_per_unit,mes,
+Email platform,2,unsubscribe_rate email_click_rate,messaging_platform,
+Email platform (HubSpot / Klaviyo / Mailchimp),1,email_open_rate,messaging_platform,
+push_platform,1,push_open_rate,messaging_platform,
+payroll,2,gender_pay_gap total_comp_expense,payroll,
+Payroll system,1,headcount_cost,payroll,
+Performance management system,1,manager_effectiveness_score,performance_management,
+partner_registry,1,partner_revenue,prm,
+Purchasing system,2,supplier_lead_time procurement_savings_rate,procurement,
+procurement,1,vendor_compliance_rate,procurement,
+Procurement system,1,vendor_scorecard_rating,procurement,
+Product analytics,8,customer_onboarding_time activation_rate avg_session_duration,product_analytics,
+events,6,account_health_score time_to_activate d30_retention,product_analytics,
+Product analytics (Mixpanel / Amplitude / Segment),1,dau,product_analytics,
+Product feedback tool (Productboard / Canny),1,feature_request_volume,product_feedback,
+QMS,1,vendor_scorecard_rating,qms,
+quality,1,vendor_compliance_rate,qms,
+Quality management system,1,defect_rate,qms,
+referrals,2,referral_attribution_pct viral_coefficient,referral_program,
+review_platforms,2,review_rating testimonials_count,review_platforms,
+seo_tools,2,domain_authority backlinks_count,seo_tools,
+Ahrefs,1,backlink_count,seo_tools,vendor
+SEMrush,1,backlink_count,seo_tools,vendor
+SEO tools (SEMrush / Ahrefs),1,top10_keyword_count,seo_tools,
+SIS,10,cost_per_outcome advanced_course_enrollment_rate ell_proficiency_growth,sis,
+enrollment,5,four_year_grad_rate dropout_rate student_teacher_ratio,sis,table owned by the SIS
+transcripts,4,college_enrollment_rate four_year_grad_rate dropout_rate,sis,table owned by the SIS
+attendance,3,student_attendance_rate chronic_absenteeism_rate adm,sis,table owned by the SIS
+discipline,2,suspension_rate expulsion_rate,sis,table owned by the SIS
+class_schedules,1,instructional_minutes,sis,table owned by the SIS
+College guidance system,1,fafsa_completion_rate,sis,"college guidance, merged into sis"
+course_enrollment,1,ap_participation_rate,sis,table owned by the SIS
+extracurricular,1,extracurricular_rate,sis,activity rosters; assumed kept in the SIS
+Facilities system,1,seat_fill_rate,sis,seat capacity for seat_fill_rate; assumed kept in the SIS
+family_engagement_log,1,family_engagement_rate,sis,event/conference attendance log; could be a family comms tool (ParentSquare)
+SIS (PowerSchool / Infinite Campus),1,student_proficiency,sis,
+Special education management system,1,iep_goal_mastery_rate,sis,"special education, merged into sis"
+special_education,1,iep_pct,sis,"special education, merged into sis"
+Transcript system,1,credit_accumulation_rate,sis,
+Instagram),1,social_followers,social_media,"fragment of ""Social media APIs (LinkedIn, X, Instagram)"""
+Social media APIs (LinkedIn,1,social_followers,social_media,"fragment of ""Social media APIs (LinkedIn, X, Instagram)"""
+social_analytics,1,social_engagement_rate,social_media,
+X,1,social_followers,social_media,"fragment of ""Social media APIs (LinkedIn, X, Instagram)"""
+National Student Clearinghouse,1,college_enrollment,student_clearinghouse,
+nscc,1,college_enrollment_rate,student_clearinghouse,
+surveys,5,cx_csat account_health_score school_climate_score,survey_platform,
+Survey platform,2,ces csat,survey_platform,
+NPS survey platform (Delighted / Qualtrics),1,nps,survey_platform,
+Survey platform (Lattice / Culture Amp),1,employee_engagement_score,survey_platform,
+time_records,2,absenteeism_rate overtime_hours,time_attendance,
+logistics,1,on_time_delivery_rate,tms,
+TMS,1,ops_north_star,tms,
+git,1,pr_merge_time,version_control,
+github,1,oss_stars,version_control,
+Version control,1,lead_time_for_changes,version_control,
+Google Analytics / GA4,6,bounce_rate paid_sessions web_conversion_rate,web_analytics,
+analytics,4,form_conversion_rate organic_attribution_pct session_to_lead_rate,web_analytics,"3 of 4 metrics are web (forms, sessions); funnel_dropoff is product — could be product_analytics"
+sessions,1,sessions_per_user,web_analytics,
+inventory,6,inventory_turnover order_fulfillment_rate stockout_rate,wms,
+WMS,6,ops_north_star order_accuracy_rate fill_rate,wms,
+warehouse_system,1,warehouse_utilization,wms,
+market_sizing,2,sam tam,,"drop: third-party market data, not a connected system"
+Data warehouse,1,customer_ltv,,"drop — the warehouse is where sources land, not a source; customer_ltv keeps CRM and app_database"
+Market research,1,market_penetration_rate,,"drop: third-party market data, not a connected system"
+market_analysis,1,market_share,,"drop: third-party market data, not a connected system"
+ML model output,1,churn_prediction_score,,"drop: our own model output, not a source system"
+process_catalog,1,process_automation_rate,,drop: no clear source system
+State reporting,1,per_pupil_expenditure,,drop — a state filing built from district finance data; per_pupil_expenditure keeps erp

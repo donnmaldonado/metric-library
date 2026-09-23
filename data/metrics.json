@@ -17,8 +17,7 @@
       "cohort"
     ],
     "dataSources": [
-      "orders",
-      "customers"
+      "commerce_platform"
     ],
     "parentMetrics": [],
     "childMetrics": [
@@ -58,9 +57,8 @@
       "acquisition_channel"
     ],
     "dataSources": [
-      "Transactional DB",
-      "CRM",
-      "Data warehouse"
+      "app_database",
+      "crm"
     ],
     "parentMetrics": [],
     "childMetrics": [
@@ -98,8 +96,8 @@
       "grade"
     ],
     "dataSources": [
-      "State assessment platform",
-      "SIS (PowerSchool / Infinite Campus)"
+      "assessment_platform",
+      "sis"
     ],
     "parentMetrics": [],
     "childMetrics": [
@@ -154,8 +152,8 @@
       "school"
     ],
     "dataSources": [
-      "transcripts",
-      "nscc"
+      "sis",
+      "student_clearinghouse"
     ],
     "parentMetrics": [],
     "childMetrics": [
@@ -188,9 +186,9 @@
       "period"
     ],
     "dataSources": [
-      "Finance",
-      "SIS",
-      "Assessment platform"
+      "erp",
+      "sis",
+      "assessment_platform"
     ],
     "parentMetrics": [],
     "childMetrics": [
@@ -221,7 +219,7 @@
       "segment"
     ],
     "dataSources": [
-      "income_statement"
+      "erp"
     ],
     "parentMetrics": [],
     "childMetrics": [
@@ -269,7 +267,7 @@
     ],
     "dataSources": [
       "cap_table",
-      "balance_sheet"
+      "erp"
     ],
     "parentMetrics": [],
     "childMetrics": [
@@ -301,7 +299,7 @@
       "date"
     ],
     "dataSources": [
-      "cash_flow_statement"
+      "erp"
     ],
     "parentMetrics": [],
     "childMetrics": [
@@ -382,7 +380,7 @@
       "date"
     ],
     "dataSources": [
-      "finance"
+      "erp"
     ],
     "parentMetrics": [],
     "childMetrics": [
@@ -419,9 +417,9 @@
       "period"
     ],
     "dataSources": [
-      "WMS",
-      "TMS",
-      "ERP"
+      "wms",
+      "tms",
+      "erp"
     ],
     "parentMetrics": [],
     "childMetrics": [
@@ -490,8 +488,8 @@
       "fiscal_period"
     ],
     "dataSources": [
-      "ERP",
-      "Billing system"
+      "erp",
+      "billing"
     ],
     "parentMetrics": [],
     "childMetrics": [
@@ -527,8 +525,8 @@
       "hire_cohort"
     ],
     "dataSources": [
-      "HRIS",
-      "Finance"
+      "hris",
+      "erp"
     ],
     "parentMetrics": [],
     "childMetrics": [
@@ -638,8 +636,7 @@
       "cohort_year"
     ],
     "dataSources": [
-      "enrollment",
-      "transcripts"
+      "sis"
     ],
     "parentMetrics": [],
     "childMetrics": [
@@ -740,8 +737,8 @@
       "period"
     ],
     "dataSources": [
-      "orders",
-      "logistics"
+      "commerce_platform",
+      "tms"
     ],
     "parentMetrics": [],
     "childMetrics": [
@@ -778,7 +775,7 @@
       "channel"
     ],
     "dataSources": [
-      "surveys"
+      "survey_platform"
     ],
     "parentMetrics": [],
     "childMetrics": [
@@ -811,7 +808,7 @@
       "survey_period"
     ],
     "dataSources": [
-      "NPS survey platform (Delighted / Qualtrics)"
+      "survey_platform"
     ],
     "parentMetrics": [],
     "childMetrics": [
@@ -861,8 +858,8 @@
     ],
     "dataSources": [
       "crm",
-      "events",
-      "surveys"
+      "product_analytics",
+      "survey_platform"
     ],
     "parentMetrics": [
       "at_risk_accounts",
@@ -910,7 +907,7 @@
       "channel"
     ],
     "dataSources": [
-      "orders"
+      "commerce_platform"
     ],
     "parentMetrics": [
       "clv",
@@ -947,8 +944,8 @@
       "channel"
     ],
     "dataSources": [
-      "general_ledger",
-      "customers"
+      "erp",
+      "commerce_platform"
     ],
     "parentMetrics": [
       "ltv_cac",
@@ -1007,8 +1004,8 @@
       "cohort"
     ],
     "dataSources": [
-      "subscriptions",
-      "general_ledger"
+      "billing",
+      "erp"
     ],
     "parentMetrics": [
       "ltv_cac"
@@ -1048,8 +1045,8 @@
       "period"
     ],
     "dataSources": [
-      "Survey platform",
-      "Support ticket system"
+      "survey_platform",
+      "helpdesk"
     ],
     "parentMetrics": [
       "account_health_score"
@@ -1082,8 +1079,7 @@
       "channel"
     ],
     "dataSources": [
-      "orders",
-      "customers"
+      "commerce_platform"
     ],
     "parentMetrics": [
       "clv",
@@ -1117,8 +1113,7 @@
       "cohort"
     ],
     "dataSources": [
-      "orders",
-      "customers"
+      "commerce_platform"
     ],
     "parentMetrics": [
       "clv"
@@ -1155,8 +1150,8 @@
       "customer_segment"
     ],
     "dataSources": [
-      "CRM",
-      "Product analytics"
+      "crm",
+      "product_analytics"
     ],
     "parentMetrics": [
       "account_health_score",
@@ -1191,9 +1186,8 @@
       "channel"
     ],
     "dataSources": [
-      "orders",
-      "customers",
-      "general_ledger"
+      "commerce_platform",
+      "erp"
     ],
     "parentMetrics": [
       "marketing_roi"
@@ -1266,9 +1260,7 @@
     "dimensions": [
       "date"
     ],
-    "dataSources": [
-      "process_catalog"
-    ],
+    "dataSources": [],
     "parentMetrics": [
       "cycle_time"
     ],
@@ -1296,7 +1288,7 @@
       "customer_segment"
     ],
     "dataSources": [
-      "orders"
+      "commerce_platform"
     ],
     "parentMetrics": [
       "clv",
@@ -1328,8 +1320,7 @@
       "product"
     ],
     "dataSources": [
-      "orders",
-      "returns"
+      "commerce_platform"
     ],
     "parentMetrics": [
       "clv"
@@ -1361,8 +1352,8 @@
       "period"
     ],
     "dataSources": [
-      "CRM",
-      "Billing system"
+      "crm",
+      "billing"
     ],
     "parentMetrics": [
       "nrr",
@@ -1397,7 +1388,7 @@
       "date"
     ],
     "dataSources": [
-      "orders"
+      "commerce_platform"
     ],
     "parentMetrics": [
       "purchase_frequency"
@@ -1428,7 +1419,7 @@
       "period"
     ],
     "dataSources": [
-      "SIS"
+      "sis"
     ],
     "parentMetrics": [
       "four_year_grad_rate"
@@ -1457,7 +1448,7 @@
       "product_category"
     ],
     "dataSources": [
-      "orders"
+      "commerce_platform"
     ],
     "parentMetrics": [
       "clv"
@@ -1487,8 +1478,7 @@
       "subgroup"
     ],
     "dataSources": [
-      "enrollment",
-      "transcripts"
+      "sis"
     ],
     "parentMetrics": [
       "four_year_grad_rate"
@@ -1523,7 +1513,7 @@
       "school"
     ],
     "dataSources": [
-      "assessment_data"
+      "assessment_platform"
     ],
     "parentMetrics": [
       "student_proficiency"
@@ -1564,8 +1554,8 @@
       "period"
     ],
     "dataSources": [
-      "SIS",
-      "ELL assessment system"
+      "sis",
+      "assessment_platform"
     ],
     "parentMetrics": [
       "student_proficiency"
@@ -1595,8 +1585,7 @@
       "period"
     ],
     "dataSources": [
-      "SIS",
-      "College guidance system"
+      "sis"
     ],
     "parentMetrics": [
       "college_enrollment",
@@ -1626,7 +1615,7 @@
       "school"
     ],
     "dataSources": [
-      "assessment_data"
+      "assessment_platform"
     ],
     "parentMetrics": [
       "ela_proficiency_rate"
@@ -1660,7 +1649,7 @@
       "period"
     ],
     "dataSources": [
-      "Special education management system"
+      "sis"
     ],
     "parentMetrics": [
       "student_proficiency"
@@ -1689,7 +1678,7 @@
       "school"
     ],
     "dataSources": [
-      "assessment_data"
+      "assessment_platform"
     ],
     "parentMetrics": [
       "grade3_reading"
@@ -1719,7 +1708,7 @@
       "school"
     ],
     "dataSources": [
-      "assessment_data"
+      "assessment_platform"
     ],
     "parentMetrics": [
       "student_proficiency"
@@ -1755,7 +1744,7 @@
       "survey_cycle"
     ],
     "dataSources": [
-      "surveys"
+      "survey_platform"
     ],
     "parentMetrics": [
       "student_proficiency"
@@ -1812,8 +1801,8 @@
       "fiscal_year"
     ],
     "dataSources": [
-      "Finance",
-      "HRIS"
+      "erp",
+      "hris"
     ],
     "parentMetrics": [
       "per_pupil_expenditure"
@@ -1853,7 +1842,7 @@
       "period"
     ],
     "dataSources": [
-      "attendance"
+      "sis"
     ],
     "parentMetrics": [
       "four_year_grad_rate",
@@ -1907,7 +1896,7 @@
       "period"
     ],
     "dataSources": [
-      "enrollment",
+      "sis",
       "hris"
     ],
     "parentMetrics": [
@@ -1944,8 +1933,8 @@
       "period"
     ],
     "dataSources": [
-      "HRIS",
-      "SIS"
+      "hris",
+      "sis"
     ],
     "parentMetrics": [
       "student_proficiency"
@@ -1980,7 +1969,7 @@
     ],
     "dataSources": [
       "crm",
-      "orders"
+      "commerce_platform"
     ],
     "parentMetrics": [
       "expansion_arr"
@@ -2012,7 +2001,7 @@
     ],
     "dataSources": [
       "hris",
-      "time_records"
+      "time_attendance"
     ],
     "parentMetrics": [
       "workforce_productivity"
@@ -2046,7 +2035,7 @@
       "plan_tier"
     ],
     "dataSources": [
-      "Product analytics"
+      "product_analytics"
     ],
     "parentMetrics": [
       "dau_mau_ratio"
@@ -2087,8 +2076,8 @@
       "date"
     ],
     "dataSources": [
-      "users",
-      "subscriptions"
+      "app_database",
+      "billing"
     ],
     "parentMetrics": [
       "free_to_paid_rate"
@@ -2121,8 +2110,8 @@
       "period"
     ],
     "dataSources": [
-      "CRM",
-      "Billing system"
+      "crm",
+      "billing"
     ],
     "parentMetrics": [
       "arr"
@@ -2153,7 +2142,7 @@
       "school"
     ],
     "dataSources": [
-      "course_enrollment"
+      "sis"
     ],
     "parentMetrics": [
       "college_enrollment_rate"
@@ -2184,7 +2173,7 @@
       "subject"
     ],
     "dataSources": [
-      "assessment_data"
+      "assessment_platform"
     ],
     "parentMetrics": [
       "college_enrollment_rate"
@@ -2245,8 +2234,7 @@
       "period"
     ],
     "dataSources": [
-      "ERP",
-      "AR aging report"
+      "erp"
     ],
     "parentMetrics": [
       "dso",
@@ -2281,8 +2269,8 @@
       "month"
     ],
     "dataSources": [
-      "Transactional DB",
-      "Billing system"
+      "app_database",
+      "billing"
     ],
     "parentMetrics": [
       "customer_ltv",
@@ -2321,8 +2309,8 @@
       "period"
     ],
     "dataSources": [
-      "ERP",
-      "Billing system"
+      "erp",
+      "billing"
     ],
     "parentMetrics": [
       "revenue"
@@ -2384,7 +2372,7 @@
       "segment"
     ],
     "dataSources": [
-      "opportunities"
+      "crm"
     ],
     "parentMetrics": [
       "new_arr",
@@ -2457,7 +2445,7 @@
       "date"
     ],
     "dataSources": [
-      "Product analytics"
+      "product_analytics"
     ],
     "parentMetrics": [
       "dau_mau_ratio"
@@ -2492,7 +2480,7 @@
       "period"
     ],
     "dataSources": [
-      "Google Analytics / GA4"
+      "web_analytics"
     ],
     "parentMetrics": [
       "web_conversion_rate"
@@ -2525,8 +2513,8 @@
       "department"
     ],
     "dataSources": [
-      "budget_tracking",
-      "general_ledger"
+      "fpa",
+      "erp"
     ],
     "parentMetrics": [
       "budget_variance_pct"
@@ -2560,8 +2548,8 @@
       "fiscal_period"
     ],
     "dataSources": [
-      "ERP",
-      "Budgeting system"
+      "erp",
+      "fpa"
     ],
     "parentMetrics": [
       "ops_efficiency_ratio"
@@ -2591,8 +2579,8 @@
       "date"
     ],
     "dataSources": [
-      "bank_transactions",
-      "general_ledger"
+      "banking",
+      "erp"
     ],
     "parentMetrics": [
       "runway_months"
@@ -2630,7 +2618,7 @@
       "period"
     ],
     "dataSources": [
-      "capacity_planning"
+      "mes"
     ],
     "parentMetrics": [
       "ops_north_star"
@@ -2666,8 +2654,7 @@
       "fiscal_period"
     ],
     "dataSources": [
-      "ERP",
-      "Fixed asset register"
+      "erp"
     ],
     "parentMetrics": [
       "free_cash_flow",
@@ -2700,8 +2687,8 @@
       "period"
     ],
     "dataSources": [
-      "Environmental monitoring",
-      "ERP"
+      "energy_monitoring",
+      "erp"
     ],
     "parentMetrics": [
       "ops_efficiency_ratio"
@@ -2773,7 +2760,7 @@
       "academic_year"
     ],
     "dataSources": [
-      "attendance"
+      "sis"
     ],
     "parentMetrics": [
       "student_attendance_rate",
@@ -2812,7 +2799,7 @@
       "fiscal_period"
     ],
     "dataSources": [
-      "ERP"
+      "erp"
     ],
     "parentMetrics": [
       "ebitda",
@@ -2851,7 +2838,7 @@
     ],
     "dataSources": [
       "events_platform",
-      "finance"
+      "erp"
     ],
     "parentMetrics": [
       "cpl"
@@ -2881,8 +2868,8 @@
       "period"
     ],
     "dataSources": [
-      "Fleet management",
-      "Finance"
+      "fleet_management",
+      "erp"
     ],
     "parentMetrics": [
       "ops_efficiency_ratio"
@@ -2913,8 +2900,8 @@
       "period"
     ],
     "dataSources": [
-      "ERP",
-      "MES"
+      "erp",
+      "mes"
     ],
     "parentMetrics": [
       "gross_margin_pct"
@@ -2986,7 +2973,7 @@
       "period"
     ],
     "dataSources": [
-      "Ad platforms"
+      "ad_platforms"
     ],
     "parentMetrics": [
       "cpc"
@@ -3019,8 +3006,7 @@
       "period"
     ],
     "dataSources": [
-      "SIS",
-      "Transcript system"
+      "sis"
     ],
     "parentMetrics": [
       "four_year_grad_rate"
@@ -3050,7 +3036,7 @@
       "date"
     ],
     "dataSources": [
-      "balance_sheet"
+      "erp"
     ],
     "parentMetrics": [
       "working_capital"
@@ -3086,8 +3072,7 @@
       "quarter"
     ],
     "dataSources": [
-      "Balance sheet",
-      "ERP"
+      "erp"
     ],
     "parentMetrics": [
       "leverage_ratio"
@@ -3120,7 +3105,7 @@
       "date"
     ],
     "dataSources": [
-      "balance_sheet"
+      "erp"
     ],
     "parentMetrics": [
       "roe"
@@ -3192,8 +3177,7 @@
       "vendor"
     ],
     "dataSources": [
-      "purchase_orders",
-      "payments"
+      "erp"
     ],
     "parentMetrics": [
       "working_capital"
@@ -3227,8 +3211,7 @@
       "customer_segment"
     ],
     "dataSources": [
-      "invoices",
-      "payments"
+      "erp"
     ],
     "parentMetrics": [
       "working_capital"
@@ -3319,8 +3302,7 @@
       "segment"
     ],
     "dataSources": [
-      "ERP",
-      "Portfolio data room"
+      "erp"
     ],
     "parentMetrics": [
       "ebitda",
@@ -3358,8 +3340,7 @@
       "jurisdiction"
     ],
     "dataSources": [
-      "ERP",
-      "Tax system"
+      "erp"
     ],
     "parentMetrics": [
       "net_income"
@@ -3394,7 +3375,7 @@
       "school"
     ],
     "dataSources": [
-      "SIS"
+      "sis"
     ],
     "parentMetrics": [
       "per_pupil_expenditure",
@@ -3430,7 +3411,7 @@
       "period"
     ],
     "dataSources": [
-      "Error tracking (Sentry / Datadog)"
+      "error_tracking"
     ],
     "parentMetrics": [
       "dau_mau_ratio"
@@ -3467,7 +3448,7 @@
     ],
     "dataSources": [
       "cap_table",
-      "income_statement"
+      "erp"
     ],
     "parentMetrics": [
       "enterprise_value"
@@ -3566,7 +3547,7 @@
       "period"
     ],
     "dataSources": [
-      "Support platform"
+      "helpdesk"
     ],
     "parentMetrics": [
       "csat",
@@ -3604,8 +3585,7 @@
       "period"
     ],
     "dataSources": [
-      "Fleet management system (GPS",
-      "telematics)"
+      "fleet_management"
     ],
     "parentMetrics": [
       "cost_per_mile"
@@ -3633,7 +3613,7 @@
       "segment"
     ],
     "dataSources": [
-      "revenue_forecasts"
+      "fpa"
     ],
     "parentMetrics": [
       "ebitda"
@@ -3668,7 +3648,7 @@
       "page"
     ],
     "dataSources": [
-      "analytics",
+      "web_analytics",
       "crm"
     ],
     "parentMetrics": [
@@ -3704,8 +3684,8 @@
       "cohort"
     ],
     "dataSources": [
-      "users",
-      "subscriptions"
+      "app_database",
+      "billing"
     ],
     "parentMetrics": [
       "plg_rate",
@@ -3775,8 +3755,8 @@
       "period"
     ],
     "dataSources": [
-      "Marketplace platform",
-      "ERP"
+      "commerce_platform",
+      "erp"
     ],
     "parentMetrics": [
       "revenue",
@@ -3817,8 +3797,8 @@
       "channel"
     ],
     "dataSources": [
-      "orders",
-      "cogs"
+      "commerce_platform",
+      "erp"
     ],
     "parentMetrics": [
       "ebitda",
@@ -3860,8 +3840,8 @@
       "product_line"
     ],
     "dataSources": [
-      "orders",
-      "cogs"
+      "commerce_platform",
+      "erp"
     ],
     "parentMetrics": [
       "ebitda",
@@ -3895,8 +3875,8 @@
       "date"
     ],
     "dataSources": [
-      "income_statement",
-      "employees"
+      "erp",
+      "hris"
     ],
     "parentMetrics": [
       "employee_lifetime_value"
@@ -3929,7 +3909,7 @@
       "school_year"
     ],
     "dataSources": [
-      "finance"
+      "erp"
     ],
     "parentMetrics": [
       "per_pupil_expenditure"
@@ -3961,8 +3941,7 @@
       "date"
     ],
     "dataSources": [
-      "Income statement",
-      "ERP"
+      "erp"
     ],
     "parentMetrics": [
       "roe"
@@ -4000,8 +3979,8 @@
       "period"
     ],
     "dataSources": [
-      "HRIS",
-      "ATS"
+      "hris",
+      "ats"
     ],
     "parentMetrics": [
       "voluntary_turnover"
@@ -4060,8 +4039,7 @@
       "date"
     ],
     "dataSources": [
-      "balance_sheet",
-      "income_statement"
+      "erp"
     ],
     "parentMetrics": [
       "roe"
@@ -4097,7 +4075,7 @@
       "category"
     ],
     "dataSources": [
-      "marketplace"
+      "commerce_platform"
     ],
     "parentMetrics": [
       "gmv"
@@ -4125,8 +4103,8 @@
       "date"
     ],
     "dataSources": [
-      "subscriptions",
-      "general_ledger"
+      "billing",
+      "erp"
     ],
     "parentMetrics": [
       "rule_of_40"
@@ -4160,7 +4138,7 @@
       "survey_cycle"
     ],
     "dataSources": [
-      "Performance management system"
+      "performance_management"
     ],
     "parentMetrics": [
       "employee_engagement_score"
@@ -4190,9 +4168,7 @@
       "date",
       "region"
     ],
-    "dataSources": [
-      "market_analysis"
-    ],
+    "dataSources": [],
     "parentMetrics": [
       "revenue_growth_rate"
     ],
@@ -4226,8 +4202,8 @@
       "period"
     ],
     "dataSources": [
-      "CRM",
-      "Attribution model"
+      "crm",
+      "attribution"
     ],
     "parentMetrics": [
       "marketing_roi"
@@ -4257,8 +4233,8 @@
       "period"
     ],
     "dataSources": [
-      "Ad platforms",
-      "Finance"
+      "ad_platforms",
+      "erp"
     ],
     "parentMetrics": [
       "cac",
@@ -4300,8 +4276,7 @@
       "period"
     ],
     "dataSources": [
-      "CMMS",
-      "SCADA"
+      "cmms"
     ],
     "parentMetrics": [
       "uptime"
@@ -4331,7 +4306,7 @@
       "date"
     ],
     "dataSources": [
-      "monitoring"
+      "apm"
     ],
     "parentMetrics": [
       "uptime"
@@ -4395,7 +4370,7 @@
       "date"
     ],
     "dataSources": [
-      "balance_sheet"
+      "erp"
     ],
     "parentMetrics": [
       "enterprise_value",
@@ -4429,8 +4404,7 @@
       "fiscal_period"
     ],
     "dataSources": [
-      "Income statement",
-      "ERP"
+      "erp"
     ],
     "parentMetrics": [
       "roe",
@@ -4470,7 +4444,7 @@
       "date"
     ],
     "dataSources": [
-      "Income statement"
+      "erp"
     ],
     "parentMetrics": [
       "roe"
@@ -4504,7 +4478,7 @@
     ],
     "dataSources": [
       "crm",
-      "orders"
+      "commerce_platform"
     ],
     "parentMetrics": [
       "marketing_cac"
@@ -4543,8 +4517,8 @@
       "channel"
     ],
     "dataSources": [
-      "Product database",
-      "CRM"
+      "app_database",
+      "crm"
     ],
     "parentMetrics": [
       "mau",
@@ -4611,7 +4585,7 @@
       "date"
     ],
     "dataSources": [
-      "cash_flow_statement"
+      "erp"
     ],
     "parentMetrics": [
       "free_cash_flow"
@@ -4644,7 +4618,7 @@
       "department"
     ],
     "dataSources": [
-      "general_ledger"
+      "erp"
     ],
     "parentMetrics": [
       "ebitda",
@@ -4690,8 +4664,8 @@
       "period"
     ],
     "dataSources": [
-      "WMS",
-      "Customer service system"
+      "wms",
+      "helpdesk"
     ],
     "parentMetrics": [
       "ops_north_star"
@@ -4757,7 +4731,7 @@
       "period"
     ],
     "dataSources": [
-      "Google Analytics / GA4"
+      "web_analytics"
     ],
     "parentMetrics": [
       "website_sessions"
@@ -4788,8 +4762,7 @@
       "fund"
     ],
     "dataSources": [
-      "Finance system (Infinite Visions / QuickBooks)",
-      "State reporting"
+      "erp"
     ],
     "parentMetrics": [
       "cost_per_outcome",
@@ -4834,7 +4807,7 @@
       "period"
     ],
     "dataSources": [
-      "CRM"
+      "crm"
     ],
     "parentMetrics": [
       "new_arr"
@@ -4870,7 +4843,7 @@
       "period"
     ],
     "dataSources": [
-      "CRM"
+      "crm"
     ],
     "parentMetrics": [
       "pipeline_coverage"
@@ -4901,8 +4874,8 @@
       "date"
     ],
     "dataSources": [
-      "users",
-      "subscriptions"
+      "app_database",
+      "billing"
     ],
     "parentMetrics": [
       "new_arr"
@@ -4936,7 +4909,7 @@
       "period"
     ],
     "dataSources": [
-      "CMMS"
+      "cmms"
     ],
     "parentMetrics": [
       "mtbf"
@@ -4968,7 +4941,7 @@
       "campaign"
     ],
     "dataSources": [
-      "push_platform"
+      "messaging_platform"
     ],
     "parentMetrics": [
       "dau"
@@ -4997,7 +4970,7 @@
       "quarter"
     ],
     "dataSources": [
-      "Balance sheet"
+      "erp"
     ],
     "parentMetrics": [
       "working_capital"
@@ -5027,8 +5000,8 @@
       "period"
     ],
     "dataSources": [
-      "CRM",
-      "Finance"
+      "crm",
+      "erp"
     ],
     "parentMetrics": [
       "new_arr",
@@ -5063,8 +5036,7 @@
       "fiscal_period"
     ],
     "dataSources": [
-      "ERP",
-      "General Ledger"
+      "erp"
     ],
     "parentMetrics": [
       "opex",
@@ -5094,7 +5066,7 @@
     ],
     "dataSources": [
       "crm",
-      "referrals"
+      "referral_program"
     ],
     "parentMetrics": [
       "marketing_roi"
@@ -5124,8 +5096,7 @@
       "date"
     ],
     "dataSources": [
-      "orders",
-      "customers"
+      "commerce_platform"
     ],
     "parentMetrics": [
       "customer_concentration_risk"
@@ -5155,7 +5126,7 @@
       "date"
     ],
     "dataSources": [
-      "orders"
+      "commerce_platform"
     ],
     "parentMetrics": [
       "revenue"
@@ -5183,7 +5154,7 @@
       "date"
     ],
     "dataSources": [
-      "orders"
+      "commerce_platform"
     ],
     "parentMetrics": [
       "revenue"
@@ -5246,8 +5217,7 @@
       "fiscal_period"
     ],
     "dataSources": [
-      "income_statement",
-      "balance_sheet"
+      "erp"
     ],
     "parentMetrics": [
       "roe"
@@ -5283,8 +5253,7 @@
       "fiscal_period"
     ],
     "dataSources": [
-      "income_statement",
-      "balance_sheet"
+      "erp"
     ],
     "parentMetrics": [],
     "childMetrics": [
@@ -5321,8 +5290,7 @@
       "date"
     ],
     "dataSources": [
-      "income_statement",
-      "balance_sheet"
+      "erp"
     ],
     "parentMetrics": [
       "enterprise_value"
@@ -5355,8 +5323,8 @@
       "as_of_date"
     ],
     "dataSources": [
-      "Bank statements",
-      "Finance"
+      "banking",
+      "erp"
     ],
     "parentMetrics": [
       "free_cash_flow"
@@ -5391,7 +5359,7 @@
       "period"
     ],
     "dataSources": [
-      "CRM (Salesforce / HubSpot)"
+      "crm"
     ],
     "parentMetrics": [
       "new_arr"
@@ -5421,8 +5389,8 @@
       "fiscal_period"
     ],
     "dataSources": [
-      "HRIS",
-      "ERP"
+      "hris",
+      "erp"
     ],
     "parentMetrics": [
       "cac",
@@ -5452,7 +5420,7 @@
       "platform"
     ],
     "dataSources": [
-      "sessions"
+      "web_analytics"
     ],
     "parentMetrics": [
       "dau_mau_ratio"
@@ -5484,7 +5452,7 @@
       "fiscal_period"
     ],
     "dataSources": [
-      "ERP"
+      "erp"
     ],
     "parentMetrics": [
       "opex",
@@ -5522,7 +5490,7 @@
       "period"
     ],
     "dataSources": [
-      "assessment_data"
+      "assessment_platform"
     ],
     "parentMetrics": [
       "ela_proficiency_rate",
@@ -5555,7 +5523,7 @@
       "period"
     ],
     "dataSources": [
-      "Social listening tools (Brandwatch / Mention)"
+      "media_monitoring"
     ],
     "parentMetrics": [
       "marketing_roi"
@@ -5589,7 +5557,7 @@
       "subgroup"
     ],
     "dataSources": [
-      "discipline"
+      "sis"
     ],
     "parentMetrics": [
       "chronic_absenteeism_rate",
@@ -5624,7 +5592,7 @@
       "period"
     ],
     "dataSources": [
-      "Marketplace platform"
+      "commerce_platform"
     ],
     "parentMetrics": [
       "revenue"
@@ -5657,7 +5625,7 @@
       "service"
     ],
     "dataSources": [
-      "code_analysis"
+      "ci_cd"
     ],
     "parentMetrics": [
       "change_failure_rate"
@@ -5687,8 +5655,8 @@
       "cohort"
     ],
     "dataSources": [
-      "events",
-      "users"
+      "product_analytics",
+      "app_database"
     ],
     "parentMetrics": [
       "activation_rate"
@@ -5719,7 +5687,7 @@
       "period"
     ],
     "dataSources": [
-      "ATS (Greenhouse / Lever)"
+      "ats"
     ],
     "parentMetrics": [
       "headcount_vs_budget"
@@ -5762,7 +5730,7 @@
       "date"
     ],
     "dataSources": [
-      "Support platform"
+      "helpdesk"
     ],
     "parentMetrics": [
       "csat",
@@ -5799,7 +5767,7 @@
       "acquisition_channel"
     ],
     "dataSources": [
-      "Product analytics"
+      "product_analytics"
     ],
     "parentMetrics": [
       "dau_mau_ratio"
@@ -5835,7 +5803,7 @@
       "period"
     ],
     "dataSources": [
-      "LMS (Learning Management System)"
+      "lms"
     ],
     "parentMetrics": [
       "employee_engagement_score"
@@ -5864,8 +5832,8 @@
       "cohort"
     ],
     "dataSources": [
-      "users",
-      "subscriptions"
+      "app_database",
+      "billing"
     ],
     "parentMetrics": [
       "plg_rate"
@@ -5904,7 +5872,7 @@
       "campaign"
     ],
     "dataSources": [
-      "Email platform"
+      "messaging_platform"
     ],
     "parentMetrics": [
       "mql"
@@ -5932,8 +5900,8 @@
       "date"
     ],
     "dataSources": [
-      "referrals",
-      "users"
+      "referral_program",
+      "app_database"
     ],
     "parentMetrics": [
       "new_user_signups"
@@ -5967,7 +5935,7 @@
       "period"
     ],
     "dataSources": [
-      "Google Analytics / GA4"
+      "web_analytics"
     ],
     "parentMetrics": [
       "mql"
@@ -6006,7 +5974,7 @@
       "period"
     ],
     "dataSources": [
-      "Google Analytics / GA4"
+      "web_analytics"
     ],
     "parentMetrics": [
       "form_conversion_rate",
@@ -6048,7 +6016,7 @@
       "period"
     ],
     "dataSources": [
-      "CRM"
+      "crm"
     ],
     "parentMetrics": [
       "new_arr"
@@ -6089,7 +6057,7 @@
       "period"
     ],
     "dataSources": [
-      "CMMS"
+      "cmms"
     ],
     "parentMetrics": [
       "uptime"
@@ -6120,7 +6088,7 @@
     ],
     "dataSources": [
       "hris",
-      "orders"
+      "commerce_platform"
     ],
     "parentMetrics": [
       "employee_lifetime_value"
@@ -6157,7 +6125,7 @@
       "quarter"
     ],
     "dataSources": [
-      "Balance sheet"
+      "erp"
     ],
     "parentMetrics": [
       "free_cash_flow"
@@ -6230,8 +6198,8 @@
       "period"
     ],
     "dataSources": [
-      "HRIS",
-      "Market compensation data"
+      "hris",
+      "compensation_benchmarks"
     ],
     "parentMetrics": [
       "voluntary_turnover"
@@ -6291,7 +6259,7 @@
     "dataSources": [
       "ats",
       "hris",
-      "finance"
+      "erp"
     ],
     "parentMetrics": [
       "hr_cost_pct_revenue"
@@ -6325,7 +6293,7 @@
       "school"
     ],
     "dataSources": [
-      "transcripts"
+      "sis"
     ],
     "parentMetrics": [
       "credit_accumulation_rate"
@@ -6388,7 +6356,7 @@
       "date"
     ],
     "dataSources": [
-      "Survey platform (Lattice / Culture Amp)"
+      "survey_platform"
     ],
     "parentMetrics": [
       "voluntary_turnover"
@@ -6439,8 +6407,8 @@
       "period"
     ],
     "dataSources": [
-      "HRIS",
-      "Payroll system"
+      "hris",
+      "payroll"
     ],
     "parentMetrics": [
       "opex",
@@ -6475,7 +6443,7 @@
     ],
     "dataSources": [
       "hris",
-      "finance"
+      "erp"
     ],
     "parentMetrics": [
       "headcount"
@@ -6513,8 +6481,8 @@
       "location"
     ],
     "dataSources": [
-      "inventory",
-      "orders"
+      "wms",
+      "commerce_platform"
     ],
     "parentMetrics": [
       "working_capital"
@@ -6555,7 +6523,7 @@
       "acquisition_channel"
     ],
     "dataSources": [
-      "Product analytics"
+      "product_analytics"
     ],
     "parentMetrics": [
       "time_to_value"
@@ -6586,8 +6554,8 @@
       "period"
     ],
     "dataSources": [
-      "CRM",
-      "Finance"
+      "crm",
+      "erp"
     ],
     "parentMetrics": [
       "new_arr"
@@ -6715,8 +6683,8 @@
       "period"
     ],
     "dataSources": [
-      "Operations platform",
-      "CRM"
+      "helpdesk",
+      "crm"
     ],
     "parentMetrics": [
       "ops_north_star"
@@ -6812,7 +6780,7 @@
     ],
     "dataSources": [
       "procurement",
-      "quality"
+      "qms"
     ],
     "parentMetrics": [
       "vendor_scorecard_rating"
@@ -6893,8 +6861,7 @@
       "fiscal_period"
     ],
     "dataSources": [
-      "ERP",
-      "Finance"
+      "erp"
     ],
     "parentMetrics": [
       "ebitda"
@@ -6964,8 +6931,8 @@
       "period"
     ],
     "dataSources": [
-      "Marketing automation",
-      "CRM"
+      "marketing_automation",
+      "crm"
     ],
     "parentMetrics": [
       "cac"
@@ -7042,8 +7009,7 @@
       "ad"
     ],
     "dataSources": [
-      "Google Ads",
-      "Meta Ads"
+      "ad_platforms"
     ],
     "parentMetrics": [
       "cpc"
@@ -7083,7 +7049,7 @@
       "campaign"
     ],
     "dataSources": [
-      "Email platform"
+      "messaging_platform"
     ],
     "parentMetrics": [
       "mql"
@@ -7117,7 +7083,7 @@
       "period"
     ],
     "dataSources": [
-      "Email platform (HubSpot / Klaviyo / Mailchimp)"
+      "messaging_platform"
     ],
     "parentMetrics": [
       "email_click_rate"
@@ -7148,7 +7114,7 @@
       "product"
     ],
     "dataSources": [
-      "production"
+      "mes"
     ],
     "parentMetrics": [
       "on_time_delivery_rate"
@@ -7178,8 +7144,8 @@
       "period"
     ],
     "dataSources": [
-      "CI/CD platform",
-      "Version control"
+      "ci_cd",
+      "version_control"
     ],
     "parentMetrics": [
       "deployment_frequency"
@@ -7244,8 +7210,8 @@
       "period"
     ],
     "dataSources": [
-      "CRM",
-      "Marketing automation"
+      "crm",
+      "marketing_automation"
     ],
     "parentMetrics": [
       "sql"
@@ -7277,7 +7243,7 @@
       "date"
     ],
     "dataSources": [
-      "analytics",
+      "web_analytics",
       "crm"
     ],
     "parentMetrics": [
@@ -7312,8 +7278,8 @@
       "period"
     ],
     "dataSources": [
-      "Ad platforms",
-      "Revenue attribution model"
+      "ad_platforms",
+      "attribution"
     ],
     "parentMetrics": [
       "marketing_roi"
@@ -7351,7 +7317,7 @@
       "channel"
     ],
     "dataSources": [
-      "analytics",
+      "web_analytics",
       "crm"
     ],
     "parentMetrics": [
@@ -7385,7 +7351,7 @@
       "platform"
     ],
     "dataSources": [
-      "social_analytics"
+      "social_media"
     ],
     "parentMetrics": [
       "share_of_voice"
@@ -7462,8 +7428,8 @@
       "period"
     ],
     "dataSources": [
-      "ERP",
-      "Purchasing system"
+      "erp",
+      "procurement"
     ],
     "parentMetrics": [
       "vendor_scorecard_rating"
@@ -7497,7 +7463,7 @@
       "date"
     ],
     "dataSources": [
-      "SEO tools (SEMrush / Ahrefs)"
+      "seo_tools"
     ],
     "parentMetrics": [
       "organic_sessions"
@@ -7530,7 +7496,7 @@
       "webinar"
     ],
     "dataSources": [
-      "webinar_platform",
+      "events_platform",
       "marketing_automation"
     ],
     "parentMetrics": [
@@ -7563,8 +7529,8 @@
       "product"
     ],
     "dataSources": [
-      "production",
-      "orders"
+      "mes",
+      "commerce_platform"
     ],
     "parentMetrics": [
       "on_time_delivery_rate"
@@ -7600,8 +7566,8 @@
       "period"
     ],
     "dataSources": [
-      "Quality management system",
-      "ERP"
+      "qms",
+      "erp"
     ],
     "parentMetrics": [
       "ops_north_star",
@@ -7667,8 +7633,8 @@
       "period"
     ],
     "dataSources": [
-      "WMS",
-      "ERP"
+      "wms",
+      "erp"
     ],
     "parentMetrics": [
       "ops_north_star"
@@ -7705,8 +7671,8 @@
       "region"
     ],
     "dataSources": [
-      "orders",
-      "inventory"
+      "commerce_platform",
+      "wms"
     ],
     "parentMetrics": [
       "ops_north_star"
@@ -7736,8 +7702,8 @@
       "period"
     ],
     "dataSources": [
-      "ERP",
-      "Purchasing system"
+      "erp",
+      "procurement"
     ],
     "parentMetrics": [
       "cogs"
@@ -7799,8 +7765,8 @@
       "product"
     ],
     "dataSources": [
-      "ERP",
-      "WMS"
+      "erp",
+      "wms"
     ],
     "parentMetrics": [
       "ops_north_star"
@@ -7833,8 +7799,8 @@
       "period"
     ],
     "dataSources": [
-      "Safety management system",
-      "HRIS"
+      "ehs",
+      "hris"
     ],
     "parentMetrics": [
       "workforce_productivity"
@@ -7864,8 +7830,7 @@
       "period"
     ],
     "dataSources": [
-      "SIS",
-      "Facilities system"
+      "sis"
     ],
     "parentMetrics": [
       "per_pupil_expenditure"
@@ -7933,8 +7898,8 @@
       "location"
     ],
     "dataSources": [
-      "inventory",
-      "orders"
+      "wms",
+      "commerce_platform"
     ],
     "parentMetrics": [
       "fill_rate"
@@ -7966,7 +7931,7 @@
     ],
     "dataSources": [
       "helpdesk",
-      "finance"
+      "erp"
     ],
     "parentMetrics": [
       "ops_efficiency_ratio"
@@ -8002,7 +7967,7 @@
       "line"
     ],
     "dataSources": [
-      "production"
+      "mes"
     ],
     "parentMetrics": [
       "capacity_utilization"
@@ -8063,7 +8028,7 @@
       "period"
     ],
     "dataSources": [
-      "Support platform"
+      "helpdesk"
     ],
     "parentMetrics": [
       "csat"
@@ -8158,9 +8123,9 @@
       "period"
     ],
     "dataSources": [
-      "Procurement system",
-      "WMS",
-      "QMS"
+      "procurement",
+      "wms",
+      "qms"
     ],
     "parentMetrics": [
       "ops_north_star"
@@ -8198,7 +8163,7 @@
       "period"
     ],
     "dataSources": [
-      "warehouse_system"
+      "wms"
     ],
     "parentMetrics": [
       "ops_efficiency_ratio"
@@ -8228,7 +8193,7 @@
       "date"
     ],
     "dataSources": [
-      "subscriptions"
+      "billing"
     ],
     "parentMetrics": [
       "rule_of_40"
@@ -8262,8 +8227,8 @@
       "date"
     ],
     "dataSources": [
-      "subscriptions",
-      "employees"
+      "billing",
+      "hris"
     ],
     "parentMetrics": [
       "revenue_per_employee"
@@ -8298,7 +8263,7 @@
       "period"
     ],
     "dataSources": [
-      "Billing system"
+      "billing"
     ],
     "parentMetrics": [
       "revenue",
@@ -8338,8 +8303,8 @@
       "period"
     ],
     "dataSources": [
-      "CRM",
-      "Finance"
+      "crm",
+      "erp"
     ],
     "parentMetrics": [
       "arr",
@@ -8376,7 +8341,7 @@
       "fiscal_period"
     ],
     "dataSources": [
-      "ERP"
+      "erp"
     ],
     "parentMetrics": [
       "free_cash_flow"
@@ -8410,8 +8375,7 @@
       "score_date"
     ],
     "dataSources": [
-      "Product analytics",
-      "ML model output"
+      "product_analytics"
     ],
     "parentMetrics": [
       "account_health_score"
@@ -8444,7 +8408,7 @@
       "segment"
     ],
     "dataSources": [
-      "Billing system"
+      "billing"
     ],
     "parentMetrics": [
       "nrr"
@@ -8481,7 +8445,7 @@
     ],
     "dataSources": [
       "crm",
-      "subscriptions"
+      "billing"
     ],
     "parentMetrics": [
       "clv",
@@ -8522,8 +8486,8 @@
       "period"
     ],
     "dataSources": [
-      "Billing system",
-      "CRM"
+      "billing",
+      "crm"
     ],
     "parentMetrics": [
       "enterprise_value"
@@ -8557,8 +8521,8 @@
       "period"
     ],
     "dataSources": [
-      "ERP",
-      "Billing system"
+      "erp",
+      "billing"
     ],
     "parentMetrics": [
       "operating_cash_flow"
@@ -8593,8 +8557,8 @@
       "date"
     ],
     "dataSources": [
-      "subscriptions",
-      "employees"
+      "billing",
+      "hris"
     ],
     "parentMetrics": [
       "revenue_per_employee"
@@ -8662,7 +8626,7 @@
       "date"
     ],
     "dataSources": [
-      "ERP"
+      "erp"
     ],
     "parentMetrics": [
       "opex"
@@ -8698,7 +8662,7 @@
       "segment"
     ],
     "dataSources": [
-      "subscriptions"
+      "billing"
     ],
     "parentMetrics": [
       "nrr"
@@ -8731,7 +8695,7 @@
     ],
     "dataSources": [
       "hris",
-      "finance"
+      "erp"
     ],
     "parentMetrics": [
       "opex"
@@ -8795,7 +8759,7 @@
       "product"
     ],
     "dataSources": [
-      "orders"
+      "commerce_platform"
     ],
     "parentMetrics": [
       "revenue"
@@ -8825,8 +8789,7 @@
       "period"
     ],
     "dataSources": [
-      "Internal finance",
-      "Market research"
+      "erp"
     ],
     "parentMetrics": [
       "market_share"
@@ -8860,7 +8823,7 @@
       "customer_id"
     ],
     "dataSources": [
-      "Billing system"
+      "billing"
     ],
     "parentMetrics": [
       "arr",
@@ -8898,7 +8861,7 @@
       "customer_segment"
     ],
     "dataSources": [
-      "subscriptions"
+      "billing"
     ],
     "parentMetrics": [
       "churn_rate"
@@ -8929,7 +8892,7 @@
       "date"
     ],
     "dataSources": [
-      "subscriptions"
+      "billing"
     ],
     "parentMetrics": [
       "arr_growth_rate"
@@ -8959,7 +8922,7 @@
       "channel"
     ],
     "dataSources": [
-      "orders"
+      "commerce_platform"
     ],
     "parentMetrics": [
       "revenue"
@@ -8992,8 +8955,8 @@
       "channel"
     ],
     "dataSources": [
-      "subscriptions",
-      "opportunities"
+      "billing",
+      "crm"
     ],
     "parentMetrics": [
       "arr",
@@ -9050,7 +9013,7 @@
       "segment"
     ],
     "dataSources": [
-      "subscriptions"
+      "billing"
     ],
     "parentMetrics": [
       "rule_of_40",
@@ -9109,8 +9072,8 @@
       "partner"
     ],
     "dataSources": [
-      "orders",
-      "partner_registry"
+      "commerce_platform",
+      "prm"
     ],
     "parentMetrics": [
       "revenue",
@@ -9139,7 +9102,7 @@
       "date"
     ],
     "dataSources": [
-      "orders"
+      "commerce_platform"
     ],
     "parentMetrics": [
       "revenue"
@@ -9171,7 +9134,7 @@
       "date"
     ],
     "dataSources": [
-      "users"
+      "app_database"
     ],
     "parentMetrics": [
       "mau"
@@ -9203,7 +9166,7 @@
       "date"
     ],
     "dataSources": [
-      "ERP"
+      "erp"
     ],
     "parentMetrics": [
       "opex"
@@ -9249,9 +9212,9 @@
       "region"
     ],
     "dataSources": [
-      "ERP",
-      "CRM",
-      "Billing system"
+      "erp",
+      "crm",
+      "billing"
     ],
     "parentMetrics": [],
     "childMetrics": [
@@ -9317,7 +9280,7 @@
       "date"
     ],
     "dataSources": [
-      "orders"
+      "commerce_platform"
     ],
     "parentMetrics": [
       "rule_of_40"
@@ -9356,8 +9319,7 @@
       "segment"
     ],
     "dataSources": [
-      "orders",
-      "customers"
+      "commerce_platform"
     ],
     "parentMetrics": [
       "arpu"
@@ -9387,8 +9349,8 @@
       "department"
     ],
     "dataSources": [
-      "ERP",
-      "HRIS"
+      "erp",
+      "hris"
     ],
     "parentMetrics": [
       "ebitda",
@@ -9427,7 +9389,7 @@
       "date"
     ],
     "dataSources": [
-      "orders"
+      "commerce_platform"
     ],
     "parentMetrics": [
       "revenue_growth_rate"
@@ -9462,7 +9424,7 @@
       "date"
     ],
     "dataSources": [
-      "orders"
+      "commerce_platform"
     ],
     "parentMetrics": [
       "revenue"
@@ -9497,7 +9459,7 @@
       "date"
     ],
     "dataSources": [
-      "subscriptions"
+      "billing"
     ],
     "parentMetrics": [
       "arr_growth_rate"
@@ -9533,7 +9495,7 @@
       "client"
     ],
     "dataSources": [
-      "orders"
+      "commerce_platform"
     ],
     "parentMetrics": [
       "revenue"
@@ -9562,8 +9524,8 @@
       "plan"
     ],
     "dataSources": [
-      "subscriptions",
-      "orders"
+      "billing",
+      "commerce_platform"
     ],
     "parentMetrics": [
       "revenue"
@@ -9596,7 +9558,7 @@
       "period"
     ],
     "dataSources": [
-      "APM (Datadog / New Relic)"
+      "apm"
     ],
     "parentMetrics": [
       "error_rate"
@@ -9629,7 +9591,7 @@
       "severity"
     ],
     "dataSources": [
-      "bug_tracker"
+      "issue_tracker"
     ],
     "parentMetrics": [
       "error_rate"
@@ -9663,8 +9625,8 @@
       "period"
     ],
     "dataSources": [
-      "Survey platform",
-      "CRM"
+      "survey_platform",
+      "crm"
     ],
     "parentMetrics": [
       "account_health_score",
@@ -9756,8 +9718,8 @@
       "plan_tier"
     ],
     "dataSources": [
-      "events",
-      "users"
+      "product_analytics",
+      "app_database"
     ],
     "parentMetrics": [
       "dau_mau_ratio"
@@ -9795,8 +9757,8 @@
       "cohort"
     ],
     "dataSources": [
-      "events",
-      "users"
+      "product_analytics",
+      "app_database"
     ],
     "parentMetrics": [
       "d30_retention"
@@ -9831,7 +9793,7 @@
       "date"
     ],
     "dataSources": [
-      "Product analytics (Mixpanel / Amplitude / Segment)"
+      "product_analytics"
     ],
     "parentMetrics": [
       "dau_mau_ratio",
@@ -9870,7 +9832,7 @@
       "date"
     ],
     "dataSources": [
-      "events"
+      "product_analytics"
     ],
     "parentMetrics": [
       "account_health_score"
@@ -9950,7 +9912,7 @@
       "department"
     ],
     "dataSources": [
-      "surveys"
+      "survey_platform"
     ],
     "parentMetrics": [
       "employee_engagement_score"
@@ -9985,7 +9947,7 @@
       "feature"
     ],
     "dataSources": [
-      "Product analytics"
+      "product_analytics"
     ],
     "parentMetrics": [
       "dau_mau_ratio",
@@ -10025,7 +9987,7 @@
       "user_segment"
     ],
     "dataSources": [
-      "Product analytics"
+      "product_analytics"
     ],
     "parentMetrics": [
       "dau_mau_ratio",
@@ -10067,7 +10029,7 @@
       "facility_id"
     ],
     "dataSources": [
-      "monitoring"
+      "apm"
     ],
     "parentMetrics": [
       "error_rate",
@@ -10108,7 +10070,7 @@
       "platform"
     ],
     "dataSources": [
-      "events"
+      "product_analytics"
     ],
     "parentMetrics": [
       "dau_mau_ratio"
@@ -10139,7 +10101,7 @@
       "location"
     ],
     "dataSources": [
-      "inventory"
+      "wms"
     ],
     "parentMetrics": [
       "cogs"
@@ -10167,7 +10129,7 @@
       "school_year"
     ],
     "dataSources": [
-      "attendance"
+      "sis"
     ],
     "parentMetrics": [
       "student_attendance_rate"
@@ -10225,7 +10187,7 @@
       "school"
     ],
     "dataSources": [
-      "enrollment"
+      "sis"
     ],
     "parentMetrics": [
       "student_proficiency"
@@ -10254,7 +10216,7 @@
       "school"
     ],
     "dataSources": [
-      "enrollment"
+      "sis"
     ],
     "parentMetrics": [
       "student_proficiency"
@@ -10284,7 +10246,7 @@
       "school"
     ],
     "dataSources": [
-      "special_education"
+      "sis"
     ],
     "parentMetrics": [
       "student_proficiency"
@@ -10313,7 +10275,7 @@
       "date"
     ],
     "dataSources": [
-      "purchase_orders"
+      "erp"
     ],
     "parentMetrics": [
       "current_ratio",
@@ -10343,7 +10305,7 @@
       "date"
     ],
     "dataSources": [
-      "invoices"
+      "erp"
     ],
     "parentMetrics": [
       "current_ratio",
@@ -10373,7 +10335,7 @@
       "date"
     ],
     "dataSources": [
-      "budgets"
+      "fpa"
     ],
     "parentMetrics": [
       "budget_variance",
@@ -10434,8 +10396,7 @@
       "period"
     ],
     "dataSources": [
-      "Ahrefs",
-      "SEMrush"
+      "seo_tools"
     ],
     "parentMetrics": [
       "domain_authority"
@@ -10493,7 +10454,7 @@
       "date"
     ],
     "dataSources": [
-      "benefits_admin"
+      "hris"
     ],
     "parentMetrics": [
       "employee_engagement_score"
@@ -10521,7 +10482,7 @@
       "date"
     ],
     "dataSources": [
-      "balance_sheet"
+      "erp"
     ],
     "parentMetrics": [
       "current_ratio",
@@ -10585,8 +10546,8 @@
       "subgroup"
     ],
     "dataSources": [
-      "National Student Clearinghouse",
-      "SIS"
+      "student_clearinghouse",
+      "sis"
     ],
     "parentMetrics": [
       "college_enrollment_rate"
@@ -10618,7 +10579,7 @@
       "date"
     ],
     "dataSources": [
-      "contracts"
+      "crm"
     ],
     "parentMetrics": [
       "billings"
@@ -10679,7 +10640,7 @@
       "date"
     ],
     "dataSources": [
-      "fixed_assets"
+      "erp"
     ],
     "parentMetrics": [
       "ebitda",
@@ -10710,7 +10671,7 @@
     ],
     "dataSources": [
       "crm",
-      "website"
+      "marketing_automation"
     ],
     "parentMetrics": [
       "mql"
@@ -10740,7 +10701,7 @@
       "product"
     ],
     "dataSources": [
-      "orders"
+      "commerce_platform"
     ],
     "parentMetrics": [
       "net_revenue"
@@ -10770,8 +10731,8 @@
       "fiscal_period"
     ],
     "dataSources": [
-      "ERP",
-      "Pricing system"
+      "erp",
+      "crm"
     ],
     "parentMetrics": [
       "ebitda"
@@ -10800,7 +10761,7 @@
       "fiscal_period"
     ],
     "dataSources": [
-      "ERP"
+      "erp"
     ],
     "parentMetrics": [
       "ebitda"
@@ -10829,8 +10790,8 @@
       "period"
     ],
     "dataSources": [
-      "Energy monitoring",
-      "ERP"
+      "energy_monitoring",
+      "erp"
     ],
     "parentMetrics": [
       "cost_per_unit"
@@ -10888,7 +10849,7 @@
       "school"
     ],
     "dataSources": [
-      "discipline"
+      "sis"
     ],
     "parentMetrics": [
       "suspension_rate"
@@ -10917,7 +10878,7 @@
       "school"
     ],
     "dataSources": [
-      "extracurricular"
+      "sis"
     ],
     "parentMetrics": [
       "school_climate_score"
@@ -10946,7 +10907,7 @@
       "school"
     ],
     "dataSources": [
-      "family_engagement_log"
+      "sis"
     ],
     "parentMetrics": [
       "school_climate_score"
@@ -10977,7 +10938,7 @@
       "period"
     ],
     "dataSources": [
-      "Product feedback tool (Productboard / Canny)"
+      "product_feedback"
     ],
     "parentMetrics": [
       "nps"
@@ -11006,7 +10967,7 @@
       "funnel_step"
     ],
     "dataSources": [
-      "analytics"
+      "web_analytics"
     ],
     "parentMetrics": [
       "activation_rate"
@@ -11040,9 +11001,7 @@
       "ad"
     ],
     "dataSources": [
-      "Google Ads",
-      "Meta Ads",
-      "LinkedIn Ads"
+      "ad_platforms"
     ],
     "parentMetrics": [
       "ctr",
@@ -11075,7 +11034,7 @@
       "date"
     ],
     "dataSources": [
-      "marketplace"
+      "commerce_platform"
     ],
     "parentMetrics": [
       "gmv"
@@ -11103,7 +11062,7 @@
       "date"
     ],
     "dataSources": [
-      "marketplace"
+      "commerce_platform"
     ],
     "parentMetrics": [
       "gmv"
@@ -11139,7 +11098,7 @@
     ],
     "dataSources": [
       "crm",
-      "orders"
+      "commerce_platform"
     ],
     "parentMetrics": [
       "net_new_customers",
@@ -11175,7 +11134,7 @@
       "period"
     ],
     "dataSources": [
-      "Curriculum management system"
+      "lms"
     ],
     "parentMetrics": [
       "student_proficiency"
@@ -11233,7 +11192,7 @@
       "repo"
     ],
     "dataSources": [
-      "github"
+      "version_control"
     ],
     "parentMetrics": [
       "viral_coefficient"
@@ -11262,7 +11221,7 @@
       "department"
     ],
     "dataSources": [
-      "time_records"
+      "time_attendance"
     ],
     "parentMetrics": [
       "workforce_productivity"
@@ -11321,7 +11280,7 @@
       "team"
     ],
     "dataSources": [
-      "git"
+      "version_control"
     ],
     "parentMetrics": [
       "lead_time_for_changes"
@@ -11381,7 +11340,7 @@
       "period"
     ],
     "dataSources": [
-      "Google Analytics / GA4"
+      "web_analytics"
     ],
     "parentMetrics": [
       "website_sessions"
@@ -11437,9 +11396,7 @@
     "dimensions": [
       "date"
     ],
-    "dataSources": [
-      "market_sizing"
-    ],
+    "dataSources": [],
     "parentMetrics": [
       "market_penetration_rate"
     ],
@@ -11497,7 +11454,7 @@
       "date"
     ],
     "dataSources": [
-      "balance_sheet"
+      "erp"
     ],
     "parentMetrics": [
       "roe",
@@ -11530,7 +11487,7 @@
       "date"
     ],
     "dataSources": [
-      "general_ledger"
+      "erp"
     ],
     "parentMetrics": [
       "magic_number",
@@ -11563,7 +11520,7 @@
       "created_date"
     ],
     "dataSources": [
-      "CMMS (Computerized Maintenance Management System)"
+      "cmms"
     ],
     "parentMetrics": [
       "work_order_resolution_time",
@@ -11589,7 +11546,7 @@
       "date"
     ],
     "dataSources": [
-      "surveys"
+      "survey_platform"
     ],
     "parentMetrics": [
       "nps"
@@ -11617,9 +11574,7 @@
     "dimensions": [
       "date"
     ],
-    "dataSources": [
-      "market_sizing"
-    ],
+    "dataSources": [],
     "parentMetrics": [
       "market_penetration_rate"
     ],
@@ -11675,7 +11630,7 @@
       "date"
     ],
     "dataSources": [
-      "balance_sheet"
+      "erp"
     ],
     "parentMetrics": [
       "roa",
@@ -11706,7 +11661,7 @@
       "date"
     ],
     "dataSources": [
-      "balance_sheet"
+      "erp"
     ],
     "parentMetrics": [
       "debt_to_equity",
@@ -11737,7 +11692,7 @@
       "date"
     ],
     "dataSources": [
-      "balance_sheet"
+      "erp"
     ],
     "parentMetrics": [
       "shareholder_equity"
@@ -11766,7 +11721,7 @@
       "channel"
     ],
     "dataSources": [
-      "users"
+      "app_database"
     ],
     "parentMetrics": [
       "plg_rate",
@@ -11857,7 +11812,7 @@
       "period"
     ],
     "dataSources": [
-      "HRIS"
+      "hris"
     ],
     "parentMetrics": [
       "revenue_per_employee",
@@ -12012,8 +11967,7 @@
       "date"
     ],
     "dataSources": [
-      "Google Ads",
-      "Meta Ads"
+      "ad_platforms"
     ],
     "parentMetrics": [
       "ctr",
@@ -12049,7 +12003,7 @@
       "type"
     ],
     "dataSources": [
-      "CMS (Contentful / WordPress)"
+      "cms"
     ],
     "parentMetrics": [
       "organic_sessions"
@@ -12084,7 +12038,7 @@
       "period"
     ],
     "dataSources": [
-      "Google Analytics / GA4"
+      "web_analytics"
     ],
     "parentMetrics": [
       "website_sessions",
@@ -12126,9 +12080,7 @@
       "period"
     ],
     "dataSources": [
-      "Social media APIs (LinkedIn",
-      "X",
-      "Instagram)"
+      "social_media"
     ],
     "parentMetrics": [
       "share_of_voice",
@@ -12192,7 +12144,7 @@
       "webinar"
     ],
     "dataSources": [
-      "webinar_platform"
+      "events_platform"
     ],
     "parentMetrics": [
       "webinar_attendance_rate"
@@ -12252,7 +12204,7 @@
       "product"
     ],
     "dataSources": [
-      "inventory"
+      "wms"
     ],
     "parentMetrics": [
       "inventory_turnover"
@@ -12284,7 +12236,7 @@
       "location"
     ],
     "dataSources": [
-      "inventory"
+      "wms"
     ],
     "parentMetrics": [
       "inventory_turnover",
@@ -12318,8 +12270,8 @@
       "warehouse_id"
     ],
     "dataSources": [
-      "ERP",
-      "WMS"
+      "erp",
+      "wms"
     ],
     "parentMetrics": [
       "fill_rate"
@@ -12419,7 +12371,7 @@
       "product"
     ],
     "dataSources": [
-      "subscriptions"
+      "billing"
     ],
     "parentMetrics": [
       "arr_growth_rate",
@@ -12483,8 +12435,8 @@
       "segment"
     ],
     "dataSources": [
-      "Billing system",
-      "CRM"
+      "billing",
+      "crm"
     ],
     "parentMetrics": [
       "arr",
@@ -12539,7 +12491,7 @@
       "customer_segment"
     ],
     "dataSources": [
-      "subscriptions"
+      "billing"
     ],
     "parentMetrics": [
       "arr",
@@ -12572,8 +12524,8 @@
       "cohort"
     ],
     "dataSources": [
-      "subscriptions",
-      "users"
+      "billing",
+      "app_database"
     ],
     "parentMetrics": [
       "churn_rate"
@@ -12601,8 +12553,8 @@
       "date"
     ],
     "dataSources": [
-      "contracts",
-      "subscriptions"
+      "crm",
+      "billing"
     ],
     "parentMetrics": [
       "arr"
@@ -12632,7 +12584,7 @@
       "customer_segment"
     ],
     "dataSources": [
-      "subscriptions"
+      "billing"
     ],
     "parentMetrics": [
       "arr",
@@ -12664,7 +12616,7 @@
       "channel"
     ],
     "dataSources": [
-      "orders"
+      "commerce_platform"
     ],
     "parentMetrics": [
       "revenue",
@@ -12695,7 +12647,7 @@
       "date"
     ],
     "dataSources": [
-      "orders"
+      "commerce_platform"
     ],
     "parentMetrics": [
       "revenue"
@@ -12722,7 +12674,7 @@
       "date"
     ],
     "dataSources": [
-      "orders"
+      "commerce_platform"
     ],
     "parentMetrics": [
       "revenue_vs_py"
@@ -12750,7 +12702,7 @@
       "date"
     ],
     "dataSources": [
-      "orders"
+      "commerce_platform"
     ],
     "parentMetrics": [
       "revenue_ytd"
@@ -12778,7 +12730,7 @@
       "date"
     ],
     "dataSources": [
-      "orders"
+      "commerce_platform"
     ],
     "parentMetrics": [
       "revenue_ytd"
@@ -12806,7 +12758,7 @@
       "date"
     ],
     "dataSources": [
-      "orders"
+      "commerce_platform"
     ],
     "parentMetrics": [
       "revenue_ytd"
@@ -12834,7 +12786,7 @@
       "date"
     ],
     "dataSources": [
-      "orders"
+      "commerce_platform"
     ],
     "parentMetrics": [
       "revenue_ytd"
@@ -12920,7 +12872,7 @@
       "team"
     ],
     "dataSources": [
-      "project_management"
+      "issue_tracker"
     ],
     "parentMetrics": [
       "deployment_frequency"
@@ -12951,8 +12903,7 @@
       "grade_level"
     ],
     "dataSources": [
-      "SIS",
-      "class_schedules"
+      "sis"
     ],
     "parentMetrics": [
       "student_proficiency"

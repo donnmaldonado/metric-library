@@ -6,8 +6,9 @@
 
 | Path | Contents |
 |---|---|
-| `data/metrics.json` | **Source of truth.** Per metric: metricId, retiredIds, label, domain (and `domainOverride` where set), industry, tier, description, SQL, YAML, numerator/denominator, dimensions, data sources, parent/child/correlated metrics and `formulaInputs`. |
+| `data/metrics.json` | **Source of truth.** Per metric: metricId, retiredIds, label, domain (and `domainOverride` where set), industry, tier, description, SQL, YAML, numerator/denominator, dimensions, data sources (IDs from `data/sources.json`), parent/child/correlated metrics and `formulaInputs`. |
 | `data/taxonomy.json` | Tier and domain labels and descriptions, and the allowed industries. |
+| `data/sources.json` | The controlled list of source systems (CRM, ERP, HRIS, SIS, ad platforms, …): per source ID, a label, a one-line description and example vendors. |
 | `data/relationships.csv` | Edge list: `parent_of`, `correlated_with` and `formula_input` (`A formula_input B` = B is computed from A), noting which metric declared each edge. |
 | `CATALOG.md` | Readable index grouped by tier and domain, with links between related metrics. |
 | `dbt/` | dbt-core + duckdb project: 107 zero-row model stubs with semantic models (`models/marts/<domain>/`), a time spine and conventions ([dbt/CONVENTIONS.md](dbt/CONVENTIONS.md)). |
@@ -17,6 +18,7 @@
 | `scripts/validate.py` | Graph and YAML integrity checks; exits non-zero if any issue is found. |
 | `scripts/check_dbt.sh` | Runs build.py, `dbt parse`, `dbt build`, the metric SQL and `mf validate-configs`. |
 | `scripts/domains.py` | Derives each metric's domain from the marts and checks the stored `domain`; used by `validate.py` and `owned_metrics.py`. Tests: `python3 -m unittest discover -s scripts`. |
+| `scripts/sources.py` | Checks each metric's `dataSources` against `data/sources.json`; used by `validate.py`. |
 | `scripts/owned_metrics.py` | Lists metrics by derived domain (`python3 scripts/owned_metrics.py finance`). |
 
 ## Working on the library
@@ -39,6 +41,7 @@ scripts/check_dbt.sh          # dbt parse + build, run every metric's SQL, mf va
 - **Balances are never summed over time.** Snapshot models use `non_additive_dimension`; opening balances come from the prior period's close.
 - **One metric per concept.** Duplicates are merged, not aliased: the surviving metric lists the IDs merged into it in `retiredIds` (present on every metric, empty by default), so old references can be traced. A slice of a metric (`revenue_by_region`) is a dimension on it, not a separate metric. `validate.py` rejects bare aliases (`type: derived`, one input, `expr` equal to the input) and retired IDs that are live or listed twice.
 - **`domain` follows the data.** It is the mart domain (`dbt/models/marts/<domain>/`) of the semantic model behind the metric's first measure, following ratio/derived inputs through other metrics (`scripts/domains.py`). It is stored in the JSON, and `validate.py` checks it against the derivation. Where a reader of another domain would clearly look for a cross-domain metric, `domainOverride: {domain, reason}` sets it instead (e.g. `ltv_cac` → finance). Use overrides sparingly.
+- **`dataSources` names source systems**, as IDs from `data/sources.json`: the kind of system a data team would connect (`crm`, `erp`, `billing`, …). Vendors go in that source's `vendors`, never in a metric. Tables aren't listed; a metric's `ref()`s already show which models it reads. `validate.py` checks that every entry is a known ID, that no metric lists a source twice and that every source is used.
 - **`industry`** is `cross_industry` unless the metric only makes sense for one industry (`saas`, `education`, …); the allowed values are listed in `data/taxonomy.json`.
 - `config.meta` carries `metricId`, `tier`, `domain` and `industry`, refreshed from the JSON by `build.py`.
 - The dbt models are zero-row stubs with the right columns and types; wiring them to real sources is the next step for a live deployment.

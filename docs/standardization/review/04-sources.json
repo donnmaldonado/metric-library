@@ -1,0 +1,459 @@
+{
+  "crm": {
+    "label": "CRM",
+    "desc": "Accounts, contacts, opportunities, contracts, quotes and pricing",
+    "vendors": [
+      "Salesforce",
+      "HubSpot",
+      "Salesforce CPQ"
+    ]
+  },
+  "marketing_automation": {
+    "label": "Marketing automation",
+    "desc": "Leads, form fills, lead scoring, nurture programs",
+    "vendors": [
+      "HubSpot",
+      "Marketo",
+      "Pardot"
+    ]
+  },
+  "messaging_platform": {
+    "label": "Email and push platform",
+    "desc": "Email and push sends, opens, clicks, unsubscribes",
+    "vendors": [
+      "Klaviyo",
+      "Mailchimp",
+      "HubSpot",
+      "Braze",
+      "OneSignal"
+    ]
+  },
+  "ad_platforms": {
+    "label": "Ad platforms",
+    "desc": "Paid media spend, impressions, clicks",
+    "vendors": [
+      "Google Ads",
+      "Meta Ads",
+      "LinkedIn Ads"
+    ]
+  },
+  "attribution": {
+    "label": "Marketing attribution",
+    "desc": "Touchpoints and multi-touch credit of pipeline and revenue to channels",
+    "vendors": [
+      "Dreamdata",
+      "HockeyStack",
+      "Bizible"
+    ]
+  },
+  "web_analytics": {
+    "label": "Web analytics",
+    "desc": "Website sessions, page views, form and funnel events",
+    "vendors": [
+      "GA4",
+      "Adobe Analytics"
+    ]
+  },
+  "seo_tools": {
+    "label": "SEO tools",
+    "desc": "Keyword rankings, backlinks, domain authority",
+    "vendors": [
+      "Semrush",
+      "Ahrefs",
+      "Moz"
+    ]
+  },
+  "social_media": {
+    "label": "Social media accounts",
+    "desc": "Followers, posts and engagement on owned social accounts",
+    "vendors": [
+      "LinkedIn",
+      "X",
+      "Instagram"
+    ]
+  },
+  "media_monitoring": {
+    "label": "Media monitoring",
+    "desc": "Press and social mentions, share of voice",
+    "vendors": [
+      "Brandwatch",
+      "Mention",
+      "Meltwater",
+      "Cision"
+    ]
+  },
+  "review_platforms": {
+    "label": "Review platforms",
+    "desc": "Public ratings, reviews and testimonials",
+    "vendors": [
+      "G2",
+      "Trustpilot",
+      "Capterra"
+    ]
+  },
+  "app_stores": {
+    "label": "App stores",
+    "desc": "App downloads, ratings, in-app purchases",
+    "vendors": [
+      "App Store Connect",
+      "Google Play Console"
+    ]
+  },
+  "events_platform": {
+    "label": "Events and webinar platform",
+    "desc": "Event and webinar registrations and attendance",
+    "vendors": [
+      "Zoom Webinars",
+      "ON24",
+      "Cvent"
+    ]
+  },
+  "cms": {
+    "label": "CMS",
+    "desc": "Published content and pages",
+    "vendors": [
+      "Contentful",
+      "WordPress"
+    ]
+  },
+  "referral_program": {
+    "label": "Referral program",
+    "desc": "Referral invites, referred signups and rewards",
+    "vendors": [
+      "Friendbuy",
+      "ReferralCandy",
+      "Viral Loops"
+    ]
+  },
+  "prm": {
+    "label": "Partner relationship management",
+    "desc": "Partners, partner-sourced deals and registrations",
+    "vendors": [
+      "PartnerStack",
+      "Impartner",
+      "Crossbeam"
+    ]
+  },
+  "billing": {
+    "label": "Billing / subscriptions",
+    "desc": "Subscriptions, plans, recurring invoices",
+    "vendors": [
+      "Stripe Billing",
+      "Chargebee",
+      "Zuora"
+    ]
+  },
+  "erp": {
+    "label": "ERP / general ledger",
+    "desc": "GL, financial statements, AP/AR, fixed assets, tax",
+    "vendors": [
+      "NetSuite",
+      "SAP",
+      "QuickBooks",
+      "Sage Intacct",
+      "Infinite Visions"
+    ]
+  },
+  "fpa": {
+    "label": "FP&A / budgeting",
+    "desc": "Budgets, forecasts, plan vs. actual",
+    "vendors": [
+      "Adaptive Planning",
+      "Anaplan",
+      "Pigment"
+    ]
+  },
+  "banking": {
+    "label": "Bank accounts",
+    "desc": "Cash balances and bank transactions",
+    "vendors": [
+      "Plaid",
+      "Mercury"
+    ]
+  },
+  "cap_table": {
+    "label": "Cap table",
+    "desc": "Shares, options, ownership and valuations",
+    "vendors": [
+      "Carta",
+      "Pulley"
+    ]
+  },
+  "hris": {
+    "label": "HRIS",
+    "desc": "Employees, positions, departments, benefits enrollment",
+    "vendors": [
+      "Workday",
+      "BambooHR",
+      "Rippling"
+    ]
+  },
+  "ats": {
+    "label": "ATS",
+    "desc": "Requisitions, candidates, interviews, offers",
+    "vendors": [
+      "Greenhouse",
+      "Lever",
+      "Ashby"
+    ]
+  },
+  "payroll": {
+    "label": "Payroll",
+    "desc": "Pay runs, compensation and payroll cost",
+    "vendors": [
+      "ADP",
+      "Gusto"
+    ]
+  },
+  "time_attendance": {
+    "label": "Time and attendance",
+    "desc": "Clock-ins, hours worked, overtime, absences",
+    "vendors": [
+      "UKG",
+      "Deputy"
+    ]
+  },
+  "performance_management": {
+    "label": "Performance management",
+    "desc": "Reviews, goals, manager ratings",
+    "vendors": [
+      "Lattice",
+      "15Five"
+    ]
+  },
+  "compensation_benchmarks": {
+    "label": "Compensation benchmarks",
+    "desc": "Market pay data by role and level",
+    "vendors": [
+      "Pave",
+      "Radford"
+    ]
+  },
+  "lms": {
+    "label": "LMS",
+    "desc": "Courses, lessons, training completions",
+    "vendors": [
+      "Cornerstone",
+      "Docebo",
+      "Canvas"
+    ]
+  },
+  "survey_platform": {
+    "label": "Survey platform",
+    "desc": "Survey sends and responses (NPS, CSAT, CES, engagement, climate)",
+    "vendors": [
+      "Qualtrics",
+      "SurveyMonkey",
+      "Delighted",
+      "Culture Amp"
+    ]
+  },
+  "helpdesk": {
+    "label": "Helpdesk",
+    "desc": "Support tickets, SLAs, responses and resolutions",
+    "vendors": [
+      "Zendesk",
+      "Intercom",
+      "Freshdesk"
+    ]
+  },
+  "product_feedback": {
+    "label": "Product feedback",
+    "desc": "Feature requests and votes",
+    "vendors": [
+      "Productboard",
+      "Canny"
+    ]
+  },
+  "app_database": {
+    "label": "Application database",
+    "desc": "The product's own users, accounts, signups and plans",
+    "vendors": [
+      "Postgres",
+      "MySQL"
+    ]
+  },
+  "product_analytics": {
+    "label": "Product analytics",
+    "desc": "In-product events, sessions, feature usage",
+    "vendors": [
+      "Amplitude",
+      "Mixpanel",
+      "Segment"
+    ]
+  },
+  "commerce_platform": {
+    "label": "Commerce / order management",
+    "desc": "Orders, line items, customers, returns, marketplace listings",
+    "vendors": [
+      "Shopify",
+      "Salesforce Commerce Cloud",
+      "Mirakl"
+    ]
+  },
+  "wms": {
+    "label": "WMS / inventory",
+    "desc": "Inventory on hand, picks, packs, warehouse space",
+    "vendors": [
+      "Manhattan",
+      "NetSuite WMS",
+      "ShipBob"
+    ]
+  },
+  "tms": {
+    "label": "TMS",
+    "desc": "Shipments, carriers, delivery dates",
+    "vendors": [
+      "Oracle TMS",
+      "MercuryGate",
+      "project44"
+    ]
+  },
+  "fleet_management": {
+    "label": "Fleet management",
+    "desc": "Vehicles, GPS/telematics, miles, fleet costs",
+    "vendors": [
+      "Samsara",
+      "Geotab"
+    ]
+  },
+  "procurement": {
+    "label": "Procurement",
+    "desc": "Suppliers, purchase requests, supplier lead times, savings",
+    "vendors": [
+      "Coupa",
+      "SAP Ariba"
+    ]
+  },
+  "mes": {
+    "label": "MES",
+    "desc": "Production runs, output, capacity, cycle times",
+    "vendors": [
+      "Siemens Opcenter",
+      "Plex"
+    ]
+  },
+  "cmms": {
+    "label": "CMMS",
+    "desc": "Assets, work orders, maintenance, equipment run and fault states",
+    "vendors": [
+      "Fiix",
+      "UpKeep",
+      "IBM Maximo",
+      "Ignition"
+    ]
+  },
+  "qms": {
+    "label": "QMS",
+    "desc": "Inspections, defects, nonconformances, supplier quality",
+    "vendors": [
+      "ETQ",
+      "MasterControl"
+    ]
+  },
+  "ehs": {
+    "label": "EHS / safety",
+    "desc": "Safety incidents, hours worked, inspections",
+    "vendors": [
+      "Intelex",
+      "Cority",
+      "VelocityEHS"
+    ]
+  },
+  "energy_monitoring": {
+    "label": "Energy and emissions monitoring",
+    "desc": "Energy use, utility cost, emissions",
+    "vendors": [
+      "EnergyCAP",
+      "Watershed",
+      "Persefoni"
+    ]
+  },
+  "version_control": {
+    "label": "Version control",
+    "desc": "Repositories, commits, pull requests, stars",
+    "vendors": [
+      "GitHub",
+      "GitLab",
+      "Bitbucket"
+    ]
+  },
+  "ci_cd": {
+    "label": "CI/CD",
+    "desc": "Builds, deployments, test coverage, static analysis",
+    "vendors": [
+      "GitHub Actions",
+      "CircleCI",
+      "Jenkins",
+      "SonarQube"
+    ]
+  },
+  "issue_tracker": {
+    "label": "Issue tracker",
+    "desc": "Issues, bugs, sprints, story points",
+    "vendors": [
+      "Jira",
+      "Linear"
+    ]
+  },
+  "apm": {
+    "label": "APM / monitoring",
+    "desc": "Uptime, latency, alerts",
+    "vendors": [
+      "Datadog",
+      "New Relic",
+      "Pingdom"
+    ]
+  },
+  "error_tracking": {
+    "label": "Error tracking",
+    "desc": "Application errors and exceptions",
+    "vendors": [
+      "Sentry"
+    ]
+  },
+  "incident_management": {
+    "label": "Incident management",
+    "desc": "Incidents, on-call pages, detection and resolution times",
+    "vendors": [
+      "PagerDuty",
+      "Opsgenie",
+      "incident.io"
+    ]
+  },
+  "api_gateway": {
+    "label": "API gateway",
+    "desc": "API calls and consumers",
+    "vendors": [
+      "Kong",
+      "Apigee",
+      "AWS API Gateway"
+    ]
+  },
+  "sis": {
+    "label": "SIS",
+    "desc": "Students, enrollment, attendance, schedules, grades, transcripts, discipline, special education, college guidance",
+    "vendors": [
+      "PowerSchool",
+      "Infinite Campus",
+      "Frontline SEIS",
+      "Naviance"
+    ]
+  },
+  "assessment_platform": {
+    "label": "Assessment platform",
+    "desc": "Interim, state and ELL assessment scores",
+    "vendors": [
+      "NWEA MAP",
+      "i-Ready",
+      "WIDA"
+    ]
+  },
+  "student_clearinghouse": {
+    "label": "National Student Clearinghouse",
+    "desc": "Postsecondary enrollment of graduates",
+    "vendors": [
+      "National Student Clearinghouse"
+    ]
+  }
+}

@@ -1,4 +1,4 @@
-"""Regenerate derived artifacts from data/metrics.json + data/taxonomy.json.
+"""Regenerate derived artifacts from data/metrics.json, data/taxonomy.json and data/sources.json.
 
   data/relationships.csv                            one row per edge
   dbt/models/metrics/<domain>/<metric_id>.yml       MetricFlow metric (formulaYaml, meta refreshed)
@@ -16,6 +16,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
 TAXONOMY = json.loads((ROOT / "data/taxonomy.json").read_text())
+SOURCES = json.loads((ROOT / "data/sources.json").read_text())
 YML_DIR = "dbt/models/metrics"
 SQL_DIR = "dbt/analyses/metrics"
 META_KEYS = ("metricId", "tier", "domain", "industry")  # config.meta keys build.py owns
@@ -114,7 +115,7 @@ def catalog_entry(m, domain_label, link):
     if m["numerator"]: out.append(f"- **Numerator:** {m['numerator']}")
     if m["denominator"]: out.append(f"- **Denominator:** {m['denominator']}")
     if m["dimensions"]: out.append(f"- **Dimensions:** {', '.join(m['dimensions'])}")
-    if m["dataSources"]: out.append(f"- **Data sources:** {', '.join(m['dataSources'])}")
+    if m["dataSources"]: out.append(f"- **Data sources:** {', '.join(SOURCES[s]['label'] for s in m['dataSources'])}")
     for key, lbl in [("parentMetrics", "Parents"), ("childMetrics", "Children"),
                      ("formulaInputs", "Formula inputs"), ("correlatedMetrics", "Correlated")]:
         if m.get(key): out.append(f"- **{lbl}:** {', '.join(link(x) for x in m[key])}")
