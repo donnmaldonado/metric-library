@@ -10,7 +10,7 @@ import { type State, Store, readUrl } from './state';
 import type { Metric, Portfolio } from './types';
 
 const REPO = 'https://github.com/donnmaldonado/metric-library';
-const PORTFOLIO = 'https://donnmaldonado.github.io/';
+const PORTFOLIO = 'https://donnoban.com/';
 
 // ---- header / footer ------------------------------------------------------------------
 
