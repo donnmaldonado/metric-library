@@ -41,7 +41,7 @@
   --rate-text: #f2f0ea; --currency-text: #f2f0ea; --count-text: #f2f0ea;
   --duration-text: #f2f0ea; --ratio-text: #f2f0ea; --score-text: #f2f0ea;
 
-  --tile: 44px;
+  --tile: 92px;
   --gap: 4px;
   --label-w: 128px;
   --fade-select: 0.25;
@@ -518,7 +518,7 @@ h1 {
 }
 
 .grid {
-  --cols: 8;
+  --cols: 4;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -528,19 +528,19 @@ h1 {
 
 @media (min-width: 768px) {
   .grid {
-    --cols: 16;
+    --cols: 8;
     width: max-content;
     max-width: 100%;
   }
 }
 @media (min-width: 1200px) {
   .grid {
-    --cols: 24;
+    --cols: 12;
   }
-  /* Panel pushes the table: drop to 16 columns when 24 no longer fit. */
+  /* Panel pushes the table: drop to 8 columns when 12 no longer fit. */
   @container table (max-width: 1147.98px) {
     .grid {
-      --cols: 16;
+      --cols: 8;
     }
   }
 }
@@ -589,7 +589,7 @@ h1 {
 }
 .cell-north_star {
   grid-column: span 2;
-  aspect-ratio: 2.09 / 1;
+  aspect-ratio: 188 / 92;
 }
 
 .domain-table {
@@ -652,72 +652,66 @@ h1 {
 .tile-num,
 .tile-glyph {
   position: absolute;
-  top: 3px;
+  top: 5px;
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size: 10px;
   line-height: 1;
   font-variant-numeric: tabular-nums;
 }
 .tile-num {
-  left: 4px;
+  left: 6px;
 }
 .tile-glyph {
-  right: 4px;
+  right: 6px;
 }
 .tile-sym {
   position: absolute;
-  inset: 0;
+  inset: 0 0 34%;
   display: grid;
   place-items: center;
-  padding-top: 3px;
-  font-size: 15px;
+  padding-top: 16px;
+  font-size: 22px;
   font-weight: 500;
   line-height: 1;
   letter-spacing: 0.02em;
 }
 .tile-short {
-  display: none;
+  position: absolute;
+  left: 5px;
+  right: 5px;
+  bottom: 6px;
+  height: 2.3em;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-size: 10px;
+  line-height: 1.15;
+  font-weight: 500;
+  overflow: hidden;
+  overflow-wrap: anywhere;
 }
 
 .tier-north_star .tile-sym {
-  inset: 0 0 12px;
-  padding-top: 6px;
-  font-size: 17px;
+  inset: 0 0 30%;
+  padding-top: 14px;
+  font-size: 30px;
 }
 .tier-north_star .tile-short {
-  display: block;
-  position: absolute;
-  left: 4px;
-  right: 4px;
-  bottom: 4px;
-  font-size: 8.5px;
-  line-height: 1.1;
-  font-weight: 500;
+  bottom: 8px;
+  height: auto;
+  font-size: 13px;
   white-space: nowrap;
-  overflow: hidden;
   text-overflow: ellipsis;
 }
 
-/* KPI / Input: short label as a pill under the tile, on hover or keyboard focus. */
+@media (max-width: 767.98px) {
+  .tile-sym { font-size: 18px; padding-top: 12px; }
+  .tile-short { font-size: 9px; }
+  .tier-north_star .tile-sym { font-size: 24px; }
+  .tier-north_star .tile-short { font-size: 11px; }
+}
+
 @media (hover: hover) and (pointer: fine) {
-  .tile:not(.tier-north_star):hover .tile-short,
-  .tile:not(.tier-north_star):focus-visible .tile-short {
-    display: block;
-    position: absolute;
-    z-index: 3;
-    top: calc(100% + 3px);
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 2px 6px;
-    border-radius: 1px;
-    background: var(--tip-bg);
-    color: var(--tip-text);
-    font-family: var(--font-mono);
-    font-size: 11px;
-    line-height: 1.3;
-    white-space: nowrap;
-    pointer-events: none;
-  }
   .tile:hover,
   .tile:focus-visible {
     z-index: 2;

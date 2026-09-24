@@ -77,9 +77,9 @@ export class HoverCard {
     const gap = 8;
     let left = r.left + r.width / 2 - card.width / 2;
     left = Math.max(8, Math.min(left, vw - card.width - 8));
-    // Above the tile by default (the short-label pill sits below it); below when there is no room.
+    // Above the tile by default; below when there is no room.
     let top = r.top - card.height - gap;
-    if (top < 8) top = r.bottom + gap + 18;
+    if (top < 8) top = r.bottom + gap;
     this.el.style.left = `${Math.round(left)}px`;
     this.el.style.top = `${Math.round(top)}px`;
   }
