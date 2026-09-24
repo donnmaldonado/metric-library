@@ -1,33 +1,45 @@
-/* Metric Periodic Table — one dark "deep space" theme.
- * Colours: Paul Tol's "light" qualitative scheme (colourblind-safe). Each family colour is mixed
- * 34% into the page background as the tile fill with near-white text (>= 6.8:1), and the pure
- * family colour is the border, which also lends the tile a faint glow. */
+/* Metric Periodic Table — one dark theme, after the cockpit displays in Interstellar.
+ * Near-black ground, hairline rules, wide tracked capitals, monospace readouts and a single warm
+ * accent taken from the accretion disk. No gradients on type, no glass, no glow.
+ * Unit colours: Paul Tol's "light" qualitative scheme (colourblind-safe). Each family colour is
+ * mixed 26% into the ground as the tile fill with near-white text, and the pure colour is the border. */
 
 :root {
   color-scheme: dark;
-  --bg: #0c1022;
-  --bg-deep: #05070f;
-  --surface: #121731;
-  --surface-2: #1b2142;
-  --glass: rgb(18 23 49 / 0.78);
-  --text: #e8eaf6;
-  --muted: #9aa3c0;
-  --line: #2a3158;
-  --ring: #ffffff;
-  --focus: #7dd3fc;
-  --accent: #a78bfa;
-  --accent-2: #7dd3fc;
-  --shadow: 0 10px 32px rgb(0 0 0 / 0.6), 0 1px 3px rgb(0 0 0 / 0.5);
-  --code-bg: #080b18;
-  --tip-bg: #e8eaf6;
-  --tip-text: #0c1022;
+  --bg: #0a0a0b;
+  --bg-deep: #050506;
+  --surface: #121213;
+  --surface-2: #1a1a1c;
+  --glass: #0e0e0f;
+  --text: #e6e3dc;
+  --muted: #8d8a83;
+  --line: #2a2926;
+  --ring: #e6e3dc;
+  --focus: #e8b25c;
+  --accent: #d9a255;
+  --accent-2: #d9a255;
+  --shadow: 0 12px 40px rgb(0 0 0 / 0.7);
+  --code-bg: #070708;
+  --tip-bg: #e6e3dc;
+  --tip-text: #0a0a0b;
 
-  --rate-fill: #304462;      --rate-border: #77aadd;      --rate-text: #f4f5fa;
-  --currency-fill: #1f4a4a;  --currency-border: #44bb99;  --currency-text: #f4f5fa;
-  --count-fill: #595645;     --count-border: #eedd88;     --count-text: #f4f5fa;
-  --duration-fill: #5f4456;  --duration-border: #ffaabb;  --duration-text: #f4f5fa;
-  --ratio-fill: #593939;     --ratio-border: #ee8866;     --ratio-text: #f4f5fa;
-  --score-fill: #485028;     --score-border: #bbcc33;     --score-text: #f4f5fa;
+  --font-display: "Archivo", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --rate-border: #77aadd;
+  --currency-border: #44bb99;
+  --count-border: #eedd88;
+  --duration-border: #ffaabb;
+  --ratio-border: #ee8866;
+  --score-border: #bbcc33;
+  --rate-fill: color-mix(in srgb, var(--rate-border) 26%, var(--bg));
+  --currency-fill: color-mix(in srgb, var(--currency-border) 26%, var(--bg));
+  --count-fill: color-mix(in srgb, var(--count-border) 26%, var(--bg));
+  --duration-fill: color-mix(in srgb, var(--duration-border) 26%, var(--bg));
+  --ratio-fill: color-mix(in srgb, var(--ratio-border) 26%, var(--bg));
+  --score-fill: color-mix(in srgb, var(--score-border) 26%, var(--bg));
+  --rate-text: #f2f0ea; --currency-text: #f2f0ea; --count-text: #f2f0ea;
+  --duration-text: #f2f0ea; --ratio-text: #f2f0ea; --score-text: #f2f0ea;
 
   --tile: 44px;
   --gap: 4px;
@@ -53,14 +65,15 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font: 14px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font: 14px/1.5 var(--font-display);
+  font-stretch: 100%;
   overflow-x: clip;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* Deep-space backdrop: two nebula glows over a vertical fade, plus three tiled star layers. */
+/* Backdrop: a faint warm light low on the horizon and a sparse, dim star field. */
 body::before,
 body::after {
   content: "";
@@ -71,23 +84,16 @@ body::after {
 }
 body::before {
   background:
-    radial-gradient(ellipse 60% 45% at 85% 0%, rgb(124 58 237 / 0.22), transparent 70%),
-    radial-gradient(ellipse 55% 40% at 0% 100%, rgb(14 165 233 / 0.16), transparent 70%),
-    linear-gradient(to bottom, var(--bg-deep), var(--bg));
+    radial-gradient(ellipse 70% 30% at 50% 115%, rgb(217 162 85 / 0.07), transparent 70%),
+    var(--bg);
 }
 body::after {
   background-image:
-    radial-gradient(1px 1px at 23px 41px, #fff, transparent),
-    radial-gradient(1px 1px at 131px 87px, rgb(255 255 255 / 0.8), transparent),
-    radial-gradient(1.5px 1.5px at 71px 163px, rgb(200 210 255 / 0.9), transparent),
-    radial-gradient(1px 1px at 187px 19px, rgb(255 255 255 / 0.6), transparent),
-    radial-gradient(1px 1px at 257px 211px, #fff, transparent),
-    radial-gradient(1px 1px at 311px 131px, rgb(255 230 200 / 0.7), transparent),
-    radial-gradient(2px 2px at 419px 277px, rgb(220 225 255 / 0.9), transparent),
-    radial-gradient(1px 1px at 353px 331px, rgb(255 255 255 / 0.5), transparent);
-  background-size: 240px 240px, 240px 240px, 240px 240px, 240px 240px, 460px 460px, 460px 460px,
-    620px 620px, 620px 620px;
-  opacity: 0.85;
+    radial-gradient(1px 1px at 37px 59px, rgb(255 255 255 / 0.5), transparent),
+    radial-gradient(1px 1px at 241px 173px, rgb(255 255 255 / 0.35), transparent),
+    radial-gradient(1px 1px at 419px 311px, rgb(255 244 228 / 0.45), transparent),
+    radial-gradient(1px 1px at 157px 401px, rgb(255 255 255 / 0.25), transparent);
+  background-size: 480px 480px, 480px 480px, 640px 640px, 640px 640px;
 }
 
 a {
@@ -108,7 +114,7 @@ input {
 code,
 kbd,
 pre {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-family: var(--font-mono);
 }
 
 .visually-hidden {
@@ -128,7 +134,7 @@ pre {
   padding: 6px 10px;
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: 2px;
 }
 .skip-link:focus {
   top: 8px;
@@ -144,7 +150,7 @@ pre {
   width: 36px;
   height: 36px;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 2px;
   background: var(--surface);
   cursor: pointer;
   font-size: 16px;
@@ -170,7 +176,7 @@ pre {
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 16px 16px 4px;
+  padding: 28px 16px 4px;
 }
 
 .header-top {
@@ -182,17 +188,26 @@ pre {
 
 h1 {
   margin: 0;
-  font-size: 22px;
+  font-size: 20px;
+  font-weight: 500;
+  font-stretch: 125%;
   line-height: 1.2;
-  letter-spacing: -0.01em;
-  background: linear-gradient(90deg, var(--text), var(--accent) 70%, var(--accent-2));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+@media (max-width: 767.98px) {
+  h1 {
+    font-size: 16px;
+    letter-spacing: 0.2em;
+  }
 }
 
 .lead {
-  margin: 2px 0 0;
+  margin: 6px 0 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.02em;
   color: var(--muted);
 }
 
@@ -226,8 +241,11 @@ h1 {
   margin-bottom: -1px;
   background: none;
   color: var(--muted);
-  font-size: 14px;
+  font-size: 11px;
   font-weight: 500;
+  font-stretch: 112%;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
   cursor: pointer;
   transition: color var(--t), border-color var(--t), opacity var(--t);
 }
@@ -236,7 +254,6 @@ h1 {
 }
 .domain-tab[aria-selected="true"] {
   color: var(--text);
-  font-weight: 600;
   border-bottom-color: var(--accent);
 }
 .domain-tab:focus-visible {
@@ -244,18 +261,18 @@ h1 {
 }
 .tab-count {
   min-width: 20px;
-  padding: 1px 6px;
-  border-radius: 999px;
-  background: var(--surface-2);
+  padding: 0;
+  background: none;
   color: var(--muted);
+  font-family: var(--font-mono);
   font-size: 11px;
+  letter-spacing: 0;
   font-weight: 500;
   font-variant-numeric: tabular-nums;
   text-align: center;
 }
 .domain-tab[aria-selected="true"] .tab-count {
-  background: var(--accent);
-  color: var(--bg);
+  color: var(--accent);
 }
 .domain-tab.is-empty {
   opacity: 0.5;
@@ -281,8 +298,12 @@ h1 {
   height: 34px;
   padding: 0 28px 0 10px;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 2px;
   background: var(--surface);
+}
+.search input {
+  font-family: var(--font-mono);
+  font-size: 12px;
 }
 .search input::placeholder {
   color: var(--muted);
@@ -322,9 +343,10 @@ h1 {
   gap: 4px;
 }
 .legend-h {
-  font-size: 11px;
+  font-size: 10px;
+  font-stretch: 112%;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.18em;
   color: var(--muted);
   margin-right: 2px;
 }
@@ -337,7 +359,7 @@ h1 {
   height: 28px;
   padding: 0 8px 0 4px;
   border: 1px solid transparent;
-  border-radius: 6px;
+  border-radius: 2px;
   background: none;
   cursor: pointer;
   font-size: 13px;
@@ -370,7 +392,7 @@ h1 {
   background: var(--f-fill);
   color: var(--f-text);
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 500;
 }
 .shape {
   display: inline-block;
@@ -414,9 +436,10 @@ h1 {
 .count-badge:not(:empty) {
   min-width: 18px;
   padding: 0 5px;
-  border-radius: 9px;
-  background: var(--text);
+  border-radius: 2px;
+  background: var(--accent);
   color: var(--bg);
+  font-family: var(--font-mono);
   font-size: 11px;
   text-align: center;
 }
@@ -431,7 +454,7 @@ h1 {
   padding: 10px 12px;
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 2px;
   box-shadow: var(--shadow);
 }
 .sources-hint {
@@ -464,8 +487,12 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   gap: 6px 10px;
+  border-top: 1px solid var(--line);
+  margin-top: 24px;
   color: var(--muted);
-  font-size: 13px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
 }
 
 /* ---- layout / table ------------------------------------------------------------------ */
@@ -525,9 +552,11 @@ h1 {
 }
 
 .band-label {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.01em;
+  font-size: 10px;
+  font-weight: 500;
+  font-stretch: 112%;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
   color: var(--muted);
 }
 
@@ -595,22 +624,16 @@ h1 {
   margin: 0;
   padding: 0;
   border: 1px solid var(--f-border);
-  border-radius: 4px;
+  border-radius: 2px;
   background: var(--f-fill);
   color: var(--f-text);
   cursor: pointer;
   text-align: center;
-  box-shadow: 0 0 6px -2px var(--f-border);
   transition: opacity var(--t) ease, box-shadow var(--t) ease;
   -webkit-tap-highlight-color: transparent;
 }
 .tile.tier-north_star {
   border-width: 2px;
-  box-shadow: 0 0 14px -3px var(--f-border);
-}
-.tile-big,
-.tile-mini {
-  box-shadow: none;
 }
 /* Input: outlined in the unit colour, no fill. */
 .tile.tier-input {
@@ -621,7 +644,7 @@ h1 {
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: 3px;
+  border-radius: 1px;
   box-shadow: inset 0 0 0 2px var(--f-fill);
   pointer-events: none;
 }
@@ -630,6 +653,7 @@ h1 {
 .tile-glyph {
   position: absolute;
   top: 3px;
+  font-family: var(--font-mono);
   font-size: 8px;
   line-height: 1;
   font-variant-numeric: tabular-nums;
@@ -646,10 +670,10 @@ h1 {
   display: grid;
   place-items: center;
   padding-top: 3px;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 15px;
+  font-weight: 500;
   line-height: 1;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.02em;
 }
 .tile-short {
   display: none;
@@ -685,9 +709,10 @@ h1 {
     left: 50%;
     transform: translateX(-50%);
     padding: 2px 6px;
-    border-radius: 4px;
+    border-radius: 1px;
     background: var(--tip-bg);
     color: var(--tip-text);
+    font-family: var(--font-mono);
     font-size: 11px;
     line-height: 1.3;
     white-space: nowrap;
@@ -698,7 +723,7 @@ h1 {
     z-index: 2;
   }
   .tile:hover {
-    box-shadow: 0 0 0 1px var(--bg), 0 0 0 3px var(--f-border), 0 0 18px var(--f-border);
+    box-shadow: 0 0 0 1px var(--bg), 0 0 0 2px var(--f-border);
   }
 }
 
@@ -747,7 +772,7 @@ h1 {
   max-width: 300px;
   padding: 10px 12px;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 2px;
   background: var(--surface);
   box-shadow: var(--shadow);
   pointer-events: none;
@@ -760,7 +785,7 @@ h1 {
   margin: 0;
 }
 .hc-title {
-  font-weight: 600;
+  font-weight: 500;
 }
 .hc-desc {
   margin-top: 2px !important;
@@ -769,7 +794,8 @@ h1 {
 }
 .hc-facts {
   margin-top: 6px !important;
-  font-size: 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
   color: var(--muted);
 }
 
@@ -777,8 +803,6 @@ h1 {
 
 .panel {
   background: var(--glass);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
   border-left: 1px solid var(--line);
   overflow-x: hidden;
   overflow-y: auto;
@@ -822,7 +846,7 @@ h1 {
     height: 85dvh;
     border-left: 0;
     border-top: 1px solid var(--line);
-    border-radius: 14px 14px 0 0;
+    border-radius: 0;
     box-shadow: var(--shadow);
     animation: slide-up 220ms ease;
   }
@@ -838,7 +862,7 @@ h1 {
   position: fixed;
   inset: 0;
   z-index: 29;
-  background: rgb(0 0 0 / 0.35);
+  background: rgb(0 0 0 / 0.55);
 }
 
 .panel-bar {
@@ -850,8 +874,6 @@ h1 {
   align-items: center;
   padding: 8px 10px 0;
   background: var(--glass);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
 }
 .panel-grip {
   display: none;
@@ -889,7 +911,7 @@ h1 {
   width: 88px;
   height: 88px;
   cursor: default;
-  border-radius: 8px;
+  border-radius: 2px;
 }
 .tile-big.tier-north_star {
   border-width: 3px;
@@ -912,18 +934,21 @@ h1 {
 }
 .tile-big.tier-input::before {
   box-shadow: inset 0 0 0 4px var(--f-fill);
-  border-radius: 7px;
+  border-radius: 1px;
 }
 
 .panel-title {
   margin: 0;
   font-size: 19px;
+  font-weight: 500;
+  font-stretch: 108%;
   line-height: 1.25;
   outline: none;
 }
 .panel-id {
   margin: 2px 0 6px;
-  font-size: 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
   color: var(--muted);
 }
 
@@ -941,8 +966,9 @@ h1 {
   align-items: center;
   height: 22px;
   padding: 0 8px;
+  font-family: var(--font-mono);
   border: 1px solid var(--line);
-  border-radius: 11px;
+  border-radius: 2px;
   background: var(--surface-2);
   font-size: 12px;
   white-space: nowrap;
@@ -953,8 +979,8 @@ h1 {
   color: var(--f-text);
 }
 .chip-tier.tier-north_star {
-  border: 2px solid var(--text);
-  font-weight: 600;
+  border: 1px solid var(--accent);
+  color: var(--accent);
 }
 .chip-tier.tier-input {
   background: transparent;
@@ -971,7 +997,7 @@ h1 {
   right: 0;
   top: calc(100% + 4px);
   padding: 6px 8px;
-  border-radius: 6px;
+  border-radius: 2px;
   background: var(--tip-bg);
   color: var(--tip-text);
   font-size: 12px;
@@ -989,11 +1015,14 @@ h1 {
   margin-top: 18px;
 }
 .panel-h {
-  margin: 0 0 6px;
-  font-size: 11px;
-  font-weight: 600;
+  margin: 0 0 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--line);
+  font-size: 10px;
+  font-weight: 500;
+  font-stretch: 112%;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.18em;
   color: var(--muted);
 }
 
@@ -1018,7 +1047,7 @@ h1 {
 
 .formula {
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 2px;
   overflow: hidden;
 }
 .formula-bar {
@@ -1039,7 +1068,7 @@ h1 {
   height: 28px;
   padding: 0 10px;
   border: 1px solid transparent;
-  border-radius: 6px;
+  border-radius: 2px;
   background: none;
   cursor: pointer;
   font-size: 13px;
@@ -1047,7 +1076,7 @@ h1 {
 .tab[aria-selected="true"] {
   background: var(--surface);
   border-color: var(--line);
-  font-weight: 600;
+  font-weight: 500;
 }
 .copy-btn {
   border-color: var(--line);
@@ -1114,7 +1143,7 @@ h1 {
   height: 28px;
   max-width: 100%;
   padding: 0 8px 0 0;
-  border-radius: 6px;
+  border-radius: 2px;
   font-size: 12px;
 }
 .tile-mini .tile-sym {
