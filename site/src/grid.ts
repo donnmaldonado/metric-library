@@ -1,4 +1,4 @@
-import { reducedMotion } from './data';
+import { TIERS, reducedMotion } from './data';
 import { createTile } from './tile';
 import type { Metric, Portfolio } from './types';
 
@@ -20,22 +20,17 @@ export interface GridCallbacks {
   onHover(id: string | null, anchor?: HTMLElement): void;
 }
 
-interface Band {
+interface Table {
   domain: string;
-  row: HTMLDivElement;
-  cells: HTMLDivElement[];
-  toggle: HTMLButtonElement;
-  more: HTMLSpanElement;
-  expanded: boolean;
+  el: HTMLDivElement;
+  buttons: HTMLButtonElement[];
 }
-
-const mobileQuery = matchMedia('(max-width: 767px)');
 
 export class Grid {
   readonly root: HTMLDivElement;
   private readonly buttons = new Map<string, HTMLButtonElement>();
-  private readonly order: HTMLButtonElement[] = [];
-  private readonly bands: Band[] = [];
+  private readonly tables = new Map<string, Table>();
+  private shown: Table | null = null;
   private active: HTMLButtonElement | null = null;
   private hovered: HTMLButtonElement | null = null;
 
@@ -46,12 +41,12 @@ export class Grid {
     this.root = document.createElement('div');
     this.root.className = 'grid';
     this.root.setAttribute('role', 'grid');
-    this.root.setAttribute('aria-label', `Metric periodic table, ${p.meta.count} metrics in ${p.meta.domains.length} domain bands`);
     this.root.setAttribute('aria-readonly', 'true');
     this.build();
     this.bind();
   }
 
+  /** One table per domain, one row per tier; all are built up front and only the shown one is visible. */
   private build(): void {
     const byDomain = new Map<string, Metric[]>();
     for (const m of this.p.metrics) {
@@ -59,64 +54,54 @@ export class Grid {
       list.push(m);
       byDomain.set(m.domain, list);
     }
-    const domains = this.p.meta.domains.filter((d) => byDomain.has(d.id));
-    for (const d of domains) {
-      const metrics = byDomain.get(d.id)!;
-      const row = document.createElement('div');
-      row.className = 'band';
-      row.setAttribute('role', 'row');
-      row.dataset.domain = d.id;
+    for (const d of this.p.meta.domains) {
+      const metrics = byDomain.get(d.id);
+      if (!metrics) continue;
+      const el = document.createElement('div');
+      el.className = 'domain-table';
+      el.setAttribute('role', 'rowgroup');
+      el.dataset.domain = d.id;
+      el.hidden = true;
+      const table: Table = { domain: d.id, el, buttons: [] };
 
-      const header = document.createElement('div');
-      header.className = 'band-label';
-      header.setAttribute('role', 'rowheader');
-      const title = document.createElement('span');
-      title.className = 'band-title';
-      title.textContent = `${d.label} · ${d.count}`;
-      const tilesId = `band-${d.id}`;
-      const toggle = document.createElement('button');
-      toggle.type = 'button';
-      toggle.className = 'band-toggle';
-      toggle.setAttribute('aria-controls', tilesId);
-      toggle.setAttribute('aria-expanded', 'false');
-      const tName = document.createElement('span');
-      tName.textContent = `${d.label} · ${d.count}`;
-      const more = document.createElement('span');
-      more.className = 'band-more';
-      toggle.append(tName, more);
-      header.append(title, toggle);
-
-      const tiles = document.createElement('div');
-      tiles.className = 'band-tiles';
-      tiles.id = tilesId;
-      tiles.setAttribute('role', 'none');
-
-      const band: Band = { domain: d.id, row, cells: [], toggle, more, expanded: false };
-      let prevTier: string | null = null;
-      for (const m of metrics) {
-        if (prevTier !== null && m.tier !== prevTier) {
-          const gap = document.createElement('div');
-          gap.className = 'cell cell-gap';
-          gap.setAttribute('aria-hidden', 'true');
-          tiles.append(gap);
-          band.cells.push(gap);
+      for (const tier of TIERS) {
+        const inTier = metrics.filter((m) => m.tier === tier);
+        if (!inTier.length) continue;
+        const row = document.createElement('div');
+        row.className = `band band-${tier}`;
+        row.setAttribute('role', 'row');
+        const header = document.createElement('div');
+        header.className = 'band-label';
+        header.setAttribute('role', 'rowheader');
+        header.textContent = `${this.p.tierLabels[tier]} · ${inTier.length}`;
+        const tiles = document.createElement('div');
+        tiles.className = 'band-tiles';
+        tiles.setAttribute('role', 'none');
+        for (const m of inTier) {
+          const { cell, button } = createTile(m, this.p);
+          tiles.append(cell);
+          this.buttons.set(m.metricId, button);
+          table.buttons.push(button);
         }
-        prevTier = m.tier;
-        const { cell, button } = createTile(m, this.p);
-        tiles.append(cell);
-        band.cells.push(cell);
-        this.buttons.set(m.metricId, button);
-        this.order.push(button);
+        row.append(header, tiles);
+        el.append(row);
       }
-      toggle.addEventListener('click', () => {
-        band.expanded = !band.expanded;
-        this.layoutCollapse();
-      });
-      row.append(header, tiles);
-      this.root.append(row);
-      this.bands.push(band);
+      this.root.append(el);
+      this.tables.set(d.id, table);
     }
-    this.active = this.order[0] ?? null;
+  }
+
+  /** Show one domain's table; the first tile becomes the tab stop. */
+  showDomain(domain: string): void {
+    const next = this.tables.get(domain);
+    if (!next || next === this.shown) return;
+    if (this.shown) this.shown.el.hidden = true;
+    next.el.hidden = false;
+    this.shown = next;
+    const label = this.p.domainLabels[domain] ?? domain;
+    this.root.setAttribute('aria-label', `${label} metric table, ${next.buttons.length} metrics`);
+    if (this.active) this.active.tabIndex = -1;
+    this.active = next.buttons[0] ?? null;
     if (this.active) this.active.tabIndex = 0;
   }
 
@@ -149,66 +134,6 @@ export class Grid {
     this.root.addEventListener('focusout', () => {
       if (!this.hovered) this.cb.onHover(null);
     });
-    mobileQuery.addEventListener('change', () => this.layoutCollapse());
-    let raf = 0;
-    new ResizeObserver(() => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => this.layoutCollapse());
-    }).observe(this.root);
-  }
-
-  // ---- collapsed bands (< 768 px) -------------------------------------------------
-
-  /** Below 768 px a collapsed band shows only its first line; measured from the DOM so it follows wrapping. */
-  layoutCollapse(): void {
-    const mobile = mobileQuery.matches;
-    for (const band of this.bands) {
-      for (const c of band.cells) c.hidden = false;
-      const collapsed = mobile && !band.expanded;
-      band.row.classList.toggle('is-collapsed', collapsed);
-      band.toggle.setAttribute('aria-expanded', String(!collapsed));
-      if (!mobile) continue;
-      if (!collapsed) {
-        band.more.textContent = 'Show fewer';
-        continue;
-      }
-      const first = band.cells[0];
-      const top = first ? first.offsetTop : 0;
-      let hidden = 0;
-      for (const c of band.cells) {
-        if (c.offsetTop > top + 2) {
-          c.hidden = true;
-          if (!c.classList.contains('cell-gap')) hidden++;
-        }
-      }
-      band.more.textContent = hidden ? `+${hidden} more` : '';
-    }
-    if (this.active && this.isHidden(this.active)) {
-      this.active.tabIndex = -1;
-      this.active = this.visible()[0] ?? null;
-      if (this.active) this.active.tabIndex = 0;
-    }
-  }
-
-  private isHidden(b: HTMLButtonElement): boolean {
-    return (b.parentElement as HTMLElement).hidden === true;
-  }
-
-  private visible(): HTMLButtonElement[] {
-    return this.order.filter((b) => !this.isHidden(b));
-  }
-
-  /** Expand the band holding this metric if it is clipped. */
-  private reveal(id: string): HTMLButtonElement | undefined {
-    const b = this.buttons.get(id);
-    if (b && this.isHidden(b)) {
-      const band = this.bands.find((x) => x.row.contains(b));
-      if (band) {
-        band.expanded = true;
-        this.layoutCollapse();
-      }
-    }
-    return b;
   }
 
   // ---- keyboard: roving tabindex --------------------------------------------------
@@ -223,7 +148,7 @@ export class Grid {
   private onKey(e: KeyboardEvent): void {
     const cur = (e.target as Element).closest<HTMLButtonElement>('button.tile');
     if (!cur || e.altKey || e.metaKey) return;
-    const list = this.visible();
+    const list = this.shown?.buttons ?? [];
     const i = list.indexOf(cur);
     if (i < 0) return;
     let next: HTMLButtonElement | undefined;
@@ -317,13 +242,13 @@ export class Grid {
   }
 
   scrollTo(id: string, smooth = true): void {
-    const b = this.reveal(id);
+    const b = this.buttons.get(id);
     if (!b) return;
     b.scrollIntoView({ block: 'center', inline: 'nearest', behavior: smooth && !reducedMotion() ? 'smooth' : 'instant' });
   }
 
   focusTile(id: string): void {
-    const b = this.reveal(id);
+    const b = this.buttons.get(id);
     if (b) this.setActive(b, true);
   }
 

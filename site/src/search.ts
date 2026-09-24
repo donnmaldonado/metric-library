@@ -15,8 +15,10 @@ export function matchesQuery(m: Metric, q: string): boolean {
 interface SearchDeps {
   store: Store;
   count: number;
-  /** Search matches that also pass the filters, in layout order. */
+  /** Search matches that also pass the filters, in layout order, in the shown domain. */
   matches(): string[];
+  /** How many matches sit in the other domains. */
+  elsewhere(): number;
   onSelect(id: string): void;
   /** The highlighted match changed (null = none). */
   onCursor(id: string | null): void;
@@ -99,8 +101,9 @@ export class Search {
     if (this.cursor >= list.length) this.cursor = -1;
     const current = q && this.cursor >= 0 ? list[this.cursor] : null;
     this.d.onCursor(current ?? null);
+    const other = q ? this.d.elsewhere() : 0;
     if (!q) this.status.textContent = '';
-    else if (!list.length) this.status.textContent = 'No matches';
+    else if (!list.length) this.status.textContent = other ? `None here · ${other} in other domains` : 'No matches';
     else
       this.status.textContent =
         this.cursor >= 0

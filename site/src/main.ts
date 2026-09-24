@@ -1,6 +1,7 @@
 import './styles.css';
 import { familyOf, indexMetrics, loadPortfolio, reducedMotion } from './data';
 import { DetailPanel } from './detailPanel';
+import { DomainTabs } from './domainTabs';
 import { Grid, type GridView } from './grid';
 import { HoverCard } from './hoverCard';
 import { Legend } from './legend';
@@ -74,10 +75,13 @@ function fillChrome(p: Portfolio): void {
 
 function start(p: Portfolio): void {
   const byId = indexMetrics(p.metrics);
-  const store = new Store(readUrl({ ids: new Set(byId.keys()), sources: new Set(Object.keys(p.sources)) }), {
-    ids: new Set(byId.keys()),
+  const known = {
+    domainOf: new Map(p.metrics.map((m) => [m.metricId, m.domain])),
+    domains: p.meta.domains.map((d) => d.id),
     sources: new Set(Object.keys(p.sources)),
-  });
+  };
+  const store = new Store(readUrl(known), known);
+  const totals = new Map(p.meta.domains.map((d) => [d.id, d.count]));
   fillChrome(p);
 
   /** Ids passing every filter and the search, or null when nothing narrows the table. */
@@ -97,8 +101,9 @@ function start(p: Portfolio): void {
   let cursor: string | null = null;
   let lit = litFor(store.state);
 
+  /** Selecting a metric from another domain (a panel relationship) switches to its table. */
   const select = (id: string, opts: { scroll?: boolean; fromPanel?: boolean } = {}): void => {
-    if (store.state.m !== id) store.update({ m: id }, 'push');
+    if (store.state.m !== id) store.update({ m: id, d: byId.get(id)!.domain }, 'push');
     if (opts.scroll) grid.scrollTo(id);
     if (opts.fromPanel) panel.focusHeading();
   };
@@ -106,6 +111,7 @@ function start(p: Portfolio): void {
     if (store.state.m) store.update({ m: null }, 'push');
   };
 
+  const wrap = document.getElementById('table')!;
   const hover = new HoverCard(p, byId, (ids) => grid.setHoverRing(ids));
   const grid = new Grid(p, {
     onSelect: (id) => {
@@ -124,11 +130,24 @@ function start(p: Portfolio): void {
       if (was) grid.focusTile(was);
     },
   );
+  const tabs = new DomainTabs(p, 'table', (d) => {
+    if (d === store.state.d) return;
+    hover.hide();
+    const m = store.state.m;
+    // A selection belongs to its own domain: leaving that domain drops it.
+    store.update({ d, m: m && byId.get(m)!.domain === d ? m : null }, 'push');
+  });
   const legend = new Legend(p, store);
   const search = new Search({
     store,
     count: p.meta.count,
-    matches: () => (store.state.q.trim() && lit ? p.metrics.filter((m) => lit!.has(m.metricId)).map((m) => m.metricId) : []),
+    // Only the shown domain's matches; the tab badges count the rest.
+    matches: () =>
+      store.state.q.trim() && lit
+        ? p.metrics.filter((m) => m.domain === store.state.d && lit!.has(m.metricId)).map((m) => m.metricId)
+        : [],
+    elsewhere: () =>
+      store.state.q.trim() && lit ? [...lit].filter((id) => byId.get(id)!.domain !== store.state.d).length : 0,
     onSelect: (id) => select(id, { scroll: true }),
     onCursor: (id) => {
       if (id === cursor) return;
@@ -138,11 +157,12 @@ function start(p: Portfolio): void {
     },
   });
 
+  document.getElementById('tabs-slot')!.replaceWith(tabs.el);
   document.getElementById('search-slot')!.replaceWith(search.el);
   document.getElementById('legend-slot')!.replaceWith(legend.el);
-  const wrap = document.getElementById('table')!;
   wrap.replaceChildren(grid.root);
   wrap.removeAttribute('aria-busy');
+  wrap.setAttribute('role', 'tabpanel');
   document.getElementById('layout')!.append(panel.el);
   const scrim = document.getElementById('scrim')!;
   scrim.addEventListener('click', closePanel);
@@ -160,6 +180,18 @@ function start(p: Portfolio): void {
   };
 
   function render(): void {
+    const s = store.state;
+    grid.showDomain(s.d);
+    wrap.setAttribute('aria-labelledby', `tab-${s.d}`);
+    let counts: Map<string, number> | null = null;
+    if (lit) {
+      counts = new Map();
+      for (const id of lit) {
+        const d = byId.get(id)!.domain;
+        counts.set(d, (counts.get(d) ?? 0) + 1);
+      }
+    }
+    tabs.sync(s.d, counts, totals);
     grid.apply(view());
   }
 
@@ -188,7 +220,6 @@ function start(p: Portfolio): void {
     document.body.classList.add('panel-open');
   }
   render();
-  grid.layoutCollapse();
   if (m0) requestAnimationFrame(() => grid.scrollTo(m0.metricId, false));
 
   // Global keys: `/` and ⌘K/Ctrl+K focus search; Esc closes the panel.

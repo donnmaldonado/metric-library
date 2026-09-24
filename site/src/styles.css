@@ -210,6 +210,71 @@ h1 {
   color: var(--muted);
 }
 
+.domain-tabs {
+  position: relative;
+  display: flex;
+  gap: 2px;
+  margin-top: 12px;
+  border-bottom: 1px solid var(--line);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+@media (max-width: 767.98px) {
+  /* Fade the right edge so it reads as a bar that scrolls. */
+  .domain-tabs {
+    mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent);
+  }
+}
+.domain-tabs::-webkit-scrollbar {
+  display: none;
+}
+.domain-tab {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 38px;
+  padding: 0 12px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  background: none;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color var(--t), border-color var(--t), opacity var(--t);
+}
+.domain-tab:hover {
+  color: var(--text);
+}
+.domain-tab[aria-selected="true"] {
+  color: var(--text);
+  font-weight: 600;
+  border-bottom-color: var(--accent);
+}
+.domain-tab:focus-visible {
+  outline-offset: -3px;
+}
+.tab-count {
+  min-width: 20px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+.domain-tab[aria-selected="true"] .tab-count {
+  background: var(--accent);
+  color: var(--bg);
+}
+.domain-tab.is-empty {
+  opacity: 0.5;
+}
+
 .controls {
   display: flex;
   flex-wrap: wrap;
@@ -483,13 +548,6 @@ h1 {
   letter-spacing: 0.01em;
   color: var(--muted);
 }
-.band-title {
-  display: block;
-  padding: 0 0 2px;
-}
-.band-toggle {
-  display: none;
-}
 
 /* Label sits in a sticky left column when there is room for it beside the tiles. */
 @container table (min-width: 1288px) {
@@ -522,37 +580,19 @@ h1 {
   grid-column: span 2;
   aspect-ratio: 2.09 / 1;
 }
-.cell[hidden] {
+
+.domain-table {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.domain-table[hidden] {
   display: none;
 }
 
 @media (max-width: 767.98px) {
   .band-tiles {
     grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
-  }
-  .band-title {
-    display: none;
-  }
-  .band-toggle {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    min-height: 32px;
-    padding: 4px 0;
-    border: 0;
-    background: none;
-    color: var(--text);
-    font-weight: 600;
-    font-size: 13px;
-    text-align: left;
-    cursor: pointer;
-  }
-  .band-more {
-    font-weight: 400;
-    font-size: 12px;
-    color: var(--accent);
   }
 }
 
