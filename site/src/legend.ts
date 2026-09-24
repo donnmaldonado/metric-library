@@ -1,6 +1,6 @@
-import { FAMILIES, FAMILY_LABEL, GLYPH, TIERS, familyOf } from './data';
+import { FAMILIES, FAMILY_LABEL, GLYPH, familyOf } from './data';
 import type { State, Store } from './state';
-import type { Family, Portfolio, Tier } from './types';
+import type { Family, Portfolio } from './types';
 
 function toggled<T>(set: Set<T>, v: T): Set<T> {
   const next = new Set(set);
@@ -9,11 +9,10 @@ function toggled<T>(set: Set<T>, v: T): Set<T> {
   return next;
 }
 
-/** The legend doubles as the filter bar: unit families, tiers and data sources. */
+/** The legend doubles as the filter bar: unit families and data sources. */
 export class Legend {
   readonly el: HTMLDivElement;
   private readonly unitBtns = new Map<Family, HTMLButtonElement>();
-  private readonly tierBtns = new Map<Tier, HTMLButtonElement>();
   private readonly sourceBoxes = new Map<string, HTMLInputElement>();
   private readonly details: HTMLDetailsElement;
   private readonly summaryCount: HTMLSpanElement;
@@ -40,18 +39,6 @@ export class Legend {
       b.addEventListener('click', () => this.store.update({ u: toggled(this.store.state.u, f) }, 'replace'));
       this.unitBtns.set(f, b);
       units.append(b);
-    }
-
-    const tiers = this.group('Tier');
-    for (const t of TIERS) {
-      const b = this.button(`legend-tier`, `${p.tierLabels[t]} (${p.meta.tiers[t] ?? 0} metrics)`);
-      const shape = document.createElement('span');
-      shape.className = `shape shape-${t}`;
-      shape.setAttribute('aria-hidden', 'true');
-      b.append(shape, document.createTextNode(p.tierLabels[t]));
-      b.addEventListener('click', () => this.store.update({ t: toggled(this.store.state.t, t) }, 'replace'));
-      this.tierBtns.set(t, b);
-      tiers.append(b);
     }
 
     // Data sources: light only metrics whose sources are all among the chosen ones.
@@ -104,7 +91,7 @@ export class Legend {
       this.store.update({ u: new Set(), t: new Set(), s: new Set(), q: '' }, 'replace'),
     );
 
-    this.el.append(units, tiers, this.details, this.clear);
+    this.el.append(units, this.clear, this.details);
     this.sync(store.state);
     store.subscribe((s) => this.sync(s));
   }
@@ -115,6 +102,19 @@ export class Legend {
     this.details.open = false;
     this.details.querySelector('summary')?.focus();
     return true;
+  }
+
+  /**
+   * Spans the legend so the first unit swatch starts at page x `left` (never outdents)
+   * and the data sources button ends at page x `right`.
+   */
+  alignTo(left: number, right: number): void {
+    const swatch = this.el.querySelector('.swatch');
+    if (!swatch) return;
+    const current = parseFloat(this.el.style.paddingLeft) || 0;
+    const pad = Math.max(0, current + left - swatch.getBoundingClientRect().left);
+    this.el.style.paddingLeft = `${Math.round(pad)}px`;
+    this.el.style.width = `${Math.round(right - this.el.getBoundingClientRect().left)}px`;
   }
 
   private group(title: string): HTMLDivElement {
@@ -140,11 +140,9 @@ export class Legend {
 
   private sync(s: State): void {
     for (const [f, b] of this.unitBtns) b.setAttribute('aria-pressed', String(s.u.has(f)));
-    for (const [t, b] of this.tierBtns) b.setAttribute('aria-pressed', String(s.t.has(t)));
     for (const [id, box] of this.sourceBoxes) box.checked = s.s.has(id);
     this.summaryCount.textContent = s.s.size ? String(s.s.size) : '';
     this.el.classList.toggle('any-unit', s.u.size > 0);
-    this.el.classList.toggle('any-tier', s.t.size > 0);
     this.clear.hidden = !(s.u.size || s.t.size || s.s.size || s.q);
   }
 }

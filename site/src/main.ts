@@ -164,7 +164,24 @@ function start(p: Portfolio): void {
     }
     tabs.sync(s.d, counts, totals);
     grid.apply(view());
+    alignLegend();
   }
+
+  // The legend spans the shown domain's first tile row: rate swatch at its start,
+  // data sources at the end of its rightmost tile.
+  function alignLegend(): void {
+    const cells = grid.root.querySelectorAll('.domain-table:not([hidden]) .band-tiles')[0]?.children;
+    if (!cells?.length) return;
+    const first = cells[0].getBoundingClientRect();
+    let right = first.right;
+    for (const c of cells) {
+      const r = c.getBoundingClientRect();
+      if (r.top !== first.top) break;
+      right = r.right;
+    }
+    legend.alignTo(first.left, right);
+  }
+  new ResizeObserver(alignLegend).observe(wrap);
 
   store.subscribe((s, prev, mode) => {
     if (s.q !== prev.q || s.u !== prev.u || s.t !== prev.t || s.s !== prev.s) lit = litFor(s);
