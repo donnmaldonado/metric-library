@@ -167,19 +167,13 @@ function start(p: Portfolio): void {
     alignLegend();
   }
 
-  // The legend spans the shown domain's first tile row: rate swatch at its start,
-  // data sources at the end of its rightmost tile.
+  // The legend spans the full column grid (not just the tiles a domain happens to have),
+  // so it sits the same in every domain: rate swatch at the first column, data sources at the last.
   function alignLegend(): void {
-    const cells = grid.root.querySelectorAll('.domain-table:not([hidden]) .band-tiles')[0]?.children;
-    if (!cells?.length) return;
-    const first = cells[0].getBoundingClientRect();
-    let right = first.right;
-    for (const c of cells) {
-      const r = c.getBoundingClientRect();
-      if (r.top !== first.top) break;
-      right = r.right;
-    }
-    legend.alignTo(first.left, right);
+    const tiles = grid.root.querySelector('.domain-table:not([hidden]) .band-tiles');
+    if (!tiles) return;
+    const r = tiles.getBoundingClientRect();
+    legend.alignTo(r.left, r.right);
   }
   new ResizeObserver(alignLegend).observe(wrap);
 
