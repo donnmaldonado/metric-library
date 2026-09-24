@@ -393,7 +393,6 @@ h1 {
   margin-right: 2px;
 }
 .legend-unit,
-.legend-tier,
 .sources summary {
   display: inline-flex;
   align-items: center;
@@ -407,21 +406,15 @@ h1 {
   font-size: 13px;
   transition: opacity var(--t), background var(--t);
 }
-.legend-tier {
-  padding-left: 6px;
-}
 .legend-unit:hover,
-.legend-tier:hover,
 .sources summary:hover {
   background: var(--surface-2);
 }
-.legend-unit[aria-pressed="true"],
-.legend-tier[aria-pressed="true"] {
+.legend-unit[aria-pressed="true"] {
   border-color: var(--text);
   background: var(--surface);
 }
-.legend.any-unit .legend-unit[aria-pressed="false"],
-.legend.any-tier .legend-tier[aria-pressed="false"] {
+.legend.any-unit .legend-unit[aria-pressed="false"] {
   opacity: 0.5;
 }
 .swatch {
@@ -436,28 +429,10 @@ h1 {
   font-size: 11px;
   font-weight: 500;
 }
-.shape {
-  display: inline-block;
-  height: 14px;
-  border-radius: 3px;
-  background: var(--muted);
-  border: 1px solid var(--text);
-}
-.shape-north_star {
-  width: 28px;
-  border-width: 2px;
-}
-.shape-kpi {
-  width: 14px;
-}
-.shape-input {
-  width: 14px;
-  background: transparent;
-  border: 2px solid var(--muted);
-}
 
 .sources {
   position: relative;
+  margin-left: auto;
 }
 .sources summary {
   list-style: none;
@@ -489,7 +464,7 @@ h1 {
   position: absolute;
   z-index: 25;
   top: calc(100% + 6px);
-  left: 0;
+  right: 0;
   width: min(460px, calc(100vw - 32px));
   max-height: min(60vh, 480px);
   overflow: auto;
