@@ -181,9 +181,8 @@ pre {
 
 .header-top {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px;
+  justify-content: center;
+  text-align: center;
 }
 
 h1 {
@@ -276,6 +275,12 @@ h1 {
 }
 .domain-tab.is-empty {
   opacity: 0.5;
+}
+
+.search-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
 }
 
 .controls {
