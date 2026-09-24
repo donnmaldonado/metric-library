@@ -1,10 +1,17 @@
 import type { Portfolio } from './types';
 
-/** The domain switcher: one tab per domain. Arrow keys, Home and End move between tabs. */
+/**
+ * The domain switcher: one tab per domain, and a native dropdown that stands in for the tabs on
+ * phones (CSS shows one or the other). Arrow keys, Home and End move between tabs.
+ */
 export class DomainTabs {
   readonly el: HTMLDivElement;
+  private readonly list: HTMLDivElement;
+  private readonly select: HTMLSelectElement;
   private readonly tabs = new Map<string, HTMLButtonElement>();
   private readonly badges = new Map<string, HTMLSpanElement>();
+  private readonly options = new Map<string, HTMLOptionElement>();
+  private readonly labels = new Map<string, string>();
 
   constructor(
     p: Portfolio,
@@ -12,9 +19,16 @@ export class DomainTabs {
     private readonly onPick: (domain: string) => void,
   ) {
     this.el = document.createElement('div');
-    this.el.className = 'domain-tabs';
-    this.el.setAttribute('role', 'tablist');
-    this.el.setAttribute('aria-label', 'Domain');
+    this.el.className = 'domain-nav';
+    this.list = document.createElement('div');
+    this.list.className = 'domain-tabs';
+    this.list.setAttribute('role', 'tablist');
+    this.list.setAttribute('aria-label', 'Domain');
+    this.select = document.createElement('select');
+    this.select.className = 'domain-select';
+    this.select.setAttribute('aria-label', 'Domain');
+    this.select.setAttribute('aria-controls', panelId);
+    this.select.addEventListener('change', () => this.onPick(this.select.value));
     for (const d of p.meta.domains) {
       const b = document.createElement('button');
       b.type = 'button';
@@ -31,9 +45,15 @@ export class DomainTabs {
       b.addEventListener('click', () => this.onPick(d.id));
       this.tabs.set(d.id, b);
       this.badges.set(d.id, badge);
-      this.el.append(b);
+      this.list.append(b);
+      const o = document.createElement('option');
+      o.value = d.id;
+      this.options.set(d.id, o);
+      this.labels.set(d.id, d.label);
+      this.select.append(o);
     }
-    this.el.addEventListener('keydown', (e) => this.onKey(e));
+    this.list.addEventListener('keydown', (e) => this.onKey(e));
+    this.el.append(this.list, this.select);
   }
 
   /** Mark the shown domain; `counts` are the lit metrics per domain, or null when nothing narrows the table. */
@@ -45,16 +65,9 @@ export class DomainTabs {
       const n = counts ? (counts.get(id) ?? 0) : totals.get(id)!;
       this.badges.get(id)!.textContent = String(n);
       b.classList.toggle('is-empty', !!counts && n === 0);
+      this.options.get(id)!.textContent = `${this.labels.get(id)} (${n})`;
     }
-    const cur = this.tabs.get(domain);
-    // Keep the shown tab in view when the bar scrolls sideways on narrow screens.
-    // Scrolls the bar only, never the page.
-    if (cur) {
-      const left = cur.offsetLeft; // the bar is position: relative, so it is the offsetParent
-      const right = left + cur.offsetWidth;
-      if (left < this.el.scrollLeft) this.el.scrollLeft = left;
-      else if (right > this.el.scrollLeft + this.el.clientWidth) this.el.scrollLeft = right - this.el.clientWidth;
-    }
+    this.select.value = domain;
   }
 
   private onKey(e: KeyboardEvent): void {
