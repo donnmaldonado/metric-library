@@ -1,0 +1,67 @@
+# Builds the Metric Periodic Table (site/) and deploys it to GitHub Pages.
+# Nothing deploys if validate.py or the export fails.
+name: pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+
+      - name: Check the library
+        run: |
+          python3 scripts/build.py
+          git diff --exit-code --stat -- dbt/models/metrics dbt/analyses/metrics data/relationships.csv CATALOG.md
+          python3 scripts/validate.py
+          python3 -m unittest discover -s scripts
+
+      - name: Export the portfolio data
+        run: python3 scripts/export_portfolio.py
+
+      - name: Build the site
+        working-directory: site
+        env:
+          BASE_PATH: /${{ github.event.repository.name }}/
+        run: |
+          npm ci
+          npm run build
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

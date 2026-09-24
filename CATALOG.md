@@ -29,7 +29,7 @@ Realized average revenue per customer to date (lifetime order revenue / customer
 - **Numerator:** SUM(lifetime revenue per customer)
 - **Dimensions:** Customer, Customer Segment, Cohort Month, Acquisition Channel
 - **Data sources:** Application database, CRM
-- **Children:** [`arpu`](#arpu), [`churn_rate`](#churn_rate)
+- **Children:** [`arpu`](#arpu), [`churn_rate`](#churn_rate), [`cohort_ltv_24m`](#cohort_ltv_24m), [`cross_sell_rate`](#cross_sell_rate), [`customer_retention_rate`](#customer_retention_rate)
 - **Correlated:** [`ltv_cac`](#ltv_cac), [`nrr`](#nrr), [`arpu`](#arpu)
 
 <a id="on_time_delivery_rate"></a>
@@ -57,7 +57,7 @@ Percentage of orders or deliverables completed by the committed date.
 - **Denominator:** Total Orders
 - **Dimensions:** Warehouse, Carrier, Time
 - **Data sources:** WMS / inventory, TMS, ERP / general ledger
-- **Children:** [`fill_rate`](#fill_rate), [`order_accuracy_rate`](#order_accuracy_rate), [`capacity_utilization`](#capacity_utilization), [`defect_rate`](#defect_rate), [`order_fulfillment_rate`](#order_fulfillment_rate), [`return_rate`](#return_rate), [`sla_compliance_rate`](#sla_compliance_rate), [`uptime`](#uptime), [`vendor_scorecard_rating`](#vendor_scorecard_rating)
+- **Children:** [`fill_rate`](#fill_rate), [`order_accuracy_rate`](#order_accuracy_rate), [`capacity_utilization`](#capacity_utilization), [`defect_rate`](#defect_rate), [`order_fulfillment_rate`](#order_fulfillment_rate), [`return_rate`](#return_rate), [`sla_compliance_rate`](#sla_compliance_rate), [`uptime`](#uptime), [`vendor_scorecard_rating`](#vendor_scorecard_rating), [`supplier_lead_time`](#supplier_lead_time), [`vendor_compliance_rate`](#vendor_compliance_rate)
 - **Correlated:** [`csat`](#csat), [`on_time_delivery_rate`](#on_time_delivery_rate)
 
 ### North Star · Education (4)
@@ -87,7 +87,7 @@ Per-pupil expenditure divided by % of students meeting proficiency — efficienc
 - **Denominator:** Proficiency Rate
 - **Dimensions:** School, Time
 - **Data sources:** ERP / general ledger, SIS, Assessment platform
-- **Children:** [`per_pupil_expenditure`](#per_pupil_expenditure)
+- **Children:** [`per_pupil_expenditure`](#per_pupil_expenditure), [`instructional_spend_ratio`](#instructional_spend_ratio), [`seat_fill_rate`](#seat_fill_rate), [`staff_student_cost_ratio`](#staff_student_cost_ratio), [`student_teacher_ratio`](#student_teacher_ratio)
 - **Formula inputs:** [`student_proficiency`](#student_proficiency)
 - **Correlated:** [`per_pupil_expenditure`](#per_pupil_expenditure), [`student_proficiency`](#student_proficiency)
 
@@ -116,7 +116,7 @@ Percentage of students graduating within 4 years of entering 9th grade.
 - **Denominator:** Total students tested
 - **Dimensions:** School, Subject, Grade Level, Student Subgroup, School Year
 - **Data sources:** Assessment platform, SIS
-- **Children:** [`student_attendance_rate`](#student_attendance_rate), [`chronic_absenteeism_rate`](#chronic_absenteeism_rate), [`instructional_minutes`](#instructional_minutes), [`avg_teacher_experience`](#avg_teacher_experience), [`ell_pct`](#ell_pct), [`ell_proficiency_growth`](#ell_proficiency_growth), [`frl_pct`](#frl_pct), [`iep_goal_mastery_rate`](#iep_goal_mastery_rate), [`iep_pct`](#iep_pct), [`on_time_lesson_delivery`](#on_time_lesson_delivery), [`per_pupil_expenditure`](#per_pupil_expenditure), [`school_climate_score`](#school_climate_score), [`student_growth_percentile`](#student_growth_percentile), [`teacher_retention_rate`](#teacher_retention_rate), [`ela_proficiency_rate`](#ela_proficiency_rate), [`math_proficiency_rate`](#math_proficiency_rate), [`science_proficiency_rate`](#science_proficiency_rate)
+- **Children:** [`student_attendance_rate`](#student_attendance_rate), [`chronic_absenteeism_rate`](#chronic_absenteeism_rate), [`instructional_minutes`](#instructional_minutes), [`avg_teacher_experience`](#avg_teacher_experience), [`ell_pct`](#ell_pct), [`ell_proficiency_growth`](#ell_proficiency_growth), [`frl_pct`](#frl_pct), [`iep_goal_mastery_rate`](#iep_goal_mastery_rate), [`iep_pct`](#iep_pct), [`on_time_lesson_delivery`](#on_time_lesson_delivery), [`per_pupil_expenditure`](#per_pupil_expenditure), [`school_climate_score`](#school_climate_score), [`student_growth_percentile`](#student_growth_percentile), [`teacher_retention_rate`](#teacher_retention_rate), [`ela_proficiency_rate`](#ela_proficiency_rate), [`math_proficiency_rate`](#math_proficiency_rate), [`science_proficiency_rate`](#science_proficiency_rate), [`instructional_spend_ratio`](#instructional_spend_ratio), [`seat_fill_rate`](#seat_fill_rate), [`staff_student_cost_ratio`](#staff_student_cost_ratio), [`student_teacher_ratio`](#student_teacher_ratio)
 - **Correlated:** [`four_year_grad_rate`](#four_year_grad_rate), [`college_enrollment`](#college_enrollment), [`chronic_absenteeism_rate`](#chronic_absenteeism_rate), [`advanced_course_enrollment_rate`](#advanced_course_enrollment_rate), [`student_attendance_rate`](#student_attendance_rate), [`cost_per_outcome`](#cost_per_outcome), [`ell_proficiency_growth`](#ell_proficiency_growth), [`iep_goal_mastery_rate`](#iep_goal_mastery_rate), [`student_growth_percentile`](#student_growth_percentile), [`teacher_retention_rate`](#teacher_retention_rate), [`student_teacher_ratio`](#student_teacher_ratio), [`ap_pass_rate`](#ap_pass_rate)
 
 ### North Star · Finance (7)
@@ -131,7 +131,7 @@ Earnings before interest, taxes, depreciation & amortization.
 - **Numerator:** EBIT + Depreciation + Amortization
 - **Dimensions:** Time
 - **Data sources:** ERP / general ledger
-- **Children:** [`gross_profit`](#gross_profit), [`opex`](#opex), [`da`](#da), [`bad_debt_rate`](#bad_debt_rate), [`cogs`](#cogs), [`ebit`](#ebit), [`ebitda_bridge_price`](#ebitda_bridge_price), [`ebitda_bridge_volume`](#ebitda_bridge_volume), [`ebitda_margin`](#ebitda_margin), [`forecast_accuracy`](#forecast_accuracy), [`gross_margin_pct`](#gross_margin_pct), [`revenue_per_employee`](#revenue_per_employee)
+- **Children:** [`gross_profit`](#gross_profit), [`opex`](#opex), [`da`](#da), [`bad_debt_rate`](#bad_debt_rate), [`cogs`](#cogs), [`ebit`](#ebit), [`ebitda_bridge_price`](#ebitda_bridge_price), [`ebitda_bridge_volume`](#ebitda_bridge_volume), [`ebitda_margin`](#ebitda_margin), [`forecast_accuracy`](#forecast_accuracy), [`gross_margin_pct`](#gross_margin_pct), [`revenue_per_employee`](#revenue_per_employee), [`gross_profit_per_employee`](#gross_profit_per_employee)
 - **Correlated:** [`ebitda_margin`](#ebitda_margin), [`free_cash_flow`](#free_cash_flow), [`net_income`](#net_income), [`capex`](#capex), [`effective_tax_rate`](#effective_tax_rate), [`enterprise_value`](#enterprise_value), [`nrr`](#nrr), [`operating_cash_flow`](#operating_cash_flow), [`roe`](#roe), [`revenue`](#revenue)
 
 <a id="enterprise_value"></a>
@@ -256,7 +256,7 @@ Percentage of employees who left during the period (voluntary + involuntary).
 - **Denominator:** Average headcount
 - **Dimensions:** Time, Department
 - **Data sources:** HRIS
-- **Children:** [`separations`](#separations), [`voluntary_turnover`](#voluntary_turnover), [`regrettable_attrition`](#regrettable_attrition)
+- **Children:** [`separations`](#separations), [`voluntary_turnover`](#voluntary_turnover), [`regrettable_attrition`](#regrettable_attrition), [`avg_tenure`](#avg_tenure)
 - **Correlated:** [`voluntary_turnover`](#voluntary_turnover), [`regrettable_attrition`](#regrettable_attrition), [`employee_engagement_score`](#employee_engagement_score), [`absenteeism_rate`](#absenteeism_rate), [`headcount`](#headcount)
 
 ### North Star · Marketing (1)
@@ -272,7 +272,7 @@ Return on total marketing investment — revenue driven per dollar spent.
 - **Denominator:** Marketing spend
 - **Dimensions:** Time, Campaign
 - **Data sources:** Ad platforms, CRM
-- **Children:** [`ltv_cac`](#ltv_cac), [`marketing_influenced_pipeline`](#marketing_influenced_pipeline), [`organic_attribution_pct`](#organic_attribution_pct), [`paid_attribution_pct`](#paid_attribution_pct), [`referral_attribution_pct`](#referral_attribution_pct), [`roas`](#roas), [`share_of_voice`](#share_of_voice), [`marketing_spend`](#marketing_spend)
+- **Children:** [`ltv_cac`](#ltv_cac), [`marketing_influenced_pipeline`](#marketing_influenced_pipeline), [`organic_attribution_pct`](#organic_attribution_pct), [`paid_attribution_pct`](#paid_attribution_pct), [`referral_attribution_pct`](#referral_attribution_pct), [`roas`](#roas), [`share_of_voice`](#share_of_voice), [`marketing_spend`](#marketing_spend), [`cac_payback`](#cac_payback)
 - **Correlated:** [`roas`](#roas), [`marketing_cac`](#marketing_cac)
 
 ### North Star · Product (2)
@@ -349,7 +349,7 @@ Percentage of customers who purchased products from more than one category.
 - **Denominator:** Total customers
 - **Dimensions:** Time, Product Category
 - **Data sources:** Commerce / order management
-- **Parents:** [`clv`](#clv)
+- **Parents:** [`clv`](#clv), [`customer_ltv`](#customer_ltv)
 - **Correlated:** [`upsell_rate`](#upsell_rate), [`aov`](#aov)
 
 <a id="fill_rate"></a>
@@ -419,7 +419,7 @@ Gross revenue minus returns, allowances, and discounts.
 - **Dimensions:** Time, Channel
 - **Data sources:** Commerce / order management
 - **Parents:** [`revenue`](#revenue)
-- **Children:** [`gross_revenue`](#gross_revenue), [`discount_rate`](#discount_rate)
+- **Children:** [`gross_revenue`](#gross_revenue), [`discount_rate`](#discount_rate), [`refund_rate`](#refund_rate)
 - **Correlated:** [`gross_revenue`](#gross_revenue), [`refund_rate`](#refund_rate)
 
 <a id="order_accuracy_rate"></a>
@@ -476,7 +476,7 @@ Percentage of transactions that were refunded.
 - **Denominator:** Total orders
 - **Dimensions:** Time, Product
 - **Data sources:** Commerce / order management
-- **Parents:** [`clv`](#clv)
+- **Parents:** [`clv`](#clv), [`net_revenue`](#net_revenue)
 - **Correlated:** [`return_rate`](#return_rate), [`csat`](#csat), [`net_revenue`](#net_revenue)
 
 <a id="repeat_purchase_rate"></a>
@@ -564,7 +564,7 @@ Number of accounts with health score below the risk threshold.
 - **Dimensions:** Time
 - **Data sources:** CRM
 - **Parents:** [`churn_rate`](#churn_rate)
-- **Children:** [`account_health_score`](#account_health_score)
+- **Children:** [`account_health_score`](#account_health_score), [`ces`](#ces), [`churn_prediction_score`](#churn_prediction_score), [`dau_mau_ratio`](#dau_mau_ratio)
 - **Correlated:** [`churn_rate`](#churn_rate), [`renewal_rate`](#renewal_rate), [`account_health_score`](#account_health_score), [`expansion_pipeline`](#expansion_pipeline)
 
 <a id="complaint_resolution_rate"></a>
@@ -696,7 +696,7 @@ Total support cost divided by tickets resolved.
 - **Denominator:** Tickets resolved
 - **Dimensions:** Time
 - **Data sources:** Helpdesk, ERP / general ledger
-- **Parents:** [`ops_efficiency_ratio`](#ops_efficiency_ratio)
+- **Parents:** [`ops_efficiency_ratio`](#ops_efficiency_ratio), [`opex`](#opex)
 - **Children:** [`total_comp_expense`](#total_comp_expense), [`tickets_resolved`](#tickets_resolved), [`tickets_per_agent`](#tickets_per_agent)
 - **Correlated:** [`hr_cost_pct_revenue`](#hr_cost_pct_revenue), [`sla_breach_rate`](#sla_breach_rate), [`tickets_per_agent`](#tickets_per_agent), [`tickets_per_customer`](#tickets_per_customer), [`tickets_resolved`](#tickets_resolved)
 
@@ -994,7 +994,7 @@ Percentage of operating budget spent directly on instruction.
 - **Denominator:** Total expenditure
 - **Dimensions:** School Year
 - **Data sources:** ERP / general ledger
-- **Parents:** [`per_pupil_expenditure`](#per_pupil_expenditure)
+- **Parents:** [`per_pupil_expenditure`](#per_pupil_expenditure), [`cost_per_outcome`](#cost_per_outcome), [`student_proficiency`](#student_proficiency)
 - **Correlated:** [`per_pupil_expenditure`](#per_pupil_expenditure), [`ela_proficiency_rate`](#ela_proficiency_rate)
 
 <a id="kinder_readiness"></a>
@@ -1075,7 +1075,7 @@ Percentage of students scoring proficient on science state assessments.
 - **Denominator:** Available Seats
 - **Dimensions:** School, Grade Level, Time
 - **Data sources:** SIS
-- **Parents:** [`per_pupil_expenditure`](#per_pupil_expenditure)
+- **Parents:** [`per_pupil_expenditure`](#per_pupil_expenditure), [`cost_per_outcome`](#cost_per_outcome), [`student_proficiency`](#student_proficiency)
 - **Formula inputs:** [`enrollment_count`](#enrollment_count)
 - **Correlated:** [`enrollment_count`](#enrollment_count), [`per_pupil_expenditure`](#per_pupil_expenditure)
 
@@ -1090,7 +1090,7 @@ Personnel costs as a share of total per-pupil expenditure — staffing investmen
 - **Denominator:** Total Operating Budget
 - **Dimensions:** School, Time
 - **Data sources:** ERP / general ledger, HRIS
-- **Parents:** [`per_pupil_expenditure`](#per_pupil_expenditure)
+- **Parents:** [`per_pupil_expenditure`](#per_pupil_expenditure), [`cost_per_outcome`](#cost_per_outcome), [`student_proficiency`](#student_proficiency)
 - **Children:** [`headcount_cost`](#headcount_cost)
 - **Correlated:** [`teacher_retention_rate`](#teacher_retention_rate), [`per_pupil_expenditure`](#per_pupil_expenditure)
 
@@ -1133,7 +1133,7 @@ Number of enrolled students per FTE classroom teacher.
 - **Denominator:** Full-time-equivalent teachers
 - **Dimensions:** School Year, School, Time
 - **Data sources:** SIS, HRIS
-- **Parents:** [`per_pupil_expenditure`](#per_pupil_expenditure)
+- **Parents:** [`per_pupil_expenditure`](#per_pupil_expenditure), [`cost_per_outcome`](#cost_per_outcome), [`student_proficiency`](#student_proficiency)
 - **Children:** [`enrollment_count`](#enrollment_count), [`headcount_fte`](#headcount_fte)
 - **Correlated:** [`per_pupil_expenditure`](#per_pupil_expenditure), [`student_growth_percentile`](#student_growth_percentile), [`student_proficiency`](#student_proficiency), [`teacher_retention_rate`](#teacher_retention_rate)
 
@@ -1417,7 +1417,7 @@ Budget variance as a % of budget — normalized over/under indicator.
 - **Denominator:** Budget
 - **Dimensions:** Department, Cost Center, Time
 - **Data sources:** ERP / general ledger, FP&A / budgeting
-- **Parents:** [`ops_efficiency_ratio`](#ops_efficiency_ratio)
+- **Parents:** [`ops_efficiency_ratio`](#ops_efficiency_ratio), [`opex`](#opex)
 - **Children:** [`budget_variance`](#budget_variance)
 - **Formula inputs:** [`annual_budget`](#annual_budget)
 - **Correlated:** [`opex`](#opex), [`ebitda_margin`](#ebitda_margin)
@@ -1462,7 +1462,7 @@ Months to recover customer acquisition cost from gross margin.
 - **Denominator:** MRR × Gross Margin %
 - **Dimensions:** Time, Channel, Customer Segment, Cohort
 - **Data sources:** Billing / subscriptions, ERP / general ledger
-- **Parents:** [`ltv_cac`](#ltv_cac)
+- **Parents:** [`ltv_cac`](#ltv_cac), [`marketing_roi`](#marketing_roi)
 - **Children:** [`cac`](#cac), [`gross_margin_pct`](#gross_margin_pct), [`arpu`](#arpu), [`sm_spend`](#sm_spend), [`mrr`](#mrr)
 - **Correlated:** [`magic_number`](#magic_number), [`ltv_cac`](#ltv_cac), [`avg_sales_cycle`](#avg_sales_cycle), [`cac`](#cac), [`churn_rate`](#churn_rate), [`arr`](#arr)
 
@@ -1743,7 +1743,7 @@ Gross profit divided by headcount — productivity indicator.
 - **Denominator:** Headcount
 - **Dimensions:** Time
 - **Data sources:** ERP / general ledger, HRIS
-- **Parents:** [`employee_lifetime_value`](#employee_lifetime_value)
+- **Parents:** [`employee_lifetime_value`](#employee_lifetime_value), [`ebitda`](#ebitda)
 - **Children:** [`gross_profit`](#gross_profit)
 - **Formula inputs:** [`headcount`](#headcount)
 - **Correlated:** [`revenue_per_employee`](#revenue_per_employee), [`workforce_productivity`](#workforce_productivity), [`gross_profit`](#gross_profit)
@@ -1923,7 +1923,7 @@ Total operating expenses excluding COGS in a period.
 - **Dimensions:** Time, Department
 - **Data sources:** ERP / general ledger
 - **Parents:** [`ebitda`](#ebitda), [`burn_rate`](#burn_rate), [`ops_efficiency_ratio`](#ops_efficiency_ratio)
-- **Children:** [`sg_and_a`](#sg_and_a), [`total_comp_expense`](#total_comp_expense), [`gna_pct_revenue`](#gna_pct_revenue), [`headcount_cost`](#headcount_cost), [`hr_cost_pct_revenue`](#hr_cost_pct_revenue), [`rd_as_pct_revenue`](#rd_as_pct_revenue), [`rd_expense`](#rd_expense)
+- **Children:** [`sg_and_a`](#sg_and_a), [`total_comp_expense`](#total_comp_expense), [`gna_pct_revenue`](#gna_pct_revenue), [`headcount_cost`](#headcount_cost), [`hr_cost_pct_revenue`](#hr_cost_pct_revenue), [`rd_as_pct_revenue`](#rd_as_pct_revenue), [`rd_expense`](#rd_expense), [`budget_variance_pct`](#budget_variance_pct), [`cost_per_mile`](#cost_per_mile), [`support_cost_per_ticket`](#support_cost_per_ticket)
 - **Correlated:** [`gna_pct_revenue`](#gna_pct_revenue), [`rd_as_pct_revenue`](#rd_as_pct_revenue), [`annual_budget`](#annual_budget), [`budget_variance`](#budget_variance), [`budget_variance_pct`](#budget_variance_pct), [`headcount_fte`](#headcount_fte), [`headcount_vs_budget`](#headcount_vs_budget), [`hr_cost_pct_revenue`](#hr_cost_pct_revenue)
 
 <a id="partner_revenue"></a>
@@ -2050,7 +2050,7 @@ YoY or QoQ revenue growth percentage.
 - **Dimensions:** Time
 - **Data sources:** Commerce / order management
 - **Parents:** [`rule_of_40`](#rule_of_40)
-- **Children:** [`market_share`](#market_share), [`revenue_vs_py`](#revenue_vs_py)
+- **Children:** [`market_share`](#market_share), [`revenue_vs_py`](#revenue_vs_py), [`market_penetration_rate`](#market_penetration_rate)
 - **Formula inputs:** [`revenue`](#revenue)
 - **Correlated:** [`arr_growth_rate`](#arr_growth_rate), [`revenue_vs_py`](#revenue_vs_py), [`arr`](#arr), [`market_penetration_rate`](#market_penetration_rate), [`market_share`](#market_share), [`monthly_new_customers`](#monthly_new_customers), [`revenue`](#revenue)
 
@@ -2081,7 +2081,7 @@ Total revenue divided by headcount — operating leverage metric.
 - **Dimensions:** Company, Time
 - **Data sources:** ERP / general ledger, HRIS
 - **Parents:** [`ebitda`](#ebitda), [`employee_lifetime_value`](#employee_lifetime_value)
-- **Children:** [`headcount_fte`](#headcount_fte), [`arr_per_rep`](#arr_per_rep), [`employees_per_1m_arr`](#employees_per_1m_arr)
+- **Children:** [`headcount_fte`](#headcount_fte), [`arr_per_rep`](#arr_per_rep), [`employees_per_1m_arr`](#employees_per_1m_arr), [`workforce_productivity`](#workforce_productivity)
 - **Formula inputs:** [`revenue`](#revenue), [`headcount`](#headcount)
 - **Correlated:** [`ebitda_margin`](#ebitda_margin), [`employees_per_1m_arr`](#employees_per_1m_arr), [`gross_profit_per_employee`](#gross_profit_per_employee), [`headcount_cost`](#headcount_cost), [`workforce_productivity`](#workforce_productivity)
 
@@ -2213,7 +2213,7 @@ Output or revenue generated per labor hour worked.
 - **Denominator:** Labor hours worked
 - **Dimensions:** Time
 - **Data sources:** HRIS, Commerce / order management
-- **Parents:** [`employee_lifetime_value`](#employee_lifetime_value)
+- **Parents:** [`employee_lifetime_value`](#employee_lifetime_value), [`revenue_per_employee`](#revenue_per_employee)
 - **Children:** [`absenteeism_rate`](#absenteeism_rate), [`overtime_hours`](#overtime_hours), [`safety_incident_rate`](#safety_incident_rate)
 - **Formula inputs:** [`revenue`](#revenue)
 - **Correlated:** [`revenue_per_employee`](#revenue_per_employee), [`gross_profit_per_employee`](#gross_profit_per_employee), [`overtime_hours`](#overtime_hours)
@@ -2258,7 +2258,7 @@ Average years of service among current employees.
 - **Numerator:** Average years of service
 - **Dimensions:** Time, Department
 - **Data sources:** HRIS
-- **Parents:** [`employee_lifetime_value`](#employee_lifetime_value)
+- **Parents:** [`employee_lifetime_value`](#employee_lifetime_value), [`turnover_rate`](#turnover_rate)
 - **Correlated:** [`voluntary_turnover`](#voluntary_turnover), [`employee_engagement_score`](#employee_engagement_score)
 
 <a id="compensation_ratio"></a>
@@ -3012,7 +3012,7 @@ Actual output as a percentage of total available capacity.
 - **Dimensions:** Time, Facility, Production Line, Plant
 - **Data sources:** MES
 - **Parents:** [`ops_north_star`](#ops_north_star)
-- **Children:** [`throughput`](#throughput)
+- **Children:** [`throughput`](#throughput), [`warehouse_utilization`](#warehouse_utilization)
 - **Correlated:** [`warehouse_utilization`](#warehouse_utilization), [`cycle_time`](#cycle_time), [`throughput`](#throughput), [`defect_rate`](#defect_rate), [`cost_per_unit`](#cost_per_unit), [`energy_cost_per_unit`](#energy_cost_per_unit)
 
 <a id="carbon_emissions_per_unit"></a>
@@ -3026,7 +3026,7 @@ kg CO2 equivalent emitted per unit of output — ESG and sustainability metric.
 - **Denominator:** Units Produced
 - **Dimensions:** Facility, Process Type, Time
 - **Data sources:** Energy and emissions monitoring, ERP / general ledger
-- **Parents:** [`ops_efficiency_ratio`](#ops_efficiency_ratio)
+- **Parents:** [`ops_efficiency_ratio`](#ops_efficiency_ratio), [`cost_per_unit`](#cost_per_unit)
 - **Formula inputs:** [`throughput`](#throughput)
 - **Correlated:** [`energy_cost_per_unit`](#energy_cost_per_unit), [`cost_per_unit`](#cost_per_unit)
 
@@ -3041,7 +3041,7 @@ Total fleet operating cost divided by total miles driven.
 - **Denominator:** Total Miles Driven
 - **Dimensions:** Fleet Type, Vehicle, Time
 - **Data sources:** Fleet management, ERP / general ledger
-- **Parents:** [`ops_efficiency_ratio`](#ops_efficiency_ratio)
+- **Parents:** [`ops_efficiency_ratio`](#ops_efficiency_ratio), [`opex`](#opex)
 - **Children:** [`fleet_utilization_rate`](#fleet_utilization_rate)
 - **Correlated:** [`fleet_utilization_rate`](#fleet_utilization_rate)
 
@@ -3057,7 +3057,7 @@ Total production cost divided by units produced in the period.
 - **Dimensions:** Product, Production Line, Time
 - **Data sources:** ERP / general ledger, MES
 - **Parents:** [`gross_margin_pct`](#gross_margin_pct)
-- **Children:** [`energy_cost_per_unit`](#energy_cost_per_unit)
+- **Children:** [`energy_cost_per_unit`](#energy_cost_per_unit), [`carbon_emissions_per_unit`](#carbon_emissions_per_unit)
 - **Formula inputs:** [`throughput`](#throughput)
 - **Correlated:** [`defect_rate`](#defect_rate), [`capacity_utilization`](#capacity_utilization), [`carbon_emissions_per_unit`](#carbon_emissions_per_unit), [`procurement_savings_rate`](#procurement_savings_rate)
 
@@ -3170,7 +3170,7 @@ Average days from purchase order creation to goods receipt.
 - **Denominator:** COUNT(purchase orders)
 - **Dimensions:** Supplier, Product Category, Time
 - **Data sources:** ERP / general ledger, Procurement
-- **Parents:** [`vendor_scorecard_rating`](#vendor_scorecard_rating)
+- **Parents:** [`vendor_scorecard_rating`](#vendor_scorecard_rating), [`ops_north_star`](#ops_north_star)
 - **Correlated:** [`fill_rate`](#fill_rate), [`inventory_turnover`](#inventory_turnover), [`vendor_compliance_rate`](#vendor_compliance_rate)
 
 <a id="throughput"></a>
@@ -3197,7 +3197,7 @@ Percentage of purchase orders fulfilled by vendors per specifications.
 - **Denominator:** Total POs
 - **Dimensions:** Time, Vendor
 - **Data sources:** Procurement, QMS
-- **Parents:** [`vendor_scorecard_rating`](#vendor_scorecard_rating)
+- **Parents:** [`vendor_scorecard_rating`](#vendor_scorecard_rating), [`ops_north_star`](#ops_north_star)
 - **Correlated:** [`supplier_lead_time`](#supplier_lead_time), [`defect_rate`](#defect_rate), [`shrinkage_rate`](#shrinkage_rate)
 
 <a id="vendor_scorecard_rating"></a>
@@ -3225,7 +3225,7 @@ Percentage of warehouse storage capacity currently in use.
 - **Denominator:** Total square footage
 - **Dimensions:** Time, Facility, Warehouse, Product Zone
 - **Data sources:** WMS / inventory
-- **Parents:** [`ops_efficiency_ratio`](#ops_efficiency_ratio)
+- **Parents:** [`ops_efficiency_ratio`](#ops_efficiency_ratio), [`capacity_utilization`](#capacity_utilization)
 - **Correlated:** [`capacity_utilization`](#capacity_utilization), [`inventory_value`](#inventory_value), [`fill_rate`](#fill_rate), [`inventory_turnover`](#inventory_turnover)
 
 <a id="work_order_resolution_time"></a>
@@ -3285,7 +3285,7 @@ How easy it was for customers to resolve an issue — lower effort = better.
 - **Numerator:** AVG(effort_score)
 - **Dimensions:** Channel, Interaction Type, Time
 - **Data sources:** Survey platform, Helpdesk
-- **Parents:** [`account_health_score`](#account_health_score)
+- **Parents:** [`account_health_score`](#account_health_score), [`at_risk_accounts`](#at_risk_accounts), [`churn_rate`](#churn_rate)
 - **Correlated:** [`csat`](#csat), [`nps`](#nps), [`cx_csat`](#cx_csat), [`first_response_time`](#first_response_time), [`ticket_resolution_rate`](#ticket_resolution_rate)
 
 <a id="csat"></a>
@@ -3358,7 +3358,7 @@ Stickiness ratio — daily to monthly active user proportion.
 - **Denominator:** MAU
 - **Dimensions:** Time
 - **Data sources:** Product analytics
-- **Parents:** [`account_health_score`](#account_health_score)
+- **Parents:** [`account_health_score`](#account_health_score), [`at_risk_accounts`](#at_risk_accounts), [`churn_rate`](#churn_rate)
 - **Children:** [`dau`](#dau), [`mau`](#mau), [`activation_rate`](#activation_rate), [`avg_session_duration`](#avg_session_duration), [`d30_retention`](#d30_retention), [`error_rate`](#error_rate), [`feature_adoption_rate`](#feature_adoption_rate), [`sessions_per_user`](#sessions_per_user), [`time_to_value`](#time_to_value), [`wau`](#wau)
 - **Correlated:** [`avg_session_duration`](#avg_session_duration), [`d7_retention`](#d7_retention), [`feature_adoption_rate`](#feature_adoption_rate), [`push_open_rate`](#push_open_rate), [`d30_retention`](#d30_retention), [`sessions_per_user`](#sessions_per_user)
 
@@ -3595,7 +3595,7 @@ Annual Recurring Revenue — annualized value of active subscriptions.
 - **Dimensions:** Time, Customer Segment, Product
 - **Data sources:** Billing / subscriptions
 - **Parents:** [`arr_growth_rate`](#arr_growth_rate), [`arr_per_rep`](#arr_per_rep), [`employees_per_1m_arr`](#employees_per_1m_arr), [`market_penetration_rate`](#market_penetration_rate), [`revenue`](#revenue), [`subscription_revenue`](#subscription_revenue)
-- **Children:** [`new_arr`](#new_arr), [`expansion_arr`](#expansion_arr), [`contraction_arr`](#contraction_arr), [`churned_arr`](#churned_arr), [`acv`](#acv), [`bookings`](#bookings), [`churn_rate`](#churn_rate), [`committed_arr`](#committed_arr), [`mrr`](#mrr), [`nrr`](#nrr)
+- **Children:** [`new_arr`](#new_arr), [`expansion_arr`](#expansion_arr), [`contraction_arr`](#contraction_arr), [`churned_arr`](#churned_arr), [`acv`](#acv), [`bookings`](#bookings), [`churn_rate`](#churn_rate), [`committed_arr`](#committed_arr), [`mrr`](#mrr), [`nrr`](#nrr), [`expansion_pipeline`](#expansion_pipeline), [`upsell_rate`](#upsell_rate)
 - **Correlated:** [`mrr`](#mrr), [`nrr`](#nrr), [`grr`](#grr), [`revenue_growth_rate`](#revenue_growth_rate), [`active_paying_users`](#active_paying_users), [`acv`](#acv), [`billings`](#billings), [`bookings`](#bookings), [`committed_arr`](#committed_arr), [`contracted_unbilled`](#contracted_unbilled), [`customer_concentration_risk`](#customer_concentration_risk), [`deferred_revenue`](#deferred_revenue), [`license_revenue`](#license_revenue), [`market_penetration_rate`](#market_penetration_rate), [`cac_payback`](#cac_payback), [`revenue`](#revenue), [`rule_of_40`](#rule_of_40), [`saas_quick_ratio`](#saas_quick_ratio), [`subscription_revenue`](#subscription_revenue)
 
 <a id="arr_growth_rate"></a>
@@ -3652,7 +3652,7 @@ ML model score (0–1) indicating probability of a user churning in the next 30 
 - **Numerator:** Model output probability
 - **Dimensions:** User, Plan Tier, Cohort, Time
 - **Data sources:** Product analytics
-- **Parents:** [`account_health_score`](#account_health_score)
+- **Parents:** [`account_health_score`](#account_health_score), [`at_risk_accounts`](#at_risk_accounts), [`churn_rate`](#churn_rate)
 - **Children:** [`dau`](#dau), [`feature_adoption_rate`](#feature_adoption_rate)
 - **Correlated:** [`d30_retention`](#d30_retention), [`account_health_score`](#account_health_score)
 
@@ -3668,7 +3668,7 @@ ML model score (0–1) indicating probability of a user churning in the next 30 
 - **Dimensions:** Cohort Month, Plan Tier, Geography, Customer Segment
 - **Data sources:** Billing / subscriptions, CRM
 - **Parents:** [`arr`](#arr), [`nrr`](#nrr), [`customer_ltv`](#customer_ltv)
-- **Children:** [`at_risk_accounts`](#at_risk_accounts), [`cohort_churn`](#cohort_churn), [`account_health_score`](#account_health_score), [`customer_churn_rate`](#customer_churn_rate), [`mrr_churn_rate`](#mrr_churn_rate)
+- **Children:** [`at_risk_accounts`](#at_risk_accounts), [`cohort_churn`](#cohort_churn), [`account_health_score`](#account_health_score), [`customer_churn_rate`](#customer_churn_rate), [`mrr_churn_rate`](#mrr_churn_rate), [`ces`](#ces), [`churn_prediction_score`](#churn_prediction_score), [`dau_mau_ratio`](#dau_mau_ratio)
 - **Formula inputs:** [`churned_arr`](#churned_arr), [`contraction_arr`](#contraction_arr)
 - **Correlated:** [`ltv_cac`](#ltv_cac), [`account_health_score`](#account_health_score), [`arpu`](#arpu), [`at_risk_accounts`](#at_risk_accounts), [`cohort_revenue_retention`](#cohort_revenue_retention), [`csat`](#csat), [`customer_concentration_risk`](#customer_concentration_risk), [`customer_onboarding_time`](#customer_onboarding_time), [`d30_retention`](#d30_retention), [`error_rate`](#error_rate), [`customer_churn_rate`](#customer_churn_rate), [`mrr`](#mrr), [`new_arr`](#new_arr), [`nps`](#nps), [`nrr`](#nrr), [`onboarding_completion_rate`](#onboarding_completion_rate), [`cac_payback`](#cac_payback), [`renewal_rate`](#renewal_rate), [`tickets_created`](#tickets_created), [`time_to_value`](#time_to_value)
 
@@ -3696,7 +3696,7 @@ Average cumulative revenue per customer 24 months after acquisition.
 - **Numerator:** Revenue per cohort member over 24 months
 - **Dimensions:** Time, Cohort
 - **Data sources:** Commerce / order management
-- **Parents:** [`clv`](#clv)
+- **Parents:** [`clv`](#clv), [`customer_ltv`](#customer_ltv)
 - **Children:** [`cohort_ltv_12m`](#cohort_ltv_12m)
 - **Correlated:** [`cohort_ltv_12m`](#cohort_ltv_12m), [`nrr`](#nrr)
 
@@ -3739,7 +3739,7 @@ Percentage of customers retained from one period to the next.
 - **Numerator:** 1 − churn rate
 - **Dimensions:** Time, Customer Segment
 - **Data sources:** CRM
-- **Parents:** [`clv`](#clv)
+- **Parents:** [`clv`](#clv), [`customer_ltv`](#customer_ltv)
 - **Children:** [`customer_churn_rate`](#customer_churn_rate)
 - **Correlated:** [`nrr`](#nrr), [`renewal_rate`](#renewal_rate), [`repeat_purchase_rate`](#repeat_purchase_rate)
 
@@ -3812,7 +3812,7 @@ ARR as a % of Total Addressable Market — how much of the opportunity is captur
 - **Denominator:** TAM
 - **Dimensions:** Customer Segment, Geography, Time
 - **Data sources:** ERP / general ledger
-- **Parents:** [`market_share`](#market_share)
+- **Parents:** [`market_share`](#market_share), [`revenue_growth_rate`](#revenue_growth_rate)
 - **Children:** [`arr`](#arr), [`tam`](#tam), [`sam`](#sam)
 - **Correlated:** [`arr`](#arr), [`revenue_growth_rate`](#revenue_growth_rate)
 
@@ -3898,7 +3898,7 @@ Beginning ARR plus expansion minus churn and contraction over beginning ARR.
 - **Dimensions:** Time, Customer Segment, Company, Plan Tier
 - **Data sources:** Billing / subscriptions
 - **Parents:** [`rule_of_40`](#rule_of_40), [`arr`](#arr)
-- **Children:** [`expansion_arr`](#expansion_arr), [`contraction_arr`](#contraction_arr), [`churned_arr`](#churned_arr), [`grr`](#grr), [`churn_rate`](#churn_rate), [`cohort_revenue_retention`](#cohort_revenue_retention), [`renewal_rate`](#renewal_rate)
+- **Children:** [`expansion_arr`](#expansion_arr), [`contraction_arr`](#contraction_arr), [`churned_arr`](#churned_arr), [`grr`](#grr), [`churn_rate`](#churn_rate), [`cohort_revenue_retention`](#cohort_revenue_retention), [`renewal_rate`](#renewal_rate), [`expansion_pipeline`](#expansion_pipeline), [`upsell_rate`](#upsell_rate)
 - **Correlated:** [`grr`](#grr), [`customer_churn_rate`](#customer_churn_rate), [`account_health_score`](#account_health_score), [`arr`](#arr), [`arr_growth_rate`](#arr_growth_rate), [`clv`](#clv), [`cohort_ltv_24m`](#cohort_ltv_24m), [`customer_retention_rate`](#customer_retention_rate), [`expansion_pipeline`](#expansion_pipeline), [`mrr_churn_rate`](#mrr_churn_rate), [`net_mrr_growth`](#net_mrr_growth), [`rev_concentration_top10`](#rev_concentration_top10), [`rev_from_existing`](#rev_from_existing), [`saas_quick_ratio`](#saas_quick_ratio), [`subscription_revenue`](#subscription_revenue), [`upsell_rate`](#upsell_rate), [`ebitda`](#ebitda), [`ltv_cac`](#ltv_cac), [`customer_ltv`](#customer_ltv), [`mrr`](#mrr), [`rule_of_40`](#rule_of_40), [`churn_rate`](#churn_rate), [`renewal_rate`](#renewal_rate)
 
 <a id="renewal_rate"></a>
@@ -3928,7 +3928,7 @@ New + expansion ARR divided by churned + contraction ARR — growth efficiency.
 - **Dimensions:** Time
 - **Data sources:** Billing / subscriptions
 - **Parents:** [`arr_growth_rate`](#arr_growth_rate)
-- **Children:** [`new_arr`](#new_arr), [`expansion_arr`](#expansion_arr), [`contraction_arr`](#contraction_arr), [`churned_arr`](#churned_arr)
+- **Children:** [`new_arr`](#new_arr), [`expansion_arr`](#expansion_arr), [`contraction_arr`](#contraction_arr), [`churned_arr`](#churned_arr), [`expansion_pipeline`](#expansion_pipeline), [`upsell_rate`](#upsell_rate)
 - **Correlated:** [`nrr`](#nrr), [`rule_of_40`](#rule_of_40), [`arr`](#arr), [`net_mrr_growth`](#net_mrr_growth)
 
 <a id="upsell_rate"></a>
@@ -3942,7 +3942,7 @@ New + expansion ARR divided by churned + contraction ARR — growth efficiency.
 - **Denominator:** Total customers
 - **Dimensions:** Time, Product
 - **Data sources:** CRM, Commerce / order management
-- **Parents:** [`expansion_arr`](#expansion_arr)
+- **Parents:** [`expansion_arr`](#expansion_arr), [`arr`](#arr), [`nrr`](#nrr), [`saas_quick_ratio`](#saas_quick_ratio)
 - **Correlated:** [`cross_sell_rate`](#cross_sell_rate), [`expansion_arr`](#expansion_arr), [`nrr`](#nrr), [`expansion_pipeline`](#expansion_pipeline)
 
 ### KPI · Sales (18)
@@ -3987,7 +3987,7 @@ Total potential expansion ARR in open upsell opportunities.
 - **Numerator:** Pipeline value from expansion opportunities
 - **Dimensions:** Time, Customer Success Manager
 - **Data sources:** CRM
-- **Parents:** [`expansion_arr`](#expansion_arr)
+- **Parents:** [`expansion_arr`](#expansion_arr), [`arr`](#arr), [`nrr`](#nrr), [`saas_quick_ratio`](#saas_quick_ratio)
 - **Correlated:** [`upsell_rate`](#upsell_rate), [`nrr`](#nrr), [`at_risk_accounts`](#at_risk_accounts)
 
 <a id="lead_to_mql_rate"></a>

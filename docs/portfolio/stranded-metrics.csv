@@ -1,0 +1,26 @@
+metricId,tier,domain,droppedParent,newParents,rule,reason
+avg_tenure,kpi,hr,employee_lifetime_value,turnover_rate,chosen,Short average tenure signals early-tenure attrition risk; the kept HR North Star for retention.
+budget_variance_pct,kpi,finance,ops_efficiency_ratio,opex,chosen,Overspend against budget shows up as operating expense; sibling opex was the surviving ops_efficiency_ratio driver.
+cac_payback,kpi,finance,ltv_cac,marketing_roi,grandparent,
+carbon_emissions_per_unit,kpi,operations,ops_efficiency_ratio,cost_per_unit,chosen,"Emissions per unit tracks energy use per unit, which feeds production cost per unit (listed in correlatedMetrics)."
+ces,kpi,product,account_health_score,at_risk_accounts;churn_rate,grandparent,
+churn_prediction_score,kpi,saas,account_health_score,at_risk_accounts;churn_rate,grandparent,
+cohort_ltv_24m,kpi,saas,clv,customer_ltv,chosen,Mirrors clv with the kept lifetime-revenue North Star; 24-month cohort revenue accumulates into realized customer LTV.
+cost_per_mile,kpi,operations,ops_efficiency_ratio,opex,chosen,Fleet operating cost is an operating expense; mirrors sibling opex.
+cross_sell_rate,kpi,commerce,clv,customer_ltv,chosen,Customers buying across categories spend more over their lifetime; mirrors clv with the kept commerce LTV North Star.
+customer_retention_rate,kpi,saas,clv,customer_ltv,chosen,"Retained customers keep ordering, which raises realized lifetime revenue; customer_ltv already has churn_rate as a child."
+dau_mau_ratio,kpi,product,account_health_score,at_risk_accounts;churn_rate,grandparent,
+expansion_pipeline,kpi,sales,expansion_arr,arr;nrr;saas_quick_ratio,grandparent,
+gross_profit_per_employee,kpi,finance,employee_lifetime_value,ebitda,chosen,"Mirrors sibling revenue_per_employee, which rolls up to ebitda."
+instructional_spend_ratio,kpi,education,per_pupil_expenditure,cost_per_outcome;student_proficiency,grandparent,
+market_penetration_rate,kpi,saas,market_share,revenue_growth_rate,grandparent,
+refund_rate,kpi,commerce,clv,net_revenue,chosen,Refunds are deducted from gross revenue to reach net revenue (listed in correlatedMetrics).
+seat_fill_rate,kpi,education,per_pupil_expenditure,cost_per_outcome;student_proficiency,grandparent,
+staff_student_cost_ratio,kpi,education,per_pupil_expenditure,cost_per_outcome;student_proficiency,grandparent,
+student_teacher_ratio,kpi,education,per_pupil_expenditure,cost_per_outcome;student_proficiency,grandparent,
+supplier_lead_time,kpi,operations,vendor_scorecard_rating,ops_north_star,grandparent,
+support_cost_per_ticket,kpi,customer,ops_efficiency_ratio,opex,chosen,Support team cost is an operating expense; mirrors sibling opex.
+upsell_rate,kpi,saas,expansion_arr,arr;nrr;saas_quick_ratio,grandparent,
+vendor_compliance_rate,kpi,operations,vendor_scorecard_rating,ops_north_star,grandparent,
+warehouse_utilization,kpi,operations,ops_efficiency_ratio,capacity_utilization,chosen,Warehouse space use is one part of operational capacity use (listed in correlatedMetrics).
+workforce_productivity,kpi,finance,employee_lifetime_value,revenue_per_employee,chosen,Revenue per labor hour drives revenue per employee (listed in correlatedMetrics).

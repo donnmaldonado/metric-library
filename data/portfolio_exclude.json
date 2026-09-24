@@ -1,0 +1,20 @@
+{
+  "account_health_score": "Known issue in the README",
+  "vendor_scorecard_rating": "Known issue in the README",
+  "clv": "Known issue in the README",
+  "ltv_cac": "Known issue in the README",
+  "employee_lifetime_value": "Known issue in the README",
+  "stockout_rate": "Known issue in the README",
+  "ops_efficiency_ratio": "Known issue in the README",
+  "paid_attribution_pct": "Known issue in the README",
+  "organic_attribution_pct": "Known issue in the README",
+  "referral_attribution_pct": "Known issue in the README",
+  "ebit": "No data source",
+  "tam": "No data source",
+  "sam": "No data source",
+  "market_share": "No data source",
+  "expansion_arr": "No data source",
+  "process_automation_rate": "No data source",
+  "science_proficiency_rate": "No data source",
+  "per_pupil_expenditure": "Uses a dimension no model provides"
+}

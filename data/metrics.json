@@ -67,7 +67,10 @@
     "parentMetrics": [],
     "childMetrics": [
       "arpu",
-      "churn_rate"
+      "churn_rate",
+      "cohort_ltv_24m",
+      "cross_sell_rate",
+      "customer_retention_rate"
     ],
     "correlatedMetrics": [
       "ltv_cac",
@@ -121,7 +124,11 @@
       "teacher_retention_rate",
       "ela_proficiency_rate",
       "math_proficiency_rate",
-      "science_proficiency_rate"
+      "science_proficiency_rate",
+      "instructional_spend_ratio",
+      "seat_fill_rate",
+      "staff_student_cost_ratio",
+      "student_teacher_ratio"
     ],
     "correlatedMetrics": [
       "four_year_grad_rate",
@@ -200,7 +207,11 @@
     ],
     "parentMetrics": [],
     "childMetrics": [
-      "per_pupil_expenditure"
+      "per_pupil_expenditure",
+      "instructional_spend_ratio",
+      "seat_fill_rate",
+      "staff_student_cost_ratio",
+      "student_teacher_ratio"
     ],
     "correlatedMetrics": [
       "per_pupil_expenditure",
@@ -243,7 +254,8 @@
       "ebitda_margin",
       "forecast_accuracy",
       "gross_margin_pct",
-      "revenue_per_employee"
+      "revenue_per_employee",
+      "gross_profit_per_employee"
     ],
     "correlatedMetrics": [
       "ebitda_margin",
@@ -369,7 +381,8 @@
       "referral_attribution_pct",
       "roas",
       "share_of_voice",
-      "marketing_spend"
+      "marketing_spend",
+      "cac_payback"
     ],
     "correlatedMetrics": [
       "roas",
@@ -448,7 +461,9 @@
       "return_rate",
       "sla_compliance_rate",
       "uptime",
-      "vendor_scorecard_rating"
+      "vendor_scorecard_rating",
+      "supplier_lead_time",
+      "vendor_compliance_rate"
     ],
     "correlatedMetrics": [
       "csat",
@@ -630,7 +645,8 @@
     "childMetrics": [
       "separations",
       "voluntary_turnover",
-      "regrettable_attrition"
+      "regrettable_attrition",
+      "avg_tenure"
     ],
     "correlatedMetrics": [
       "voluntary_turnover",
@@ -1047,7 +1063,8 @@
       "erp"
     ],
     "parentMetrics": [
-      "ltv_cac"
+      "ltv_cac",
+      "marketing_roi"
     ],
     "childMetrics": [
       "cac",
@@ -1090,7 +1107,9 @@
       "helpdesk"
     ],
     "parentMetrics": [
-      "account_health_score"
+      "account_health_score",
+      "at_risk_accounts",
+      "churn_rate"
     ],
     "childMetrics": [],
     "correlatedMetrics": [
@@ -1161,7 +1180,8 @@
       "commerce_platform"
     ],
     "parentMetrics": [
-      "clv"
+      "clv",
+      "customer_ltv"
     ],
     "childMetrics": [
       "cohort_ltv_12m"
@@ -1378,7 +1398,8 @@
       "commerce_platform"
     ],
     "parentMetrics": [
-      "clv"
+      "clv",
+      "net_revenue"
     ],
     "childMetrics": [],
     "correlatedMetrics": [
@@ -1516,7 +1537,8 @@
       "commerce_platform"
     ],
     "parentMetrics": [
-      "clv"
+      "clv",
+      "customer_ltv"
     ],
     "childMetrics": [],
     "correlatedMetrics": [
@@ -1893,7 +1915,9 @@
       "hris"
     ],
     "parentMetrics": [
-      "per_pupil_expenditure"
+      "per_pupil_expenditure",
+      "cost_per_outcome",
+      "student_proficiency"
     ],
     "childMetrics": [
       "headcount_cost"
@@ -1987,7 +2011,9 @@
       "hris"
     ],
     "parentMetrics": [
-      "per_pupil_expenditure"
+      "per_pupil_expenditure",
+      "cost_per_outcome",
+      "student_proficiency"
     ],
     "childMetrics": [
       "enrollment_count",
@@ -2063,7 +2089,10 @@
       "commerce_platform"
     ],
     "parentMetrics": [
-      "expansion_arr"
+      "expansion_arr",
+      "arr",
+      "nrr",
+      "saas_quick_ratio"
     ],
     "childMetrics": [],
     "correlatedMetrics": [
@@ -2459,7 +2488,10 @@
       "churn_rate"
     ],
     "childMetrics": [
-      "account_health_score"
+      "account_health_score",
+      "ces",
+      "churn_prediction_score",
+      "dau_mau_ratio"
     ],
     "correlatedMetrics": [
       "churn_rate",
@@ -2678,7 +2710,8 @@
       "fpa"
     ],
     "parentMetrics": [
-      "ops_efficiency_ratio"
+      "ops_efficiency_ratio",
+      "opex"
     ],
     "childMetrics": [
       "budget_variance"
@@ -2755,7 +2788,8 @@
       "ops_north_star"
     ],
     "childMetrics": [
-      "throughput"
+      "throughput",
+      "warehouse_utilization"
     ],
     "correlatedMetrics": [
       "warehouse_utilization",
@@ -2826,7 +2860,8 @@
       "erp"
     ],
     "parentMetrics": [
-      "ops_efficiency_ratio"
+      "ops_efficiency_ratio",
+      "cost_per_unit"
     ],
     "childMetrics": [],
     "correlatedMetrics": [
@@ -3018,7 +3053,8 @@
       "erp"
     ],
     "parentMetrics": [
-      "ops_efficiency_ratio"
+      "ops_efficiency_ratio",
+      "opex"
     ],
     "childMetrics": [
       "fleet_utilization_rate"
@@ -3055,7 +3091,8 @@
       "gross_margin_pct"
     ],
     "childMetrics": [
-      "energy_cost_per_unit"
+      "energy_cost_per_unit",
+      "carbon_emissions_per_unit"
     ],
     "correlatedMetrics": [
       "defect_rate",
@@ -3681,7 +3718,10 @@
       "crm"
     ],
     "parentMetrics": [
-      "expansion_arr"
+      "expansion_arr",
+      "arr",
+      "nrr",
+      "saas_quick_ratio"
     ],
     "childMetrics": [],
     "correlatedMetrics": [
@@ -4097,7 +4137,8 @@
       "hris"
     ],
     "parentMetrics": [
-      "employee_lifetime_value"
+      "employee_lifetime_value",
+      "ebitda"
     ],
     "childMetrics": [
       "gross_profit"
@@ -4132,7 +4173,9 @@
       "erp"
     ],
     "parentMetrics": [
-      "per_pupil_expenditure"
+      "per_pupil_expenditure",
+      "cost_per_outcome",
+      "student_proficiency"
     ],
     "childMetrics": [],
     "correlatedMetrics": [
@@ -4892,7 +4935,10 @@
       "headcount_cost",
       "hr_cost_pct_revenue",
       "rd_as_pct_revenue",
-      "rd_expense"
+      "rd_expense",
+      "budget_variance_pct",
+      "cost_per_mile",
+      "support_cost_per_ticket"
     ],
     "correlatedMetrics": [
       "gna_pct_revenue",
@@ -6432,7 +6478,8 @@
       "commerce_platform"
     ],
     "parentMetrics": [
-      "employee_lifetime_value"
+      "employee_lifetime_value",
+      "revenue_per_employee"
     ],
     "childMetrics": [
       "absenteeism_rate",
@@ -6514,7 +6561,8 @@
       "hris"
     ],
     "parentMetrics": [
-      "employee_lifetime_value"
+      "employee_lifetime_value",
+      "turnover_rate"
     ],
     "childMetrics": [],
     "correlatedMetrics": [
@@ -7161,7 +7209,8 @@
       "qms"
     ],
     "parentMetrics": [
-      "vendor_scorecard_rating"
+      "vendor_scorecard_rating",
+      "ops_north_star"
     ],
     "childMetrics": [],
     "correlatedMetrics": [
@@ -7841,7 +7890,8 @@
       "procurement"
     ],
     "parentMetrics": [
-      "vendor_scorecard_rating"
+      "vendor_scorecard_rating",
+      "ops_north_star"
     ],
     "childMetrics": [],
     "correlatedMetrics": [
@@ -8268,7 +8318,9 @@
       "sis"
     ],
     "parentMetrics": [
-      "per_pupil_expenditure"
+      "per_pupil_expenditure",
+      "cost_per_outcome",
+      "student_proficiency"
     ],
     "childMetrics": [],
     "correlatedMetrics": [
@@ -8379,7 +8431,8 @@
       "erp"
     ],
     "parentMetrics": [
-      "ops_efficiency_ratio"
+      "ops_efficiency_ratio",
+      "opex"
     ],
     "childMetrics": [
       "total_comp_expense",
@@ -8630,7 +8683,8 @@
       "wms"
     ],
     "parentMetrics": [
-      "ops_efficiency_ratio"
+      "ops_efficiency_ratio",
+      "capacity_utilization"
     ],
     "childMetrics": [],
     "correlatedMetrics": [
@@ -8854,7 +8908,9 @@
       "product_analytics"
     ],
     "parentMetrics": [
-      "account_health_score"
+      "account_health_score",
+      "at_risk_accounts",
+      "churn_rate"
     ],
     "childMetrics": [
       "dau",
@@ -9290,7 +9346,8 @@
       "erp"
     ],
     "parentMetrics": [
-      "market_share"
+      "market_share",
+      "revenue_growth_rate"
     ],
     "childMetrics": [
       "arr",
@@ -9437,7 +9494,8 @@
     ],
     "childMetrics": [
       "gross_revenue",
-      "discount_rate"
+      "discount_rate",
+      "refund_rate"
     ],
     "correlatedMetrics": [
       "gross_revenue",
@@ -9536,7 +9594,9 @@
       "grr",
       "churn_rate",
       "cohort_revenue_retention",
-      "renewal_rate"
+      "renewal_rate",
+      "expansion_pipeline",
+      "upsell_rate"
     ],
     "correlatedMetrics": [
       "grr",
@@ -9806,7 +9866,8 @@
     ],
     "childMetrics": [
       "market_share",
-      "revenue_vs_py"
+      "revenue_vs_py",
+      "market_penetration_rate"
     ],
     "correlatedMetrics": [
       "arr_growth_rate",
@@ -9883,7 +9944,8 @@
     "childMetrics": [
       "headcount_fte",
       "arr_per_rep",
-      "employees_per_1m_arr"
+      "employees_per_1m_arr",
+      "workforce_productivity"
     ],
     "correlatedMetrics": [
       "ebitda_margin",
@@ -9996,7 +10058,9 @@
       "new_arr",
       "expansion_arr",
       "contraction_arr",
-      "churned_arr"
+      "churned_arr",
+      "expansion_pipeline",
+      "upsell_rate"
     ],
     "correlatedMetrics": [
       "nrr",
@@ -10225,7 +10289,8 @@
       "crm"
     ],
     "parentMetrics": [
-      "clv"
+      "clv",
+      "customer_ltv"
     ],
     "childMetrics": [
       "customer_churn_rate"
@@ -10383,7 +10448,9 @@
       "product_analytics"
     ],
     "parentMetrics": [
-      "account_health_score"
+      "account_health_score",
+      "at_risk_accounts",
+      "churn_rate"
     ],
     "childMetrics": [
       "dau",
@@ -13114,7 +13181,9 @@
       "churn_rate",
       "committed_arr",
       "mrr",
-      "nrr"
+      "nrr",
+      "expansion_pipeline",
+      "upsell_rate"
     ],
     "correlatedMetrics": [
       "mrr",
@@ -13173,7 +13242,10 @@
       "cohort_churn",
       "account_health_score",
       "customer_churn_rate",
-      "mrr_churn_rate"
+      "mrr_churn_rate",
+      "ces",
+      "churn_prediction_score",
+      "dau_mau_ratio"
     ],
     "correlatedMetrics": [
       "ltv_cac",

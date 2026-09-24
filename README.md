@@ -24,6 +24,12 @@
 | `scripts/formula_inputs.py` | Derives each metric's `formulaInputs` from its `formulaYaml` and checks the stored list; used by `validate.py`. |
 | `scripts/labels.py` | Checks `label`, `shortLabel`, `unit` and `shortDescription` against the conventions below; used by `validate.py`. |
 | `scripts/owned_metrics.py` | Lists metrics by derived domain (`python3 scripts/owned_metrics.py finance`). |
+| `scripts/export_portfolio.py` | Exports the periodic-table data (`site/public/data/`, not committed) from `data/metrics.json`: applies `data/portfolio_exclude.json`, filters edges to kept metrics, fails on stranded metrics, generates symbols (overrides in `data/portfolio_symbols.json`) and writes the layout order. `--check` runs it without writing. |
+| `data/portfolio_exclude.json` | Metrics left out of the periodic table, one ID per line with a reason. |
+| `data/portfolio_symbols.json` | Hand-picked element symbols that override the generated ones. |
+| `docs/portfolio/stranded-metrics.csv` | The parent edges added so the portfolio cut strands no metric, with the rule and reason for each. |
+| `site/` | The Metric Periodic Table: a Vite + TypeScript static site that shows the kept metrics as element tiles ([spec](https://claude.ai/code/artifact/bf02b340-5baa-47c1-82c5-5d5ad5155005)). |
+| `.github/workflows/pages.yml` | On every push to `main`: build, validate, export, build the site and deploy it to GitHub Pages. |
 
 ## Working on the library
 
@@ -36,6 +42,18 @@ scripts/check_dbt.sh          # dbt parse + build, run every metric's SQL, mf va
 ```
 
 `check_dbt.sh` needs a Python 3.11 venv with dbt-core, dbt-duckdb and dbt-metricflow (see [dbt/CONVENTIONS.md](dbt/CONVENTIONS.md#environment)); point `DBT_VENV` at it. A `dbt` on PATH that is the dbt Cloud CLI won't work.
+
+## The periodic table site
+
+`site/` shows the library as a periodic table at `https://donnmaldonado.github.io/metric-library/` (deep link: `?m=<metricId>`). It reads generated JSON that is never committed:
+
+```sh
+python3 scripts/export_portfolio.py   # data/metrics.json → site/public/data/ (fails if the cut strands a metric)
+cd site && npm ci && npm run build     # highlights the formulas with Shiki, then builds site/dist
+npm run dev                            # local dev server (run the export first)
+```
+
+The GitHub Actions workflow runs the same steps on every push to `main` and deploys `site/dist`; nothing deploys if `validate.py`, the tests or the export fail. Which metrics are shown is decided by `data/portfolio_exclude.json`; every kept non-North-Star needs a kept parent and every kept North Star a kept child, so dropping a metric may need new edges in `data/metrics.json` (see `docs/portfolio/stranded-metrics.csv` for the ones added so far). The Pages base path comes from the repo name (`BASE_PATH` env var, default `/metric-library/`).
 
 ## Metric definition conventions
 
@@ -101,6 +119,6 @@ Open questions about specific definitions. Resolve one by updating the metric, t
 - Several stub models still carry unused pre-aggregated columns (noted in each model's header).
 
 **Graph and catalog**
-- Some parent edges are weak: the leverage family → `roe`, `roic` → `enterprise_value`, `ltv_cac` → `marketing_roi`, `magic_number` → `rule_of_40`, `forecast_accuracy` → `ebitda`, `carbon_emissions_per_unit` → `ops_efficiency_ratio`, `diversity_hire_rate` → `headcount`, survey metrics → `nps`, and `ell_pct`/`frl_pct`/`iep_pct` → `student_proficiency`.
+- Some parent edges are weak: the leverage family → `roe`, `roic` → `enterprise_value`, `ltv_cac` → `marketing_roi`, `magic_number` → `rule_of_40`, `forecast_accuracy` → `ebitda`, `carbon_emissions_per_unit` → `ops_efficiency_ratio`, `diversity_hire_rate` → `headcount`, survey metrics → `nps`, and `ell_pct`/`frl_pct`/`iep_pct` → `student_proficiency`. Weak edges added so the portfolio cut strands no metric ([docs/portfolio/stranded-metrics.csv](docs/portfolio/stranded-metrics.csv)): `carbon_emissions_per_unit` → `cost_per_unit`, `budget_variance_pct` → `opex`, `avg_tenure` → `turnover_rate`, and `seat_fill_rate`/`staff_student_cost_ratio` → `student_proficiency`.
 - North Star → North Star links are recorded as `correlatedMetrics`; check that none is a real driver edge.
 - `relationships.csv` lists each parent/child edge twice (declared on both sides).

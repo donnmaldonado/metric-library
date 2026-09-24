@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Metric Periodic Table</title>
+    <meta name="description" content="Every business metric in the library as an element tile: one band per domain, North Stars first, colour for the unit. Click any tile for its formula, SQL, sources and driver edges." />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='2' y='2' width='28' height='28' rx='4' fill='%2377AADD' stroke='%23415e7a' stroke-width='2'/%3E%3Ctext x='16' y='22' font-family='system-ui,sans-serif' font-size='14' font-weight='600' text-anchor='middle' fill='%23111317'%3EMt%3C/text%3E%3C/svg%3E" />
+    <script>
+      // Apply a saved theme before first paint to avoid a flash.
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#table">Skip to the table</a>
+    <header class="site-header">
+      <div class="header-top">
+        <div class="titles">
+          <h1>Metric Periodic Table</h1>
+          <p id="lead" class="lead">Business metrics, each defined, tiered and wired into a driver tree</p>
+        </div>
+        <button id="theme-toggle" class="icon-btn theme-toggle" type="button" aria-label="Dark theme">☾</button>
+      </div>
+      <div class="controls">
+        <div id="search-slot"></div>
+        <div id="legend-slot"></div>
+      </div>
+    </header>
+
+    <div id="layout" class="layout">
+      <main id="table" class="table-wrap" tabindex="-1" aria-busy="true">
+        <p class="loading">Loading the table…</p>
+      </main>
+    </div>
+    <div id="scrim" class="scrim" aria-hidden="true"></div>
+
+    <footer class="site-footer">
+      <a id="repo-link" href="https://github.com/donnmaldonado/metric-library">Source on GitHub</a>
+      <span aria-hidden="true">·</span>
+      <a id="portfolio-link" href="https://donnmaldonado.github.io/">Portfolio</a>
+      <span aria-hidden="true">·</span>
+      <span id="build"></span>
+    </footer>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

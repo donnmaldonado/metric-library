@@ -13,6 +13,9 @@ clv,cohort_ltv_12m,correlated_with,clv,True
 clv,aov,correlated_with,clv,True
 customer_ltv,arpu,parent_of,customer_ltv,True
 customer_ltv,churn_rate,parent_of,customer_ltv,True
+customer_ltv,cohort_ltv_24m,parent_of,customer_ltv,True
+customer_ltv,cross_sell_rate,parent_of,customer_ltv,True
+customer_ltv,customer_retention_rate,parent_of,customer_ltv,True
 customer_ltv,ltv_cac,correlated_with,customer_ltv,True
 customer_ltv,nrr,correlated_with,customer_ltv,True
 customer_ltv,arpu,correlated_with,customer_ltv,True
@@ -33,6 +36,10 @@ student_proficiency,teacher_retention_rate,parent_of,student_proficiency,True
 student_proficiency,ela_proficiency_rate,parent_of,student_proficiency,True
 student_proficiency,math_proficiency_rate,parent_of,student_proficiency,True
 student_proficiency,science_proficiency_rate,parent_of,student_proficiency,True
+student_proficiency,instructional_spend_ratio,parent_of,student_proficiency,True
+student_proficiency,seat_fill_rate,parent_of,student_proficiency,True
+student_proficiency,staff_student_cost_ratio,parent_of,student_proficiency,True
+student_proficiency,student_teacher_ratio,parent_of,student_proficiency,True
 student_proficiency,four_year_grad_rate,correlated_with,student_proficiency,True
 student_proficiency,college_enrollment,correlated_with,student_proficiency,True
 student_proficiency,chronic_absenteeism_rate,correlated_with,student_proficiency,True
@@ -53,6 +60,10 @@ college_enrollment_rate,four_year_grad_rate,correlated_with,college_enrollment_r
 college_enrollment_rate,ap_pass_rate,correlated_with,college_enrollment_rate,True
 college_enrollment_rate,ap_participation_rate,correlated_with,college_enrollment_rate,True
 cost_per_outcome,per_pupil_expenditure,parent_of,cost_per_outcome,True
+cost_per_outcome,instructional_spend_ratio,parent_of,cost_per_outcome,True
+cost_per_outcome,seat_fill_rate,parent_of,cost_per_outcome,True
+cost_per_outcome,staff_student_cost_ratio,parent_of,cost_per_outcome,True
+cost_per_outcome,student_teacher_ratio,parent_of,cost_per_outcome,True
 cost_per_outcome,per_pupil_expenditure,correlated_with,cost_per_outcome,True
 cost_per_outcome,student_proficiency,correlated_with,cost_per_outcome,True
 student_proficiency,cost_per_outcome,formula_input,cost_per_outcome,True
@@ -68,6 +79,7 @@ ebitda,ebitda_margin,parent_of,ebitda,True
 ebitda,forecast_accuracy,parent_of,ebitda,True
 ebitda,gross_margin_pct,parent_of,ebitda,True
 ebitda,revenue_per_employee,parent_of,ebitda,True
+ebitda,gross_profit_per_employee,parent_of,ebitda,True
 ebitda,ebitda_margin,correlated_with,ebitda,True
 ebitda,free_cash_flow,correlated_with,ebitda,True
 ebitda,net_income,correlated_with,ebitda,True
@@ -110,6 +122,7 @@ marketing_roi,referral_attribution_pct,parent_of,marketing_roi,True
 marketing_roi,roas,parent_of,marketing_roi,True
 marketing_roi,share_of_voice,parent_of,marketing_roi,True
 marketing_roi,marketing_spend,parent_of,marketing_roi,True
+marketing_roi,cac_payback,parent_of,marketing_roi,True
 marketing_roi,roas,correlated_with,marketing_roi,True
 marketing_roi,marketing_cac,correlated_with,marketing_roi,True
 ops_efficiency_ratio,opex,parent_of,ops_efficiency_ratio,True
@@ -130,6 +143,8 @@ ops_north_star,return_rate,parent_of,ops_north_star,True
 ops_north_star,sla_compliance_rate,parent_of,ops_north_star,True
 ops_north_star,uptime,parent_of,ops_north_star,True
 ops_north_star,vendor_scorecard_rating,parent_of,ops_north_star,True
+ops_north_star,supplier_lead_time,parent_of,ops_north_star,True
+ops_north_star,vendor_compliance_rate,parent_of,ops_north_star,True
 ops_north_star,csat,correlated_with,ops_north_star,True
 ops_north_star,on_time_delivery_rate,correlated_with,ops_north_star,True
 pipeline_generated,sql,parent_of,pipeline_generated,True
@@ -165,6 +180,7 @@ headcount,rd_headcount_pct,correlated_with,headcount,True
 turnover_rate,separations,parent_of,turnover_rate,True
 turnover_rate,voluntary_turnover,parent_of,turnover_rate,True
 turnover_rate,regrettable_attrition,parent_of,turnover_rate,True
+turnover_rate,avg_tenure,parent_of,turnover_rate,True
 turnover_rate,voluntary_turnover,correlated_with,turnover_rate,True
 turnover_rate,regrettable_attrition,correlated_with,turnover_rate,True
 turnover_rate,employee_engagement_score,correlated_with,turnover_rate,True
@@ -296,6 +312,7 @@ cac,sm_spend,correlated_with,cac,True
 cac,time_to_fill,correlated_with,cac,True
 cac,win_rate,correlated_with,cac,True
 ltv_cac,cac_payback,parent_of,cac_payback,True
+marketing_roi,cac_payback,parent_of,cac_payback,True
 cac_payback,cac,parent_of,cac_payback,True
 cac_payback,gross_margin_pct,parent_of,cac_payback,True
 cac_payback,arpu,parent_of,cac_payback,True
@@ -308,6 +325,8 @@ cac_payback,cac,correlated_with,cac_payback,True
 cac_payback,churn_rate,correlated_with,cac_payback,True
 cac_payback,arr,correlated_with,cac_payback,True
 account_health_score,ces,parent_of,ces,True
+at_risk_accounts,ces,parent_of,ces,True
+churn_rate,ces,parent_of,ces,True
 ces,csat,correlated_with,ces,True
 ces,nps,correlated_with,ces,True
 ces,cx_csat,correlated_with,ces,True
@@ -321,6 +340,7 @@ cohort_ltv_12m,cohort_ltv_24m,correlated_with,cohort_ltv_12m,True
 cohort_ltv_12m,d30_retention,correlated_with,cohort_ltv_12m,True
 cohort_ltv_12m,clv,correlated_with,cohort_ltv_12m,True
 clv,cohort_ltv_24m,parent_of,cohort_ltv_24m,True
+customer_ltv,cohort_ltv_24m,parent_of,cohort_ltv_24m,True
 cohort_ltv_24m,cohort_ltv_12m,parent_of,cohort_ltv_24m,True
 cohort_ltv_24m,cohort_ltv_12m,correlated_with,cohort_ltv_24m,True
 cohort_ltv_24m,nrr,correlated_with,cohort_ltv_24m,True
@@ -357,6 +377,7 @@ purchase_frequency,repeat_purchase_rate,parent_of,purchase_frequency,True
 purchase_frequency,aov,correlated_with,purchase_frequency,True
 purchase_frequency,repeat_purchase_rate,correlated_with,purchase_frequency,True
 clv,refund_rate,parent_of,refund_rate,True
+net_revenue,refund_rate,parent_of,refund_rate,True
 refund_rate,return_rate,correlated_with,refund_rate,True
 refund_rate,csat,correlated_with,refund_rate,True
 refund_rate,net_revenue,correlated_with,refund_rate,True
@@ -377,6 +398,7 @@ advanced_course_enrollment_rate,college_enrollment,correlated_with,advanced_cour
 advanced_course_enrollment_rate,student_proficiency,correlated_with,advanced_course_enrollment_rate,True
 enrollment_count,advanced_course_enrollment_rate,formula_input,advanced_course_enrollment_rate,True
 clv,cross_sell_rate,parent_of,cross_sell_rate,True
+customer_ltv,cross_sell_rate,parent_of,cross_sell_rate,True
 cross_sell_rate,upsell_rate,correlated_with,cross_sell_rate,True
 cross_sell_rate,aov,correlated_with,cross_sell_rate,True
 four_year_grad_rate,dropout_rate,parent_of,dropout_rate,True
@@ -432,6 +454,8 @@ school_climate_score,family_engagement_rate,correlated_with,school_climate_score
 school_climate_score,employee_engagement_score,correlated_with,school_climate_score,True
 student_proficiency,science_proficiency_rate,parent_of,science_proficiency_rate,True
 per_pupil_expenditure,staff_student_cost_ratio,parent_of,staff_student_cost_ratio,True
+cost_per_outcome,staff_student_cost_ratio,parent_of,staff_student_cost_ratio,True
+student_proficiency,staff_student_cost_ratio,parent_of,staff_student_cost_ratio,True
 staff_student_cost_ratio,headcount_cost,parent_of,staff_student_cost_ratio,True
 staff_student_cost_ratio,teacher_retention_rate,correlated_with,staff_student_cost_ratio,True
 staff_student_cost_ratio,per_pupil_expenditure,correlated_with,staff_student_cost_ratio,True
@@ -458,6 +482,8 @@ student_attendance_rate,iep_goal_mastery_rate,correlated_with,student_attendance
 student_attendance_rate,on_time_lesson_delivery,correlated_with,student_attendance_rate,True
 student_attendance_rate,per_pupil_expenditure,correlated_with,student_attendance_rate,True
 per_pupil_expenditure,student_teacher_ratio,parent_of,student_teacher_ratio,True
+cost_per_outcome,student_teacher_ratio,parent_of,student_teacher_ratio,True
+student_proficiency,student_teacher_ratio,parent_of,student_teacher_ratio,True
 student_teacher_ratio,enrollment_count,parent_of,student_teacher_ratio,True
 student_teacher_ratio,headcount_fte,parent_of,student_teacher_ratio,True
 student_teacher_ratio,per_pupil_expenditure,correlated_with,student_teacher_ratio,True
@@ -473,6 +499,9 @@ teacher_retention_rate,school_climate_score,correlated_with,teacher_retention_ra
 teacher_retention_rate,staff_student_cost_ratio,correlated_with,teacher_retention_rate,True
 teacher_retention_rate,student_teacher_ratio,correlated_with,teacher_retention_rate,True
 expansion_arr,upsell_rate,parent_of,upsell_rate,True
+arr,upsell_rate,parent_of,upsell_rate,True
+nrr,upsell_rate,parent_of,upsell_rate,True
+saas_quick_ratio,upsell_rate,parent_of,upsell_rate,True
 upsell_rate,cross_sell_rate,correlated_with,upsell_rate,True
 upsell_rate,expansion_arr,correlated_with,upsell_rate,True
 upsell_rate,nrr,correlated_with,upsell_rate,True
@@ -541,6 +570,9 @@ asp,revenue,correlated_with,asp,True
 asp,gross_margin_pct,correlated_with,asp,True
 churn_rate,at_risk_accounts,parent_of,at_risk_accounts,True
 at_risk_accounts,account_health_score,parent_of,at_risk_accounts,True
+at_risk_accounts,ces,parent_of,at_risk_accounts,True
+at_risk_accounts,churn_prediction_score,parent_of,at_risk_accounts,True
+at_risk_accounts,dau_mau_ratio,parent_of,at_risk_accounts,True
 at_risk_accounts,churn_rate,correlated_with,at_risk_accounts,True
 at_risk_accounts,renewal_rate,correlated_with,at_risk_accounts,True
 at_risk_accounts,account_health_score,correlated_with,at_risk_accounts,True
@@ -576,6 +608,7 @@ budget_variance,opex,correlated_with,budget_variance,True
 budget_variance,annual_budget,correlated_with,budget_variance,True
 budget_variance,headcount_vs_budget,correlated_with,budget_variance,True
 ops_efficiency_ratio,budget_variance_pct,parent_of,budget_variance_pct,True
+opex,budget_variance_pct,parent_of,budget_variance_pct,True
 budget_variance_pct,budget_variance,parent_of,budget_variance_pct,True
 budget_variance_pct,opex,correlated_with,budget_variance_pct,True
 budget_variance_pct,ebitda_margin,correlated_with,budget_variance_pct,True
@@ -588,6 +621,7 @@ burn_rate,runway_months,correlated_with,burn_rate,True
 burn_rate,cash_and_equivalents,correlated_with,burn_rate,True
 ops_north_star,capacity_utilization,parent_of,capacity_utilization,True
 capacity_utilization,throughput,parent_of,capacity_utilization,True
+capacity_utilization,warehouse_utilization,parent_of,capacity_utilization,True
 capacity_utilization,warehouse_utilization,correlated_with,capacity_utilization,True
 capacity_utilization,cycle_time,correlated_with,capacity_utilization,True
 capacity_utilization,throughput,correlated_with,capacity_utilization,True
@@ -601,6 +635,7 @@ capex,ebitda,correlated_with,capex,True
 capex,rd_expense,correlated_with,capex,True
 capex,da,correlated_with,capex,True
 ops_efficiency_ratio,carbon_emissions_per_unit,parent_of,carbon_emissions_per_unit,True
+cost_per_unit,carbon_emissions_per_unit,parent_of,carbon_emissions_per_unit,True
 carbon_emissions_per_unit,energy_cost_per_unit,correlated_with,carbon_emissions_per_unit,True
 carbon_emissions_per_unit,cost_per_unit,correlated_with,carbon_emissions_per_unit,True
 throughput,carbon_emissions_per_unit,formula_input,carbon_emissions_per_unit,True
@@ -638,10 +673,12 @@ cost_per_event_attendee,event_attendees,correlated_with,cost_per_event_attendee,
 cost_per_event_attendee,cpl,correlated_with,cost_per_event_attendee,True
 event_attendees,cost_per_event_attendee,formula_input,cost_per_event_attendee,True
 ops_efficiency_ratio,cost_per_mile,parent_of,cost_per_mile,True
+opex,cost_per_mile,parent_of,cost_per_mile,True
 cost_per_mile,fleet_utilization_rate,parent_of,cost_per_mile,True
 cost_per_mile,fleet_utilization_rate,correlated_with,cost_per_mile,True
 gross_margin_pct,cost_per_unit,parent_of,cost_per_unit,True
 cost_per_unit,energy_cost_per_unit,parent_of,cost_per_unit,True
+cost_per_unit,carbon_emissions_per_unit,parent_of,cost_per_unit,True
 cost_per_unit,defect_rate,correlated_with,cost_per_unit,True
 cost_per_unit,capacity_utilization,correlated_with,cost_per_unit,True
 cost_per_unit,carbon_emissions_per_unit,correlated_with,cost_per_unit,True
@@ -773,6 +810,9 @@ cogs,ev_ebitda,formula_input,ev_ebitda,True
 opex,ev_ebitda,formula_input,ev_ebitda,True
 da,ev_ebitda,formula_input,ev_ebitda,True
 expansion_arr,expansion_pipeline,parent_of,expansion_pipeline,True
+arr,expansion_pipeline,parent_of,expansion_pipeline,True
+nrr,expansion_pipeline,parent_of,expansion_pipeline,True
+saas_quick_ratio,expansion_pipeline,parent_of,expansion_pipeline,True
 expansion_pipeline,upsell_rate,correlated_with,expansion_pipeline,True
 expansion_pipeline,nrr,correlated_with,expansion_pipeline,True
 expansion_pipeline,at_risk_accounts,correlated_with,expansion_pipeline,True
@@ -849,12 +889,15 @@ gross_profit,gross_margin_pct,correlated_with,gross_profit,True
 gross_profit,gross_profit_per_employee,correlated_with,gross_profit,True
 revenue,gross_profit,formula_input,gross_profit,True
 employee_lifetime_value,gross_profit_per_employee,parent_of,gross_profit_per_employee,True
+ebitda,gross_profit_per_employee,parent_of,gross_profit_per_employee,True
 gross_profit_per_employee,gross_profit,parent_of,gross_profit_per_employee,True
 gross_profit_per_employee,revenue_per_employee,correlated_with,gross_profit_per_employee,True
 gross_profit_per_employee,workforce_productivity,correlated_with,gross_profit_per_employee,True
 gross_profit_per_employee,gross_profit,correlated_with,gross_profit_per_employee,True
 headcount,gross_profit_per_employee,formula_input,gross_profit_per_employee,True
 per_pupil_expenditure,instructional_spend_ratio,parent_of,instructional_spend_ratio,True
+cost_per_outcome,instructional_spend_ratio,parent_of,instructional_spend_ratio,True
+student_proficiency,instructional_spend_ratio,parent_of,instructional_spend_ratio,True
 instructional_spend_ratio,per_pupil_expenditure,correlated_with,instructional_spend_ratio,True
 instructional_spend_ratio,ela_proficiency_rate,correlated_with,instructional_spend_ratio,True
 roe,interest_coverage_ratio,parent_of,interest_coverage_ratio,True
@@ -994,6 +1037,9 @@ opex,headcount_cost,parent_of,opex,True
 opex,hr_cost_pct_revenue,parent_of,opex,True
 opex,rd_as_pct_revenue,parent_of,opex,True
 opex,rd_expense,parent_of,opex,True
+opex,budget_variance_pct,parent_of,opex,True
+opex,cost_per_mile,parent_of,opex,True
+opex,support_cost_per_ticket,parent_of,opex,True
 opex,gna_pct_revenue,correlated_with,opex,True
 opex,rd_as_pct_revenue,correlated_with,opex,True
 opex,annual_budget,correlated_with,opex,True
@@ -1255,6 +1301,7 @@ uptime,work_order_resolution_time,parent_of,work_order_resolution_time,True
 work_order_resolution_time,work_orders,parent_of,work_order_resolution_time,True
 work_order_resolution_time,preventive_maintenance_rate,correlated_with,work_order_resolution_time,True
 employee_lifetime_value,workforce_productivity,parent_of,workforce_productivity,True
+revenue_per_employee,workforce_productivity,parent_of,workforce_productivity,True
 workforce_productivity,absenteeism_rate,parent_of,workforce_productivity,True
 workforce_productivity,overtime_hours,parent_of,workforce_productivity,True
 workforce_productivity,safety_incident_rate,parent_of,workforce_productivity,True
@@ -1278,6 +1325,7 @@ working_capital,current_ratio,correlated_with,working_capital,True
 working_capital,dpo,correlated_with,working_capital,True
 working_capital,quick_ratio,correlated_with,working_capital,True
 employee_lifetime_value,avg_tenure,parent_of,avg_tenure,True
+turnover_rate,avg_tenure,parent_of,avg_tenure,True
 avg_tenure,voluntary_turnover,correlated_with,avg_tenure,True
 avg_tenure,employee_engagement_score,correlated_with,avg_tenure,True
 voluntary_turnover,compensation_ratio,parent_of,compensation_ratio,True
@@ -1391,6 +1439,7 @@ time_to_hire,offer_acceptance_rate,correlated_with,time_to_hire,True
 time_to_hire,interview_to_offer_rate,correlated_with,time_to_hire,True
 time_to_hire,recruiting_pipeline,correlated_with,time_to_hire,True
 vendor_scorecard_rating,vendor_compliance_rate,parent_of,vendor_compliance_rate,True
+ops_north_star,vendor_compliance_rate,parent_of,vendor_compliance_rate,True
 vendor_compliance_rate,supplier_lead_time,correlated_with,vendor_compliance_rate,True
 vendor_compliance_rate,defect_rate,correlated_with,vendor_compliance_rate,True
 vendor_compliance_rate,shrinkage_rate,correlated_with,vendor_compliance_rate,True
@@ -1518,6 +1567,7 @@ sql,win_rate,correlated_with,sql,True
 sql,demo_requests,correlated_with,sql,True
 sql,mql_to_sql_rate,correlated_with,sql,True
 vendor_scorecard_rating,supplier_lead_time,parent_of,supplier_lead_time,True
+ops_north_star,supplier_lead_time,parent_of,supplier_lead_time,True
 supplier_lead_time,fill_rate,correlated_with,supplier_lead_time,True
 supplier_lead_time,inventory_turnover,correlated_with,supplier_lead_time,True
 supplier_lead_time,vendor_compliance_rate,correlated_with,supplier_lead_time,True
@@ -1582,6 +1632,8 @@ workforce_productivity,safety_incident_rate,parent_of,safety_incident_rate,True
 safety_incident_rate,voluntary_turnover,correlated_with,safety_incident_rate,True
 safety_incident_rate,headcount_cost,correlated_with,safety_incident_rate,True
 per_pupil_expenditure,seat_fill_rate,parent_of,seat_fill_rate,True
+cost_per_outcome,seat_fill_rate,parent_of,seat_fill_rate,True
+student_proficiency,seat_fill_rate,parent_of,seat_fill_rate,True
 seat_fill_rate,enrollment_count,correlated_with,seat_fill_rate,True
 seat_fill_rate,per_pupil_expenditure,correlated_with,seat_fill_rate,True
 enrollment_count,seat_fill_rate,formula_input,seat_fill_rate,True
@@ -1603,6 +1655,7 @@ stockout_rate,inventory_turnover,correlated_with,stockout_rate,True
 stockout_rate,order_fulfillment_rate,correlated_with,stockout_rate,True
 stockout_rate,inventory_items,correlated_with,stockout_rate,True
 ops_efficiency_ratio,support_cost_per_ticket,parent_of,support_cost_per_ticket,True
+opex,support_cost_per_ticket,parent_of,support_cost_per_ticket,True
 support_cost_per_ticket,total_comp_expense,parent_of,support_cost_per_ticket,True
 support_cost_per_ticket,tickets_resolved,parent_of,support_cost_per_ticket,True
 support_cost_per_ticket,tickets_per_agent,parent_of,support_cost_per_ticket,True
@@ -1642,6 +1695,7 @@ vendor_scorecard_rating,vendor_compliance_rate,parent_of,vendor_scorecard_rating
 vendor_scorecard_rating,fill_rate,correlated_with,vendor_scorecard_rating,True
 vendor_scorecard_rating,defect_rate,correlated_with,vendor_scorecard_rating,True
 ops_efficiency_ratio,warehouse_utilization,parent_of,warehouse_utilization,True
+capacity_utilization,warehouse_utilization,parent_of,warehouse_utilization,True
 warehouse_utilization,capacity_utilization,correlated_with,warehouse_utilization,True
 warehouse_utilization,inventory_value,correlated_with,warehouse_utilization,True
 warehouse_utilization,fill_rate,correlated_with,warehouse_utilization,True
@@ -1687,6 +1741,8 @@ capex_pct_revenue,capex,parent_of,capex_pct_revenue,True
 capex_pct_revenue,free_cash_flow,correlated_with,capex_pct_revenue,True
 revenue,capex_pct_revenue,formula_input,capex_pct_revenue,True
 account_health_score,churn_prediction_score,parent_of,churn_prediction_score,True
+at_risk_accounts,churn_prediction_score,parent_of,churn_prediction_score,True
+churn_rate,churn_prediction_score,parent_of,churn_prediction_score,True
 churn_prediction_score,dau,parent_of,churn_prediction_score,True
 churn_prediction_score,feature_adoption_rate,parent_of,churn_prediction_score,True
 churn_prediction_score,d30_retention,correlated_with,churn_prediction_score,True
@@ -1762,6 +1818,7 @@ revenue,license_revenue,parent_of,license_revenue,True
 license_revenue,services_revenue,correlated_with,license_revenue,True
 license_revenue,arr,correlated_with,license_revenue,True
 market_share,market_penetration_rate,parent_of,market_penetration_rate,True
+revenue_growth_rate,market_penetration_rate,parent_of,market_penetration_rate,True
 market_penetration_rate,arr,parent_of,market_penetration_rate,True
 market_penetration_rate,tam,parent_of,market_penetration_rate,True
 market_penetration_rate,sam,parent_of,market_penetration_rate,True
@@ -1792,6 +1849,7 @@ net_mrr_growth,saas_quick_ratio,correlated_with,net_mrr_growth,True
 revenue,net_revenue,parent_of,net_revenue,True
 net_revenue,gross_revenue,parent_of,net_revenue,True
 net_revenue,discount_rate,parent_of,net_revenue,True
+net_revenue,refund_rate,parent_of,net_revenue,True
 net_revenue,gross_revenue,correlated_with,net_revenue,True
 net_revenue,refund_rate,correlated_with,net_revenue,True
 arr,new_arr,parent_of,new_arr,True
@@ -1826,6 +1884,8 @@ nrr,grr,parent_of,nrr,True
 nrr,churn_rate,parent_of,nrr,True
 nrr,cohort_revenue_retention,parent_of,nrr,True
 nrr,renewal_rate,parent_of,nrr,True
+nrr,expansion_pipeline,parent_of,nrr,True
+nrr,upsell_rate,parent_of,nrr,True
 nrr,grr,correlated_with,nrr,True
 nrr,customer_churn_rate,correlated_with,nrr,True
 nrr,account_health_score,correlated_with,nrr,True
@@ -1912,6 +1972,7 @@ revenue,market_share,correlated_with,revenue,True
 rule_of_40,revenue_growth_rate,parent_of,revenue_growth_rate,True
 revenue_growth_rate,market_share,parent_of,revenue_growth_rate,True
 revenue_growth_rate,revenue_vs_py,parent_of,revenue_growth_rate,True
+revenue_growth_rate,market_penetration_rate,parent_of,revenue_growth_rate,True
 revenue_growth_rate,arr_growth_rate,correlated_with,revenue_growth_rate,True
 revenue_growth_rate,revenue_vs_py,correlated_with,revenue_growth_rate,True
 revenue_growth_rate,arr,correlated_with,revenue_growth_rate,True
@@ -1929,6 +1990,7 @@ employee_lifetime_value,revenue_per_employee,parent_of,revenue_per_employee,True
 revenue_per_employee,headcount_fte,parent_of,revenue_per_employee,True
 revenue_per_employee,arr_per_rep,parent_of,revenue_per_employee,True
 revenue_per_employee,employees_per_1m_arr,parent_of,revenue_per_employee,True
+revenue_per_employee,workforce_productivity,parent_of,revenue_per_employee,True
 revenue_per_employee,ebitda_margin,correlated_with,revenue_per_employee,True
 revenue_per_employee,employees_per_1m_arr,correlated_with,revenue_per_employee,True
 revenue_per_employee,gross_profit_per_employee,correlated_with,revenue_per_employee,True
@@ -1956,6 +2018,8 @@ saas_quick_ratio,new_arr,parent_of,saas_quick_ratio,True
 saas_quick_ratio,expansion_arr,parent_of,saas_quick_ratio,True
 saas_quick_ratio,contraction_arr,parent_of,saas_quick_ratio,True
 saas_quick_ratio,churned_arr,parent_of,saas_quick_ratio,True
+saas_quick_ratio,expansion_pipeline,parent_of,saas_quick_ratio,True
+saas_quick_ratio,upsell_rate,parent_of,saas_quick_ratio,True
 saas_quick_ratio,nrr,correlated_with,saas_quick_ratio,True
 saas_quick_ratio,rule_of_40,correlated_with,saas_quick_ratio,True
 saas_quick_ratio,arr,correlated_with,saas_quick_ratio,True
@@ -2009,6 +2073,7 @@ csat,survey_response_rate,correlated_with,csat,True
 csat,tickets_per_customer,correlated_with,csat,True
 csat,time_to_resolution,correlated_with,csat,True
 clv,customer_retention_rate,parent_of,customer_retention_rate,True
+customer_ltv,customer_retention_rate,parent_of,customer_retention_rate,True
 customer_retention_rate,customer_churn_rate,parent_of,customer_retention_rate,True
 customer_retention_rate,nrr,correlated_with,customer_retention_rate,True
 customer_retention_rate,renewal_rate,correlated_with,customer_retention_rate,True
@@ -2044,6 +2109,8 @@ dau,app_downloads,correlated_with,dau,True
 dau,avg_session_duration,correlated_with,dau,True
 dau,website_sessions,correlated_with,dau,True
 account_health_score,dau_mau_ratio,parent_of,dau_mau_ratio,True
+at_risk_accounts,dau_mau_ratio,parent_of,dau_mau_ratio,True
+churn_rate,dau_mau_ratio,parent_of,dau_mau_ratio,True
 dau_mau_ratio,dau,parent_of,dau_mau_ratio,True
 dau_mau_ratio,mau,parent_of,dau_mau_ratio,True
 dau_mau_ratio,activation_rate,parent_of,dau_mau_ratio,True
@@ -2451,6 +2518,8 @@ arr,churn_rate,parent_of,arr,True
 arr,committed_arr,parent_of,arr,True
 arr,mrr,parent_of,arr,True
 arr,nrr,parent_of,arr,True
+arr,expansion_pipeline,parent_of,arr,True
+arr,upsell_rate,parent_of,arr,True
 arr,mrr,correlated_with,arr,True
 arr,nrr,correlated_with,arr,True
 arr,grr,correlated_with,arr,True
@@ -2478,6 +2547,9 @@ churn_rate,cohort_churn,parent_of,churn_rate,True
 churn_rate,account_health_score,parent_of,churn_rate,True
 churn_rate,customer_churn_rate,parent_of,churn_rate,True
 churn_rate,mrr_churn_rate,parent_of,churn_rate,True
+churn_rate,ces,parent_of,churn_rate,True
+churn_rate,churn_prediction_score,parent_of,churn_rate,True
+churn_rate,dau_mau_ratio,parent_of,churn_rate,True
 churn_rate,ltv_cac,correlated_with,churn_rate,True
 churn_rate,account_health_score,correlated_with,churn_rate,True
 churn_rate,arpu,correlated_with,churn_rate,True

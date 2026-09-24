@@ -8,3 +8,6 @@ dbt/dbt_packages/
 .claude/worktrees/
 dbt/.user.yml
 *.duckdb.wal
+site/node_modules/
+site/dist/
+site/public/data/
