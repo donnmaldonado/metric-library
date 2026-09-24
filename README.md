@@ -26,6 +26,8 @@ python3 scripts/validate.py   # graph, YAML and convention checks; must exit 0
 scripts/check_dbt.sh          # dbt parse + build, run every metric's SQL, mf validate-configs
 ```
 
+`check_dbt.sh` validates every metric against DuckDB. `dbt build` loads the stub models into a local database (`dbt/metric_library.duckdb`, gitignored), then each metric's compiled SQL is run against it, and `mf validate-configs` runs each MetricFlow metric against it too. A metric only passes if its SQL actually runs, so parsing alone isn't enough. CI doesn't run this check, so run it yourself before merging a metric change.
+
 `check_dbt.sh` needs a Python 3.11 venv with dbt-core, dbt-duckdb and dbt-metricflow, with `DBT_VENV` pointing at it (see [dbt/CONVENTIONS.md](dbt/CONVENTIONS.md#environment)). Unit tests: `python3 -m unittest discover -s scripts`.
 
 Before adding or changing a metric, read the [metric conventions](docs/metric-conventions.md). When you resolve one of the [known issues](docs/known-issues.md), delete its entry.
