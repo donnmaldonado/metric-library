@@ -12,35 +12,6 @@ import type { Metric, Portfolio } from './types';
 const REPO = 'https://github.com/donnmaldonado/metric-library';
 const PORTFOLIO = 'https://donnmaldonado.github.io/';
 
-// ---- theme ----------------------------------------------------------------------------
-
-function effectiveTheme(): 'light' | 'dark' {
-  const set = document.documentElement.dataset.theme;
-  if (set === 'light' || set === 'dark') return set;
-  return matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-}
-
-function setupThemeToggle(btn: HTMLButtonElement): void {
-  const paint = (): void => {
-    const dark = effectiveTheme() === 'dark';
-    btn.setAttribute('aria-pressed', String(dark));
-    btn.textContent = dark ? '☀' : '☾';
-    btn.title = dark ? 'Switch to light theme' : 'Switch to dark theme';
-  };
-  btn.addEventListener('click', () => {
-    const next = effectiveTheme() === 'dark' ? 'light' : 'dark';
-    document.documentElement.dataset.theme = next;
-    try {
-      localStorage.setItem('theme', next);
-    } catch {
-      /* storage unavailable: the choice lasts for this page view */
-    }
-    paint();
-  });
-  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', paint);
-  paint();
-}
-
 // ---- header / footer ------------------------------------------------------------------
 
 function fillChrome(p: Portfolio): void {
@@ -249,7 +220,6 @@ function start(p: Portfolio): void {
 
 // ---- boot -----------------------------------------------------------------------------
 
-setupThemeToggle(document.getElementById('theme-toggle') as HTMLButtonElement);
 loadPortfolio().then(start, (err: unknown) => {
   const wrap = document.getElementById('table')!;
   wrap.removeAttribute('aria-busy');

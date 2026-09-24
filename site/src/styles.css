@@ -1,31 +1,33 @@
-/* Metric Periodic Table.
- * Colours: Paul Tol's "light" qualitative scheme (colourblind-safe, designed for filled cells
- * with dark text). Light theme: family colour as fill with near-black text (>= 7.4:1 except
- * count at 13.6:1). Dark theme: family colour mixed 42% into the page background as fill with
- * near-white text (>= 5.1:1), and the pure family colour as border. */
+/* Metric Periodic Table — one dark "deep space" theme.
+ * Colours: Paul Tol's "light" qualitative scheme (colourblind-safe). Each family colour is mixed
+ * 34% into the page background as the tile fill with near-white text (>= 6.8:1), and the pure
+ * family colour is the border, which also lends the tile a faint glow. */
 
 :root {
-  color-scheme: light;
-  --bg: #f7f7f5;
-  --surface: #ffffff;
-  --surface-2: #f0f1f3;
-  --text: #16181d;
-  --muted: #555b69;
-  --line: #d6d9e0;
-  --ring: #16181d;
-  --focus: #1d4ed8;
-  --accent: #1d4ed8;
-  --shadow: 0 8px 28px rgb(15 20 30 / 0.16), 0 1px 3px rgb(15 20 30 / 0.12);
-  --code-bg: #f6f8fa;
-  --tip-bg: #16181d;
-  --tip-text: #f4f5f7;
+  color-scheme: dark;
+  --bg: #0c1022;
+  --bg-deep: #05070f;
+  --surface: #121731;
+  --surface-2: #1b2142;
+  --glass: rgb(18 23 49 / 0.78);
+  --text: #e8eaf6;
+  --muted: #9aa3c0;
+  --line: #2a3158;
+  --ring: #ffffff;
+  --focus: #7dd3fc;
+  --accent: #a78bfa;
+  --accent-2: #7dd3fc;
+  --shadow: 0 10px 32px rgb(0 0 0 / 0.6), 0 1px 3px rgb(0 0 0 / 0.5);
+  --code-bg: #080b18;
+  --tip-bg: #e8eaf6;
+  --tip-text: #0c1022;
 
-  --rate-fill: #77aadd;      --rate-border: #415e7a;      --rate-text: #111317;
-  --currency-fill: #44bb99;  --currency-border: #256754;  --currency-text: #111317;
-  --count-fill: #eedd88;     --count-border: #837a4b;     --count-text: #111317;
-  --duration-fill: #ffaabb;  --duration-border: #8c5e67;  --duration-text: #111317;
-  --ratio-fill: #ee8866;     --ratio-border: #834b38;     --ratio-text: #111317;
-  --score-fill: #bbcc33;     --score-border: #67701c;     --score-text: #111317;
+  --rate-fill: #304462;      --rate-border: #77aadd;      --rate-text: #f4f5fa;
+  --currency-fill: #1f4a4a;  --currency-border: #44bb99;  --currency-text: #f4f5fa;
+  --count-fill: #595645;     --count-border: #eedd88;     --count-text: #f4f5fa;
+  --duration-fill: #5f4456;  --duration-border: #ffaabb;  --duration-text: #f4f5fa;
+  --ratio-fill: #593939;     --ratio-border: #ee8866;     --ratio-text: #f4f5fa;
+  --score-fill: #485028;     --score-border: #bbcc33;     --score-text: #f4f5fa;
 
   --tile: 44px;
   --gap: 4px;
@@ -33,56 +35,6 @@
   --fade-select: 0.25;
   --fade-filter: 0.15;
   --t: 160ms;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    color-scheme: dark;
-    --bg: #121418;
-    --surface: #1a1d23;
-    --surface-2: #23272f;
-    --text: #eceef2;
-    --muted: #a3a9b6;
-    --line: #333844;
-    --ring: #ffffff;
-    --focus: #8ab4ff;
-    --accent: #8ab4ff;
-    --shadow: 0 8px 28px rgb(0 0 0 / 0.5), 0 1px 3px rgb(0 0 0 / 0.4);
-    --code-bg: #0d1117;
-    --tip-bg: #eceef2;
-    --tip-text: #16181d;
-
-    --rate-fill: #3c536b;      --rate-border: #77aadd;      --rate-text: #f4f5f7;
-    --currency-fill: #275a4e;  --currency-border: #44bb99;  --currency-text: #f4f5f7;
-    --count-fill: #6e6847;     --count-border: #eedd88;     --count-text: #f4f5f7;
-    --duration-fill: #76535c;  --duration-border: #ffaabb;  --duration-text: #f4f5f7;
-    --ratio-fill: #6e4539;     --ratio-border: #ee8866;     --ratio-text: #f4f5f7;
-    --score-fill: #596123;     --score-border: #bbcc33;     --score-text: #f4f5f7;
-  }
-}
-
-:root[data-theme="dark"] {
-  color-scheme: dark;
-  --bg: #121418;
-  --surface: #1a1d23;
-  --surface-2: #23272f;
-  --text: #eceef2;
-  --muted: #a3a9b6;
-  --line: #333844;
-  --ring: #ffffff;
-  --focus: #8ab4ff;
-  --accent: #8ab4ff;
-  --shadow: 0 8px 28px rgb(0 0 0 / 0.5), 0 1px 3px rgb(0 0 0 / 0.4);
-  --code-bg: #0d1117;
-  --tip-bg: #eceef2;
-  --tip-text: #16181d;
-
-  --rate-fill: #3c536b;      --rate-border: #77aadd;      --rate-text: #f4f5f7;
-  --currency-fill: #275a4e;  --currency-border: #44bb99;  --currency-text: #f4f5f7;
-  --count-fill: #6e6847;     --count-border: #eedd88;     --count-text: #f4f5f7;
-  --duration-fill: #76535c;  --duration-border: #ffaabb;  --duration-text: #f4f5f7;
-  --ratio-fill: #6e4539;     --ratio-border: #ee8866;     --ratio-text: #f4f5f7;
-  --score-fill: #596123;     --score-border: #bbcc33;     --score-text: #f4f5f7;
 }
 
 /* ---- base ------------------------------------------------------------------------- */
@@ -106,6 +58,36 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+/* Deep-space backdrop: two nebula glows over a vertical fade, plus three tiled star layers. */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+body::before {
+  background:
+    radial-gradient(ellipse 60% 45% at 85% 0%, rgb(124 58 237 / 0.22), transparent 70%),
+    radial-gradient(ellipse 55% 40% at 0% 100%, rgb(14 165 233 / 0.16), transparent 70%),
+    linear-gradient(to bottom, var(--bg-deep), var(--bg));
+}
+body::after {
+  background-image:
+    radial-gradient(1px 1px at 23px 41px, #fff, transparent),
+    radial-gradient(1px 1px at 131px 87px, rgb(255 255 255 / 0.8), transparent),
+    radial-gradient(1.5px 1.5px at 71px 163px, rgb(200 210 255 / 0.9), transparent),
+    radial-gradient(1px 1px at 187px 19px, rgb(255 255 255 / 0.6), transparent),
+    radial-gradient(1px 1px at 257px 211px, #fff, transparent),
+    radial-gradient(1px 1px at 311px 131px, rgb(255 230 200 / 0.7), transparent),
+    radial-gradient(2px 2px at 419px 277px, rgb(220 225 255 / 0.9), transparent),
+    radial-gradient(1px 1px at 353px 331px, rgb(255 255 255 / 0.5), transparent);
+  background-size: 240px 240px, 240px 240px, 240px 240px, 240px 240px, 460px 460px, 460px 460px,
+    620px 620px, 620px 620px;
+  opacity: 0.85;
 }
 
 a {
@@ -203,6 +185,10 @@ h1 {
   font-size: 22px;
   line-height: 1.2;
   letter-spacing: -0.01em;
+  background: linear-gradient(90deg, var(--text), var(--accent) 70%, var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .lead {
@@ -470,10 +456,6 @@ h1 {
   cursor: pointer;
 }
 
-.theme-toggle[aria-pressed="true"] {
-  font-size: 18px;
-}
-
 .site-footer {
   width: 100%;
   max-width: 1440px;
@@ -618,11 +600,17 @@ h1 {
   color: var(--f-text);
   cursor: pointer;
   text-align: center;
+  box-shadow: 0 0 6px -2px var(--f-border);
   transition: opacity var(--t) ease, box-shadow var(--t) ease;
   -webkit-tap-highlight-color: transparent;
 }
 .tile.tier-north_star {
   border-width: 2px;
+  box-shadow: 0 0 14px -3px var(--f-border);
+}
+.tile-big,
+.tile-mini {
+  box-shadow: none;
 }
 /* Input: outlined in the unit colour, no fill. */
 .tile.tier-input {
@@ -710,7 +698,7 @@ h1 {
     z-index: 2;
   }
   .tile:hover {
-    box-shadow: 0 0 0 1px var(--bg), 0 0 0 3px var(--f-border);
+    box-shadow: 0 0 0 1px var(--bg), 0 0 0 3px var(--f-border), 0 0 18px var(--f-border);
   }
 }
 
@@ -788,7 +776,9 @@ h1 {
 /* ---- detail panel -------------------------------------------------------------------- */
 
 .panel {
-  background: var(--surface);
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
   border-left: 1px solid var(--line);
   overflow-x: hidden;
   overflow-y: auto;
@@ -859,7 +849,9 @@ h1 {
   justify-content: flex-end;
   align-items: center;
   padding: 8px 10px 0;
-  background: var(--surface);
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
 }
 .panel-grip {
   display: none;
@@ -1085,19 +1077,9 @@ h1 {
   font-size: 13px;
 }
 
-/* Shiki dual themes (defaultColor: false): light tokens by default, dark tokens in dark mode. */
+/* Shiki tokens are exported with dual themes; this site shows the dark one. */
 .shiki,
 .shiki span {
-  color: var(--shiki-light);
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .shiki,
-  :root:not([data-theme="light"]) .shiki span {
-    color: var(--shiki-dark);
-  }
-}
-:root[data-theme="dark"] .shiki,
-:root[data-theme="dark"] .shiki span {
   color: var(--shiki-dark);
 }
 
