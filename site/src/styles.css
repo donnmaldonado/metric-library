@@ -496,6 +496,103 @@ h1 {
   cursor: pointer;
 }
 
+/* Phones: search, units and data sources each span the full width, like the domain dropdown. */
+@media (max-width: 767.98px) {
+  .search {
+    flex: 1 1 100%;
+  }
+  .search input {
+    flex: 1;
+    width: 100%;
+    max-width: none;
+    height: 38px;
+    padding-right: 96px;
+    font-size: 16px; /* 16px stops iOS zooming in on focus */
+  }
+  .search-kbd {
+    display: none;
+  }
+  .search-status {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    min-width: 0;
+    font-size: 11px;
+    pointer-events: none;
+  }
+
+  .controls {
+    display: block;
+  }
+  .legend {
+    position: relative;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+  .legend-group {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+  }
+  .legend-h {
+    grid-column: 1 / -1;
+    margin: 2px 0 0;
+  }
+  .legend-unit {
+    min-width: 0;
+    height: 36px;
+    padding: 0 8px 0 6px;
+    gap: 7px;
+    border-color: var(--line);
+    background: var(--surface);
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .sources {
+    margin: 8px 0 0;
+  }
+  .sources summary {
+    display: flex;
+    height: 38px;
+    padding: 0 12px 0 10px;
+    background: var(--surface);
+    font-size: 14px;
+  }
+  .sources summary::after {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%238d8a83' stroke-width='1.5'/%3E%3C/svg%3E");
+    margin-left: auto;
+    line-height: 0;
+  }
+  .sources[open] summary::after {
+    transform: rotate(180deg);
+  }
+  .count-badge:not(:empty) {
+    margin-left: 8px;
+  }
+  .sources-pop {
+    left: 0;
+    width: 100%;
+  }
+  .sources fieldset {
+    columns: 1;
+  }
+  .sources label {
+    padding: 7px 0;
+    font-size: 14px;
+  }
+
+  /* Sits on the Unit heading row. */
+  .clear-filters {
+    position: absolute;
+    top: -4px;
+    right: 0;
+    font-size: 12px;
+  }
+}
+
 .site-footer {
   width: 100%;
   max-width: 1440px;

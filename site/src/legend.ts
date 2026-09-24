@@ -111,6 +111,11 @@ export class Legend {
   alignTo(left: number, right: number): void {
     const swatch = this.el.querySelector('.swatch');
     if (!swatch) return;
+    // Phones lay the legend out full width in CSS.
+    if (matchMedia('(max-width: 767.98px)').matches) {
+      this.el.style.paddingLeft = this.el.style.width = '';
+      return;
+    }
     const current = parseFloat(this.el.style.paddingLeft) || 0;
     const pad = Math.max(0, current + left - swatch.getBoundingClientRect().left);
     this.el.style.paddingLeft = `${Math.round(pad)}px`;
