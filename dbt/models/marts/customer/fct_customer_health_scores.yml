@@ -43,4 +43,4 @@ semantic_models:
       - name: account_health_score_value
         agg: average
         expr: (usage_score * 0.4) + (nps_score * 0.3) + (support_score * 0.3)
-        description: 'Weighted composite of usage, NPS and support scores (weights unconfirmed; see Known issues in the README). Used by: account_health_score.'
+        description: 'Weighted composite of usage, NPS and support scores (weights unconfirmed; see docs/known-issues.md). Used by: account_health_score.'

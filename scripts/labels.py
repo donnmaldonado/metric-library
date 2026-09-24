@@ -1,4 +1,4 @@
-"""Check each metric's `label`, `shortLabel`, `unit` and `shortDescription` against the style in README.
+"""Check each metric's `label`, `shortLabel`, `unit` and `shortDescription` against docs/metric-conventions.md.
 
 `label` is a Title Case name in words: no symbols, and any all-caps term is in
 taxonomy.json `acronyms`. `shortLabel` (for tiles) is at most SHORT_LABEL_MAX characters. Labels

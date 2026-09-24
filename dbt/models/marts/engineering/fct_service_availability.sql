@@ -1,7 +1,7 @@
 -- One row per service/system and period with uptime, downtime and failure counts.
 -- Stub: returns zero rows with the typed columns the metric library needs.
 -- Downtime-event columns (event_id, start_time, cause, duration_hours) are populated on rows that represent a
--- single downtime event (see Known issues in the README).
+-- single downtime event (see docs/known-issues.md).
 select
     cast(null as varchar  ) as availability_window_id,
     cast(null as date     ) as period_start,

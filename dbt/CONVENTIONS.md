@@ -1,7 +1,7 @@
 # dbt / MetricFlow conventions
 
 For anyone editing metric definitions (`formulaYaml`), metric SQL (`formulaSql`) or the dbt models.
-Open definition questions are listed under [Known issues](../README.md#known-issues) in the README.
+Open definition questions are listed under [Known issues](../docs/known-issues.md).
 
 ## Environment
 
@@ -117,7 +117,7 @@ metrics:
         industry: cross_industry
 ```
 
-- `label` comes from the metric's `label` field and must be unique across all metrics. Where two metrics share a label, the second has a ` (<metricId>)` suffix. These are usually duplicates (see [Known issues](../README.md#known-issues)).
+- `label` comes from the metric's `label` field and must be unique across all metrics. Where two metrics share a label, the second has a ` (<metricId>)` suffix. These are usually duplicates (see [Known issues](../docs/known-issues.md)).
 - `description` is `shortDescription`.
 - Plain aggregations are `simple`. Distinct counts over a rolling window of more than one day (`mau`, `wau`) are `cumulative` with `cumulative_type_params.window`. A quotient of two metrics is `ratio`; anything that mixes metrics into an expression is `derived`. A row-level expression is a `simple` metric over a `<metricId>_value` measure.
 - Filters: `{{ Dimension('<primary_entity>__<dimension>') }} <op> <literal>`. Combine clauses with `AND`. For time, use `{{ TimeDimension('metric_time', 'day') }}`. A ratio's metric-level `filter` applies to both numerator and denominator. To filter one side only, use `numerator: {name: x, filter: "..."}`.
