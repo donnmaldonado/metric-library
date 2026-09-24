@@ -34,6 +34,7 @@ jobs:
 
       - name: Check the library
         run: |
+          pip install pyyaml
           python3 scripts/build.py
           git diff --exit-code --stat -- dbt/models/metrics dbt/analyses/metrics data/relationships.csv CATALOG.md
           python3 scripts/validate.py
@@ -50,12 +51,11 @@ jobs:
           npm ci
           npm run build
 
-      - uses: actions/configure-pages@v5
-
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site/dist
 
+  # Needs GitHub Pages enabled with the "GitHub Actions" source (Settings → Pages).
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -63,5 +63,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - uses: actions/configure-pages@v5
       - id: deployment
         uses: actions/deploy-pages@v4
